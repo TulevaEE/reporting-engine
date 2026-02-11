@@ -1,0 +1,72 @@
+name: Monthly Board Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Report year (e.g., 2025)'
+        required: true
+        default: '2025'
+      month:
+        description: 'Report month (1-12)'
+        required: true
+        default: '1'
+      action:
+        description: 'Action to perform'
+        required: true
+        type: choice
+        options:
+          - test-connection
+          - fetch-data
+          - build-report
+          - fetch-and-build
+
+jobs:
+  monthly-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pyyaml jinja2 markdown weasyprint
+
+      - name: Test Metabase connection
+        if: ${{ github.event.inputs.action == 'test-connection' }}
+        env:
+          METABASE_API_KEY: ${{ secrets.METABASE_API_KEY }}
+        run: |
+          python common/scripts/metabase_client.py test
+
+      - name: Fetch monthly data
+        if: ${{ github.event.inputs.action == 'fetch-data' || github.event.inputs.action == 'fetch-and-build' }}
+        env:
+          METABASE_API_KEY: ${{ secrets.METABASE_API_KEY }}
+        run: |
+          python reports/monthly/fetch_monthly_data.py ${{ github.event.inputs.year }} ${{ github.event.inputs.month }}
+
+      - name: Build monthly report
+        if: ${{ github.event.inputs.action == 'build-report' || github.event.inputs.action == 'fetch-and-build' }}
+        run: |
+          python reports/monthly/build_monthly_report.py ${{ github.event.inputs.year }} ${{ github.event.inputs.month }} html
+
+      - name: Upload data artifact
+        if: ${{ github.event.inputs.action == 'fetch-data' || github.event.inputs.action == 'fetch-and-build' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: monthly-data-${{ github.event.inputs.year }}-${{ github.event.inputs.month }}
+          path: reports/monthly/data/*.yaml
+
+      - name: Upload report artifact
+        if: ${{ github.event.inputs.action == 'build-report' || github.event.inputs.action == 'fetch-and-build' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: monthly-report-${{ github.event.inputs.year }}-${{ github.event.inputs.month }}
+          path: reports/monthly/output/**/*
