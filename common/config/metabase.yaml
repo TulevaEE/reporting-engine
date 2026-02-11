@@ -1,0 +1,3 @@
+base_url: "https://metabase.tuleva.ee"
+auth_env_var: "METABASE_API_KEY"
+dashboard_id: 74
