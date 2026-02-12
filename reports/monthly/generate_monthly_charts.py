@@ -115,6 +115,7 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
     ax_line.set_ylabel('12 kuu kasv (%)')
     ax_line.set_ylim(bottom=0)
     ax_line.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:.0f}%'))
+    ax_line.tick_params(axis='y', length=0, pad=8)
 
     ax_bar.set_title('Varade maht (AUM)', fontweight='bold', color=TULEVA_NAVY)
     ax_bar.set_xticks(x[::2])
@@ -137,6 +138,238 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
 
     plt.tight_layout()
     output_file = output_dir / 'aum.png'
+    plt.savefig(output_file)
+    plt.close()
+    print(f"  Saved: {output_file}")
+
+
+def generate_savers_chart(savers_data, report_year, report_month, output_dir: Path):
+    """Generate savers stacked bar chart with YoY growth line (card 1515).
+
+    Left Y-axis: stacked columns (ainult II, ainult III, II ja III).
+    Right Y-axis: YoY growth % line.
+    """
+    print("Generating savers chart...")
+
+    months = []
+    only_ii = []
+    only_iii = []
+    both = []
+    yoy = []
+
+    for row in savers_data:
+        date_str = row['kuu: Month']
+        # Convert '2025-01-01' to 'Jan-25'
+        parts = date_str.split('-')
+        yr, mo = int(parts[0]), int(parts[1])
+        abbr = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[mo - 1]
+        months.append(f'{abbr}-{yr % 100:02d}')
+        only_ii.append(row['ainult II sammas'])
+        only_iii.append(row['ainult III sammas'])
+        both.append(row['II ja III sammas'])
+        yoy.append(row['YoY, %'] * 100)
+
+    fig, ax_bar = plt.subplots(figsize=(10, 5.5))
+    ax_line = ax_bar.twinx()
+
+    x = np.arange(len(months))
+    width = 0.7
+
+    # Stacked bars
+    bars_ii = ax_bar.bar(x, only_ii, width, label='Ainult II sammas',
+                         color=TULEVA_NAVY, zorder=2)
+    bars_both = ax_bar.bar(x, both, width, bottom=only_ii,
+                           label='II ja III sammas', color=TULEVA_MID_BLUE, zorder=2)
+    bottom_iii = [a + b for a, b in zip(only_ii, both)]
+    bars_iii = ax_bar.bar(x, only_iii, width, bottom=bottom_iii,
+                          label='Ainult III sammas', color=FORECAST_COLOR, zorder=2)
+
+    # Mark the report month
+    report_month_abbr = (
+        f"{'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[report_month - 1]}"
+        f"-{report_year % 100:02d}"
+    )
+    if report_month_abbr in months:
+        idx = months.index(report_month_abbr)
+        total = only_ii[idx] + only_iii[idx] + both[idx]
+        ax_bar.annotate(
+            f'{total:,}',
+            (idx, total),
+            textcoords="offset points", xytext=(0, 8),
+            ha='center', fontweight='bold', fontsize=9, color=TULEVA_NAVY,
+        )
+
+    # YoY growth line on secondary axis
+    ax_line.plot(x, yoy, color='#FF4800', linewidth=2, marker='o', markersize=3,
+                 label='YoY kasv %', zorder=4)
+
+    # Axes formatting
+    ax_bar.set_ylabel('Kogujate arv')
+    ax_bar.set_ylim(bottom=0)
+    ax_bar.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
+
+    ax_line.set_ylabel('YoY kasv (%)')
+    ax_line.set_ylim(bottom=0)
+    ax_line.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:.0f}%'))
+    ax_line.tick_params(axis='y', length=0, pad=8)
+
+    ax_bar.set_title('Kogujate arv', fontweight='bold', color=TULEVA_NAVY)
+    ax_bar.set_xticks(x)
+    ax_bar.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    ax_bar.grid(axis='y', alpha=0.3, zorder=0)
+
+    # Combined legend
+    from matplotlib.patches import Patch
+    from matplotlib.lines import Line2D
+    legend_elements = [
+        Patch(facecolor=TULEVA_NAVY, label='Ainult II sammas'),
+        Patch(facecolor=TULEVA_MID_BLUE, label='II ja III sammas'),
+        Patch(facecolor=FORECAST_COLOR, label='Ainult III sammas'),
+        Line2D([0], [0], color='#FF4800', linewidth=2, label='YoY kasv %'),
+    ]
+    ax_bar.legend(handles=legend_elements, loc='upper left', fontsize=8)
+
+    plt.tight_layout()
+    output_file = output_dir / 'savers.png'
+    plt.savefig(output_file)
+    plt.close()
+    print(f"  Saved: {output_file}")
+
+
+def _parse_month_label(date_str):
+    """Convert '2025-01-01' to 'Jan-25'."""
+    parts = date_str.split('-')
+    yr, mo = int(parts[0]), int(parts[1])
+    abbr = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[mo - 1]
+    return f'{abbr}-{yr % 100:02d}'
+
+
+def generate_new_savers_by_pillar_chart(ii_data, iii_data, report_year, report_month, output_dir: Path):
+    """Generate new savers stacked bar chart by pillar (cards 1519 + 1520).
+
+    Stacked columns: only II (1519['2']), only III (1520['3']),
+    both II+III (1519['2+3']).
+    """
+    print("Generating new savers by pillar chart...")
+
+    # Build lookup for III-only from card 1520 keyed by month
+    iii_by_month = {}
+    for row in iii_data:
+        iii_by_month[row['kuu: Month']] = row['3']
+
+    months = []
+    only_ii = []
+    only_iii = []
+    both = []
+
+    for row in ii_data:
+        date_str = row['kuu: Month']
+        months.append(_parse_month_label(date_str))
+        only_ii.append(row['2'])
+        both.append(row['2+3'])
+        only_iii.append(iii_by_month.get(date_str, 0))
+
+    fig, ax = plt.subplots(figsize=(10, 5.5))
+
+    x = np.arange(len(months))
+    width = 0.7
+
+    ax.bar(x, only_ii, width, label='Ainult II sammas',
+           color=TULEVA_NAVY, zorder=2)
+    ax.bar(x, both, width, bottom=only_ii,
+           label='II ja III sammas', color=TULEVA_MID_BLUE, zorder=2)
+    bottom_iii = [a + b for a, b in zip(only_ii, both)]
+    ax.bar(x, only_iii, width, bottom=bottom_iii,
+           label='Ainult III sammas', color=FORECAST_COLOR, zorder=2)
+
+    # Annotate report month total
+    report_month_abbr = (
+        f"{'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[report_month - 1]}"
+        f"-{report_year % 100:02d}"
+    )
+    if report_month_abbr in months:
+        idx = months.index(report_month_abbr)
+        total = only_ii[idx] + both[idx] + only_iii[idx]
+        ax.annotate(
+            f'{total:,}',
+            (idx, total),
+            textcoords="offset points", xytext=(0, 8),
+            ha='center', fontweight='bold', fontsize=9, color=TULEVA_NAVY,
+        )
+
+    ax.set_ylabel('Uute kogujate arv')
+    ax.set_ylim(bottom=0)
+    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
+    ax.set_title('Uued kogujad samba järgi', fontweight='bold', color=TULEVA_NAVY)
+    ax.set_xticks(x)
+    ax.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    ax.grid(axis='y', alpha=0.3, zorder=0)
+    ax.legend(loc='upper left', fontsize=8)
+
+    plt.tight_layout()
+    output_file = output_dir / 'new_savers_pillar.png'
+    plt.savefig(output_file)
+    plt.close()
+    print(f"  Saved: {output_file}")
+
+
+def generate_new_ii_savers_by_source_chart(ii_data, report_year, report_month, output_dir: Path):
+    """Generate new II pillar savers stacked bar chart by source (card 1519).
+
+    Stacked columns: '2' (new II-only), '2+3' (opened both), '3>2' (had III, added II).
+    """
+    print("Generating new II savers by source chart...")
+
+    months = []
+    new_ii_only = []
+    new_both = []
+    from_iii = []
+
+    for row in ii_data:
+        months.append(_parse_month_label(row['kuu: Month']))
+        new_ii_only.append(row['2'])
+        new_both.append(row['2+3'])
+        from_iii.append(row['3>2'])
+
+    fig, ax = plt.subplots(figsize=(10, 5.5))
+
+    x = np.arange(len(months))
+    width = 0.7
+
+    ax.bar(x, new_ii_only, width, label='Uus II samba koguja',
+           color=TULEVA_NAVY, zorder=2)
+    ax.bar(x, new_both, width, bottom=new_ii_only,
+           label='Avas II ja III samba', color=TULEVA_MID_BLUE, zorder=2)
+    bottom_from_iii = [a + b for a, b in zip(new_ii_only, new_both)]
+    ax.bar(x, from_iii, width, bottom=bottom_from_iii,
+           label='III samba koguja tõi II samba üle', color=FORECAST_COLOR, zorder=2)
+
+    # Annotate report month total
+    report_month_abbr = (
+        f"{'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[report_month - 1]}"
+        f"-{report_year % 100:02d}"
+    )
+    if report_month_abbr in months:
+        idx = months.index(report_month_abbr)
+        total = new_ii_only[idx] + new_both[idx] + from_iii[idx]
+        ax.annotate(
+            f'{total:,}',
+            (idx, total),
+            textcoords="offset points", xytext=(0, 8),
+            ha='center', fontweight='bold', fontsize=9, color=TULEVA_NAVY,
+        )
+
+    ax.set_ylabel('II sambaga liitujate arv')
+    ax.set_ylim(bottom=0)
+    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
+    ax.set_title('II sambaga liitujad allika järgi', fontweight='bold', color=TULEVA_NAVY)
+    ax.set_xticks(x)
+    ax.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    ax.grid(axis='y', alpha=0.3, zorder=0)
+    ax.legend(loc='upper left', fontsize=8)
+
+    plt.tight_layout()
+    output_file = output_dir / 'new_ii_savers_source.png'
     plt.savefig(output_file)
     plt.close()
     print(f"  Saved: {output_file}")
@@ -225,6 +458,20 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     aum_data = aum_card.get('data', [])
     if aum_data:
         generate_aum_chart(aum_data, year, month, output_dir)
+
+    # Savers stacked bar chart (card 1515)
+    savers_card = cards.get('kogujate arv kuus', {})
+    savers_data = savers_card.get('data', [])
+    if savers_data:
+        generate_savers_chart(savers_data, year, month, output_dir)
+
+    # New savers by pillar (cards 1519 + 1520)
+    ii_joiners = cards.get('II sambaga liitujate arv kuus', {}).get('data', [])
+    iii_joiners = cards.get('III sambaga liitujate arv kuus', {}).get('data', [])
+    if ii_joiners and iii_joiners:
+        generate_new_savers_by_pillar_chart(ii_joiners, iii_joiners, year, month, output_dir)
+    if ii_joiners:
+        generate_new_ii_savers_by_source_chart(ii_joiners, year, month, output_dir)
 
     # Growth sources waterfall — month (card 389)
     growth_month = cards.get('Kasvuallikad eelmisel kuul (tegelik), M EUR', {}).get('data', [])

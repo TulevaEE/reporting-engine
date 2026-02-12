@@ -232,6 +232,9 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
         'aum': 'charts/aum.png',
         'growth_month': 'charts/growth_month.png',
         'growth_ytd': 'charts/growth_ytd.png',
+        'savers': 'charts/savers.png',
+        'new_savers_pillar': 'charts/new_savers_pillar.png',
+        'new_ii_savers_source': 'charts/new_ii_savers_source.png',
     }
 
     # Pre-process data for template
