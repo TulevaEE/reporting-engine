@@ -7,7 +7,7 @@ import markdown
 import base64
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
-from weasyprint import HTML, CSS
+# weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
 
 def embed_images_as_base64(html_content: str, base_path: Path) -> str:
@@ -56,6 +56,142 @@ def embed_images_as_base64(html_content: str, base_path: Path) -> str:
     return re.sub(r'<img[^>]+>', replace_image, html_content)
 
 
+def get_month_row(card_data, year, month):
+    """Extract the row matching the target month from a time-series card."""
+    target = f'{year}-{month:02d}-01'
+    for row in card_data.get('data') or []:
+        if row.get('kuu: Month') == target:
+            return row
+    return None
+
+
+def get_ytd_row(card_data, year):
+    """Extract current year's row from a YTD smartscalar card."""
+    target = f'{year}-01-01'
+    for row in card_data.get('data') or []:
+        if row.get('reporting_year') == target:
+            return row
+    return None
+
+
+def get_prev_ytd_row(card_data, year):
+    """Extract previous year's row from a YTD smartscalar card."""
+    target = f'{year - 1}-01-01'
+    for row in card_data.get('data') or []:
+        if row.get('reporting_year') == target:
+            return row
+    return None
+
+
+def preprocess_data(data, year, month):
+    """Extract report-month values from raw card data into a clean structure."""
+    cards = data.get('cards', {})
+    report = {}
+
+    # --- AUM ---
+    aum_card = cards.get('AUM (koos ootel vahetuste ja väljumistega)', {})
+    aum_month_key = f"Jan-{year % 100:02d}" if month == 1 else \
+        f"{'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[month-1]}-{year % 100:02d}"
+    for row in aum_card.get('data') or []:
+        if row.get('month') == aum_month_key:
+            report['aum'] = row
+            break
+
+    # --- Savers (kogujad) ---
+    row = get_month_row(cards.get('kogujate arv kuus', {}), year, month)
+    if row:
+        report['savers'] = row
+
+    row = get_month_row(cards.get('uute kogujate arv kuus', {}), year, month)
+    if row:
+        report['new_savers'] = row
+
+    # YTD new savers
+    report['new_savers_ytd'] = get_ytd_row(
+        cards.get('uute kogujate arv YTD', {}), year)
+    report['new_savers_ytd_prev'] = get_prev_ytd_row(
+        cards.get('uute kogujate arv YTD', {}), year)
+    report['new_savers_ii_ytd'] = get_ytd_row(
+        cards.get('uute II samba kogujate arv YTD', {}), year)
+    report['new_savers_iii_ytd'] = get_ytd_row(
+        cards.get('uute III samba kogujate arv YTD', {}), year)
+
+    # --- Contributions (sissemaksed) ---
+    row = get_month_row(cards.get('II samba sissemaksete summa kuus, M EUR', {}), year, month)
+    if row:
+        report['ii_contributions'] = row
+
+    row = get_month_row(cards.get('III samba sissemaksete summa kuus, M EUR', {}), year, month)
+    if row:
+        report['iii_contributions'] = row
+
+    report['ii_contributions_ytd'] = get_ytd_row(
+        cards.get('II s sissemaksed YTD', {}), year)
+    report['iii_contributions_ytd'] = get_ytd_row(
+        cards.get('III s sissemaksed YTD', {}), year)
+
+    # III pillar contributor count
+    row = get_month_row(cards.get('III samba sissemakse tegijate arv kuus', {}), year, month)
+    if row:
+        report['iii_contributors'] = row
+
+    # Contribution rate changes
+    row = get_month_row(cards.get('II samba maksemäära muutmine', {}), year, month)
+    if row:
+        report['rate_changes'] = row
+
+    # --- Fund switching ---
+    row = get_month_row(cards.get('II samba vahetajate arv kuus', {}), year, month)
+    if row:
+        report['switchers'] = row
+
+    row = get_month_row(cards.get('II samba vahetajate ületoodava vara maht kuus, M EUR', {}), year, month)
+    if row:
+        report['switchers_aum'] = row
+
+    report['switchers_ytd'] = get_ytd_row(
+        cards.get('II s vahetajate arv YTD', {}), year)
+    report['switchers_aum_ytd'] = get_ytd_row(
+        cards.get('II s vahetustega ületoodav vara YTD', {}), year)
+
+    # Fund switching details (top 10)
+    to_funds = cards.get('II samba vahetusavalduste arv pangafondidesse sel vahetusperioodil', {})
+    report['switching_to'] = (to_funds.get('data') or [])[:10]
+
+    from_funds = cards.get('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', {})
+    report['switching_from'] = (from_funds.get('data') or [])[:10]
+
+    # --- Outflows ---
+    row = get_month_row(cards.get('II samba lahkujate varade maht kuus, M EUR', {}), year, month)
+    if row:
+        report['ii_leavers'] = row
+
+    row = get_month_row(cards.get('II samba väljujate varade maht kuus, M EUR', {}), year, month)
+    if row:
+        report['ii_exiters'] = row
+
+    row = get_month_row(cards.get('III sambast välja võetud varade maht kuus, M EUR', {}), year, month)
+    if row:
+        report['iii_withdrawals'] = row
+
+    report['ii_leavers_ytd'] = get_ytd_row(
+        cards.get('II s vahetustega väljaminevad varad YTD', {}), year)
+    report['ii_exiters_ytd'] = get_ytd_row(
+        cards.get('II s raha väljavõtmised YTD', {}), year)
+    report['iii_withdrawals_ytd'] = get_ytd_row(
+        cards.get('III s väljavõetud varad YTD', {}), year)
+
+    # --- Growth sources (waterfall) ---
+    report['growth_actual'] = cards.get(
+        'Kasvuallikad eelmisel kuul (tegelik), M EUR', {}).get('data', [])
+    report['growth_ytd'] = cards.get(
+        'Kasvuallikad YTD (tegelik), M EUR', {}).get('data', [])
+    report['growth_forecast'] = cards.get(
+        'Kasvuallikad (aasta lõpu prognoos), M EUR', {}).get('data', [])
+
+    return report
+
+
 def build_monthly_report(year: int, month: int, output_format: str = 'html') -> Path:
     """
     Build monthly board report by rendering Jinja2 template with YAML data.
@@ -88,12 +224,15 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
 
     print(f"Loaded data for {data.get('month_name', 'Unknown')} {data.get('year', year)}")
 
+    # Pre-process data for template
+    report = preprocess_data(data, year, month)
+
     # Set up Jinja2 environment
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')
 
     # Render the Markdown template
-    rendered_md = template.render(**data)
+    rendered_md = template.render(report=report, **data)
 
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -143,6 +282,7 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     pdf_file = output_dir / f'monthly_report_{year}-{month:02d}.pdf'
     print(f"Generating PDF with Tuleva branding...")
 
+    from weasyprint import HTML, CSS
     html = HTML(string=html_with_images, base_url=str(report_dir))
     css = CSS(filename=str(style_file))
     html.write_pdf(pdf_file, stylesheets=[css])
