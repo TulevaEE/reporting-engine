@@ -6,16 +6,21 @@ import matplotlib.font_manager as fm
 from pathlib import Path
 
 # Tuleva brand colors
-TULEVA_GREEN = '#1a5f2a'
-TULEVA_LIGHT_GREEN = '#4a9f5a'
-COLORS = [TULEVA_GREEN, '#2e7d32', '#43a047', '#66bb6a', '#81c784', '#a5d6a7']
+TULEVA_BLUE = '#00AEEA'
+TULEVA_NAVY = '#002F63'
+TULEVA_MID_BLUE = '#0081EE'
+COLORS = [TULEVA_BLUE, TULEVA_NAVY, TULEVA_MID_BLUE, '#51c26c', '#FF4800', '#FCE228', '#303030']
 COMPETITOR_COLORS = {
-    'Tuleva': TULEVA_GREEN,
-    'LHV': '#e53935',
-    'Swedbank': '#ff9800',
-    'SEB': '#1565c0',
-    'Luminor': '#7b1fa2',
+    'Tuleva': TULEVA_BLUE,
+    'LHV': '#FF4800',
+    'Swedbank': '#FCE228',
+    'SEB': '#51c26c',
+    'Luminor': '#303030',
 }
+
+# Legacy aliases for backwards compatibility within this file
+TULEVA_GREEN = TULEVA_BLUE
+TULEVA_LIGHT_GREEN = TULEVA_MID_BLUE
 
 # Chart data sheet
 CHART_SHEET_ID = "1gtER8AHI7Nf9r-nFJKs3CXlhIKua1xvtwrLfzzxc2sQ"
