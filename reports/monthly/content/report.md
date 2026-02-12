@@ -54,6 +54,12 @@
 
 ## 2. Kogujad
 
+[Kommentaar]
+
+{% if charts and charts.savers -%}
+![Kogujate arv]({{ charts.savers }})
+{% endif %}
+
 {% if report.savers -%}
 | Näitaja | Väärtus |
 |---------|---------|
@@ -65,6 +71,14 @@
 {% endif %}
 
 ### Uued kogujad
+
+{% if charts and charts.new_savers_pillar -%}
+![Uued kogujad samba järgi]({{ charts.new_savers_pillar }})
+{% endif %}
+
+{% if charts and charts.new_ii_savers_source -%}
+![II sambaga liitujad allika järgi]({{ charts.new_ii_savers_source }})
+{% endif %}
 
 {% if report.new_savers -%}
 | Näitaja | Väärtus |
