@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3"
+	}
+}
