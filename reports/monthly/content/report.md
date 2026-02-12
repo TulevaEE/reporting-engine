@@ -8,12 +8,22 @@
 
 ## 1. Varade maht (AUM)
 
+[Kommentaar]
+
+{% if charts and charts.aum -%}
+![AUM]({{ charts.aum }})
+{% endif %}
+
 {% if report.aum -%}
 | Näitaja | Väärtus |
 |---------|---------|
 | AUM kuu lõpus | {{ report.aum['kuu lõpu AUM (M EUR)'] }} M EUR |
 | AUM 12 kuu kasv | {{ report.aum['AUM 12 kuu kasv %'] }}% |
 | sh sissemaksetest ja vahetustest | {{ report.aum['AUM 12 kuu kasv sissemaksetest ja -vahetustest %'] }}% |
+{% endif %}
+
+{% if charts and charts.growth_month -%}
+![Kasvuallikad kuus]({{ charts.growth_month }})
 {% endif %}
 
 {% if report.growth_actual -%}
@@ -24,6 +34,10 @@
 {% for row in report.growth_actual -%}
 | {{ row['kasvuallikas'] }} | {{ row['väärtus'] }} |
 {% endfor %}
+{% endif %}
+
+{% if charts and charts.growth_ytd -%}
+![Kasvuallikad aasta algusest]({{ charts.growth_ytd }})
 {% endif %}
 
 {% if report.growth_ytd -%}
