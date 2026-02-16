@@ -8,7 +8,7 @@
 
 ## 1. Varade maht (AUM)
 
-[Kommentaar]
+{{ comments.aum }}
 
 {% if charts and charts.aum -%}
 ![AUM]({{ charts.aum }})
@@ -54,7 +54,7 @@
 
 ## 2. Kogujad
 
-[Kommentaar]
+{{ comments.savers }}
 
 {% if charts and charts.savers -%}
 ![Kogujate arv]({{ charts.savers }})
@@ -100,7 +100,7 @@
 
 ## 3. Sissemaksed
 
-[Kommentaar]
+{{ comments.contributions }}
 
 {% if charts and charts.contributions -%}
 ![Sissemaksed]({{ charts.contributions }})
@@ -144,7 +144,7 @@
 
 ## 4. Fondivahetused
 
-[Kommentaar]
+{{ comments.switching }}
 
 {% if charts and charts.switching_volume -%}
 ![Vahetuste maht]({{ charts.switching_volume }})
@@ -189,7 +189,7 @@
 
 ## 5. Väljavoolud
 
-[Kommentaar]
+{{ comments.outflows }}
 
 {% if charts and charts.leavers -%}
 ![II samba lahkujate vara]({{ charts.leavers }})
@@ -217,7 +217,7 @@
 
 ## 6. Osakuhinna muutus
 
-[Kommentaar]
+{{ comments.unit_price }}
 
 {% if charts and charts.unit_price -%}
 ![Osakuhinna võrdlus]({{ charts.unit_price }})
@@ -232,7 +232,7 @@
 {% if report.financials -%}
 ## 7. Tuleva finantstulemused
 
-[Kommentaar]
+{{ comments.financials }}
 
 | Näitaja | Kuu tulemus | YoY |
 |---------|------------|-----|
