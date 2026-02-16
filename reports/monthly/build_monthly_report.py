@@ -323,7 +323,7 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
 
     # For PDF: embed images as base64
     print("Embedding images for PDF...")
-    html_with_images = embed_images_as_base64(html_document, report_dir)
+    html_with_images = embed_images_as_base64(html_document, output_dir)
 
     # Generate PDF with WeasyPrint
     pdf_file = output_dir / f'monthly_report_{year}-{month:02d}.pdf'
