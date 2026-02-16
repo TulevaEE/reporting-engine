@@ -239,6 +239,16 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     with open(data_file, 'r') as f:
         data = yaml.safe_load(f)
 
+    # Load optional comments
+    comments_file = report_dir / 'comments' / f'{year}-{month:02d}.yaml'
+    if comments_file.exists():
+        with open(comments_file, 'r') as f:
+            comments = yaml.safe_load(f) or {}
+        print(f"Loaded comments from: {comments_file}")
+    else:
+        comments = {}
+        print(f"No comments file found at {comments_file}, using empty comments")
+
     print(f"Loaded data for {data.get('month_name', 'Unknown')} {data.get('year', year)}")
 
     # Generate charts
@@ -269,7 +279,7 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     template = env.get_template('report.md')
 
     # Render the Markdown template
-    rendered_md = template.render(report=report, charts=chart_paths, **data)
+    rendered_md = template.render(report=report, charts=chart_paths, comments=comments, **data)
 
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
