@@ -100,6 +100,12 @@
 
 ## 3. Sissemaksed
 
+[Kommentaar]
+
+{% if charts and charts.contributions -%}
+![Sissemaksed]({{ charts.contributions }})
+{% endif %}
+
 {% if report.ii_contributions or report.iii_contributions -%}
 | Näitaja | Kuu | YoY | YTD |
 |---------|-----|-----|-----|
@@ -109,6 +115,10 @@
 {% if report.iii_contributions -%}
 | III samba sissemaksed | {{ "{:,.0f}".format(report.iii_contributions['III samba sissemaksed, M EUR']) }} EUR | {{ "{:.1%}".format(report.iii_contributions['YoY, %']) }} | {% if report.iii_contributions_ytd %}{{ report.iii_contributions_ytd['third_pillar_contributions_eur'] }} M EUR{% endif %} |
 {% endif -%}
+{% endif %}
+
+{% if charts and charts.iii_contributors -%}
+![III samba sissemakse tegijad]({{ charts.iii_contributors }})
 {% endif %}
 
 {% if report.iii_contributors -%}
@@ -134,6 +144,12 @@
 
 ## 4. Fondivahetused
 
+[Kommentaar]
+
+{% if charts and charts.switching_volume -%}
+![Vahetuste maht]({{ charts.switching_volume }})
+{% endif %}
+
 {% if report.switchers or report.switchers_aum -%}
 | Näitaja | Kuu | YoY | YTD |
 |---------|-----|-----|-----|
@@ -143,6 +159,10 @@
 {% if report.switchers_aum -%}
 | Ületoodud vara | {{ "{:,.0f}".format(report.switchers_aum['vahetajate ületoodud varade maht, M EUR']) }} EUR | {{ "{:.1%}".format(report.switchers_aum['YoY, %']) }} | {% if report.switchers_aum_ytd %}{{ report.switchers_aum_ytd['IIs vahetustega ületoodav vara M EUR'] }} M EUR{% endif %} |
 {% endif -%}
+{% endif %}
+
+{% if charts and charts.switching_sources -%}
+![Vahetusavalduste allikad]({{ charts.switching_sources }})
 {% endif %}
 
 {% if report.switching_from -%}
@@ -169,6 +189,16 @@
 
 ## 5. Väljavoolud
 
+[Kommentaar]
+
+{% if charts and charts.leavers -%}
+![II samba lahkujate vara]({{ charts.leavers }})
+{% endif %}
+
+{% if charts and charts.drawdowns -%}
+![Pensionifondidest väljavõetud vara]({{ charts.drawdowns }})
+{% endif %}
+
 {% if report.ii_leavers or report.ii_exiters or report.iii_withdrawals -%}
 | Näitaja | Kuu | YoY | YTD |
 |---------|-----|-----|-----|
@@ -185,13 +215,33 @@
 
 ---
 
-{% if report.growth_forecast -%}
-## 6. Aasta lõpu prognoos, M EUR
+## 6. Osakuhinna muutus
 
-| Kasvuallikas | M EUR |
-|--------------|-------|
-{% for row in report.growth_forecast -%}
-| {{ row['kasvuallikas'] }} | {{ row['väärtus'] }} |
+[Kommentaar]
+
+{% if charts and charts.unit_price -%}
+![Osakuhinna võrdlus]({{ charts.unit_price }})
+{% endif %}
+
+{% if charts and charts.cumulative_returns -%}
+![Kumulatiivne tootlus]({{ charts.cumulative_returns }})
+{% endif %}
+
+---
+
+{% if report.financials -%}
+## 7. Tuleva finantstulemused
+
+[Kommentaar]
+
+| Näitaja | Kuu tulemus | YoY |
+|---------|------------|-----|
+{% for row in report.financials -%}
+{% if row['Eur'] == 'litsentsitasu' -%}
+| **Litsentsitasu ühistule** | **{{ "{:,.0f}".format(row['Kuu Tulemus'] | abs) }} EUR** | **{{ "{:.0%}".format(row['YoY %']) }}** |
+{% else -%}
+| {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | {{ "{:.0%}".format(row['YoY %']) }} |
+{% endif -%}
 {% endfor %}
 {% endif %}
 

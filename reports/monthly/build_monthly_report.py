@@ -190,6 +190,22 @@ def preprocess_data(data, year, month):
     report['growth_forecast'] = cards.get(
         'Kasvuallikad (aasta lõpu prognoos), M EUR', {}).get('data', [])
 
+    # --- Financial results (card 636) ---
+    financials_raw = cards.get('Tuleva finantstulemused', {}).get('data', [])
+    if financials_raw:
+        by_name = {row['Eur']: row for row in financials_raw}
+        selected_rows = [
+            'brutomarginaal pärast litsentsitasu',
+            'tööjõukulud',
+            'mitmesugused tegevuskulud',
+            'EBITDA/ärikasum',
+            'puhaskasum',
+            'litsentsitasu',
+        ]
+        report['financials'] = [
+            by_name[name] for name in selected_rows if name in by_name
+        ]
+
     return report
 
 
@@ -235,6 +251,14 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
         'savers': 'charts/savers.png',
         'new_savers_pillar': 'charts/new_savers_pillar.png',
         'new_ii_savers_source': 'charts/new_ii_savers_source.png',
+        'contributions': 'charts/contributions.png',
+        'iii_contributors': 'charts/iii_contributors.png',
+        'switching_volume': 'charts/switching_volume.png',
+        'switching_sources': 'charts/switching_sources.png',
+        'leavers': 'charts/leavers.png',
+        'drawdowns': 'charts/drawdowns.png',
+        'unit_price': 'charts/unit_price.png',
+        'cumulative_returns': 'charts/cumulative_returns.png',
     }
 
     # Pre-process data for template
