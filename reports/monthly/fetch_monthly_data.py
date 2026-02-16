@@ -84,6 +84,25 @@ def fetch_monthly_data(year: int, month: int) -> dict:
                 'error': str(e)
             }
 
+    # Fetch standalone cards not on the dashboard
+    standalone_cards = {
+        2245: 'Osakuhinna võrdlus',
+        636: 'Tuleva finantstulemused',
+    }
+    for card_id, card_name in standalone_cards.items():
+        print(f"  Fetching [{card_id}] {card_name} (standalone)...")
+        try:
+            results = client.execute_card(card_id)
+            data['cards'][card_name] = {
+                'card_id': card_id,
+                'display': 'line',
+                'data': results,
+            }
+            print(f"    -> {len(results)} rows")
+        except Exception as e:
+            print(f"    ERROR: {e}")
+            data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
+
     return data
 
 
