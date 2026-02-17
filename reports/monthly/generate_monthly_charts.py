@@ -1071,6 +1071,67 @@ def generate_waterfall_chart(growth_data, title, output_file: Path):
     print(f"  Saved: {output_file}")
 
 
+def _draw_waterfall_on_ax(ax, growth_data, title):
+    """Draw a waterfall chart on the given axes."""
+    labels = [row['kasvuallikas'] for row in growth_data]
+    values = [row['väärtus'] for row in growth_data]
+
+    cumulative = 0
+    bottoms = []
+    bar_colors = []
+    for v in values:
+        if v >= 0:
+            bottoms.append(cumulative)
+            bar_colors.append(POSITIVE_COLOR)
+        else:
+            bottoms.append(cumulative + v)
+            bar_colors.append(NEGATIVE_COLOR)
+        cumulative += v
+
+    labels.append('KOKKU')
+    values.append(cumulative)
+    bottoms.append(0)
+    bar_colors.append(TOTAL_COLOR)
+
+    x = np.arange(len(labels))
+    bars = ax.bar(x, [abs(v) for v in values], bottom=bottoms, color=bar_colors,
+                  width=0.6, edgecolor='white', linewidth=0.5)
+
+    for i, (bar, val) in enumerate(zip(bars, values)):
+        y_pos = bottoms[i] + abs(val) / 2
+        label = f'{val:+.1f}' if i < len(values) - 1 else f'{val:.1f}'
+        ax.text(bar.get_x() + bar.get_width() / 2, y_pos,
+                label, ha='center', va='center', fontsize=9,
+                fontweight='bold', color='white')
+
+    for i in range(len(values) - 2):
+        ax.plot([x[i] + 0.3, x[i+1] - 0.3],
+                [bottoms[i] + (values[i] if values[i] >= 0 else 0)] * 2,
+                color='gray', linewidth=0.5, linestyle='-')
+
+    ax.set_title(title, fontweight='bold', color=TULEVA_NAVY)
+    ax.set_ylabel('M EUR')
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=9)
+    ax.axhline(y=0, color='gray', linewidth=0.5)
+    ax.grid(axis='y', alpha=0.3)
+
+
+def generate_combined_waterfall_chart(month_data, ytd_data, month_title, ytd_title, output_file: Path):
+    """Generate side-by-side waterfall charts for month and YTD growth sources."""
+    print(f"Generating combined waterfall chart...")
+
+    fig, (ax_left, ax_right) = plt.subplots(1, 2, figsize=(14, 5.5))
+
+    _draw_waterfall_on_ax(ax_left, month_data, month_title)
+    _draw_waterfall_on_ax(ax_right, ytd_data, ytd_title)
+
+    plt.tight_layout()
+    plt.savefig(output_file)
+    plt.close()
+    print(f"  Saved: {output_file}")
+
+
 def generate_monthly_charts(year: int, month: int) -> Path:
     """Generate all section-1 charts from the monthly YAML data file.
 
@@ -1147,23 +1208,22 @@ def generate_monthly_charts(year: int, month: int) -> Path:
         generate_unit_price_chart(unit_price, output_dir)
         generate_cumulative_returns_chart(unit_price, output_dir)
 
-    # Growth sources waterfall — month (card 389)
+    # Growth sources waterfall charts (cards 389 + 392)
     growth_month = cards.get('Kasvuallikad eelmisel kuul (tegelik), M EUR', {}).get('data', [])
+    growth_ytd = cards.get('Kasvuallikad YTD (tegelik), M EUR', {}).get('data', [])
     month_name = ESTONIAN_MONTHS.get(month, str(month))
-    if growth_month:
+    if growth_month and growth_ytd:
+        generate_combined_waterfall_chart(
+            growth_month, growth_ytd,
+            f'Kasvuallikad — {month_name}',
+            'Kasvuallikad — aasta algusest (YTD)',
+            output_dir / 'growth_waterfall.png',
+        )
+    elif growth_month:
         generate_waterfall_chart(
             growth_month,
             f'Kasvuallikad — {month_name}',
-            output_dir / 'growth_month.png',
-        )
-
-    # Growth sources waterfall — YTD (card 392)
-    growth_ytd = cards.get('Kasvuallikad YTD (tegelik), M EUR', {}).get('data', [])
-    if growth_ytd:
-        generate_waterfall_chart(
-            growth_ytd,
-            'Kasvuallikad — aasta algusest (YTD)',
-            output_dir / 'growth_ytd.png',
+            output_dir / 'growth_waterfall.png',
         )
 
     print(f"\nAll monthly charts saved to: {output_dir}")
