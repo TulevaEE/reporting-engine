@@ -342,7 +342,15 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuleva Monthly Board Report - {month_name} {year}</title>
+    <style>
+        body {{ max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }}
+        img {{ max-width: 100%; height: auto; }}
+        table {{ border-collapse: collapse; }}
+        th, td {{ border: 1px solid #ddd; padding: 6px 12px; text-align: left; }}
+        th {{ background-color: #f5f5f5; }}
+    </style>
 </head>
 <body>
 {html_content}
