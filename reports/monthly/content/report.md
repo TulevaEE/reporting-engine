@@ -24,12 +24,8 @@
 
 {{ comments.aum_waterfall }}
 
-{% if charts and charts.growth_month -%}
-![Kasvuallikad kuus]({{ charts.growth_month }})
-{% endif %}
-
-{% if charts and charts.growth_ytd -%}
-![Kasvuallikad aasta algusest]({{ charts.growth_ytd }})
+{% if charts and charts.growth_waterfall -%}
+![Kasvuallikad]({{ charts.growth_waterfall }})
 {% endif %}
 
 ---
@@ -61,19 +57,12 @@
 {% endif %}
 
 {% if report.new_savers -%}
-| KPI | {{ month_name_et | capitalize }} {{ year }} |
-|---------|---------|
-| Uued kogujad (kuu) | {{ "{:,}".format(report.new_savers['uute koguate arv']) }} |
-| YoY muutus | {{ "{:.1%}".format(report.new_savers['YoY, %']) }} |
-{% if report.new_savers_ytd -%}
-| Uued kogujad YTD | {{ "{:,}".format(report.new_savers_ytd['uute kogujate arv']) }} |
-{% endif -%}
-{% if report.new_savers_ii_ytd -%}
-| sh uued II samba kogujad YTD | {{ "{:,}".format(report.new_savers_ii_ytd['uute II samba kogujate arv']) }} |
-{% endif -%}
-{% if report.new_savers_iii_ytd -%}
-| sh uued III samba kogujad YTD | {{ "{:,}".format(report.new_savers_iii_ytd['uute III samba kogujate arv']) }} |
-{% endif -%}
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YTD |
+|---------|---------|-----|
+| Uued kogujad | {{ "{:,}".format(report.new_savers['uute koguate arv']) }} | {% if report.new_savers_ytd %}{{ "{:,}".format(report.new_savers_ytd['uute kogujate arv']) }}{% endif %} |
+| YoY muutus | {{ "{:.1%}".format(report.new_savers['YoY, %']) }} | |
+| sh uued II samba kogujad | {% if report.new_savers_ii_month %}{{ "{:,}".format(report.new_savers_ii_month) }}{% endif %} | {% if report.new_savers_ii_ytd %}{{ "{:,}".format(report.new_savers_ii_ytd['uute II samba kogujate arv']) }}{% endif %} |
+| sh uued III samba kogujad | {% if report.new_savers_iii_month %}{{ "{:,}".format(report.new_savers_iii_month) }}{% endif %} | {% if report.new_savers_iii_ytd %}{{ "{:,}".format(report.new_savers_iii_ytd['uute III samba kogujate arv']) }}{% endif %} |
 {% endif %}
 
 ---
@@ -87,13 +76,13 @@
 {% endif %}
 
 {% if report.ii_contributions or report.iii_contributions -%}
-| KPI | {{ month_name_et | capitalize }} {{ year }} |
-|---------|---------|
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YTD |
+|---------|---------|-----|
 {% if report.ii_contributions -%}
-| II samba sissemaksed | {{ "{:,.0f}".format(report.ii_contributions['II samba sissemaksed, M EUR']) }} EUR |
+| II samba sissemaksed | {{ "{:,.0f}".format(report.ii_contributions['II samba sissemaksed, M EUR']) }} EUR | {% if report.ii_contributions_ytd %}{{ report.ii_contributions_ytd['second_pillar_contributions_eur'] }} M EUR{% endif %} |
 {% endif -%}
 {% if report.iii_contributions -%}
-| III samba sissemaksed | {{ "{:,.0f}".format(report.iii_contributions['III samba sissemaksed, M EUR']) }} EUR |
+| III samba sissemaksed | {{ "{:,.0f}".format(report.iii_contributions['III samba sissemaksed, M EUR']) }} EUR | {% if report.iii_contributions_ytd %}{{ report.iii_contributions_ytd['third_pillar_contributions_eur'] }} M EUR{% endif %} |
 {% endif -%}
 {% endif %}
 
@@ -106,20 +95,20 @@
 {% if report.iii_contributors -%}
 ### III samba sissemakse tegijad
 
-| KPI | {{ month_name_et | capitalize }} {{ year }} |
-|---------|---------|
-| Sissemakse tegijate arv | {{ "{:,}".format(report.iii_contributors['III samba sissemakse tegijate arv']) }} |
-| YoY kasv | {{ "{:.1%}".format(report.iii_contributors['YoY, %']) }} |
-| Püsimakse tegijate osakaal | {{ "{:.1%}".format(report.iii_contributors['püsimakse tegijate osakaal, %']) }} |
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YTD |
+|---------|---------|-----|
+| Sissemakse tegijate arv | {{ "{:,}".format(report.iii_contributors['III samba sissemakse tegijate arv']) }} | {% if report.iii_contributors_ytd %}{{ "{:,}".format(report.iii_contributors_ytd) }}{% endif %} |
+| YoY kasv | {{ "{:.1%}".format(report.iii_contributors['YoY, %']) }} | |
+| Püsimakse tegijate osakaal | {{ "{:.1%}".format(report.iii_contributors['püsimakse tegijate osakaal, %']) }} | |
 {% endif %}
 
 {% if report.rate_changes -%}
 ### II samba maksemäära muutmine
 
-| Näitaja | Väärtus |
-|---------|---------|
-| Maksemäära tõstnud | {{ "{:,}".format(report.rate_changes['maksemäära tõstnute arv']) }} |
-| Maksemäära langetanud | {{ "{:,}".format(report.rate_changes['maksemäära langetanute arv']) }} |
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YTD |
+|---------|---------|-----|
+| Maksemäära tõstnud | {{ "{:,}".format(report.rate_changes['maksemäära tõstnute arv']) }} | {% if report.rate_changes_ytd %}{{ "{:,}".format(report.rate_changes_ytd['raised']) }}{% endif %} |
+| Maksemäära langetanud | {{ "{:,}".format(report.rate_changes['maksemäära langetanute arv']) }} | {% if report.rate_changes_ytd %}{{ "{:,}".format(report.rate_changes_ytd['lowered']) }}{% endif %} |
 {% endif %}
 
 ---
@@ -133,13 +122,13 @@
 {% endif %}
 
 {% if report.switchers or report.switchers_aum -%}
-| Näitaja | Kuu | YoY | YTD |
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY | YTD |
 |---------|-----|-----|-----|
 {% if report.switchers -%}
 | Sissevahetajate arv | {{ "{:,}".format(report.switchers['vahetajate arv']) }} | {{ "{:.1%}".format(report.switchers['YoY, %']) }} | {% if report.switchers_ytd %}{{ "{:,}".format(report.switchers_ytd['IIs sissevahetajate arv']) }}{% endif %} |
 {% endif -%}
 {% if report.switchers_aum -%}
-| Ületoodud vara | {{ "{:,.0f}".format(report.switchers_aum['vahetajate ületoodud varade maht, M EUR']) }} EUR | {{ "{:.1%}".format(report.switchers_aum['YoY, %']) }} | {% if report.switchers_aum_ytd %}{{ report.switchers_aum_ytd['IIs vahetustega ületoodav vara M EUR'] }} M EUR{% endif %} |
+| Ületoodud vara | {{ "{:.1f}".format(report.switchers_aum['vahetajate ületoodud varade maht, M EUR'] / 1000000) }} M EUR | {{ "{:.1%}".format(report.switchers_aum['YoY, %']) }} | {% if report.switchers_aum_ytd %}{{ report.switchers_aum_ytd['IIs vahetustega ületoodav vara M EUR'] }} M EUR{% endif %} |
 {% endif -%}
 {% endif %}
 
@@ -153,16 +142,6 @@
 
 {% if charts and charts.switching_sources -%}
 ![Millistest fondidest vahetatakse Tulevasse]({{ charts.switching_sources }})
-{% endif %}
-
-{% if report.switching_to -%}
-### Kuhu vahetatakse Tulevast välja (top 10)
-
-| Sihtfond | Avalduste arv |
-|----------|---------------|
-{% for row in report.switching_to -%}
-| {{ row['Fund - Security To → Name Estonian'] }} | {{ row['Distinct values of Code'] }} |
-{% endfor %}
 {% endif %}
 
 ---
@@ -182,16 +161,16 @@
 {% endif %}
 
 {% if report.ii_leavers or report.ii_exiters or report.iii_withdrawals -%}
-| Näitaja | Kuu | YoY | YTD |
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY | YTD |
 |---------|-----|-----|-----|
 {% if report.ii_leavers -%}
-| II samba lahkujate vara | {{ "{:,.0f}".format(report.ii_leavers['lahkujate varade maht, M EUR']) }} EUR | {{ "{:.1%}".format(report.ii_leavers['YoY, %']) }} | {% if report.ii_leavers_ytd %}{{ report.ii_leavers_ytd['new_monthly_leavers_eur'] }} M EUR{% endif %} |
+| II samba lahkujate vara | {{ "{:.2f}".format(report.ii_leavers['lahkujate varade maht, M EUR'] / 1000000) }} M EUR | {{ "{:.1%}".format(report.ii_leavers['YoY, %']) }} | {% if report.ii_leavers_ytd %}{{ report.ii_leavers_ytd['new_monthly_leavers_eur'] }} M EUR{% endif %} |
 {% endif -%}
 {% if report.ii_exiters -%}
-| II samba väljujate vara | {{ "{:,.0f}".format(report.ii_exiters['väljujate varade maht, M EUR']) }} EUR | {{ "{:.1%}".format(report.ii_exiters['YoY, %']) }} | {% if report.ii_exiters_ytd %}{{ report.ii_exiters_ytd['new_monthly_exiters_eur'] }} M EUR{% endif %} |
+| II samba väljujate vara | {{ "{:.2f}".format(report.ii_exiters['väljujate varade maht, M EUR'] / 1000000) }} M EUR | {{ "{:.1%}".format(report.ii_exiters['YoY, %']) }} | {% if report.ii_exiters_ytd %}{{ report.ii_exiters_ytd['new_monthly_exiters_eur'] }} M EUR{% endif %} |
 {% endif -%}
 {% if report.iii_withdrawals -%}
-| III sambast väljavõetud vara | {{ "{:,.0f}".format(report.iii_withdrawals['III sambast väljavõetud varade maht, M EUR']) }} EUR | {{ "{:.1%}".format(report.iii_withdrawals['YoY, %']) }} | {% if report.iii_withdrawals_ytd %}{{ report.iii_withdrawals_ytd['new_monthly_withdrawals_third_pillar_eur'] }} M EUR{% endif %} |
+| III sambast väljavõetud vara | {{ "{:.2f}".format(report.iii_withdrawals['III sambast väljavõetud varade maht, M EUR'] / 1000000) }} M EUR | {{ "{:.1%}".format(report.iii_withdrawals['YoY, %']) }} | {% if report.iii_withdrawals_ytd %}{{ report.iii_withdrawals_ytd['new_monthly_withdrawals_third_pillar_eur'] }} M EUR{% endif %} |
 {% endif -%}
 {% endif %}
 
@@ -218,7 +197,7 @@
 
 {{ comments.financials }}
 
-| Näitaja | Kuu tulemus | YoY |
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY |
 |---------|------------|-----|
 {% for row in report.financials -%}
 {% if row['Eur'] == 'litsentsitasu' -%}
@@ -231,4 +210,4 @@
 
 ---
 
-*Aruanne genereeritud Tuleva Reporting Engine'iga*
+*Aruanne genereeritud [Tuleva Reporting Engine](https://github.com/TulevaEE/reporting-engine)'iga*

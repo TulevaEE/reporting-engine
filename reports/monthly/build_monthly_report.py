@@ -117,6 +117,19 @@ def preprocess_data(data, year, month):
     report['new_savers_iii_ytd'] = get_ytd_row(
         cards.get('uute III samba kogujate arv YTD', {}), year)
 
+    # Monthly II/III new savers breakdown (cards 1519 + 1520)
+    ii_joiners_row = get_month_row(
+        cards.get('II sambaga liitujate arv kuus', {}), year, month)
+    if ii_joiners_row:
+        report['new_savers_ii_month'] = (
+            ii_joiners_row['2'] + ii_joiners_row['2+3'] + ii_joiners_row['3>2'])
+
+    iii_joiners_row = get_month_row(
+        cards.get('III sambaga liitujate arv kuus', {}), year, month)
+    if iii_joiners_row:
+        report['new_savers_iii_month'] = (
+            iii_joiners_row['3'] + iii_joiners_row['2+3'] + iii_joiners_row['2>3'])
+
     # --- Contributions (sissemaksed) ---
     row = get_month_row(cards.get('II samba sissemaksete summa kuus, M EUR', {}), year, month)
     if row:
@@ -136,10 +149,31 @@ def preprocess_data(data, year, month):
     if row:
         report['iii_contributors'] = row
 
+    # III pillar contributors YTD (card 1657 — scalar)
+    iii_contributors_ytd_card = cards.get(
+        'III s sissemakse tegijate arv YTD', {})
+    iii_contributors_ytd_data = iii_contributors_ytd_card.get('data', [])
+    if iii_contributors_ytd_data:
+        report['iii_contributors_ytd'] = iii_contributors_ytd_data[0].get(
+            'Distinct values of Personal ID')
+
     # Contribution rate changes
     row = get_month_row(cards.get('II samba maksemäära muutmine', {}), year, month)
     if row:
         report['rate_changes'] = row
+
+    # Rate changes YTD (sum all months in the target year from card 1573)
+    rate_changes_data = cards.get('II samba maksemäära muutmine', {}).get('data', [])
+    ytd_raised = 0
+    ytd_lowered = 0
+    for rc_row in rate_changes_data:
+        date_str = rc_row.get('kuu: Month', '')
+        if date_str.startswith(str(year)):
+            ytd_raised += rc_row.get('maksemäära tõstnute arv', 0)
+            ytd_lowered += rc_row.get('maksemäära langetanute arv', 0)
+    if ytd_raised or ytd_lowered:
+        report['rate_changes_ytd'] = {
+            'raised': ytd_raised, 'lowered': ytd_lowered}
 
     # --- Fund switching ---
     row = get_month_row(cards.get('II samba vahetajate arv kuus', {}), year, month)
@@ -256,8 +290,7 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     charts_dir = generate_monthly_charts(year, month)
     chart_paths = {
         'aum': 'charts/aum.png',
-        'growth_month': 'charts/growth_month.png',
-        'growth_ytd': 'charts/growth_ytd.png',
+        'growth_waterfall': 'charts/growth_waterfall.png',
         'savers': 'charts/savers.png',
         'new_savers_pillar': 'charts/new_savers_pillar.png',
         'new_ii_savers_source': 'charts/new_ii_savers_source.png',
