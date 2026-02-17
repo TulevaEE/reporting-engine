@@ -1,12 +1,12 @@
 # Tuleva igakuine juhatuse aruanne
 
-**{{ month_name }} {{ year }}**
+**{{ month_name_et | capitalize }} {{ year }}**
 
 *Aruande kuupäev: {{ report_date }}*
 
 ---
 
-## 1. Varade maht (AUM)
+## 1. Varade maht ja kasv
 
 {{ comments.aum }}
 
@@ -15,44 +15,26 @@
 {% endif %}
 
 {% if report.aum -%}
-| Näitaja | Väärtus |
+| KPI | {{ month_name_et | capitalize }} {{ year }} |
 |---------|---------|
 | AUM kuu lõpus | {{ report.aum['kuu lõpu AUM (M EUR)'] }} M EUR |
 | AUM 12 kuu kasv | {{ report.aum['AUM 12 kuu kasv %'] }}% |
 | sh sissemaksetest ja vahetustest | {{ report.aum['AUM 12 kuu kasv sissemaksetest ja -vahetustest %'] }}% |
 {% endif %}
 
+{{ comments.aum_waterfall }}
+
 {% if charts and charts.growth_month -%}
 ![Kasvuallikad kuus]({{ charts.growth_month }})
-{% endif %}
-
-{% if report.growth_actual -%}
-### Kasvuallikad (kuu tegelik), M EUR
-
-| Kasvuallikas | M EUR |
-|--------------|-------|
-{% for row in report.growth_actual -%}
-| {{ row['kasvuallikas'] }} | {{ row['väärtus'] }} |
-{% endfor %}
 {% endif %}
 
 {% if charts and charts.growth_ytd -%}
 ![Kasvuallikad aasta algusest]({{ charts.growth_ytd }})
 {% endif %}
 
-{% if report.growth_ytd -%}
-### Kasvuallikad YTD (tegelik), M EUR
-
-| Kasvuallikas | M EUR |
-|--------------|-------|
-{% for row in report.growth_ytd -%}
-| {{ row['kasvuallikas'] }} | {{ row['väärtus'] }} |
-{% endfor %}
-{% endif %}
-
 ---
 
-## 2. Kogujad
+## 2. Uued kogujad
 
 {{ comments.savers }}
 
@@ -61,7 +43,7 @@
 {% endif %}
 
 {% if report.savers -%}
-| Näitaja | Väärtus |
+| KPI | {{ month_name_et | capitalize }} {{ year }} |
 |---------|---------|
 | Kogujate arv | {{ "{:,}".format(report.savers['kogujate arv']) }} |
 | sh ainult II sammas | {{ "{:,}".format(report.savers['ainult II sammas']) }} |
@@ -72,16 +54,14 @@
 
 ### Uued kogujad
 
+{{ comments.new_savers }}
+
 {% if charts and charts.new_savers_pillar -%}
 ![Uued kogujad samba järgi]({{ charts.new_savers_pillar }})
 {% endif %}
 
-{% if charts and charts.new_ii_savers_source -%}
-![II sambaga liitujad allika järgi]({{ charts.new_ii_savers_source }})
-{% endif %}
-
 {% if report.new_savers -%}
-| Näitaja | Väärtus |
+| KPI | {{ month_name_et | capitalize }} {{ year }} |
 |---------|---------|
 | Uued kogujad (kuu) | {{ "{:,}".format(report.new_savers['uute koguate arv']) }} |
 | YoY muutus | {{ "{:.1%}".format(report.new_savers['YoY, %']) }} |
@@ -107,15 +87,17 @@
 {% endif %}
 
 {% if report.ii_contributions or report.iii_contributions -%}
-| Näitaja | Kuu | YoY | YTD |
-|---------|-----|-----|-----|
+| KPI | {{ month_name_et | capitalize }} {{ year }} |
+|---------|---------|
 {% if report.ii_contributions -%}
-| II samba sissemaksed | {{ "{:,.0f}".format(report.ii_contributions['II samba sissemaksed, M EUR']) }} EUR | {{ "{:.1%}".format(report.ii_contributions['YoY, %']) }} | {% if report.ii_contributions_ytd %}{{ report.ii_contributions_ytd['second_pillar_contributions_eur'] }} M EUR{% endif %} |
+| II samba sissemaksed | {{ "{:,.0f}".format(report.ii_contributions['II samba sissemaksed, M EUR']) }} EUR |
 {% endif -%}
 {% if report.iii_contributions -%}
-| III samba sissemaksed | {{ "{:,.0f}".format(report.iii_contributions['III samba sissemaksed, M EUR']) }} EUR | {{ "{:.1%}".format(report.iii_contributions['YoY, %']) }} | {% if report.iii_contributions_ytd %}{{ report.iii_contributions_ytd['third_pillar_contributions_eur'] }} M EUR{% endif %} |
+| III samba sissemaksed | {{ "{:,.0f}".format(report.iii_contributions['III samba sissemaksed, M EUR']) }} EUR |
 {% endif -%}
 {% endif %}
+
+{{ comments.iii_contributions }}
 
 {% if charts and charts.iii_contributors -%}
 ![III samba sissemakse tegijad]({{ charts.iii_contributors }})
@@ -124,7 +106,7 @@
 {% if report.iii_contributors -%}
 ### III samba sissemakse tegijad
 
-| Näitaja | Väärtus |
+| KPI | {{ month_name_et | capitalize }} {{ year }} |
 |---------|---------|
 | Sissemakse tegijate arv | {{ "{:,}".format(report.iii_contributors['III samba sissemakse tegijate arv']) }} |
 | YoY kasv | {{ "{:.1%}".format(report.iii_contributors['YoY, %']) }} |
@@ -161,18 +143,16 @@
 {% endif -%}
 {% endif %}
 
-{% if charts and charts.switching_sources -%}
-![Vahetusavalduste allikad]({{ charts.switching_sources }})
+{{ comments.switching_conversion }}
+
+{% if charts and charts.new_ii_savers_source -%}
+![II sambaga liitujad allika järgi]({{ charts.new_ii_savers_source }})
 {% endif %}
 
-{% if report.switching_from -%}
-### Millistest fondidest vahetatakse Tulevasse (top 10)
+{{ comments.switching_sources }}
 
-| Lähtefond | Avalduste arv |
-|-----------|---------------|
-{% for row in report.switching_from -%}
-| {{ row['Fund - Security From → Name Estonian'] }} | {{ row['Distinct values of Code'] }} |
-{% endfor %}
+{% if charts and charts.switching_sources -%}
+![Millistest fondidest vahetatakse Tulevasse]({{ charts.switching_sources }})
 {% endif %}
 
 {% if report.switching_to -%}
@@ -194,6 +174,8 @@
 {% if charts and charts.leavers -%}
 ![II samba lahkujate vara]({{ charts.leavers }})
 {% endif %}
+
+{{ comments.drawdowns }}
 
 {% if charts and charts.drawdowns -%}
 ![Pensionifondidest väljavõetud vara]({{ charts.drawdowns }})
@@ -222,6 +204,8 @@
 {% if charts and charts.unit_price -%}
 ![Osakuhinna võrdlus]({{ charts.unit_price }})
 {% endif %}
+
+{{ comments.cumulative_returns }}
 
 {% if charts and charts.cumulative_returns -%}
 ![Kumulatiivne tootlus]({{ charts.cumulative_returns }})

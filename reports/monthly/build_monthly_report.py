@@ -7,7 +7,7 @@ import markdown
 import base64
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
-from generate_monthly_charts import generate_monthly_charts
+from generate_monthly_charts import generate_monthly_charts, ESTONIAN_MONTHS
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
 
@@ -278,8 +278,12 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')
 
+    # Add Estonian month name to template context
+    month_name_et = ESTONIAN_MONTHS.get(month, str(month))
+
     # Render the Markdown template
-    rendered_md = template.render(report=report, charts=chart_paths, comments=comments, **data)
+    rendered_md = template.render(report=report, charts=chart_paths, comments=comments,
+                                  month_name_et=month_name_et, **data)
 
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
