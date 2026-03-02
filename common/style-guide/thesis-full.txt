@@ -1,0 +1,565 @@
+TARTU ÜLIKOOL     
+ Sotsiaalteaduste valdkond
+Psühholoogia instituut
+             
+ 
+ 
+ 
+Kristel Raesaar
+Pensioniks kogumine kui heaolukäitumine: kvalitatiivne uuring ja inimkeskne lahenduste raamistik
+Magistritöö
+Rakendusliku käitumisteaduse õppekava
+ 
+ 
+ 
+ 
+ 
+ Juhendajad Silja-Riin Voolma ja Heidi Reinson 
+ 
+
+
+ 
+Tartu 2025
+Lühikokkuvõte
+See magistritöö käsitleb pensioniks kogumist kui pikaajalist käitumisprotsessi, mille mõjutamine eeldab inimkeskset lähenemist. Kogumine on osa inimese heaolu ökosüsteemist, kus psühholoogilised, sotsiaalsed ja süsteemsed tegurid on lahutamatult põimunud. Töö eesmärk on rakendada käitumisteadust, et aidata Eesti inimestel II ja III sambasse rohkem koguda ja seeläbi oma heaolu suurendada. Uurimistöö empiiriliseks aluseks on kvalitatiivne uuring: 30 poolstruktureeritud süvaintervjuud inimestega, kes on astunud aktiivseid samme kogumispensioni võimaluste kasutamiseks. Töö üheks keskseks panuseks on kogumiskäitumise eripärasid arvestav kahetasandiline tõuke ja toe käitumisdisaini mudel. Koos psühholoogilisi vajadusi toetavate disainiprintsiipidega aitab see kujundada eetilisi ja efektiivselt ajastatud sekkumisi. Intervjuude põhjal eristus ka kaks käitumuslikku kasutajaprofiili, mille mõistmine aitab sõnumeid inimeste tegelike motiivide ja vajadustega kohandada. Uurimistöös osales Eesti ainsa ühistulise pensionifondide valitseja Tuleva tiim – protsessi koosloomelisus tugevdab analüüsi kvaliteeti ja rakendusväärtust. Ehkki uurimistöö metoodika ei võimalda teha järeldusi kogu Eesti elanikkonna kohta, võivad intervjuude leiud ja lahendusettepanekud pakkuda rakendusvõimalusi poliitikakujunduses ja käitumisdisainis ka laiemalt. 
+Abstract
+This master’s thesis examines pension saving and investing as a long-term behavioral process that requires a human-centered approach. It is part of a wellbeing ecosystem where psychological, social, and systemic factors are deeply intertwined. The study investigates how behavioral science can be applied to help Estonian people enhance their wellbeing through participation in the second and third pension pillars. The empirical basis of the research is a qualitative study: 30 in-depth, semi-structured interviews with individuals who have taken active steps to use pension pillars for long-term saving. A central contribution of the thesis is a two-tier “Activate and Support” behavioral model, tailored to the specific characteristics of saving behavior. Together with design principles that address psychological needs, this model supports the development of ethical and effectively timed interventions. The interviews also revealed two behavioral user profiles that offer insight into how messages can be better aligned with different motives and needs. The research was carried out in collaboration with Tuleva – Estonia’s only cooperative pension fund manager. The involvement of Tuleva’s team enhanced both the analytical depth and practical relevance of the study. Although the research methodology does not allow for generalizations to the entire Estonian population, the interview findings and proposed solutions could be applicable more broadly in policy and behavioral design.
+Tänusõnad
+Suur aitäh Tuleva tiimile, kellega koostöös uurimistöö sündis: Minna Toots, Erko Risthein, Karolina Kruusmaa, Ketlin Veevo, Kristjan Eding, Pirje Keeroja, Sander Nemvalts, Sten-Andreas Ehrlich, Tõnu Pekk, Taimar Teetlok, Marju Maantoa ja Maria Suurna. Tänan ka Riina Raudset, Daniel Vaarikut ja kõiki Rakendusliku käitumisteaduse õppekava õppejõude, kes on oluliselt mõjutanud minu mõtlemist sellest, millega saab ja tuleb arvestada komplekssete heaolukäitumiste toetamisel. 
+Tehisintellekti kasutuse deklaratsioon
+Selle uurimistöö koostamisel on kasutatud generatiivse tehisintellekti rakendusi (ChatGPT ja väiksemal määral Gemini, Claude, Perplexity) abivahendina ideede arendamiseks, kriitilise tagasiside saamiseks ja täiendavate teemakohaste allikate leidmiseks. Kõik sisulised valikud ja analüüsid on autori tehtud ning viidatud allikad on kontrollitud ja iseseisvalt läbi töötatud. Tehisintellekti loodud sisu ei ole töös kasutatud.
+
+
+
+IÜlevaade
+Kuidas suurendada II ja III sambasse kogumist nii, et inimeste heaolu kasvaks?
+Lugusid pensionipõlveks valmistumise tähtsusest saadavad meedias fotod pruunide mantlitega vanainimestest, kellena noorematel on ennast võimatu ette kujutada. 
+Paljud nõustuvad, et peaks koguma – aga vähesed mõtlevad endast kui tulevasest pensionärist. Pensionifondide ümber on hulk infomüra, aga ainult väike osa Eesti inimestest kasutab juba II ja III sammast optimaalselt. 
+Tulevikuks kogumine on heaolu teiste aspektidega tihedalt põimunud käitumisprotsess. Et mõjutada inimeste tegelikke valikuid, on vaja arvestada nende tegelike vajaduste ja käitumismustritega – neid mõjutavad lisaks teadmistele, emotsioonidele ja elumuutustele ka toetavad või häirivad taustsüsteemid. 
+See töö toob kogumiskäitumise probleemi analüüsi uue vaatenurga: inimesi ei käsitleta pelgalt finantskirjaoskuse ja hoiakute vastavuse mõõtmise objektidena, vaid oma elu ekspertidena. 
+Uurimistöö eesmärk on mõista: millist rolli mängib II ja III sambasse kogumine inimeste elus, mis neid kõhklema paneb ja mis aitaks takistusi ületada? See võimaldab rakendada käitumisteadust, et aidata Eesti inimestel pensionisammaste abil rohkem koguda ja seeläbi oma heaolu suurendada. 
+Töö sündis koostöös Tulevaga – Eesti ainsa ühistulise pensionifondide valitsejaga. Leidudest ja pakutud lahenduste raamistikust võiks kasu leida kõik, kes tegelevad avalikus sektoris ja mujal pensionisammaste abil Eesti inimeste heaolu kasvatamisega. 
+Miks see probleem praegu oluline on?
+Käitumuslikud probleemid kujunevad suhtes keskkonnaga. Nii nagu tööstuslik toidutootmine ning istuv töökultuur on muutnud toitumise ja liikumise rahvatervise keskseks mureks, on kogumiskäitumise kui heaoluprobleemi juured kaasaegsete pensionisüsteemide disainis. 
+Idee, et igaüks peab endale ise pensioniraha kokku koguma, on suhteliselt uus – sajandeid vana sõna “pension” on tähendanud riigi või tööandja toetust, mitte kohustust säästa ja investeerida. 
+Kogumispensionid, kus inimeste toimetulek vanemas eas sõltub sellest, kui palju nad suudavad elu jooksul kõrvale panna ja kui kasulikult investeerida, on ainult mõnikümmend aastat vanad. 
+Selle ajaga on saanud selgeks, et kogumispensionid ei ole kujunenud lihtsaks lahenduseks rahvastiku vananemisega kaasnevatele probleemidele (vt nt OECD, 2023). Need on samas kaasa toonud uusi probleeme, kiirendades ebavõrdsuse kasvu ja lükates inimeste kanda riskid, mida oleks tõhusam ja võibolla ka õiglasem maandada ühiskondade tasandil. 
+Käitumuslikul tasandil väljendub probleem selles, et inimesed alustavad kogumist liiga hilja, säästavad liiga vähe ja teevad investeerides kehvi valikuid. See seab tänased tööealised tulevikus vaesusriski ja ohustab sotsiaalsüsteemide jätkusuutlikkust. Kogumissurve ja tuleviku ebakindlus põhjustavad ärevust ja stressi olevikus. 
+Kellele see töö keskendub? 
+Eesti peab kriitiliselt hindama, millist osa elanikkonnast pensionisambad piisavalt katavad. Varasemale uurimistööle toetudes võib hinnata, et kogumispension ei pruugi täna olla realistlik lahendus vähemalt pooltele tööealistest inimestest. Neile, keda takistavad sissetulekuvaesus ja pensionisüsteemist kaugemale ulatuv sügav usaldamatus, on vaja struktuurseid lahendusi, mitte sambaid tutvustavaid sõnumeid. 
+Selle töö fookuses on inimesed, kellel on II ja III samba kasutamiseks vähemalt mingi võimekus ja valmisolek. Nemad vajavad taustsüsteeme, mis aitaks sihikindlalt koguda ja ka igast kõrvale pandud eurost võimalikult palju kasu saada.  
+Mida ja kuidas see töö uuris? 
+Selles töös olen sidunud varasemad analüüsid ja süvaintervjuudes kogutud andmed isikliku kogemusega, et leida hoovad, mida nihutades saab suurendada kogumist ja vältida uute barjääride loomist.  
+Töö empiiriliseks aluseks on Tuleva pensionifondides kogujatega tehtud süvaintervjuud, mis aitavad mõista: kuidas tajuvad II ja III samba rolli oma laiemate püüdluste kontekstis inimesed ise? 
+Lahenduste disainis on kesksed küsimused: kuidas püüda inimeste niigi koormatud tähelepanu, et nad astuksid õiged sammud kohe, mitte hiljem; ning kuidas siduda üksikud sammud järjepidevaks ja heaolu toetavaks käitumisahelaks? 
+Uurimisprotsess oli koosloomeline: intervjuude läbiviimisse ning tulemuste tõlgendamisse panustasid kümme Tuleva eri valdkondade juhti ja spetsialisti. Nende vaatenurgad tugevdasid analüüsi kvaliteeti ja suurendasid uuringu rakenduslikku väärtust.
+Uurimistöö tulemuste sünteesis kasutasin isemääramisteooriat (Deci & Ryan, 2000). 
+See on üks psühholoogia alusteooriatest, mis rõhutab, et inimestel on loomulik soov kasvada, õppida ja tajuda ennast terviklikuna. Rahuldamata vajadused võivad seevastu viia passiivsuse ja võõrandumiseni – just need probleemsed käitumismustrid kerkivad II ja III samba kontekstis sageli esile. Teooria keskmes on kolm psühholoogilist põhivajadust: 
+Autonoomia — tunne, et tegutsen iseenda kavatsustest lähtuvalt;
+Kompetentsus — tunne, et suudan ja oskan;
+Sotsiaalne seotus — tunne, et kuulun ja olen teistega seotud. 
+Need on võtmetegurid, millega arvestamine toetab järjepidevat kogumist – ning nende rahuldamata jätmine takistab seda. 
+Mida me inimeste lugudest õppisime? 
+Sarnaselt teiste heaolukäitumise probleemidega ei takista tulevikuks kogumist sageli mitte motivatsiooni puudumine, vaid selle ebamäärasus, kognitiivne ülekoormus, tähenduse killustatus ja ebakindlus. Andmetest joonistus välja mitu käitumisdisaini jaoks olulist mustrit:
+Tajutud autonoomia. Inimesed näevad raha kogumist vahendina vabaduse, iseseisvuse ja kindlustunde saavutamiseks ning lähedaste eest hoolitsemiseks. Samas kaldub sõna “pension” II ja III samba seost nende väärtustega katkestama: see mõjub abstraktse, ebameeldiva ja kaugena ning tähistab pigem riigi toetust kui aktiivset tegutsemist. Valikute üleküllus ja tajutav poliitiline ebastabiilsus süvendavad distantsi ja vähendavad usaldust.
+Tajutud kompetentsus. Teadmised ja eneseusaldus ei käi alati käsikäes. Sihikindlust toetavad arusaadavad sõnumid, samas kui inimese vaatest juhuslikult ajastatud, keeruline või vastuoluline info võib seda hoopis õõnestada. Mõned inimesed võivad oma võimeid ka üle hinnata – pensionisammaste tajumine “algajale mõeldud” lahendusena võib nende huvi vähendada.   
+Tajutud sotsiaalne seotus. Ülalt-alla kampaaniad kõnetavad inimesi vähe, kuid seda kompenseerib horisontaalne usaldus. Nii sõnumid kui ka käitumine levivad võrgustikes: inimesed, kes tunnevad ennast võimestatuna tänu tuttavate või sotsiaalmeedia kogukondade eekujule ja toele, võivad omakorda julgustada ka pereliikmeid ja sõpru. 
+Finantskirjaoskuse piirangud. Inimeste lood näitasid, et teadmised ei ole sageli tegutsemise eeltingimus, vaid tagajärg. Soov teadmisi otsida tärkab sageli alles pärast esimese sammu astumist – selleks on vaja otsustama julgustavat tõuget, isegi kui motivatsioon on esialgu ebamäärane. 
+Kui kogumise idee on põhimõtteliselt vastumeelne, ei paku ka info huvi. Kui pole impulssi, lohiseb “uurin lähemalt” kavatsuste loetelu sabas. Ja kui tõuge otsuseni viib, aga selgust loovat tuge ei järgne, ununeb teema ja vastuseta küsimused õõnestavad usaldust. 
+See on kriitiline murdepunkt: kui tõuge on seostatud mõtestatud toega, kasvab enesekindlus ja motivatsioon jätkata.
+Lahendused – kuidas taustsüsteeme ja sõnumeid efektiivsemalt disainida? 
+Tõuke ja toe mudel. Töö üks keskne panus on inimeste tegeliku käitumisega arvestav sekkumismudel, mis ühendab aktiveerivad tõuked ja tähendust loova toe täpselt ajastatud tervikuks. 
+Mudel põhineb mõistmisel, et tegutsemiseni ei vii alati põhjalik kaalumine ega teadmiste kogumine – sageli käivitab otsuse väike, tähelepanu koondav impulss.
+Seal, kus otsustamise edasilükkamine on inimesele kahjulik, ei ole eetiline piirduda teadmiste jagamisega ja oodata motivatsiooni “küpsemist” – vaja on madala lävega tõuget, mis aitab sammu astuda. Tõukele peab järgnema tugi, mis loob selguse ja toetab järjepidevust. 
+See lähenemine võimaldab ehitada süsteeme ja sõnumeid, mis julgustavad tegutsema ja aitavad ka kursil püsida.
+Käitumisdisaini printsiibid. Praktilise teejuhina tõuke ja toe loogika rakendamisel koostasin andmepõhisted disainiprintsiibid, mis hoiavad fookuses inimeste psühholoogilisi vajadusi. Siin on nende kolm võtmeteemat lühidalt kokku võetud: 
+Autonoomia. II ja III samba raamistus peaks rõhutama, et kogutud vara kuulub inimestele endile ning aitab saavutada vabamaid võimalusi ja hoolitseda oma pere eest. 
+Kompetentsus. Sihikindla tegutsemise eeldus on inimeste piiratud aja ja tähelepanuga arvestav tõenduspõhine kogumise “retsept”, mis juhib liikumist jõukohaste sammudega ja aitab info ülekülluses orienteeruda. 
+Sotsiaalne seotus. Ametlike kanalite kõrval tuleks toetada usaldusväärse info levimist võrgustikes ja julgustada kogemuste jagamist seal, kus inimesed seda juba teevad. 
+Sõnumid erinevatele kasutajaprofiilidele. Andmestikus eristunud mustrite põhjal koostasin kaks II ja III samba kasutajaprofiili ning pakkusin erinevaid ootusi ja otsustusteid adresseerivad sõnumistrateegiad: 
+Meelerahu hindavad tasakaaluotsijad ei vaja investeerimistehnilisi arutelusid, vaid turvalisi juhiseid, mis aitavad muuta II ja III sambasse kogumise igapäevase heaoluhügieeni loomulikuks osaks.
+Vabadust väärtustavatele investeerimishuvilistele on vaja näidata, et II ja III sammas ei võistle muude võimalustega, vaid on targa investori portfelli alus. 
+Rakendusvõimaluste näited. Lahendusi illustreerivad juhtumianalüüs päriselust ja praktilised sekkumisideed vabaks kasutuseks nii Tulevale kui ka avalikule sektorile.
+
+Soovitusi poliitikakujundajatele
+Selles töös esitatud lahenduste raamistik võiks aidata sõnumite ja tugistruktuuride kujundamisel inimeste psühholoogiliste vajadustega rohkem arvestada. Siin toon esile kaks poliitikakujunduse vaatest olulist tähelepanekut.
+Inimesed vajavad kindlust ja selgust. 
+Käitumisteadlased on juhtinud tähelepanu, et edukad pensionisüsteemid on vähendanud üksikisiku vastutust kohustusliku kogumisega (Chater & Loewenstein, 2023). Eesti on liikunud vastassuunas ja kõigub pärast II samba reformi justkui kahevahel. 
+Kogumine ei ole enam kohustuslik, aga poliitikute ja ametnike avalik diskursus annab mõista, et ka mitte päris vabatahtlik. See vastuolu ei toeta inimeste autonoomiat. 
+Kui süsteemi tajutakse heitlikuna, paneb see kõhklema neidki, kes tahaksid II ja III sambasse koguda. Ka varasemate poliitiliste valikute mõju leevendada püüdes tuleb arvestada, et sagedased suunamuutused võivad tahtmatult usaldust õõnestada ja kogumist pärssida. 
+Autonoomia ei võrdu finantssektoris väärtustatud valikuküllusega – raskesti võrreldavad ja näilised turunduslikud valikuid võivad põhjustada segadust ja vältimist. Iga uus nüanss muudab tervikpildi mõistmise raskemaks – seetõttu võiks regulatsioonidesse uute kihtide lisamise asemel otsida võimalusi süsteemi lihtsamaks muutmiseks. 
+Riik võiks julgemalt eelistada tõestuspõhist lähenemist. 
+Lisaks säästmise soodustamisele peab poliitikakujundus toetama ka seda, et inimesed saaksid säästudest rohkem kasu. 
+Siin võiks pensionipoliitika laenata tervishoiupoliitikalt. Nii nagu terviseamet ei käsitle võrdsete valikutena tõenduspõhist meditsiini ja näiteks homöopaatiat, ei tohiks riik turuosaliste võrdse kohtlemise taha varjudes jätta muljet, justkui oleks tõenduspõhise investeerimisstrateegia eelistamine maitseasi. 
+Pikaajaliseks investeerimiseks on olemas selge ja teaduspõhine retsept – kui ei ole valmisolekut seda eiravaid valikuid piirata, võiks vähemalt inimestele julgemalt ja selgemalt öelda, mis see on (vt näiteks Fama & French, 2010; Berk & van Binsbergen, 2015; Malkiel, 2013; S&P Dow Jones Indices, n.d.; Tapver, 2022 jne). 
+Võime ette kujutada, mitu last oleks Eestis vaktsineeritud, kui riikliku vaktsineerimiskava asemel öeldaks vanematele: “Kaaluge kindlasti riske, võrrelge erinevate tootjate vaktsiine ja siis alles otsustage, milline ja millal teile võiks sobida.” 
+Töö tugevused, piirangud ja võimalused edasiseks uurimistööks
+Töö autorina ei ole ma erapooletu vaatleja. Olen aidanud kujundada Tuleva strateegilisi valikuid asutamisest saadik. See mõjutab nii probleemiasetust kui ka tulemuste tõlgendamist – samas on see kujundanud põhjaliku ja inimkeskse arusaama Eesti pensionisüsteemist. 
+Uurimistöö eesmärk ei olnud hinnata Tuleva kuvandit, vaid uurida inimeste pensionisammastega seotud tajusid ja kogemusi – selles on valdkonna tundmine eeliseks. 
+Uuring keskendus ainult Tuleva fondides kogujatele. Järeldusi ei saa seega automaatselt üldistada kogu Eesti elanikkonnale, aga töös kasutatud metoodilise lähenemisega saab tulevikus uurida ka teisi sihtrühmi – see aitaks inimeste taju- ja käitumismustrite mõistmist veelgi rikastada. 
+Vestlused kogujatega süvendasid arusaamist, et inimese heaolu ei jagune domeenidesse, vaid kujuneb terviklikus ökosüsteemis. Heaolu mõjutavate käitumisprotsesside interdistsiplinaarne uurimine võiks aidata välja valgustada mustreid, mis kitsalt majandusotsuste ja ka rahalise heaolu perspektiivis märkamata jäävad. 
+
+IIProbleemi kaardistus
+Pensioniks kogumine kui käitumuslik probleem
+Inimestena ei ole me rumalad ega ignorantsed, aga maailm võistleb meie piiratud tähelepanu pärast (Statman, 2019). Et teha kiireid otsuseid, tuleb paratamatult kasutada lühiteid ehk heuristikuid, mida juhivad harjunud mõtte- ja tundemustrid. Need töötavad igapäevaelus hästi, aga kipuvad alt vedama keerulisemate valikute puhul. 
+Siin tuleb mängu rida loomulikke kaldeid: näiteks oleviku eelistamine, tuleviku-mina kaugus ja inertsus (Thaler & Sunstein, 2008). Kui kõigele sellele lisandub valikute keerukus ja üleküllus, tekib ülekoormus – kaitsereaktsiooniks võib olla passiivsus ja vältimine (Iyengar & Lepper, 2000). 
+Neid probleeme on palju uuritud ja püütud käitumisteaduste abiga lahendada: näiteks suunava valikuarhitektuuri, inimeste õigele teele müksamise ja finantskirjaoskuse tõstmisega. Teiselt poolt on ka kritiseeritud lähenemist, mis keskendub inimeste “parandamisele” süsteemi ootustele vastavaks. 
+Näiteks Chater ja Loewenstein (2022) on välja toonud, et indiviidi tasandi sekkumised on toonud siin-seal ainult väikest kasu. Samal ajal oleks palju mõjusamad mitmes riigis juba rakendatud lahendused, mis mitte ainult ei püüa suunata inimesi parema käitumise poole, vaid otsustavalt vähendavad vajadust keerulisi valikuid teha. Sellised lahendused on näiteks kohustuslik kogumine, vara kasutuse piirangud ja üheselt eelistatud hea valik. 
+Eestis on sarnased probleemid nagu mujalgi
+Eesti on viimastel aastatel valinud teise tee: 2021. aastal muutusid sissemaksed II sambasse vabatahtlikuks ja kogutud vara võib nüüd varem välja võtta. 
+Mitmed kogumist toetavad tingimused on Eesti süsteemis siiski olemas. Liitumine II sambaga on automaatne ja sissemaksed kasvavad koos sissetulekuga – see aitab vältida edasilükkamist ja otsustusväsimust (Benartzi & Thaler, 2007).  Nii II kui ka III sambas kogumise motiveerimiseks pakub riik tulumaksusoodustust. 
+Kuigi Eesti pensionifondid paistsid aastaid silma OECD riikide kõrgeimate tasude ja madalaima tootluse poolest, on viimastel aastatel nende positsioon paranema hakanud (Rahandusministeerium, 2024, lk 4-7). Eesti kogujatele on nüüd kättesaadavad ka madala kuluga indeksifondid, mis tõestatult pakuvad pikaajaliselt paremaid tootluse väljavaateid (Malkiel, 2013; Morningstar, 2022; S&P Dow Jones Indices, 2023).
+Kogumine II ja III sambasse on tähtis, sest esimene sammas ehk riiklik pension võib tulevikus katta keskmisel inimesel ainult umbes kolmandiku tema viimasest palgast (OECD, 2023). 
+Rahatarkuse jagamisest ei piisa
+Mure pensioni pärast on koondanud poliitikakujundajate tähelepanu finantskirjaoskusele. Uuringud on kinnitanud, mida terve mõistus kaldub eeldama: teadlikumad inimesed teevad üldiselt paremaid rahaotsuseid (Lusardi & Mitchell, 2007; Kaiser et al., 2022). 
+Laialdane rahatarkuse jagamine tundub seepärast loogilise lahendusena, aga on ometi toonud pettumuse. Selle mõju inimeste tegelikule rahakäitumisele on jäänud marginaalseks (Fernandes et al., 2014) ning toonud tagasihoidlikke, ent siiski tähenduslikke tulemusi vaid siis, kui sekkumised on olnud hästi sihitud ja kontekstitundlikud (Kaiser et al., 2022). See näitab, et seos teadmiste ja käitumise vahel ei ole nii sirgjooneline kui oleks võinud arvata.
+Ka Eesti kogemus peegeldab seda. Rahandusministeeriumi esimese “Eesti elanike finantskirjaoskuse edendamise programmi” vältel muutus olukord peaaegu kõigis seatud eesmärkides paranemise asemel hoopis halvemaks (Rahandusministeerium, 2013; 2023). 
+Et mõista, miks rahatarkuse projektid sageli tegudeni ei vii, tuleks pensioniks kogumist vaadata palju laiemalt kui kitsa finantsotsusena. 
+Rahaasjad on heaolu teiste aspektidega süsteemselt seotud
+Subjektiivne enesetaju, hoiakud ja kogemused mängivad inimeste rahakäitumise kujunemisel sageli olulisemat rolli kui teadmised (Riitsalu & Murakas, 2019; Riitsalu, Atkinson & Pello, 2023). Rahaasjadel on omakorda võimas mõju inimeste heaolule: need ei mõjuta ainult eluga rahulolu, vaid ka näiteks tervist ja noorte akadeemilisi saavutusi (Shim et al., 2009; Arber et al., 2014). 
+On isegi leitud, et rahalised võimalused ja majanduslik kindlustunne võivad ennustada üldist heaolu sama tugevalt kui rahulolu oma töö, tervise ja suhetega kokku (Netemeyer et al., 2018). 
+Teadlased on püüdnud määratleda kirjanduses järjest sagedamini esinevat “rahalise heaolu” mõistet (Brüggen et al., 2017; Riitsalu, Atkinson & Pello, 2023). See perspektiiv arvestab ja tõstab esile finantsotsuste emotsionaalseid ja praktilisi aspekte. 
+Heaolu jagamine eraldiseisvateks kategooriateks ei aita siiski inimeste käitumist paremini mõista. Rahaasjad, tervis, suhted, toitumine, uni, liikumine ja eneseteostus on omavahel põimunud heaolu aspektid, mis mõjutavad vastastikku inimeste tähelepanu, võimalusi ja valikuid kõigis elu valdkondades. 
+Nii nagu ei ole tavaks rääkida "une- või liikumisheaolust”, tuleks ka rahaga seotud otsuseid käsitleda osana terviklikust heaolu ökosüsteemist.
+Kogumiskäitumise eripärad
+II ja III pensionisamba abil tulevikuks vara kogumine on sarnane teiste komplekssete heaolukäitumistega – nende mõju avaldub tulevikus, aga need nõuavad otsustamist, pingutust või millestki loobumist olevikus. 
+Suurimaks takistuseks ei ole sageli motivatsiooni puudumine, vaid selle ebamäärasus ja edasilükkamine. Inimestena tahame raha koguda, tervislikumalt toituda, rohkem liikuda – või vähemalt tunneme, et peaksime seda tegema. 
+Samas on pensioniks kogumisel ka olulisi eripärasid. Seda ei toeta igapäevased harjumused, vaid harvad strateegilised otsused ja automaatseks muudetud süsteemid, mis vajavad aeg-ajalt uuendamist ja tähelepanu. Veel tuleb õppida vältima kahjulikke otsuseid – näiteks osata ära tunda agressiivseid müügivõtteid, tulla toime ärevusega turulanguste ajal ja tasakaalustada rahalisi pingeid.
+Et disainida lahendusi, mis tõesti aitaks suurendada nii kogumist kui ka heaolu, on vaja kõike seda arvestada ja uurida, kuidas inimesed ise pensionisammastega seotud valikuid oma elu ja heaolupüüdluste kontekstis tajuvad.  
+
+Realistlik sihtrühma määratlus: kellele lahendusi disainida?
+See uurimistöö keskendub käitumusliku lähenemise sihtrühmana inimestele, kes põhimõtteliselt tahaksid ja saaksid II ja III sambasse koguda. 
+Sihtrühma terav ja realistlik määratlemine on strateegiline küsimus. Kogu elanikkonnale või müütilisele “keskmisele” inimesele suunatud sekkumised võivad jääda vähe tõhusaks. 
+Kahtlemata vajavad tähelepanu need, kes veel üldse pensionivara ei kogu. Aga tuleb otsa vaadata tegelikkusele: mõnede sihtrühmade jaoks võivad II ja III samba fookusega sõnumid jääda jõuetuks ja tuua pigem tagasilööke. 
+Haavatavad sihtrühmad vajavad struktuurseid lahendusi
+Tartu Ülikooli hiljutine Pensionitarkuse uuring jagas Eesti tööealised inimesed teadlikkuse ja käitumise järgi viide erineva potentsiaaliga sihtrühma (Pulk et al., 2024). 
+Viiendasse klastrisse (9% tööealistest) kuuluvad kõige teadlikumad ja kõrgema sissetulekuga inimesed, kellel on juba investeerimiskogemus ning kes säästavad aktiivselt. Ka nende seas on palju inimesi, kes ei kasuta kõiki pensionisüsteemi võimalusi ja vajavad selles tuge.
+Neljandasse klastrisse (16% tööealistest) kuuluvad noored, kes on investeerimisest huvitatud ja motiveeritud, aga kelle rahalised võimalused on veel piiratud. Ka neid saab kogumisel toetada.
+​​Kolmanda klastri moodustab suur rühm riskikartlikke skeptikuid (29% tööealistest), kes küll inertselt koguvad teise sambasse, aga kelle usaldus pensionisüsteemi vastu on nõrk. Selles rühmas on tõenäoliselt palju neid, keda sihipärasem toetus kogumisel aitaks. Aga siin leidub tõenäoliselt ka inimesi, kelle peamine barjäär on üldine madal usaldus riigi vastu.
+Esimese ja teise klastrisse kuuluvad inimesed, kellel puuduvad nii soov kui ka võimalused pensionieaks investeerida. Neid takistavad usalduse puudumine ja väga väike sissetulek. Kokku moodustavad need rühmad peaaegu poole Eesti tööealisest elanikkonnast – 46%.
+Esimese, teise ja osaliselt kolmanda klastri puhul võivad pensionisammaste fookusega käitumuslikud sekkumised tuua kasu asemel veel rohkem võõrandumist ja vastupanu. Sügav usaldamatus riigi vastu (Nye, Zelikow, & King, 1997) ja madalad sissetulekud vajavad struktuurseid lahendusi ja sotsiaalpoliitikat, mis võiks tulevikus luua soodsama pinnase kogumise alustamiseks.
+Käitumuslike sekkumiste sihtrühm: umbes pool tööealistest inimestest
+Pensionitarkuse uuringu klastrid näitavad, et pensionisammastele keskenduvatest käitumuslikest sekkumistest võiks kasu olla neljandasse ja viiendasse ning osaliselt kolmandasse klastrisse kuuluvatele inimestele. See on valus tõdemus, sest sihtrühmast jääb välja umbes pool tööealistest inimestest. 
+Aga kui võimestada rohkem koguma ja ka pensionisambaid tulusamalt kasutama neid, kellel on selleks vähemalt mingi valmisolek ja võimekus, ei võida sellest ainult nemad. See tähendab rohkem maksuraha ja vähem survet avalikele süsteemidele, mis peavad ka edaspidi kõige haavatavamaid toetama. 
+IIIKvalitatiivne uuring: pensionisammaste roll hea elu  poole püüdlemisel
+Uurimisküsimused ja metoodika
+Koostöös Tulevaga läbi viidud kvalitatiivse uuringu eesmärk oli mõista, kuidas tajuvad pensionisammaste rolli oma väärtuste ja heaolupüüdluste kontekstis inimesed ise, ning kaardistada kogumist toetavaid ja takistavaid tegureid. 
+Jättes kõrvale põhjused, miks osa inimesi üldse ei kogu, keskendus uuring järgmistele küsimustele: 
+Mis mõjutab motivatsiooni koguda II ja III sambasse? 
+Miks mõned huvitatud koguvad liiga vähe või kõhklevad oma valikutes? 
+Mis toetab neid, kes juba kasutavad pensionisambaid optimaalselt? 
+Sihtrühm ja valim
+Uuringus osales 30 inimest, kes on demonstreerinud huvi kogumise vastu, astudes selleks vähemalt ühe aktiivse sammu. 
+Kõik uuringusse kaasatud inimesed koguvad Tuleva II ja/ või III samba pensionifondides. Tuleva ei kasuta erinevalt teistest fondivalitsejatest aktiivset müüki (näiteks pangakontorites või kaubanduskeskustes). Kõik osalejad olid seega teinud ise vähemalt ühe pensionisammastega seotud otsuse, kasutades selleks ühte kolmest veebikanalist: internetipank, Pensionikeskus või Tuleva veebirakendus.
+Uuringu valimisse kaasasime
+optimaalselt kogujaid – inimesed, kelle II ja III samba säästumäär oli vähemalt 12% brutopalgast ja kes olid teinud avalduse II samba sissemaksete tõstmiseks; ja
+arenguruumiga kogujaid – inimesed, kelle kogumine Tuleva pensionifondides varieerus väga tagasihoidlikust kuni 12%ni brutopalgast.
+Valimi koostamisel katsime erinevad vanusegrupid vahemikus 22 – 54 aastat. Kaasasime ka erinevad sissetulekutasemed. Selleks kasutasime võimalusel indikatiivset infot, mis põhines II samba sissemaksetest tuletatud sotsiaalmaksuga maksustatud tulul. See on ligikaudne orientiir – kõik osalejad ei kogu II sambasse Tuleva fondis ja sissemaksed ei pruugi alati peegeldada kogu sissetulekut.
+Tuleval ei ole ülevaadet osalejate säästude ja investeeringute kohta väljaspool Tuleva pensionifonde. Kogumiskäitumise, vanuse ja sissetulekute kohta kogutud indikatiivset infot kasutasime valimi tasakaalustamiseks, mitte tulemuste eristamiseks rühmade vahel. Eesmärk ei olnud võrrelda rohkem ja vähem koguvaid inimesi ega analüüsida vanuserühmade erinevusi, vaid mõista üldisemalt pensioniks kogumisega seotud hoiakuid ja otsustusprotsesse.
+Andmete kogumine ja analüüs
+Uuringu läbiviimisse oli kaasatud kokku 10 Tuleva erinevate valdkondade juhti ja spetsialisti, kes tegid intervjuusid ja lisasid oma praktikapõhiseid vaatenurki tulemuste tõlgendamisse. 
+Ettevalmistusfaasis arutasime Tuleva töötajatega kahest sessioonist koosneval koolitusel uuringu eesmärke, kvalitatiivsete uuringute eripärasid, poolstruktureeritud intervjuude läbiviimise põhimõtteid ja eetilisi aspekte. 
+Andmed koguti poolstruktureeritud süvaintervjuudega – vestluskava on toodud lisas 1. Intervjuud keskendusid järgmistele teemadele:
+isiklikud väärtused ja suhestumine tuleviku-minaga,
+raha kogumise ning investeerimise tähendus,
+pensioni mõiste seosed ja pensionisammaste tajutud roll inimese elus.
+Andmeanalüüsis lähtusin Braun ja Clarke (2006) temaatilise analüüsi raamistikust, kasutades induktiivset ja deduktiivset meetodit ühendavat kombineeritud lähenemist. Tuleva tiimi perspektiivide kogumiseks korraldasin ühe 90-minutilise vahearutelu ja kolmest koosloome töötoast (a 4 tundi) koosnenud analüüsisprindi. Tiimiliikmed kommenteerisid otse failis ka valmivat tulemuste kirjeldust. 
+Uurimistöö tulemuste sünteesi ja järelduste struktureerimise põhialuseks oli isemääramisteooria (Deci & Ryan, 2000). 
+Uuring on kooskõlastatud Tartu Ülikooli inimuuringute eetikakomiteega (vt lisa 2) ning selle läbiviimisel järgiti hoolikalt eetikapõhimõtteid ja andmekaitsenõudeid. 
+Tulemused: II ja III sambasse kogumine inimeste tajus 
+Kogumiskäitumine on osa dünaamilisest süsteemist, kus inimeste sisemine motivatsioon, välised signaalid ja reeglid võivad kokku mängida või võistelda. Üksikuid osi eraldi vaadates jääks nii mõistmine kui ka lahendused pinnapealseks (Meadows, 2008; Marmot, 2005).
+Intervjuud Tuleva fondides kogujatega näitasid, kuidas tulevikuks raha kogumine seostub inimeste heaolupüüdluste, identiteedi ja elusituatsioonidega. Samuti tõid need esile takistusi ja katkestuskohti, mis II ja III sambasse kogumist mõjutavad. 
+Isemääramisteooria (Deci & Ryan, 2000) pakub selge, empiiriliselt põhjendatud aluse, mille kaudu saab analüüsida, kuidas inimesed II ja III sambasse kogumist tajuvad – mis aitab ennast tunda vabana ja pädevana või hoopis survestatuna, ebakindlana ja distantseerituna.
+Tajutud autonoomia, kompetentsus ja sotsiaalne seotus on võtmetegurid, mis mõjutavad seda, kas kogumisest saab järjepidev harjumus või emotsionaalselt pingestatud teema, mida pigem välditakse.
+Autonoomia
+Inimestena tahame tunda, et meie otsused tulevad meie seest, et need on kooskõlas meie väärtustega ja viivad meid lähemale meie soovidele. Pealesurutud valikud ja survestamine vähendavad motivatsiooni ja heaolu. Sellepärast on autonoomia vaatest tähtis, et pensionisambad oleks seostatud inimeste laiemate väärtuste ja eesmärkidega. 
+Inimeste eesmärk pole pension, vaid vabadus, iseseisvus ja kindlustunne. Hea elu ning tulevikuvisioonide kirjeldustest joonistus selgelt välja, et inimesed väärtustavad kõrgelt vabadust ja iseseisvust, aga ka kindlustunnet ja meelerahu.
+“... et saaksin valida, kas ja kui palju töötan.” Vastaja 25
+“Soovin, et mul oleks tagavara juhuks, kui midagi peaks juhtuma.” Vastaja 17
+“Tahan tulevikus ise hakkama saada.” Vastaja 19
+
+Raha ei koguta mitte lihtsalt tagavaraks, vaid selleks, et oleks võimalik ise oma elutempo ja valikute üle otsustada. Samuti motiveerib koguma soov mitte jääda koormaks lastele, vaid neid ise täiskasvanuelu algul toetada. 
+“Olen töötanud selle nimel, et kui ta kunagi iseseisvub, saaksin talle esimesed pesaoksad kaasa anda.” Vastaja 22
+Tulevikueesmärgid ei mahu valemisse. Uuringus osalejad kasutasid motiveerivaid kuu või aasta kogumiseesmärke. Samas ei nimetanud ükski inimene konkreetseid pensioniga seotud eesmärke – näiteks kui suurt pensionit loodetakse saama hakata või kui palju vara soovitakse pensionieaks kokku koguda. 
+Paar inimest ütles, et olid üldisemalt püstitanud pikaajalisi summalisi eesmärke, aga ei osanud neid peast öelda. Kauge tulevikuga kaasneb liiga palju teadmatust nii isiklikul kui ka keskkonna tasandil, et sellised kalkulatsioonid inimeste elus motiveerivat tähendust omaks.
+„Ei suuda teha arvutusi, mitu eurot peaksin investeerima ja millise tootlusega fondidesse, et aastaks x oleks mul piisavalt.“ Vastaja 1
+Pension ei toeta autonoomiat. Vestlused näitasid, et üks oluline barjäär, mis lõikab oleviku ja tuleviku niigi hapra sideme läbi, on “pensioni” mõiste ise. 
+Kaugemast tulevikust rääkides mainisid pensioni mõistet vaid üksikud – inimesed ei mõtle endast kui tulevasest pensionärist ega oma tulevikust kui “pensionieast”. Pensionit seostatakse pigem ebameeldivate metafooridega nagu vanadus, üksildus ja piiratud võimalused. 
+„Sellel sõnal on tolmune maitse.“ Vastaja 30
+Eriti nooremate inimeste jaoks oli pension midagi kauget ja pigem teisi inimesi puudutavat.
+“Me ei räägi sõpradega üldse pensionist. See pole tabuteema, aga see tundub kauge ja meid mittepuudutav ja täiesti ebaseksikas.” Vastaja 30
+
+Intuitiivselt tähendab sõna “pension” pigem riigi toetust kui aktiivset isikliku vara kogumist. 
+“Pension on komplekt sellest, et sa ei ole kohustatud tööl käima ja keegi maksab sulle.” Vastaja 1
+Tajutud ebastabiilsus vähendab usaldust. Kui uurijad “pensioni” mõiste vestlusse sisse tõid, väljendasid inimesed tulevikuga seoses rohkem ebakindlust kui üldisemalt tulevikust rääkides. Eriti teravalt avaldus siis mure globaalsete arengute, geopoliilise olukorra ja Eesti pensionisüsteemi usaldusväärsuse osas. 
+“Mis siis, kui tuleb sõda ja kõik kaob?” Vastaja 18
+“Minu arvates on üks suurimaid riske valitsus.” Vastaja 11
+“Tekitab frustratsiooni, kui riik süsteemi muudab.” Vastaja 20 
+Inimesed ei ole alati kindlad, kas pensionisammastesse kogutud vara on ikka “päris” oma – kõhklusi toidavad nii pensioni mõiste mitmetähenduslikkus, süsteemi tajutav ebastabiilsus kui ka pensionisammaste regulatiivsete nüanssidega seotud arusaamatused. 
+„Kogun küll pensioniks ja valmistun – aga samas mõtlen, kas ma üldse kunagi seda raha näen.“ Vastaja 27
+Nii nagu “pension”, pole ka “kogumine”, “säästmine” ja “investeerimine” neutraalsed mõisted. Iga inimese jaoks erinevaid tähendusi ja emotsioone kandes mõjutavad need ka pensionisammaste raamistust. Mitmed uuringus osalejad tajusid näiteks „säästmist” pigem piirangu ja kohustusena, samas kui „kogumine” oli vabam ja neutraalsem sõna. 
+“Säästmine on lihtsalt rott. “Kogumine" on kindlasti parem.” Vastaja 30
+Investeerimisest rääkisid inimesed väga erinevalt. Mõnedele on see põnev hobi, teistele pragmaatiline vajadus, kolmandatele midagi natuke keerulist ja hirmutavat, mida tahaks või peaks tulevikus proovima. 
+
+Pensionisambad ei pruugi inimeste tajus olla laiemate eesmärkidega kooskõlas. Oli vastajaid, kes pidasid neid oma rahalise kindlustunde aluseks. 
+“Minu eesmärk ongi, et teine ja kolmas sammas oleksid kogumise vundament.” Vastaja 20
+Samas oli II ja III sambasse kogumine mitmel juhul justkui muudest eesmärkidest lahti ühendatud. Inimesed, kelle tajus pensionisambad ei haaku hästi elus esiplaanil olevate eesmärkidega, võivad tajuda nendesse kogumist oluliste väärtustega konkureerivana: 
+“Minu väärtused on praegu mujal kui rahas.” Vastaja 30
+Kui pensionisambaid tajutakse pigem ebamäärase kohustusena ja seos panuse ning tulemuse vahel pole selge, võib kogumine piirduda heal juhul sümboolsete sissemaksetega. 
+“Pensionisäästmine on teisejärguline.” Vastaja 25
+Oluline on meeles pidada, et liiga palju valikuid ja infomüra nende ümber võib tajutud autonoomiat hoopis vähendada ja tegutsemist halvata (Goldin et al., 2020). 
+“Kindlus pensioniks kogumise osas on momendil segane. Mõtlen vahel, kas peaks muutma strateegiat ja olema rohkem passiivne või jätkata aktiivset investeerimist. Ei ole veel suuri samme ette võtnud. Tahaks uskuda, et olen õigel teel, aga alati jääb kahtlus.” Vastaja 25
+Kompetentsus
+Inimestena tahame tegutseda, kui on selge, mida teha, ja see ei käi üle jõu. Me oleme valmis õppima, kui see ei tundu liiga koormav. Samas kaldume edasi lükkama ja vältima asju, mis panevad meid ennast rumala või saamatuna tundma. 
+Kompetentsus kui psühholoogiline vajadus ei tähenda lihtsalt võimalikult palju teadmisi, vaid ka usku oma võimesse targalt otsustada. 
+
+Esimesed sammud võivad saada teadmiste ja tähenduse käivitajaks. Paljud uuringus osalejad tunnistasid, et tegid algul mõne otsuse pooljuhuslikult, mõistmata selle täit tähendust. Eriti kui otsust tajuti väljastpoolt peale surutuna, võis tähelepanu ruttu uuesti hajuda. 
+“Kolmanda samba avasin alguses mitte nii teadlikult kodupangas. Alles hiljem uurisin rohkem ja sain paremini aru pensionifondide toimimisest.” Vastaja 25
+Samas võis paljudel juhtudel just välise tõuke ajel, näiteks lähedase eeskujul astutud samm motiveerida infot juurde otsima. Osa inimeste jaoks saavadki esimesed, kasvõi pooljuhuslikud sammud käivitajaks, mis toetavad omakorda järgmisi otsuseid. Teiste jaoks võivad need aga jääda killustunud valikuteks, mis ei pruugi järjepideva kogumiseni viia.
+Teadmised ja enesekindlus ei käi alati käsikäes. Mõned inimesed, kes olid aktiivselt teadmisi kogunud, tundsid ennast ikka ebakindlalt. Teised tegutsesid rahulikult ja järjekindlalt ka piiratud teadmistega. 
+Oli ka vastajaid, kelle puhul kõrge tajutud enesetõhusus võis olla pensionisammastesse panustamise vaatest pigem takistuseks. Nende vastuvõtlikkust infole vähendas usk, et nad suudavad ise investeerides paremaid tulemusi saavutada. 
+“Kui mul oleks täielik kontroll oma raha üle, saaksin paremini hakkama. Võib kõlada ülbelt, aga nii ma tunnen.” Vastaja 21
+Rohkem infot pole alati parem. Võimestavalt mõjuvad selged ja lihtsad sõnumid. Liiga palju infot ja vastuolulised soovitused võivad tekitada segadust ja panna otsuseid edasi lükkama. Mõned vastajad rääkisid, et nad olid tähelepanelikult investeerimisalast sisu jälginud ja sel teemal mitu raamatut lugenud, aga ei olnud leidnud selgust, mida nad tegema peaksid.
+Otsuseid aitasid teha konkreetsed, selged juhised. Mitmed kirjeldasid, kuidas usaldatud inimese selge soovitus andis näiteks kolmanda samba avamiseks piisava tõuke. 
+Sotsiaalne seotus
+Inimestena tahame kõik kuhugi kuuluda. Teiste inimeste hoiakud mõjutavad seda, kuidas me iseennast näeme ja mida tähtsaks peame. Uuring kinnitas sotsiaalsete suhete võimsat mõju: need ei kujunda ainult hoiakuid, vaid ajendavad sageli astuma konkreetseid samme. 
+Sõbralt-sõbrale sõnumid loevad rohkem kui ülalt-alla kampaaniad. Intervjuudest tõusis esile märgatav kontrast: 
+Usaldus institutsioonide vastu oli pigem madal ja nende sõnumid ei leidnud vastajate teadvuses erilist kõlapinda – vaid paaril üksikul juhul mainiti infoallikatena riigi või teenusepakkujate kanaleid. Samal ajal mängis suurt rolli horisontaalne usaldus – see, mida arvasid ja tegid sõbrad, pereliikmed või teised inimesed, kellega on kerge samastuda. 
+Eeskuju julgustab tegutsema. Paljud uuringus osalejad rääkisid, et huvi pensionisammaste vastu äratas sõbra või sugulase eeskuju. 
+“Üks sõber alustas raha kogumist minust oluliselt varem ja see aitas mul asjadest paremini aru saada.” – Vastaja 5
+“Ilma ühe kindla sõbrannata ei teeks ma ilmselt midagi sellist.” – Vastaja 8
+“Mul polnud kolmandat sammast ja õde soovitas Tulevat, sest ta ise kogub seal.” – Vastaja 28
+Käitumine levib võrgustikes sarnaselt sõnumitega. Mitu vastajat kirjeldas, et ei saanud pereringis rahakogumisest rääkida ja muretsesid lähedaste negatiivsete hoiakute pärast. See võis tekitada ebamugavust ja muret. Neid oli tegudele inspireerinud mujalt leitud mõttekaaslus – näiteks töökaaslased või sotsiaalmeedia. 
+Olles enda jaoks mõtestanud vähesed, aga olulised põhimõtted, võisid nad omakorda veenda pensionisammastesse koguma ka oma lähikondseid.  
+“Mu vend koos oma abikaasaga võttis teise samba välja ja pani lihtsalt teisele kontole ootama õiget aega. Vestlesime sellest. Tema ei süvenenud, aga vennanaine sai lõpuks aru, et tegi vea. Avastas ka Kristi Saare ja tegi kolmanda samba.” Vastaja 23
+
+Sotsiaalmeedia toetab kogukondlikku õppimist, aga võib ka eksitada. Oluliste infoallikatena mainitigi kõige rohkem sotsiaalmeedia investeerimis- ja rahatarkuse teemalise sisu loojaid. Kõige innustavamalt mõjus just isiklike kogemuste jagamine ja ka isiklik kokkupuude. 
+“Lugesin agaralt Kristi Saare postitusi ja hakkasin paremini sammastest aru saama, eriti kolmandast.” Vastaja 1 
+“Kuulan investeerimisalaseid podcast'e, näiteks Liivamäe omi, sest meie lapsed käisid koos lasteaias.” Vastaja 22
+Sotsiaalmeedia kogukondade eestvedajad võisid inimeste tajus saada justkui asjatundlikuks sõbraks (Han ja Balabanis, 2023), aga mitmel juhul aitasid ka ehitada päriselu suhteid, mis aitasid arendada teadmisi ja enesekindlust. 
+“Jekaterina Tint pani sotsiaalmeedias kokku piirkondliku grupi Rakvere kandis. Huvilisi tuli veel, nii et lõpuks oli meid kuus naist. Oleme juba kaks aastat regulaarselt kohtunud.” Vastaja 2
+Paar uuringus osalejat kirjeldas ka seda, et olid sisuloojatest inspiratsiooni saades investeeringutega kõrvetada saanud. 
+Kogumise teekonnal on ekslemist ja hargnemisi  
+Nii nagu elus, tuleb pensionisammastesse kogumise teekonnal paratamatult ette omajagu ekslemist ja ebakindlust. Kogumise tähtsus ja tähendus muutub elu jooksul dünaamikas inimeste identiteedi ja võimalustega.
+Mõned pidasid ennast juba loomu poolest vastutustundlikuks säästjaks, aga sagedamini oli tulevikuks kogumine tähtsaks saanud mõne olulise elusündmuse mõjul. 
+Lapse sünd, vanemate surm, sissetulekute kasv, töö kaotus, raske haigus, lahutus või elukoha vahetus võisid põhjustada väärtuste ümber mõtestamist ja tuua esiplaanile rahaasjade korrastamise vajaduse. 
+
+Teisest küljest võisid needsamad elusündmused tuua kaasa kulutuste kasvu või sissetulekute languse, mis võis ka põhjustada katkestusi kogumises. 
+“Nii kui sissetulek suureneb, siis juhtub nii, et ka kulud selle võrra kasvavad.” – Vastaja 26
+Nii mõnegi vastaja jaoks avaldus sellistes olukordades ebamugav väärtuskonflikt – tähenduslik elusündmus suurendas tuleviku kindlustamise vajadust, aga samal ajal võis see pingestada majanduslikku olukorda. 
+Mitte ainult teadmised ja tahtmine, vaid sammude selgus ja tähendus
+Paljudel inimestel on soov tulevikuks raha koguda olemas, aga II ja III samba abil piisavat ja järjepidevat kogumist takistab kognitiivne ülekoormus, tähenduse killustatus ja valikute selgusetus. 
+Uuringus tuli esile, et ainult motivatsioon ega teadmised ei taga sihikindlat tegutsemist. Ilma konkreetse tõuke ja selge juhiseta lükkub see edasi, sest elu nõuab tähelepanu mujal. 
+Inimene võib ka esimesed sammud teha, aga nende tähendus võib ebamääraseks jääda – ta unustab need või eksleb edasi. Teisest küljest võivad esimesed sammud koos mõtestatud toetusega aidata käivitada järjest sihikindlama edasi liikumise. 
+Iga üksik samm kogumise teekonnal võib seetõttu olla kriitiline murdepunkt. Sellega saab ja tuleb arvestada nii taustsüsteemide kui sõnumite disainis. 
+Pensionisammaste kasutajate profiilid
+Kirjeldan üldistatuna kolme profiili, mis aitavad mõista erinevaid otsustusteid ja käitumisdünaamikaid. Nende loomisel toetusin lisaks kvalitatiivse uuringu tulemustele ka Pensionitarkuse uuringule (Pulk et al., 2024), lisades olulisi täpsustusi seal, kus intervjuud kogujatega tõid sügavamat mõistmist.
+Sageli arvatakse ekslikult, et suurem aktiivsus ja huvi investeerimise vastu peegeldab suuremat teadlikkust – intervjuud näitasid, et see pole alati nii. Rohkem ja vähem süsteemselt läbimõeldud tegutsemist leidus nii nende uuringus osalejate seas, kes kogusid peamiselt pensionisammastesse, kui ka nende seas, kes huvitusid aktiivsemalt mujale investeerimisest või juba tegid seda.
+Sügavate barjääridega haavatav sihtrühm, kes vajab struktuurseid lahendusi
+See rühm moodustab hinnanguliselt ligikaudu pool Eesti tööealistest inimestest. Suur osa nendest on liiga madala sissetulekuga, et pensioniks järjepidevalt ja tähenduslikult säästa. Lisaks on sügavaks barjääriks madal usaldus, mis suure tõenäosusega ulatub kaugemale pensionisüsteemist. Siin on vaja struktuurseid lahendusi ja sotsiaalpoliitikat, et luua pinnas, millelt kogumist alustada.  
+Meelerahu hindavad tasakaalu otsijad
+Uuringus osalenud, kes seostasid vabadust paindlikkuse ja rahuliku elutempoga, ei oodanud tulevikult niivõrd varajast finantsvabadust kui võimaluste ja kohustuste tasakaalu ning iseseisvat toimetulekut vanemas eas. 
+Mitmed neist kasutasid juba sihikindlalt kogudes pensionisammaste võimalusi maksimumi lähedal. Nad väljendasid mõistmist, et varade hajutamine madalate kuludega laiapõhjalises indeksifondis on pikaajaliseks kogumiseks hea viis ja hindasid eelist, mida annab pensionisammastes kogudes tulumaksuvõit. 
+Samas tajusid mõned meelerahu hindavad tasakaalu otsijad väärtpaberiturge abstraktse ja riskantsena, samal ajal kui käegakatsutava ja kindlama investeeringuna võis paista kinnisvara. Oli vastajaid, kes rääkisid, et peavad parimaks investeeringuks tulevikku kodu või suvila remonti. Üks vastaja oli majaehituseks II sambast raha välja võtnud. 
+II ja/ või III sambasse kogumist pidasid meelerahu hindavad kogujad sageli vastutustundliku inimese kohuseks.  Selle kohuse täitmine oligi üks rahu ja kindlustunde allikas. Nad väärtustasid seda, et pensionisammastesse kogumine ei nõua suuri teadmisi ja igapäevast ajakulu. 
+“Loodan, et spetsialistid teevad oma tööd hästi ja ühel päeval, kui mul on vaja pensionikontot vaadata, on seal head tulemused.” Vastaja 22
+Võis märgata, et mõnede jaoks jäi seos investeeritud summa ja koguneva vara vahel ebamääraseks – pensionisambaid tajusid nad justkui kindlustusena, millesse tehti igaks juhuks minimaalseid makseid. 
+Orienteeritus kindlustundele võis ka mõnel juhul tähendada, et eriti II, aga ka III samba  tajutud paindumatus vähendas huvi nendesse kogumise vastu. Nad eelistasid igaks juhuks koguda raha nii, et seda saaks hädavajadusel ilma karistuseta varem kasutada.
+Mõned inimesed tundsid justkui välist survet aktiivsemalt tegutseda. Nad leidsid, et pensionisambad on ehk pigem “investeerimine algajatele” ja kahtlesid, kas peaksid otsima tulusamaid võimalusi. Samas tunnistasid nad, et selleks ei ole piisavalt aega ega oskusi. See võis põhjustada ärevust ja ebakindlust.  
+Vabadust väärtustavad investeerimishuvilised
+Suur osa uuringus osalejatest olid jõudnud Tuleva II ja III samba fondidega seotud sammudeni mitte otseselt soovist koguda pensioniks, vaid laiemast huvist investeerimise ja/ või finantsvabaduse poole püüdlemise vastu. 
+Mitu vastajat kirjeldasid teekonda, mille algul nad olid katsetanud investeerimist üksikaktsiatesse, ühisrahastusse, krüptovaluutadesse jne. 
+Aja jooksul olid nad teadmiste kasvades hakanud hindama eeliseid, mida annavad madalad fonditasud, passiivne investeerimisstrateegia ja/ või pensionisammaste tulumaksuvõit. Nende arusaamisteni jõudmine võis võtta aega. 
+“Mul võttis see vist umbes 10 aastat!” Vastaja 4 
+Samas näisid teised vastajad olevat sarnase teekonna varasemas staadiumis – neile pakkus investeerimine elevust ja seostus just aktiivse kauplemisega. Nad võisid alahinnata pensionisammaste rolli, tajudes neid igava, madalamat tootlust pakkuva ja põnevamate võimalustega võistlevana.
+“Kui mul oleks täielik kontroll oma raha üle, saaksin paremini hakkama. Võib kõlada ülbelt, aga nii ma tunnen.” Vastaja 21
+Lahenduste peatükis pakun välja käitumuslikult informeeritud sõnumistrateegiad, mida võiks erinevaid profiile arvestades kasutada, et II ja III sambasse kogumist efektiivsemalt toetada.
+
+
+Probleemikaart
+Käitumine kujuneb süsteemis: II ja III sambasse kogumine ei ole lihtne ratsionaalne otsus, vaid kontekstist sõltuv protsess. Probleemikaart aitab mõista, kuidas erinevad psühholoogilised, sotsiaalsed ja keskkondlikud tegurid koosmõjus mõjutavad inimeste valikuid (vt joonis 1). See loob aluse järgmises peatükis esitatud sekkumismudelile ja disainipõhimõtetele.
+
+
+Joonis 1. Uurimistöö põhjal koostatud II ja III sambasse kogumise probleemikaart
+
+
+IVInimkeskne lahenduste raamistik
+Selles peatükis pakun strateegilise lahenduste raamistiku, mis aitab suurendada II ja III sambasse kogumist ning vältida tahtmatult uute barjääride loomist. 
+Esiteks kirjeldan kahetasandilist tõuke ja toe käitumuslikku mudelit eetiliste ning efektiivselt ajastatud sekkumiste kavandamiseks. Teiseks kirjeldan empiiriiliste leidudega seostatud praktilisi disainiprintsiipe, mis aitavad igapäevatöös hoida fookuses inimeste psühholoogilisi vajadusi. Kolmandaks pakun sõnumistrateegiad erinevate kogujaprofiilide toetamiseks. 
+Tõuke ja toe mudel terviklike sekkumiste disainiks
+Kogumiskäitumisele kohandatud mudel sobib kasutamiseks seal, kus suurimaks takistuseks pole motivatsiooni puudumine, vaid pigem selle ebamäärasus, killustatus, ebakindlus ja kognitiivne ülekoormus. 
+Mudel arvestab tegelike vajaduste ja käitumisega: 
+Inimeste ülekoormatud tähelepanu koondamiseks on vaja tõuget, mis julgustab tegema ühe väikese sammu oma tuleviku heaks kohe ära.
+Süvenemist nõudvaid sõnumeid on inimesed tõenäolisemalt valmis vastu võtma vahetult pärast, mitte enne väikese sammu astumist.
+Miks on täpsemat mudelit vaja? 
+Laialt levinud käitumuslikud mudelid keskenduvad teguritele, mis kavatsusi ja käitumist mõjutavad, aga annavad vähem juhiseid, kuidas need päriselt kokku viia. 
+Näiteks COM-B (Michie et al., 2011) aitab mõista võimekust, võimalusi ja motivatsiooni käitumise eeltingimustena, aga ei näita otse, kuidas inimeste tähelepanu õigel hetkel aktiveerida. Transteoreetiline mudel (Prochaska ja DiClemente, 1983) kirjeldab käitumise muutust kui protsessi, aga võib praktikas jätta mulje, nagu liiguks inimesed loogiliselt ühest faasist teise: kaalumine, ettevalmistus, tegutsemine jne. 
+Fogg mudel (Fogg, 2009) rõhutab käivitavate signaalide tähtsust, aga ei aita mõista, kuidas motivatsioon ja võimekus ajas kujunevad ja üksteist mõjutavad.
+Kahetasandilised sekkumised seovad sammud teekonnaga  
+Tõuke ja toe mudel (vt joonis 3) aitab aktiveerida inimesi tegema edasi lükkamata konkreetseid valikuid ja toetada neid motivatsiooni ja võimekuse kasvatamisel. Nii ei jää üksikud sammud juhuslikeks, vaid suurendavad järgmiste tõenäosust ja mõju. 
+
+Joonis 3. Tõuke ja toe mudel
+
+TÕUGE – “Astun kohe sammu!”
+Et aidata ületada lõhe kavatsuste ja tegelikkuse vahel, saab eetiliselt kaalutletult kasutada müksamis- ja veenmisvõtteid nagu näiteks tähtajalised üleskutsed või sotsiaalne tõestus.
+Tõuge aitab inimesel tunda, et “see on mulle tähtis just praegu”, “see on lihtsasti tehtav” ja “inimesed nagu mina juba teevad seda”. Hea tõuge on lihtne, käivitav ja kontekstitundlik ning arvestab inimeste psühholoogiliste vajadustega. See 
+toetab autonoomiat, rõhutades sidet inimese isiklike eesmärkidega; 
+toetab kompetentsust, pakkudes selgeid käitumisjuhiseid; 
+toetab sotsiaalset seotust, aidates näha ennast teiste tuleviku eest hoolitsevate inimeste seas, mitte üksildase tundmatus kohas vette hüppajana.   
+Kõik kolm põhivajadust ei pea olema igas tõukes üheaegselt ja võrdselt esil – tähtis on, et tõuge ei läheks nendega vastuollu. 
+TUGI – “Olen õigel teel”
+Kogumisega seotud otsused ei suuna ümber ainult raha, vaid ka tähelepanu. Inimestena otsime pärast otsuse tegemist kinnitust, et valik oli õige. Kogeme ka väikest nihet oma enesetajus – ”ma hoolin oma tulevikust ja mul on selle üle kontroll” (Bem, 1972). See äratab huvi juurde õppida. 
+Nüüd on hea võimalus siduda tehtud valik inimesele oluliste väärtustega ja pakkuda selgust, mida veel teha saab. 
+Kui tõuke tasand võis rõhuda perifeersetele otsustusteedele, siis tähenduse mõtestamiseks ja kinnistumiseks on vaja kaasata tsentraalsed otsustusteed (Petty & Cacioppo, 1986). Seda tuleb teha inimese aega ja võimalusi austaval viisil.
+Toe eesmärk on tagada, et inimeste autonoomia, kompetentsuse ja sotsiaalse seotuse vajadused ja seeläbi püsiva käitumise kujunemine oleks järjest paremini toetatud:
+Autonoomiat toetab selgus, mis on astutud sammu tähendus ja pikaajaline kasu;
+Kompetentsus kasvab, kui inimene tajub teekonda jõukohasena ja näeb selgelt, mida ta saab edasi teha;
+Sotsiaalset seotust ja kuuluvustunnet kujundab ühise teekonna kogemus: eeskujud, motiveerivad võrdlused, ühiste saavutuste tähistamine ja võimalus turvaliselt küsimusi ning kõhklusi arutada.  
+Ka toetus võiks hoida nähtaval tegevuskutse (CTA), et inimesed ei satuks segadusse ja mõistaksid, mida nad võiksid järgmisena teha. Aga kohe otsustamine ei ole toetuse peamine eesmärk. 
+Miks on tähtis, et tõuge ja tugi käiks koos? 
+Lihtne ja hästi ajastatud tõuge seob inimese tähelepanu. Läbimõeldud toetus kasvatab seejärel sisemist motivatsiooni ja eneseusaldust. Koos moodustavad need samm-sammult võimenduva käitumisahela, mis aitab järjest sihikindlamalt edasi liikuda ja identiteeti kujundada. 
+Kahetasandiline lähenemine ei tähenda alati rohkem sekkumisi. Tõuke ja toe mudel aitab pigem mõtestada tegevuste rütmi tervikuna ning ajastada sekkumisi taktikaliselt nii, et need aitaksid intertsust ületada, teekonnal orienteeruda ja loogiliselt järgmise sammu suunas liikuda. 
+Liiga palju tõukeid võib väsitada ja tekitada trotsi. Kui neid on liiga vähe, võib inimene jääda passiivseks. Kui tõukele järgnev toetus hilineb, võib tähelepanu juba hajuda – ja samas, kui igale sammule järgneb mehaaniline infovoog, võib tekkida sõnumipimedus. 
+Elu ei ole sirge joon: ka hästi läbimõeldud sekkumised ei välista kõhklemist ja eksimist. Tõuke ja toe mudel ei eelda alati sirgjoonelist liikumist, vaid võimaldab aidata inimestel teed leida ka siis, kui nad on segaduses. 
+Millised sekkumised on eetilised? 
+Seal, kus otsuste edasilükkamine toob inimesele kahju, ei pruugi olla eetiline piirduda teadmiste jagamisega ja oodata motivatsiooni “küpsemist”. See ei tähenda, et oleks eetiline tõugata inimesi astuma juhuslikke samme, aitamata mõista nende tähendust ja hinnata kasu. 
+Tõuge koos järgneva toega peab aitama inimesel mitte ainult oma eesmärkidele lähemale liikuda, vaid ka heaolu suurendada. Seejuures tuleb arvestada, et laiemat heaolu ei mõjuta vaid kogumise edukus, vaid ka kogumissurve ise. Näiteks hirmutavad või infotihedad sõnumid ilma selge ja jõukohase tegutsemisjuhiseta pole ainult ebaefektiivsed, vaid võivad põhjustada võõrandumist ja passiivsust nii kogumiskäitumises kui ka mujal elus. 
+Sekkumiste eetiliste aspektide hindamisel saab kasutada Nudge FORGOOD raamistikku (Lades & Delaney, 2020) – iga akronüümi täht tähistab ühte kontrollküsimust:
+F – Fair. Kas sekkumine on õiglane ja ei diskrimineeri?
+O – Open. Kas see on läbipaistev?
+R – Respectful. Kas see austab inimeste valikuvabadust ja väärikust?
+G – Goals. Kas eesmärk on selgelt sõnastatud ja avalikes huvides?
+O – Options. Kas eesmärgi saavutamiseks on paremaid võimalusi? 
+O – Opinions. Kas sihtrühma arvamusi on arvesse võetud?
+D – Democratic. Kas see on demokraatlikus ühiskonnas aktsepteeritav?
+
+Kahetasandiliste sekkumiste praktilisi näiteid
+Tõuke ja toe mudelit saab näiteks rakendada terviklike lahenduste ajastamiseks kogumisteekonna oluliste puutepunktide või loomulike kalendrisündmuste ümber. Näiteks: 
+
+Tõuke ja toe mudeli loogikast saab juhinduda ka veebis kasutajakogemuse ehitamisel, näiteks: 
+
+Kõige võimsamad tööriistad kahetasandilise sekkumisloogika kasutamiseks kogumise ja heaolu suurendamisel on poliitikakujundajatel. Siin on vaid üks näide. 
+
+Juhtumianalüüs: tõuke ja toe loogika efektiivsus reaalelus
+2020. aastal vastu võetud seadusega tõsteti Eestis vanusepiiri, millest alates saab tulumaksusoodustusega III sambast raha välja võtta. Samas säilitati soodsamad tingimused neile, kes alustasid kogumist enne 2021. aastat. 
+Tuleva jagas 2020. aasta detsembrikuu vältel pealtnäha vaid maksutehnilist soovitust: avada enne uut aastat III sammas ja teha sinna kasvõi 1 euro suurune sissemakse, et tagada endale tulevikus paindlikumad võimalused vara kasutamiseks. 
+See panustas Tuleva III samba fondis kogujate arvu hüppelisse kasvu: ühe kuuga tegi esimese sissemakse ligi 20 000 täiskasvanud inimest ja lisaks avati tulevikule mõeldes 4000 kontot ka alaealistele. 
+Sellele väikesele sammule järgnes paljude jaoks märkimisväärne muutus kogumisharjumustes. 71% 2020. aasta detsembris alustanud täiskasvanutest on teinud hiljem Tuleva III samba fondi veel vähemalt ühe rahapaigutuse. 6900 inimest ehk 35% on edaspidi paigutanud III sambasse raha juurde igal aastal (Tuleva, 2025).  
+
+
+Joonis 5. Kuvatõmmis Facebook-ist.
+
+Efektiivne tõuge: sümboolse sissemaksega konto avamise üleskutse
+Tuues fookusesse vajaduse kohe tegutseda, aitas lihtne ja vähenõudlik üleskutse (vt näiteks joonis 5) tõhusalt ületada mitmeid käitumuslikke ja kognitiivseid barjääre. 
+Tänu ajalisele piiratusele aktiveeris see inimesi, kelle kogumiskavatsus võis olla alles ebamäärane. Tööle hakkas nappuse efekt (scarcity effect): kui mingi võimalus tundub piiratud, siis kaldume inimestena seda hindama väärtuslikumana ja tegutsema kiiremini (Cialdini, 2009).
+Lihtsasti jagatava üleskutsega liitusid ajakohaseid näpunäiteid armastavad sotsiaalmeedia sisuloojad ja selle üle arutleti rahatarkuse ning investeerimise teemalistes foorumites. See muutis III samba konto avamise nähtavaks sotsiaalseks normiks. Nii varasemad uuringud (Døskeland et al., 2025) kui ka selle uurimistöö käigus tehtud intervjuud on näidanud, et info teiste inimeste käitumise kohta suurendab kogumist tõhusamalt kui soovitused, mida peaks tegema. 
+Eelnev praimimine aitas samuti kaasa: II samba reform oli samal ajal populaarne vaidlusküsimus, mis muude mõjude seas suunas inimesi rohkem tulevikule ja pensionisammastesse kogumisele mõtlema.
+Paljud mõistavad vajadust pensioniks koguda, aga kalduvad seda edasi lükkama. Üleskutsele reageerimine aitas vähendada sellest põhjustatud kognitiivset dissonantsi (Festinger, 1957) – see ei nõudnud erilist pingutust ega ohverdust, aga võimaldas tunda, et vähemalt midagi on tuleviku heaks tehtud.
+Astudes “õnnelike” sekka, kellele soodsamad maksutingimused laienevad, hindasid inimesed selle privileegi väärtust ja see suurendas huvi III samba vastu (Thaler, 1980).
+Konto avanud inimesed ületasid ka ühe olulise tehnilise barjääri: nad teadsid nüüd, et III sambasse sissemakseid teha on lihtne – see suurendas enesetõhusust, mis omakorda võis toetada motivatsiooni (Bandura, 2018). 
+Nii nihestas III samba avamine ja selle tajumine kasuliku otsusena nihestas natuke inimeste enesetaju, võimaldades endast mõelda kui kellestki, kes oma tulevikust hoolib ja kes suudab seda mõjutada (Bem, 1972).
+Järgnev tugi: süvenev arusaam suunab järgmisi samme 
+Esimene väike samm tekitas tänu nendele psühholoogilistele mehhanismidele huvi järgmiste vastu. See huvi lõi soodsa pinnase teavitustele, mida Tuleva oma kogujatele regulaarselt pakub. Ka detsembris konto avanud inimesed said järgmistel nädalatel ja kuudel erinevaid toetava iseloomuga sekkumisi. 
+Näiteks jaanuaris said nad fondijuhilt e-kirja “Kuidas tugevdada oma finantsmaja vundamenti?”, milles seisis: 
+“Teine ja kolmas sammas on tõeliselt passiivsed investeeringud, millega ei pea iga päev ega isegi iga aasta tegelema. Kui need on kord automaatselt ja piisavas summas käima pandud, siis saad ise keskenduda asjadele, mis Sulle tõeliselt huvi pakuvad. See on ka viis kuidas ma ise oma rahaasju korraldan.” Alla joonitud fraas viitas lingina blogiartiklile, mis seda infot laiendas ja selgitas.
+Veebruaris said kogujad kirja “Kuidas deklareerida kolmanda samba tulu?”, mis lisaks praktilistele juhistele sisaldas sotsiaalset tõestust: “Meie, kes me Tuleva kolmandas sambas kogume, saame sel aastal riigilt tagasi ligi 4 miljonit eurot tulumaksu.” See sisaldas ka üleskutset: “Kui sul jäi eelmise aasta lõpus kripeldama, et oleksid võinud veelgi rohkem säästa, siis suuna tulumaksutagastus kohe kolmandasse sambasse kasvama.”
+Märtsis said kogujad kirja, milles Tuleva soovitas üles seada III samba püsimakse ja pakkus selleks juhised erinevate internetipankade kasutajatele, jne. 
+Inimeste käitumist võisid mõjutada ka mitmed muud tegurid, mida siin pole analüüsitud; ning ei ole võimalik öelda, mil määral aitasid ühekordse tõuke mõju võimendada järgnevad toetavad sõnumid. Siiski vastab see juhtum mitmes mõttes loomuliku eksperimendi tunnustele ning toimib tõuke ja toe mudeli loogikat illustreeriva näitena.
+
+Psühholoogilisi vajadusi toetavad disainiprintsiibid 
+Disainiprintsiibid on juhised, mis olulisi väärtusi ja mustreid fookuses hoides aitavad kujundada komplekssetele probleemidele terviklikke lahendusi (IDEO, 2015). 
+Praktilise teejuhina tõuke ja toe loogika rakendamisel koostasin andmepõhised käitumisdisaini printsiibid, mis aitavad jälgida, et sekkumised toetaks inimeste vajadusi, mitte ei satuks nendega vastuollu. 
+Joonis 2. Psühholoogilisi vajadusi toetav keskkond 
+
+Joonisel 2 on näidatud, milliseid tundeid ja kogemusi võiks hästi disainitud taustsüsteemid inimestes esile kutsuda. Need on hoovad, mis koosmõjus toetavad nii kogumist kui ka inimeste kindlustunnet ja rahulolu. Järgnevalt näitan, milliste uuringuleiduga need seostuvad ja kuidas neist on tuletatud vastavad disainiprintsiibid.
+
+Autonoomiast lähtuvad põhimõtted
+Inimesed tahavad vabadust, iseseisvust ja meelerahu, aga “pension” on abstraktne, kauge ja ebameeldiv.  
+
+Kompetentsusest lähtuvad põhimõtted
+Sageli kasvab inimeste huvi teadmisi koguda alles pärast esimesi samme, aga info üleküllus võib sihikindlust pidurdada. 
+Sotsiaalsest seotusest lähtuvad põhimõtted
+Kogujate hoiakud ja kogemused peegeldavad laiemaid muutusi ühiskondades: madalat vertikaalset usaldust kompenseerib horisontaalne, hajus usaldus ja mitte ainult sõnumid, vaid ka käitumine levib võrgustikes (Botsman, 2017).   
+
+9 disainiprintsiipi kogumiskäitumise toetamiseks
+II ja III samba sihikindla kasutuse toetamist juhivad need empiirilistest andmetest tuletatud põhimõtted:   
+
+Disainiprintsiipide rakendamise praktilisi näiteid
+Autonoomia, kompetentsuse ja sotsiaalse sidususe vajadust fookuses hoidvaid disainiprintsiipe omavahel sidudes saab väikeste parandustega muuta taustsüsteeme kogumist tõhusamalt toetavaks. 
+Näiteks saab jälgida, et keel ja raamistus kinnitaks: II ja III sambasse kogutav vara kuulub inimesele endale nagu muud investeeringudki. Selleks võiks võimalusel vältida sõnu, mis jätavad mulje riiklikust maksust või raha ära andmisest, näiteks:
+
+Rahasummad kalkulaatorites ja kontovaates saab siduda eluliste võimalustega – näiteks: 
+Saab luua mängulisi tööriistu samm-sammult kogukondlikuks õppimiseks – näiteks:
+
+Sotsiaalse tagasisidega saab luua edukogemusi ja julgustada edasi liikuma – näiteks: 
+
+Saab aidata vältida vigu, võimestades inimesi ära tundma manipuleerivad müügitaktikad, ümber mõtestama valestimõistmisi ja säilitama rahu muutuvas keskkonnas – näiteks: 
+
+Profiilipõhised sõnumistrateegiad kogumise toetamiseks
+Pensionisammastest räägitakse pahatihti kas abstraktses pensioni asendusmäärade kontekstis või keerulises investeerimiskastmes – sellises raamistuses sõnumid võivad jääda võõraks või põhjustada järjest suuremat ärevust. Mõlemal juhul on tagajärg, et tegutsemine lükkub ikka ja jälle edasi. 
+Rahatarkuse programmid, mis asetavad II ja III sambasse kogumise investeerimise ja ettevõtluse konteksti, võivad tahtmatult tuua pigem segadust kui selgust nende jaoks, kelle ekspertiis ja huvid on mujal. Samas vajavad eriti just nooremad inimesed pensionisammaste selgete eeliste rõhutamist, et investeerimishuvi ei kujuneks pelgalt kulukaks hobiks. 
+Meelerahu hindavad tasakaalu otsijad: pensionisambad kui heaolu hügieen 
+Meelerahu hindavad tasakaalu otsijad ei vaja investeerimistehnilisi arutelusid, vaid selget  ja tõenduspõhist raha kogumise retsepti – umbes nagu riiklikud ravijuhised või vaktsineerimisprogrammid. Neile olulised sõnumid on:
+Tulevikuks kogumine on enda ja pere heaolu toetava eluviisi loomulik osa – täpselt nagu tervislik toitumine, regulaarne liikumine või haiguste sõeluuringutes osalemine. 
+Kõige efektiivsem kaugemaks tulevikuks kogumiseks on panustada regulaarselt madala kuluga laiapõhjalistesse II ja III samba fondidesse. 
+Kõhklejatele, kes tunnevad hirmu raha kaotamise ees või kahtlevad, kas nad peaksid otsima “nutikamaid” investeerimisvõimalusi, tuleks pakkuda selgust ja kinnitust, et pensionisambad on tulevikuks kogumiseks sobivaim ja ka piisav tööriist – lihtne, hästi hajutatud riskidega, maksusoodustusega. 
+Vabadust väärtustavad investeerimishuvilised: sambad kui portfelli alus
+Vabadust väärtustavaid investeerimishuvilisi saab toetada pensionisammaste võimaluste teadlikumal kasutamisel. Nad vajavad selget sõnumit: 
+Pensionisambad ei ole “investeerimine algajatele”, vaid nutikas vundament, millele tark investor oma portfelli ehitab. 
+Eesti kontekstis on kaval alati kõigepealt ära kasutada II ja III samba võimalused – maksuvõit annab eelise, mida mujalt ei saa. 
+Võib küsida: kas on tähtis, et inimesed kasutaksid kogumiseks just pensionisambaid? Vastus on jah: see mõjutab oluliselt pikaajaliste eesmärkide saavutamise tõenäosust. 
+Riskikartlikud inimesed, kes eelistavad raha pangakontol hoida, peavad leppima oma vara ostujõu kindla kaotusega. Teised võivad võtta ebaproportsionaalseid riske, otsides suuremat tootlust. 
+Reaalsus on ka, et ise investeerimine jääb enamikule vaid uudseks ideeks või juhuslikuks ettevõtmiseks, mis pärast esimesi pettumusi ära vajub. Väljaspool pensionisambaid on Eesti inimestel investeeringuid pensionifondide mahust üle kümne korra vähem (Finantsinspektsioon, 2024).
+
+VMõju hindamine ja suunad edasiseks uurimistööks
+Kuidas mõõta sekkumiste mõju ja nendest õppida?
+Tõuke ja toe mudeli keskne idee on, et reeglina ei peaks valima “tõuke” või “toe” vahel, vaid sekkumisi tuleks disainida ja ajastada nii, et mõlemad osad töötaksid koos. 
+Tõugete puhul saab mõõta, kui efektiivselt see inimesi aktiveeris. Toetavate tegevuste juures võiks hinnata, kuidas need aitasid siduda üksikuid samme laiema tähendusega ja suurendasid valmisolekut edasi liikuda. Tähtis on hinnata ka nende koosmõju: nii seda, kas sekkumised suurendavad järgmiste vajalike otsuste tõenäosust, kui ka seda, kui hästi need toetavad autonoomiat, kompetentsust ja sotsiaalset seotust. 
+Kvalitatiivsed ja kvantitatiivsed meetodid
+Kvalitatiivse uuringu andmetele toetudes arendatud tõuke ja toe mudelit võiks ka empiiriliselt testida: kas kahetasandiliste sekkumiste koosmõju on suurem kui üksikute osade summa? Samuti võiks uurida, milline tõuke ja toe rütm aitab kõige paremini vältida sõnumiväsimust, kuid samas toetada sihikindlat liikumist.
+Rangeks testimiseks on vaja sõltuvalt sekkumise osade arvust kasutada vähemalt neljast sihtrühmast koosnevat kontrollkatset – lihtne katsedisaini näide on toodud tabelis 1. 
+Tabel 1: Kontrollkatse ülesehitus tõuke ja toe mudeli empiiriliseks testimiseks
+Praktikas võiks juhuslikustatud kontrollkatseid kaaluda suuremat sihtrühma mõjutavate või korduvaks kasutuseks mõeldud sekkumiste kavandamisel. Igapäevatöös ei ole ranged eksperimendid alati vajalikud, võimalikud ega mõistlikud. Sõnumite või muude variatsioonide võrdlemiseks saab ja võib kasutada A/B teste, aga need sobivad pigem üksikute elementide mõju hindamiseks. 
+Jooksvalt saab kasutada erinevaid viise nii sekkumiste osade kui ka koosmõju hindamiseks – arvestades seejuures nii seda, et ajaline järgnevus või korrelatsioon ei tähenda alati põhjuslikku seost, kui ka seda, et mõõtmise viisist sõltub, mida me üldse näeme ja märgata oskame.
+E-kirjade, veebirakenduse ja tehinguandmed võimaldavad analüüsida, kuidas inimesed liiguvad. Jälgida ja võrrelda võiks mitte ainult tõugetele vahetult järgnevaid signaale, vaid ka pikema aja jooksul kujunevaid käitumismustreid. 
+Kvantitatiivsete andmete kõrval aitavad sekkumiste koosmõju sügavamalt mõista kvalitatiivsed andmed – lisaks intervjuudele ka näiteks inimeste endi küsimused ja tagasiside nii Tuleva kui ka muudes kanalites. Tähelepanu võiks pöörata ka sellele, kuidas sekkumised mõjutavad inimeste psühholoogilisi vajadusi ja kas sõnumeid tajutakse turunduslike võtetena või kasulike nõuannetena. 
+Praktilised soovitused ja arendusvõimalused
+Piiratud ressurssidega on targem mõõta vähem, aga järjekindlalt. Andmete kogumise kõrval on tähtis nendest õppida andmete salvestamise kõrval salvestada järeldusi.
+Eesmärk ei ole mõista inimeste erinevate teekondade kõiki nüansse, vaid otsida ja märgata kriitilisi puutepunkte, kus tõuke ja toe mudelit kasutades saab aidata ületada takistusi või ennetada vigu.  
+Kogujate mittelineaarsete käitumismustrite sügavam käsitsi analüüs oleks väikestele tiimidele liiga töömahukas, aga masinõpe võiks aidata näiteks märgata, millised omaduste ja käitumise kombinatsioonid viitavad katkestamise riskile; millised sõnumid loovad suurima mõju erinevatele sihtrühmadele või kuidas inimese käitumismuster muutub ajas ja mida see ennustab. Alustada võiks ühest konkreetsest küsimusest – näiteks luues sisemiseks õppimiseks mudeli, mis püüab ennustada II sambasse kogumise katkestamist. 
+Peab arvestama, et masinõpe võib soovitada tõhusaid lahendusi, mille loogikat ei saa inimkeeles seletada. Nende lahenduste rakendamise eetilisust ja proportsionaalsust tuleb hinnata: kas need on piisavalt läbipaistvad ja loovad inimestele tegelikku väärtust?
+Mida võiks edasi uurida? 
+Uurimistöö käigus kerkis lisaks loodud mudeli testimise vajadusele esile mitu küsimust, mis võiksid pakkuda huvi nii tulevikuks kogumise vaatest kui ka laiemalt seal, kus valikud mõjutavad oluliselt inimeste heaolu, aga tegutsemine kaldub edasi lükkuma. 
+Pensionisammaste roll inimeste tajus ja heaolus 
+See töö pakub metoodilist lähenemist, mida võiks laiendada ka teistele Eesti inimestele – see aitaks tegelike taju- ja käitumismustrite mõistmist veelgi rikastada. 
+Tuleva pensionifondides kogujate lugusid oleks huvitav võrrelda nii nendega, kes koguvad mujal, kui ka nendega, kes pensionisammastesse üldse ei kogu. See võimaldaks ka hinnata välja toodud käitumisprofiilide laiemat tähenduslikkust. Laiem kvalitatiivne uuring võiks aidata sekkumisi paremini kohandada ja realistlikumalt sihtida, aga ka otsida võimalusi nende toetamiseks, kes II ja III samba süsteemist kõrvale on jäänud.
+Heaolu, käitumine ja hajus usaldus
+Töö lähtekohaks oli tunnetus, et käitumisprotsesse, millel on inimeste heaolule ulatuslik mõju, ei peaks mõtestama kitsalt majandusotsustena ega ka “rahalise heaolu” kui piiritletud konstrukti kaudu. 
+Kvalitatiivse uuringu leiud süvendasid seda arusaamist – inimese heaolu ei jagune domeenidesse, vaid kujuneb terviklikus, läbi põimunud ökosüsteemis. Mõnes olukorras võib olla huvitav analüüsida, kuidas rahakäitumine mõjutab “uneheaolu” või kuidas koduloomad mõjutavad “rahalist heaolu”. Aga inimeste käitumise toetamiseks võiksid seoste ja mustrite märkamisel abiks olla laiemad ja kontekstitundlikumad käsitlused. 
+Üks mõttesuund, mille vastu see uurimistöö minus veel huvi äratas, on horisontaalse, hajusa usalduse kujunemine ja tähendus käitumisteaduse kontekstis. 
+Tuleva fondides kogujate lood valgustasid välja võrgustikes levivate käitumismustrite ja horisontaalse usalduse dünaamika. Sellistes võrgustikes pole organisatsioonid lihtsalt usalduse (või usaldamatuse) objektid ega inimesed mõjutamise objektid – pigem moodustavad nad omavahel dünaamiliselt seotud hajutatud usalduse ökosüsteeme. See tekitab vajaduse paremini mõista, kuidas ühelt poolt võiks nii avaliku kui ka erasektori organisatsioonid sellistes mittehierarhilistes süsteemides kujunevast usaldusest ja vastutusest mõelda ning teiselt poolt, kuidas käitumist mõjutavad sotsiaalsed mehhanismid neis muutuvad ja võimenduvad.
+Boonuspeatükk Tulevale
+Intervjuudes väljendatud mõtteid seoses Tulevaga
+Tuleva kui organisatsiooni kuvandi uurimine ei olnud selle uuringu eesmärk. Mitmed osalejad jagasid Tulevaga seotud hoiakuid ja kogemusi, aga neid ei saa pidada representatiivseks ega tasakaalustatuks mitmel põhjusel. 
+Esiteks, uurijad ei küsinud eraldi Tuleva kohta ja need, kes oma mõtteid sel teemal jagasid, tegid seda spontaanselt erinates kontekstides. Teiseks, kõik uuringusse kaasatud inimesed olid valinud Tuleva pensionifondi(d). Kolmandaks, teades, et intervjueerijad on Tulevaga seotud, võisid osalejad pigem viisakusest rõhutada positiivset. Neljandaks, ka mina töö autorina ja uuringu tulemuste tõlgendajana ei ole erapooletu. 
+Samas annab andmestik siiski Tuleva jaoks väärtusliku pildi tugevustest, mida inimesed hindavad. 
+Tulevaga seostati madalaid kulusid, läbipaistvust, mõistlikkust, lihtsust ja passiivset investeerimisstrateegiat. Mitme vastaja jaoks oli Tuleva valik selgelt seotud ka laiemate väärtustega.
+„Kommunikatsioon oli hea ja õige, vastandumine pankade pensionisammaste valitsemistasudele töötas. See äratas minus selle mässumeelse ‘IT-poweri’.“
+Mitme inimese silmis eristus Tuleva oluliste muutuste käivitajana, kes pankadele vastandudes on aidanud pensionifondide tasud alla tuua ja muuta turu õiglasemaks.
+ „Olen vahel mõelnud, milline oleks seis Eestis pensioniks kogumise maastikul, kui Tulevat ei oleks. See on kurb stsenaarium.“
+Inimesed hindasid ka kogukondlikkust ja inimlikkust. Kogujad jõudsid Tulevasse sageli rahatarkuse eestkõnelejate või sõprade-tuttavate soovitusel. Tulevat mainiti korduvalt kui olulist infoallikat, mis mõjus usaldusväärsena sarnaselt päris inimestele – ja samal ajal oli ilmne, et paljud usaldavad Tulevat suuresti tänu nendele eeskujudele. 
+„Mulle on väga rõõmu teinud inimesed nagu Jaak Roosaare, Kristi Saare ja Tuleva – nende tegevus on mind palju aidanud.“ (Vastaja 10)	
+Organisatsiooni tasandi soovitused Tulevale
+Käitumine ja heaolu ei ole seotud ainult inimese enda otsustavuse, motivatsiooni ja teadlikkusega. Vähemalt sama olulised on taustsüsteemid, mis võivad heaolu poole püüdlemisel toetada või segada.
+Tuleva on seadnud eesmärgiks huvikaitse ja avaliku diskursuse mõjutamisega vähendada takistusi ka süsteemi tasandil – seda on oluline tulevikus jätkata.  
+Toon välja kaks olulist organisatsioonitasandi soovitust, mis aitavad Tuleval endal efektiivsemalt strateegilisi ja taktikalisi tegevusi prioritiseerida ning riske maandada.
+Teekonnapõhine tegevusloogika
+Tuleva tasakaalustab oma kommunikatsioonis olulise info lahti mõtestamist konkreetsete ajendite, näiteks tähtaegade ümber koonduvate kampaaniatega. Tuleva arendusloogika toetub agiilse arenduse põhimõtetele. 
+Intervjuud aitasid paremini mõista tulevikuks raha kogumise teekonnal ette tulevat ekslemist ja ebakindlust – samal ajal igatsevad inimesed vabadust, meelerahu ja turvatunnet. Seda arvestades saab Tuleva liikuda veel teadlikumalt inimeste tegelikest kogumisteekondadest juhitud tegevusloogika suunas.
+Toote- ja kampaaniakalendri asemel võiks tegevusi järjest selgemalt juhtida see, kuidas muuta inimeste kogumisteekondi sujuvamaks. 
+See tähendab, et Tuleva tegevusi juhib vähem küsimus „Millest me võiksime järgmisena rääkida?“, ja rohkem “Milliste inimeste järgmine samm tooks praegu kõige suurema mõju?”. 
+See lähenemine lihtsustab andmepõhist prioriteetide seadmist – kõik sammud ei ole võrdse kaaluga. Arvestada saab erinevate sihtrühmade suurust, sammude lühi- ja pikaajalist mõju ning seda, milliste sammude efektiivne toetamine on ajastust ja võimalusi arvestades kõige realistlikum.
+Kasutades Tuleva kahetasandilist mudelit, saab ühendada loogiliselt ajastatud tõuked – näiteks tähtajad, meeldetuletused või usaldatud eeskujude üleskutsed – toetusega, mis aitab inimestel edasi liikuda ja ennast kindlamalt tunda. 
+See lähenemine ei eelda järsku muutust protsessides, vaid on pigem järk-järgult rakendatav nihe mõtlemises. See ei välista kampaaniaid, vaid aitab neid inimeste vaatest edasiviivamaks muuta. 
+See täiendab ka agiilse arenduse loogikat, aidates seada hetkelised kasutajalood (user stories) laiemasse inimkeskse mõtlemise konteksti: “Millal ja millises olukorras muutub see tegevus inimese jaoks oluliseks ja ajakohaseks?”
+Kogumisteekondade loogika aitab operatsionaliseerida väärtusi, mis Tulevat juba juhivad. Koos kahetasandilise mudeli rakendamisega on see tugev strateegiline raamistik, mis lihtsustab kommunikatsiooni ja arenduste plaanimist. 
+Jagatud usaldus kui Tuleva strateegiline kapital
+Madalad kulud, tõestuspõhine investeerimisstrateegia, tehnoloogiline lihtsus ja inimeste vajaduste mõistmine on Tuleva toimimise eeldus. 
+Aga intervjuudes spontaanselt väljendatud hoiakud vihjavad, et Tuleva kõige suurem tugevus võib olla usaldus, mille aluseks pole igavikuliselt taevasse ulatuvad pangahooned ega kõikjal nähtav kontorivõrgustik, vaid päris inimeste kogemus, et Tuleva tegutseb nendega koos ja nende jaoks. 
+Jagatud usaldus ja väärtuspõhine kuuluvustunne kui kriitiline eelis ei ole idealistlik idee, vaid vastupidavuse ja mõjujõu allikas. 
+Usaldus on aidanud ületada kõrgeid sisenemisbarjääre ja teinud võimalikuks pikaajalise mõjuga finantsteenustes haruldased soovitusahelad nullilähedase kampaaniaeelarvega. See toetab inimesi pikaajalise vaate hoidmisel ka ebakindlatel hetkedel (vt Botsman, 2017) – Tuleva fondidest lahkujate osakaal on kordades väiksem kui teistel fondivalitsejatel. 
+Läbipaistvus, kogukondlik mõtlemine ja vabavaralisus olid algusest peale Tuleva ühistulise tegevuse keskmes mitte ainult väärtuste, vaid esimestel aastatel praktilise paratamatusena. 
+Liikmetest eksperte tuli kaasata mitte ainult nõu andma, vaid süsteeme ehitama. Dialoog investorkogukondade eestvedajatega oli hädavajalik mitte ainult sõnumite levitamiseks, vaid nende kujundamiseks ja strateegiliste valikute teravdamiseks. 
+Austus inimeste kui oma elu ekspertide vastu oli vältimatu, et arendada nende vajadustega arvestavaid veebikanaleid, mis suudaksid astuda pankade kontorivõrkude ja müügistruktuuride kõrvale.
+See on aidanud saavutada midagi, mis tavalistele finantsasutustele on väga raske: Tuleva on saanud osaks suhte- ja võrgustikupõhisest hajutatud usalduse ökosüsteemist. Selline usaldus on haruldane ja väärtuslik, aga habras – seda peab teadlikult kaitsma ja hoidma. See kannab endas ka riske, millega tuleb arvestada. 
+Nimetan mõned hajusa usalduse eripäradega seotud võtmekohad, mida uurimistöö on aidanud selgemalt näha: 
+Teadlik ja igapäevane läbipaistvus. Tuleva tugevus ei põhine kavalalt kujundatud kuvandil. Seda toidab professionaalsuse ja haavatavuse inimlik tasakaal – kindel selgroog põhikompetentsides, aga julgus teha nähtavaks otsustuskäigud ja kahtlused valikute taga ning küsida arendusfaasides abi. See loob võimaluse kaasa elada mitte ainult saavutustele, vaid ka komistamistele.
+Laiendatud tiimi kui kogukondliku võimekuse arendamine. Tuleval on algusest peale olnud praktika kaasata ühistu liikmetest eksperte ja kogukondade eestvedajaid strateegia aruteludesse, tehnoloogilistesse arendustesse ja probleemide lahendamisse. See ei tohiks tiimi kasvades vajuda tagaplaanile, vaid muutuda süsteemsemaks – et “meie” asemele ei tuleks “nemad”. 
+Tuleva kui inimeste loo elus hoidmine. Tuleva on olemas tänu inimestele. Mitte ainult nende isiklike, vaid ka Tuleva edulugude peategelasteks on ühistu liikmed ja kogujad. Tuleva on kapitali kogumisel teed näitav mentor, mitte abitute ohvrite päästja. 
+Tehnoloogia ja inimlikkuse tasakaal. Masinõppel ja keelemudelitel põhinevad tööriistad tuleks algusest peale kujundada läbipaistvalt ja usaldust toetavalt. Samal ajal tahavad inimesed ka tulevikus näha, mida päris inimesed teevad, kuidas nad mõtlevad ja mida oma emale soovitavad. 
+Usaldusvõrgustiku peidetud riskid. Hajus usaldus on võimas, aga seda ei ohusta ainult Tuleva enda vead. Ka usaldatud mõjusikute väärtuskonflikti sattumine, suurte keelemudelite väärtõlgendused või kavatsusliku valeinfo levik võivad seda järsult kõigutada. Sellega saab arvestada – võrgustikukriisideks valmistumisest keelemudelisõbraliku info  kättesaadavuse tagamiseni.   
+Hajusat usaldust ei tohi võtta iseendast mõistetavana, aga ei saa ka disainida nagu toodet ega muuta mehhaaniliseks mõõdikuks. Selles ökosüsteemis oma õiglase osa väljateenimine pole turundusharjutus, vaid Tuleva strateegiline juhtimisülesanne ja igapäevane tasakaalumäng. 
+Kasutatud allikad 
+Arber, S., Fenn, K., & Meadows, R. (2013). Subjective financial well-being, income and health inequalities in mid and later life in Britain. Social Science & Medicine, 100, 12–20. https://doi.org/10.1016/j.socscimed.2013.10.016 
+Bandura, A. (2018). Toward a psychology of human agency: Pathways and reflections. Perspectives on Psychological Science, 13(2), 130–136. https://doi.org/10.1177/1745691617699280 
+Bem, D. J. (1972). Self-Perception Theory. In L. Berkowitz (Ed.), Advances in experimental social psychology (Vol. 6, pp. 1–62). Academic Press. https://doi.org/10.1016/s0065-2601(08)60024-6
+Benartzi, S., & Thaler, R. H. (2007). Heuristics and biases in retirement savings behavior. The Journal of Economic Perspectives, 21(3), 81–104. https://doi.org/10.1257/jep.21.3.81 
+Berk, J. B., & Van Binsbergen, J. H. (2015). Measuring skill in the mutual fund industry. Journal of Financial Economics, 118(1), 1–20. https://doi.org/10.1016/j.jfineco.2015.05.002 
+Botsman, R. (2017). Who can you trust?: How technology brought us together and why it might drive us apart. Perseus Books.
+Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa 
+Brüggen, E. C., Hogreve, J., Holmlund, M., Kabadayi, S., & Löfgren, M. (2017). Financial well-being: A conceptualization and research agenda. Journal of Business Research, 79, 228–237. https://doi.org/10.1016/j.jbusres.2017.03.013 
+Chater, N., & Loewenstein, G. (2022). The i-Frame and the S-Frame: How focusing on the Individual-Level solutions has led behavioral public policy astray. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.4046264 
+Cialdini, R. B., PhD. (2009). Influence: The Psychology of Persuasion. Harper Collins. 
+Deci, E. L., & Ryan, R. M. (2000). The “What” and “Why” of goal pursuits: human needs and the Self-Determination of behavior. Psychological Inquiry, 11(4), 227–268. https://doi.org/10.1207/s15327965pli1104_01 
+Døskeland, T., Lervik-Olsen, L., & Nygaard, A. (2025). The role of social norms in retirement saving: Evidence from two natural field experiments. Journal of Business Research, 190, 115201. https://doi.org/10.1016/j.jbusres.2025.115201 
+Fama, E. F., & French, K. R. (2010). Luck versus Skill in the Cross‐Section of Mutual Fund Returns. The Journal of Finance, 65(5), 1915–1947. https://doi.org/10.1111/j.1540-6261.2010.01598.x 
+Fernandes, D., Lynch, J. G., & Netemeyer, R. G. (2014). Financial literacy, financial education, and downstream financial behaviors. Management Science, 60(8), 1861–1883. https://doi.org/10.1287/mnsc.2013.1849 
+Festinger, L. (1957). A theory of cognitive dissonance. Stanford University Press.
+Fogg, B. (2009). A behavior model for persuasive design. Association for Computing Machinery. https://doi.org/10.1145/1541948.1541999 
+Goldin, J., Homonoff, T., Patterson, R., & Skimmyhorn, W. (2020). How much to save? Decision costs and retirement plan participation. Journal of Public Economics, 191, 104247. https://doi.org/10.1016/j.jpubeco.2020.104247 
+IDEO.org. (2015). The field guide to human-centered design (1st ed.). https://www.designkit.org/resources/1.html 
+Iyengar, S. S., & Lepper, M. R. (2000). When choice is demotivating: Can one desire too much of a good thing? Journal of Personality and Social Psychology, 79(6), 995–1006. https://doi.org/10.1037/0022-3514.79.6.995 
+Kaiser, T., Lusardi, A., Menkhoff, L. and Urban, C. (2022), “Financial education affects financial knowledge and downstream behaviors”, Journal of Financial Economics, Vol. 145 No. 2, pp. 255-272, https://doi.org/10.1016/j.jfineco.2021.09.022  
+Lades, L. K., & Delaney, L. (2020). Nudge FORGOOD. Behavioural Public Policy, 6(1), 75–94. https://doi.org/10.1017/bpp.2019.53 
+Lusardi, A., & Mitchell, O. S. (2007). Financial Literacy and Retirement Planning: New Evidence from the Rand American Life Panel. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1095869 
+Malkiel, B. G. (2011). The Efficient-Market Hypothesis and the Financial Crisis. Rethinking the Financial Crisis. Russell Sage Foundation. https://www.russellsage.org/sites/all/files/Rethinking-Finance/Malkiel.%20The%20Efficient-Market%20Hypothesis%20and%20the%20Financial%20Crisis%20102611.pdf 
+Marmot, M. (2005). Social determinants of health inequalities. The Lancet, 365(9464), 1099–1104. https://doi.org/10.1016/s0140-6736(05)71146-6 
+Meadows, D. H. (2008). Thinking in systems: A Primer. Chelsea Green Publishing.
+Michie, S., van Stralen, M.M., & West, R. The behaviour change wheel: A new method for characterising and designing behaviour change interventions. Implementation Sci 6 42 (2011). https://doi.org/10.1186/1748-5908-6-42 
+OECD. (2023). Pensions at a glance 2023: Highlights for Estonia. OECD Publishing. https://doi.org/10.1787/678055dd-en 
+Pensionikeskus. (n.d.). Täiendava kogumispensioni fondide maht. Vaadatud 25.05.2025 https://www.pensionikeskus.ee/statistika/iii-sammas/taiendava-kogumispensioni-fondide-maht/
+Petty, R. E., & Cacioppo, J. T. (1986). The elaboration likelihood model of persuasion.  In L. Berkowitz (Ed.), Advances in experimental social psychology (Vol. 19, pp. 123–205). Academic Press. https://doi.org/10.1016/S0065-2601(08)60214-2 
+Prochaska, J. O., & DiClemente, C. C. (1983). Stages and processes of self-change of smoking: Toward an integrative model of change. Journal of Consulting and Clinical Psychology, 51(3), 390–395. https://doi.org/10.1037/0022-006x.51.3.390 
+Pulk, K., Riitsalu, L., Vain, K., Trankmann, S., Võrk, A., Tubelt, E., & Espenberg, S. (2024). Pensionitarkuse uuring. Tartu Ülikooli sotsiaalteaduslike rakendusuuringute keskus RAKE. https://skytte.ut.ee/sites/default/files/2024-08/Pensionitarkuse%20uuringu%20lõpparuanne.pdf 
+Rahandusministeerium. (n.d.). Eesti elanike finantskirjaoskuse edendamise programm 2013–2020. https://www.fin.ee/finantspoliitika-valissuhted/rahatarkus/strateegiaprogramm 
+Rahandusministeerium. (2023). Esimese strateegiaprogrammi kokkuvõte. https://www.fin.ee/finantspoliitika-valissuhted/rahatarkus/strateegiaprogramm 
+Rahandusministeerium. (2024). Pensionifondide tasude ja investeeringute analüüs 2024. https://www.rahandusministeerium.ee 
+Riitsalu, L., Atkinson, A., & Pello, R. (2023). The bottlenecks in making sense of financial well-being. International Journal of Social Economics, 50(10), 1402–1422. https://doi.org/10.1108/ijse-11-2022-0741
+Riitsalu, L., & Murakas, R. (2019). Subjective financial knowledge, prudent behaviour and income. International Journal of Bank Marketing, 37(4), 934–950. https://doi.org/10.1108/ijbm-03-2018-0071
+S&P Dow Jones Indices. (n.d.). SPIVA® Europe Scorecard & Research. S&P Global. https://www.spglobal.com/spdji/en/research-insights/spiva/#europe 
+Shim, S., Xiao, J. J., Barber, B. L., & Lyons, A. C. (2009). Pathways to life success: A conceptual model of financial well-being for young adults. Journal of Applied Developmental Psychology, 30(6), 708–723. https://doi.org/10.1016/j.appdev.2009.02.003 
+Statman, M. (2019). Behavioral Finance: the second generation. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3668963 
+Tapver, T. (2022). Luck and skill in the performance of global equity funds in Central and Eastern Europe. Managerial Finance, 49(4), 597–619. https://doi.org/10.1108/mf-01-2022-0051 
+Thaler, R. (1980). Toward a positive theory of consumer choice. Journal of Economic Behavior & Organization, 1(1), 39–60. https://doi.org/10.1016/0167-2681(80)90051-7 
+Thaler, R. H., & Sunstein, C. R. (2008). Nudge: Improving Decisions about Health, Wealth, and Happiness. Yale University Press.
+
+
+Lisad
+
+Lisa 1. Poolstruktureeritud intervjuu vestluskava
+Isiklikud väärtused ja prioriteedid; suhestumine oma “tuleviku-minaga”
+1. Mis on sinu elus hetkel oluline: millele su aeg kulub ja mis küsimustele sa sageli mõtled?
+2. Palun kirjelda: mida tähendab sinu jaoks hea elu praegu ja tulevikus?
+3. Kuidas sa kujutad ette oma elu oma kuue-seitsmekümnendates aastates ja hiljem?
+4. Mida sa täna teed, et su ootused võiksid täituda ja sa saaksid vanemas eas hästi elada?
+5. Milliseid tundeid kaugemale tulevikule mõtlemine sinus tekitab? Räägi lähemalt, miks?
+
+Raha kogumise ja investeerimise tähtsus ja tähendus; seos pensioniga
+6. Kui tähtsaks sa pead tulevikuks raha kogumist? Mille jaoks on sulle oluline raha koguda?
+7. Kui tihti sa räägid pere või sõpradega tulevikuks raha kogumisest, säästmisest või investeerimisest?
+8. Kas sul on seatud mõni konkreetne pikem eesmärk: näiteks summa, mis sa koguda tahaksid, või näiteks igakuise sissetuleku osas, mida sa pensionina saada sooviksid?
+9. Millised sündmused sinu elus või ühiskonnas laiemalt on oluliselt mõjutanud seda, kuidas sa tulevikuks raha kogumisest mõtled? Kas sulle meenub sellega seoses mõni lugu?
+10. Kas ja kuidas on sinu jaoks seotud mõisted säästmine, investeerimine ja pension?
+
+Pensioniks kogumise roll, tähendus ja mõjutegurid
+11. Kui tihti sa mõtled konkreetselt pensioniks valmistumisest ja kuidas sa seda teed?
+12. Kuidas sa mõtled II ja III pensionisamba rollist sinu heaolu tagamisel tulevikus?
+13. Milliseid tundeid vajadus pensioniks raha koguda sinus tekitab ja kui enesekindel sa oled, et oled õigel teel?
+14. Mis on sinu jaoks suuremad takistused kaugemaks tulevikuks raha kogumisel ja pensioniks valmistumisel?
+15. Kui sa avaksid täna III samba ja peaksid otsustama, kui palju iga kuu sinna raha kanda, kuidas sa seda teeksid?
+16. Mida sa soovitaksid, kui sõber küsiks sinult nõu, kas ja kui palju tõsta sissemakse määra II sambasse?
+Lisa 2.  Tartu Ülikooli eetikakomitee kooskõlastuse koopia
+
+
+Lisa 3. Lihtlitsents lõputöö reprodutseerimiseks ja üldsusele kättesaadavaks tegemiseks
+Mina, Kristel Raesaar, annan Tartu Ülikoolile tasuta loa (lihtlitsentsi) minu loodud teose “Pensioniks kogumine kui heaolukäitumine: kvalitatiivne uuring ja inimkeskne lahenduste raamistik”, mille juhendajad on Silja-Riin Voolma ja Heidi Reinson, reprodutseerimiseks eesmärgiga seda säilitada, sealhulgas lisada Tartu Ülikooli digitaalarhiivi kuni autoriõiguse kehtivuse lõppemiseni;
+annan Tartu Ülikoolile loa teha punktis 1 nimetatud teos üldsusele kättesaadavaks Tartu Ülikooli veebikeskkonna, sealhulgas digitaalarhiivi kaudu Creative Commonsi litsentsiga CC BY NC ND 4.0, mis lubab autorile viidates teost reprodutseerida, levitada ja üldsusele suunata ning keelab luua tuletatud teost ja kasutada teost ärieesmärgil, kuni autoriõiguse kehtivuse lõppemiseni;
+olen teadlik, et punktides 1 ja 2 nimetatud õigused jäävad alles ka autorile;
+kinnitan, et lihtlitsentsi andmisega ei riku ma teiste isikute intellektuaalomandi ega isikuandmete kaitse õigusaktidest tulenevaid õigusi.
+ 
+ 
+ 
+Kristel Raesaar
+15.05.2025
+
+

@@ -175,12 +175,12 @@ def generate_savers_chart(savers_data, report_year, report_month, output_dir: Pa
     x = np.arange(len(months))
     width = 0.7
 
-    # Stacked bars
-    bars_ii = ax_bar.bar(x, only_ii, width, label='Ainult II sammas',
-                         color=TULEVA_NAVY, zorder=2)
-    bars_both = ax_bar.bar(x, both, width, bottom=only_ii,
-                           label='II ja III sammas', color=TULEVA_MID_BLUE, zorder=2)
-    bottom_iii = [a + b for a, b in zip(only_ii, both)]
+    # Stacked bars (bottom to top: II ja III, ainult II, ainult III)
+    bars_both = ax_bar.bar(x, both, width, label='II ja III sammas',
+                           color=TULEVA_MID_BLUE, zorder=2)
+    bars_ii = ax_bar.bar(x, only_ii, width, bottom=both,
+                         label='Ainult II sammas', color=TULEVA_NAVY, zorder=2)
+    bottom_iii = [a + b for a, b in zip(both, only_ii)]
     bars_iii = ax_bar.bar(x, only_iii, width, bottom=bottom_iii,
                           label='Ainult III sammas', color=FORECAST_COLOR, zorder=2)
 
@@ -222,8 +222,8 @@ def generate_savers_chart(savers_data, report_year, report_month, output_dir: Pa
     from matplotlib.patches import Patch
     from matplotlib.lines import Line2D
     legend_elements = [
-        Patch(facecolor=TULEVA_NAVY, label='Ainult II sammas'),
         Patch(facecolor=TULEVA_MID_BLUE, label='II ja III sammas'),
+        Patch(facecolor=TULEVA_NAVY, label='Ainult II sammas'),
         Patch(facecolor=FORECAST_COLOR, label='Ainult III sammas'),
         Line2D([0], [0], color='#FF4800', linewidth=2, label='YoY kasv %'),
     ]
