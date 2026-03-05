@@ -1,6 +1,7 @@
 """
 Build monthly board report from Metabase data.
 """
+import re
 import sys
 import yaml
 import markdown
@@ -9,6 +10,23 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from generate_monthly_charts import generate_monthly_charts, ESTONIAN_MONTHS
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
+
+
+def extract_comments_from_md(md_path: Path) -> dict:
+    """Extract comments from an existing markdown report using comment markers."""
+    if not md_path.exists():
+        return {}
+    text = md_path.read_text()
+    comments = {}
+    for match in re.finditer(
+        r'<!-- comment:(\w+) -->\n(.*?)\n<!-- /comment:\1 -->',
+        text, re.DOTALL
+    ):
+        key = match.group(1)
+        value = match.group(2).strip()
+        if value:
+            comments[key] = value
+    return comments
 
 
 def embed_images_as_base64(html_content: str, base_path: Path) -> str:
@@ -144,6 +162,54 @@ def preprocess_data(data, year, month):
     report['iii_contributions_ytd'] = get_ytd_row(
         cards.get('III s sissemaksed YTD', {}), year)
 
+    # YTD YoY for contributions
+    ii_ytd_prev = get_prev_ytd_row(cards.get('II s sissemaksed YTD', {}), year)
+    if report.get('ii_contributions_ytd') and ii_ytd_prev:
+        cur = report['ii_contributions_ytd']['second_pillar_contributions_eur']
+        prev = ii_ytd_prev['second_pillar_contributions_eur']
+        if prev:
+            report['ii_contributions_ytd_yoy'] = (cur - prev) / prev
+
+    iii_ytd_prev = get_prev_ytd_row(cards.get('III s sissemaksed YTD', {}), year)
+    if report.get('iii_contributions_ytd') and iii_ytd_prev:
+        cur = report['iii_contributions_ytd']['third_pillar_contributions_eur']
+        prev = iii_ytd_prev['third_pillar_contributions_eur']
+        if prev:
+            report['iii_contributions_ytd_yoy'] = (cur - prev) / prev
+
+    # Contributions total row
+    ii_m = report.get('ii_contributions', {}).get('II samba sissemaksed, M EUR', 0)
+    iii_m = report.get('iii_contributions', {}).get('III samba sissemaksed, M EUR', 0)
+    if ii_m or iii_m:
+        total_month = (ii_m + iii_m) / 1000000
+        # Previous year month values for YoY
+        ii_prev_row = get_month_row(
+            cards.get('II samba sissemaksete summa kuus, M EUR', {}), year - 1, month)
+        iii_prev_row = get_month_row(
+            cards.get('III samba sissemaksete summa kuus, M EUR', {}), year - 1, month)
+        prev_total = ((ii_prev_row or {}).get('II samba sissemaksed, M EUR', 0) +
+                      (iii_prev_row or {}).get('III samba sissemaksed, M EUR', 0))
+        month_yoy = (ii_m + iii_m - prev_total) / prev_total if prev_total else 0
+
+        # YTD totals
+        ii_ytd_cur = (report.get('ii_contributions_ytd') or {}).get(
+            'second_pillar_contributions_eur', 0)
+        iii_ytd_cur = (report.get('iii_contributions_ytd') or {}).get(
+            'third_pillar_contributions_eur', 0)
+        ytd_total = ii_ytd_cur + iii_ytd_cur
+
+        ii_ytd_p = (ii_ytd_prev or {}).get('second_pillar_contributions_eur', 0)
+        iii_ytd_p = (iii_ytd_prev or {}).get('third_pillar_contributions_eur', 0)
+        ytd_prev_total = ii_ytd_p + iii_ytd_p
+        ytd_yoy = (ytd_total - ytd_prev_total) / ytd_prev_total if ytd_prev_total else 0
+
+        report['contributions_total'] = {
+            'month': total_month,
+            'month_yoy': month_yoy,
+            'ytd': ytd_total,
+            'ytd_yoy': ytd_yoy,
+        }
+
     # III pillar contributor count
     row = get_month_row(cards.get('III samba sissemakse tegijate arv kuus', {}), year, month)
     if row:
@@ -162,18 +228,33 @@ def preprocess_data(data, year, month):
     if row:
         report['rate_changes'] = row
 
-    # Rate changes YTD (sum all months in the target year from card 1573)
+    # Rate changes YTD and YoY (from card 1573)
     rate_changes_data = cards.get('II samba maksemäära muutmine', {}).get('data', [])
     ytd_raised = 0
     ytd_lowered = 0
+    ytd_prev_raised = 0
+    ytd_prev_lowered = 0
     for rc_row in rate_changes_data:
         date_str = rc_row.get('kuu: Month', '')
+        rc_month = int(date_str[5:7]) if len(date_str) >= 7 else 0
         if date_str.startswith(str(year)):
             ytd_raised += rc_row.get('maksemäära tõstnute arv', 0)
             ytd_lowered += rc_row.get('maksemäära langetanute arv', 0)
+        elif date_str.startswith(str(year - 1)) and rc_month <= month:
+            ytd_prev_raised += rc_row.get('maksemäära tõstnute arv', 0)
+            ytd_prev_lowered += rc_row.get('maksemäära langetanute arv', 0)
     if ytd_raised or ytd_lowered:
         report['rate_changes_ytd'] = {
             'raised': ytd_raised, 'lowered': ytd_lowered}
+    if ytd_prev_raised or ytd_prev_lowered:
+        report['rate_changes_ytd_prev'] = {
+            'raised': ytd_prev_raised, 'lowered': ytd_prev_lowered}
+
+    # Rate changes month YoY
+    rate_changes_prev = get_month_row(
+        cards.get('II samba maksemäära muutmine', {}), year - 1, month)
+    if rate_changes_prev:
+        report['rate_changes_prev'] = rate_changes_prev
 
     # --- Fund switching ---
     row = get_month_row(cards.get('II samba vahetajate arv kuus', {}), year, month)
@@ -188,6 +269,23 @@ def preprocess_data(data, year, month):
         cards.get('II s vahetajate arv YTD', {}), year)
     report['switchers_aum_ytd'] = get_ytd_row(
         cards.get('II s vahetustega ületoodav vara YTD', {}), year)
+
+    # Switching YTD YoY
+    switchers_ytd_prev = get_prev_ytd_row(
+        cards.get('II s vahetajate arv YTD', {}), year)
+    if report.get('switchers_ytd') and switchers_ytd_prev:
+        cur = report['switchers_ytd']['IIs sissevahetajate arv']
+        prev = switchers_ytd_prev['IIs sissevahetajate arv']
+        if prev:
+            report['switchers_ytd_yoy'] = (cur - prev) / prev
+
+    switchers_aum_ytd_prev = get_prev_ytd_row(
+        cards.get('II s vahetustega ületoodav vara YTD', {}), year)
+    if report.get('switchers_aum_ytd') and switchers_aum_ytd_prev:
+        cur = report['switchers_aum_ytd']['IIs vahetustega ületoodav vara M EUR']
+        prev = switchers_aum_ytd_prev['IIs vahetustega ületoodav vara M EUR']
+        if prev:
+            report['switchers_aum_ytd_yoy'] = (cur - prev) / prev
 
     # Fund switching details (top 10)
     to_funds = cards.get('II samba vahetusavalduste arv pangafondidesse sel vahetusperioodil', {})
@@ -223,6 +321,42 @@ def preprocess_data(data, year, month):
         'Kasvuallikad YTD (tegelik), M EUR', {}).get('data', [])
     report['growth_forecast'] = cards.get(
         'Kasvuallikad (aasta lõpu prognoos), M EUR', {}).get('data', [])
+
+    # --- Täiendav Kogumisfond contributions (card 2305) ---
+    tkf_data = cards.get('Täiendavasse Kogumisfondi tehtud maksed', {}).get('data', [])
+    target_month_iso = f'{year}-{month:02d}-01T00:00:00Z'
+    prev_month_iso = f'{year - 1}-{month:02d}-01T00:00:00Z'
+    tkf_month = None
+    tkf_prev = None
+    tkf_ytd_amount = 0
+    tkf_ytd_contributors = set()
+    tkf_prev_ytd_amount = 0
+    tkf_prev_ytd_contributors = set()
+    for row in tkf_data:
+        dt = row.get('Created At: Month', '')
+        if dt == target_month_iso:
+            tkf_month = row
+        if dt == prev_month_iso:
+            tkf_prev = row
+        # YTD: sum all months in target year up to report month
+        if dt.startswith(str(year)) and dt <= target_month_iso:
+            tkf_ytd_amount += row.get('Sum of Amount', 0)
+        # Prev YTD
+        if dt.startswith(str(year - 1)) and dt[5:7] <= f'{month:02d}':
+            tkf_prev_ytd_amount += row.get('Sum of Amount', 0)
+
+    if tkf_month:
+        tkf = {
+            'amount': tkf_month['Sum of Amount'],
+            'contributors': tkf_month['Distinct values of Remitter ID Code'],
+            'ytd_amount': tkf_ytd_amount,
+        }
+        if tkf_prev:
+            tkf['amount_yoy'] = (tkf_month['Sum of Amount'] - tkf_prev['Sum of Amount']) / tkf_prev['Sum of Amount']
+            tkf['contributors_yoy'] = (tkf_month['Distinct values of Remitter ID Code'] - tkf_prev['Distinct values of Remitter ID Code']) / tkf_prev['Distinct values of Remitter ID Code']
+        if tkf_prev_ytd_amount:
+            tkf['ytd_amount_yoy'] = (tkf_ytd_amount - tkf_prev_ytd_amount) / tkf_prev_ytd_amount
+        report['tkf_contributions'] = tkf
 
     # --- Financial results (card 636) ---
     financials_raw = cards.get('Tuleva finantstulemused', {}).get('data', [])
@@ -273,15 +407,21 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     with open(data_file, 'r') as f:
         data = yaml.safe_load(f)
 
-    # Load optional comments
-    comments_file = report_dir / 'comments' / f'{year}-{month:02d}.yaml'
-    if comments_file.exists():
-        with open(comments_file, 'r') as f:
-            comments = yaml.safe_load(f) or {}
-        print(f"Loaded comments from: {comments_file}")
+    # Load comments from existing markdown file (preserves manual edits)
+    md_file = output_dir / f'monthly_report_{year}-{month:02d}.md'
+    comments = extract_comments_from_md(md_file)
+    if comments:
+        print(f"Loaded {len(comments)} comments from existing report: {md_file}")
     else:
-        comments = {}
-        print(f"No comments file found at {comments_file}, using empty comments")
+        # Fall back to YAML comments for first build
+        comments_file = report_dir / 'comments' / f'{year}-{month:02d}.yaml'
+        if comments_file.exists():
+            with open(comments_file, 'r') as f:
+                comments = yaml.safe_load(f) or {}
+            print(f"Loaded comments from: {comments_file}")
+        else:
+            comments = {}
+            print(f"No existing report or comments file, using empty comments")
 
     print(f"Loaded data for {data.get('month_name', 'Unknown')} {data.get('year', year)}")
 

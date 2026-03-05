@@ -88,6 +88,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     standalone_cards = {
         2245: 'Osakuhinna võrdlus',
         636: 'Tuleva finantstulemused',
+        2305: 'Täiendavasse Kogumisfondi tehtud maksed',
     }
     for card_id, card_name in standalone_cards.items():
         print(f"  Fetching [{card_id}] {card_name} (standalone)...")
