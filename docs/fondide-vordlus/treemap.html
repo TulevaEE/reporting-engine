@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fondide koosseis – puudiagramm</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  :root { --navy: #013063; --g200: #e5e7eb; --g600: #4b5563; --g800: #1f2937; --blue: #2563eb; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         color: var(--g800); background: #fff; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+  .back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem;
+               color: var(--blue); font-weight: 600; text-decoration: none; margin-bottom: 1rem; }
+  .back-link:hover { text-decoration: underline; }
+  h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 0.9rem; color: var(--g600); margin-bottom: 1.5rem; }
+  .fund-section { margin-bottom: 3rem; }
+  .fund-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .fund-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+  .depth-toggle { display: inline-flex; border: 1px solid var(--g200); border-radius: 6px;
+                  overflow: hidden; font-size: 0.78rem; }
+  .depth-toggle button { border: none; background: #fff; padding: 4px 12px; cursor: pointer;
+                         color: var(--g600); font-weight: 600; transition: all 0.15s; }
+  .depth-toggle button:not(:last-child) { border-right: 1px solid var(--g200); }
+  .depth-toggle button.active { background: var(--navy); color: #fff; }
+  .depth-toggle button:hover:not(.active) { background: #f3f4f6; }
+  .tree-wrap { border: 1px solid var(--g200); border-radius: 8px; overflow-x: auto; background: #fafbfc; }
+  .tree-wrap svg { display: block; }
+  .tooltip { position: fixed; background: rgba(17,24,39,0.92); color: #fff; padding: 8px 12px;
+             border-radius: 6px; font-size: 0.78rem; line-height: 1.5; pointer-events: none;
+             z-index: 100; max-width: 320px; display: none; }
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; margin-top: 0.75rem;
+            font-size: 0.78rem; color: var(--g600); }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">&larr; Tagasi fondide juurde</a>
+<h1>Fondide koosseis</h1>
+<p class="subtitle">Fond &rarr; ETF-id/varad &rarr; aktsiad. Kui sama aktsia esineb mitmes koostisosas, on see n&auml;idatud &uuml;he s&otilde;lmena mitme &uuml;hendusega.</p>
+<div id="charts"></div>
+</div>
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const FUNDS_TO_SHOW = ['Tuleva', 'SEB Indeks', 'Swedbank K1980'];
+const TOP_STOCKS = 15;
+
+const CATEGORY_COLORS = {
+  'root':     '#013063',
+  'etf':      '#2563eb',
+  'stocks':   '#0d9488',
+  'bonds':    '#7c3aed',
+  're':       '#d97706',
+  'pe':       '#dc2626',
+  'deposits': '#6b7280',
+  'etfs':     '#9ca3af',
+  'stock':    '#0d9488',
+  'holding':  '#7c3aed',
+};
+
+const CATEGORY_LABELS = {
+  'etf': 'ETF (l\u00e4bivaatamine)',
+  'stocks': 'Otseaktsiad',
+  'bonds': 'V\u00f5lakirjad',
+  're': 'Kinnisvara',
+  'pe': 'Erakapital',
+  'deposits': 'Hoiused',
+  'etfs': 'ETF-id (l\u00e4bipaistmatud)',
+  'stock': 'Aktsia',
+};
+
+function buildGraph(fundName, fundData, depth) {
+  const bd = fundData.etf_breakdown || [];
+  const ac = fundData.asset_classes || {};
+
+  const nodes = [{ id: 'root', name: fundName, weight: 100, category: 'root', col: 0 }];
+  const links = [];
+  const layer1 = [];
+  const etfTotalWeight = bd.reduce((s, e) => s + e.fund_weight, 0);
+
+  // ETFs
+  for (const etf of bd) {
+    const id = 'etf_' + etf.etf + '_' + (etf.isin || '').replace(/[^a-zA-Z0-9]/g, '');
+    layer1.push({
+      id, name: etf.name, weight: etf.fund_weight,
+      category: 'etf', etf_ticker: etf.etf, n_stocks: etf.n_stocks,
+      topStocks: etf.top_stocks,
+    });
+    links.push({ source: 'root', target: id, weight: etf.fund_weight, category: 'etf' });
+  }
+
+  // Direct stocks
+  const directStocks = (ac.stocks || 0) - etfTotalWeight;
+  if (directStocks > 1) {
+    const topStocks = (fundData.top_stocks || []).slice(0, 20);
+    layer1.push({
+      id: 'direct_stocks', name: 'Otseaktsiad', weight: directStocks,
+      category: 'stocks', n_stocks: fundData.n_stocks || 0, topStocks,
+    });
+    links.push({ source: 'root', target: 'direct_stocks', weight: directStocks, category: 'stocks' });
+  }
+
+  // Non-equity
+  for (const [key, label] of [['bonds','V\u00f5lakirjad'],['re','Kinnisvara'],['pe','Erakapital'],['deposits','Hoiused'],['etfs','ETF-id']]) {
+    const w = ac[key] || 0;
+    if (w < 0.1) continue;
+    const holdingsKey = key === 'etfs' ? 'etf_holdings' : key + '_holdings';
+    const holdings = (fundData[holdingsKey] || [])
+      .map(h => ({ name: h.name, weight: h.weight || h.weight_pct || 0 }))
+      .filter(h => h.weight > 0.01);
+    const id = 'asset_' + key;
+    layer1.push({ id, name: label, weight: w, category: key, holdings });
+    links.push({ source: 'root', target: id, weight: w, category: key });
+  }
+
+  for (const n of layer1) { n.col = 1; nodes.push(n); }
+
+  // If depth == 1, stop here (no layer 2)
+  if (depth === 1) return { nodes, links };
+
+  // Column 2: aggregate stocks across ALL layer-1 items with topStocks
+  const stockMap = {};
+  for (const l1 of layer1) {
+    if (!l1.topStocks) continue;
+    for (const s of l1.topStocks) {
+      if (!stockMap[s.name]) {
+        stockMap[s.name] = { totalWeight: 0, sources: [] };
+      }
+      stockMap[s.name].totalWeight += s.weight;
+      stockMap[s.name].sources.push({ etfId: l1.id, weight: s.weight, etfName: l1.name });
+    }
+  }
+
+  const sortedStocks = Object.entries(stockMap)
+    .sort((a, b) => b[1].totalWeight - a[1].totalWeight)
+    .slice(0, TOP_STOCKS);
+
+  const layer2 = [];
+  for (const [name, info] of sortedStocks) {
+    const id = 'stock_' + name.replace(/[^a-zA-Z0-9]/g, '_');
+    layer2.push({
+      id, name, weight: info.totalWeight, category: 'stock',
+      sourceCount: info.sources.length, sources: info.sources,
+    });
+    for (const src of info.sources) {
+      links.push({ source: src.etfId, target: id, weight: src.weight, category: 'stock' });
+    }
+  }
+
+  // Non-equity holdings as layer-2 leaves
+  for (const l1 of layer1) {
+    if (!l1.holdings || l1.holdings.length === 0) continue;
+    const top = l1.holdings.slice(0, 6);
+    for (const h of top) {
+      const id = l1.id + '_h_' + h.name.replace(/[^a-zA-Z0-9]/g, '_');
+      layer2.push({ id, name: h.name, weight: h.weight, category: 'holding' });
+      links.push({ source: l1.id, target: id, weight: h.weight, category: l1.category });
+    }
+    if (l1.holdings.length > 6) {
+      const restW = l1.holdings.slice(6).reduce((s, h) => s + h.weight, 0);
+      const id = l1.id + '_rest';
+      layer2.push({ id, name: `+ ${l1.holdings.length - 6} muud`, weight: restW, category: 'holding', isAggregate: true });
+      links.push({ source: l1.id, target: id, weight: restW, category: l1.category });
+    }
+  }
+
+  // Aggregate "rest" nodes per layer-1 item with stocks
+  const shownNames = new Set(sortedStocks.map(s => s[0]));
+  for (const l1 of layer1) {
+    if (!l1.topStocks || l1.topStocks.length === 0) continue;
+    const unshown = l1.topStocks.filter(s => !shownNames.has(s.name));
+    const unshownW = unshown.reduce((s, t) => s + t.weight, 0);
+    const otherW = l1.weight - l1.topStocks.reduce((s, t) => s + t.weight, 0);
+    const totalRest = unshownW + Math.max(0, otherW);
+    if (totalRest > 0.01) {
+      const nRest = (l1.n_stocks || l1.topStocks.length) - (l1.topStocks.length - unshown.length);
+      const id = l1.id + '_other';
+      layer2.push({ id, name: `+ ${nRest} muud aktsiat`, weight: totalRest, category: 'stock', isAggregate: true });
+      links.push({ source: l1.id, target: id, weight: totalRest, category: 'etf' });
+    }
+  }
+
+  for (const n of layer2) { n.col = 2; nodes.push(n); }
+  return { nodes, links };
+}
+
+function renderGraph(container, graph) {
+  container.innerHTML = '';
+  const tooltip = document.getElementById('tooltip');
+
+  const maxCol = d3.max(graph.nodes, n => n.col);
+  const colCounts = {};
+  for (const n of graph.nodes) colCounts[n.col] = (colCounts[n.col] || 0) + 1;
+
+  const maxRows = Math.max(...Object.values(colCounts));
+  const rowH = 26;
+  const height = Math.max(300, maxRows * rowH + 60);
+  const margin = { top: 25, right: 200, bottom: 25, left: 100 };
+  const width = Math.min(1160, window.innerWidth - 48);
+  const innerW = width - margin.left - margin.right;
+
+  const colX = maxCol === 1
+    ? [0, innerW]
+    : [0, innerW * 0.35, innerW];
+
+  // Position nodes
+  const colNodes = {};
+  for (const n of graph.nodes) {
+    if (!colNodes[n.col]) colNodes[n.col] = [];
+    colNodes[n.col].push(n);
+  }
+  for (const c in colNodes) {
+    const ns = colNodes[c];
+    const totalH = height - margin.top - margin.bottom;
+    const step = ns.length > 1 ? totalH / (ns.length - 1) : totalH / 2;
+    ns.forEach((n, i) => {
+      n.x = colX[n.col];
+      n.y = ns.length > 1 ? i * step : totalH / 2;
+    });
+  }
+
+  const nodeById = {};
+  for (const n of graph.nodes) nodeById[n.id] = n;
+
+  const svg = d3.select(container).append('svg')
+    .attr('width', width).attr('height', height);
+  const g = svg.append('g')
+    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+  const maxLinkW = d3.max(graph.links, l => l.weight) || 1;
+
+  // Links
+  g.selectAll('.graph-link')
+    .data(graph.links)
+    .join('path')
+    .attr('class', 'graph-link')
+    .attr('fill', 'none')
+    .attr('d', d => {
+      const s = nodeById[d.source], t = nodeById[d.target];
+      if (!s || !t) return '';
+      const mx = (s.x + t.x) / 2;
+      return `M${s.x},${s.y} C${mx},${s.y} ${mx},${t.y} ${t.x},${t.y}`;
+    })
+    .attr('stroke', d => CATEGORY_COLORS[d.category] || '#d1d5db')
+    .attr('stroke-width', d => Math.max(0.8, Math.min(4, (d.weight / maxLinkW) * 4)))
+    .attr('stroke-opacity', 0.3)
+    .on('mousemove', (ev, d) => {
+      const s = nodeById[d.source], t = nodeById[d.target];
+      tooltip.innerHTML = `<strong>${s?.name}</strong> &rarr; <strong>${t?.name}</strong><br>${d.weight.toFixed(2)}%`;
+      tooltip.style.display = 'block';
+      tooltip.style.left = (ev.clientX + 14) + 'px';
+      tooltip.style.top = (ev.clientY - 10) + 'px';
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+  // Nodes
+  const nodeG = g.selectAll('.graph-node')
+    .data(graph.nodes)
+    .join('g')
+    .attr('class', 'graph-node')
+    .attr('transform', d => `translate(${d.x},${d.y})`);
+
+  nodeG.append('circle')
+    .attr('r', d => {
+      if (d.col === 0) return 10;
+      if (d.isAggregate) return 3;
+      return Math.max(3, Math.min(8, Math.sqrt(d.weight || 0) * 1.2));
+    })
+    .attr('fill', d => d.isAggregate ? '#e5e7eb' : (CATEGORY_COLORS[d.category] || '#9ca3af'))
+    .attr('stroke', d => {
+      if (d.isAggregate) return '#9ca3af';
+      return d3.color(CATEGORY_COLORS[d.category] || '#9ca3af').darker(0.5);
+    })
+    .attr('stroke-width', d => d.col === 0 ? 2.5 : 1.5)
+    .on('mousemove', (ev, d) => {
+      let html = `<strong>${d.name}</strong>`;
+      if (d.weight != null) html += `<br>${d.weight.toFixed(2)}% fondist`;
+      if (d.n_stocks) html += `<br>${d.n_stocks} aktsiat kokku`;
+      if (d.etf_ticker) html += `<br>Andmeallikas: ${d.etf_ticker}`;
+      if (d.sources && d.sources.length > 1) {
+        html += `<br><br>Esineb ${d.sources.length} koostisosas:`;
+        for (const src of d.sources) {
+          html += `<br>&nbsp;&nbsp;${src.etfName}: ${src.weight.toFixed(3)}%`;
+        }
+      }
+      tooltip.innerHTML = html;
+      tooltip.style.display = 'block';
+      tooltip.style.left = (ev.clientX + 14) + 'px';
+      tooltip.style.top = (ev.clientY - 10) + 'px';
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+  // Hover highlight
+  nodeG.on('mouseenter', (ev, d) => {
+    const connected = new Set([d.id]);
+    for (const l of graph.links) {
+      if (l.source === d.id || l.target === d.id) {
+        connected.add(l.source);
+        connected.add(l.target);
+      }
+    }
+    g.selectAll('.graph-link')
+      .attr('stroke-opacity', l => (l.source === d.id || l.target === d.id) ? 0.7 : 0.06);
+    nodeG.selectAll('circle')
+      .attr('opacity', n => connected.has(n.id) ? 1 : 0.15);
+    nodeG.selectAll('text')
+      .attr('opacity', n => connected.has(n.id) ? 1 : 0.15);
+  })
+  .on('mouseleave', () => {
+    g.selectAll('.graph-link').attr('stroke-opacity', 0.3);
+    nodeG.selectAll('circle').attr('opacity', 1);
+    nodeG.selectAll('text').attr('opacity', 1);
+  });
+
+  // Labels
+  const isRightCol = maxCol;
+  nodeG.append('text')
+    .attr('dy', '0.35em')
+    .attr('x', d => d.col === isRightCol ? 10 : d.col === 0 ? -14 : -10)
+    .attr('text-anchor', d => d.col === isRightCol ? 'start' : 'end')
+    .attr('font-weight', d => d.col <= 1 ? 600 : 400)
+    .attr('font-size', d => d.col === 0 ? '13px' : d.col === 1 ? '10.5px' : '10px')
+    .attr('fill', d => d.isAggregate ? '#9ca3af' : '#1f2937')
+    .text(d => {
+      const w = d.weight;
+      const pct = w != null && d.col > 0 ? ` (${w < 1 ? w.toFixed(2) : w.toFixed(1)}%)` : '';
+      let label = d.name;
+      const maxLen = d.col === 0 ? 30 : d.col === 1 ? 32 : 26;
+      if (label.length > maxLen) label = label.substring(0, maxLen - 1) + '\u2026';
+      return label + pct;
+    });
+
+  // Column headers
+  const headers = maxCol === 1
+    ? ['Fond', 'Koostisosad']
+    : ['Fond', 'Koostisosad', 'Aktsiad / varad'];
+  for (let c = 0; c <= maxCol; c++) {
+    g.append('text')
+      .attr('x', colX[c])
+      .attr('y', -12)
+      .attr('text-anchor', c === isRightCol ? 'start' : 'end')
+      .attr('font-size', '10px')
+      .attr('font-weight', 700)
+      .attr('fill', '#9ca3af')
+      .text(headers[c]);
+  }
+}
+
+fetch('fund_data.json').then(r => r.json()).then(data => {
+  const container = document.getElementById('charts');
+
+  for (const fundName of FUNDS_TO_SHOW) {
+    const fd = data.funds[fundName];
+    if (!fd) continue;
+
+    const section = document.createElement('div');
+    section.className = 'fund-section';
+
+    // Header with title + toggle
+    const header = document.createElement('div');
+    header.className = 'fund-header';
+    const title = document.createElement('div');
+    title.className = 'fund-title';
+    title.textContent = fundName;
+    header.appendChild(title);
+
+    const toggle = document.createElement('div');
+    toggle.className = 'depth-toggle';
+    const btn1 = document.createElement('button');
+    btn1.textContent = 'Koostisosad';
+    const btn2 = document.createElement('button');
+    btn2.textContent = 'Aktsiad';
+    btn2.classList.add('active');
+    toggle.appendChild(btn1);
+    toggle.appendChild(btn2);
+    header.appendChild(toggle);
+    section.appendChild(header);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'tree-wrap';
+    section.appendChild(wrap);
+
+    const legendDiv = document.createElement('div');
+    legendDiv.className = 'legend';
+    section.appendChild(legendDiv);
+
+    function draw(depth) {
+      const graph = buildGraph(fundName, fd, depth);
+      renderGraph(wrap, graph);
+
+      // Update legend
+      legendDiv.innerHTML = '';
+      const usedCats = new Set();
+      for (const n of graph.nodes) {
+        if (n.category && n.category !== 'root') usedCats.add(n.category);
+      }
+      for (const cat of usedCats) {
+        if (!CATEGORY_LABELS[cat]) continue;
+        const item = document.createElement('span');
+        item.className = 'legend-item';
+        item.innerHTML = `<span class="legend-swatch" style="background:${CATEGORY_COLORS[cat]}"></span>${CATEGORY_LABELS[cat]}`;
+        legendDiv.appendChild(item);
+      }
+    }
+
+    draw(2);
+
+    btn1.addEventListener('click', () => {
+      btn1.classList.add('active');
+      btn2.classList.remove('active');
+      draw(1);
+    });
+    btn2.addEventListener('click', () => {
+      btn2.classList.add('active');
+      btn1.classList.remove('active');
+      draw(2);
+    });
+
+    container.appendChild(section);
+  }
+});
+</script>
+</body>
+</html>
