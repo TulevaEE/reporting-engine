@@ -3094,6 +3094,8 @@ def compute_nav_return_correlations(nav_data, cutoff_date=None):
     all_dates = set()
     for f in fund_names:
         all_dates.update(nav_data[f]['dates'])
+    if cutoff_date:
+        all_dates = {d for d in all_dates if d >= cutoff_date}
     all_dates = sorted(all_dates)
 
     return {
