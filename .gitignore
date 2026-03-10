@@ -209,3 +209,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Fondide-vordlus
+fondide-vordlus/Investeeringute aruanne/
+fondide-vordlus/*.pdf
+fondide-vordlus/*.xlsx
+fondide-vordlus/*.xls
+fondide-vordlus/*.ipynb
