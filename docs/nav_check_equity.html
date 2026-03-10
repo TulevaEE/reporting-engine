@@ -7795,7 +7795,32 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=header">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<h1 style="margin-bottom: 4px">Tuleva III pillar &amp; TKF funds NAV calculation</h1>
+<p style="color: #555; margin: 2px 0">
+<strong>NAV date:</strong> 2026-03-09  | 
+    <strong>Report run:</strong> 2026-03-10 16:07 by tonupekk
+</p>
+<p style="color: #333; margin-top: 12px; max-width: 720px; line-height: 1.5">
+    This report takes fund position data from the SEB bank position report,
+    reprices stale pooled fund holdings using fresh EODHD prices,
+    cross-checks security prices against EODHD and Yahoo Finance,
+    pulls official NAV data from pensionikeskus.ee,
+    calculates the net asset value per unit (incl. management and depository fees),
+    and verifies the result by comparing the day-over-day NAV change to a benchmark index.
+</p>
+<hr style="margin-top: 16px"/>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=md-position">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7813,119 +7838,119 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_e7125 caption {
+#T_ec86c caption {
   font-weight: bold;
   font-size: 1.1em;
   text-align: left;
   padding-bottom: 8px;
 }
-#T_e7125_row9_col0, #T_e7125_row9_col1, #T_e7125_row9_col2, #T_e7125_row9_col3, #T_e7125_row9_col4, #T_e7125_row9_col5, #T_e7125_row9_col6 {
+#T_ec86c_row9_col0, #T_ec86c_row9_col1, #T_ec86c_row9_col2, #T_ec86c_row9_col3, #T_ec86c_row9_col4, #T_ec86c_row9_col5, #T_ec86c_row9_col6 {
   font-weight: bold;
 }
 </style>
-<table id="T_e7125">
-<caption>TUV100 position as of 2026-03-06 (vs 2026-03-05)</caption>
+<table id="T_ec86c">
+<caption>TUV100 position as of 2026-03-09 (vs 2026-03-06)</caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_e7125_level0_col0">Account ID</th>
-<th class="col_heading level0 col1" id="T_e7125_level0_col1">Account Name</th>
-<th class="col_heading level0 col2" id="T_e7125_level0_col2">Quantity</th>
-<th class="col_heading level0 col3" id="T_e7125_level0_col3">Market Price</th>
-<th class="col_heading level0 col4" id="T_e7125_level0_col4">Market Value</th>
-<th class="col_heading level0 col5" id="T_e7125_level0_col5">% of Portfolio</th>
-<th class="col_heading level0 col6" id="T_e7125_level0_col6">Change %</th>
+<th class="col_heading level0 col0" id="T_ec86c_level0_col0">Account ID</th>
+<th class="col_heading level0 col1" id="T_ec86c_level0_col1">Account Name</th>
+<th class="col_heading level0 col2" id="T_ec86c_level0_col2">Quantity</th>
+<th class="col_heading level0 col3" id="T_ec86c_level0_col3">Market Price</th>
+<th class="col_heading level0 col4" id="T_ec86c_level0_col4">Market Value</th>
+<th class="col_heading level0 col5" id="T_ec86c_level0_col5">% of Portfolio</th>
+<th class="col_heading level0 col6" id="T_ec86c_level0_col6">Change %</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_e7125_row0_col0">IE0009FT4LX4</td>
-<td class="data row0 col1" id="T_e7125_row0_col1">CCF Developed World (ESG Screened) Index Fund Class X0</td>
-<td class="data row0 col2" id="T_e7125_row0_col2">9,039,054.83</td>
-<td class="data row0 col3" id="T_e7125_row0_col3">15.4230</td>
-<td class="data row0 col4" id="T_e7125_row0_col4">139,409,342.63</td>
-<td class="data row0 col5" id="T_e7125_row0_col5">29.05%</td>
-<td class="data row0 col6" id="T_e7125_row0_col6">-0.05%</td>
+<td class="data row0 col0" id="T_ec86c_row0_col0">IE0009FT4LX4</td>
+<td class="data row0 col1" id="T_ec86c_row0_col1">CCF Developed World (ESG Screened) Index Fund Class X0</td>
+<td class="data row0 col2" id="T_ec86c_row0_col2">9,039,054.83</td>
+<td class="data row0 col3" id="T_ec86c_row0_col3">15.2390</td>
+<td class="data row0 col4" id="T_ec86c_row0_col4">137,746,156.54</td>
+<td class="data row0 col5" id="T_ec86c_row0_col5">28.94%</td>
+<td class="data row0 col6" id="T_ec86c_row0_col6">-1.19%</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_e7125_row1_col0">IE00BFG1TM61</td>
-<td class="data row1 col1" id="T_e7125_row1_col1">iShares Developed World Screened Index Fund</td>
-<td class="data row1 col2" id="T_e7125_row1_col2">4,053,375.60</td>
-<td class="data row1 col3" id="T_e7125_row1_col3">34.2910</td>
-<td class="data row1 col4" id="T_e7125_row1_col4">138,994,302.70</td>
-<td class="data row1 col5" id="T_e7125_row1_col5">28.96%</td>
-<td class="data row1 col6" id="T_e7125_row1_col6">-0.09%</td>
+<td class="data row1 col0" id="T_ec86c_row1_col0">IE00BFG1TM61</td>
+<td class="data row1 col1" id="T_ec86c_row1_col1">iShares Developed World Screened Index Fund</td>
+<td class="data row1 col2" id="T_ec86c_row1_col2">4,053,375.60</td>
+<td class="data row1 col3" id="T_ec86c_row1_col3">33.8700</td>
+<td class="data row1 col4" id="T_ec86c_row1_col4">137,287,831.57</td>
+<td class="data row1 col5" id="T_ec86c_row1_col5">28.84%</td>
+<td class="data row1 col6" id="T_ec86c_row1_col6">-1.23%</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_e7125_row2_col0">IE00BFNM3G45</td>
-<td class="data row2 col1" id="T_e7125_row2_col1">iShares MSCI USA Screened UCITS ETF</td>
-<td class="data row2 col2" id="T_e7125_row2_col2">9,135,951.00</td>
-<td class="data row2 col3" id="T_e7125_row2_col3">11.9660</td>
-<td class="data row2 col4" id="T_e7125_row2_col4">109,320,789.67</td>
-<td class="data row2 col5" id="T_e7125_row2_col5">22.78%</td>
-<td class="data row2 col6" id="T_e7125_row2_col6">-1.22%</td>
+<td class="data row2 col0" id="T_ec86c_row2_col0">IE00BFNM3G45</td>
+<td class="data row2 col1" id="T_ec86c_row2_col1">iShares MSCI USA Screened UCITS ETF</td>
+<td class="data row2 col2" id="T_ec86c_row2_col2">9,135,951.00</td>
+<td class="data row2 col3" id="T_ec86c_row2_col3">11.9080</td>
+<td class="data row2 col4" id="T_ec86c_row2_col4">108,790,904.51</td>
+<td class="data row2 col5" id="T_ec86c_row2_col5">22.86%</td>
+<td class="data row2 col6" id="T_ec86c_row2_col6">-0.48%</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_e7125_row3_col0">IE00BKPTWY98</td>
-<td class="data row3 col1" id="T_e7125_row3_col1">iShares Emerging Market Screened Equity Index Fund Class Flexible</td>
-<td class="data row3 col2" id="T_e7125_row3_col2">3,848,906.59</td>
-<td class="data row3 col3" id="T_e7125_row3_col3">13.0860</td>
-<td class="data row3 col4" id="T_e7125_row3_col4">50,366,791.64</td>
-<td class="data row3 col5" id="T_e7125_row3_col5">10.50%</td>
-<td class="data row3 col6" id="T_e7125_row3_col6">+2.67%</td>
+<td class="data row3 col0" id="T_ec86c_row3_col0">IE00BKPTWY98</td>
+<td class="data row3 col1" id="T_ec86c_row3_col1">iShares Emerging Market Screened Equity Index Fund Class Flexible</td>
+<td class="data row3 col2" id="T_ec86c_row3_col2">3,848,906.59</td>
+<td class="data row3 col3" id="T_ec86c_row3_col3">13.0600</td>
+<td class="data row3 col4" id="T_ec86c_row3_col4">50,266,720.07</td>
+<td class="data row3 col5" id="T_ec86c_row3_col5">10.56%</td>
+<td class="data row3 col6" id="T_ec86c_row3_col6">-0.20%</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_e7125_row4_col0">IE00BFNM3D14</td>
-<td class="data row4 col1" id="T_e7125_row4_col1">iShares MSCI Europe Screened UCITS ETF</td>
-<td class="data row4 col2" id="T_e7125_row4_col2">3,585,405.00</td>
-<td class="data row4 col3" id="T_e7125_row4_col3">10.0040</td>
-<td class="data row4 col4" id="T_e7125_row4_col4">35,868,391.62</td>
-<td class="data row4 col5" id="T_e7125_row4_col5">7.47%</td>
-<td class="data row4 col6" id="T_e7125_row4_col6">-0.99%</td>
+<td class="data row4 col0" id="T_ec86c_row4_col0">IE00BFNM3D14</td>
+<td class="data row4 col1" id="T_ec86c_row4_col1">iShares MSCI Europe Screened UCITS ETF</td>
+<td class="data row4 col2" id="T_ec86c_row4_col2">3,585,405.00</td>
+<td class="data row4 col3" id="T_ec86c_row4_col3">9.9280</td>
+<td class="data row4 col4" id="T_ec86c_row4_col4">35,595,900.84</td>
+<td class="data row4 col5" id="T_ec86c_row4_col5">7.48%</td>
+<td class="data row4 col6" id="T_ec86c_row4_col6">-0.76%</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_e7125_row5_col0">IE00BFNM3L97</td>
-<td class="data row5 col1" id="T_e7125_row5_col1">iShares MSCI Japan Screened UCITS ETF</td>
-<td class="data row5 col2" id="T_e7125_row5_col2">520,422.00</td>
-<td class="data row5 col3" id="T_e7125_row5_col3">7.4290</td>
-<td class="data row5 col4" id="T_e7125_row5_col4">3,866,215.04</td>
-<td class="data row5 col5" id="T_e7125_row5_col5">0.81%</td>
-<td class="data row5 col6" id="T_e7125_row5_col6">-1.47%</td>
+<td class="data row5 col0" id="T_ec86c_row5_col0">IE00BFNM3L97</td>
+<td class="data row5 col1" id="T_ec86c_row5_col1">iShares MSCI Japan Screened UCITS ETF</td>
+<td class="data row5 col2" id="T_ec86c_row5_col2">520,422.00</td>
+<td class="data row5 col3" id="T_ec86c_row5_col3">7.3880</td>
+<td class="data row5 col4" id="T_ec86c_row5_col4">3,844,877.74</td>
+<td class="data row5 col5" id="T_ec86c_row5_col5">0.81%</td>
+<td class="data row5 col6" id="T_ec86c_row5_col6">-0.55%</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_e7125_row6_col0"></td>
-<td class="data row6 col1" id="T_e7125_row6_col1">Cash</td>
-<td class="data row6 col2" id="T_e7125_row6_col2"></td>
-<td class="data row6 col3" id="T_e7125_row6_col3"></td>
-<td class="data row6 col4" id="T_e7125_row6_col4">1,668,733.98</td>
-<td class="data row6 col5" id="T_e7125_row6_col5">0.35%</td>
-<td class="data row6 col6" id="T_e7125_row6_col6">+16.28%</td>
+<td class="data row6 col0" id="T_ec86c_row6_col0"></td>
+<td class="data row6 col1" id="T_ec86c_row6_col1">Cash</td>
+<td class="data row6 col2" id="T_ec86c_row6_col2"></td>
+<td class="data row6 col3" id="T_ec86c_row6_col3"></td>
+<td class="data row6 col4" id="T_ec86c_row6_col4">2,019,644.31</td>
+<td class="data row6 col5" id="T_ec86c_row6_col5">0.42%</td>
+<td class="data row6 col6" id="T_ec86c_row6_col6">+21.03%</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_e7125_row7_col0"></td>
-<td class="data row7 col1" id="T_e7125_row7_col1">Receivables</td>
-<td class="data row7 col2" id="T_e7125_row7_col2"></td>
-<td class="data row7 col3" id="T_e7125_row7_col3"></td>
-<td class="data row7 col4" id="T_e7125_row7_col4">410,978.76</td>
-<td class="data row7 col5" id="T_e7125_row7_col5">0.09%</td>
-<td class="data row7 col6" id="T_e7125_row7_col6">+163.42%</td>
+<td class="data row7 col0" id="T_ec86c_row7_col0"></td>
+<td class="data row7 col1" id="T_ec86c_row7_col1">Receivables</td>
+<td class="data row7 col2" id="T_ec86c_row7_col2"></td>
+<td class="data row7 col3" id="T_ec86c_row7_col3"></td>
+<td class="data row7 col4" id="T_ec86c_row7_col4">405,429.53</td>
+<td class="data row7 col5" id="T_ec86c_row7_col5">0.09%</td>
+<td class="data row7 col6" id="T_ec86c_row7_col6">-1.35%</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_e7125_row8_col0"></td>
-<td class="data row8 col1" id="T_e7125_row8_col1">Liabilities</td>
-<td class="data row8 col2" id="T_e7125_row8_col2"></td>
-<td class="data row8 col3" id="T_e7125_row8_col3"></td>
-<td class="data row8 col4" id="T_e7125_row8_col4">0.00</td>
-<td class="data row8 col5" id="T_e7125_row8_col5">0.00%</td>
-<td class="data row8 col6" id="T_e7125_row8_col6">+100.00%</td>
+<td class="data row8 col0" id="T_ec86c_row8_col0"></td>
+<td class="data row8 col1" id="T_ec86c_row8_col1">Liabilities</td>
+<td class="data row8 col2" id="T_ec86c_row8_col2"></td>
+<td class="data row8 col3" id="T_ec86c_row8_col3"></td>
+<td class="data row8 col4" id="T_ec86c_row8_col4">0.00</td>
+<td class="data row8 col5" id="T_ec86c_row8_col5">0.00%</td>
+<td class="data row8 col6" id="T_ec86c_row8_col6"></td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_e7125_row9_col0"></td>
-<td class="data row9 col1" id="T_e7125_row9_col1">Total net assets</td>
-<td class="data row9 col2" id="T_e7125_row9_col2"></td>
-<td class="data row9 col3" id="T_e7125_row9_col3"></td>
-<td class="data row9 col4" id="T_e7125_row9_col4">479,905,546.04</td>
-<td class="data row9 col5" id="T_e7125_row9_col5">100.00%</td>
-<td class="data row9 col6" id="T_e7125_row9_col6">-0.03%</td>
+<td class="data row9 col0" id="T_ec86c_row9_col0"></td>
+<td class="data row9 col1" id="T_ec86c_row9_col1">Total net assets</td>
+<td class="data row9 col2" id="T_ec86c_row9_col2"></td>
+<td class="data row9 col3" id="T_ec86c_row9_col3"></td>
+<td class="data row9 col4" id="T_ec86c_row9_col4">475,957,465.11</td>
+<td class="data row9 col5" id="T_ec86c_row9_col5">100.00%</td>
+<td class="data row9 col6" id="T_ec86c_row9_col6">-0.82%</td>
 </tr>
 </tbody>
 </table>
@@ -7934,146 +7959,146 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_9c6dc caption {
+#T_e022e caption {
   font-weight: bold;
   font-size: 1.1em;
   text-align: left;
   padding-bottom: 8px;
 }
-#T_9c6dc_row12_col0, #T_9c6dc_row12_col1, #T_9c6dc_row12_col2, #T_9c6dc_row12_col3, #T_9c6dc_row12_col4, #T_9c6dc_row12_col5, #T_9c6dc_row12_col6 {
+#T_e022e_row12_col0, #T_e022e_row12_col1, #T_e022e_row12_col2, #T_e022e_row12_col3, #T_e022e_row12_col4, #T_e022e_row12_col5, #T_e022e_row12_col6 {
   font-weight: bold;
 }
 </style>
-<table id="T_9c6dc">
-<caption>TKF100 position as of 2026-03-06 (vs 2026-03-05)</caption>
+<table id="T_e022e">
+<caption>TKF100 position as of 2026-03-09 (vs 2026-03-06)</caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_9c6dc_level0_col0">Account ID</th>
-<th class="col_heading level0 col1" id="T_9c6dc_level0_col1">Account Name</th>
-<th class="col_heading level0 col2" id="T_9c6dc_level0_col2">Quantity</th>
-<th class="col_heading level0 col3" id="T_9c6dc_level0_col3">Market Price</th>
-<th class="col_heading level0 col4" id="T_9c6dc_level0_col4">Market Value</th>
-<th class="col_heading level0 col5" id="T_9c6dc_level0_col5">% of Portfolio</th>
-<th class="col_heading level0 col6" id="T_9c6dc_level0_col6">Change %</th>
+<th class="col_heading level0 col0" id="T_e022e_level0_col0">Account ID</th>
+<th class="col_heading level0 col1" id="T_e022e_level0_col1">Account Name</th>
+<th class="col_heading level0 col2" id="T_e022e_level0_col2">Quantity</th>
+<th class="col_heading level0 col3" id="T_e022e_level0_col3">Market Price</th>
+<th class="col_heading level0 col4" id="T_e022e_level0_col4">Market Value</th>
+<th class="col_heading level0 col5" id="T_e022e_level0_col5">% of Portfolio</th>
+<th class="col_heading level0 col6" id="T_e022e_level0_col6">Change %</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_9c6dc_row0_col0">IE000F60HVH9</td>
-<td class="data row0 col1" id="T_9c6dc_row0_col1">ICAV Amundi MSCI USA Screened UCITS ETF</td>
-<td class="data row0 col2" id="T_9c6dc_row0_col2">291,716.00</td>
-<td class="data row0 col3" id="T_9c6dc_row0_col3">4.3290</td>
-<td class="data row0 col4" id="T_9c6dc_row0_col4">1,262,838.56</td>
-<td class="data row0 col5" id="T_9c6dc_row0_col5">18.62%</td>
-<td class="data row0 col6" id="T_9c6dc_row0_col6">-1.07%</td>
+<td class="data row0 col0" id="T_e022e_row0_col0">IE000F60HVH9</td>
+<td class="data row0 col1" id="T_e022e_row0_col1">ICAV Amundi MSCI USA Screened UCITS ETF</td>
+<td class="data row0 col2" id="T_e022e_row0_col2">291,716.00</td>
+<td class="data row0 col3" id="T_e022e_row0_col3">4.3040</td>
+<td class="data row0 col4" id="T_e022e_row0_col4">1,255,545.66</td>
+<td class="data row0 col5" id="T_e022e_row0_col5">18.58%</td>
+<td class="data row0 col6" id="T_e022e_row0_col6">-0.58%</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_9c6dc_row1_col0">IE00BJZ2DC62</td>
-<td class="data row1 col1" id="T_9c6dc_row1_col1">Xtrackers MSCI USA Screened UCITS ETF</td>
-<td class="data row1 col2" id="T_9c6dc_row1_col2">23,687.00</td>
-<td class="data row1 col3" id="T_9c6dc_row1_col3">50.0500</td>
-<td class="data row1 col4" id="T_9c6dc_row1_col4">1,185,534.35</td>
-<td class="data row1 col5" id="T_9c6dc_row1_col5">17.48%</td>
-<td class="data row1 col6" id="T_9c6dc_row1_col6">-1.18%</td>
+<td class="data row1 col0" id="T_e022e_row1_col0">IE00BJZ2DC62</td>
+<td class="data row1 col1" id="T_e022e_row1_col1">Xtrackers MSCI USA Screened UCITS ETF</td>
+<td class="data row1 col2" id="T_e022e_row1_col2">23,687.00</td>
+<td class="data row1 col3" id="T_e022e_row1_col3">49.7700</td>
+<td class="data row1 col4" id="T_e022e_row1_col4">1,178,901.99</td>
+<td class="data row1 col5" id="T_e022e_row1_col5">17.45%</td>
+<td class="data row1 col6" id="T_e022e_row1_col6">-0.56%</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_9c6dc_row2_col0">IE00BFG1TM61</td>
-<td class="data row2 col1" id="T_9c6dc_row2_col1">iShares Developed World Screened Index Fund</td>
-<td class="data row2 col2" id="T_9c6dc_row2_col2">34,096.56</td>
-<td class="data row2 col3" id="T_9c6dc_row2_col3">34.2910</td>
-<td class="data row2 col4" id="T_9c6dc_row2_col4">1,169,205.14</td>
-<td class="data row2 col5" id="T_9c6dc_row2_col5">17.24%</td>
-<td class="data row2 col6" id="T_9c6dc_row2_col6">-0.09%</td>
+<td class="data row2 col0" id="T_e022e_row2_col0">IE00BFG1TM61</td>
+<td class="data row2 col1" id="T_e022e_row2_col1">iShares Developed World Screened Index Fund</td>
+<td class="data row2 col2" id="T_e022e_row2_col2">34,096.56</td>
+<td class="data row2 col3" id="T_e022e_row2_col3">33.8700</td>
+<td class="data row2 col4" id="T_e022e_row2_col4">1,154,850.49</td>
+<td class="data row2 col5" id="T_e022e_row2_col5">17.09%</td>
+<td class="data row2 col6" id="T_e022e_row2_col6">-1.23%</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_9c6dc_row3_col0">IE000O58J820</td>
-<td class="data row3 col1" id="T_9c6dc_row3_col1">Vanguard ESG North America All Cap UCITS ETF</td>
-<td class="data row3 col2" id="T_9c6dc_row3_col2">153,949.00</td>
-<td class="data row3 col3" id="T_9c6dc_row3_col3">6.8310</td>
-<td class="data row3 col4" id="T_9c6dc_row3_col4">1,051,625.62</td>
-<td class="data row3 col5" id="T_9c6dc_row3_col5">15.50%</td>
-<td class="data row3 col6" id="T_9c6dc_row3_col6">-1.26%</td>
+<td class="data row3 col0" id="T_e022e_row3_col0">IE000O58J820</td>
+<td class="data row3 col1" id="T_e022e_row3_col1">Vanguard ESG North America All Cap UCITS ETF</td>
+<td class="data row3 col2" id="T_e022e_row3_col2">153,949.00</td>
+<td class="data row3 col3" id="T_e022e_row3_col3">6.7920</td>
+<td class="data row3 col4" id="T_e022e_row3_col4">1,045,621.61</td>
+<td class="data row3 col5" id="T_e022e_row3_col5">15.47%</td>
+<td class="data row3 col6" id="T_e022e_row3_col6">-0.57%</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_9c6dc_row4_col0">LU1291099718</td>
-<td class="data row4 col1" id="T_9c6dc_row4_col1">BNP Paribas Easy MSCI EUROPE MIN TE UCITS ETF</td>
-<td class="data row4 col2" id="T_9c6dc_row4_col2">45,082.00</td>
-<td class="data row4 col3" id="T_9c6dc_row4_col3">18.7120</td>
-<td class="data row4 col4" id="T_9c6dc_row4_col4">843,574.38</td>
-<td class="data row4 col5" id="T_9c6dc_row4_col5">12.44%</td>
-<td class="data row4 col6" id="T_9c6dc_row4_col6">-1.01%</td>
+<td class="data row4 col0" id="T_e022e_row4_col0">LU1291099718</td>
+<td class="data row4 col1" id="T_e022e_row4_col1">BNP Paribas Easy MSCI EUROPE MIN TE UCITS ETF</td>
+<td class="data row4 col2" id="T_e022e_row4_col2">45,082.00</td>
+<td class="data row4 col3" id="T_e022e_row4_col3">18.6080</td>
+<td class="data row4 col4" id="T_e022e_row4_col4">838,885.86</td>
+<td class="data row4 col5" id="T_e022e_row4_col5">12.41%</td>
+<td class="data row4 col6" id="T_e022e_row4_col6">-0.56%</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_9c6dc_row5_col0">IE00BMDBMY19</td>
-<td class="data row5 col1" id="T_9c6dc_row5_col1">Invesco MSCI Emerging Markets Universal Screened UCITS ETF Acc</td>
-<td class="data row5 col2" id="T_9c6dc_row5_col2">15,543.00</td>
-<td class="data row5 col3" id="T_9c6dc_row5_col3">41.5150</td>
-<td class="data row5 col4" id="T_9c6dc_row5_col4">645,267.65</td>
-<td class="data row5 col5" id="T_9c6dc_row5_col5">9.51%</td>
-<td class="data row5 col6" id="T_9c6dc_row5_col6">-0.29%</td>
+<td class="data row5 col0" id="T_e022e_row5_col0">IE00BMDBMY19</td>
+<td class="data row5 col1" id="T_e022e_row5_col1">Invesco MSCI Emerging Markets Universal Screened UCITS ETF Acc</td>
+<td class="data row5 col2" id="T_e022e_row5_col2">15,543.00</td>
+<td class="data row5 col3" id="T_e022e_row5_col3">41.6150</td>
+<td class="data row5 col4" id="T_e022e_row5_col4">646,821.95</td>
+<td class="data row5 col5" id="T_e022e_row5_col5">9.57%</td>
+<td class="data row5 col6" id="T_e022e_row5_col6">+0.24%</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_9c6dc_row6_col0">LU1291102447</td>
-<td class="data row6 col1" id="T_9c6dc_row6_col1">BNP Paribas Easy MSCI Japan Min TE UCITS ETF</td>
-<td class="data row6 col2" id="T_9c6dc_row6_col2">11,704.00</td>
-<td class="data row6 col3" id="T_9c6dc_row6_col3">17.9440</td>
-<td class="data row6 col4" id="T_9c6dc_row6_col4">210,016.58</td>
-<td class="data row6 col5" id="T_9c6dc_row6_col5">3.10%</td>
-<td class="data row6 col6" id="T_9c6dc_row6_col6">-1.32%</td>
+<td class="data row6 col0" id="T_e022e_row6_col0">LU1291102447</td>
+<td class="data row6 col1" id="T_e022e_row6_col1">BNP Paribas Easy MSCI Japan Min TE UCITS ETF</td>
+<td class="data row6 col2" id="T_e022e_row6_col2">11,704.00</td>
+<td class="data row6 col3" id="T_e022e_row6_col3">17.8660</td>
+<td class="data row6 col4" id="T_e022e_row6_col4">209,103.66</td>
+<td class="data row6 col5" id="T_e022e_row6_col5">3.09%</td>
+<td class="data row6 col6" id="T_e022e_row6_col6">-0.43%</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_9c6dc_row7_col0">LU1291106356</td>
-<td class="data row7 col1" id="T_9c6dc_row7_col1">BNP Paribas Easy MSCI Pacific ex Japan Min TE UCITS ETF</td>
-<td class="data row7 col2" id="T_9c6dc_row7_col2">6,719.00</td>
-<td class="data row7 col3" id="T_9c6dc_row7_col3">16.2520</td>
-<td class="data row7 col4" id="T_9c6dc_row7_col4">109,197.19</td>
-<td class="data row7 col5" id="T_9c6dc_row7_col5">1.61%</td>
-<td class="data row7 col6" id="T_9c6dc_row7_col6">-0.72%</td>
+<td class="data row7 col0" id="T_e022e_row7_col0">LU1291106356</td>
+<td class="data row7 col1" id="T_e022e_row7_col1">BNP Paribas Easy MSCI Pacific ex Japan Min TE UCITS ETF</td>
+<td class="data row7 col2" id="T_e022e_row7_col2">6,719.00</td>
+<td class="data row7 col3" id="T_e022e_row7_col3">16.2480</td>
+<td class="data row7 col4" id="T_e022e_row7_col4">109,170.31</td>
+<td class="data row7 col5" id="T_e022e_row7_col5">1.62%</td>
+<td class="data row7 col6" id="T_e022e_row7_col6">-0.02%</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_9c6dc_row8_col0">LU0476289540</td>
-<td class="data row8 col1" id="T_9c6dc_row8_col1">Xtrackers MSCI Canada Screened UCITS ETF</td>
-<td class="data row8 col2" id="T_9c6dc_row8_col2">908.00</td>
-<td class="data row8 col3" id="T_9c6dc_row8_col3">104.4200</td>
-<td class="data row8 col4" id="T_9c6dc_row8_col4">94,813.36</td>
-<td class="data row8 col5" id="T_9c6dc_row8_col5">1.40%</td>
-<td class="data row8 col6" id="T_9c6dc_row8_col6">-0.61%</td>
+<td class="data row8 col0" id="T_e022e_row8_col0">LU0476289540</td>
+<td class="data row8 col1" id="T_e022e_row8_col1">Xtrackers MSCI Canada Screened UCITS ETF</td>
+<td class="data row8 col2" id="T_e022e_row8_col2">908.00</td>
+<td class="data row8 col3" id="T_e022e_row8_col3">103.6000</td>
+<td class="data row8 col4" id="T_e022e_row8_col4">94,068.80</td>
+<td class="data row8 col5" id="T_e022e_row8_col5">1.39%</td>
+<td class="data row8 col6" id="T_e022e_row8_col6">-0.79%</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_9c6dc_row9_col0"></td>
-<td class="data row9 col1" id="T_9c6dc_row9_col1">Cash</td>
-<td class="data row9 col2" id="T_9c6dc_row9_col2"></td>
-<td class="data row9 col3" id="T_9c6dc_row9_col3"></td>
-<td class="data row9 col4" id="T_9c6dc_row9_col4">211,514.78</td>
-<td class="data row9 col5" id="T_9c6dc_row9_col5">3.12%</td>
-<td class="data row9 col6" id="T_9c6dc_row9_col6">+4.07%</td>
+<td class="data row9 col0" id="T_e022e_row9_col0"></td>
+<td class="data row9 col1" id="T_e022e_row9_col1">Cash</td>
+<td class="data row9 col2" id="T_e022e_row9_col2"></td>
+<td class="data row9 col3" id="T_e022e_row9_col3"></td>
+<td class="data row9 col4" id="T_e022e_row9_col4">224,230.39</td>
+<td class="data row9 col5" id="T_e022e_row9_col5">3.32%</td>
+<td class="data row9 col6" id="T_e022e_row9_col6">+6.01%</td>
 </tr>
 <tr>
-<td class="data row10 col0" id="T_9c6dc_row10_col0"></td>
-<td class="data row10 col1" id="T_9c6dc_row10_col1">Receivables</td>
-<td class="data row10 col2" id="T_9c6dc_row10_col2"></td>
-<td class="data row10 col3" id="T_9c6dc_row10_col3"></td>
-<td class="data row10 col4" id="T_9c6dc_row10_col4">0.00</td>
-<td class="data row10 col5" id="T_9c6dc_row10_col5">0.00%</td>
-<td class="data row10 col6" id="T_9c6dc_row10_col6"></td>
+<td class="data row10 col0" id="T_e022e_row10_col0"></td>
+<td class="data row10 col1" id="T_e022e_row10_col1">Receivables</td>
+<td class="data row10 col2" id="T_e022e_row10_col2"></td>
+<td class="data row10 col3" id="T_e022e_row10_col3"></td>
+<td class="data row10 col4" id="T_e022e_row10_col4">0.00</td>
+<td class="data row10 col5" id="T_e022e_row10_col5">0.00%</td>
+<td class="data row10 col6" id="T_e022e_row10_col6"></td>
 </tr>
 <tr>
-<td class="data row11 col0" id="T_9c6dc_row11_col0"></td>
-<td class="data row11 col1" id="T_9c6dc_row11_col1">Liabilities</td>
-<td class="data row11 col2" id="T_9c6dc_row11_col2"></td>
-<td class="data row11 col3" id="T_9c6dc_row11_col3"></td>
-<td class="data row11 col4" id="T_9c6dc_row11_col4">0.00</td>
-<td class="data row11 col5" id="T_9c6dc_row11_col5">0.00%</td>
-<td class="data row11 col6" id="T_9c6dc_row11_col6">+100.00%</td>
+<td class="data row11 col0" id="T_e022e_row11_col0"></td>
+<td class="data row11 col1" id="T_e022e_row11_col1">Liabilities</td>
+<td class="data row11 col2" id="T_e022e_row11_col2"></td>
+<td class="data row11 col3" id="T_e022e_row11_col3"></td>
+<td class="data row11 col4" id="T_e022e_row11_col4">0.00</td>
+<td class="data row11 col5" id="T_e022e_row11_col5">0.00%</td>
+<td class="data row11 col6" id="T_e022e_row11_col6"></td>
 </tr>
 <tr>
-<td class="data row12 col0" id="T_9c6dc_row12_col0"></td>
-<td class="data row12 col1" id="T_9c6dc_row12_col1">Total net assets</td>
-<td class="data row12 col2" id="T_9c6dc_row12_col2"></td>
-<td class="data row12 col3" id="T_9c6dc_row12_col3"></td>
-<td class="data row12 col4" id="T_9c6dc_row12_col4">6,783,587.61</td>
-<td class="data row12 col5" id="T_9c6dc_row12_col5">100.00%</td>
-<td class="data row12 col6" id="T_9c6dc_row12_col6">-0.71%</td>
+<td class="data row12 col0" id="T_e022e_row12_col0"></td>
+<td class="data row12 col1" id="T_e022e_row12_col1">Total net assets</td>
+<td class="data row12 col2" id="T_e022e_row12_col2"></td>
+<td class="data row12 col3" id="T_e022e_row12_col3"></td>
+<td class="data row12 col4" id="T_e022e_row12_col4">6,757,200.72</td>
+<td class="data row12 col5" id="T_e022e_row12_col5">100.00%</td>
+<td class="data row12 col6" id="T_e022e_row12_col6">-0.39%</td>
 </tr>
 </tbody>
 </table>
@@ -8087,7 +8112,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Price-Verification">Price Verification<a class="anchor-link" href="#Price-Verification">¶</a></h2><p>Cross-checking fund position prices against independent index/provider data. These funds use NAV-date prices (no lag).</p>
+<h2 id="Price-Verification-&amp;-Repricing">Price Verification &amp; Repricing<a class="anchor-link" href="#Price-Verification-&amp;-Repricing">¶</a></h2><p>Cross-checking fund position prices against EODHD and Yahoo Finance. Pooled IE funds (marked with *) have stale prices in SEB — they are repriced using the latest available provider price for the NAV date.</p>
 </div>
 </div>
 </div>
@@ -8099,237 +8124,185 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_3b62d caption {
+#T_7b7e4 caption {
   font-weight: bold;
   font-size: 1.1em;
   text-align: left;
   padding-bottom: 8px;
 }
-#T_3b62d_row0_col3, #T_3b62d_row0_col6, #T_3b62d_row1_col6 {
-  background-color: #f8d7da;
-}
-#T_3b62d_row2_col4, #T_3b62d_row2_col5, #T_3b62d_row2_col7, #T_3b62d_row4_col4, #T_3b62d_row4_col5, #T_3b62d_row4_col7, #T_3b62d_row5_col4, #T_3b62d_row5_col5, #T_3b62d_row5_col7 {
+#T_7b7e4_row0_col3, #T_7b7e4_row1_col3, #T_7b7e4_row2_col3, #T_7b7e4_row3_col3, #T_7b7e4_row4_col3, #T_7b7e4_row5_col3 {
   background-color: #d4edda;
 }
-#T_3b62d_row3_col6 {
-  background-color: #fff3cd;
-}
 </style>
-<table id="T_3b62d">
-<caption>TUV100 price verification (NAV date: 2026-03-06)</caption>
+<table id="T_7b7e4">
+<caption>TUV100 price verification (* = stale, repriced from providers)</caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_3b62d_level0_col0">ISIN</th>
-<th class="col_heading level0 col1" id="T_3b62d_level0_col1">Name</th>
-<th class="col_heading level0 col2" id="T_3b62d_level0_col2">Fund</th>
-<th class="col_heading level0 col3" id="T_3b62d_level0_col3">BlackRock</th>
-<th class="col_heading level0 col4" id="T_3b62d_level0_col4">Exchange</th>
-<th class="col_heading level0 col5" id="T_3b62d_level0_col5">EODHD</th>
-<th class="col_heading level0 col6" id="T_3b62d_level0_col6">Morningstar</th>
-<th class="col_heading level0 col7" id="T_3b62d_level0_col7">Yahoo</th>
+<th class="col_heading level0 col0" id="T_7b7e4_level0_col0">ISIN</th>
+<th class="col_heading level0 col1" id="T_7b7e4_level0_col1">Name</th>
+<th class="col_heading level0 col2" id="T_7b7e4_level0_col2">Fund</th>
+<th class="col_heading level0 col3" id="T_7b7e4_level0_col3">EODHD</th>
+<th class="col_heading level0 col4" id="T_7b7e4_level0_col4">Yahoo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_3b62d_row0_col0">IE0009FT4LX4</td>
-<td class="data row0 col1" id="T_3b62d_row0_col1">CCF Developed World (ESG Screened) Index Fund Class X0 *</td>
-<td class="data row0 col2" id="T_3b62d_row0_col2">15.4230</td>
-<td class="data row0 col3" id="T_3b62d_row0_col3">15.2390</td>
-<td class="data row0 col4" id="T_3b62d_row0_col4">—</td>
-<td class="data row0 col5" id="T_3b62d_row0_col5">—</td>
-<td class="data row0 col6" id="T_3b62d_row0_col6">15.2390</td>
-<td class="data row0 col7" id="T_3b62d_row0_col7">—</td>
+<td class="data row0 col0" id="T_7b7e4_row0_col0">IE0009FT4LX4</td>
+<td class="data row0 col1" id="T_7b7e4_row0_col1">CCF Developed World (ESG Screened) Index Fund Class X0 *</td>
+<td class="data row0 col2" id="T_7b7e4_row0_col2">15.2390</td>
+<td class="data row0 col3" id="T_7b7e4_row0_col3">15.2390</td>
+<td class="data row0 col4" id="T_7b7e4_row0_col4">—</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_3b62d_row1_col0">IE00BFG1TM61</td>
-<td class="data row1 col1" id="T_3b62d_row1_col1">iShares Developed World Screened Index Fund *</td>
-<td class="data row1 col2" id="T_3b62d_row1_col2">34.2910</td>
-<td class="data row1 col3" id="T_3b62d_row1_col3">—</td>
-<td class="data row1 col4" id="T_3b62d_row1_col4">—</td>
-<td class="data row1 col5" id="T_3b62d_row1_col5">—</td>
-<td class="data row1 col6" id="T_3b62d_row1_col6">33.8700</td>
-<td class="data row1 col7" id="T_3b62d_row1_col7">—</td>
+<td class="data row1 col0" id="T_7b7e4_row1_col0">IE00BFG1TM61</td>
+<td class="data row1 col1" id="T_7b7e4_row1_col1">iShares Developed World Screened Index Fund *</td>
+<td class="data row1 col2" id="T_7b7e4_row1_col2">33.8700</td>
+<td class="data row1 col3" id="T_7b7e4_row1_col3">33.8700</td>
+<td class="data row1 col4" id="T_7b7e4_row1_col4">—</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_3b62d_row2_col0">IE00BFNM3G45</td>
-<td class="data row2 col1" id="T_3b62d_row2_col1">iShares MSCI USA Screened UCITS ETF</td>
-<td class="data row2 col2" id="T_3b62d_row2_col2">11.9660</td>
-<td class="data row2 col3" id="T_3b62d_row2_col3">—</td>
-<td class="data row2 col4" id="T_3b62d_row2_col4">11.9660</td>
-<td class="data row2 col5" id="T_3b62d_row2_col5">11.9660</td>
-<td class="data row2 col6" id="T_3b62d_row2_col6">—</td>
-<td class="data row2 col7" id="T_3b62d_row2_col7">11.9660</td>
+<td class="data row2 col0" id="T_7b7e4_row2_col0">IE00BFNM3G45</td>
+<td class="data row2 col1" id="T_7b7e4_row2_col1">iShares MSCI USA Screened UCITS ETF</td>
+<td class="data row2 col2" id="T_7b7e4_row2_col2">11.9080</td>
+<td class="data row2 col3" id="T_7b7e4_row2_col3">11.9080</td>
+<td class="data row2 col4" id="T_7b7e4_row2_col4">—</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_3b62d_row3_col0">IE00BKPTWY98</td>
-<td class="data row3 col1" id="T_3b62d_row3_col1">iShares Emerging Market Screened Equity Index Fund Class Flexible *</td>
-<td class="data row3 col2" id="T_3b62d_row3_col2">13.0860</td>
-<td class="data row3 col3" id="T_3b62d_row3_col3">—</td>
-<td class="data row3 col4" id="T_3b62d_row3_col4">—</td>
-<td class="data row3 col5" id="T_3b62d_row3_col5">—</td>
-<td class="data row3 col6" id="T_3b62d_row3_col6">13.0600</td>
-<td class="data row3 col7" id="T_3b62d_row3_col7">—</td>
+<td class="data row3 col0" id="T_7b7e4_row3_col0">IE00BKPTWY98</td>
+<td class="data row3 col1" id="T_7b7e4_row3_col1">iShares Emerging Market Screened Equity Index Fund Class Flexible *</td>
+<td class="data row3 col2" id="T_7b7e4_row3_col2">13.0600</td>
+<td class="data row3 col3" id="T_7b7e4_row3_col3">13.0600</td>
+<td class="data row3 col4" id="T_7b7e4_row3_col4">—</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_3b62d_row4_col0">IE00BFNM3D14</td>
-<td class="data row4 col1" id="T_3b62d_row4_col1">iShares MSCI Europe Screened UCITS ETF</td>
-<td class="data row4 col2" id="T_3b62d_row4_col2">10.0040</td>
-<td class="data row4 col3" id="T_3b62d_row4_col3">—</td>
-<td class="data row4 col4" id="T_3b62d_row4_col4">10.0040</td>
-<td class="data row4 col5" id="T_3b62d_row4_col5">10.0040</td>
-<td class="data row4 col6" id="T_3b62d_row4_col6">—</td>
-<td class="data row4 col7" id="T_3b62d_row4_col7">10.0040</td>
+<td class="data row4 col0" id="T_7b7e4_row4_col0">IE00BFNM3D14</td>
+<td class="data row4 col1" id="T_7b7e4_row4_col1">iShares MSCI Europe Screened UCITS ETF</td>
+<td class="data row4 col2" id="T_7b7e4_row4_col2">9.9280</td>
+<td class="data row4 col3" id="T_7b7e4_row4_col3">9.9280</td>
+<td class="data row4 col4" id="T_7b7e4_row4_col4">—</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_3b62d_row5_col0">IE00BFNM3L97</td>
-<td class="data row5 col1" id="T_3b62d_row5_col1">iShares MSCI Japan Screened UCITS ETF</td>
-<td class="data row5 col2" id="T_3b62d_row5_col2">7.4290</td>
-<td class="data row5 col3" id="T_3b62d_row5_col3">—</td>
-<td class="data row5 col4" id="T_3b62d_row5_col4">7.4290</td>
-<td class="data row5 col5" id="T_3b62d_row5_col5">7.4290</td>
-<td class="data row5 col6" id="T_3b62d_row5_col6">—</td>
-<td class="data row5 col7" id="T_3b62d_row5_col7">7.4290</td>
+<td class="data row5 col0" id="T_7b7e4_row5_col0">IE00BFNM3L97</td>
+<td class="data row5 col1" id="T_7b7e4_row5_col1">iShares MSCI Japan Screened UCITS ETF</td>
+<td class="data row5 col2" id="T_7b7e4_row5_col2">7.3880</td>
+<td class="data row5 col3" id="T_7b7e4_row5_col3">7.3880</td>
+<td class="data row5 col4" id="T_7b7e4_row5_col4">—</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div style="color: #721c24; background: #f8d7da; padding: 10px 14px; border-radius: 4px; margin: 6px 0 12px 0; font-size: 0.95em"><strong>TODO: No fresh prices available for stale pooled funds.</strong><br/>IE0009FT4LX4 (EODHD): latest price is from 2026-03-06, not 2026-03-09<br/>IE00BFG1TM61 (EODHD): latest price is from 2026-03-06, not 2026-03-09<br/>IE00BKPTWY98 (EODHD): latest price is from 2026-03-06, not 2026-03-09<br/><br/>EODHD only provides T-1 prices for these IE pooled funds. Need to add Morningstar or another source that publishes same-day NAVs for repricing.</div>
+</div>
+</div>
+<div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>TUV100: 10 OK  |  3 flagged  |  17 no data  |  reprice adj: -3,469,728.79 EUR
-  (* = fund price is stale, always repriced from providers)
+<pre>TUV100: no repricing needed
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_a89bf caption {
+#T_4adbe caption {
   font-weight: bold;
   font-size: 1.1em;
   text-align: left;
   padding-bottom: 8px;
 }
-#T_a89bf_row0_col4, #T_a89bf_row0_col5, #T_a89bf_row0_col7, #T_a89bf_row1_col4, #T_a89bf_row1_col5, #T_a89bf_row1_col7, #T_a89bf_row3_col4, #T_a89bf_row3_col5, #T_a89bf_row3_col7, #T_a89bf_row4_col4, #T_a89bf_row4_col5, #T_a89bf_row4_col7, #T_a89bf_row5_col4, #T_a89bf_row5_col5, #T_a89bf_row5_col7, #T_a89bf_row6_col4, #T_a89bf_row6_col5, #T_a89bf_row6_col7, #T_a89bf_row7_col4, #T_a89bf_row7_col5, #T_a89bf_row7_col7, #T_a89bf_row8_col4, #T_a89bf_row8_col5, #T_a89bf_row8_col7 {
+#T_4adbe_row1_col3, #T_4adbe_row2_col3, #T_4adbe_row3_col3, #T_4adbe_row4_col3, #T_4adbe_row5_col3, #T_4adbe_row6_col3, #T_4adbe_row7_col3, #T_4adbe_row8_col3 {
   background-color: #d4edda;
 }
-#T_a89bf_row2_col6 {
-  background-color: #f8d7da;
-}
 </style>
-<table id="T_a89bf">
-<caption>TKF100 price verification (NAV date: 2026-03-06)</caption>
+<table id="T_4adbe">
+<caption>TKF100 price verification (* = stale, repriced from providers)</caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_a89bf_level0_col0">ISIN</th>
-<th class="col_heading level0 col1" id="T_a89bf_level0_col1">Name</th>
-<th class="col_heading level0 col2" id="T_a89bf_level0_col2">Fund</th>
-<th class="col_heading level0 col3" id="T_a89bf_level0_col3">BlackRock</th>
-<th class="col_heading level0 col4" id="T_a89bf_level0_col4">Exchange</th>
-<th class="col_heading level0 col5" id="T_a89bf_level0_col5">EODHD</th>
-<th class="col_heading level0 col6" id="T_a89bf_level0_col6">Morningstar</th>
-<th class="col_heading level0 col7" id="T_a89bf_level0_col7">Yahoo</th>
+<th class="col_heading level0 col0" id="T_4adbe_level0_col0">ISIN</th>
+<th class="col_heading level0 col1" id="T_4adbe_level0_col1">Name</th>
+<th class="col_heading level0 col2" id="T_4adbe_level0_col2">Fund</th>
+<th class="col_heading level0 col3" id="T_4adbe_level0_col3">EODHD</th>
+<th class="col_heading level0 col4" id="T_4adbe_level0_col4">Yahoo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_a89bf_row0_col0">IE000F60HVH9</td>
-<td class="data row0 col1" id="T_a89bf_row0_col1">ICAV Amundi MSCI USA Screened UCITS ETF</td>
-<td class="data row0 col2" id="T_a89bf_row0_col2">4.3290</td>
-<td class="data row0 col3" id="T_a89bf_row0_col3">—</td>
-<td class="data row0 col4" id="T_a89bf_row0_col4">4.3290</td>
-<td class="data row0 col5" id="T_a89bf_row0_col5">4.3290</td>
-<td class="data row0 col6" id="T_a89bf_row0_col6">—</td>
-<td class="data row0 col7" id="T_a89bf_row0_col7">4.3290</td>
+<td class="data row0 col0" id="T_4adbe_row0_col0">IE000F60HVH9</td>
+<td class="data row0 col1" id="T_4adbe_row0_col1">ICAV Amundi MSCI USA Screened UCITS ETF</td>
+<td class="data row0 col2" id="T_4adbe_row0_col2">4.3040</td>
+<td class="data row0 col3" id="T_4adbe_row0_col3">—</td>
+<td class="data row0 col4" id="T_4adbe_row0_col4">—</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_a89bf_row1_col0">IE00BJZ2DC62</td>
-<td class="data row1 col1" id="T_a89bf_row1_col1">Xtrackers MSCI USA Screened UCITS ETF</td>
-<td class="data row1 col2" id="T_a89bf_row1_col2">50.0500</td>
-<td class="data row1 col3" id="T_a89bf_row1_col3">—</td>
-<td class="data row1 col4" id="T_a89bf_row1_col4">50.0500</td>
-<td class="data row1 col5" id="T_a89bf_row1_col5">50.0500</td>
-<td class="data row1 col6" id="T_a89bf_row1_col6">—</td>
-<td class="data row1 col7" id="T_a89bf_row1_col7">50.0500</td>
+<td class="data row1 col0" id="T_4adbe_row1_col0">IE00BJZ2DC62</td>
+<td class="data row1 col1" id="T_4adbe_row1_col1">Xtrackers MSCI USA Screened UCITS ETF</td>
+<td class="data row1 col2" id="T_4adbe_row1_col2">49.7700</td>
+<td class="data row1 col3" id="T_4adbe_row1_col3">49.7700</td>
+<td class="data row1 col4" id="T_4adbe_row1_col4">—</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_a89bf_row2_col0">IE00BFG1TM61</td>
-<td class="data row2 col1" id="T_a89bf_row2_col1">iShares Developed World Screened Index Fund *</td>
-<td class="data row2 col2" id="T_a89bf_row2_col2">34.2910</td>
-<td class="data row2 col3" id="T_a89bf_row2_col3">—</td>
-<td class="data row2 col4" id="T_a89bf_row2_col4">—</td>
-<td class="data row2 col5" id="T_a89bf_row2_col5">—</td>
-<td class="data row2 col6" id="T_a89bf_row2_col6">33.8700</td>
-<td class="data row2 col7" id="T_a89bf_row2_col7">—</td>
+<td class="data row2 col0" id="T_4adbe_row2_col0">IE00BFG1TM61</td>
+<td class="data row2 col1" id="T_4adbe_row2_col1">iShares Developed World Screened Index Fund *</td>
+<td class="data row2 col2" id="T_4adbe_row2_col2">33.8700</td>
+<td class="data row2 col3" id="T_4adbe_row2_col3">33.8700</td>
+<td class="data row2 col4" id="T_4adbe_row2_col4">—</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_a89bf_row3_col0">IE000O58J820</td>
-<td class="data row3 col1" id="T_a89bf_row3_col1">Vanguard ESG North America All Cap UCITS ETF</td>
-<td class="data row3 col2" id="T_a89bf_row3_col2">6.8310</td>
-<td class="data row3 col3" id="T_a89bf_row3_col3">—</td>
-<td class="data row3 col4" id="T_a89bf_row3_col4">6.8310</td>
-<td class="data row3 col5" id="T_a89bf_row3_col5">6.8310</td>
-<td class="data row3 col6" id="T_a89bf_row3_col6">—</td>
-<td class="data row3 col7" id="T_a89bf_row3_col7">6.8310</td>
+<td class="data row3 col0" id="T_4adbe_row3_col0">IE000O58J820</td>
+<td class="data row3 col1" id="T_4adbe_row3_col1">Vanguard ESG North America All Cap UCITS ETF</td>
+<td class="data row3 col2" id="T_4adbe_row3_col2">6.7920</td>
+<td class="data row3 col3" id="T_4adbe_row3_col3">6.7920</td>
+<td class="data row3 col4" id="T_4adbe_row3_col4">—</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_a89bf_row4_col0">LU1291099718</td>
-<td class="data row4 col1" id="T_a89bf_row4_col1">BNP Paribas Easy MSCI EUROPE MIN TE UCITS ETF</td>
-<td class="data row4 col2" id="T_a89bf_row4_col2">18.7120</td>
-<td class="data row4 col3" id="T_a89bf_row4_col3">—</td>
-<td class="data row4 col4" id="T_a89bf_row4_col4">18.7120</td>
-<td class="data row4 col5" id="T_a89bf_row4_col5">18.7120</td>
-<td class="data row4 col6" id="T_a89bf_row4_col6">—</td>
-<td class="data row4 col7" id="T_a89bf_row4_col7">18.7120</td>
+<td class="data row4 col0" id="T_4adbe_row4_col0">LU1291099718</td>
+<td class="data row4 col1" id="T_4adbe_row4_col1">BNP Paribas Easy MSCI EUROPE MIN TE UCITS ETF</td>
+<td class="data row4 col2" id="T_4adbe_row4_col2">18.6080</td>
+<td class="data row4 col3" id="T_4adbe_row4_col3">18.6080</td>
+<td class="data row4 col4" id="T_4adbe_row4_col4">—</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_a89bf_row5_col0">IE00BMDBMY19</td>
-<td class="data row5 col1" id="T_a89bf_row5_col1">Invesco MSCI Emerging Markets Universal Screened UCITS ETF Acc</td>
-<td class="data row5 col2" id="T_a89bf_row5_col2">41.5150</td>
-<td class="data row5 col3" id="T_a89bf_row5_col3">—</td>
-<td class="data row5 col4" id="T_a89bf_row5_col4">41.5150</td>
-<td class="data row5 col5" id="T_a89bf_row5_col5">41.5150</td>
-<td class="data row5 col6" id="T_a89bf_row5_col6">—</td>
-<td class="data row5 col7" id="T_a89bf_row5_col7">41.5150</td>
+<td class="data row5 col0" id="T_4adbe_row5_col0">IE00BMDBMY19</td>
+<td class="data row5 col1" id="T_4adbe_row5_col1">Invesco MSCI Emerging Markets Universal Screened UCITS ETF Acc</td>
+<td class="data row5 col2" id="T_4adbe_row5_col2">41.6150</td>
+<td class="data row5 col3" id="T_4adbe_row5_col3">41.6150</td>
+<td class="data row5 col4" id="T_4adbe_row5_col4">—</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_a89bf_row6_col0">LU1291102447</td>
-<td class="data row6 col1" id="T_a89bf_row6_col1">BNP Paribas Easy MSCI Japan Min TE UCITS ETF</td>
-<td class="data row6 col2" id="T_a89bf_row6_col2">17.9440</td>
-<td class="data row6 col3" id="T_a89bf_row6_col3">—</td>
-<td class="data row6 col4" id="T_a89bf_row6_col4">17.9440</td>
-<td class="data row6 col5" id="T_a89bf_row6_col5">17.9440</td>
-<td class="data row6 col6" id="T_a89bf_row6_col6">—</td>
-<td class="data row6 col7" id="T_a89bf_row6_col7">17.9440</td>
+<td class="data row6 col0" id="T_4adbe_row6_col0">LU1291102447</td>
+<td class="data row6 col1" id="T_4adbe_row6_col1">BNP Paribas Easy MSCI Japan Min TE UCITS ETF</td>
+<td class="data row6 col2" id="T_4adbe_row6_col2">17.8660</td>
+<td class="data row6 col3" id="T_4adbe_row6_col3">17.8660</td>
+<td class="data row6 col4" id="T_4adbe_row6_col4">—</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_a89bf_row7_col0">LU1291106356</td>
-<td class="data row7 col1" id="T_a89bf_row7_col1">BNP Paribas Easy MSCI Pacific ex Japan Min TE UCITS ETF</td>
-<td class="data row7 col2" id="T_a89bf_row7_col2">16.2520</td>
-<td class="data row7 col3" id="T_a89bf_row7_col3">—</td>
-<td class="data row7 col4" id="T_a89bf_row7_col4">16.2520</td>
-<td class="data row7 col5" id="T_a89bf_row7_col5">16.2520</td>
-<td class="data row7 col6" id="T_a89bf_row7_col6">—</td>
-<td class="data row7 col7" id="T_a89bf_row7_col7">16.2520</td>
+<td class="data row7 col0" id="T_4adbe_row7_col0">LU1291106356</td>
+<td class="data row7 col1" id="T_4adbe_row7_col1">BNP Paribas Easy MSCI Pacific ex Japan Min TE UCITS ETF</td>
+<td class="data row7 col2" id="T_4adbe_row7_col2">16.2480</td>
+<td class="data row7 col3" id="T_4adbe_row7_col3">16.2480</td>
+<td class="data row7 col4" id="T_4adbe_row7_col4">—</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_a89bf_row8_col0">LU0476289540</td>
-<td class="data row8 col1" id="T_a89bf_row8_col1">Xtrackers MSCI Canada Screened UCITS ETF</td>
-<td class="data row8 col2" id="T_a89bf_row8_col2">104.4200</td>
-<td class="data row8 col3" id="T_a89bf_row8_col3">—</td>
-<td class="data row8 col4" id="T_a89bf_row8_col4">104.4200</td>
-<td class="data row8 col5" id="T_a89bf_row8_col5">104.4200</td>
-<td class="data row8 col6" id="T_a89bf_row8_col6">—</td>
-<td class="data row8 col7" id="T_a89bf_row8_col7">104.4200</td>
+<td class="data row8 col0" id="T_4adbe_row8_col0">LU0476289540</td>
+<td class="data row8 col1" id="T_4adbe_row8_col1">Xtrackers MSCI Canada Screened UCITS ETF</td>
+<td class="data row8 col2" id="T_4adbe_row8_col2">103.6000</td>
+<td class="data row8 col3" id="T_4adbe_row8_col3">103.6000</td>
+<td class="data row8 col4" id="T_4adbe_row8_col4">—</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div style="color: #721c24; background: #f8d7da; padding: 10px 14px; border-radius: 4px; margin: 6px 0 12px 0; font-size: 0.95em"><strong>TODO: No fresh prices available for stale pooled funds.</strong><br/>IE00BFG1TM61 (EODHD): latest price is from 2026-03-06, not 2026-03-09<br/><br/>EODHD only provides T-1 prices for these IE pooled funds. Need to add Morningstar or another source that publishes same-day NAVs for repricing.</div>
+</div>
+</div>
+<div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>TKF100: 24 OK  |  1 flagged  |  20 no data  |  reprice adj: -14,354.65 EUR
-  (* = fund price is stale, always repriced from providers)
+<pre>TKF100: no repricing needed
 </pre>
 </div>
 </div>
@@ -8341,7 +8314,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Net-Asset-Value-Calculation">Net Asset Value Calculation<a class="anchor-link" href="#Net-Asset-Value-Calculation">¶</a></h2><p>Computing NAV per unit from position data and comparing to the reported value. Fee accrual includes both management fee and depository bank fee (0.025% p.a.), accruing from the start of each month.</p>
+<h2 id="Net-Asset-Value-Calculation">Net Asset Value Calculation<a class="anchor-link" href="#Net-Asset-Value-Calculation">¶</a></h2><p>Computing NAV per unit from position data. Fee accrual includes both management fee and depository bank fee (0.025% p.a.), accruing from the start of each month. Stale pooled fund prices are replaced with fresh provider prices.</p>
 </div>
 </div>
 </div>
@@ -8353,83 +8326,83 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_2341e caption {
+#T_86ec4 caption {
   font-weight: bold;
   font-size: 1.1em;
   text-align: left;
   padding-bottom: 8px;
 }
-#T_2341e_row0_col1, #T_2341e_row1_col1, #T_2341e_row2_col1, #T_2341e_row3_col1, #T_2341e_row4_col1, #T_2341e_row5_col1, #T_2341e_row6_col1, #T_2341e_row7_col1, #T_2341e_row8_col1 {
+#T_86ec4_row0_col1, #T_86ec4_row1_col1, #T_86ec4_row2_col1, #T_86ec4_row3_col1, #T_86ec4_row4_col1, #T_86ec4_row5_col1, #T_86ec4_row6_col1, #T_86ec4_row7_col1, #T_86ec4_row8_col1 {
   font-weight: bold;
 }
-#T_2341e_row0_col3, #T_2341e_row1_col3, #T_2341e_row2_col3, #T_2341e_row3_col3, #T_2341e_row4_col3, #T_2341e_row5_col3, #T_2341e_row6_col3, #T_2341e_row7_col3, #T_2341e_row8_col3 {
+#T_86ec4_row0_col3, #T_86ec4_row1_col3, #T_86ec4_row2_col3, #T_86ec4_row3_col3, #T_86ec4_row4_col3, #T_86ec4_row5_col3, #T_86ec4_row6_col3, #T_86ec4_row7_col3, #T_86ec4_row8_col3 {
   font-style: italic;
 }
 </style>
-<table id="T_2341e">
-<caption>TUV100 NAV calculation</caption>
+<table id="T_86ec4">
+<caption>TUV100 NAV calculation<br/><i style="font-weight: normal; font-size: 0.85em">Management fee: 0.179% p.a. + Depository fee: 0.025% p.a.</i></caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_2341e_level0_col0"></th>
-<th class="col_heading level0 col1" id="T_2341e_level0_col1">06.03.2026</th>
-<th class="col_heading level0 col2" id="T_2341e_level0_col2">05.03.2026</th>
-<th class="col_heading level0 col3" id="T_2341e_level0_col3">Change</th>
+<th class="col_heading level0 col0" id="T_86ec4_level0_col0"></th>
+<th class="col_heading level0 col1" id="T_86ec4_level0_col1">09.03.2026</th>
+<th class="col_heading level0 col2" id="T_86ec4_level0_col2">06.03.2026</th>
+<th class="col_heading level0 col3" id="T_86ec4_level0_col3">Change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_2341e_row0_col0">Total net assets as reported (EUR)</td>
-<td class="data row0 col1" id="T_2341e_row0_col1">479,905,546.04</td>
-<td class="data row0 col2" id="T_2341e_row0_col2">480,057,940.46</td>
-<td class="data row0 col3" id="T_2341e_row0_col3">-0.03%</td>
+<td class="data row0 col0" id="T_86ec4_row0_col0">Total net assets as reported (EUR)</td>
+<td class="data row0 col1" id="T_86ec4_row0_col1">475,957,465.11</td>
+<td class="data row0 col2" id="T_86ec4_row0_col2">479,905,546.04</td>
+<td class="data row0 col3" id="T_86ec4_row0_col3">-0.82%</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_2341e_row1_col0">Repricing adjustment (EUR)</td>
-<td class="data row1 col1" id="T_2341e_row1_col1">-3,469,728.79</td>
-<td class="data row1 col2" id="T_2341e_row1_col2"></td>
-<td class="data row1 col3" id="T_2341e_row1_col3"></td>
+<td class="data row1 col0" id="T_86ec4_row1_col0">Total net assets repriced (EUR)</td>
+<td class="data row1 col1" id="T_86ec4_row1_col1">475,957,465.11</td>
+<td class="data row1 col2" id="T_86ec4_row1_col2"></td>
+<td class="data row1 col3" id="T_86ec4_row1_col3"></td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_2341e_row2_col0">Total net assets repriced (EUR)</td>
-<td class="data row2 col1" id="T_2341e_row2_col1">476,435,817.25</td>
-<td class="data row2 col2" id="T_2341e_row2_col2"></td>
-<td class="data row2 col3" id="T_2341e_row2_col3"></td>
+<td class="data row2 col0" id="T_86ec4_row2_col0">Accrued mgmt fee est. (0.179% p.a.)</td>
+<td class="data row2 col1" id="T_86ec4_row2_col1">-21,007.33</td>
+<td class="data row2 col2" id="T_86ec4_row2_col2"></td>
+<td class="data row2 col3" id="T_86ec4_row2_col3"></td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_2341e_row3_col0">Accrued mgmt fee est. (0.179% p.a.)</td>
-<td class="data row3 col1" id="T_2341e_row3_col1">-14,018.96</td>
-<td class="data row3 col2" id="T_2341e_row3_col2"></td>
-<td class="data row3 col3" id="T_2341e_row3_col3"></td>
+<td class="data row3 col0" id="T_86ec4_row3_col0">Accrued depository fee est. (0.025% p.a.)</td>
+<td class="data row3 col1" id="T_86ec4_row3_col1">-2,933.98</td>
+<td class="data row3 col2" id="T_86ec4_row3_col2"></td>
+<td class="data row3 col3" id="T_86ec4_row3_col3"></td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_2341e_row4_col0">Accrued depository fee est. (0.025% p.a.)</td>
-<td class="data row4 col1" id="T_2341e_row4_col1">-1,957.96</td>
-<td class="data row4 col2" id="T_2341e_row4_col2"></td>
-<td class="data row4 col3" id="T_2341e_row4_col3"></td>
+<td class="data row4 col0" id="T_86ec4_row4_col0">Net assets after fees (EUR)</td>
+<td class="data row4 col1" id="T_86ec4_row4_col1">475,933,523.80</td>
+<td class="data row4 col2" id="T_86ec4_row4_col2">479,889,452.77</td>
+<td class="data row4 col3" id="T_86ec4_row4_col3">-0.82%</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_2341e_row5_col0">Net assets after fees (EUR)</td>
-<td class="data row5 col1" id="T_2341e_row5_col1">476,419,840.34</td>
-<td class="data row5 col2" id="T_2341e_row5_col2">480,044,525.14</td>
-<td class="data row5 col3" id="T_2341e_row5_col3">-0.76%</td>
+<td class="data row5 col0" id="T_86ec4_row5_col0">Units outstanding</td>
+<td class="data row5 col1" id="T_86ec4_row5_col1">380,461,569.70</td>
+<td class="data row5 col2" id="T_86ec4_row5_col2">380,185,473.76</td>
+<td class="data row5 col3" id="T_86ec4_row5_col3">+0.07%</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_2341e_row6_col0">Units outstanding</td>
-<td class="data row6 col1" id="T_2341e_row6_col1">380,185,473.76</td>
-<td class="data row6 col2" id="T_2341e_row6_col2">379,799,054.21</td>
-<td class="data row6 col3" id="T_2341e_row6_col3">+0.10%</td>
+<td class="data row6 col0" id="T_86ec4_row6_col0">Computed NAV (EUR)</td>
+<td class="data row6 col1" id="T_86ec4_row6_col1">1.25094</td>
+<td class="data row6 col2" id="T_86ec4_row6_col2">1.26225</td>
+<td class="data row6 col3" id="T_86ec4_row6_col3">-0.90%</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_2341e_row7_col0">Computed NAV (EUR)</td>
-<td class="data row7 col1" id="T_2341e_row7_col1">1.25312</td>
-<td class="data row7 col2" id="T_2341e_row7_col2">1.26394</td>
-<td class="data row7 col3" id="T_2341e_row7_col3">-0.86%</td>
+<td class="data row7 col0" id="T_86ec4_row7_col0">Reported NAV (EUR)</td>
+<td class="data row7 col1" id="T_86ec4_row7_col1">1.25150</td>
+<td class="data row7 col2" id="T_86ec4_row7_col2"></td>
+<td class="data row7 col3" id="T_86ec4_row7_col3"></td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_2341e_row8_col0">Reported NAV</td>
-<td class="data row8 col1" id="T_2341e_row8_col1">n/a</td>
-<td class="data row8 col2" id="T_2341e_row8_col2"></td>
-<td class="data row8 col3" id="T_2341e_row8_col3"></td>
+<td class="data row8 col0" id="T_86ec4_row8_col0">Difference (EUR)</td>
+<td class="data row8 col1" id="T_86ec4_row8_col1">-0.00056</td>
+<td class="data row8 col2" id="T_86ec4_row8_col2"></td>
+<td class="data row8 col3" id="T_86ec4_row8_col3">-0.045%</td>
 </tr>
 </tbody>
 </table>
@@ -8438,83 +8411,71 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_16078 caption {
+#T_fb6d1 caption {
   font-weight: bold;
   font-size: 1.1em;
   text-align: left;
   padding-bottom: 8px;
 }
-#T_16078_row0_col1, #T_16078_row1_col1, #T_16078_row2_col1, #T_16078_row3_col1, #T_16078_row4_col1, #T_16078_row5_col1, #T_16078_row6_col1, #T_16078_row7_col1, #T_16078_row8_col1 {
+#T_fb6d1_row0_col1, #T_fb6d1_row1_col1, #T_fb6d1_row2_col1, #T_fb6d1_row3_col1, #T_fb6d1_row4_col1, #T_fb6d1_row5_col1, #T_fb6d1_row6_col1 {
   font-weight: bold;
 }
-#T_16078_row0_col3, #T_16078_row1_col3, #T_16078_row2_col3, #T_16078_row3_col3, #T_16078_row4_col3, #T_16078_row5_col3, #T_16078_row6_col3, #T_16078_row7_col3, #T_16078_row8_col3 {
+#T_fb6d1_row0_col3, #T_fb6d1_row1_col3, #T_fb6d1_row2_col3, #T_fb6d1_row3_col3, #T_fb6d1_row4_col3, #T_fb6d1_row5_col3, #T_fb6d1_row6_col3 {
   font-style: italic;
 }
 </style>
-<table id="T_16078">
-<caption>TKF100 NAV calculation</caption>
+<table id="T_fb6d1">
+<caption>TKF100 NAV calculation<br/><i style="font-weight: normal; font-size: 0.85em">Management fee: 0.152% p.a. + Depository fee: 0.025% p.a.</i></caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_16078_level0_col0"></th>
-<th class="col_heading level0 col1" id="T_16078_level0_col1">06.03.2026</th>
-<th class="col_heading level0 col2" id="T_16078_level0_col2">05.03.2026</th>
-<th class="col_heading level0 col3" id="T_16078_level0_col3">Change</th>
+<th class="col_heading level0 col0" id="T_fb6d1_level0_col0"></th>
+<th class="col_heading level0 col1" id="T_fb6d1_level0_col1">09.03.2026</th>
+<th class="col_heading level0 col2" id="T_fb6d1_level0_col2">06.03.2026</th>
+<th class="col_heading level0 col3" id="T_fb6d1_level0_col3">Change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_16078_row0_col0">Total net assets as reported (EUR)</td>
-<td class="data row0 col1" id="T_16078_row0_col1">6,783,587.61</td>
-<td class="data row0 col2" id="T_16078_row0_col2">6,832,190.98</td>
-<td class="data row0 col3" id="T_16078_row0_col3">-0.71%</td>
+<td class="data row0 col0" id="T_fb6d1_row0_col0">Total net assets as reported (EUR)</td>
+<td class="data row0 col1" id="T_fb6d1_row0_col1">6,757,200.72</td>
+<td class="data row0 col2" id="T_fb6d1_row0_col2">6,783,587.61</td>
+<td class="data row0 col3" id="T_fb6d1_row0_col3">-0.39%</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_16078_row1_col0">Repricing adjustment (EUR)</td>
-<td class="data row1 col1" id="T_16078_row1_col1">-14,354.65</td>
-<td class="data row1 col2" id="T_16078_row1_col2"></td>
-<td class="data row1 col3" id="T_16078_row1_col3"></td>
+<td class="data row1 col0" id="T_fb6d1_row1_col0">Total net assets repriced (EUR)</td>
+<td class="data row1 col1" id="T_fb6d1_row1_col1">6,757,200.72</td>
+<td class="data row1 col2" id="T_fb6d1_row1_col2"></td>
+<td class="data row1 col3" id="T_fb6d1_row1_col3"></td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_16078_row2_col0">Total net assets repriced (EUR)</td>
-<td class="data row2 col1" id="T_16078_row2_col1">6,769,232.96</td>
-<td class="data row2 col2" id="T_16078_row2_col2"></td>
-<td class="data row2 col3" id="T_16078_row2_col3"></td>
+<td class="data row2 col0" id="T_fb6d1_row2_col0">Accrued mgmt fee est. (0.152% p.a.)</td>
+<td class="data row2 col1" id="T_fb6d1_row2_col1">-253.26</td>
+<td class="data row2 col2" id="T_fb6d1_row2_col2"></td>
+<td class="data row2 col3" id="T_fb6d1_row2_col3"></td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_16078_row3_col0">Accrued mgmt fee est. (0.150% p.a.)</td>
-<td class="data row3 col1" id="T_16078_row3_col1">-166.91</td>
-<td class="data row3 col2" id="T_16078_row3_col2"></td>
-<td class="data row3 col3" id="T_16078_row3_col3"></td>
+<td class="data row3 col0" id="T_fb6d1_row3_col0">Accrued depository fee est. (0.025% p.a.)</td>
+<td class="data row3 col1" id="T_fb6d1_row3_col1">-41.65</td>
+<td class="data row3 col2" id="T_fb6d1_row3_col2"></td>
+<td class="data row3 col3" id="T_fb6d1_row3_col3"></td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_16078_row4_col0">Accrued depository fee est. (0.025% p.a.)</td>
-<td class="data row4 col1" id="T_16078_row4_col1">-27.82</td>
-<td class="data row4 col2" id="T_16078_row4_col2"></td>
-<td class="data row4 col3" id="T_16078_row4_col3"></td>
+<td class="data row4 col0" id="T_fb6d1_row4_col0">Net assets after fees (EUR)</td>
+<td class="data row4 col1" id="T_fb6d1_row4_col1">6,756,905.81</td>
+<td class="data row4 col2" id="T_fb6d1_row4_col2">6,783,390.24</td>
+<td class="data row4 col3" id="T_fb6d1_row4_col3">-0.39%</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_16078_row5_col0">Net assets after fees (EUR)</td>
-<td class="data row5 col1" id="T_16078_row5_col1">6,769,038.23</td>
-<td class="data row5 col2" id="T_16078_row5_col2">6,832,027.19</td>
-<td class="data row5 col3" id="T_16078_row5_col3">-0.92%</td>
+<td class="data row5 col0" id="T_fb6d1_row5_col0">Units outstanding</td>
+<td class="data row5 col1" id="T_fb6d1_row5_col1">6,901,876.10</td>
+<td class="data row5 col2" id="T_fb6d1_row5_col2">6,888,970.55</td>
+<td class="data row5 col3" id="T_fb6d1_row5_col3">+0.19%</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_16078_row6_col0">Units outstanding</td>
-<td class="data row6 col1" id="T_16078_row6_col1">6,888,970.55</td>
-<td class="data row6 col2" id="T_16078_row6_col2">6,880,646.44</td>
-<td class="data row6 col3" id="T_16078_row6_col3">+0.12%</td>
-</tr>
-<tr>
-<td class="data row7 col0" id="T_16078_row7_col0">Computed NAV (EUR)</td>
-<td class="data row7 col1" id="T_16078_row7_col1">0.98259</td>
-<td class="data row7 col2" id="T_16078_row7_col2">0.99293</td>
-<td class="data row7 col3" id="T_16078_row7_col3">-1.04%</td>
-</tr>
-<tr>
-<td class="data row8 col0" id="T_16078_row8_col0">Reported NAV</td>
-<td class="data row8 col1" id="T_16078_row8_col1">n/a</td>
-<td class="data row8 col2" id="T_16078_row8_col2"></td>
-<td class="data row8 col3" id="T_16078_row8_col3"></td>
+<td class="data row6 col0" id="T_fb6d1_row6_col0">Computed NAV (EUR)</td>
+<td class="data row6 col1" id="T_fb6d1_row6_col1">0.97900</td>
+<td class="data row6 col2" id="T_fb6d1_row6_col2">0.98467</td>
+<td class="data row6 col3" id="T_fb6d1_row6_col3">-0.58%</td>
 </tr>
 </tbody>
 </table>
@@ -8528,7 +8489,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Day-over-Day-Comparison">Day-over-Day Comparison<a class="anchor-link" href="#Day-over-Day-Comparison">¶</a></h2><p>Comparing fund NAV change to MSCI ACWI previous-day change. No lag adjustment needed — both funds use NAV-date prices.</p>
+<h2 id="Day-over-Day-Comparison">Day-over-Day Comparison<a class="anchor-link" href="#Day-over-Day-Comparison">¶</a></h2><p>Comparing fund NAV change to benchmark. TUV100: 70% MSCI ACWI Screened + 30% IG3A.DE. TKF: 100% IG3A.DE. All prices are same-day (no lag adjustment needed after repricing).</p>
 </div>
 </div>
 </div>
@@ -8539,15 +8500,10 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>MSCI ACWI Screened (722376) fetched: 8 rows
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>IG3A.DE prices fetched: 9 rows
+<pre>Pricing dates: T=2026-03-09, T-1=2026-03-06
+
 ═══ TUV100 ═══
-Reported NAV 2026-03-05: 1.263800  →  Computed NAV 2026-03-06: 1.253125  (-0.84%)
+Fund NAV (computed from positions): 1.262251 → 1.250937  (-0.90% over 1 working day)
 </pre>
 </div>
 </div>
@@ -8555,21 +8511,44 @@ Reported NAV 2026-03-05: 1.263800  →  Computed NAV 2026-03-06: 1.253125  (-0.8
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_a1d81">
+<table id="T_da90a">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_a1d81_level0_col0">Metric</th>
-<th class="col_heading level0 col1" id="T_a1d81_level0_col1">Value</th>
+<th class="col_heading level0 col0" id="T_da90a_level0_col0">Metric</th>
+<th class="col_heading level0 col1" id="T_da90a_level0_col1">Value</th>
+<th class="col_heading level0 col2" id="T_da90a_level0_col2">Weight</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_a1d81_row0_col0">NAV change (computed vs prev reported)</td>
-<td class="data row0 col1" id="T_a1d81_row0_col1">-0.84%</td>
+<td class="data row0 col0" id="T_da90a_row0_col0">Fund NAV change (1d)</td>
+<td class="data row0 col1" id="T_da90a_row0_col1">-0.90%</td>
+<td class="data row0 col2" id="T_da90a_row0_col2"></td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_a1d81_row1_col0">IG3A.DE iShares ACWI (03-05→03-06)</td>
-<td class="data row1 col1" id="T_a1d81_row1_col1">-0.97%</td>
+<td class="data row1 col0" id="T_da90a_row1_col0"></td>
+<td class="data row1 col1" id="T_da90a_row1_col1"></td>
+<td class="data row1 col2" id="T_da90a_row1_col2"></td>
+</tr>
+<tr>
+<td class="data row2 col0" id="T_da90a_row2_col0">MSCI ACWI Screened (03-05→03-09)</td>
+<td class="data row2 col1" id="T_da90a_row2_col1">-1.35%</td>
+<td class="data row2 col2" id="T_da90a_row2_col2">70%</td>
+</tr>
+<tr>
+<td class="data row3 col0" id="T_da90a_row3_col0">IG3A.DE (Yahoo) (03-06→03-09)</td>
+<td class="data row3 col1" id="T_da90a_row3_col1">-0.45%</td>
+<td class="data row3 col2" id="T_da90a_row3_col2">30%</td>
+</tr>
+<tr>
+<td class="data row4 col0" id="T_da90a_row4_col0">Blended benchmark</td>
+<td class="data row4 col1" id="T_da90a_row4_col1">-1.08%</td>
+<td class="data row4 col2" id="T_da90a_row4_col2">100%</td>
+</tr>
+<tr>
+<td class="data row5 col0" id="T_da90a_row5_col0">Tracking diff</td>
+<td class="data row5 col1" id="T_da90a_row5_col1">+0.18%</td>
+<td class="data row5 col2" id="T_da90a_row5_col2"></td>
 </tr>
 </tbody>
 </table>
@@ -8579,7 +8558,7 @@ Reported NAV 2026-03-05: 1.263800  →  Computed NAV 2026-03-06: 1.253125  (-0.8
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
 ═══ TKF100 ═══
-Reported NAV 2026-03-05: 0.993000  →  Computed NAV 2026-03-06: 0.982591  (-1.05%)
+Fund NAV (computed from positions): 0.984674 → 0.978996  (-0.58% over 1 working day)
 </pre>
 </div>
 </div>
@@ -8587,25 +8566,39 @@ Reported NAV 2026-03-05: 0.993000  →  Computed NAV 2026-03-06: 0.982591  (-1.0
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_00f07">
+<table id="T_2df90">
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_00f07_level0_col0">Metric</th>
-<th class="col_heading level0 col1" id="T_00f07_level0_col1">Value</th>
+<th class="col_heading level0 col0" id="T_2df90_level0_col0">Metric</th>
+<th class="col_heading level0 col1" id="T_2df90_level0_col1">Value</th>
+<th class="col_heading level0 col2" id="T_2df90_level0_col2">Weight</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_00f07_row0_col0">NAV change (computed vs prev reported)</td>
-<td class="data row0 col1" id="T_00f07_row0_col1">-1.05%</td>
+<td class="data row0 col0" id="T_2df90_row0_col0">Fund NAV change (1d)</td>
+<td class="data row0 col1" id="T_2df90_row0_col1">-0.58%</td>
+<td class="data row0 col2" id="T_2df90_row0_col2"></td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_00f07_row1_col0">IG3A.DE iShares ACWI (03-05→03-06)</td>
-<td class="data row1 col1" id="T_00f07_row1_col1">-0.97%</td>
+<td class="data row1 col0" id="T_2df90_row1_col0"></td>
+<td class="data row1 col1" id="T_2df90_row1_col1"></td>
+<td class="data row1 col2" id="T_2df90_row1_col2"></td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_00f07_row2_col0">Tracking diff vs IG3A.DE</td>
-<td class="data row2 col1" id="T_00f07_row2_col1">-0.08%</td>
+<td class="data row2 col0" id="T_2df90_row2_col0">IG3A.DE (Yahoo) (03-06→03-09)</td>
+<td class="data row2 col1" id="T_2df90_row2_col1">-0.45%</td>
+<td class="data row2 col2" id="T_2df90_row2_col2">100%</td>
+</tr>
+<tr>
+<td class="data row3 col0" id="T_2df90_row3_col0">Blended benchmark</td>
+<td class="data row3 col1" id="T_2df90_row3_col1">-0.45%</td>
+<td class="data row3 col2" id="T_2df90_row3_col2">100%</td>
+</tr>
+<tr>
+<td class="data row4 col0" id="T_2df90_row4_col0">Tracking diff</td>
+<td class="data row4 col1" id="T_2df90_row4_col1">-0.13%</td>
+<td class="data row4 col2" id="T_2df90_row4_col2"></td>
 </tr>
 </tbody>
 </table>
