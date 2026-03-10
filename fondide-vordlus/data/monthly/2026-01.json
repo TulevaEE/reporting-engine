@@ -1,0 +1,1109 @@
+{
+  "month": "2026-01",
+  "reports": {
+    "Tuleva": {
+      "pdf": "Tuleva-Maailma-Aktsiate-Pensionifondi-investeeringute-aruanne-jaanuar-2026.pdf",
+      "date": "30.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/TUK75/est_TUK75_raport_20260130.pdf"
+    },
+    "Luminor 16-50": {
+      "pdf": "investeeringute_aruanne_lum16-50_0126.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/NPK75/est_NPK75_raport_20260131.pdf"
+    },
+    "SEB Indeks": {
+      "pdf": "est_SIK75_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/SIK75/est_SIK75_raport_20260131.pdf"
+    },
+    "Swedbank K1960": {
+      "pdf": "K1960_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://swedbank.ee/static/investor/funds/K1960_investment_portfolio.pdf"
+    },
+    "Swedbank K1970": {
+      "pdf": "K1970_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://swedbank.ee/static/investor/funds/K1970_investment_portfolio.pdf"
+    },
+    "Swedbank K1980": {
+      "pdf": "K1980_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://swedbank.ee/static/investor/funds/K1980_investment_portfolio.pdf"
+    },
+    "Swedbank K1990": {
+      "pdf": "K1990_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://swedbank.ee/static/investor/funds/K1990_investment_portfolio.pdf"
+    },
+    "LHV Ettevõtlik": {
+      "pdf": "est_LLK50_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/LLK50/est_LLK50_raport_20260131.pdf"
+    },
+    "LHV Julge": {
+      "pdf": "est_LXK75_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/LXK75/est_LXK75_raport_20260131.pdf"
+    },
+    "SEB 55+": {
+      "pdf": "est_SEK50_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/SEK50/est_SEK50_raport_20260131.pdf"
+    },
+    "LHV Rahulik": {
+      "pdf": "est_LXK00_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/LXK00/est_LXK00_raport_20260131.pdf"
+    },
+    "LHV Indeks": {
+      "pdf": "est_LIK75_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/LIK75/est_LIK75_raport_20260131.pdf"
+    },
+    "LHV Tasakaalukas": {
+      "pdf": "est_LMK25_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/LMK25/est_LMK25_raport_20260131.pdf"
+    },
+    "Luminor Indeks": {
+      "pdf": "est_NIK100_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/NIK100/est_NIK100_raport_20260131.pdf"
+    },
+    "Luminor 50-56": {
+      "pdf": "est_NPK50_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/NPK50/est_NPK50_raport_20260131.pdf"
+    },
+    "Luminor 56+": {
+      "pdf": "est_NPK25_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/NPK25/est_NPK25_raport_20260131.pdf"
+    },
+    "Luminor 61-65": {
+      "pdf": "est_NPK00_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/NPK00/est_NPK00_raport_20260131.pdf"
+    },
+    "SEB 18+": {
+      "pdf": "est_SEK100_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/SEK100/est_SEK100_raport_20260131.pdf"
+    },
+    "SEB 60+": {
+      "pdf": "est_SEK25_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/SEK25/est_SEK25_raport_20260131.pdf"
+    },
+    "SEB 65+": {
+      "pdf": "est_SEK00_raport_20260131.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/SEK00/est_SEK00_raport_20260131.pdf"
+    },
+    "Swedbank Indeks": {
+      "pdf": "Ki_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://swedbank.ee/static/investor/funds/Ki_investment_portfolio.pdf"
+    },
+    "Swedbank 2000-09": {
+      "pdf": "K2000_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://swedbank.ee/static/investor/funds/K2000_investment_portfolio.pdf"
+    },
+    "Swedbank Konservatiivne": {
+      "pdf": "KKONS_investment_portfolio.pdf",
+      "date": "31.01.2026",
+      "url": "https://www.swedbank.ee/static/investor/funds/KKONS_investment_portfolio.pdf"
+    },
+    "Tuleva Võlakirjad": {
+      "pdf": "est_TUK00_raport_20260130.pdf",
+      "date": "30.01.2026",
+      "url": "https://www.pensionikeskus.ee/files/raport/TUK00/est_TUK00_raport_20260130.pdf"
+    }
+  },
+  "allocations": {
+    "SEB 55+": {
+      "equity_funds": [
+        {
+          "name": "Amundi Euro Stoxx Banks UCITS ETF",
+          "isin": "LU1829219390",
+          "weight_pct": 3.59
+        },
+        {
+          "name": "East Capital Eastern European Small Cap",
+          "isin": "LU1696455820",
+          "weight_pct": 0.0
+        },
+        {
+          "name": "Federated Hermes Global EM Equity Fund",
+          "isin": "IE00B3DJ5M15",
+          "weight_pct": 1.29
+        },
+        {
+          "name": "Invesco Nasdaq-100 ESG UCITS ETF",
+          "isin": "IE000COQKPO9",
+          "weight_pct": 4.12
+        },
+        {
+          "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3P36",
+          "weight_pct": 1.02
+        },
+        {
+          "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3D14",
+          "weight_pct": 2.0
+        },
+        {
+          "name": "iShares MSCI USA ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3G45",
+          "weight_pct": 6.8
+        },
+        {
+          "name": "iShares MSCI USA Small Cap UCITS ETF",
+          "isin": "IE00B3VWM098",
+          "weight_pct": 4.94
+        },
+        {
+          "name": "iShares MSCI World Value Factor ESG UCITS ETF",
+          "isin": "IE000H1H16W5",
+          "weight_pct": 3.74
+        },
+        {
+          "name": "iShares STOXX Europe 600 Constr. & Mater. UCITS ETF",
+          "isin": "DE000A0H08F7",
+          "weight_pct": 0.99
+        },
+        {
+          "name": "L&G Japan Equity UCITS ETF",
+          "isin": "IE00BFXR5T61",
+          "weight_pct": 1.88
+        },
+        {
+          "name": "Morgan Stanley Global Opportunity Fund",
+          "isin": "LU2418734716",
+          "weight_pct": 2.37
+        },
+        {
+          "name": "SEB Emerging Markets Exposure Fund",
+          "isin": "SE0021147394",
+          "weight_pct": 7.89
+        },
+        {
+          "name": "SEB Europe Exposure Fund IC",
+          "isin": "LU1118354460",
+          "weight_pct": 3.8
+        },
+        {
+          "name": "SEB Global Exposure Fund",
+          "isin": "LU1711526407",
+          "weight_pct": 28.13
+        },
+        {
+          "name": "SEB Montrusco Bolton Global Equity Fund",
+          "isin": "LU2853083306",
+          "weight_pct": 1.73
+        },
+        {
+          "name": "T Rowe Price Global Focused Growth Equity",
+          "isin": "LU2942508834",
+          "weight_pct": 2.41
+        },
+        {
+          "name": "Xtrackers MSCI USA Screened UCITS ETF",
+          "isin": "IE00BJZ2DC62",
+          "weight_pct": 0.98
+        }
+      ],
+      "bonds": [
+        {
+          "name": "Inbank 5.5% 2031",
+          "weight_pct": 0.09,
+          "type": "bonds"
+        },
+        {
+          "name": "Inbank AT1 7.5% 2031",
+          "weight_pct": 0.3,
+          "type": "bonds"
+        },
+        {
+          "name": "LHV Group FRN 2035",
+          "weight_pct": 0.21,
+          "type": "bonds"
+        },
+        {
+          "name": "LHV Group FRN 2029",
+          "weight_pct": 1.54,
+          "type": "bonds"
+        },
+        {
+          "name": "Luminor Bank FRN Perp",
+          "weight_pct": 0.13,
+          "type": "bonds"
+        },
+        {
+          "name": "Luminor Bank FRN 2029",
+          "weight_pct": 0.7,
+          "type": "bonds"
+        },
+        {
+          "name": "Nortal FRN 2029",
+          "weight_pct": 0.59,
+          "type": "bonds"
+        },
+        {
+          "name": "Siauliu Bankas FRN 2030",
+          "weight_pct": 0.27,
+          "type": "bonds"
+        },
+        {
+          "name": "Spain Government Bond 3.25% 2034",
+          "weight_pct": 1.47,
+          "type": "bonds"
+        }
+      ],
+      "stocks": [
+        {
+          "name": "Ignitis Grupe",
+          "isin": "LT0000115768",
+          "weight_pct": 1.09,
+          "country": "Lithuania"
+        },
+        {
+          "name": "Tallinna Sadam",
+          "isin": "EE3100021635",
+          "weight_pct": 2.05,
+          "country": "Estonia"
+        }
+      ],
+      "re_funds": [
+        {
+          "name": "BaltCap Infrastructure Fund",
+          "weight_pct": 0.52
+        },
+        {
+          "name": "Baltic Horizon Fund",
+          "weight_pct": 0.11
+        },
+        {
+          "name": "Birdeye Timber Fund 3",
+          "weight_pct": 1.97
+        },
+        {
+          "name": "East Capital Baltic Property",
+          "weight_pct": 0.11
+        },
+        {
+          "name": "EfTEN Real Estate Fund IV",
+          "weight_pct": 4.23
+        },
+        {
+          "name": "SG Capital Partners",
+          "weight_pct": 1.67
+        }
+      ],
+      "pe_funds": [
+        {
+          "name": "BaltCap PE Fund",
+          "weight_pct": 0.1
+        },
+        {
+          "name": "BaltCap PE Fund II",
+          "weight_pct": 0.41
+        },
+        {
+          "name": "INVL PE Fund II",
+          "weight_pct": 0.02
+        },
+        {
+          "name": "Schroders Capital PE Global Innovation XI",
+          "weight_pct": 0.49
+        },
+        {
+          "name": "SEB PE Opportunity Fund",
+          "weight_pct": 0.44
+        },
+        {
+          "name": "BaltCap PE Fund III",
+          "weight_pct": 0.38
+        },
+        {
+          "name": "Superangel Two",
+          "weight_pct": 0.0
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "Amundi Index Euro Corporate SRI UCITS ETF",
+          "weight_pct": 0.62
+        },
+        {
+          "name": "Fair Oaks AAA CLO Fund",
+          "weight_pct": 0.49
+        },
+        {
+          "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+          "weight_pct": 1.0
+        },
+        {
+          "name": "Robeco Euro Credit Bond",
+          "weight_pct": 0.48
+        },
+        {
+          "name": "Schroder ISF EURO Corporate Bond",
+          "weight_pct": 0.48
+        }
+      ]
+    },
+    "SEB 18+": {
+      "equity_funds": [
+        {
+          "name": "Amundi Euro Stoxx Banks UCITS ETF",
+          "isin": "LU1829219390",
+          "weight_pct": 3.61
+        },
+        {
+          "name": "Federated Hermes Global EM Equity Fund",
+          "isin": "IE00B3DJ5M15",
+          "weight_pct": 0.9
+        },
+        {
+          "name": "Invesco Nasdaq-100 ESG UCITS ETF",
+          "isin": "IE000COQKPO9",
+          "weight_pct": 8.01
+        },
+        {
+          "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3P36",
+          "weight_pct": 1.03
+        },
+        {
+          "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3D14",
+          "weight_pct": 2.88
+        },
+        {
+          "name": "iShares MSCI USA ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3G45",
+          "weight_pct": 16.83
+        },
+        {
+          "name": "iShares MSCI USA Small Cap UCITS ETF",
+          "isin": "IE00B3VWM098",
+          "weight_pct": 4.95
+        },
+        {
+          "name": "iShares MSCI World Value Factor ESG UCITS ETF",
+          "isin": "IE000H1H16W5",
+          "weight_pct": 3.62
+        },
+        {
+          "name": "iShares STOXX Europe 600 Constr. & Mater. UCITS ETF",
+          "isin": "DE000A0H08F7",
+          "weight_pct": 0.98
+        },
+        {
+          "name": "L&G Japan Equity UCITS ETF",
+          "isin": "IE00BFXR5T61",
+          "weight_pct": 1.86
+        },
+        {
+          "name": "Morgan Stanley Global Opportunity Fund",
+          "isin": "LU2418734716",
+          "weight_pct": 2.38
+        },
+        {
+          "name": "SEB Emerging Markets Exposure Fund",
+          "isin": "SE0021147394",
+          "weight_pct": 8.54
+        },
+        {
+          "name": "SEB Europe Exposure Fund IC",
+          "isin": "LU1118354460",
+          "weight_pct": 2.6
+        },
+        {
+          "name": "SEB Global Exposure Fund",
+          "isin": "LU1711526407",
+          "weight_pct": 20.84
+        },
+        {
+          "name": "SEB Montrusco Bolton Global Equity Fund",
+          "isin": "LU2853083306",
+          "weight_pct": 2.06
+        },
+        {
+          "name": "T Rowe Price Global Focused Growth Equity",
+          "isin": "LU2942508834",
+          "weight_pct": 2.42
+        },
+        {
+          "name": "Xtrackers MSCI USA Screened UCITS ETF",
+          "isin": "IE00BJZ2DC62",
+          "weight_pct": 4.66
+        }
+      ],
+      "bonds": [
+        {
+          "name": "Bigbank 12% XXXX",
+          "weight_pct": 0.32,
+          "type": "bonds"
+        },
+        {
+          "name": "COOP Pank AT1 12%",
+          "weight_pct": 0.26,
+          "type": "bonds"
+        },
+        {
+          "name": "Inbank 5.5% 2031",
+          "weight_pct": 0.04,
+          "type": "bonds"
+        },
+        {
+          "name": "Inbank AT1 7.5% 2031",
+          "weight_pct": 0.15,
+          "type": "bonds"
+        },
+        {
+          "name": "LHV Group FRN 2035",
+          "weight_pct": 0.65,
+          "type": "bonds"
+        },
+        {
+          "name": "Luminor Bank FRN Perp",
+          "weight_pct": 0.11,
+          "type": "bonds"
+        },
+        {
+          "name": "Nortal FRN 2029",
+          "weight_pct": 0.46,
+          "type": "bonds"
+        }
+      ],
+      "stocks": [
+        {
+          "name": "Hepsor",
+          "isin": "EE3100082306",
+          "weight_pct": 0.14,
+          "country": "Estonia"
+        },
+        {
+          "name": "Ignitis Grupe",
+          "isin": "LT0000115768",
+          "weight_pct": 0.51,
+          "country": "Lithuania"
+        },
+        {
+          "name": "Tallinna Sadam",
+          "isin": "EE3100021635",
+          "weight_pct": 0.87,
+          "country": "Estonia"
+        }
+      ],
+      "re_funds": [
+        {
+          "name": "Baltic Horizon Fund",
+          "weight_pct": 0.05
+        },
+        {
+          "name": "Birdeye Timber Fund 3",
+          "weight_pct": 1.0
+        },
+        {
+          "name": "EfTEN Real Estate Fund IV",
+          "weight_pct": 1.37
+        },
+        {
+          "name": "EfTEN Special Opportunities Fund",
+          "weight_pct": 0.53
+        },
+        {
+          "name": "SG Capital Partners",
+          "weight_pct": 0.59
+        }
+      ],
+      "pe_funds": [
+        {
+          "name": "BaltCap PE Fund II",
+          "weight_pct": 0.08
+        },
+        {
+          "name": "INVL PE Fund II",
+          "weight_pct": 0.06
+        },
+        {
+          "name": "Schroders Capital PE Global Innovation XI",
+          "weight_pct": 0.57
+        },
+        {
+          "name": "SEB PE Global Direct III",
+          "weight_pct": 0.71
+        },
+        {
+          "name": "BaltCap PE Fund III",
+          "weight_pct": 0.35
+        },
+        {
+          "name": "Superangel Two",
+          "weight_pct": 0.41
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+          "weight_pct": 0.98
+        }
+      ]
+    },
+    "SEB 60+": {
+      "equity_funds": [
+        {
+          "name": "iShares Developed World ESG Screened Index Fund",
+          "isin": "IE00BFG1TM61",
+          "weight_pct": 1.95
+        },
+        {
+          "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3P36",
+          "weight_pct": 1.97
+        },
+        {
+          "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3D14",
+          "weight_pct": 2.92
+        },
+        {
+          "name": "iShares MSCI World ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3J75",
+          "weight_pct": 5.46
+        },
+        {
+          "name": "L&G Japan Equity UCITS ETF",
+          "isin": "IE00BFXR5T61",
+          "weight_pct": 0.84
+        },
+        {
+          "name": "SEB Global Exposure Fund",
+          "isin": "LU1711526407",
+          "weight_pct": 21.38
+        },
+        {
+          "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+          "isin": "IE00BH4GPZ28",
+          "weight_pct": 8.66
+        }
+      ],
+      "bonds": [],
+      "stocks": [
+        {
+          "name": "Ignitis Grupe",
+          "isin": "LT0000115768",
+          "weight_pct": 0.74,
+          "country": "Lithuania"
+        },
+        {
+          "name": "Tallinna Sadam",
+          "isin": "EE3100021635",
+          "weight_pct": 1.1,
+          "country": "Estonia"
+        }
+      ],
+      "re_funds": [
+        {
+          "name": "BaltCap Infrastructure Fund",
+          "weight_pct": 1.12
+        },
+        {
+          "name": "Baltic Horizon Fund",
+          "weight_pct": 0.12
+        },
+        {
+          "name": "Birdeye Timber Fund 3",
+          "weight_pct": 2.48
+        },
+        {
+          "name": "EfTEN Real Estate Fund IV",
+          "weight_pct": 4.68
+        },
+        {
+          "name": "SG Capital Partners",
+          "weight_pct": 1.9
+        }
+      ],
+      "pe_funds": [
+        {
+          "name": "BaltCap PE Fund II",
+          "weight_pct": 0.33
+        },
+        {
+          "name": "BaltCap PE Fund III",
+          "weight_pct": 0.23
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "Amundi Index Euro Corporate SRI UCITS ETF",
+          "weight_pct": 0.52
+        },
+        {
+          "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+          "weight_pct": 1.49
+        },
+        {
+          "name": "Fair Oaks Dynamic Credit Fund",
+          "weight_pct": 2.37
+        },
+        {
+          "name": "Robeco Euro Credit Bond",
+          "weight_pct": 2.34
+        },
+        {
+          "name": "Schroder ISF EURO Corporate Bond",
+          "weight_pct": 3.5
+        },
+        {
+          "name": "SEB Global High Yield Fund",
+          "weight_pct": 0.0
+        },
+        {
+          "name": "UBS EUR Corporates Sustainable",
+          "weight_pct": 6.03
+        }
+      ],
+      "direct_bond_pct": 26.29
+    },
+    "SEB 65+": {
+      "equity_funds": [
+        {
+          "name": "iShares Developed World ESG Screened Index Fund",
+          "isin": "IE00BFG1TM61",
+          "weight_pct": 1.46
+        },
+        {
+          "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3D14",
+          "weight_pct": 0.38
+        },
+        {
+          "name": "iShares MSCI World ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3J75",
+          "weight_pct": 0.91
+        },
+        {
+          "name": "SEB Global Exposure Fund",
+          "isin": "LU1711526407",
+          "weight_pct": 4.0
+        }
+      ],
+      "bonds": [],
+      "stocks": [],
+      "re_funds": [],
+      "pe_funds": [],
+      "bond_funds": [
+        {
+          "name": "Amundi EUR Corporate Bond 1-5Y ESG",
+          "weight_pct": 8.36
+        },
+        {
+          "name": "Amundi Index Euro Corporate SRI UCITS ETF",
+          "weight_pct": 12.82
+        },
+        {
+          "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+          "weight_pct": 1.5
+        },
+        {
+          "name": "Fair Oaks Dynamic Credit Fund",
+          "weight_pct": 1.28
+        },
+        {
+          "name": "Robeco Euro Credit Bond",
+          "weight_pct": 8.0
+        },
+        {
+          "name": "Schroder ISF EURO Corporate Bond",
+          "weight_pct": 3.32
+        },
+        {
+          "name": "UBS EUR Corporates Sustainable",
+          "weight_pct": 7.52
+        }
+      ],
+      "direct_bond_pct": 49.33
+    },
+    "Luminor Indeks": {
+      "equity_funds": [
+        {
+          "name": "Amundi Prime Global UCITS ETF",
+          "weight_pct": 29.07
+        },
+        {
+          "name": "Amundi Stoxx Europe 600 UCITS ETF",
+          "weight_pct": 4.7
+        },
+        {
+          "name": "SPDR MSCI World UCITS ETF",
+          "weight_pct": 12.47
+        },
+        {
+          "name": "iShares Core MSCI EM IMI UCITS ETF",
+          "weight_pct": 6.27
+        },
+        {
+          "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+          "weight_pct": 19.6
+        },
+        {
+          "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+          "weight_pct": 3.94
+        },
+        {
+          "name": "iShares Japan Index Fund (IE)",
+          "weight_pct": 1.33
+        },
+        {
+          "name": "iShares S&P 500 Swap UCITS ETF",
+          "weight_pct": 22.43
+        }
+      ],
+      "bond_funds": [],
+      "re_funds": [],
+      "pe_funds": [],
+      "deposits_pct": 0.2
+    },
+    "Luminor 50-56": {
+      "equity_funds": [
+        {
+          "name": "Amundi Nasdaq-100 II-ETF A",
+          "weight_pct": 3.92
+        },
+        {
+          "name": "Robeco 3D Global Equity UCITS ETF",
+          "weight_pct": 8.1
+        },
+        {
+          "name": "SPDR MSCI World UCITS ETF",
+          "weight_pct": 3.06
+        },
+        {
+          "name": "Xtrackers MSCI World Materials ETF",
+          "weight_pct": 1.96
+        },
+        {
+          "name": "iShares Core MSCI EM IMI UCITS ETF",
+          "weight_pct": 5.87
+        },
+        {
+          "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+          "weight_pct": 13.2
+        },
+        {
+          "name": "iShares Developed World Screened Index Fund (IE)",
+          "weight_pct": 17.35
+        },
+        {
+          "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+          "weight_pct": 4.76
+        },
+        {
+          "name": "iShares Europe Equity Index Fund (LU)",
+          "weight_pct": 3.77
+        },
+        {
+          "name": "iShares Japan Index Fund (IE)",
+          "weight_pct": 2.48
+        },
+        {
+          "name": "iShares North America Index Fund",
+          "weight_pct": 15.55
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "Robeco Euro Credit Bonds I EUR",
+          "weight_pct": 1.89
+        },
+        {
+          "name": "SPDR Bloomberg Barclays Euro High Yield Bond",
+          "weight_pct": 0.9
+        },
+        {
+          "name": "Xtrackers II EUR High Yield Corporate Bond",
+          "weight_pct": 0.12
+        },
+        {
+          "name": "iShares EUR Corp Bond ESG SRI UCITS ETF",
+          "weight_pct": 1.9
+        },
+        {
+          "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned",
+          "weight_pct": 0.19
+        },
+        {
+          "name": "Amundi Euro Government Bond 25+Y",
+          "weight_pct": 0.32
+        },
+        {
+          "name": "BNPP Easy JPM ESG EMBI Global Diversified",
+          "weight_pct": 0.34
+        },
+        {
+          "name": "Neuberger Berman EM Market Debt Hard Currency",
+          "weight_pct": 1.44
+        }
+      ],
+      "re_funds": [
+        {
+          "name": "EFTEN Kinnisvarafond II AS",
+          "weight_pct": 4.95
+        },
+        {
+          "name": "EfTEN Real Estate Fund",
+          "weight_pct": 1.72
+        }
+      ],
+      "pe_funds": [
+        {
+          "name": "INVL Private Equity Fund II",
+          "weight_pct": 0.06
+        },
+        {
+          "name": "KS Livonia Partners Fund II AIF",
+          "weight_pct": 1.13
+        },
+        {
+          "name": "Raft Capital Baltic Equity Fund",
+          "weight_pct": 0.1
+        }
+      ],
+      "deposits_pct": 0.11
+    },
+    "Luminor 56+": {
+      "equity_funds": [
+        {
+          "name": "Amundi Nasdaq-100 II-ETF A",
+          "weight_pct": 1.96
+        },
+        {
+          "name": "Robeco 3D Global Equity UCITS ETF",
+          "weight_pct": 3.8
+        },
+        {
+          "name": "SPDR MSCI World UCITS ETF",
+          "weight_pct": 1.82
+        },
+        {
+          "name": "Xtrackers MSCI World Materials ETF",
+          "weight_pct": 1.06
+        },
+        {
+          "name": "iShares Core MSCI EM IMI UCITS ETF",
+          "weight_pct": 2.56
+        },
+        {
+          "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+          "weight_pct": 7.24
+        },
+        {
+          "name": "iShares Developed World Screened Index Fund (IE)",
+          "weight_pct": 9.96
+        },
+        {
+          "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+          "weight_pct": 2.6
+        },
+        {
+          "name": "iShares Europe Equity Index Fund (LU)",
+          "weight_pct": 2.32
+        },
+        {
+          "name": "iShares Japan Index Fund (IE)",
+          "weight_pct": 1.3
+        },
+        {
+          "name": "iShares North America Index Fund",
+          "weight_pct": 5.38
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "Robeco Euro Credit Bonds I EUR",
+          "weight_pct": 3.48
+        },
+        {
+          "name": "SPDR Bloomberg Barclays Euro High Yield Bond",
+          "weight_pct": 1.63
+        },
+        {
+          "name": "Xtrackers II EUR High Yield Corporate Bond",
+          "weight_pct": 0.24
+        },
+        {
+          "name": "iShares EUR Corp Bond ESG SRI UCITS ETF",
+          "weight_pct": 3.93
+        },
+        {
+          "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned",
+          "weight_pct": 0.33
+        },
+        {
+          "name": "Amundi Euro Government Bond 25+Y",
+          "weight_pct": 0.6
+        },
+        {
+          "name": "BNPP Easy JPM ESG EMBI Global Diversified",
+          "weight_pct": 0.71
+        },
+        {
+          "name": "Neuberger Berman EM Market Debt Hard Currency",
+          "weight_pct": 3.03
+        }
+      ],
+      "re_funds": [
+        {
+          "name": "EFTEN Kinnisvarafond II AS",
+          "weight_pct": 4.23
+        },
+        {
+          "name": "EfTEN Real Estate Fund",
+          "weight_pct": 1.65
+        },
+        {
+          "name": "EfTEN Special Opportunities Fund",
+          "weight_pct": 1.81
+        }
+      ],
+      "pe_funds": [
+        {
+          "name": "INVL Private Equity Fund II",
+          "weight_pct": 0.05
+        },
+        {
+          "name": "KS Livonia Partners Fund II AIF",
+          "weight_pct": 0.97
+        },
+        {
+          "name": "Raft Capital Baltic Equity Fund",
+          "weight_pct": 0.1
+        }
+      ],
+      "deposits_pct": 0.15
+    },
+    "Luminor 61-65": {
+      "equity_funds": [
+        {
+          "name": "Amundi Nasdaq-100 II-ETF A",
+          "weight_pct": 0.37
+        },
+        {
+          "name": "Robeco 3D Global Equity UCITS ETF",
+          "weight_pct": 0.85
+        },
+        {
+          "name": "SPDR MSCI World UCITS ETF",
+          "weight_pct": 2.8
+        },
+        {
+          "name": "Xtrackers MSCI World Materials ETF",
+          "weight_pct": 0.21
+        },
+        {
+          "name": "iShares Core MSCI EM IMI UCITS ETF",
+          "weight_pct": 0.72
+        },
+        {
+          "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+          "weight_pct": 2.46
+        },
+        {
+          "name": "iShares Developed World Screened Index Fund (IE)",
+          "weight_pct": 0.84
+        },
+        {
+          "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+          "weight_pct": 0.59
+        },
+        {
+          "name": "iShares Japan Index Fund (IE)",
+          "weight_pct": 0.3
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "BNPP Easy JPM ESG EMBI Global Diversified",
+          "weight_pct": 0.84
+        },
+        {
+          "name": "Neuberger Berman EM Market Debt Hard Currency",
+          "weight_pct": 1.85
+        },
+        {
+          "name": "Robeco Euro Credit Bonds I EUR",
+          "weight_pct": 18.33
+        },
+        {
+          "name": "SPDR Bloomberg Barclays Euro High Yield Bond",
+          "weight_pct": 2.22
+        },
+        {
+          "name": "Xtrackers II EUR High Yield Corporate Bond",
+          "weight_pct": 1.12
+        },
+        {
+          "name": "iShares EUR Corp Bond ESG SRI UCITS ETF",
+          "weight_pct": 25.95
+        },
+        {
+          "name": "iShares Euro Investment Grade Corporate Bond",
+          "weight_pct": 13.02
+        },
+        {
+          "name": "iShares JPM USD EM Bond EUR Hedged",
+          "weight_pct": 0.67
+        }
+      ],
+      "re_funds": [],
+      "pe_funds": [],
+      "direct_bond_pct": 26.30,
+      "deposits_pct": 0.28
+    },
+    "SEB Indeks": [
+      {
+        "name": "iShares Developed World ESG Screened Index Fund",
+        "isin": "IE00BFG1TM61",
+        "weight_pct": 25.85
+      },
+      {
+        "name": "L&G Japan Equity UCITS ETF",
+        "isin": "IE00BFXR5T61",
+        "weight_pct": 3.02
+      },
+      {
+        "name": "L&G US Equity UCITS ETF",
+        "isin": "IE00BFXR5Q31",
+        "weight_pct": 10.89
+      },
+      {
+        "name": "SEB Emerging Markets Exposure Fund",
+        "isin": "SE0021147394",
+        "weight_pct": 11.22
+      },
+      {
+        "name": "SEB Europe Exposure Fund IC",
+        "isin": "LU1118354460",
+        "weight_pct": 7.1
+      },
+      {
+        "name": "SEB Global Exposure Fund",
+        "isin": "LU1711526407",
+        "weight_pct": 10.0
+      },
+      {
+        "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+        "isin": "IE00BH4GPZ28",
+        "weight_pct": 29.57
+      }
+    ]
+  }
+}
