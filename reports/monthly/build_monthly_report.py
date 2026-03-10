@@ -377,27 +377,42 @@ def preprocess_data(data, year, month):
     return report
 
 
-def build_monthly_report(year: int, month: int, output_format: str = 'html') -> Path:
-    """
-    Build monthly board report by rendering Jinja2 template with YAML data.
+def md_to_html(md_text: str, title: str) -> str:
+    """Convert markdown text to a full HTML document."""
+    html_content = markdown.markdown(
+        md_text,
+        extensions=['tables', 'fenced_code']
+    )
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <style>
+        body {{ max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }}
+        img {{ max-width: 100%; height: auto; }}
+        table {{ border-collapse: collapse; }}
+        th, td {{ border: 1px solid #ddd; padding: 6px 12px; text-align: left; }}
+        th {{ background-color: #f5f5f5; }}
+    </style>
+</head>
+<body>
+{html_content}
+</body>
+</html>"""
 
-    Args:
-        year: The reporting year (e.g., 2025)
-        month: The reporting month (1-12)
-        output_format: 'md', 'html', or 'pdf'
 
-    Returns:
-        Path to the generated file
+def build_md(year: int, month: int) -> Path:
     """
-    # Paths
-    base_dir = Path(__file__).parent.parent.parent
+    Step 1: Generate MD report from template + data with placeholder comments.
+    Run this first, then edit the MD manually, then run build_html.
+    """
     report_dir = Path(__file__).parent
     data_file = report_dir / 'data' / f'{year}-{month:02d}.yaml'
     template_dir = report_dir / 'content'
-    style_file = base_dir / 'common' / 'branding' / 'style.css'
     output_dir = report_dir / 'output' / str(year)
 
-    # Load data from YAML
     print(f"Loading data from: {data_file}")
     if not data_file.exists():
         print(f"ERROR: Data file not found: {data_file}")
@@ -407,27 +422,21 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     with open(data_file, 'r') as f:
         data = yaml.safe_load(f)
 
-    # Load comments from existing markdown file (preserves manual edits)
-    md_file = output_dir / f'monthly_report_{year}-{month:02d}.md'
-    comments = extract_comments_from_md(md_file)
-    if comments:
-        print(f"Loaded {len(comments)} comments from existing report: {md_file}")
+    # Load comments from YAML placeholders
+    comments_file = report_dir / 'comments' / f'{year}-{month:02d}.yaml'
+    if comments_file.exists():
+        with open(comments_file, 'r') as f:
+            comments = yaml.safe_load(f) or {}
+        print(f"Loaded comments from: {comments_file}")
     else:
-        # Fall back to YAML comments for first build
-        comments_file = report_dir / 'comments' / f'{year}-{month:02d}.yaml'
-        if comments_file.exists():
-            with open(comments_file, 'r') as f:
-                comments = yaml.safe_load(f) or {}
-            print(f"Loaded comments from: {comments_file}")
-        else:
-            comments = {}
-            print(f"No existing report or comments file, using empty comments")
+        comments = {}
+        print(f"No comments file found, using empty comments")
 
     print(f"Loaded data for {data.get('month_name', 'Unknown')} {data.get('year', year)}")
 
     # Generate charts
     print("Generating charts...")
-    charts_dir = generate_monthly_charts(year, month)
+    generate_monthly_charts(year, month)
     chart_paths = {
         'aum': 'charts/aum.png',
         'growth_waterfall': 'charts/growth_waterfall.png',
@@ -444,73 +453,90 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
         'cumulative_returns': 'charts/cumulative_returns.png',
     }
 
-    # Pre-process data for template
+    # Pre-process data and render template
     report = preprocess_data(data, year, month)
-
-    # Set up Jinja2 environment
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')
-
-    # Add Estonian month name to template context
     month_name_et = ESTONIAN_MONTHS.get(month, str(month))
-
-    # Render the Markdown template
     rendered_md = template.render(report=report, charts=chart_paths, comments=comments,
                                   month_name_et=month_name_et, **data)
 
-    # Ensure output directory exists
-    output_dir.mkdir(parents=True, exist_ok=True)
-
     # Save Markdown
+    output_dir.mkdir(parents=True, exist_ok=True)
     md_file = output_dir / f'monthly_report_{year}-{month:02d}.md'
     with open(md_file, 'w') as f:
         f.write(rendered_md)
     print(f"Markdown generated: {md_file}")
+    print(f"\nNext step: edit comments in {md_file}, then run:")
+    print(f"  python build_monthly_report.py {year} {month} html")
+    return md_file
 
-    if output_format == 'md':
-        return md_file
 
-    # Convert Markdown to HTML
-    html_content = markdown.markdown(
-        rendered_md,
-        extensions=['tables', 'fenced_code']
-    )
+def build_html(year: int, month: int) -> Path:
+    """
+    Step 2: Convert the existing MD report (with your comments) to HTML.
+    """
+    report_dir = Path(__file__).parent
+    data_file = report_dir / 'data' / f'{year}-{month:02d}.yaml'
+    output_dir = report_dir / 'output' / str(year)
+    md_file = output_dir / f'monthly_report_{year}-{month:02d}.md'
 
-    # Wrap in full HTML document
-    month_name = data.get('month_name', f'{month:02d}')
-    html_document = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuleva Monthly Board Report - {month_name} {year}</title>
-    <style>
-        body {{ max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }}
-        img {{ max-width: 100%; height: auto; }}
-        table {{ border-collapse: collapse; }}
-        th, td {{ border: 1px solid #ddd; padding: 6px 12px; text-align: left; }}
-        th {{ background-color: #f5f5f5; }}
-    </style>
-</head>
-<body>
-{html_content}
-</body>
-</html>"""
+    if not md_file.exists():
+        print(f"ERROR: Markdown report not found: {md_file}")
+        print(f"HINT: Run 'python build_monthly_report.py {year} {month} md' first.")
+        return None
 
-    # Save HTML
+    print(f"Reading markdown from: {md_file}")
+    md_text = md_file.read_text()
+
+    # Get month name for HTML title
+    if data_file.exists():
+        with open(data_file, 'r') as f:
+            data = yaml.safe_load(f)
+        month_name = data.get('month_name', f'{month:02d}')
+    else:
+        month_name = ESTONIAN_MONTHS.get(month, f'{month:02d}').capitalize()
+
+    html_document = md_to_html(md_text, f"Tuleva Monthly Board Report - {month_name} {year}")
+
     html_file = output_dir / f'monthly_report_{year}-{month:02d}.html'
     with open(html_file, 'w') as f:
         f.write(html_document)
     print(f"HTML generated: {html_file}")
+    return html_file
 
-    if output_format == 'html':
-        return html_file
 
-    # For PDF: embed images as base64
+def build_pdf(year: int, month: int) -> Path:
+    """
+    Step 3 (optional): Convert the existing MD report to PDF.
+    """
+    base_dir = Path(__file__).parent.parent.parent
+    report_dir = Path(__file__).parent
+    data_file = report_dir / 'data' / f'{year}-{month:02d}.yaml'
+    style_file = base_dir / 'common' / 'branding' / 'style.css'
+    output_dir = report_dir / 'output' / str(year)
+    md_file = output_dir / f'monthly_report_{year}-{month:02d}.md'
+
+    if not md_file.exists():
+        print(f"ERROR: Markdown report not found: {md_file}")
+        print(f"HINT: Run 'python build_monthly_report.py {year} {month} md' first.")
+        return None
+
+    print(f"Reading markdown from: {md_file}")
+    md_text = md_file.read_text()
+
+    if data_file.exists():
+        with open(data_file, 'r') as f:
+            data = yaml.safe_load(f)
+        month_name = data.get('month_name', f'{month:02d}')
+    else:
+        month_name = ESTONIAN_MONTHS.get(month, f'{month:02d}').capitalize()
+
+    html_document = md_to_html(md_text, f"Tuleva Monthly Board Report - {month_name} {year}")
+
     print("Embedding images for PDF...")
     html_with_images = embed_images_as_base64(html_document, output_dir)
 
-    # Generate PDF with WeasyPrint
     pdf_file = output_dir / f'monthly_report_{year}-{month:02d}.pdf'
     print(f"Generating PDF with Tuleva branding...")
 
@@ -521,6 +547,24 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
 
     print(f"PDF generated: {pdf_file}")
     return pdf_file
+
+
+def build_monthly_report(year: int, month: int, output_format: str = 'html') -> Path:
+    """
+    Build monthly board report.
+
+    Workflow:
+        1. `md`  — generate MD from template + data (with placeholder comments)
+        2. Edit the MD file manually to add real comments
+        3. `html` — convert the edited MD to HTML (no re-render)
+        4. `pdf`  — convert the edited MD to PDF (optional)
+    """
+    if output_format == 'md':
+        return build_md(year, month)
+    elif output_format == 'html':
+        return build_html(year, month)
+    elif output_format == 'pdf':
+        return build_pdf(year, month)
 
 
 if __name__ == "__main__":
