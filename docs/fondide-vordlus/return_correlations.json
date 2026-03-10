@@ -838,7 +838,7 @@
   },
   "last_1y": {
     "method": "ESMA/2016/165 closet indexing metrics",
-    "period": "2016-03-18 to 2026-03-13",
+    "period": "2025-03-14 to 2026-03-13",
     "n_funds": 24,
     "correlations": {
       "LHV Ettevõtlik|LHV Indeks": 0.7258,

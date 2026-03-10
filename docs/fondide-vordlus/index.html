@@ -765,7 +765,7 @@ function renderNav(funds) {
         const expensive = fee0 > fee1 ? fundRows[0] : fundRows[1];
         const eurosPer10k = (diff / 100 * 10000).toFixed(0);
         html += `<tr><td colspan="5" class="fee-diff" style="border-top:2px solid var(--g200);padding-top:10px;">
-          ${LABELS[expensive]} tasu on <span class="num-accent">${diff.toFixed(2)}</span> protsendipunkti k\u00f5rgem \u2014
+          ${label(expensive)} tasu on <span class="num-accent">${diff.toFixed(2)}</span> protsendipunkti k\u00f5rgem \u2014
           see on <span class="num-accent">${eurosPer10k}\u20ac</span> aastas iga 10\u2009000\u20ac kohta.
         </td></tr>`;
       }
@@ -1278,7 +1278,7 @@ function renderAllHoldings(funds) {
 
 function renderRankedList(container, funds, dataKey, translateFn) {
   container.innerHTML = '';
-  const gridCols = funds.length === 2 ? '1fr 1fr' : '1fr';
+  const gridCols = funds.length === 2 ? (isMobile() ? '1fr' : '1fr 1fr') : '1fr';
   const grid = document.createElement('div');
   grid.style.cssText = `display:grid;grid-template-columns:${gridCols};gap:2rem;`;
 
@@ -1287,7 +1287,7 @@ function renderRankedList(container, funds, dataKey, translateFn) {
     if (funds.length === 2) {
       const header = document.createElement('div');
       header.style.cssText = `font-weight:700;font-size:0.85rem;color:${COLORS[f]};margin-bottom:0.5rem;`;
-      header.textContent = LABELS[f];
+      header.textContent = label(f);
       col.appendChild(header);
     }
     const items = Object.entries(DATA.funds[f][dataKey] || {})
