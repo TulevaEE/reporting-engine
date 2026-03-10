@@ -121,6 +121,7 @@
     .fund-grid { grid-template-columns: 1fr 1fr; }
     .info-icon .info-tip { width: 240px; left: 0; transform: none; }
     .summary-card { padding: 1.25rem 1.25rem; }
+    #detailSunburst { display: none; }
   }
   .tooltip { position:fixed; pointer-events:none; background:var(--navy); color:#fff;
     padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600;
@@ -181,7 +182,7 @@
   <div class="meth-body" id="detailsBody">
     <div id="detailESMA" style="margin-bottom:2rem;">
       <div class="section-title">Kas fondid on sisuliselt samad?</div>
-      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kolme n&auml;itajaga:</div>
+      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kahe n&auml;itajaga:</div>
       <div id="esmaContent"></div>
     </div>
     <div id="detailScatter" style="margin-bottom:2rem;">
@@ -284,6 +285,8 @@ let FEES = {
 };
 const AC_COLORS = { stocks:'#0081EE', etfs:'#60a5fa', bonds:'#6b7280',
                     pe:'#7c3aed', re:'#059669', deposits:'#d1d5db', derivatives:'#f59e0b', unknown:'#fca5a5' };
+function isMobile() { return window.innerWidth <= 640; }
+function label(key) { return isMobile() ? (SHORT[key]||LABELS[key]||key) : (LABELS[key]||key); }
 const AC_LABELS = { stocks:'Aktsiad', etfs:'Fondid (l\u00e4bipaistmatud)', bonds:'V\u00f5lakirjad',
                     pe:'Erakapital', re:'Kinnisvara', deposits:'Hoiused', derivatives:'Tuletisinstr.', unknown:'Andmed puuduvad' };
 const PL = {
@@ -457,7 +460,7 @@ function showProvider(provider) {
     const card = document.createElement('div');
     card.className = 'fund-card' + (selected.includes(key) ? ' selected' : '');
     card.dataset.fund = key;
-    card.innerHTML = `<div class="fn">${LABELS[key]||key}</div>
+    card.innerHTML = `<div class="fn">${label(key)}</div>
       <div class="badge ${bc}">${feeText}</div><div class="ck">\u2713</div>`;
     card.addEventListener('click', () => toggle(key));
     grid.appendChild(card);
@@ -618,7 +621,7 @@ function renderAssets(funds) {
   const order = ['stocks','etfs','pe','re','bonds','deposits','derivatives'];
   funds.forEach(f => {
     const ac = DATA.funds[f].asset_classes || {stocks:100};
-    el.innerHTML += `<div class="asset-bar-label">${LABELS[f]}</div>`;
+    el.innerHTML += `<div class="asset-bar-label">${label(f)}</div>`;
     let bar = '<div class="asset-bar">';
     const AC_SHORT = { stocks:'Akt.', etfs:'Fondid', bonds:'V\u00f5lak.', pe:'PE', re:'Kinn.', deposits:'Hoi.', derivatives:'Tul.' };
     const total = order.reduce((s,k) => s + (ac[k]||0), 0) || 100;
@@ -743,7 +746,7 @@ function renderNav(funds) {
     </tr></thead><tbody>`;
     fundRows.forEach(f => {
       const fee = FEES[f] || 0;
-      html += `<tr><td class="fund-name" style="color:${COLORS[f]}">${LABELS[f]}</td>`;
+      html += `<tr><td class="fund-name" style="color:${COLORS[f]}">${label(f)}</td>`;
       periods.forEach(p => {
         const ret = calcAnnReturn(f, p);
         if (ret !== null) {
@@ -830,14 +833,14 @@ function renderOverlap(funds) {
     : '';
 
   const diffHtml = (diff.f1.length > 0 || diff.f2.length > 0)
-    ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-        <div>
-          <div style="font-weight:700;margin-bottom:0.2rem;font-size:0.8rem;color:${COLORS[f1]};text-transform:uppercase;letter-spacing:0.03em;">${LABELS[f1]}</div>
+    ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;overflow:hidden;">
+        <div style="min-width:0;">
+          <div style="font-weight:700;margin-bottom:0.2rem;font-size:0.8rem;color:${COLORS[f1]};text-transform:uppercase;letter-spacing:0.03em;">${label(f1)}</div>
           <div style="font-size:0.75rem;color:var(--g400);margin-bottom:0.4rem;">suurem kaal</div>
           ${holdingList(diff.f1)}
         </div>
-        <div>
-          <div style="font-weight:700;margin-bottom:0.2rem;font-size:0.8rem;color:${COLORS[f2]};text-transform:uppercase;letter-spacing:0.03em;">${LABELS[f2]}</div>
+        <div style="min-width:0;">
+          <div style="font-weight:700;margin-bottom:0.2rem;font-size:0.8rem;color:${COLORS[f2]};text-transform:uppercase;letter-spacing:0.03em;">${label(f2)}</div>
           <div style="font-size:0.75rem;color:var(--g400);margin-bottom:0.4rem;">suurem kaal</div>
           ${holdingList(diff.f2)}
         </div>
@@ -851,7 +854,7 @@ function renderOverlap(funds) {
         <div style="height:100%;width:${Math.max(r2Pct,2)}%;background:var(--blue);border-radius:8px 0 0 8px;display:flex;align-items:center;${r2Pct >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${r2Pct}%</div>
       </div>
       <div style="font-size:0.78rem;color:var(--g400);margin-bottom:1rem;">
-        ${feeA !== feeB ? `Odavam fond (${LABELS[feeA <= feeB ? f1 : f2]}) selgitab ${r2Pct}% kallima fondi (${LABELS[feeA > feeB ? f1 : f2]}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
+        ${feeA !== feeB ? `Odavam fond (${label(feeA <= feeB ? f1 : f2)}) selgitab ${r2Pct}% kallima fondi (${label(feeA > feeB ? f1 : f2)}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
       </div>` : '';
 
   document.getElementById('overlapContent').innerHTML = `
@@ -866,8 +869,8 @@ function renderOverlap(funds) {
       ${corrBarHtml}
       <div class="narrative" style="margin-bottom:1rem;">${story}</div>
       <div style="margin-bottom:1.5rem;">
-        <div class="summary-fees">${LABELS[f1]} &nbsp; <strong>${feeA.toFixed(2)}%</strong> aastas</div>
-        <div class="summary-fees">${LABELS[f2]} &nbsp; <strong>${feeB.toFixed(2)}%</strong> aastas</div>
+        <div class="summary-fees">${label(f1)} &nbsp; <strong>${feeA.toFixed(2)}%</strong> aastas</div>
+        <div class="summary-fees">${label(f2)} &nbsp; <strong>${feeB.toFixed(2)}%</strong> aastas</div>
         ${feeDiff >= 0.05 ? `<div class="summary-diff" style="margin-top:0.5rem;">Vahe: ${eurosPer10k}\u20ac aastas iga 10\u2009000\u20ac kohta</div>` : ''}
         <div class="summary-verdict">${verdict}</div>
       </div>
@@ -1025,7 +1028,7 @@ function renderScatter(funds) {
     if (a > 0.02 || b > 0.02) { xs.push(a); ys.push(b); names.push(k.replace(/^(PE|RE|BOND|ETF)\|/, '')); }
   });
   document.getElementById('scatterSub').textContent =
-    `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
+    `${label(f1)} vs ${label(f2)}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
   const mx = Math.max(...xs, ...ys) * 1.05;
   const r = DATA.correlation_matrix[`${f1}|${f2}`] || 0;
   Plotly.newPlot('chartScatter', [
@@ -1034,8 +1037,8 @@ function renderScatter(funds) {
       hovertemplate:'%{text}<br>'+LABELS[f1]+': %{x:.2f}%<br>'+LABELS[f2]+': %{y:.2f}%<extra></extra>' },
     { x:[0,mx], y:[0,mx], mode:'lines', line:{dash:'dash',color:'#ccc'}, showlegend:false },
   ], { ...PL,
-    xaxis:{title:LABELS[f1]+' (%)'},
-    yaxis:{title:LABELS[f2]+' (%)'},
+    xaxis:{title:label(f1)+' (%)'},
+    yaxis:{title:label(f2)+' (%)'},
     height:450,
     annotations:[{ x:0.95, y:0.05, xref:'paper', yref:'paper',
       text:`r = ${r.toFixed(3)}`, showarrow:false,
