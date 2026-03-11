@@ -18,7 +18,9 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install ruff
-      - run: ruff check export_fund_data.py
+      - run: ruff check .
       - run: pip install -r requirements.txt
+      # Smoke tests only — verifies imports resolve and CLI is wired up.
+      # No functional tests yet (pipeline requires PDF reports not in repo).
       - run: python -c "import export_fund_data; print('Import OK')"
       - run: python export_fund_data.py --help
