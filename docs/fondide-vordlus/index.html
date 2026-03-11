@@ -6,7 +6,7 @@
 <meta property="og:title" content="Mida sinu pensionifond tegelikult ostab?">
 <meta property="og:description" content="Võrdle Eesti II samba fonde aktsia haaval. Enamik fonde ostab samu aktsiaid — aga hind erineb kuni 4 korda.">
 <meta property="og:type" content="website">
-<title>MUSTAND — Fondide röntgen</title>
+<title>Fondide röntgen</title>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <style>
   :root {
@@ -89,9 +89,10 @@
   .return-table .fee-diff { font-size: 0.78rem; color: var(--red); font-weight: 600; }
   .footer { font-size: 0.8rem; color: var(--g600); border-top: 1px solid var(--g200);
             padding-top: 1.5rem; margin-top: 2rem; line-height: 1.7; }
-  .meth-toggle { cursor: pointer; color: #999; font-size: 0.85rem; font-weight: 400;
-                 display: inline-flex; align-items: center; gap: 4px; }
-  .meth-toggle:hover { text-decoration: underline; color: var(--g600); }
+  .meth-toggle { cursor: pointer; color: var(--navy); font-size: 1rem; font-weight: 600;
+                 display: inline-flex; align-items: center; gap: 6px; padding: 0.6rem 1.2rem;
+                 border: 2px solid var(--navy); border-radius: 8px; transition: all 0.15s; }
+  .meth-toggle:hover { background: var(--navy); color: #fff; }
   .meth-body { display: none; margin-top: 0.75rem; padding: 1rem 1.25rem; background: var(--g50);
                border-radius: 8px; font-size: 0.8rem; line-height: 1.7; color: var(--g800); }
   .meth-body.show { display: block; }
@@ -139,7 +140,6 @@
     .fund-grid { grid-template-columns: 1fr 1fr; }
     .info-icon .info-tip { width: 240px; left: 0; transform: none; }
     .summary-card { padding: 1.25rem 1.25rem; }
-    #detailSunburst { display: none; }
   }
   .tooltip { position:fixed; pointer-events:none; background:var(--navy); color:#fff;
     padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600;
@@ -148,9 +148,9 @@
 </head>
 <body>
 <div class="container">
-<h1>MUSTAND — Fondide röntgen</h1>
-<p class="subtitle">Paljude pensionifondide portfellid on &uuml;sna sarnased. V&otilde;rdle oma fondi sisu ja vaata, mille eest sa maksad.</p>
-<div class="picker-label">Vali kuni 2 fondi</div>
+<h1>Fondide röntgen</h1>
+<p class="subtitle">Vaata, mis on sinu fondi sees ja mida see maksab.</p>
+<div class="picker-label">Soovi korral vali 2 fondi</div>
 <div class="provider-tabs" id="providerTabs"></div>
 <div class="fund-grid" id="fundGrid"></div>
 <div class="selected-chips-wrap" id="selectedChipsWrap">
@@ -187,7 +187,6 @@
     <button class="nav-period-btn" data-years="10">10a</button>
     <button class="nav-period-btn active" data-years="5">5a</button>
     <button class="nav-period-btn" data-years="2">2a</button>
-    <button class="nav-period-btn" data-years="1">1a</button>
   </div>
   <div class="chart-container" id="chartNav"></div>
   <div id="navReturnTable"></div>
@@ -202,11 +201,6 @@
 <div class="section" id="sectionDetails">
   <span class="meth-toggle" id="detailsToggle">Vaata detailsemalt</span>
   <div class="meth-body" id="detailsBody">
-    <div id="detailESMA" style="margin-bottom:2rem;">
-      <div class="section-title">Kas fondid on sisuliselt samad?</div>
-      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kahe n&auml;itajaga:</div>
-      <div id="esmaContent"></div>
-    </div>
     <div id="detailScatter" style="margin-bottom:2rem;">
       <div class="section-title">Investeeringute kaalud v&otilde;rrelduna</div>
       <div class="section-sub" id="scatterSub"></div>
@@ -232,6 +226,11 @@
       <div class="section-title">Riigid</div>
       <div class="chart-container" id="chartCountries"></div>
     </div>
+    <div id="detailESMA" style="margin-bottom:2rem;">
+      <div class="section-title">Kas fondid on sisuliselt samad?</div>
+      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kolme n&auml;itajaga:</div>
+      <div id="esmaContent"></div>
+    </div>
   </div>
 </div>
 
@@ -243,8 +242,6 @@
     <strong>&#9888; Hoiatus.</strong> See leht on loodud informatiivsel eesm&auml;rgil. Andmed v&otilde;ivad sisaldada ebat&auml;psusi, kontrolli fakte fondivalitseja ametlikest allikatest. See ei ole investeerimisn&otilde;uanne.
     Osade fondide puhul kasutatakse sarnaste ETFide andmeid l&auml;hendusena (proxy), mist&otilde;ttu v&otilde;ivad kattuvusn&auml;itajad olla ligikaudsed.
     Andmed p&otilde;hinevad fondide investeerimisaruannetel ning v&otilde;ivad olla mitu kuud vanad &mdash; portfelli koosseis muutub pidevalt.
-    <br><br>
-    Finantsteenust pakub Tuleva Fondid AS. Enne fondi valimist tutvu kindlasti tingimuste, prospekti, investori &otilde;iguste kokkuv&otilde;tte ja p&otilde;hiteabega Tuleva Maailma Aktsiate Pensionifond, Tuleva Maailma V&otilde;lakirjade Pensionifond, Tuleva III Samba Pensionifond ja Tuleva T&auml;iendav Kogumisfond ning pea n&otilde;u asjatundjaga. V&otilde;rdluseks leiad k&otilde;igi Eesti pensionifondide info <a href="https://www.pensionikeskus.ee" style="color:inherit;">Pensionikeskusest</a>. Maksustamine oleneb isikuga seotud asjaoludest, sealhulgas residentsusest. III samba sissemaksetelt tulumaksu tagasisaamiseks tuleb esitada tuludeklaratsioon. Maksuseadused muutuvad ajas. Tuleva ega Tuleva t&ouml;&ouml;tajad ei anna investeerimisn&otilde;u ega maksun&otilde;u. II sammas m&otilde;jutab sinu I sammast. &Uuml;heski Tuleva fondis pole tootlus garanteeritud. Meie kodulehel tuginevad arvutused &uuml;ldiselt Pensionikeskuse andmetele.
   </div>
 </div>
 <div class="tooltip" id="tooltip"></div>
@@ -265,7 +262,7 @@ const COLORS = {
   'Swedbank K1980': '#F7A600', 'Swedbank K1990': '#d4900e',
   'Swedbank Indeks': '#ca8a04', 'Swedbank 2000-09': '#eab308', 'Swedbank Konservatiivne': '#fde047',
   'LHV Ettev\u00f5tlik': '#7c3aed', 'LHV Julge': '#9333ea',
-  'LHV Rahulik': '#a78bfa', 'LHV Indeks': '#6d28d9', 'LHV Tasakaalukas': '#8b5cf6',
+  'LHV Rahulik': '#a78bfa', 'LHV Indeks': '#2563eb', 'LHV Tasakaalukas': '#8b5cf6',
 };
 const LABELS = {
   'Tuleva': 'Tuleva Maailma Aktsiad', 'Tuleva Võlakirjad': 'Tuleva Võlakirjad',
@@ -306,11 +303,9 @@ let FEES = {
   'LHV Rahulik': 0.53, 'LHV Indeks': 0.27, 'LHV Tasakaalukas': 1.13,
 };
 const AC_COLORS = { stocks:'#0081EE', etfs:'#60a5fa', bonds:'#6b7280',
-                    pe:'#7c3aed', re:'#059669', deposits:'#d1d5db', derivatives:'#f59e0b', unknown:'#fca5a5' };
-function isMobile() { return window.innerWidth <= 640; }
-function label(key) { return isMobile() ? (SHORT[key]||LABELS[key]||key) : (LABELS[key]||key); }
+                    pe:'#7c3aed', re:'#059669', deposits:'#d1d5db', derivatives:'#f59e0b', gold:'#d4a017', unknown:'#fca5a5' };
 const AC_LABELS = { stocks:'Aktsiad', etfs:'Fondid (l\u00e4bipaistmatud)', bonds:'V\u00f5lakirjad',
-                    pe:'Erakapital', re:'Kinnisvara', deposits:'Hoiused', derivatives:'Tuletisinstr.', unknown:'Andmed puuduvad' };
+                    pe:'Erakapital', re:'Kinnisvara', deposits:'Hoiused', derivatives:'Tuletisinstr.', gold:'Kuld', unknown:'Andmed puuduvad' };
 const PL = {
   font: { family: '-apple-system, BlinkMacSystemFont, sans-serif', size: 12, color: '#013063' },
   paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
@@ -484,7 +479,7 @@ function showProvider(provider) {
     const card = document.createElement('div');
     card.className = 'fund-card' + (selected.includes(key) ? ' selected' : '');
     card.dataset.fund = key;
-    card.innerHTML = `<div class="fn">${label(key)}</div>
+    card.innerHTML = `<div class="fn">${LABELS[key]||key}</div>
       <div class="badge ${bc}">${feeText}</div><div class="ck">\u2713</div>`;
     card.addEventListener('click', () => toggle(key));
     grid.appendChild(card);
@@ -511,7 +506,7 @@ function renderSelectedChips() {
       chip.className = 'selected-chip';
       const info = document.createElement('div');
       info.className = 'chip-info';
-      info.innerHTML = `<div class="chip-name">${label(key)}</div><div class="chip-fee">${feeText}</div>`;
+      info.innerHTML = `<div class="chip-name">${LABELS[key]||key}</div><div class="chip-fee">${feeText}</div>`;
       const removeButton = document.createElement('span');
       removeButton.className = 'chip-remove';
       removeButton.textContent = '\u2715';
@@ -520,7 +515,7 @@ function renderSelectedChips() {
       chip.appendChild(removeButton);
     } else {
       chip.className = 'selected-chip placeholder';
-      chip.innerHTML = `<div class="chip-info"><div class="chip-name">Vali ${i + 1}. fond</div></div>`;
+      chip.innerHTML = `<div class="chip-info"><div class="chip-name">${i === 0 ? 'Vali fond' : 'Lisa teine fond'}</div></div>`;
     }
     container.appendChild(chip);
   }
@@ -560,34 +555,64 @@ function calcMWO(f1, f2) {
   return mwo;
 }
 
-function topSharedHoldings(f1, f2, n) {
-  const w1 = DATA.funds[f1].weights || {};
-  const w2 = DATA.funds[f2].weights || {};
-  const shared = [];
-  for (const k of Object.keys(w1)) {
-    if (w2[k]) shared.push({ name: k, weight: Math.min(w1[k], w2[k]) });
+function firstLevelHoldings(f) {
+  const fd = DATA.funds[f];
+  const items = {};
+  if (fd.etf_breakdown) {
+    // Index fund: first level = ETFs
+    fd.etf_breakdown.forEach(e => { items[e.name || e.etf] = e.fund_weight || 0; });
+  } else {
+    // Active fund: top_holdings are direct stocks, etf_holdings are ETFs, plus PE/RE/bonds
+    (fd.top_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.etf_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.pe_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.re_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.bond_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.gold_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
   }
-  shared.sort((a, b) => b.weight - a.weight);
-  return shared.slice(0, n);
+  return items;
 }
 
-function topDifferentHoldings(f1, f2, n) {
-  const w1 = DATA.funds[f1].weights || {};
-  const w2 = DATA.funds[f2].weights || {};
-  // Holdings unique to f1 or much bigger in f1
-  const onlyF1 = [];
-  for (const k of Object.keys(w1)) {
-    const diff = w1[k] - (w2[k]||0);
-    if (diff > 0.01) onlyF1.push({ name: k, weight: diff });
+function buildComparisonTable(rows, f1, f2) {
+  let html = `<div style="max-height:500px;overflow-y:auto;border:1px solid var(--g200);border-radius:8px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+    <thead style="position:sticky;top:0;background:#fff;z-index:1;">
+      <tr style="border-bottom:2px solid var(--g200);">
+        <th style="padding:6px 8px;text-align:left;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">Investeering</th>
+        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:${COLORS[f1]};text-transform:uppercase;letter-spacing:0.03em;">${SHORT[f1]||f1}</th>
+        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:${COLORS[f2]};text-transform:uppercase;letter-spacing:0.03em;">${SHORT[f2]||f2}</th>
+      </tr>
+    </thead><tbody>`;
+  rows.forEach(r => {
+    const exclusive = (r.a === 0 || r.b === 0);
+    const bg = exclusive ? 'background:var(--g50);' : '';
+    html += `<tr style="border-bottom:1px solid var(--g100);${bg}">
+      <td style="padding:4px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px;" title="${r.name}">${r.name}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;">${r.a > 0 ? r.a.toFixed(2) + '%' : '\u2013'}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;">${r.b > 0 ? r.b.toFixed(2) + '%' : '\u2013'}</td>
+    </tr>`;
+  });
+  html += '</tbody></table></div>';
+  return html;
+}
+
+function mergedHoldingsTable(f1, f2, level) {
+  let w1, w2;
+  if (level === 'etf') {
+    w1 = firstLevelHoldings(f1);
+    w2 = firstLevelHoldings(f2);
+  } else {
+    w1 = DATA.funds[f1].weights || {};
+    w2 = DATA.funds[f2].weights || {};
   }
-  const onlyF2 = [];
-  for (const k of Object.keys(w2)) {
-    const diff = w2[k] - (w1[k]||0);
-    if (diff > 0.01) onlyF2.push({ name: k, weight: diff });
-  }
-  onlyF1.sort((a, b) => b.weight - a.weight);
-  onlyF2.sort((a, b) => b.weight - a.weight);
-  return { f1: onlyF1.slice(0, n), f2: onlyF2.slice(0, n) };
+  const allKeys = new Set([...Object.keys(w1), ...Object.keys(w2)]);
+  const rows = [];
+  allKeys.forEach(k => {
+    const a = w1[k] || 0, b = w2[k] || 0;
+    rows.push({ name: k, a, b, max: Math.max(a, b) });
+  });
+  rows.sort((x, y) => y.max - x.max);
+  return buildComparisonTable(rows, f1, f2);
 }
 
 const TULEVA_KEY = 'Tuleva';
@@ -670,12 +695,12 @@ function renderCTA(funds) {
 function renderAssets(funds) {
   const el = document.getElementById('assetBars');
   el.innerHTML = '';
-  const order = ['stocks','etfs','pe','re','bonds','deposits','derivatives'];
+  const order = ['stocks','etfs','pe','re','bonds','gold','deposits','derivatives'];
   funds.forEach(f => {
     const ac = DATA.funds[f].asset_classes || {stocks:100};
-    el.innerHTML += `<div class="asset-bar-label">${label(f)}</div>`;
+    el.innerHTML += `<div class="asset-bar-label">${LABELS[f]}</div>`;
     let bar = '<div class="asset-bar">';
-    const AC_SHORT = { stocks:'Akt.', etfs:'Fondid', bonds:'V\u00f5lak.', pe:'PE', re:'Kinn.', deposits:'Hoi.', derivatives:'Tul.' };
+    const AC_SHORT = { stocks:'Akt.', etfs:'Fondid', bonds:'V\u00f5lak.', pe:'PE', re:'Kinn.', deposits:'Hoi.', derivatives:'Tul.', gold:'Kuld' };
     const total = order.reduce((s,k) => s + (ac[k]||0), 0) || 100;
     order.forEach(k => {
       const pct = ac[k]||0;
@@ -694,6 +719,19 @@ function renderAssets(funds) {
   el.innerHTML += legend + '</div>';
 }
 
+function findNearestDate(dates, target, maxDays) {
+  if (maxDays == null) maxDays = 7;
+  const targetMs = new Date(target).getTime();
+  let bestIdx = -1, bestDiff = Infinity;
+  for (let i = 0; i < dates.length; i++) {
+    const diff = Math.abs(new Date(dates[i]).getTime() - targetMs);
+    if (diff < bestDiff) { bestDiff = diff; bestIdx = i; }
+    if (dates[i] > target && diff > bestDiff) break; // past the closest, stop
+  }
+  if (bestIdx < 0 || bestDiff > maxDays * 86400000) return null;
+  return dates[bestIdx];
+}
+
 function renderNav(funds) {
   const section = document.getElementById('sectionNav');
   const hasNav = funds.some(f => NAV && NAV[f]);
@@ -704,16 +742,12 @@ function renderNav(funds) {
   cutoffDate.setFullYear(cutoffDate.getFullYear() - navPeriodYears);
   const cutoffStr = cutoffDate.toISOString().slice(0, 10);
 
-  // Find common start date (latest among all funds' first available dates after cutoff)
+  // Find common start date (latest among all funds' nearest available date to cutoff)
   let commonStart = cutoffStr;
   funds.forEach(f => {
     const nd = NAV[f]; if (!nd) return;
-    for (let i = 0; i < nd.dates.length; i++) {
-      if (nd.dates[i] >= cutoffStr) {
-        if (nd.dates[i] > commonStart) commonStart = nd.dates[i];
-        break;
-      }
-    }
+    const nearest = findNearestDate(nd.dates, cutoffStr);
+    if (nearest && nearest > commonStart) commonStart = nearest;
   });
 
   // Check if actual period differs from selected
@@ -757,9 +791,9 @@ function renderNav(funds) {
     const acwiBase = acwiRaw[0] || 1;
     const acwiNorm = acwiRaw.map(v => v / acwiBase * 100);
     traces.push({
-      x: acwiDates, y: acwiNorm, mode: 'lines', name: 'MSCI ACWI',
+      x: acwiDates, y: acwiNorm, mode: 'lines', name: 'Maailmaturu indeks',
       line: { color: '#999', width: 1.5, dash: 'dash' },
-      hovertemplate: 'MSCI ACWI<br>%{x}: %{y:.1f}<extra></extra>'
+      hovertemplate: 'Maailmaturu indeks (MSCI ACWI)<br>%{x}: %{y:.1f}<extra></extra>'
     });
   }
 
@@ -777,10 +811,9 @@ function renderNav(funds) {
     const cutoff = new Date();
     cutoff.setFullYear(cutoff.getFullYear() - yrs);
     const cutStr = cutoff.toISOString().slice(0, 10);
-    let si = -1;
-    for (let i = 0; i < nd.dates.length; i++) {
-      if (nd.dates[i] >= cutStr) { si = i; break; }
-    }
+    const nearestDateStr = findNearestDate(nd.dates, cutStr);
+    if (!nearestDateStr) return null;
+    let si = nd.dates.indexOf(nearestDateStr);
     if (si < 0) return null;
     const startVal = nd.values[si], endVal = nd.values[nd.values.length - 1];
     const startDate = nd.dates[si], endDate = nd.dates[nd.dates.length - 1];
@@ -790,7 +823,7 @@ function renderNav(funds) {
   }
 
   // Only show pension fund rows (skip ACWI)
-  const fundRows = funds.filter(f => f !== 'MSCI ACWI' && NAV[f]);
+  const fundRows = funds.filter(f => f !== 'MSCI ACWI' && f !== 'Maailmaturu indeks' && NAV[f]);
 
   if (fundRows.length > 0) {
     let html = `<table class="return-table"><thead><tr>
@@ -798,7 +831,7 @@ function renderNav(funds) {
     </tr></thead><tbody>`;
     fundRows.forEach(f => {
       const fee = FEES[f] || 0;
-      html += `<tr><td class="fund-name" style="color:${COLORS[f]}">${label(f)}</td>`;
+      html += `<tr><td class="fund-name" style="color:${COLORS[f]}">${LABELS[f]}</td>`;
       periods.forEach(p => {
         const ret = calcAnnReturn(f, p);
         if (ret !== null) {
@@ -817,7 +850,7 @@ function renderNav(funds) {
         const expensive = fee0 > fee1 ? fundRows[0] : fundRows[1];
         const eurosPer10k = (diff / 100 * 10000).toFixed(0);
         html += `<tr><td colspan="5" class="fee-diff" style="border-top:2px solid var(--g200);padding-top:10px;">
-          ${label(expensive)} tasu on <span class="num-accent">${diff.toFixed(2)}</span> protsendipunkti k\u00f5rgem \u2014
+          ${LABELS[expensive]} tasu on <span class="num-accent">${diff.toFixed(2)}</span> protsendipunkti k\u00f5rgem \u2014
           see on <span class="num-accent">${eurosPer10k}\u20ac</span> aastas iga 10\u2009000\u20ac kohta.
         </td></tr>`;
       }
@@ -841,8 +874,7 @@ function renderOverlap(funds) {
   const feeA = FEES[f1] || 0, feeB = FEES[f2] || 0;
   const feeDiff = Math.abs(feeA - feeB);
   const eurosPer10k = (feeDiff / 100 * 10000).toFixed(0);
-  const top5 = topSharedHoldings(f1, f2, 5);
-  const diff = topDifferentHoldings(f1, f2, 5);
+  const holdingsTableHtml = mergedHoldingsTable(f1, f2, 'stock');
 
   // NAV return correlation lookup (ESMA metrics)
   const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
@@ -854,50 +886,19 @@ function renderOverlap(funds) {
 
   // Verdict: correlation-aware first, then MWO-based fallback
   let verdict;
-  if (navCorrPct !== null && navCorrPct > 85 && feeDiff > 0.2) verdict = 'Fondid liiguvad v\u00e4ga sarnaselt, aga hind erineb.';
-  else if (navCorrPct !== null && navCorrPct > 85) verdict = 'Fondid liiguvad v\u00e4ga sarnaselt.';
+  if (r2Pct !== null && r2Pct > 70 && feeDiff > 0.2) verdict = 'Fondid liiguvad v\u00e4ga sarnaselt, aga hind erineb.';
+  else if (r2Pct !== null && r2Pct > 70) verdict = 'Fondid liiguvad v\u00e4ga sarnaselt.';
   else if (mwo > 80 && feeDiff > 0.2) verdict = 'V\u00e4ga sarnane sisu, erinev hind.';
   else if (mwo > 80) verdict = 'V\u00e4ga sarnane sisu ja hind.';
   else if (mwo > 50 && feeDiff > 0.2) verdict = 'Osaliselt kattuvad, erinev hind.';
   else if (mwo > 50) verdict = 'Osaliselt kattuvad portfellid.';
   else verdict = 'Erinevad portfellid.';
 
-  function holdingList(items) {
-    if (!items.length) return `<div style="font-size:0.82rem;color:var(--g400);padding:0.5rem 0;">Ei ole</div>`;
-    return items.map(h => {
-      return `<div style="display:flex;justify-content:space-between;padding:0.2rem 0;border-bottom:1px solid var(--g100);font-size:0.84rem;gap:0.5rem;">
-        <span title="${h.name}" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${h.name}</span><span style="font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0;">${h.weight.toFixed(1)}%</span>
-      </div>`;
-    }).join('');
-  }
-
   // Story block
   let story = `<strong>${mwo}%</strong> m\u00f5lema fondi rahast l\u00e4heb samadesse kohtadesse.`;
-  if (navCorrPct !== null && navCorrPct > mwo + 10) {
-    story += ` Siiski liiguvad fondide hinnad <strong>${navCorrPct}%</strong> sarnaselt, sest ka erinevad investeeringud on omavahel seotud.`;
+  if (r2Pct !== null && r2Pct > mwo + 10) {
+    story += ` Siiski selgitab \u00fcks fond <strong>${r2Pct}%</strong> teise fondi hinnamuutustest, sest ka erinevad investeeringud on omavahel seotud.`;
   }
-
-  const sharedHtml = top5.length > 0
-    ? `<div>
-        <div style="font-weight:700;margin-bottom:0.4rem;font-size:0.8rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em;">\u00dchised investeeringud</div>
-        ${holdingList(top5)}
-      </div>`
-    : '';
-
-  const diffHtml = (diff.f1.length > 0 || diff.f2.length > 0)
-    ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;overflow:hidden;">
-        <div style="min-width:0;">
-          <div style="font-weight:700;margin-bottom:0.2rem;font-size:0.8rem;color:${COLORS[f1]};text-transform:uppercase;letter-spacing:0.03em;">${label(f1)}</div>
-          <div style="font-size:0.75rem;color:var(--g400);margin-bottom:0.4rem;">suurem kaal</div>
-          ${holdingList(diff.f1)}
-        </div>
-        <div style="min-width:0;">
-          <div style="font-weight:700;margin-bottom:0.2rem;font-size:0.8rem;color:${COLORS[f2]};text-transform:uppercase;letter-spacing:0.03em;">${label(f2)}</div>
-          <div style="font-size:0.75rem;color:var(--g400);margin-bottom:0.4rem;">suurem kaal</div>
-          ${holdingList(diff.f2)}
-        </div>
-      </div>`
-    : '';
 
   // Correlation bar HTML (only if data available)
   const corrBarHtml = r2Pct !== null ? `
@@ -906,7 +907,7 @@ function renderOverlap(funds) {
         <div style="height:100%;width:${Math.max(r2Pct,2)}%;background:var(--blue);border-radius:8px 0 0 8px;display:flex;align-items:center;${r2Pct >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${r2Pct}%</div>
       </div>
       <div style="font-size:0.78rem;color:var(--g400);margin-bottom:1rem;">
-        ${feeA !== feeB ? `Odavam fond (${label(feeA <= feeB ? f1 : f2)}) selgitab ${r2Pct}% kallima fondi (${label(feeA > feeB ? f1 : f2)}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
+        ${feeA !== feeB ? `Odavam fond (${LABELS[feeA <= feeB ? f1 : f2]}) selgitab ${r2Pct}% kallima fondi (${LABELS[feeA > feeB ? f1 : f2]}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
       </div>` : '';
 
   document.getElementById('overlapContent').innerHTML = `
@@ -919,16 +920,26 @@ function renderOverlap(funds) {
         <span>Investeerinud samadesse varadesse</span><span>Erinev osa (${diffPct}%)</span>
       </div>
       ${corrBarHtml}
-      <div class="narrative" style="margin-bottom:1rem;">${story}</div>
-      <div style="margin-bottom:1.5rem;">
-        <div class="summary-fees">${label(f1)} &nbsp; <strong>${feeA.toFixed(2)}%</strong> aastas</div>
-        <div class="summary-fees">${label(f2)} &nbsp; <strong>${feeB.toFixed(2)}%</strong> aastas</div>
-        ${feeDiff >= 0.05 ? `<div class="summary-diff" style="margin-top:0.5rem;">Vahe: ${eurosPer10k}\u20ac aastas iga 10\u2009000\u20ac kohta</div>` : ''}
-        <div class="summary-verdict">${verdict}</div>
+      <div style="margin-top:1.25rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
+          <div style="font-weight:700;font-size:0.8rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em;">Investeeringud v\u00f5rrelduna</div>
+          <div class="nav-period-btns" id="holdingsLevelBtns" style="margin-bottom:0;">
+            <button class="nav-period-btn active" data-level="stock">L\u00e4bivaade</button>
+            <button class="nav-period-btn" data-level="etf">Otse omatud</button>
+          </div>
+        </div>
+        <div id="holdingsTableContainer">${holdingsTableHtml}</div>
       </div>
-      ${sharedHtml}
-      <div style="margin-top:1.25rem;">${diffHtml}</div>
     </div>`;
+
+  // Holdings level toggle
+  document.getElementById('holdingsLevelBtns').addEventListener('click', (e) => {
+    const btn = e.target.closest('.nav-period-btn');
+    if (!btn) return;
+    document.querySelectorAll('#holdingsLevelBtns .nav-period-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('holdingsTableContainer').innerHTML = mergedHoldingsTable(f1, f2, btn.dataset.level);
+  });
 }
 
 function renderHoldings(funds) {
@@ -937,66 +948,35 @@ function renderHoldings(funds) {
   if (funds.length >= 2) { section.classList.remove('visible'); return; }
   section.classList.add('visible');
   el.innerHTML = '';
-  const grid = document.createElement('div');
-  grid.className = 'holdings-grid';
-  grid.style.gridTemplateColumns = `repeat(${funds.length}, 1fr)`;
 
-  funds.forEach(f => {
-    const fd = DATA.funds[f];
-    const col = document.createElement('div');
-    const title = document.createElement('div');
-    title.className = 'holdings-col-title';
-    title.style.color = COLORS[f];
-    title.textContent = SHORT[f] || f;
-    col.appendChild(title);
+  const f = funds[0];
+  const fd = DATA.funds[f];
+  const items = [];
+  (fd.top_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: h.sector || '', country: h.country || '' }));
+  (fd.pe_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
+  (fd.re_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
+  (fd.bond_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
+  (fd.gold_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: 'Kuld', country: '' }));
+  items.sort((a, b) => b.weight - a.weight);
 
-    // Build unified list of ALL holdings sorted by weight
-    const items = [];
-    // Direct stocks
-    fd.top_holdings.forEach(h => items.push({ name: h.name, weight: h.weight, cat: 'stock' }));
-    // PE
-    if (fd.pe_holdings) fd.pe_holdings.forEach(h => items.push({ name: h.name, weight: h.weight, cat: 'pe' }));
-    // RE
-    if (fd.re_holdings) fd.re_holdings.forEach(h => items.push({ name: h.name, weight: h.weight, cat: 're' }));
-    // Bonds
-    if (fd.bond_holdings) fd.bond_holdings.forEach(h => items.push({ name: h.name, weight: h.weight, cat: 'bond' }));
-
-    // Sort by weight descending, take top 10
-    items.sort((a, b) => b.weight - a.weight);
-    const top10 = items.slice(0, 10);
-
-    const catColors = { stock:'var(--g800)', pe:'#7c3aed', re:'#059669', bond:'#6b7280', etf:'#60a5fa' };
-    const catTags = { stock:'', pe:'PE', re:'RE', bond:'V\u00f5lak.', etf:'ETF' };
-
-    top10.forEach(item => {
-      const row = document.createElement('div');
-      row.style.cssText = 'display:flex;align-items:baseline;padding:3px 0;font-size:0.82rem;gap:4px;';
-
-      if (catTags[item.cat]) {
-        const tag = document.createElement('span');
-        tag.style.cssText = `font-size:0.6rem;font-weight:700;color:#fff;background:${catColors[item.cat]};padding:1px 4px;border-radius:3px;flex-shrink:0;`;
-        tag.textContent = catTags[item.cat];
-        row.appendChild(tag);
-      }
-
-      const nameSpan = document.createElement('span');
-      nameSpan.style.cssText = `flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:${catColors[item.cat]};`;
-      nameSpan.textContent = item.name;
-      nameSpan.title = item.name;
-
-      const wSpan = document.createElement('span');
-      wSpan.style.cssText = 'font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0;';
-      wSpan.textContent = item.weight.toFixed(2) + '%';
-
-      row.appendChild(nameSpan);
-      row.appendChild(wSpan);
-      col.appendChild(row);
-    });
-
-    grid.appendChild(col);
+  let html = `<div style="max-height:500px;overflow-y:auto;border:1px solid var(--g200);border-radius:8px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+    <thead style="position:sticky;top:0;background:#fff;z-index:1;">
+      <tr style="border-bottom:2px solid var(--g200);">
+        <th style="padding:6px 8px;text-align:left;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">#</th>
+        <th style="padding:6px 8px;text-align:left;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">Investeering</th>
+        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">Osakaal</th>
+      </tr>
+    </thead><tbody>`;
+  items.forEach((item, i) => {
+    html += `<tr style="border-bottom:1px solid var(--g100);">
+      <td style="padding:4px 8px;color:var(--g400);">${i + 1}</td>
+      <td style="padding:4px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px;" title="${item.name}">${item.name}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;">${item.weight.toFixed(2)}%</td>
+    </tr>`;
   });
-
-  el.appendChild(grid);
+  html += '</tbody></table></div>';
+  el.innerHTML = html;
 }
 
 function renderESMA(funds) {
@@ -1005,6 +985,9 @@ function renderESMA(funds) {
   if (funds.length < 2) { el.style.display = 'none'; return; }
 
   const [f1, f2] = funds;
+  // Only show for funds from the same manager
+  const prov1 = DATA.funds[f1].provider, prov2 = DATA.funds[f2].provider;
+  if (prov1 !== prov2) { el.style.display = 'none'; return; }
   const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
 
   // Use last-1-year data if available, fallback to full period
@@ -1080,17 +1063,18 @@ function renderScatter(funds) {
     if (a > 0.02 || b > 0.02) { xs.push(a); ys.push(b); names.push(k.replace(/^(PE|RE|BOND|ETF)\|/, '')); }
   });
   document.getElementById('scatterSub').textContent =
-    `${label(f1)} vs ${label(f2)}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
-  const mx = Math.max(...xs, ...ys) * 1.05;
+    `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
+  const mn = Math.min(...xs.filter(v=>v>0), ...ys.filter(v=>v>0)) * 0.8;
+  const mx = Math.max(...xs, ...ys) * 1.3;
   const r = DATA.correlation_matrix[`${f1}|${f2}`] || 0;
   Plotly.newPlot('chartScatter', [
     { x: xs, y: ys, mode:'markers', showlegend:false,
       marker:{size:8,color:'#0081EE',opacity:0.45}, text:names,
       hovertemplate:'%{text}<br>'+LABELS[f1]+': %{x:.2f}%<br>'+LABELS[f2]+': %{y:.2f}%<extra></extra>' },
-    { x:[0,mx], y:[0,mx], mode:'lines', line:{dash:'dash',color:'#ccc'}, showlegend:false },
+    { x:[mn,mx], y:[mn,mx], mode:'lines', line:{dash:'dash',color:'#ccc'}, showlegend:false },
   ], { ...PL,
-    xaxis:{title:label(f1)+' (%)'},
-    yaxis:{title:label(f2)+' (%)'},
+    xaxis:{title:LABELS[f1]+' (%)', type:'log', range:[Math.log10(mn), Math.log10(mx)]},
+    yaxis:{title:LABELS[f2]+' (%)', type:'log', range:[Math.log10(mn), Math.log10(mx)]},
     height:450,
     annotations:[{ x:0.95, y:0.05, xref:'paper', yref:'paper',
       text:`r = ${r.toFixed(3)}`, showarrow:false,
@@ -1255,6 +1239,15 @@ function renderSunburst(funds) {
       ...PL, height: 420, margin: { t: 40, r: 5, b: 5, l: 5 },
       title: { text: LABELS[f] || f, font: { size: 14, color: COLORS[f] } },
     }, { responsive: true, displayModeBar: false });
+
+    // ETF note for index funds
+    if (fd.etf_breakdown) {
+      const etfCount = Object.keys(fd.etf_breakdown).length;
+      const note = document.createElement('div');
+      note.style.cssText = 'font-size:0.78rem;color:var(--g400);text-align:center;margin-top:-0.5rem;margin-bottom:0.5rem;';
+      note.textContent = `Investeerib l\u00e4bi ${etfCount} ETF-i. Siin n\u00e4idatud l\u00f5plikud aktsiad.`;
+      div.parentNode.insertBefore(note, div.nextSibling);
+    }
   });
 }
 
@@ -1275,6 +1268,7 @@ function renderAllHoldings(funds) {
   (fd.pe_holdings || []).forEach(h => items.push({...h, cat: 'pe'}));
   (fd.re_holdings || []).forEach(h => items.push({...h, cat: 're'}));
   (fd.bond_holdings || []).forEach(h => items.push({...h, cat: 'bond'}));
+  (fd.gold_holdings || []).forEach(h => items.push({...h, cat: 'gold'}));
   items.sort((a, b) => (b.weight || 0) - (a.weight || 0));
 
   // Data date from pipeline
@@ -1330,7 +1324,7 @@ function renderAllHoldings(funds) {
 
 function renderRankedList(container, funds, dataKey, translateFn) {
   container.innerHTML = '';
-  const gridCols = funds.length === 2 ? (isMobile() ? '1fr' : '1fr 1fr') : '1fr';
+  const gridCols = funds.length === 2 ? '1fr 1fr' : '1fr';
   const grid = document.createElement('div');
   grid.style.cssText = `display:grid;grid-template-columns:${gridCols};gap:2rem;`;
 
@@ -1339,7 +1333,7 @@ function renderRankedList(container, funds, dataKey, translateFn) {
     if (funds.length === 2) {
       const header = document.createElement('div');
       header.style.cssText = `font-weight:700;font-size:0.85rem;color:${COLORS[f]};margin-bottom:0.5rem;`;
-      header.textContent = label(f);
+      header.textContent = LABELS[f];
       col.appendChild(header);
     }
     const items = Object.entries(DATA.funds[f][dataKey] || {})
