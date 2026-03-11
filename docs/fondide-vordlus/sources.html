@@ -31,6 +31,9 @@
   .tag-full { background: #dcfce7; color: #166534; }
   .tag-proxy { background: #fef3c7; color: #92400e; }
   .tag-opaque { background: #fee2e2; color: #991b1b; }
+  .tag-exact { background: #e8f5e9; color: #2e7d32; }
+  .tag-similar { background: #fff8e1; color: #f57f17; }
+  .tag-approximate { background: #fbe9e7; color: #bf360c; }
   .note { font-size: 0.88rem; color: var(--g600); line-height: 1.7; margin-bottom: 1rem; }
   .example-box { background: var(--g50); border: 1px solid var(--g200); border-radius: 8px;
                  padding: 1rem 1.2rem; margin: 1rem 0 1.5rem; font-size: 0.88rem; line-height: 1.7; }
@@ -161,6 +164,8 @@
         Iga ETF-i koosseisu saime avalikest allikatest (iShares CSV-failid, Swedbank Robur aastaaruanded).
         Kui ETF-i t&auml;pne koosseis polnud k&auml;ttesaadav (nt L&amp;G, SPDR), kasutasime sarnast iShares ETF-i l&auml;hendusena.
         SEB sisefondide kohta kasutasime EODHD API-t.
+        LHV fondide ETF-id (Invesco MDAX, iShares Gold Producers, First Trust AIRR, Global X Copper Miners, VanEck Oil Services)
+        on samuti l&auml;bi vaadatud EODHD API ja Invesco andmete abil. Kulla-ETF-id (ZKB Gold) on n&auml;idatud eraldi varaklassina.
         &ldquo;K&otilde;ik investeeringud&rdquo; nimekiri n&auml;itab aktsiate koosseisu, mis on leitud just selle look-through meetodiga:
         fondi aruandest v&otilde;etud ETF-i osakaal on korrutatud ETF-i enda koosseisuga.</li>
     <li><strong>&Uuml;htne andmetabel.</strong> K&otilde;igi fondide positsioonid koondati &uuml;htsesse tabelisse, kus iga aktsia
@@ -227,7 +232,10 @@
   <p style="margin-bottom:0.5rem;"><strong>Muud:</strong></p>
   <ul style="padding-left:1.2rem;">
     <li><a href="https://www.pensionikeskus.ee/statistika/ii-sammas/kogumispensioni-paevastatistika/">Pensionikeskus</a> &mdash; NAV ajalugu, valitsemistasud</li>
-    <li><a href="https://eodhd.com">EODHD</a> &mdash; ETF-ide koosseisud: Amundi MSCI EM Ex China (EMXU, 46 positsiooni), Amundi Euro Stoxx Banks (BNKE, 10 positsiooni)</li>
+    <li><a href="https://eodhd.com">EODHD</a> &mdash; ETF-ide koosseisud: Amundi MSCI EM Ex China (EMXU), Amundi Euro Stoxx Banks (BNKE),
+        iShares Gold Producers (IAUP), First Trust Industrial Renaissance (AIRR),
+        Global X Copper Miners (COPX), VanEck Oil Services (OIH)</li>
+    <li><a href="https://www.invesco.com/pt/en/financial-products/etfs/invesco-mdax-ucits-etf-acc.html">Invesco MDAX UCITS ETF</a> &mdash; 52 positsiooni (t&auml;ielik koosseis Invesco veebilehelt)</li>
     <li><strong>MSCI ACWI v&otilde;rdlusjoon graafikul:</strong> iShares MSCI ACWI UCITS ETF (IUSQ.DE, eurodes noteeritud, Xetra) n&auml;dalased sulgemishinnad,
         allikas <a href="https://finance.yahoo.com/quote/IUSQ.DE/">Yahoo Finance</a> (yfinance). Normaliseeritud samale alguspunktile kui pensionifondid.</li>
   </ul>
@@ -252,8 +260,8 @@
 <h2>ETF-ide l&auml;bivaatamine</h2>
 <p class="note">
   Indeksfondid investeerivad l&auml;bi ETF-ide. Kasutame iShares CSV-sid, SPDR CSV-sid, EODHD API-t ja Swedbank Roburi
-  avalikke andmeid, et n&auml;ha iga ETF-i sees olevaid aktsiaid. SEB sisefondid on l&auml;hendatud regionaalsete
-  iShares ETF-idega.
+  avalikke andmeid, et n&auml;ha iga ETF-i sees olevaid aktsiaid. SEB sisefondid (MSCI Screened indeksid) on
+  l&auml;hendatud vastavate regionaalsete ETF-idega.
 </p>
 <table>
   <thead>
@@ -285,9 +293,9 @@
 <h2>Piirangud</h2>
 <div class="note">
   <ul style="padding-left:1.2rem;">
-    <li><strong>SEB sisefondid</strong> (SEB Emerging Markets, Europe, Global Exposure) on l&auml;bipaistmatud.
-        Need moodustavad ~28% SEB Indeksist. L&auml;hendusena kasutame vastavat iShares regiooni-ETF-i (nt SEB EM &rarr; SAEM).
-        SEB 55+ ja SEB 18+ varem l&auml;bipaistmatud aktiivsed fondid (T Rowe Price, Morgan Stanley jt) on n&uuml;&uuml;d
+    <li><strong>SEB sisefondid</strong> (SEB Emerging Markets, Europe, Global Exposure) j&auml;lgivad teadaolevaid MSCI Screened indekseid.
+        L&auml;hendusena kasutame vastavat iShares/SSAC regiooni-ETF-i (nt SEB Global Exposure &rarr; SSAC, SEB EM &rarr; SAEM).
+        SEB 55+ ja SEB 18+ aktiivsed fondid (T Rowe Price, Morgan Stanley jt) on samuti
         l&auml;hendatud l&auml;bi SAWD/SAEM, Amundi Euro Stoxx Banks BNKE aga t&auml;psete andmetega.</li>
     <li><strong>L&amp;G ETF-id</strong> on l&auml;hendatud iShares sarnaste indeksite p&otilde;hjal.
         SPDR S&amp;P 500 ESG Leaders on t&auml;psete andmetega (187 aktsiat SPDR CSV-st).</li>
@@ -304,7 +312,7 @@
   <a href="index.html" style="color:var(--blue);font-weight:600;">&larr; Tagasi fondide juurde</a>
   <div style="margin-top:1rem;font-size:0.8rem;color:var(--g400);">
     Loodud <a href="https://claude.ai/claude-code" style="color:var(--g400);">Claude Code</a> abiga, k&auml;sitsi &uuml;le kontrollitud.
-    L&auml;htekood: <a href="https://github.com/TulevaEE/reporting-engine/tree/main/fondide-vordlus" style="color:var(--g400);">github.com/TulevaEE/reporting-engine</a>
+    L&auml;htekood: <a href="https://github.com/tuleva-ee/pension-fund-comparison" style="color:var(--g400);">github.com/tuleva-ee</a>
   </div>
 </div>
 </div>
@@ -314,6 +322,12 @@ const TYPE_TAGS = {
   full: '<span class="tag tag-full">T\u00e4psed andmed</span>',
   proxy: '<span class="tag tag-proxy">Sarnane ETF</span>',
   opaque: '<span class="tag tag-opaque">Andmed puuduvad</span>',
+};
+
+const QUALITY_TAGS = {
+  exact: '<span class="tag tag-exact">T\u00e4pne</span>',
+  similar: '<span class="tag tag-similar">Sarnane indeks</span>',
+  approximate: '<span class="tag tag-approximate">Ligikaudne</span>',
 };
 
 const TYPE_LABELS = {
@@ -376,7 +390,7 @@ Promise.all([
         const tr = document.createElement('tr');
         tr.innerHTML = `<td style="font-family:monospace;font-size:0.8rem;">${p.isin}</td>
           <td>${p.mapped_to}</td>
-          <td>${TYPE_TAGS['proxy']}</td>`;
+          <td>${QUALITY_TAGS[p.quality] || QUALITY_TAGS['similar']}</td>`;
         proxyBody.appendChild(tr);
       });
     }
