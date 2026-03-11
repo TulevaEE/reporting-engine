@@ -34,9 +34,21 @@ Download the latest investment reports from fund managers and place them in `Inv
 
 ### Run
 ```bash
-python export_fund_data.py
+python export_fund_data.py              # full pipeline (fetches live NAV data)
+python export_fund_data.py --month 2026-01  # specific month
+python export_fund_data.py --skip-nav   # skip NAV fetch (faster, deterministic)
 # Output: web/fund_data.json, web/nav_data.json
 ```
+
+### Reproducing exact results
+
+The ETF holdings CSVs and monthly config are tracked in the repo as point-in-time snapshots.
+
+- **With `--skip-nav`**: output is fully deterministic from tracked data alone (no network calls for NAV).
+  Use this when you need reproducible results or for development/testing.
+- **Without `--skip-nav`**: fetches live NAV data from pensionikeskus.ee and yfinance.
+  NAV values may differ slightly depending on the date you run the pipeline.
+- Expected output: 24 funds, ~6.5 MB `fund_data.json`, ~700 KB `nav_data.json`.
 
 ## Data files included
 

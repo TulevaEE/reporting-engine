@@ -1,0 +1,26 @@
+name: Fondide Vordlus CI
+
+on:
+  push:
+    paths: ['fondide-vordlus/**']
+  pull_request:
+    paths: ['fondide-vordlus/**']
+
+jobs:
+  lint-and-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fondide-vordlus
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install ruff
+      - run: ruff check .
+      - run: pip install -r requirements.txt
+      # Smoke tests only — verifies imports resolve and CLI is wired up.
+      # No functional tests yet (pipeline requires PDF reports not in repo).
+      - run: python -c "import export_fund_data; print('Import OK')"
+      - run: python export_fund_data.py --help
