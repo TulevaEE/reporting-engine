@@ -5,6 +5,7 @@ Parses investment reports from all major pension fund providers,
 looks through ETFs to stock-level, computes overlaps/correlations.
 Exports unified JSON for web/index.html.
 """
+import argparse
 import csv
 import io
 import json
@@ -636,9 +637,6 @@ def parse_seb_indeks_monthly(pdf_path):
     # Fund names, ISINs, and weights from the mixed column text.
     # Strategy: find all ISINs and all weight percentages, then match by position.
 
-    # Extract fund names (before "Investeering Fondivalitsejaga")
-    fund_section = text.split('¹ Investeering Fondivalitsejaga')[0]
-
     # Find all ISINs
     isins = []
     for line in text.splitlines():
@@ -781,7 +779,6 @@ def parse_lhv_monthly(pdf_path):
     derivatives_pct = 0.0
 
     current_section = None  # 'bonds', 'stocks', 'etf_equity', 'pe', 're'
-    current_sub = None
 
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
@@ -971,8 +968,6 @@ def parse_seb_55_monthly(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
         text_p1 = pdf.pages[1].extract_text() or ''
         text_p2 = pdf.pages[2].extract_text() or ''
-
-    full_text = text_p1 + '\n' + text_p2
 
     # SEB 55+ has a multi-column layout similar to SEB Indeks
     # Extract investment names and weights from the concatenated columns
@@ -1448,7 +1443,7 @@ def fetch_eodhd_holdings(ticker):
 
     if data is None:
         if not EODHD_API_KEY:
-            print(f'  ERROR: EODHD_API_KEY not set. Set it in .env or as environment variable.')
+            print('  ERROR: EODHD_API_KEY not set. Set it in .env or as environment variable.')
             return pd.DataFrame()
         url = f'https://eodhistoricaldata.com/api/fundamentals/{eodhd_ticker}?api_token={EODHD_API_KEY}&fmt=json'
         print(f'  Fetching EODHD: {eodhd_ticker}...')
@@ -2441,10 +2436,17 @@ DATA_SOURCES = {}
 
 
 def main():
+    parser = argparse.ArgumentParser(description='Estonian pension fund analysis pipeline')
+    parser.add_argument('--month', default=None,
+                        help='Month to process (YYYY-MM). Default: latest in data/monthly/')
+    parser.add_argument('--skip-nav', action='store_true',
+                        help='Skip NAV history fetch (faster, fully deterministic from tracked data)')
+    args = parser.parse_args()
+
     print('=== Multi-Source Pension Fund Pipeline ===\n')
 
     # Load monthly JSON config
-    MONTH = '2026-01'
+    MONTH = args.month or sorted(Path('data/monthly').glob('*.json'))[-1].stem
     reports_cfg, alloc_cfg = load_monthly_config(MONTH)
     if reports_cfg:
         print(f'Loaded monthly config for {MONTH} ({len(reports_cfg)} reports, {len(alloc_cfg or {})} allocations)')
@@ -2629,7 +2631,7 @@ def main():
                 're': round(sum(r['weight_pct'] for r in seb55_re), 2),
             },
         }
-        print(f'   (from monthly JSON)')
+        print('   (from monthly JSON)')
     else:
         seb55_parsed = parse_seb_55_monthly(seb55_pdf)
     print(f'   {len(seb55_parsed["equity_funds"])} equity ETFs, {len(seb55_parsed["bonds"])} bonds')
@@ -2699,7 +2701,7 @@ def main():
         print(f'\n{lum_idx}. {lum_name}...')
         if alloc_cfg and lum_name in alloc_cfg:
             lum_parsed = _load_luminor_allocations(alloc_cfg[lum_name])
-            print(f'   (from monthly JSON)')
+            print('   (from monthly JSON)')
         else:
             lum_parsed = lum_fallback()
         lum_data = process_luminor_fund(lum_name, lum_parsed, etf_holdings, acwi, acwi_keys, sector_lookup)
@@ -2724,7 +2726,7 @@ def main():
         if alloc_cfg and seb_name in alloc_cfg:
             seb_eq, seb_bonds, seb_stocks, seb_re, seb_pe, seb_bf = _load_seb_allocations(alloc_cfg[seb_name])
             direct_bond_pct = alloc_cfg[seb_name].get('direct_bond_pct', default_direct_bond_pct)
-            print(f'   (from monthly JSON)')
+            print('   (from monthly JSON)')
         else:
             seb_eq, seb_bonds, seb_stocks, seb_re, seb_pe, seb_bf = seb_fallback()
             direct_bond_pct = default_direct_bond_pct
@@ -2989,28 +2991,39 @@ def main():
         print(f'  {k:45s} r = {v:.4f}')
 
     # Fetch NAV history from pensionikeskus.ee
-    fetch_nav_history()
+    if args.skip_nav:
+        print('\n--skip-nav: skipping NAV fetch, ACWI fetch, and return correlations')
+    else:
+        fetch_nav_history()
 
-    # Fetch MSCI ACWI ETF NAV via yfinance
-    fetch_acwi_nav()
+        # Fetch MSCI ACWI ETF NAV via yfinance
+        fetch_acwi_nav()
 
-    # Compute NAV return correlations (ESMA closet indexing metrics)
-    nav_path = OUT_DIR / 'nav_data.json'
-    with open(nav_path, 'r', encoding='utf-8') as f:
-        nav_data = json.load(f)
+        # Compute NAV return correlations (ESMA closet indexing metrics)
+        nav_path = OUT_DIR / 'nav_data.json'
+        with open(nav_path, 'r', encoding='utf-8') as f:
+            nav_data = json.load(f)
 
-    corr_data = compute_nav_return_correlations(nav_data)
+        corr_data = compute_nav_return_correlations(nav_data)
 
-    # Last-1-year correlations for ESMA section
-    one_year_ago = date.today() - timedelta(days=365)
-    one_year_ago_str = one_year_ago.strftime('%Y-%m-%d')
-    corr_1y = compute_nav_return_correlations(nav_data, cutoff_date=one_year_ago_str)
-    corr_data['last_1y'] = corr_1y
+        # Last-1-year correlations for ESMA section
+        one_year_ago = date.today() - timedelta(days=365)
+        one_year_ago_str = one_year_ago.strftime('%Y-%m-%d')
+        corr_1y = compute_nav_return_correlations(nav_data, cutoff_date=one_year_ago_str)
+        corr_data['last_1y'] = corr_1y
 
-    corr_path = OUT_DIR / 'return_correlations.json'
-    with open(corr_path, 'w', encoding='utf-8') as f:
-        json.dump(corr_data, f, ensure_ascii=False, indent=2)
-    print(f'  Saved NAV return correlations to {corr_path} ({len(corr_data["correlations"])} pairs, +last_1y)')
+        corr_path = OUT_DIR / 'return_correlations.json'
+        with open(corr_path, 'w', encoding='utf-8') as f:
+            json.dump(corr_data, f, ensure_ascii=False, indent=2)
+        print(f'  Saved NAV return correlations to {corr_path} ({len(corr_data["correlations"])} pairs, +last_1y)')
+
+    # Output summary
+    print('\n=== Pipeline complete ===')
+    print(f'Month: {MONTH}')
+    print(f'Funds processed: {len(fund_order)}')
+    print(f'fund_data.json:  {Path("web/fund_data.json").stat().st_size:,} bytes')
+    if not args.skip_nav:
+        print(f'nav_data.json:   {Path("web/nav_data.json").stat().st_size:,} bytes')
 
 
 # ═══════════════════════════════════════════════════════════════════
