@@ -1,0 +1,24 @@
+name: Fondide Vordlus CI
+
+on:
+  push:
+    paths: ['fondide-vordlus/**']
+  pull_request:
+    paths: ['fondide-vordlus/**']
+
+jobs:
+  lint-and-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fondide-vordlus
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install ruff
+      - run: ruff check export_fund_data.py
+      - run: pip install -r requirements.txt
+      - run: python -c "import export_fund_data; print('Import OK')"
+      - run: python export_fund_data.py --help
