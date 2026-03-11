@@ -116,6 +116,24 @@
   .provider-tab.has-selected { border-color: var(--blue); color: var(--blue); }
   .provider-tab.has-selected::after { content: ''; position: absolute; top: -3px; right: -3px;
     width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+  .selected-chips-wrap { margin-bottom: 1rem; }
+  .selected-chips-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+                          letter-spacing: 0.05em; color: var(--g400); margin-bottom: 0.5rem; }
+  .selected-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .selected-chip { display: flex; align-items: center; justify-content: space-between;
+                   width: calc(50% - 0.25rem); padding: 0.7rem 1rem;
+                   background: var(--bg-pale); border: 2px solid var(--navy); border-radius: 10px;
+                   color: var(--navy); }
+  .selected-chip .chip-info .chip-name { font-weight: 600; font-size: 0.88rem; line-height: 1.3; }
+  .selected-chip .chip-info .chip-fee { font-size: 0.72rem; color: var(--g400); margin-top: 2px; }
+  .selected-chip .chip-remove { display: inline-flex; align-items: center; justify-content: center;
+                           width: 22px; height: 22px; border-radius: 50%; background: var(--navy);
+                           color: #fff; font-size: 12px; cursor: pointer; line-height: 1;
+                           transition: background 0.15s; flex-shrink: 0; }
+  .selected-chip .chip-remove:hover { background: var(--red); }
+  .selected-chip.placeholder { border: 2px dashed var(--g200); background: none; color: var(--g400);
+                                pointer-events: none; }
+  .selected-chip.placeholder .chip-name { font-weight: 600; font-size: 0.88rem; color: var(--g400); }
   @media (max-width: 640px) {
     h1 { font-size: 1.5rem; }
     .fund-grid { grid-template-columns: 1fr 1fr; }
@@ -135,6 +153,10 @@
 <div class="picker-label">Vali kuni 2 fondi</div>
 <div class="provider-tabs" id="providerTabs"></div>
 <div class="fund-grid" id="fundGrid"></div>
+<div class="selected-chips-wrap" id="selectedChipsWrap">
+  <div class="selected-chips-title">Valitud fondid</div>
+  <div class="selected-chips" id="selectedChips"></div>
+</div>
 <p class="hint" id="hint">Vali v&auml;hemalt 1 fond.</p>
 <p style="font-size:0.8rem;color:var(--g400);margin-top:-1rem;margin-bottom:2rem;">Ei tea oma fondi? <a href="https://pension.tuleva.ee/login" style="color:var(--g400);text-decoration:underline;">Vaata siit &rarr;</a></p>
 
@@ -398,6 +420,7 @@ Promise.all([
     document.getElementById('dataFreshness').textContent = `Andmed seisuga: ${moName} ${yr}`;
   }
   buildGrid();
+  renderSelectedChips();
   // Shareable URL: ?v=Fund1,Fund2
   const urlParams = new URLSearchParams(window.location.search);
   const vParam = urlParams.get('v');
@@ -417,6 +440,7 @@ Promise.all([
       });
       showProvider(firstProvider);
       updateTabBadges();
+      renderSelectedChips();
       document.getElementById('hint').textContent = `${selected.length}/2 valitud.${selected.length<MAX_SELECT?' V\u00f5id lisada veel.':''}`;
       render();
     }
@@ -475,6 +499,33 @@ function updateTabBadges() {
   });
 }
 
+function renderSelectedChips() {
+  const container = document.getElementById('selectedChips');
+  container.innerHTML = '';
+  for (let i = 0; i < MAX_SELECT; i++) {
+    const key = selected[i];
+    const chip = document.createElement('div');
+    if (key) {
+      const fee = FEES[key];
+      const feeText = fee ? 'Tasu ' + fee.toFixed(2) + '%' : '';
+      chip.className = 'selected-chip';
+      const info = document.createElement('div');
+      info.className = 'chip-info';
+      info.innerHTML = `<div class="chip-name">${label(key)}</div><div class="chip-fee">${feeText}</div>`;
+      const removeButton = document.createElement('span');
+      removeButton.className = 'chip-remove';
+      removeButton.textContent = '\u2715';
+      removeButton.addEventListener('click', () => toggle(key));
+      chip.appendChild(info);
+      chip.appendChild(removeButton);
+    } else {
+      chip.className = 'selected-chip placeholder';
+      chip.innerHTML = `<div class="chip-info"><div class="chip-name">Vali ${i + 1}. fond</div></div>`;
+    }
+    container.appendChild(chip);
+  }
+}
+
 function toggle(key) {
   const idx = selected.indexOf(key);
   if (idx >= 0) selected.splice(idx, 1);
@@ -482,6 +533,7 @@ function toggle(key) {
   else return;
   document.querySelectorAll('.fund-card').forEach(c =>
     c.classList.toggle('selected', selected.includes(c.dataset.fund)));
+  renderSelectedChips();
   document.getElementById('hint').textContent = selected.length === 0
     ? 'Vali v\u00e4hemalt 1 fond.'
     : `${selected.length}/2 valitud.${selected.length<MAX_SELECT?' V\u00f5id lisada veel.':''}`;
