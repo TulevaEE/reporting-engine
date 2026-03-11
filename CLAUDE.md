@@ -7,6 +7,7 @@ Reporting tools for Tuleva investment funds. These are both internal and externa
 ## Commands
 
 - Use `python3` (not `python`) on this machine
+- **Never use multiline strings in shell commands** (e.g. `python3 -c "..."` with newlines). Instead, write code to a temp file and run it, or use heredocs (`python3 <<'EOF' ... EOF`). This avoids permission-check interruptions from special characters (`#`, `;`, etc.) inside quoted strings.
 - API keys live in `.env` at project root, loaded via `python-dotenv` — never hardcode in notebooks or commit
 - Monthly report: `cd reports/monthly && python3 build_monthly_report.py YYYY M md|html|pdf`
 - Fetch data: `cd reports/monthly && set -a && source ../../.env && set +a && python3 fetch_monthly_data.py YYYY M`
@@ -31,6 +32,15 @@ Reporting tools for Tuleva investment funds. These are both internal and externa
 - **Always handle missing data gracefully** — external sources (pensionikeskus, EODHD, Yahoo) may not have data for expected dates; write fallbacks from the start
 - **Every price must have a date attached** — always verify the price date matches the expected NAV date, and flag/warn when it doesn't
 - pensionikeskus.ee III pillar page does NOT include TKF (Täiendav Kogumisfond) — it's a separate fund category
+
+## ETF holdings matching
+
+- **Use ISIN as the primary stock identifier** — it's the only universal, unambiguous equity identifier. Never use `Ticker|Location` as a primary key.
+- **ACWI benchmark**: use SPDR MSCI ACWI (SPYY) which publishes daily holdings WITH ISINs. iShares SSAC omits ISINs from its CSV exports.
+- **OpenFIGI is unreliable** for cross-provider matching — it returns local exchange tickers that don't match iShares conventions (e.g. `0Y3K|Ireland` instead of `EATON|United States`).
+- **Never match on ticker alone** across providers — same ticker can be different companies in different countries (e.g. `CFR` = Cullen/Frost in US, Richemont in Switzerland).
+- **Validate matching quality** by decomposing active share into weight excluded/added/reduced. Suspiciously large "weight added" signals matching failures, not real portfolio differences.
+- See `/fetch-holdings` skill for full data source details, loading instructions, and name normalization code.
 
 ## Style and branding
 
