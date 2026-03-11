@@ -2446,7 +2446,10 @@ def main():
     print('=== Multi-Source Pension Fund Pipeline ===\n')
 
     # Load monthly JSON config
-    MONTH = args.month or sorted(Path('data/monthly').glob('*.json'))[-1].stem
+    monthly_files = sorted(Path('data/monthly').glob('*.json'))
+    if not args.month and not monthly_files:
+        parser.error('No config files found in data/monthly/. Use --month to specify.')
+    MONTH = args.month or monthly_files[-1].stem
     reports_cfg, alloc_cfg = load_monthly_config(MONTH)
     if reports_cfg:
         print(f'Loaded monthly config for {MONTH} ({len(reports_cfg)} reports, {len(alloc_cfg or {})} allocations)')
