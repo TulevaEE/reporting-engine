@@ -1,0 +1,2287 @@
+stock_id,name,weight,location,sector
+NVDA|United States,NVIDIA CORP,5.3341899999999995,United States,Information Technology
+AAPL|United States,APPLE INC,4.55473,United States,Information Technology
+MSFT|United States,MICROSOFT CORP,3.39823,United States,Information Technology
+AMZN|United States,AMAZON COM INC,2.45363,United States,Consumer Discretionary
+GOOGL|United States,ALPHABET INC CLASS A,2.1197,United States,Communication
+AVGO|United States,BROADCOM INC,1.83114,United States,Information Technology
+GOOG|United States,ALPHABET INC CLASS C,1.77534,United States,Communication
+META|United States,META PLATFORMS INC CLASS A,1.6927699999999999,United States,Communication
+TSLA|United States,TESLA INC,1.3402399999999999,United States,Consumer Discretionary
+2330|Taiwan,TAIWAN SEMICONDUCTOR MANUFACTURING,1.3096605744125325,Taiwan,Information Technology
+LLY|United States,ELI LILLY,0.95868,United States,Health Care
+JPM|United States,JPMORGAN CHASE & CO,0.93417,United States,Financials
+BRKB|United States,BERKSHIRE HATHAWAY INC CLASS B,0.80623,United States,Financials
+ASML|Netherlands,ASML HOLDING NV,0.7631299999999999,Netherlands,Information Technology
+XOM|United States,EXXON MOBIL CORP,0.7422599999999999,United States,Energy
+JNJ|United States,JOHNSON & JOHNSON,0.69689,United States,Health Care
+WMT|United States,WALMART INC,0.65152,United States,Consumer Staples
+V|United States,VISA INC CLASS A,0.62701,United States,Financials
+005930|Korea (South),SAMSUNG ELECTRONICS LTD,0.5514360313315926,Korea (South),Information Technology
+MU|United States,MICRON TECHNOLOGY INC,0.54218,United States,Information Technology
+COST|United States,COSTCO WHOLESALE CORP,0.52584,United States,Consumer Staples
+MA|United States,MASTERCARD INC CLASS A,0.51767,United States,Financials
+NFLX|United States,NETFLIX INC,0.48863999999999996,United States,Communication
+ABBV|United States,ABBVIE INC,0.47821,United States,Health Care
+AZN|United Kingdom,ASTRAZENECA PLC,0.43019999999999997,United Kingdom,Health Care
+ROG|Switzerland,ROCHE HOLDING PAR AG,0.42867999999999995,Switzerland,Health Care
+HD|United States,HOME DEPOT INC,0.42467,United States,Consumer Discretionary
+NOVN|Switzerland,NOVARTIS AG,0.42049000000000003,Switzerland,Health Care
+700|China,TENCENT HOLDINGS LTD,0.4135770234986945,China,Communication
+HSBA|United Kingdom,HSBC HOLDINGS PLC,0.4123,United Kingdom,Financials
+GE|United States,GE AEROSPACE,0.40833,United States,Industrials
+PLTR|United States,PALANTIR TECHNOLOGIES INC CLASS A,0.40833,United States,Information Technology
+BAC|United States,BANK OF AMERICA CORP,0.39790000000000003,United States,Financials
+CAT|United States,CATERPILLAR INC,0.39790000000000003,United States,Industrials
+AMD|United States,ADVANCED MICRO DEVICES INC,0.38972999999999997,United States,Information Technology
+CSCO|United States,CISCO SYSTEMS INC,0.36296,United States,Information Technology
+MRK|United States,MERCK & CO INC,0.34436,United States,Health Care
+AMAT|United States,APPLIED MATERIAL INC,0.32576,United States,Information Technology
+LRCX|United States,LAM RESEARCH CORP,0.31759,United States,Information Technology
+000660|Korea (South),SK HYNIX INC,0.3101827676240208,Korea (South),Information Technology
+ORCL|United States,ORACLE CORP,0.30716,United States,Information Technology
+UNH|United States,UNITEDHEALTH GROUP INC,0.3049,United States,Health Care
+GS|United States,GOLDMAN SACHS GROUP INC,0.29899000000000003,United States,Financials
+WFC|United States,WELLS FARGO,0.29673,United States,Financials
+SIE|Germany,SIEMENS N AG,0.29029,Germany,Industrials
+SAP|Germany,SAP,0.29029,Germany,Information Technology
+MCD|United States,MCDONALDS CORP,0.28039,United States,Consumer Discretionary
+IBM|United States,INTERNATIONAL BUSINESS MACHINES CO,0.28039,United States,Information Technology
+GEV|United States,GE VERNOVA INC,0.27222,United States,Industrials
+LIN|United States,LINDE PLC,0.26405,United States,Materials
+9988|China,ALIBABA GROUP HOLDING LTD,0.25848563968668403,China,Consumer Discretionary
+VZ|United States,VERIZON COMMUNICATIONS INC,0.25362,United States,Communication
+INTC|United States,INTEL CORPORATION CORP,0.25136000000000003,United States,Information Technology
+SAN|Spain,BANCO SANTANDER SA,0.24461,Spain,Financials
+AMGN|United States,AMGEN INC,0.23728,United States,Health Care
+C|United States,CITIGROUP INC,0.23502,United States,Financials
+T|United States,AT&T INC,0.23502,United States,Communication
+SU|France,SCHNEIDER ELECTRIC,0.22747,France,Industrials
+ABT|United States,ABBOTT LABORATORIES,0.22685,United States,Health Care
+MS|United States,MORGAN STANLEY,0.22685,United States,Financials
+KLAC|United States,KLA CORP,0.22685,United States,Information Technology
+TTE|France,TOTALENERGIES,0.22519,France,Energy
+NEE|United States,NEXTERA ENERGY INC,0.22459,United States,Utilities
+TMO|United States,THERMO FISHER SCIENTIFIC INC,0.22459,United States,Health Care
+ALV|Germany,ALLIANZ,0.22366999999999998,Germany,Financials
+CRM|United States,SALESFORCE INC,0.21867999999999999,United States,Information Technology
+GILD|United States,GILEAD SCIENCES INC,0.21867999999999999,United States,Health Care
+DIS|United States,WALT DISNEY,0.21642,United States,Communication
+TJX|United States,TJX INC,0.21416000000000002,United States,Consumer Discretionary
+ISRG|United States,INTUITIVE SURGICAL INC,0.20825,United States,Health Care
+TXN|United States,TEXAS INSTRUMENT INC,0.20825,United States,Information Technology
+RR.|United Kingdom,ROLLS-ROYCE HOLDINGS PLC,0.20577,United Kingdom,Industrials
+MC|France,LVMH,0.20501,France,Consumer Discretionary
+IBE|Spain,IBERDROLA SA,0.20501,Spain,Utilities
+AXP|United States,AMERICAN EXPRESS,0.20007999999999998,United States,Financials
+APH|United States,AMPHENOL CORP CLASS A,0.19782,United States,Information Technology
+7203|Japan,TOYOTA MOTOR CORP,0.19741,Japan,Consumer Discretionary
+DTE|Germany,DEUTSCHE TELEKOM N AG,0.19529999999999997,Germany,Communication
+ABBN|Switzerland,ABB LTD,0.19377999999999998,Switzerland,Industrials
+SCHW|United States,CHARLES SCHWAB CORP,0.18964999999999999,United States,Financials
+8306|Japan,MITSUBISHI UFJ FINANCIAL GROUP INC,0.18886,Japan,Financials
+ADI|United States,ANALOG DEVICES INC,0.18739,United States,Information Technology
+RY|Canada,ROYAL BANK OF CANADA,0.18320999999999998,Canada,Financials
+PFE|United States,PFIZER INC,0.18148,United States,Health Care
+DE|United States,DEERE,0.18148,United States,Industrials
+BBVA|Spain,BANCO BILBAO VIZCAYA ARGENTARIA SA,0.18103000000000002,Spain,Financials
+UNP|United States,UNION PACIFIC CORP,0.17922,United States,Industrials
+UBSG|Switzerland,UBS GROUP AG,0.17359999999999998,Switzerland,Financials
+QCOM|United States,QUALCOMM INC,0.17331000000000002,United States,Information Technology
+ANET|United States,ARISTA NETWORKS INC,0.17331000000000002,United States,Information Technology
+NOVO B|Denmark,NOVO NORDISK CLASS B,0.17284,Denmark,Health Care
+ETN|United States,EATON PLC,0.17105,United States,Industrials
+LOW|United States,LOWES COMPANIES INC,0.17105,United States,Consumer Discretionary
+BKNG|United States,BOOKING HOLDINGS INC,0.17105,United States,Consumer Discretionary
+UBER|United States,UBER TECHNOLOGIES INC,0.17105,United States,Industrials
+WELL|United States,WELLTOWER INC,0.16514,United States,Real Estate
+BLK|United States,BLACKROCK INC,0.16514,United States,Financials
+SPGI|United States,S&P GLOBAL INC,0.16288,United States,Financials
+PANW|United States,PALO ALTO NETWORKS INC,0.16061999999999999,United States,Information Technology
+AI|France,LAIR LIQUIDE SOCIETE ANONYME POUR,0.16008999999999998,France,Materials
+GSK|United Kingdom,GLAXOSMITHKLINE,0.16008999999999998,United Kingdom,Health Care
+CBA|Australia,COMMONWEALTH BANK OF AUSTRALIA,0.15957,Australia,Financials
+UCG|Italy,UNICREDIT,0.15933,Italy,Financials
+NEM|United States,NEWMONT,0.15471000000000001,United States,Materials
+PLD|United States,PROLOGIS REIT INC,0.15245,United States,Real Estate
+VRTX|United States,VERTEX PHARMACEUTICALS INC,0.15245,United States,Health Care
+DHR|United States,DANAHER CORP,0.14654,United States,Health Care
+INTU|United States,INTUIT INC,0.14654,United States,Information Technology
+ACN|United States,ACCENTURE PLC CLASS A,0.14654,United States,Information Technology
+NOW|United States,SERVICENOW INC,0.14428,United States,Information Technology
+SYK|United States,STRYKER CORP,0.14428,United States,Health Care
+BMY|United States,BRISTOL MYERS SQUIBB,0.14428,United States,Health Care
+PGR|United States,PROGRESSIVE CORP,0.14428,United States,Financials
+CB|United States,CHUBB LTD,0.14428,United States,Financials
+RIO|United Kingdom,RIO TINTO PLC,0.14295,United Kingdom,Materials
+BNP|France,BNP PARIBAS SA,0.14295,France,Financials
+COF|United States,CAPITAL ONE FINANCIAL CORP,0.14201999999999998,United States,Financials
+BHP|Australia,BHP GROUP LTD,0.14184,Australia,Materials
+OR|France,LOREAL SA,0.14143,France,Consumer Staples
+ZURN|Switzerland,ZURICH INSURANCE GROUP LTD,0.14067,Switzerland,Financials
+SAN|France,SANOFI SA,0.13839,France,Health Care
+PH|United States,PARKER-HANNIFIN CORP,0.13837,United States,Industrials
+6501|Japan,HITACHI LTD,0.13821,Japan,Industrials
+CMCSA|United States,COMCAST CORP CLASS A,0.13611,United States,Communication
+ADBE|United States,ADOBE INC,0.13611,United States,Information Technology
+MCK|United States,MCKESSON CORP,0.13611,United States,Health Care
+SBUX|United States,STARBUCKS CORP,0.13611,United States,Consumer Discretionary
+MDT|United States,MEDTRONIC PLC,0.13611,United States,Health Care
+TMUS|United States,T MOBILE US INC,0.13385,United States,Communication
+CRWD|United States,CROWDSTRIKE HOLDINGS INC CLASS A,0.13385,United States,Information Technology
+6758|Japan,SONY GROUP CORP,0.13038,Japan,Consumer Discretionary
+BA.|United Kingdom,BAE SYSTEMS PLC,0.12868,United Kingdom,Industrials
+ENEL|Italy,ENEL,0.12868,Italy,Utilities
+GLW|United States,CORNING INC,0.12794,United States,Information Technology
+CME|United States,CME GROUP INC CLASS A,0.12794,United States,Financials
+APP|United States,APPLOVIN CORP CLASS A,0.12794,United States,Information Technology
+NG.|United Kingdom,NATIONAL GRID PLC,0.12791999999999998,United Kingdom,Utilities
+RHM|Germany,RHEINMETALL AG,0.12716,Germany,Industrials
+ISP|Italy,INTESA SANPAOLO,0.12639999999999998,Italy,Financials
+BSX|United States,BOSTON SCIENTIFIC CORP,0.12568000000000001,United States,Health Care
+SHOP|Canada,SHOPIFY SUBORDINATE VOTING INC CLA,0.12410999999999998,Canada,Information Technology
+TD|Canada,TORONTO DOMINION,0.12410999999999998,Canada,Financials
+8316|Japan,SUMITOMO MITSUI FINANCIAL GROUP IN,0.12303,Japan,Financials
+CEG|United States,CONSTELLATION ENERGY CORP,0.11751,United States,Utilities
+CVS|United States,CVS HEALTH CORP,0.11751,United States,Health Care
+TT|United States,TRANE TECHNOLOGIES PLC,0.11751,United States,Industrials
+SPOT|Sweden,SPOTIFY TECHNOLOGY SA,0.11745,Sweden,Communication
+WM|United States,WASTE MANAGEMENT INC,0.11524999999999999,United States,Industrials
+VRT|United States,VERTIV HOLDINGS CLASS A,0.1116,United States,Industrials
+HWM|United States,HOWMET AEROSPACE INC,0.1116,United States,Industrials
+MUV2|Germany,MUENCHENER RUECKVERSICHERUNGS-GESE,0.11002,Germany,Financials
+6857|Japan,ADVANTEST CORP,0.10984999999999999,Japan,Information Technology
+WMB|United States,WILLIAMS INC,0.10933999999999999,United States,Energy
+ICE|United States,INTERCONTINENTAL EXCHANGE INC,0.10933999999999999,United States,Financials
+WDC|United States,WESTERN DIGITAL CORP,0.10933999999999999,United States,Information Technology
+EQIX|United States,EQUINIX REIT INC,0.10933999999999999,United States,Real Estate
+INGA|Netherlands,ING GROEP NV,0.10926,Netherlands,Financials
+LLOY|United Kingdom,LLOYDS BANKING GROUP PLC,0.1085,United Kingdom,Financials
+BARC|United Kingdom,BARCLAYS PLC,0.1085,United Kingdom,Financials
+FCX|United States,FREEPORT MCMORAN INC,0.10708000000000001,United States,Materials
+AMT|United States,AMERICAN TOWER REIT CORP,0.10708000000000001,United States,Real Estate
+DG|France,VINCI SA,0.10697999999999999,France,Industrials
+EL|France,ESSILORLUXOTTICA SA,0.10622,France,Health Care
+CS|France,AXA SA,0.10622,France,Financials
+RMS|France,HERMES INTERNATIONAL,0.10469999999999999,France,Consumer Discretionary
+8035|Japan,TOKYO ELECTRON LTD,0.10338000000000001,Japan,Information Technology
+8058|Japan,MITSUBISHI CORP,0.10194,Japan,Industrials
+HCA|United States,HCA HEALTHCARE INC,0.10117000000000001,United States,Health Care
+ADP|United States,AUTOMATIC DATA PROCESSING INC,0.10117000000000001,United States,Industrials
+8411|Japan,MIZUHO FINANCIAL GROUP INC,0.10114000000000001,Japan,Financials
+STX|United States,SEAGATE TECHNOLOGY HOLDINGS PLC,0.09891,United States,Information Technology
+PNC|United States,PNC FINANCIAL SERVICES GROUP INC,0.09891,United States,Financials
+EMR|United States,EMERSON ELECTRIC,0.09891,United States,Industrials
+MMM|United States,3M,0.09891,United States,Industrials
+REGN|United States,REGENERON PHARMACEUTICALS INC,0.09891,United States,Health Care
+PWR|United States,QUANTA SERVICES INC,0.09891,United States,Industrials
+USB|United States,US BANCORP,0.09891,United States,Financials
+BK|United States,BANK OF NEW YORK MELLON CORP,0.09891,United States,Financials
+JCI|United States,JOHNSON CONTROLS INTERNATIONAL PLC,0.09891,United States,Industrials
+ORLY|United States,OREILLY AUTOMOTIVE INC,0.09891,United States,Consumer Discretionary
+MRVL|United States,MARVELL TECHNOLOGY INC,0.09891,United States,Information Technology
+MRSH|United States,MARSH INC,0.09891,United States,Financials
+INVE B|Sweden,INVESTOR CLASS B,0.09878999999999999,Sweden,Financials
+ABI|Belgium,ANHEUSER-BUSCH INBEV SA,0.09878999999999999,Belgium,Consumer Staples
+PRX|Netherlands,PROSUS NV CLASS N,0.09802999999999999,Netherlands,Consumer Discretionary
+SHW|United States,SHERWIN WILLIAMS,0.09665,United States,Materials
+939|China,CHINA CONSTRUCTION BANK CORP H,0.09477806788511749,China,Financials
+HDFCBANK|India,HDFC BANK LTD,0.09429622453994085,India,Financials
+REL|United Kingdom,RELX PLC,0.09347,United Kingdom,Industrials
+BX|United States,BLACKSTONE INC,0.093,United States,Financials
+FDX|United States,FEDEX CORP,0.093,United States,Industrials
+SNPS|United States,SYNOPSYS INC,0.093,United States,Information Technology
+MSI|United States,MOTOROLA SOLUTIONS INC,0.09074,United States,Information Technology
+MAR|United States,MARRIOTT INTERNATIONAL INC CLASS A,0.09074,United States,Consumer Discretionary
+MELI|United States,MERCADOLIBRE INC,0.09074,United States,Consumer Discretionary
+ITW|United States,ILLINOIS TOOL INC,0.09074,United States,Industrials
+CMI|United States,CUMMINS INC,0.09074,United States,Industrials
+CDNS|United States,CADENCE DESIGN SYSTEMS INC,0.09074,United States,Information Technology
+CSX|United States,CSX CORP,0.09074,United States,Industrials
+AEM|Canada,AGNICO EAGLE MINES LTD,0.08864999999999999,Canada,Materials
+ENB|Canada,ENBRIDGE INC,0.08864999999999999,Canada,Energy
+1299|Hong Kong,AIA GROUP LTD,0.08864999999999999,Hong Kong,Financials
+MCO|United States,MOODYS CORP,0.08848,United States,Financials
+UPS|United States,UNITED PARCEL SERVICE INC CLASS B,0.08848,United States,Industrials
+CTAS|United States,CINTAS CORP,0.08848,United States,Industrials
+ECL|United States,ECOLAB INC,0.08848,United States,Materials
+8031|Japan,MITSUI LTD,0.08764,Japan,Industrials
+NWG|United Kingdom,NATWEST GROUP PLC,0.08756,United Kingdom,Financials
+IFX|Germany,INFINEON TECHNOLOGIES AG,0.08679999999999999,Germany,Information Technology
+2317|Taiwan,HON HAI PRECISION INDUSTRY LTD,0.08616187989556136,Taiwan,Information Technology
+ENGI|France,ENGIE SA,0.08376,France,Utilities
+DBK|Germany,DEUTSCHE BANK AG,0.08376,Germany,Financials
+RELIANCE|India,RELIANCE INDUSTRIES LTD,0.08367494650110137,India,Energy
+RCL|United States,ROYAL CARIBBEAN GROUP LTD,0.08257,United States,Consumer Discretionary
+ROST|United States,ROSS STORES INC,0.08257,United States,Consumer Discretionary
+HLT|United States,HILTON WORLDWIDE HOLDINGS INC,0.08257,United States,Consumer Discretionary
+GM|United States,GENERAL MOTORS,0.08257,United States,Consumer Discretionary
+CI|United States,CIGNA,0.08257,United States,Health Care
+TDG|United States,TRANSDIGM GROUP INC,0.08257,United States,Industrials
+CRH|United States,CRH PUBLIC LIMITED PLC,0.08257,United States,Materials
+SLB|United States,SLB NV,0.08257,United States,Energy
+TRV|United States,TRAVELERS COMPANIES INC,0.08257,United States,Financials
+9984|Japan,SOFTBANK GROUP CORP,0.08052999999999999,Japan,Communication
+COR|United States,CENCORA INC,0.08030999999999999,United States,Health Care
+AON|United States,AON PLC CLASS A,0.08030999999999999,United States,Financials
+NET|United States,CLOUDFLARE INC CLASS A,0.08030999999999999,United States,Information Technology
+VOLV B|Sweden,VOLVO CLASS B,0.07861,Sweden,Industrials
+NDA FI|Finland,NORDEA BANK,0.07785,Finland,Financials
+2454|Taiwan,MEDIATEK INC,0.0775456919060052,Taiwan,Information Technology
+005935|Korea (South),SAMSUNG ELECTRONICS NON VOTING PRE,0.0775456919060052,Korea (South),Information Technology
+NAB|Australia,NATIONAL AUSTRALIA BANK LTD,0.07683,Australia,Financials
+WBC|Australia,WESTPAC BANKING CORPORATION CORP,0.07683,Australia,Financials
+BMO|Canada,BANK OF MONTREAL,0.07683,Canada,Financials
+GLE|France,SOCIETE GENERALE SA,0.07633000000000001,France,Financials
+LSEG|United Kingdom,LONDON STOCK EXCHANGE GROUP PLC,0.07481,United Kingdom,Financials
+DB1|Germany,DEUTSCHE BOERSE AG,0.07481,Germany,Financials
+DSV|Denmark,DSV,0.07481,Denmark,Industrials
+ATCO A|Sweden,ATLAS COPCO CLASS A,0.07481,Sweden,Industrials
+DASH|United States,DOORDASH INC CLASS A,0.0744,United States,Consumer Discretionary
+SPG|United States,SIMON PROPERTY GROUP REIT INC,0.0744,United States,Real Estate
+NKE|United States,NIKE INC CLASS B,0.0744,United States,Consumer Discretionary
+NSC|United States,NORFOLK SOUTHERN CORP,0.0744,United States,Industrials
+WBD|United States,WARNER BROS. DISCOVERY INC SERIES,0.0744,United States,Communication
+CPG|United Kingdom,COMPASS GROUP PLC,0.07405,United Kingdom,Consumer Discretionary
+8001|Japan,ITOCHU CORP,0.07334,Japan,Industrials
+DHL|Germany,DEUTSCHE POST AG,0.07329,Germany,Industrials
+EOAN|Germany,E.ON N,0.07329,Germany,Utilities
+9983|Japan,FAST RETAILING LTD,0.07318,Japan,Consumer Discretionary
+6861|Japan,KEYENCE CORP,0.07262,Japan,Information Technology
+SREN|Switzerland,SWISS RE AG,0.07253,Switzerland,Financials
+ELV|United States,ELEVANCE HEALTH INC,0.07214,United States,Health Care
+SRE|United States,SEMPRA,0.07214,United States,Utilities
+TEL|United States,TE CONNECTIVITY PLC,0.07214,United States,Information Technology
+DLR|United States,DIGITAL REALTY TRUST REIT INC,0.07214,United States,Real Estate
+TFC|United States,TRUIST FINANCIAL CORP,0.07214,United States,Financials
+BKR|United States,BAKER HUGHES CLASS A,0.07214,United States,Energy
+AZO|United States,AUTOZONE INC,0.07214,United States,Consumer Discretionary
+O|United States,REALTY INCOME REIT CORP,0.07214,United States,Real Estate
+PCAR|United States,PACCAR INC,0.07214,United States,Industrials
+APD|United States,AIR PRODUCTS AND CHEMICALS INC,0.07214,United States,Materials
+BN|Canada,BROOKFIELD CORP CLASS A,0.07092,Canada,Financials
+CM|Canada,CANADIAN IMPERIAL BANK OF COMMERCE,0.07092,Canada,Financials
+7011|Japan,MITSUBISHI HEAVY INDUSTRIES LTD,0.07092,Japan,Industrials
+BNS|Canada,BANK OF NOVA SCOTIA,0.07092,Canada,Financials
+MNST|United States,MONSTER BEVERAGE CORP,0.06988,United States,Consumer Staples
+HOOD|United States,ROBINHOOD MARKETS INC CLASS A,0.06988,United States,Financials
+SNOW|United States,SNOWFLAKE INC,0.06988,United States,Information Technology
+1810|China,XIAOMI CORP,0.06892950391644907,China,Information Technology
+2308|Taiwan,DELTA ELECTRONICS INC,0.06892950391644907,Taiwan,Information Technology
+PDD|China,PDD HOLDINGS ADS INC,0.06892950391644907,China,Consumer Discretionary
+AAL|United Kingdom,ANGLO AMERICAN PLC,0.06738,United Kingdom,Materials
+ENI|Italy,ENI,0.06662,Italy,Energy
+8766|Japan,TOKIO MARINE HOLDINGS INC,0.06606999999999999,Japan,Financials
+RKT|United Kingdom,RECKITT BENCKISER GROUP PLC,0.06586,United Kingdom,Consumer Staples
+ICICIBANK|India,ICICI BANK LTD,0.06580011272842028,India,Financials
+ARGX|Belgium,ARGENX,0.06509999999999999,Belgium,Health Care
+MBG|Germany,MERCEDES-BENZ GROUP N AG,0.06509999999999999,Germany,Consumer Discretionary
+CABK|Spain,CAIXABANK SA,0.06509999999999999,Spain,Financials
+ANZ|Australia,ANZ GROUP HOLDINGS LTD,0.06501,Australia,Financials
+D05|Singapore,DBS GROUP HOLDINGS LTD,0.06501,Singapore,Financials
+LONN|Switzerland,LONZA GROUP AG,0.06434,Switzerland,Health Care
+DGE|United Kingdom,DIAGEO PLC,0.06434,United Kingdom,Consumer Staples
+OKE|United States,ONEOK INC,0.06397,United States,Energy
+AJG|United States,ARTHUR J GALLAGHER,0.06397,United States,Financials
+TGT|United States,TARGET CORP,0.06397,United States,Consumer Staples
+AME|United States,AMETEK INC,0.06397,United States,Industrials
+ADSK|United States,AUTODESK INC,0.06397,United States,Information Technology
+ABNB|United States,AIRBNB INC CLASS A,0.06397,United States,Consumer Discretionary
+ZTS|United States,ZOETIS INC CLASS A,0.06397,United States,Health Care
+FTNT|United States,FORTINET INC,0.06397,United States,Information Technology
+KKR|United States,KKR AND CO INC,0.06397,United States,Financials
+ALL|United States,ALLSTATE CORP,0.06397,United States,Financials
+FAST|United States,FASTENAL,0.06397,United States,Industrials
+LNG|United States,CHENIERE ENERGY INC,0.06397,United States,Energy
+AFL|United States,AFLAC INC,0.06397,United States,Financials
+RACE|Italy,FERRARI NV,0.06358,Italy,Consumer Discretionary
+HLN|United Kingdom,HALEON PLC,0.06358,United Kingdom,Health Care
+SAND|Sweden,SANDVIK,0.06358,Sweden,Industrials
+HOLN|Switzerland,HOLCIM LTD AG,0.06282,Switzerland,Materials
+STAN|United Kingdom,STANDARD CHARTERED PLC,0.06282,United Kingdom,Financials
+LR|France,LEGRAND SA,0.06282,France,Industrials
+TER|United States,TERADYNE INC,0.06171,United States,Information Technology
+NXPI|United States,NXP SEMICONDUCTORS NV,0.06171,United States,Information Technology
+EW|United States,EDWARDS LIFESCIENCES CORP,0.06171,United States,Health Care
+CAH|United States,CARDINAL HEALTH INC,0.06171,United States,Health Care
+TSCO|United Kingdom,TESCO PLC,0.0613,United Kingdom,Consumer Staples
+6503|Japan,MITSUBISHI ELECTRIC CORP,0.05911999999999999,Japan,Industrials
+CP|Canada,CANADIAN PACIFIC KANSAS CITY LTD,0.0591,Canada,Industrials
+4063|Japan,SHIN ETSU CHEMICAL LTD,0.059039999999999995,Japan,Materials
+7974|Japan,NINTENDO LTD,0.058879999999999995,Japan,Communication
+6098|Japan,RECRUIT HOLDINGS LTD,0.05792,Japan,Industrials
+7741|Japan,HOYA CORP,0.05792,Japan,Health Care
+4502|Japan,TAKEDA PHARMACEUTICAL LTD,0.057679999999999995,Japan,Health Care
+SSE|United Kingdom,SSE PLC,0.05691,United Kingdom,Utilities
+AD|Netherlands,KONINKLIJKE AHOLD DELHAIZE NV,0.05691,Netherlands,Consumer Staples
+VALE3|Brazil,CIA VALE DO RIO DOCE SH,0.05633023763096142,Brazil,Materials
+EA|United States,ELECTRONIC ARTS INC,0.0558,United States,Communication
+MPWR|United States,MONOLITHIC POWER SYSTEMS INC,0.0558,United States,Information Technology
+KEYS|United States,KEYSIGHT TECHNOLOGIES INC,0.0558,United States,Information Technology
+LITE|United States,LUMENTUM HOLDINGS INC,0.0558,United States,Information Technology
+APO|United States,APOLLO GLOBAL MANAGEMENT INC,0.0558,United States,Financials
+TRGP|United States,TARGA RESOURCES CORP,0.0558,United States,Energy
+IDXX|United States,IDEXX LABORATORIES INC,0.0558,United States,Health Care
+URI|United States,UNITED RENTALS INC,0.0558,United States,Industrials
+EXC|United States,EXELON CORP,0.0558,United States,Utilities
+RSG|United States,REPUBLIC SERVICES INC,0.0558,United States,Industrials
+CIEN|United States,CIENA CORP,0.0558,United States,Information Technology
+PSA|United States,PUBLIC STORAGE REIT,0.0558,United States,Real Estate
+GWW|United States,WW GRAINGER INC,0.0558,United States,Industrials
+F|United States,FORD MOTOR CO,0.0558,United States,Consumer Discretionary
+FIX|United States,COMFORT SYSTEMS USA INC,0.0558,United States,Industrials
+ALC|Switzerland,ALCON INC,0.05539,Switzerland,Health Care
+NOKIA|Finland,NOKIA,0.05539,Finland,Information Technology
+ASSA B|Sweden,ASSA ABLOY B,0.05387,Sweden,Industrials
+III|United Kingdom,3I GROUP PLC,0.05387,United Kingdom,Financials
+UCB|Belgium,UCB SA,0.05387,Belgium,Health Care
+ASM|Netherlands,ASM INTERNATIONAL NV,0.05387,Netherlands,Information Technology
+SGO|France,COMPAGNIE DE SAINT GOBAIN SA,0.05387,France,Industrials
+PRU|United Kingdom,PRUDENTIAL PLC,0.05387,United Kingdom,Financials
+PYPL|United States,PAYPAL HOLDINGS INC,0.053540000000000004,United States,Financials
+KR|United States,KROGER,0.053540000000000004,United States,Consumer Staples
+WAB|United States,WESTINGHOUSE AIR BRAKE TECHNOLOGIE,0.053540000000000004,United States,Industrials
+FERG|United States,FERGUSON ENTERPRISES INC,0.053540000000000004,United States,Industrials
+CARR|United States,CARRIER GLOBAL CORP,0.053540000000000004,United States,Industrials
+BDX|United States,BECTON DICKINSON,0.053540000000000004,United States,Health Care
+ETR|United States,ENTERGY CORP,0.053540000000000004,United States,Utilities
+ROK|United States,ROCKWELL AUTOMATION INC,0.053540000000000004,United States,Industrials
+YUM|United States,YUM BRANDS INC,0.053540000000000004,United States,Consumer Discretionary
+SYY|United States,SYSCO CORP,0.053540000000000004,United States,Consumer Staples
+PEG|United States,PUBLIC SERVICE ENTERPRISE GROUP IN,0.053540000000000004,United States,Utilities
+CMG|United States,CHIPOTLE MEXICAN GRILL INC,0.053540000000000004,United States,Consumer Discretionary
+AIG|United States,AMERICAN INTERNATIONAL GROUP INC,0.053540000000000004,United States,Financials
+COIN|United States,COINBASE GLOBAL INC CLASS A,0.053540000000000004,United States,Financials
+DELL|United States,DELL TECHNOLOGIES INC CLASS C,0.053540000000000004,United States,Information Technology
+TRP|Canada,TC ENERGY CORP,0.053189999999999994,Canada,Energy
+WPM|Canada,WHEATON PRECIOUS METALS CORP,0.053189999999999994,Canada,Materials
+ORA|France,ORANGE SA,0.05311,France,Communication
+ANG|South Africa,ANGLOGOLD ASHANTI PLC,0.051697127937336815,South Africa,Materials
+2318|China,PING AN INSURANCE (GROUP) CO OF CH,0.051697127937336815,China,Financials
+NPN|South Africa,NASPERS LIMITED LTD CLASS N,0.051697127937336815,South Africa,Consumer Discretionary
+NDAQ|United States,NASDAQ INC,0.05128,United States,Financials
+PCG|United States,PG&E CORP,0.05128,United States,Utilities
+NUE|United States,NUCOR CORP,0.05128,United States,Materials
+GIVN|Switzerland,GIVAUDAN SA,0.05083,Switzerland,Materials
+FER|Spain,FERROVIAL,0.05083,Spain,Industrials
+1120|Saudi Arabia,AL RAJHI BANK,0.050498534694041426,Saudi Arabia,Financials
+9433|Japan,KDDI CORP,0.05049000000000001,Japan,Communication
+8002|Japan,MARUBENI CORP,0.050170000000000006,Japan,Industrials
+NU|Brazil,NU HOLDINGS LTD CLASS A,0.04999570347357635,Brazil,Financials
+SWED A|Sweden,SWEDBANK,0.04931,Sweden,Financials
+CVNA|United States,CARVANA CLASS A,0.047630000000000006,United States,Consumer Discretionary
+ALNY|United States,ALNYLAM PHARMACEUTICALS INC,0.047630000000000006,United States,Health Care
+FITB|United States,FIFTH THIRD BANCORP,0.047630000000000006,United States,Financials
+AMP|United States,AMERIPRISE FINANCE INC,0.047630000000000006,United States,Financials
+EBAY|United States,EBAY INC,0.047630000000000006,United States,Consumer Discretionary
+WCN|United States,WASTE CONNECTIONS INC,0.047630000000000006,United States,Industrials
+WES|Australia,WESFARMERS LTD,0.047279999999999996,Australia,Consumer Discretionary
+388|Hong Kong,HONG KONG EXCHANGES AND CLEARING L,0.047279999999999996,Hong Kong,Financials
+MFC|Canada,MANULIFE FINANCIAL CORP,0.047279999999999996,Canada,Financials
+CNR|Canada,CANADIAN NATIONAL RAILWAY,0.047279999999999996,Canada,Industrials
+BHARTIARTL|India,BHARTI AIRTEL LTD,0.04637094558420169,India,Communication
+EBS|Austria,ERSTE GROUP BANK AG,0.04568,Austria,Financials
+DANSKE|Denmark,DANSKE BANK,0.04568,Denmark,Financials
+EXPN|United Kingdom,EXPERIAN PLC,0.04568,United Kingdom,Industrials
+ITUB4|Brazil,ITAU UNIBANCO HOLDING PREF SA,0.045650527150741964,Brazil,Financials
+MET|United States,METLIFE INC,0.04537,United States,Financials
+COHR|United States,COHERENT CORP,0.04537,United States,Information Technology
+GRMN|United States,GARMIN LTD,0.04537,United States,Consumer Discretionary
+HIG|United States,HARTFORD INSURANCE GROUP INC,0.04537,United States,Financials
+CBRE|United States,CBRE GROUP INC CLASS A,0.04537,United States,Real Estate
+ODFL|United States,OLD DOMINION FREIGHT LINE INC,0.04537,United States,Industrials
+AXON|United States,AXON ENTERPRISE INC,0.04537,United States,Industrials
+MSTR|United States,STRATEGY INC CLASS A,0.04537,United States,Information Technology
+TTWO|United States,TAKE TWO INTERACTIVE SOFTWARE INC,0.04537,United States,Communication
+CCI|United States,CROWN CASTLE INC,0.04537,United States,Real Estate
+VTR|United States,VENTAS REIT INC,0.04537,United States,Real Estate
+MLM|United States,MARTIN MARIETTA MATERIALS INC,0.04537,United States,Materials
+DDOG|United States,DATADOG INC CLASS A,0.04537,United States,Information Technology
+XYZ|United States,BLOCK INC CLASS A,0.04537,United States,Financials
+DHI|United States,D R HORTON INC,0.04537,United States,Consumer Discretionary
+ED|United States,CONSOLIDATED EDISON INC,0.04537,United States,Utilities
+RMD|United States,RESMED INC,0.04537,United States,Health Care
+ROP|United States,ROPER TECHNOLOGIES INC,0.04537,United States,Information Technology
+G|Italy,ASSICURAZIONI GENERALI,0.04492,Italy,Financials
+PRY|Italy,PRYSMIAN,0.04492,Italy,Industrials
+SDZ|Switzerland,SANDOZ GROUP AG,0.04492,Switzerland,Health Care
+ERIC B|Sweden,ERICSSON B,0.04416,Sweden,Information Technology
+SEB A|Sweden,SKANDINAVISKA ENSKILDA BANKEN,0.043399999999999994,Sweden,Financials
+SLHN|Switzerland,SWISS LIFE HOLDING AG,0.043399999999999994,Switzerland,Financials
+GALD|Switzerland,GALDERMA GROUP N LTD,0.043399999999999994,Switzerland,Health Care
+SUNB|United Kingdom,SUNBELT RENTALS HOLDINGS INC,0.043399999999999994,United Kingdom,Industrials
+6301|Japan,KOMATSU LTD,0.0433,Japan,Industrials
+PRU|United States,PRUDENTIAL FINANCIAL INC,0.043109999999999996,United States,Financials
+MCHP|United States,MICROCHIP TECHNOLOGY INC,0.043109999999999996,United States,Information Technology
+KVUE|United States,KENVUE INC,0.043109999999999996,United States,Consumer Staples
+VMC|United States,VULCAN MATERIALS,0.043109999999999996,United States,Materials
+OTIS|United States,OTIS WORLDWIDE CORP,0.043109999999999996,United States,Industrials
+HSY|United States,HERSHEY FOODS,0.043109999999999996,United States,Consumer Staples
+1398|China,INDUSTRIAL AND COMMERCIAL BANK OF,0.04308093994778068,China,Financials
+3711|Taiwan,ASE TECHNOLOGY HOLDING LTD,0.04308093994778068,Taiwan,Information Technology
+9999|China,NETEASE INC,0.04308093994778068,China,Communication
+1211|China,BYD LTD H,0.04308093994778068,China,Consumer Discretionary
+005380|Korea (South),HYUNDAI MOTOR,0.04308093994778068,Korea (South),Consumer Discretionary
+3690|China,MEITUAN,0.04308093994778068,China,Consumer Discretionary
+LDO|Italy,LEONARDO FINMECCANICA SPA,0.04264,Italy,Industrials
+KBC|Belgium,KBC GROEP,0.04188,Belgium,Financials
+ADS|Germany,ADIDAS N AG,0.04188,Germany,Consumer Discretionary
+AMS|Spain,AMADEUS IT GROUP SA,0.04188,Spain,Consumer Discretionary
+2222|Saudi Arabia,SAUDI ARABIAN OIL,0.041606081354332684,Saudi Arabia,Energy
+CCO|Canada,CAMECO CORP,0.041370000000000004,Canada,Energy
+O39|Singapore,OVERSEA-CHINESE BANKING LTD,0.041370000000000004,Singapore,Financials
+MQG|Australia,MACQUARIE GROUP LTD DEF,0.041370000000000004,Australia,Financials
+CSL|Australia,CSL LTD,0.041370000000000004,Australia,Health Care
+nan|Canada,NATIONAL BANK OF CANADA,0.041370000000000004,Canada,Financials
+ADYEN|Netherlands,ADYEN NV,0.04112,Netherlands,Financials
+SIKA|Switzerland,SIKA AG,0.04112,Switzerland,Materials
+HO|France,THALES SA,0.04112,France,Industrials
+HEI|Germany,HEIDELBERG MATERIALS AG,0.04112,Germany,Materials
+INFY|India,INFOSYS LTD,0.041060306564781934,India,Information Technology
+BMW|Germany,BMW AG,0.04035999999999999,Germany,Consumer Discretionary
+ATCO B|Sweden,ATLAS COPCO CLASS B,0.04035999999999999,Sweden,Industrials
+DNB|Norway,DNB BANK,0.04035999999999999,Norway,Financials
+CBK|Germany,COMMERZBANK AG,0.04035999999999999,Germany,Financials
+EQNR|Norway,EQUINOR,0.039599999999999996,Norway,Energy
+STT|United States,STATE STREET CORP,0.039459999999999995,United States,Financials
+KDP|United States,KEURIG DR PEPPER INC,0.039459999999999995,United States,Consumer Staples
+PETR4|Brazil,PETROLEO BRASILEIRO PREF SA,0.03826896255411969,Brazil,Energy
+FICO|United States,FAIR ISAAC CORP,0.0372,United States,Information Technology
+CBOE|United States,CBOE GLOBAL MARKETS INC,0.0372,United States,Financials
+KMB|United States,KIMBERLY CLARK CORP,0.0372,United States,Consumer Staples
+WDAY|United States,WORKDAY INC CLASS A,0.0372,United States,Information Technology
+BE|United States,BLOOM ENERGY CLASS A CORP,0.0372,United States,Industrials
+IRM|United States,IRON MOUNTAIN INC,0.0372,United States,Real Estate
+INSM|United States,INSMED INC,0.0372,United States,Health Care
+A|United States,AGILENT TECHNOLOGIES INC,0.0372,United States,Health Care
+VICI|United States,VICI PPTYS INC,0.0372,United States,Real Estate
+DG|United States,DOLLAR GENERAL CORP,0.0372,United States,Consumer Staples
+CTSH|United States,COGNIZANT TECHNOLOGY SOLUTIONS COR,0.0372,United States,Information Technology
+EME|United States,EMCOR GROUP INC,0.0372,United States,Industrials
+FISV|United States,FISERV INC,0.0372,United States,Financials
+HAL|United States,HALLIBURTON,0.0372,United States,Energy
+HBAN|United States,HUNTINGTON BANCSHARES INC,0.0372,United States,Financials
+IR|United States,INGERSOLL RAND INC,0.0372,United States,Industrials
+ACGL|United States,ARCH CAPITAL GROUP LTD,0.0372,United States,Financials
+TDY|United States,TELEDYNE TECHNOLOGIES INC,0.0372,United States,Information Technology
+RKLB|United States,ROCKET LAB CORP,0.0372,United States,Industrials
+MTB|United States,M&T BANK CORP,0.0372,United States,Financials
+GEHC|United States,GE HEALTHCARE TECHNOLOGIES INC,0.0372,United States,Health Care
+CPRT|United States,COPART INC,0.0372,United States,Industrials
+RBLX|United States,ROBLOX CORP CLASS A,0.0372,United States,Communication
+TPR|United States,TAPESTRY INC,0.0372,United States,Consumer Discretionary
+6146|Japan,DISCO CORP,0.03699,Japan,Information Technology
+4519|Japan,CHUGAI PHARMACEUTICAL LTD,0.03691,Japan,Health Care
+6702|Japan,FUJITSU LTD,0.03691,Japan,Information Technology
+8053|Japan,SUMITOMO CORP,0.03675,Japan,Industrials
+9434|Japan,SOFTBANK CORP,0.03667,Japan,Communication
+6981|Japan,MURATA MANUFACTURING LTD,0.03659,Japan,Information Technology
+5803|Japan,FUJIKURA LTD,0.03643,Japan,Industrials
+6701|Japan,NEC CORP,0.03627,Japan,Information Technology
+6752|Japan,PANASONIC HOLDINGS CORP,0.03627,Japan,Consumer Discretionary
+8591|Japan,ORIX CORP,0.03619,Japan,Financials
+6954|Japan,FANUC CORP,0.03611,Japan,Industrials
+7267|Japan,HONDA MOTOR LTD,0.03579,Japan,Consumer Discretionary
+5802|Japan,SUMITOMO ELECTRIC INDUSTRIES LTD,0.03546,Japan,Consumer Discretionary
+CSU|Canada,CONSTELLATION SOFTWARE INC,0.03546,Canada,Information Technology
+VOD|United Kingdom,VODAFONE GROUP PLC,0.03521,United Kingdom,Communication
+FTAI|United States,FTAI AVIATION LTD,0.03494,United States,Industrials
+EXPE|United States,EXPEDIA GROUP INC,0.03494,United States,Consumer Discretionary
+RJF|United States,RAYMOND JAMES INC,0.03494,United States,Financials
+EXR|United States,EXTRA SPACE STORAGE REIT INC,0.03494,United States,Real Estate
+EIX|United States,EDISON INTERNATIONAL,0.03494,United States,Utilities
+DXCM|United States,DEXCOM INC,0.03494,United States,Health Care
+IBKR|United States,INTERACTIVE BROKERS GROUP INC CLAS,0.03494,United States,Financials
+CCL|United States,CARNIVAL CORP,0.03494,United States,Consumer Discretionary
+DOV|United States,DOVER CORP,0.03494,United States,Industrials
+FIS|United States,FIDELITY NATIONAL INFORMATION SERV,0.03494,United States,Financials
+HPE|United States,HEWLETT PACKARD ENTERPRISE,0.03494,United States,Information Technology
+ATO|United States,ATMOS ENERGY CORP,0.03494,United States,Utilities
+AMRZ|United States,AMRIZE AG,0.03494,United States,Materials
+WAT|United States,WATERS CORP,0.03494,United States,Health Care
+AWK|United States,AMERICAN WATER WORKS INC,0.03494,United States,Utilities
+IQV|United States,IQVIA HOLDINGS INC,0.03494,United States,Health Care
+WTW|United States,WILLIS TOWERS WATSON PLC,0.03494,United States,Financials
+PAYX|United States,PAYCHEX INC,0.03494,United States,Industrials
+XYL|United States,XYLEM INC,0.03494,United States,Industrials
+ON|United States,ON SEMICONDUCTOR CORP,0.03494,United States,Information Technology
+VRSK|United States,VERISK ANALYTICS INC,0.03494,United States,Industrials
+VEEV|United States,VEEVA SYSTEMS INC CLASS A,0.03494,United States,Health Care
+NRG|United States,NRG ENERGY INC,0.03494,United States,Utilities
+2891|Taiwan,CTBC FINANCIAL HOLDING LTD,0.034464751958224536,Taiwan,Financials
+OTP|Hungary,OTP BANK,0.034464751958224536,Hungary,Financials
+105560|Korea (South),KB FINANCIAL GROUP INC,0.034464751958224536,Korea (South),Financials
+000270|Korea (South),KIA CORPORATION CORP,0.034464751958224536,Korea (South),Consumer Discretionary
+3988|China,BANK OF CHINA LTD H,0.034464751958224536,China,Financials
+GFNORTEO|Mexico,GPO FINANCE BANORTE,0.034464751958224536,Mexico,Financials
+PKO|Poland,POWSZECHNA KASA OSZCZEDNOSCI BANK,0.034464751958224536,Poland,Financials
+GMEXICOB|Mexico,GRUPO MEXICO B,0.034464751958224536,Mexico,Materials
+GFI|South Africa,GOLD FIELDS LTD,0.034464751958224536,South Africa,Materials
+9888|China,BAIDU CLASS A INC,0.034464751958224536,China,Communication
+9961|China,TRIP.COM GROUP LTD,0.034464751958224536,China,Consumer Discretionary
+402340|Korea (South),SK SQUARE LTD,0.034464751958224536,Korea (South),Industrials
+SAMPO|Finland,SAMPO CLASS A,0.03369,Finland,Financials
+AV.|United Kingdom,AVIVA PLC,0.03369,United Kingdom,Financials
+RYA|Ireland,RYANAIR HOLDINGS PLC,0.03369,Ireland,Industrials
+GEBN|Switzerland,GEBERIT AG,0.03369,Switzerland,Industrials
+VWS|Denmark,VESTAS WIND SYSTEMS,0.03369,Denmark,Industrials
+PETR3|Brazil,PETROLEO BRASILEIRO SA PETROBRAS,0.03345262253362857,Brazil,Energy
+ML|France,MICHELIN,0.03293,France,Consumer Discretionary
+A5G|Ireland,AIB GROUP PLC,0.03293,Ireland,Financials
+VIE|France,VEOLIA ENVIRON. SA,0.03293,France,Utilities
+PGHN|Switzerland,PARTNERS GROUP HOLDING AG,0.03293,Switzerland,Financials
+FRE|Germany,FRESENIUS SE AND CO KGAA,0.03293,Germany,Health Care
+HEIA|Netherlands,HEINEKEN NV,0.03293,Netherlands,Consumer Staples
+AER|Netherlands,AERCAP HOLDINGS NV,0.03293,Netherlands,Industrials
+SCMN|Switzerland,SWISSCOM AG,0.03293,Switzerland,Communication
+SAAB B|Sweden,SAAB CLASS B,0.03293,Sweden,Industrials
+ACS|Spain,ACS ACTIVIDADES DE CONSTRUCCION Y,0.03217,Spain,Industrials
+SHB A|Sweden,SVENSKA HANDELSBANKEN-A SHS,0.03217,Sweden,Financials
+KER|France,KERING SA,0.03217,France,Consumer Discretionary
+VNA|Germany,VONOVIA SE,0.03217,Germany,Real Estate
+KNEBV|Finland,KONE,0.03217,Finland,Industrials
+UMG|Netherlands,UNIVERSAL MUSIC GROUP NV,0.03217,Netherlands,Communication
+STMPA|France,STMICROELECTRONICS NV,0.03217,France,Information Technology
+PHIA|Netherlands,KONINKLIJKE PHILIPS NV,0.03141,Netherlands,Health Care
+VOW3|Germany,VOLKSWAGEN NON-VOTING PREF AG,0.03141,Germany,Consumer Discretionary
+HEXA B|Sweden,HEXAGON CLASS B,0.03141,Sweden,Information Technology
+AENA|Spain,AENA SME SA,0.03141,Spain,Industrials
+ACA|France,CREDIT AGRICOLE SA,0.03141,France,Financials
+MTX|Germany,MTU AERO ENGINES HOLDING AG,0.03141,Germany,Industrials
+CCEP|Netherlands,COCA COLA EUROPACIFIC PARTNERS PLC,0.03141,Netherlands,Consumer Staples
+ANTO|United Kingdom,ANTOFAGASTA PLC,0.03065,United Kingdom,Materials
+LGEN|United Kingdom,LEGAL AND GENERAL GROUP PLC,0.03065,United Kingdom,Financials
+NXT|United Kingdom,NEXT PLC,0.03065,United Kingdom,Consumer Discretionary
+1180|Saudi Arabia,THE SAUDI NATIONAL BANK,0.030593572913766208,Saudi Arabia,Financials
+M&M|India,MAHINDRA AND MAHINDRA LTD,0.029920917402096625,India,Consumer Discretionary
+SAB|Spain,BANCO DE SABADELL SA,0.02989,Spain,Financials
+PUB|France,PUBLICIS GROUPE SA,0.02989,France,Communication
+ABN|Netherlands,ABN AMRO BANK NV,0.02989,Netherlands,Financials
+SGSN|Switzerland,SGS SA,0.02989,Switzerland,Industrials
+WRT1V|Finland,WARTSILA,0.02989,Finland,Industrials
+IHG|United Kingdom,INTERCONTINENTAL HOTELS GROUP PLC,0.02989,United Kingdom,Consumer Discretionary
+BPE|Italy,BPER BANCA,0.02989,Italy,Financials
+KOG|Norway,KONGSBERG GRUPPEN,0.02989,Norway,Industrials
+CAP|France,CAPGEMINI,0.02989,France,Information Technology
+8802|Japan,MITSUBISHI ESTATE CO LTD,0.02964,Japan,Real Estate
+8750|Japan,DAI-ICHI LIFE HOLDINGS INC,0.02964,Japan,Financials
+8725|Japan,MS&AD INSURANCE GROUP HOLDINGS INC,0.02964,Japan,Financials
+8630|Japan,SOMPO HOLDINGS INC,0.02964,Japan,Financials
+4568|Japan,DAIICHI SANKYO LTD,0.029559999999999996,Japan,Health Care
+8801|Japan,MITSUI FUDOSAN LTD,0.029559999999999996,Japan,Real Estate
+GMG|Australia,GOODMAN GROUP UNITS,0.02955,Australia,Real Estate
+K|Canada,KINROSS GOLD CORP,0.02955,Canada,Materials
+TEVA|Israel,TEVA PHARMACEUTICAL INDUSTRIES ADR,0.02955,Israel,Health Care
+WDS|Australia,WOODSIDE ENERGY GROUP LTD,0.02955,Australia,Energy
+SLF|Canada,SUN LIFE FINANCIAL INC,0.02955,Canada,Financials
+NTR|Canada,NUTRIEN LTD,0.02955,Canada,Materials
+IFC|Canada,INTACT FINANCIAL CORP,0.02955,Canada,Financials
+RIO|Australia,RIO TINTO LTD,0.02955,Australia,Materials
+DOL|Canada,DOLLARAMA INC,0.02955,Canada,Consumer Discretionary
+AXISBANK|India,AXIS BANK LTD,0.029532334059212243,India,Financials
+6367|Japan,DAIKIN INDUSTRIES LTD,0.02948,Japan,Industrials
+7182|Japan,JAPAN POST BANK LTD,0.02932,Japan,Financials
+WKL|Netherlands,WOLTERS KLUWER NV,0.029129999999999996,Netherlands,Industrials
+ESSITY B|Sweden,ESSITY CLASS B,0.029129999999999996,Sweden,Consumer Staples
+NTRS|United States,NORTHERN TRUST CORP,0.02903,United States,Financials
+MKL|United States,MARKEL GROUP INC,0.02903,United States,Financials
+CINF|United States,CINCINNATI FINANCIAL CORP,0.02903,United States,Financials
+CW|United States,CURTISS WRIGHT CORP,0.02903,United States,Industrials
+DRI|United States,DARDEN RESTAURANTS INC,0.02903,United States,Consumer Discretionary
+NTRA|United States,NATERA INC,0.02903,United States,Health Care
+MTD|United States,METTLER TOLEDO INC,0.02903,United States,Health Care
+LYV|United States,LIVE NATION ENTERTAINMENT INC,0.02903,United States,Communication
+STLD|United States,STEEL DYNAMICS INC,0.02903,United States,Materials
+ES|United States,EVERSOURCE ENERGY,0.02903,United States,Utilities
+ULTA|United States,ULTA BEAUTY INC,0.02903,United States,Consumer Discretionary
+SYF|United States,SYNCHRONY FINANCIAL,0.02903,United States,Financials
+JBL|United States,JABIL INC,0.02903,United States,Information Technology
+OMC|United States,OMNICOM GROUP INC,0.02903,United States,Communication
+BIIB|United States,BIOGEN INC,0.02903,United States,Health Care
+PPG|United States,PPG INDUSTRIES INC,0.02903,United States,Materials
+CFG|United States,CITIZENS FINANCIAL GROUP INC,0.02903,United States,Financials
+LPLA|United States,LPL FINANCIAL HOLDINGS INC,0.02903,United States,Financials
+HUBB|United States,HUBBELL INC,0.02903,United States,Industrials
+TSCO|United States,TRACTOR SUPPLY,0.02903,United States,Consumer Discretionary
+9432|Japan,NTT INC,0.028999999999999998,Japan,Communication
+6723|Japan,RENESAS ELECTRONICS CORP,0.028839999999999998,Japan,Information Technology
+8267|Japan,AEON LTD,0.028759999999999997,Japan,Consumer Staples
+8015|Japan,TOYOTA TSUSHO CORP,0.028679999999999997,Japan,Industrials
+4503|Japan,ASTELLAS PHARMA INC,0.028679999999999997,Japan,Health Care
+6762|Japan,TDK CORP,0.028599999999999997,Japan,Information Technology
+HNR1|Germany,HANNOVER RUECK,0.02837,Germany,Financials
+6273|Japan,SMC (JAPAN) CORP,0.02812,Japan,Industrials
+STZ|United States,CONSTELLATION BRANDS INC CLASS A,0.026770000000000002,United States,Consumer Staples
+SBAC|United States,SBA COMMUNICATIONS REIT CORP CLASS,0.026770000000000002,United States,Real Estate
+FTV|United States,FORTIVE CORP,0.026770000000000002,United States,Industrials
+CMS|United States,CMS ENERGY CORP,0.026770000000000002,United States,Utilities
+NI|United States,NISOURCE INC,0.026770000000000002,United States,Utilities
+SOFI|United States,SOFI TECHNOLOGIES INC,0.026770000000000002,United States,Financials
+STE|United States,STERIS,0.026770000000000002,United States,Health Care
+MDB|United States,MONGODB INC CLASS A,0.026770000000000002,United States,Information Technology
+FLEX|United States,FLEX LTD,0.026770000000000002,United States,Information Technology
+BR|United States,BROADRIDGE FINANCIAL SOLUTIONS INC,0.026770000000000002,United States,Industrials
+CSGP|United States,COSTAR GROUP INC,0.026770000000000002,United States,Real Estate
+TWLO|United States,TWILIO INC CLASS A,0.026770000000000002,United States,Information Technology
+LH|United States,LABCORP HOLDINGS INC,0.026770000000000002,United States,Health Care
+PHM|United States,PULTEGROUP INC,0.026770000000000002,United States,Consumer Discretionary
+CHRW|United States,CH ROBINSON WORLDWIDE INC,0.026770000000000002,United States,Industrials
+UTHR|United States,UNITED THERAPEUTICS CORP,0.026770000000000002,United States,Health Care
+CHD|United States,CHURCH AND DWIGHT INC,0.026770000000000002,United States,Consumer Staples
+DLTR|United States,DOLLAR TREE INC,0.026770000000000002,United States,Consumer Staples
+AVB|United States,AVALONBAY COMMUNITIES REIT INC,0.026770000000000002,United States,Real Estate
+NTAP|United States,NETAPP INC,0.026770000000000002,United States,Information Technology
+ARES|United States,ARES MANAGEMENT CORP CLASS A,0.026770000000000002,United States,Financials
+ASTS|United States,AST SPACEMOBILE INC CLASS A,0.026770000000000002,United States,Communication
+DGX|United States,QUEST DIAGNOSTICS INC,0.026770000000000002,United States,Health Care
+RF|United States,REGIONS FINANCIAL CORP,0.026770000000000002,United States,Financials
+CPAY|United States,CORPAY INC,0.026770000000000002,United States,Financials
+EQR|United States,EQUITY RESIDENTIAL REIT,0.026770000000000002,United States,Real Estate
+VRSN|United States,VERISIGN INC,0.026770000000000002,United States,Information Technology
+HUM|United States,HUMANA INC,0.026770000000000002,United States,Health Care
+IP|United States,INTERNATIONAL PAPER,0.026770000000000002,United States,Materials
+DOW|United States,DOW INC,0.026770000000000002,United States,Materials
+WSM|United States,WILLIAMS SONOMA INC,0.026770000000000002,United States,Consumer Discretionary
+EL|United States,ESTEE LAUDER INC CLASS A,0.026770000000000002,United States,Consumer Staples
+EFX|United States,EQUIFAX INC,0.026770000000000002,United States,Industrials
+KHC|United States,KRAFT HEINZ,0.026770000000000002,United States,Consumer Staples
+VLTO|United States,VERALTO CORP,0.026770000000000002,United States,Industrials
+PKG|United States,PACKAGING CORP OF AMERICA,0.026770000000000002,United States,Materials
+GIS|United States,GENERAL MILLS INC,0.026770000000000002,United States,Consumer Staples
+AMCR|United States,AMCOR PLC,0.026770000000000002,United States,Materials
+Q|United States,QNITY ELECTRONICS INC,0.026770000000000002,United States,Information Technology
+BRO|United States,BROWN & BROWN INC,0.026770000000000002,United States,Financials
+LEN|United States,LENNAR A CORP CLASS A,0.026770000000000002,United States,Consumer Discretionary
+KGH|Poland,KGHM POLSKA MIEDZ SA,0.025848563968668407,Poland,Materials
+ADVANC.R|Thailand,ADVANCED INFO SERVICE NON-VOTING D,0.025848563968668407,Thailand,Communication
+DELTA.R|Thailand,DELTA ELECTRONICS (THAILAND) NON-V,0.025848563968668407,Thailand,Information Technology
+VAL|South Africa,VALTERRA PLATINUM LTD,0.025848563968668407,South Africa,Materials
+2881|Taiwan,FUBON FINANCIAL HOLDING LTD,0.025848563968668407,Taiwan,Financials
+CIMB|Malaysia,CIMB GROUP HOLDINGS,0.025848563968668407,Malaysia,Financials
+857|China,PETROCHINA LTD H,0.025848563968668407,China,Energy
+2628|China,CHINA LIFE INSURANCE LTD H,0.025848563968668407,China,Financials
+BAP|Peru,CREDICORP LTD,0.025848563968668407,Peru,Financials
+055550|Korea (South),SHINHAN FINANCIAL GROUP LTD,0.025848563968668407,Korea (South),Financials
+034020|Korea (South),DOOSAN ENERBILITY LTD,0.025848563968668407,Korea (South),Industrials
+2303|Taiwan,UNITED MICRO ELECTRONICS CORP,0.025848563968668407,Taiwan,Information Technology
+2412|Taiwan,CHUNGHWA TELECOM LTD,0.025848563968668407,Taiwan,Communication
+1088|China,CHINA SHENHUA ENERGY LTD H,0.025848563968668407,China,Energy
+SBK|South Africa,STANDARD BANK GROUP,0.025848563968668407,South Africa,Financials
+KFH|Kuwait,KUWAIT FINANCE HOUSE,0.025848563968668407,Kuwait,Financials
+QNBK|Qatar,QATAR NATIONAL BANK,0.025848563968668407,Qatar,Financials
+2899|China,ZIJIN MINING GROUP LTD H,0.025848563968668407,China,Materials
+FSR|South Africa,FIRSTRAND LTD,0.025848563968668407,South Africa,Financials
+NBK|Kuwait,NATIONAL BANK OF KUWAIT,0.025848563968668407,Kuwait,Financials
+9618|China,JD.COM CLASS A INC,0.025848563968668407,China,Consumer Discretionary
+FEMSAUBD|Mexico,FOMENTO ECONOMICO MEXICANO,0.025848563968668407,Mexico,Consumer Staples
+012450|Korea (South),HANWHA AEROSPACE LTD,0.025848563968668407,Korea (South),Industrials
+3968|China,CHINA MERCHANTS BANK LTD H,0.025848563968668407,China,Financials
+2882|Taiwan,CATHAY FINANCIAL HOLDING LTD,0.025848563968668407,Taiwan,Financials
+BBCA|Indonesia,BANK CENTRAL ASIA,0.025848563968668407,Indonesia,Financials
+BAJFINANCE|India,BAJAJ FINANCE LTD,0.02577602841132999,India,Financials
+LT|India,LARSEN AND TOUBRO LTD,0.025516972849407075,India,Industrials
+KPN|Netherlands,KONINKLIJKE KPN NV,0.024739999999999998,Netherlands,Communication
+NN|Netherlands,NN GROUP NV,0.024739999999999998,Netherlands,Financials
+BOL|Sweden,BOLIDEN,0.024739999999999998,Sweden,Materials
+ZBH|United States,ZIMMER BIOMET HOLDINGS INC,0.024509999999999997,United States,Health Care
+INCY|United States,INCYTE CORP,0.024509999999999997,United States,Health Care
+CHTR|United States,CHARTER COMMUNICATIONS INC CLASS A,0.024509999999999997,United States,Communication
+FSLR|United States,FIRST SOLAR INC,0.024509999999999997,United States,Information Technology
+CF|United States,CF INDUSTRIES HOLDINGS INC,0.024509999999999997,United States,Materials
+CNC|United States,CENTENE CORP,0.024509999999999997,United States,Health Care
+ZM|United States,ZOOM COMMUNICATIONS INC CLASS A,0.024509999999999997,United States,Information Technology
+DD|United States,DUPONT DE NEMOURS INC,0.024509999999999997,United States,Materials
+HPQ|United States,HP INC,0.024509999999999997,United States,Information Technology
+WRB|United States,WR BERKLEY CORP,0.024509999999999997,United States,Financials
+RPRX|United States,ROYALTY PHARMA PLC CLASS A,0.024509999999999997,United States,Health Care
+CRDO|United States,CREDO TECHNOLOGY GROUP HOLDING LTD,0.024509999999999997,United States,Information Technology
+HEIA|United States,HEICO CORP CLASS A,0.024509999999999997,United States,Industrials
+ENTG|United States,ENTEGRIS INC,0.024509999999999997,United States,Information Technology
+KEY|United States,KEYCORP,0.024509999999999997,United States,Financials
+PFG|United States,PRINCIPAL FINANCIAL GROUP INC,0.024509999999999997,United States,Financials
+1211|Saudi Arabia,SAUDI ARABIAN MINING,0.02399784593331998,Saudi Arabia,Materials
+NSIS B|Denmark,NOVOZYMES B,0.02398,Denmark,Materials
+HLMA|United Kingdom,HALMA PLC,0.02398,United Kingdom,Information Technology
+HBAN|Switzerland,HELVETIA BALOISE HOLDING N AG,0.02398,Switzerland,Financials
+PPL|Canada,PEMBINA PIPELINE CORP,0.023639999999999998,Canada,Energy
+FFH|Canada,FAIRFAX FINANCIAL HOLDINGS SUB VOT,0.023639999999999998,Canada,Financials
+16|Hong Kong,SUN HUNG KAI PROPERTIES LTD,0.023639999999999998,Hong Kong,Real Estate
+CLS|Canada,CELESTICA INC,0.023639999999999998,Canada,Information Technology
+Z74|Singapore,SINGAPORE TELECOMMUNICATIONS LTD,0.023639999999999998,Singapore,Communication
+TCL|Australia,TRANSURBAN GROUP STAPLED UNITS,0.023639999999999998,Australia,Industrials
+LUMI|Israel,BANK LEUMI LE ISRAEL,0.023639999999999998,Israel,Financials
+NST|Australia,NORTHERN STAR RESOURCES LTD,0.023639999999999998,Australia,Materials
+FTS|Canada,FORTIS INC,0.023639999999999998,Canada,Utilities
+WOW|Australia,WOOLWORTHS GROUP LTD,0.023639999999999998,Australia,Consumer Staples
+POLI|Israel,BANK HAPOALIM BM,0.023639999999999998,Israel,Financials
+U11|Singapore,UNITED OVERSEAS BANK LTD,0.023639999999999998,Singapore,Financials
+SE|Singapore,SEA ADS REPRESENTING LTD CLASS A,0.023639999999999998,Singapore,Consumer Discretionary
+EPI A|Sweden,EPIROC CLASS A,0.023219999999999998,Sweden,Industrials
+BIRG|Ireland,BANK OF IRELAND GROUP PLC,0.023219999999999998,Ireland,Financials
+VACN|Switzerland,VAT GROUP AG,0.023219999999999998,Switzerland,Industrials
+4578|Japan,OTSUKA HOLDINGS LTD,0.02285,Japan,Health Care
+UPM|Finland,UPM-KYMMENE,0.02246,Finland,Materials
+MRK|Germany,MERCK,0.02246,Germany,Health Care
+ALFA|Sweden,ALFA LAVAL,0.02246,Sweden,Industrials
+CLNX|Spain,CELLNEX TELECOM,0.02246,Spain,Communication
+BMPS|Italy,BANCA MONTE DEI PASCHI DI SIENA SP,0.02246,Italy,Financials
+BT.A|United Kingdom,BT GROUP PLC,0.02246,United Kingdom,Communication
+RI|France,PERNOD RICARD SA,0.02246,France,Consumer Staples
+GMAB|Denmark,GENMAB,0.02246,Denmark,Health Care
+2802|Japan,AJINOMOTO INC,0.022289999999999997,Japan,Consumer Staples
+5108|Japan,BRIDGESTONE CORP,0.02221,Japan,Consumer Discretionary
+7751|Japan,CANON INC,0.02221,Japan,Information Technology
+TCS|India,TATA CONSULTANCY SERVICES LTD,0.02214925054440919,India,Information Technology
+8308|Japan,RESONA HOLDINGS INC,0.02205,Japan,Financials
+285A|Japan,KIOXIA HOLDINGS CORP,0.02197,Japan,Information Technology
+8604|Japan,NOMURA HOLDINGS INC,0.02189,Japan,Financials
+9020|Japan,EAST JAPAN RAILWAY,0.02189,Japan,Industrials
+RTO|United Kingdom,RENTOKIL INITIAL PLC,0.021699999999999997,United Kingdom,Industrials
+EQT|Sweden,EQT,0.021699999999999997,Sweden,Financials
+LISN|Switzerland,CHOCOLADEFABRIKEN LINDT & SPRUENGL,0.021699999999999997,Switzerland,Consumer Staples
+BAMI|Italy,BANCO BPM,0.021699999999999997,Italy,Financials
+SHL|Germany,SIEMENS HEALTHINEERS AG,0.021699999999999997,Germany,Health Care
+TEF|Spain,TELEFONICA SA,0.021699999999999997,Spain,Communication
+BAER|Switzerland,JULIUS BAER GRUPPE AG,0.021699999999999997,Switzerland,Financials
+MONC|Italy,MONCLER,0.021699999999999997,Italy,Consumer Discretionary
+EDP|Portugal,EDP ENERGIAS DE PORTUGAL SA,0.021699999999999997,Portugal,Utilities
+SRG|Italy,SNAM,0.021699999999999997,Italy,Utilities
+TRN|Italy,TERNA RETE ELETTRICA NAZIONALE,0.021699999999999997,Italy,Utilities
+4901|Japan,FUJIFILM HOLDINGS CORP,0.02165,Japan,Information Technology
+6178|Japan,JAPAN POST HOLDINGS LTD,0.02157,Japan,Financials
+6971|Japan,KYOCERA CORP,0.02157,Japan,Information Technology
+9022|Japan,CENTRAL JAPAN RAILWAY,0.02157,Japan,Industrials
+7010|Saudi Arabia,SAUDI TELECOM,0.02155389352538678,Saudi Arabia,Communication
+8309|Japan,SUMITOMO MITSUI TRUST GROUP INC,0.02149,Japan,Financials
+6201|Japan,TOYOTA INDUSTRIES CORP,0.02149,Japan,Industrials
+7936|Japan,ASICS CORP,0.021169999999999998,Japan,Consumer Discretionary
+4661|Japan,ORIENTAL LAND LTD,0.021169999999999998,Japan,Consumer Discretionary
+8830|Japan,SUMITOMO REALTY & DEVELOPMENT LTD,0.021169999999999998,Japan,Real Estate
+1925|Japan,DAIWA HOUSE INDUSTRY LTD,0.021169999999999998,Japan,Real Estate
+4452|Japan,KAO CORP,0.02101,Japan,Consumer Staples
+KOTAKBANK|India,KOTAK MAHINDRA BANK LTD,0.020983500515756072,India,Financials
+HEN3|Germany,HENKEL & KGAA PREF AG,0.02094,Germany,Consumer Staples
+LOGN|Switzerland,LOGITECH INTERNATIONAL SA,0.02094,Switzerland,Information Technology
+RO|Switzerland,ROCHE HOLDING AG,0.02094,Switzerland,Health Care
+SCHP|Switzerland,SCHINDLER HOLDING PAR AG,0.02094,Switzerland,Industrials
+STLAM|Italy,STELLANTIS NV,0.02094,Italy,Consumer Discretionary
+SPSN|Switzerland,SWISS PRIME SITE AG,0.02094,Switzerland,Real Estate
+BESI|Netherlands,BE SEMICONDUCTOR INDUSTRIES NV,0.02094,Netherlands,Information Technology
+DSY|France,DASSAULT SYSTEMES,0.02094,France,Information Technology
+INF|United Kingdom,INFORMA PLC,0.02094,United Kingdom,Communication
+6920|Japan,LASERTEC CORP,0.02093,Japan,Information Technology
+EXPD|United States,EXPEDITORS INTERNATIONAL OF WASHIN,0.02086,United States,Industrials
+PTC|United States,PTC INC,0.02086,United States,Information Technology
+L|United States,LOEWS CORP,0.02086,United States,Financials
+BURL|United States,BURLINGTON STORES INC,0.02086,United States,Consumer Discretionary
+BBDC4|Brazil,BANCO BRADESCO PREF SA,0.02041709356512542,Brazil,Financials
+FBK|Italy,FINECOBANK BANCA FINECO,0.020179999999999997,Italy,Financials
+SOON|Switzerland,SONOVA HOLDING AG,0.020179999999999997,Switzerland,Health Care
+LISP|Switzerland,CHOCOLADEFABRIKEN LINDT & SPRUENGL,0.020179999999999997,Switzerland,Consumer Staples
+SN.|United Kingdom,SMITH AND NEPHEW PLC,0.020179999999999997,United Kingdom,Health Care
+CARL B|Denmark,CARLSBERG AS CL B,0.020179999999999997,Denmark,Consumer Staples
+CNA|United Kingdom,CENTRICA PLC,0.020179999999999997,United Kingdom,Utilities
+NHY|Norway,NORSK HYDRO,0.020179999999999997,Norway,Materials
+URW|France,UNIBAIL RODAMCO WE STAPLED UNITS,0.020179999999999997,France,Real Estate
+KRX|Ireland,KINGSPAN GROUP PLC,0.020179999999999997,Ireland,Industrials
+CCH|United Kingdom,COCA COLA HBC AG,0.020179999999999997,United Kingdom,Consumer Staples
+SGRO|United Kingdom,SEGRO REIT PLC,0.020179999999999997,United Kingdom,Real Estate
+KRZ|Ireland,KERRY GROUP PLC,0.020179999999999997,Ireland,Consumer Staples
+ENX|France,EURONEXT NV,0.020179999999999997,France,Financials
+SBIN|India,STATE BANK OF INDIA,0.020076806049025873,India,Financials
+TEL2 B|Sweden,TELE2 B,0.01942,Sweden,Communication
+TELIA|Sweden,TELIA COMPANY,0.01942,Sweden,Communication
+METSO|Finland,METSO CORPORATION,0.01942,Finland,Industrials
+ORSTED|Denmark,ORSTED A/S,0.01942,Denmark,Utilities
+EDV|United Kingdom,ENDEAVOUR MINING,0.01942,United Kingdom,Materials
+STMN|Switzerland,STRAUMANN HOLDING AG,0.01942,Switzerland,Health Care
+SVT|United Kingdom,SEVERN TRENT PLC,0.01866,United Kingdom,Utilities
+SY1|Germany,SYMRISE AG,0.01866,Germany,Materials
+PST|Italy,POSTE ITALIANE,0.01866,Italy,Financials
+TEN|Italy,TENARIS SA,0.01866,Italy,Energy
+EN|France,BOUYGUES SA,0.01866,France,Industrials
+TEL|Norway,TELENOR,0.01866,Norway,Communication
+ADM|United Kingdom,ADMIRAL GROUP PLC,0.01866,United Kingdom,Financials
+SMIN|United Kingdom,SMITHS GROUP PLC,0.01866,United Kingdom,Industrials
+G1A|Germany,GEA GROUP AG,0.01866,Germany,Industrials
+DSFIR|Netherlands,DSM FIRMENICH AG,0.01866,Netherlands,Materials
+EG|United States,EVEREST GROUP LTD,0.0186,United States,Financials
+ESS|United States,ESSEX PROPERTY TRUST REIT INC,0.0186,United States,Real Estate
+FFIV|United States,F5 INC,0.0186,United States,Information Technology
+CSL|United States,CARLISLE COMPANIES INC,0.0186,United States,Industrials
+CRWV|United States,COREWEAVE INC CLASS A,0.0186,United States,Information Technology
+NVR|United States,NVR INC,0.0186,United States,Consumer Discretionary
+PNR|United States,PENTAIR,0.0186,United States,Industrials
+SMCI|United States,SUPER MICRO COMPUTER INC,0.0186,United States,Information Technology
+TSN|United States,TYSON FOODS INC CLASS A,0.0186,United States,Consumer Staples
+FLUT|United States,FLUTTER ENTERTAINMENT PLC,0.0186,United States,Consumer Discretionary
+TRMB|United States,TRIMBLE INC,0.0186,United States,Information Technology
+WPC|United States,W. P. CAREY REIT INC,0.0186,United States,Real Estate
+PSTG|United States,EVERPURE INC CLASS A,0.0186,United States,Information Technology
+FCNCA|United States,FIRST CITIZENS BANCSHARES INC CLAS,0.0186,United States,Financials
+CLX|United States,CLOROX,0.0186,United States,Consumer Staples
+TROW|United States,T ROWE PRICE GROUP INC,0.0186,United States,Financials
+COO|United States,COOPER INC,0.0186,United States,Health Care
+SNA|United States,SNAP ON INC,0.0186,United States,Industrials
+WST|United States,WEST PHARMACEUTICAL SERVICES INC,0.0186,United States,Health Care
+SATS|United States,ECHOSTAR CORP CLASS A,0.0186,United States,Communication
+RDDT|United States,REDDIT INC CLASS A,0.0186,United States,Communication
+REG|United States,REGENCY CENTERS REIT CORP,0.0186,United States,Real Estate
+DECK|United States,DECKERS OUTDOOR CORP,0.0186,United States,Consumer Discretionary
+ROL|United States,ROLLINS INC,0.0186,United States,Industrials
+WY|United States,WEYERHAEUSER REIT,0.0186,United States,Real Estate
+RS|United States,RELIANCE STEEL & ALUMINUM,0.0186,United States,Materials
+ZS|United States,ZSCALER INC,0.0186,United States,Information Technology
+RVMD|United States,REVOLUTION MEDICINES INC,0.0186,United States,Health Care
+RKT|United States,ROCKET COMPANIES INC CLASS A,0.0186,United States,Financials
+LII|United States,LENNOX INTERNATIONAL INC,0.0186,United States,Industrials
+ILMN|United States,ILLUMINA INC,0.0186,United States,Health Care
+PODD|United States,INSULET CORP,0.0186,United States,Health Care
+J|United States,JACOBS SOLUTIONS INC,0.0186,United States,Industrials
+IEX|United States,IDEX CORP,0.0186,United States,Industrials
+LVS|United States,LAS VEGAS SANDS CORP,0.0186,United States,Consumer Discretionary
+APTV|United States,APTIV PLC,0.0186,United States,Consumer Discretionary
+KIM|United States,KIMCO REALTY REIT CORP,0.0186,United States,Real Estate
+MAA|United States,MID AMERICA APARTMENT COMMUNITIES,0.0186,United States,Real Estate
+LYB|United States,LYONDELLBASELL INDUSTRIES NV CLASS,0.0186,United States,Materials
+BBY|United States,BEST BUY INC,0.0186,United States,Consumer Discretionary
+SUI|United States,SUN COMMUNITIES REIT INC,0.0186,United States,Real Estate
+FWONK|United States,LIBERTY MEDIA FORMULA ONE SERIES C,0.0186,United States,Communication
+HOLX|United States,HOLOGIC INC,0.0186,United States,Health Care
+LULU|United States,LULULEMON ATHLETICA INC,0.0186,United States,Consumer Discretionary
+HEI|United States,HEICO CORP,0.0186,United States,Industrials
+ALAB|United States,ASTERA LABS INC,0.0186,United States,Information Technology
+TYL|United States,TYLER TECHNOLOGIES INC,0.0186,United States,Information Technology
+INVH|United States,INVITATION HOMES INC,0.0186,United States,Real Estate
+CDW|United States,CDW CORP,0.0186,United States,Information Technology
+GGG|United States,GRACO INC,0.0186,United States,Industrials
+GPN|United States,GLOBAL PAYMENTS INC,0.0186,United States,Financials
+TW|United States,TRADEWEB MARKETS INC CLASS A,0.0186,United States,Financials
+SSNC|United States,SS AND C TECHNOLOGIES HOLDINGS INC,0.0186,United States,Industrials
+MKC|United States,MCCORMICK & CO NON-VOTING INC,0.0186,United States,Consumer Staples
+AVY|United States,AVERY DENNISON CORP,0.0186,United States,Materials
+NLY|United States,ANNALY CAPITAL MANAGEMENT REIT INC,0.0186,United States,Financials
+IFF|United States,INTERNATIONAL FLAVORS & FRAGRANCES,0.0186,United States,Materials
+BALL|United States,BALL CORP,0.0186,United States,Materials
+GPC|United States,GENUINE PARTS,0.0186,United States,Consumer Discretionary
+GLPI|United States,GAMING AND LEISURE PROPERTIES REIT,0.0186,United States,Real Estate
+BG|United States,BUNGE GLOBAL,0.0186,United States,Consumer Staples
+JBHT|United States,JB HUNT TRANSPORT SERVICES INC,0.0186,United States,Industrials
+NDSN|United States,NORDSON CORP,0.0186,United States,Industrials
+TOST|United States,TOAST INC CLASS A,0.0186,United States,Financials
+B3SA3|Brazil,B3 BRASIL BOLSA BALCAO SA,0.018375384208612875,Brazil,Financials
+HM B|Sweden,HENNES & MAURITZ,0.0179,Sweden,Consumer Discretionary
+BNZL|United Kingdom,BUNZL,0.0179,United Kingdom,Industrials
+HEIO|Netherlands,HEINEKEN HOLDING NV,0.0179,Netherlands,Consumer Staples
+AGN|Netherlands,AEGON LTD,0.0179,Netherlands,Financials
+ESLT|Israel,ELBIT SYSTEMS LTD,0.01773,Israel,Industrials
+5020|Japan,ENEOS HOLDINGS INC,0.01773,Japan,Energy
+PAAS|Canada,PAN AMERICAN SILVER CORP,0.01773,Canada,Materials
+IMO|Canada,IMPERIAL OIL LTD,0.01773,Canada,Energy
+7013|Japan,IHI CORP,0.01773,Japan,Industrials
+BXB|Australia,BRAMBLES LTD,0.01773,Australia,Industrials
+QSR|Canada,RESTAURANTS BRANDS INTERNATIONAL I,0.01773,Canada,Consumer Discretionary
+669|Hong Kong,TECHTRONIC INDUSTRIES LTD,0.01773,Hong Kong,Industrials
+2388|Hong Kong,BOC HONG KONG HOLDINGS LTD,0.01773,Hong Kong,Financials
+BAM|Canada,BROOKFIELD ASSET MANAGEMENT VOTING,0.01773,Canada,Financials
+AGI|Canada,ALAMOS GOLD INC CLASS A,0.01773,Canada,Materials
+6902|Japan,DENSO CORP,0.01773,Japan,Consumer Discretionary
+QBE|Australia,QBE INSURANCE GROUP LTD,0.01773,Australia,Financials
+L|Canada,LOBLAW COMPANIES LTD,0.01773,Canada,Consumer Staples
+EVN|Australia,EVOLUTION MINING LTD,0.01773,Australia,Materials
+1|Hong Kong,CK HUTCHISON HOLDINGS LTD,0.01773,Hong Kong,Industrials
+TECK.B|Canada,TECK RESOURCES SUBORDINATE VOTING,0.01773,Canada,Materials
+POW|Canada,POWER CORPORATION OF CANADA,0.01773,Canada,Financials
+WSP|Canada,WSP GLOBAL INC,0.01773,Canada,Industrials
+HINDUNILVR|India,HINDUSTAN UNILEVER LTD,0.017486250429796728,India,Consumer Staples
+PMETAL|Malaysia,PRESS METAL ALUMINIUM HOLDINGS,0.017232375979112268,Malaysia,Materials
+MTN|South Africa,MTN GROUP LTD,0.017232375979112268,South Africa,Communication
+028260|Korea (South),SAMSUNG C&T CORP,0.017232375979112268,Korea (South),Industrials
+FAB|United Arab Emirates,FIRST ABU DHABI BANK,0.017232375979112268,United Arab Emirates,Financials
+012330|Korea (South),HYUNDAI MOBIS LTD,0.017232375979112268,Korea (South),Consumer Discretionary
+009540|Korea (South),HD KOREA SHIPBUILDING & OFFSHORE E,0.017232375979112268,Korea (South),Industrials
+AMXB|Mexico,AMERICA MOVIL B,0.017232375979112268,Mexico,Communication
+TENAGA|Malaysia,TENAGA NASIONAL,0.017232375979112268,Malaysia,Utilities
+135|China,KUNLUN ENERGY LTD,0.017232375979112268,China,Utilities
+006400|Korea (South),SAMSUNG SDI LTD,0.017232375979112268,Korea (South),Information Technology
+1288|China,AGRICULTURAL BANK OF CHINA LTD H,0.017232375979112268,China,Financials
+1303|Taiwan,NAN YA PLASTICS CORP,0.017232375979112268,Taiwan,Materials
+2360|Taiwan,CHROMA ATE INC,0.017232375979112268,Taiwan,Information Technology
+6160|China,BEONE MEDICINES AG,0.017232375979112268,China,Health Care
+EMAAR|United Arab Emirates,EMAAR PROPERTIES,0.017232375979112268,United Arab Emirates,Real Estate
+9987|China,YUM CHINA HOLDINGS INC,0.017232375979112268,China,Consumer Discretionary
+3017|Taiwan,ASIA VITAL COMPONENTS LTD,0.017232375979112268,Taiwan,Information Technology
+1801|China,INNOVENT BIOLOGICS INC,0.017232375979112268,China,Health Care
+000810|Korea (South),SAMSUNG FIRE & MARINE INSURANCE LT,0.017232375979112268,Korea (South),Financials
+2383|Taiwan,ELITE MATERIAL LTD,0.017232375979112268,Taiwan,Information Technology
+SCCO|Peru,SOUTHERN COPPER CORP,0.017232375979112268,Peru,Materials
+2020|China,ANTA SPORTS PRODUCTS LTD,0.017232375979112268,China,Consumer Discretionary
+086790|Korea (South),HANA FINANCIAL GROUP INC,0.017232375979112268,Korea (South),Financials
+EAND|United Arab Emirates,EMIRATES TELECOM,0.017232375979112268,United Arab Emirates,Communication
+AOT.R|Thailand,AIRPORTS OF THAILAND NON-VOTING DR,0.017232375979112268,Thailand,Industrials
+9633|China,NONGFU SPRING LTD H,0.017232375979112268,China,Consumer Staples
+009150|Korea (South),SAMSUNG ELECTRO MECHANICS LTD,0.017232375979112268,Korea (South),Information Technology
+1024|China,KUAISHOU TECHNOLOGY,0.017232375979112268,China,Communication
+PKN|Poland,ORLEN SA,0.017232375979112268,Poland,Energy
+2328|China,PICC PROPERTY AND CASUALTY LTD H,0.017232375979112268,China,Financials
+2887|Taiwan,TS FINANCIAL HOLDING LTD,0.017232375979112268,Taiwan,Financials
+2269|China,WUXI BIOLOGICS CAYMAN INC,0.017232375979112268,China,Health Care
+2382|Taiwan,QUANTA COMPUTER INC,0.017232375979112268,Taiwan,Information Technology
+2345|Taiwan,ACCTON TECHNOLOGY CORP,0.017232375979112268,Taiwan,Information Technology
+CPI|South Africa,CAPITEC LTD,0.017232375979112268,South Africa,Financials
+033780|Korea (South),KT&G CORP,0.017232375979112268,Korea (South),Consumer Staples
+EMIRATESNBD|United Arab Emirates,EMIRATES NBD,0.017232375979112268,United Arab Emirates,Financials
+2885|Taiwan,YUANTA FINANCIAL HOLDING LTD,0.017232375979112268,Taiwan,Financials
+068270|Korea (South),CELLTRION INC,0.017232375979112268,Korea (South),Health Care
+PZU|Poland,PZU SA,0.017232375979112268,Poland,Financials
+MAYBANK|Malaysia,MALAYAN BANKING,0.017232375979112268,Malaysia,Financials
+175|China,GEELY AUTOMOBILE HOLDINGS LTD,0.017232375979112268,China,Consumer Discretionary
+1216|Taiwan,UNI-PRESIDENT ENTERPRISES CORP,0.017232375979112268,Taiwan,Consumer Staples
+ABG|South Africa,ABSA GROUP LTD,0.017232375979112268,South Africa,Financials
+CPALL.R|Thailand,CP ALL NON-VOTING DR PCL,0.017232375979112268,Thailand,Consumer Staples
+PTT.R|Thailand,PTT NON-VOTING DR PCL,0.017232375979112268,Thailand,Energy
+BSANTANDER|Chile,BANCO SANTANDER CHILE,0.017232375979112268,Chile,Financials
+032830|Korea (South),SAMSUNG LIFE LTD,0.017232375979112268,Korea (South),Financials
+207940|Korea (South),SAMSUNG BIOLOGICS LTD,0.017232375979112268,Korea (South),Health Care
+034730|Korea (South),SK INC,0.017232375979112268,Korea (South),Industrials
+IMP|South Africa,IMPALA PLATINUM LTD,0.017232375979112268,South Africa,Materials
+ALDAR|United Arab Emirates,ALDAR PROPERTIES,0.017232375979112268,United Arab Emirates,Real Estate
+005490|Korea (South),POSCO,0.017232375979112268,Korea (South),Materials
+035420|Korea (South),NAVER CORP,0.017232375979112268,Korea (South),Communication
+WALMEX*|Mexico,WALMART DE MEXICO V,0.017232375979112268,Mexico,Consumer Staples
+2301|Taiwan,LITE ON TECHNOLOGY CORP,0.017232375979112268,Taiwan,Information Technology
+386|China,CHINA PETROLEUM AND CHEMICAL CORP,0.017232375979112268,China,Energy
+BID|South Africa,BID CORPORATION LTD,0.017232375979112268,South Africa,Consumer Staples
+CEMEXCPO|Mexico,CEMEX CPO,0.017232375979112268,Mexico,Materials
+SUNPHARMA|India,SUN PHARMACEUTICAL INDUSTRIES LTD,0.0169681393059509,India,Health Care
+MARUTI|India,MARUTI SUZUKI INDIA LTD,0.0169681393059509,India,Consumer Discretionary
+BEL|India,BHARAT ELECTRONICS LTD,0.016579555963066525,India,Industrials
+HUBS|United States,HUBSPOT INC,0.01634,United States,Information Technology
+DOC|United States,HEALTHPEAK PROPERTIES INC,0.01634,United States,Real Estate
+JKHY|United States,JACK HENRY AND ASSOCIATES INC,0.01634,United States,Financials
+WSO|United States,WATSCO INC,0.01634,United States,Industrials
+NBIX|United States,NEUROCRINE BIOSCIENCES INC,0.01634,United States,Health Care
+FNF|United States,FIDELITY NATIONAL FINANCIAL INC,0.01634,United States,Financials
+RPM|United States,RPM INTERNATIONAL INC,0.01634,United States,Materials
+TRU|United States,TRANSUNION,0.01634,United States,Industrials
+IT|United States,GARTNER INC,0.01634,United States,Information Technology
+ACM|United States,AECOM,0.01634,United States,Industrials
+MAS|United States,MASCO CORP,0.01634,United States,Industrials
+DPZ|United States,DOMINOS PIZZA INC,0.01634,United States,Consumer Discretionary
+PNFP|United States,PINNACLE FINANCIAL PARTNERS INC,0.01634,United States,Financials
+GDDY|United States,GODADDY INC CLASS A,0.01634,United States,Information Technology
+TEAM|United States,ATLASSIAN CORP CLASS A,0.01634,United States,Information Technology
+ALLE|United States,ALLEGION PLC,0.01634,United States,Industrials
+AFRM|United States,AFFIRM HOLDINGS INC CLASS A,0.01634,United States,Financials
+GEN|United States,GEN DIGITAL INC,0.01634,United States,Information Technology
+OKTA|United States,OKTA INC CLASS A,0.01634,United States,Information Technology
+PINS|United States,PINTEREST INC CLASS A,0.01634,United States,Communication
+TTD|United States,TRADE DESK INC CLASS A,0.01634,United States,Communication
+NTPC|India,NTPC LTD,0.016061444839220694,India,Utilities
+ITSA4|Brazil,ITAUSA INVESTIMENTOS ITAU PREF SA,0.015443698978748716,Brazil,Financials
+WEGE3|Brazil,WEG SA,0.015286644412863136,Brazil,Industrials
+5401|Japan,NIPPON STEEL CORP,0.015179999999999999,Japan,Materials
+4543|Japan,TERUMO CORP,0.014939999999999998,Japan,Health Care
+6326|Japan,KUBOTA CORP,0.014939999999999998,Japan,Industrials
+1812|Japan,KAJIMA CORP,0.014859999999999998,Japan,Industrials
+4507|Japan,SHIONOGI LTD,0.014859999999999998,Japan,Health Care
+1801|Japan,TAISEI CORP,0.014699999999999998,Japan,Industrials
+5713|Japan,SUMITOMO METAL MINING LTD,0.014699999999999998,Japan,Materials
+SHFL|India,SHRIRAM FINANCE LTD,0.014636639248644666,India,Financials
+TITAN|India,TITAN COMPANY LTD,0.014636639248644666,India,Consumer Discretionary
+2502|Japan,ASAHI GROUP HOLDINGS LTD,0.01462,Japan,Consumer Staples
+7832|Japan,BANDAI NAMCO HOLDINGS INC,0.01462,Japan,Consumer Discretionary
+1802|Japan,OBAYASHI CORP,0.01462,Japan,Industrials
+6361|Japan,EBARA CORP,0.014539999999999999,Japan,Industrials
+9531|Japan,TOKYO GAS LTD,0.014539999999999999,Japan,Utilities
+9735|Japan,SECOM LTD,0.014539999999999999,Japan,Industrials
+9101|Japan,NIPPON YUSEN,0.014459999999999999,Japan,Industrials
+6988|Japan,NITTO DENKO CORP,0.014379999999999999,Japan,Materials
+1928|Japan,SEKISUI HOUSE LTD,0.014299999999999998,Japan,Consumer Discretionary
+9532|Japan,OSAKA GAS LTD,0.014299999999999998,Japan,Utilities
+5016|Japan,JX ADVANCED METALS CORP,0.014299999999999998,Japan,Materials
+3407|Japan,ASAHI KASEI CORP,0.014299999999999998,Japan,Materials
+ELE|Spain,ENDESA SA,0.014269999999999998,Spain,Utilities
+TATASTEEL|India,TATA STEEL LTD,0.014248055905760297,India,Materials
+AXIA3|Brazil,CENTRAIS ELETR BRAS-ELETROBRAS SA,0.014239613973625935,Brazil,Utilities
+9104|Japan,MITSUI OSK LINES LTD,0.014219999999999998,Japan,Industrials
+8601|Japan,DAIWA SECURITIES GROUP INC,0.01414,Japan,Financials
+ABEV3|Brazil,AMBEV SA,0.014082559407740355,Brazil,Consumer Staples
+8697|Japan,JAPAN EXCHANGE GROUP INC,0.01406,Japan,Financials
+7532|Japan,PAN PACIFIC INTERNATIONAL HOLDINGS,0.01406,Japan,Consumer Discretionary
+SBSP3|Brazil,COMPANHIA DE SANEAMENTO BASICO DE,0.014030207885778497,Brazil,Utilities
+6594|Japan,NIDEC CORP,0.01398,Japan,Industrials
+4062|Japan,IBIDEN LTD,0.01398,Japan,Information Technology
+8795|Japan,T&D HOLDINGS INC,0.0139,Japan,Financials
+7453|Japan,RYOHIN KEIKAKU LTD,0.0139,Japan,Consumer Discretionary
+8473|Japan,SBI HOLDINGS INC,0.013819999999999999,Japan,Financials
+7735|Japan,SCREEN HOLDINGS LTD,0.013659999999999999,Japan,Information Technology
+UU.|United Kingdom,UNITED UTILITIES GROUP PLC,0.01351,United Kingdom,Utilities
+NESTE|Finland,NESTE,0.01351,Finland,Energy
+POWERGRID|India,POWER GRID CORPORATION OF INDIA LT,0.01347088921999155,India,Utilities
+ULTRACEMCO|India,ULTRATECH CEMENT LTD,0.01347088921999155,India,Materials
+600519|China,KWEICHOW MOUTAI LTD A,0.013454209937376074,China,Consumer Staples
+BPAC11|Brazil,BCO BTG PACTUAL UNT SA,0.013349638100274314,Brazil,Financials
+2010|Saudi Arabia,SAUDI BASIC INDUSTRIES,0.01304422791222178,Saudi Arabia,Materials
+ASRNL|Netherlands,ASR NEDERLAND NV,0.01275,Netherlands,Financials
+FRES|United Kingdom,FRESNILLO PLC,0.01275,United Kingdom,Materials
+AKZA|Netherlands,AKZO NOBEL NV,0.01275,Netherlands,Materials
+SGE|United Kingdom,THE SAGE GROUP PLC,0.01275,United Kingdom,Information Technology
+AGS|Belgium,AGEAS SA,0.01275,Belgium,Financials
+FORTUM|Finland,FORTUM,0.01275,Finland,Utilities
+BKT|Spain,BANKINTER SA,0.01275,Spain,Financials
+BG|Austria,BAWAG GROUP AG,0.01275,Austria,Financials
+BVI|France,BUREAU VERITAS SA,0.01275,France,Industrials
+KNIN|Switzerland,KUEHNE UND NAGEL INTERNATIONAL AG,0.01275,Switzerland,Industrials
+FGR|France,EIFFAGE SA,0.01275,France,Industrials
+MOWI|Norway,MOWI,0.01275,Norway,Consumer Staples
+MAERSK B|Denmark,A P MOLLER MAERSK B,0.01275,Denmark,Industrials
+300750|China,CONTEMPORARY AMPEREX TECHNOLOGY LT,0.012732091324918038,China,Industrials
+HCLTECH|India,HCL TECHNOLOGIES LTD,0.01269372253422281,India,Information Technology
+HINDALCO|India,HINDALCO INDUSTRIES LTD,0.01269372253422281,India,Materials
+BEI|Germany,BEIERSDORF AG,0.01199,Germany,Consumer Staples
+AC|France,ACCOR SA,0.01199,France,Consumer Discretionary
+AKRBP|Norway,AKER BP,0.01199,Norway,Energy
+ALO|France,ALSTOM SA,0.01199,France,Industrials
+MKS|United Kingdom,MARKS AND SPENCER GROUP PLC,0.01199,United Kingdom,Consumer Staples
+EPI B|Sweden,EPIROC CLASS B,0.01199,Sweden,Industrials
+OMV|Austria,OMV AG,0.01199,Austria,Energy
+CA|France,CARREFOUR SA,0.01199,France,Consumer Staples
+MNG|United Kingdom,M&G PLC,0.01199,United Kingdom,Financials
+FME|Germany,FRESENIUS MEDICAL CARE AG,0.01199,Germany,Health Care
+SKA B|Sweden,SKANSKA B,0.01199,Sweden,Industrials
+7269|Japan,SUZUKI MOTOR CORP,0.011819999999999999,Japan,Consumer Discretionary
+ALL|Australia,ARISTOCRAT LEISURE LTD,0.011819999999999999,Australia,Consumer Discretionary
+LYC|Australia,LYNAS RARE EARTHS LTD,0.011819999999999999,Australia,Materials
+TRI|Canada,THOMSON REUTERS CORP,0.011819999999999999,Canada,Industrials
+823|Hong Kong,LINK REAL ESTATE INVESTMENT TRUST,0.011819999999999999,Hong Kong,Real Estate
+PHOE|Israel,PHOENIX FINANCIAL LTD,0.011819999999999999,Israel,Financials
+LUN|Canada,LUNDIN MINING CORP,0.011819999999999999,Canada,Materials
+MRU|Canada,METRO INC,0.011819999999999999,Canada,Consumer Staples
+RBA|Canada,RB GLOBAL INC,0.011819999999999999,Canada,Industrials
+NVMI|Israel,NOVA LTD,0.011819999999999999,Israel,Information Technology
+RCI.B|Canada,ROGERS COMMUNICATIONS NON-VOTING I,0.011819999999999999,Canada,Communication
+SCG|Australia,SCENTRE GROUP,0.011819999999999999,Australia,Real Estate
+WN|Canada,GEORGE WESTON LTD,0.011819999999999999,Canada,Consumer Staples
+CHKP|Israel,CHECK POINT SOFTWARE TECHNOLOGIES,0.011819999999999999,Israel,Information Technology
+GIB.A|Canada,CGI INC CLASS A,0.011819999999999999,Canada,Information Technology
+TSEM|Israel,TOWER SEMICONDUCTOR LTD,0.011819999999999999,Israel,Information Technology
+H|Canada,HYDRO ONE LTD,0.011819999999999999,Canada,Utilities
+GWO|Canada,GREAT WEST LIFECO INC,0.011819999999999999,Canada,Financials
+COL|Australia,COLES GROUP LTD,0.011819999999999999,Australia,Consumer Staples
+IAG|Canada,IA FINANCIAL INC,0.011819999999999999,Canada,Financials
+BN4|Singapore,KEPPEL LTD,0.011819999999999999,Singapore,Industrials
+TLS|Australia,TELSTRA GROUP LTD,0.011819999999999999,Australia,Communication
+3|Hong Kong,HONG KONG AND CHINA GAS LTD,0.011819999999999999,Hong Kong,Utilities
+DSCT|Israel,ISRAEL DISCOUNT BANK LTD,0.011819999999999999,Israel,Financials
+288|Hong Kong,WH GROUP LTD,0.011819999999999999,Hong Kong,Consumer Staples
+BBD.B|Canada,BOMBARDIER INC CLASS B,0.011819999999999999,Canada,Industrials
+CPU|Australia,COMPUTERSHARE LTD,0.011819999999999999,Australia,Industrials
+GIL|Canada,GILDAN ACTIVEWEAR INC,0.011819999999999999,Canada,Consumer Discretionary
+EMBJ3|Brazil,EMBRAER SA,0.011464983309647353,Brazil,Industrials
+TRYG|Denmark,TRYG,0.01123,Denmark,Financials
+ERF|France,EUROFINS SCIENTIFIC,0.01123,France,Health Care
+TIT|Italy,TELECOM ITALIA,0.01123,Italy,Communication
+ORK|Norway,ORKLA,0.01123,Norway,Consumer Staples
+QIA|Germany,QIAGEN NV,0.01123,Germany,Health Care
+SOBI|Sweden,SWEDISH ORPHAN BIOVITRUM,0.01123,Sweden,Health Care
+SKF B|Sweden,SKF B,0.01123,Sweden,Industrials
+TREL B|Sweden,TRELLEBORG B,0.01123,Sweden,Industrials
+GBLB|Belgium,GROUPE BRUXELLES LAMBERT NV,0.01123,Belgium,Financials
+INDU C|Sweden,INDUSTRIVARDEN SERIES,0.01123,Sweden,Financials
+SCHN|Switzerland,SCHINDLER HOLDING AG,0.01123,Switzerland,Industrials
+BEAN|Switzerland,BELIMO N AG,0.01123,Switzerland,Industrials
+EVO|Sweden,EVOLUTION,0.01123,Sweden,Consumer Discretionary
+AM|France,DASSAULT AVIATION SA,0.01123,France,Industrials
+SECU B|Sweden,SECURITAS B,0.01123,Sweden,Industrials
+ITRK|United Kingdom,INTERTEK GROUP PLC,0.01123,United Kingdom,Industrials
+ORNBV|Finland,ORION CLASS B,0.01123,Finland,Health Care
+SBRY|United Kingdom,SAINSBURY(J) PLC,0.01123,United Kingdom,Consumer Staples
+CON|Germany,CONTINENTAL AG,0.01123,Germany,Consumer Discretionary
+ABF|United Kingdom,ASSOCIATED BRITISH FOODS PLC,0.01123,United Kingdom,Consumer Staples
+RXL|France,REXEL SA,0.01123,France,Industrials
+MRO|United Kingdom,MELROSE INDUSTRIES PLC,0.01123,United Kingdom,Industrials
+WISE|United Kingdom,WISE PLC CLASS A,0.01123,United Kingdom,Financials
+KBX|Germany,KNORR BREMSE AG,0.01123,Germany,Industrials
+LI|France,KLEPIERRE REIT SA,0.01123,France,Real Estate
+COLO B|Denmark,COLOPLAST B,0.01123,Denmark,Health Care
+UNI|Italy,UNIPOL ASSICURAZIONI SPA,0.01123,Italy,Financials
+HEN|Germany,HENKEL AG,0.01123,Germany,Consumer Staples
+ADDT B|Sweden,ADDTECH CLASS B,0.01123,Sweden,Industrials
+1010|Saudi Arabia,RIYAD BANK,0.010806391972427526,Saudi Arabia,Financials
+EXO|Netherlands,EXOR NV,0.01047,Netherlands,Financials
+PSON|United Kingdom,PEARSON PLC,0.01047,United Kingdom,Consumer Discretionary
+ANA|Spain,ACCIONA SA,0.01047,Spain,Utilities
+HOT|Germany,HOCHTIEF AG,0.01047,Germany,Industrials
+JMT|Portugal,JERONIMO MARTINS SA,0.01047,Portugal,Consumer Staples
+UHR|Switzerland,THE SWATCH GROUP AG,0.01047,Switzerland,Consumer Discretionary
+IPN|France,IPSEN SA,0.01047,France,Health Care
+ELISA|Finland,ELISA,0.01047,Finland,Communication
+ELI|Belgium,ELIA GROUP SA,0.01047,Belgium,Utilities
+KGF|United Kingdom,KINGFISHER PLC,0.01047,United Kingdom,Consumer Discretionary
+IG|Italy,ITALGAS,0.01047,Italy,Utilities
+SRT3|Germany,SARTORIUS PREF AG,0.01047,Germany,Health Care
+SDLF|United Kingdom,STANDARD LIFE PLC,0.01047,United Kingdom,Financials
+BCP|Portugal,BANCO COMERCIAL PORTUGUES SA,0.01047,Portugal,Financials
+INDT|Sweden,INDUTRADE,0.01047,Sweden,Industrials
+SCA B|Sweden,SVENSKA CELLULOSA B,0.01047,Sweden,Materials
+MICC|Netherlands,MAGNUM ICE CREAM NV,0.01047,Netherlands,Consumer Staples
+STERV|Finland,STORA ENSO CLASS R,0.01047,Finland,Materials
+TLX|Germany,TALANX AG,0.01047,Germany,Financials
+NTGY|Spain,NATURGY ENERGY GROUP SA,0.01047,Spain,Utilities
+BNR|Germany,BRENNTAG,0.01047,Germany,Industrials
+LIFCO B|Sweden,LIFCO CLASS B,0.01047,Sweden,Industrials
+SPX|United Kingdom,SPIRAX GROUP PLC,0.01047,United Kingdom,Industrials
+NWSA|United States,NEWS CORP CLASS A,0.01043,United States,Communication
+CG|United States,CARLYLE GROUP INC,0.01043,United States,Financials
+IONQ|United States,IONQ INC,0.01043,United States,Information Technology
+BLDR|United States,BUILDERS FIRSTSOURCE INC,0.01043,United States,Industrials
+ZBRA|United States,ZEBRA TECHNOLOGIES CORP CLASS A,0.01043,United States,Information Technology
+FOXA|United States,FOX CORP CLASS A,0.01043,United States,Communication
+DKNG|United States,DRAFTKINGS INC CLASS A,0.01043,United States,Consumer Discretionary
+IOT|United States,SAMSARA INC CLASS A,0.01043,United States,Information Technology
+UDR|United States,UDR REIT INC,0.01043,United States,Real Estate
+SOLV|United States,SOLVENTUM CORP,0.01043,United States,Health Care
+DAL|United States,DELTA AIR LINES INC,0.01043,United States,Industrials
+RIVN|United States,RIVIAN AUTOMOTIVE INC CLASS A,0.01043,United States,Consumer Discretionary
+DKS|United States,DICKS SPORTING INC,0.01043,United States,Consumer Discretionary
+EICHERMOT|India,EICHER MOTORS LTD,0.010103166914993664,India,Consumer Discretionary
+VEDL|India,VEDANTA LTD,0.009714583572109291,India,Materials
+AMUN|France,AMUNDI SA,0.00971,France,Financials
+JDEP|Netherlands,JDE PEETS NV,0.00971,Netherlands,Consumer Staples
+LAND|United Kingdom,LAND SECURITIES GROUP REIT PLC,0.00971,United Kingdom,Real Estate
+DIM|France,SARTORIUS STEDIM BIOTECH SA,0.00971,France,Health Care
+BTRW|United Kingdom,BARRATT REDROW PLC,0.00971,United Kingdom,Consumer Discretionary
+KESKOB|Finland,KESKO CLASS B,0.00971,Finland,Consumer Staples
+LEG|Germany,LEG IMMOBILIEN N,0.00971,Germany,Real Estate
+RNO|France,RENAULT SA,0.00971,France,Consumer Discretionary
+BMW3|Germany,BMW PREF AG,0.00971,Germany,Consumer Discretionary
+HAG|Germany,HENSOLDT AG,0.00971,Germany,Industrials
+IAG|Spain,INTERNATIONAL AIRLINES GROUP SA,0.00971,Spain,Industrials
+EMSN|Switzerland,EMS-CHEMIE HOLDING AG,0.00971,Switzerland,Materials
+LHA|Germany,DEUTSCHE LUFTHANSA AG,0.00971,Germany,Industrials
+IDR|Spain,INDRA SISTEMAS SA,0.00971,Spain,Information Technology
+PNDORA|Denmark,PANDORA,0.00971,Denmark,Consumer Discretionary
+RBI|Austria,RAIFFEISEN BANK INTERNATIONAL AG,0.00971,Austria,Financials
+SDR|United Kingdom,SCHRODERS PLC,0.00971,United Kingdom,Financials
+AUTO|United Kingdom,AUTOTRADER GROUP PLC,0.00971,United Kingdom,Communication
+INDU A|Sweden,INDUSTRIVARDEN A,0.00971,Sweden,Financials
+GET|France,GETLINK,0.00971,France,Industrials
+WTB|United Kingdom,WHITBREAD PLC,0.00971,United Kingdom,Consumer Discretionary
+NIBE B|Sweden,NIBE INDUSTRIER CLASS B,0.00971,Sweden,Industrials
+G24|Germany,SCOUT24 N,0.00971,Germany,Communication
+GJF|Norway,GJENSIDIGE FORSIKRING,0.00971,Norway,Financials
+REC|Italy,RECORDATI INDUSTRIA CHIMICA E FARM,0.00971,Italy,Health Care
+BEIJ B|Sweden,BEIJER REF CLASS B,0.00971,Sweden,Industrials
+EQTL3|Brazil,EQUATORIAL SA,0.009580328519020388,Brazil,Utilities
+PRIO3|Brazil,PETRO RIO SA,0.009423273953134808,Brazil,Energy
+1060|Saudi Arabia,SAUDI AWWAL BANK,0.009098569807847696,Saudi Arabia,Financials
+TMCV|India,TATA MOTORS LTD,0.009066944667302006,India,Industrials
+1150|Saudi Arabia,ALINMA BANK,0.008951343759177024,Saudi Arabia,Financials
+ZAL|Germany,ZALANDO,0.00895,Germany,Consumer Discretionary
+ENT|United Kingdom,ENTAIN PLC,0.00895,United Kingdom,Consumer Discretionary
+CPR|Italy,DAVIDE CAMPARI MILANO NV,0.00895,Italy,Consumer Staples
+BCVN|Switzerland,BC VAUD N,0.00895,Switzerland,Financials
+AAF|United Kingdom,AIRTEL AFRICA PLC,0.00895,United Kingdom,Communication
+TITR|Italy,TELECOM ITALIA S.P.A.,0.00895,Italy,Communication
+LUND B|Sweden,LUNDBERGFORETAGEN CLASS B,0.00895,Sweden,Financials
+SW|France,SODEXO SA,0.00895,France,Consumer Discretionary
+NEM|Germany,NEMETSCHEK,0.00895,Germany,Information Technology
+VER|Austria,VERBUND AG,0.00895,Austria,Utilities
+EVD|Germany,CTS EVENTIM AG,0.00895,Germany,Communication
+BKW|Switzerland,BKW N AG,0.00895,Switzerland,Utilities
+INPST|Netherlands,INPOST SA,0.00895,Netherlands,Industrials
+P911|Germany,DR ING HC F PORSCHE PRF AG,0.00895,Germany,Consumer Discretionary
+EDPR|Portugal,EDP RENOVAVEIS SA,0.00895,Portugal,Utilities
+DIE|Belgium,DIETEREN (D) SA,0.00895,Belgium,Consumer Discretionary
+RAA|Germany,RATIONAL AG,0.00895,Germany,Industrials
+BMED|Italy,BANCA MEDIOLANUM,0.00895,Italy,Financials
+ITC|India,ITC LTD,0.008937416886340548,India,Consumer Staples
+TVSMOTOR|India,TVS MOTOR COMPANY LTD,0.008807889105379092,India,Consumer Discretionary
+SBILIFE|India,SBI LIFE INSURANCE COMPANY LTD,0.008678361324417634,India,Financials
+1519|Taiwan,FORTUNE ELECTRIC LTD,0.008616187989556134,Taiwan,Industrials
+5274|Taiwan,ASPEED TECHNOLOGY INC,0.008616187989556134,Taiwan,Information Technology
+GAPB|Mexico,GRUPO AEROPORTUARIO DEL PACIFICO,0.008616187989556134,Mexico,Industrials
+GOTO|Indonesia,GOTO GOJEK TOKOPEDIA,0.008616187989556134,Indonesia,Consumer Discretionary
+151|China,WANT WANT CHINA HOLDINGS LTD,0.008616187989556134,China,Consumer Staples
+316140|Korea (South),WOORI FINANCIAL GROUP INC,0.008616187989556134,Korea (South),Financials
+3481|Taiwan,INNOLUX CORP,0.008616187989556134,Taiwan,Information Technology
+ALPHA|Greece,ALPHA BANK SA,0.008616187989556134,Greece,Financials
+ADNOCGAS|United Arab Emirates,ADNOC GAS PLC,0.008616187989556134,United Arab Emirates,Energy
+ADIB|United Arab Emirates,ABU DHABI ISLAMIC BANK,0.008616187989556134,United Arab Emirates,Financials
+CDR|Poland,CD PROJEKT SA,0.008616187989556134,Poland,Communication
+3529|Taiwan,EMEMORY TECHNOLOGY INC,0.008616187989556134,Taiwan,Information Technology
+TUPRS.E|Turkey,TURKIYE PETROL RAFINERILERI A,0.008616187989556134,Turkey,Energy
+ALI|Philippines,AYALA LAND INC,0.008616187989556134,Philippines,Real Estate
+6869|China,YANGTZE OPTICAL FIBRE AND CABLE JO,0.008616187989556134,China,Information Technology
+SSW|South Africa,SIBANYE STILLWATER LTD,0.008616187989556134,South Africa,Materials
+5876|Taiwan,SHANGHAI COMMERCIAL LTD,0.008616187989556134,Taiwan,Financials
+ASELS.E|Turkey,ASELSAN ELEKTRONIK SANAYI VE TICAR,0.008616187989556134,Turkey,Industrials
+5880|Taiwan,TAIWAN COOPERATIVE FINANCIAL HOLDI,0.008616187989556134,Taiwan,Financials
+3993|China,CMOC GROUP LTD,0.008616187989556134,China,Materials
+NPH|South Africa,NORTHAM PLATINUM HLDGS LTD,0.008616187989556134,South Africa,Materials
+1919|China,COSCO SHIPPING HOLDINGS LTD H,0.008616187989556134,China,Industrials
+1658|China,POSTAL SAVINGS BANK OF CHINA LTD H,0.008616187989556134,China,Financials
+1378|China,CHINA HONGQIAO GROUP LTD,0.008616187989556134,China,Materials
+000720|Korea (South),HYUNDAI ENGINEERING & CONSTRUCTION,0.008616187989556134,Korea (South),Industrials
+PEO|Poland,BANK PEKAO SA,0.008616187989556134,Poland,Financials
+096770|Korea (South),SK INNOVATION LTD,0.008616187989556134,Korea (South),Energy
+090430|Korea (South),AMOREPACIFIC CORP,0.008616187989556134,Korea (South),Consumer Staples
+PPH|South Africa,PEPKOR HOLDINGS SHS LTD,0.008616187989556134,South Africa,Consumer Discretionary
+086520|Korea (South),ECOPRO LTD,0.008616187989556134,Korea (South),Industrials
+1339|China,THE PEOPLES INSURANCE CO (GROUP),0.008616187989556134,China,Financials
+1347|China,HUA HONG SEMICONDUCTOR LTD,0.008616187989556134,China,Information Technology
+1816|China,CGN POWER LTD H,0.008616187989556134,China,Utilities
+1787|China,SHANDONG GOLD MINING LTD H,0.008616187989556134,China,Materials
+HAR|South Africa,HARMONY GOLD MINING COMPANY LIMITE,0.008616187989556134,South Africa,Materials
+298040|Korea (South),HYOSUNG HEAVY INDUSTRIES CORP,0.008616187989556134,Korea (South),Industrials
+2015|China,LI AUTO CLASS A INC,0.008616187989556134,China,Consumer Discretionary
+2002|Taiwan,CHINA STEEL CORP,0.008616187989556134,Taiwan,Materials
+196170|Korea (South),ALTEOGEN INC,0.008616187989556134,Korea (South),Health Care
+1818|China,ZHAOJIN MINING INDUSTRY LTD H,0.008616187989556134,China,Materials
+NED|South Africa,NEDBANK GROUP LTD,0.008616187989556134,South Africa,Financials
+NRP|South Africa,NEPI ROCKCASTLE NV,0.008616187989556134,South Africa,Real Estate
+9866|China,NIO CLASS A INC,0.008616187989556134,China,Consumer Discretionary
+3606|China,FUYAO GLASS INDUSTRY GROUP LTD H,0.008616187989556134,China,Consumer Discretionary
+CEZ|Czech Republic,CEZ,0.008616187989556134,Czech Republic,Utilities
+914|China,ANHUI CONCH CEMENT LTD H,0.008616187989556134,China,Materials
+6446|Taiwan,PHARMAESSENTIA CORP,0.008616187989556134,Taiwan,Health Care
+358|China,JIANGXI COPPER LTD H,0.008616187989556134,China,Materials
+PE&OLES*|Mexico,INDUST PENOLES,0.008616187989556134,Mexico,Materials
+000150|Korea (South),DOOSAN CORP,0.008616187989556134,Korea (South),Industrials
+BDO|Philippines,BDO UNIBANK INC,0.008616187989556134,Philippines,Financials
+DNP|Poland,DINO POLSKA SA,0.008616187989556134,Poland,Consumer Staples
+7769|Taiwan,HONPRECISION INC,0.008616187989556134,Taiwan,Information Technology
+BVN|Peru,BUENAVENTURA ADR REPRESENTING,0.008616187989556134,Peru,Materials
+ASURB|Mexico,GRUPO AEROPORTUARIO DEL SURESTE B,0.008616187989556134,Mexico,Industrials
+BVT|South Africa,BIDVEST GROUP LTD,0.008616187989556134,South Africa,Industrials
+BDMS.R|Thailand,BANGKOK DUSIT MEDICAL SERVICES NON,0.008616187989556134,Thailand,Health Care
+9868|China,XPENG CLASS A INC,0.008616187989556134,China,Consumer Discretionary
+BBRI|Indonesia,BANK RAKYAT INDONESIA (PERSERO),0.008616187989556134,Indonesia,Financials
+3661|Taiwan,ALCHIP TECHNOLOGIES LTD,0.008616187989556134,Taiwan,Information Technology
+6618|China,JD HEALTH INTERNATIONAL INC,0.008616187989556134,China,Consumer Staples
+3665|Taiwan,BIZLINK HOLDING INC,0.008616187989556134,Taiwan,Industrials
+373220|Korea (South),LG ENERGY SOLUTION LTD,0.008616187989556134,Korea (South),Industrials
+6669|Taiwan,WIWYNN CORPORATION CORP,0.008616187989556134,Taiwan,Information Technology
+6690|China,HAIER SMART HOME CLASS H LTD H,0.008616187989556134,China,Consumer Discretionary
+BIMAS.E|Turkey,BIM BIRLESIK MAGAZALAR A,0.008616187989556134,Turkey,Consumer Staples
+BIMBOA|Mexico,GRUPO BIMBO A,0.008616187989556134,Mexico,Consumer Staples
+788|China,CHINA TOWER CORP LTD H,0.008616187989556134,China,Communication
+9626|China,BILIBILI INC,0.008616187989556134,China,Communication
+3898|China,ZHUZHOU CRRC TIMES ELECTRIC LTD H,0.008616187989556134,China,Industrials
+998|China,CHINA CITIC BANK CORP LTD H,0.008616187989556134,China,Financials
+VIPS|China,VIPSHOP HOLDINGS SPONSORED ADS REP,0.008616187989556134,China,Consumer Discretionary
+9698|China,GDS HOLDINGS LTD CLASS A,0.008616187989556134,China,Information Technology
+968|China,XINYI SOLAR HOLDINGS LTD,0.008616187989556134,China,Information Technology
+9901|China,NEW ORIENTAL EDUCATION & TECHNOLOG,0.008616187989556134,China,Consumer Discretionary
+9926|China,AKESO INC,0.008616187989556134,China,Health Care
+992|China,LENOVO GROUP LTD,0.008616187989556134,China,Information Technology
+ADCB|United Arab Emirates,ABU DHABI COMMERCIAL BANK,0.008616187989556134,United Arab Emirates,Financials
+3653|Taiwan,JENTECH PRECISION INDUSTRIAL LTD,0.008616187989556134,Taiwan,Information Technology
+VOD|South Africa,VODACOM GROUP LTD,0.008616187989556134,South Africa,Communication
+9992|China,POP MART INTERNATIONAL GROUP LTD,0.008616187989556134,China,Consumer Discretionary
+688|China,CHINA OVERSEAS LAND INVESTMENT LTD,0.008616187989556134,China,Real Estate
+BMRI|Indonesia,BANK MANDIRI (PERSERO),0.008616187989556134,Indonesia,Financials
+AC*|Mexico,ARCA CONTINENTAL,0.008616187989556134,Mexico,Consumer Staples
+916|China,CHINA LONGYUAN POWER GROUP CORP LT,0.008616187989556134,China,Utilities
+ASII|Indonesia,ASTRA INTERNATIONAL,0.008616187989556134,Indonesia,Industrials
+3908|China,CHINA INTERNATIONAL CAPITAL CORP L,0.008616187989556134,China,Financials
+1093|China,CSPC PHARMACEUTICAL GROUP LTD,0.008616187989556134,China,Health Care
+1101|Taiwan,TAIWAN CEMENT LTD,0.008616187989556134,Taiwan,Materials
+1099|China,SINOPHARM GROUP LTD H,0.008616187989556134,China,Health Care
+2333|China,GREAT WALL MOTOR COMPANY LTD H,0.008616187989556134,China,Consumer Discretionary
+3045|Taiwan,TAIWAN MOBILE LTD,0.008616187989556134,Taiwan,Communication
+SM|Philippines,SM INVESTMENTS CORP,0.008616187989556134,Philippines,Industrials
+010120|Korea (South),LS ELECTRIC LTD,0.008616187989556134,Korea (South),Industrials
+3037|Taiwan,UNIMICRON TECHNOLOGY CORP,0.008616187989556134,Taiwan,Information Technology
+010140|Korea (South),SAMSUNG HEAVY INDUSTRIES LTD,0.008616187989556134,Korea (South),Industrials
+015760|Korea (South),KOREA ELECTRIC POWER CORP,0.008616187989556134,Korea (South),Utilities
+024110|Korea (South),INDUSTRIAL BANK OF KOREA,0.008616187989556134,Korea (South),Financials
+TME|China,TENCENT MUSIC ENTERTAINMENT GROUP,0.008616187989556134,China,Communication
+3008|Taiwan,LARGAN PRECISION LTD,0.008616187989556134,Taiwan,Information Technology
+035720|Korea (South),KAKAO CORP,0.008616187989556134,Korea (South),Communication
+ETE|Greece,NATIONAL BANK OF GREECE SA,0.008616187989556134,Greece,Financials
+064350|Korea (South),HYUNDAI-ROTEM,0.008616187989556134,Korea (South),Industrials
+FUNO11|Mexico,FIBRA UNO ADMINISTRACION REIT,0.008616187989556134,Mexico,Real Estate
+066570|Korea (South),LG ELECTRONICS INC,0.008616187989556134,Korea (South),Consumer Discretionary
+2099|China,CHINA GOLD INTERNATIONAL RESOURCES,0.008616187989556134,China,Materials
+2368|Taiwan,GOLD CIRCUIT ELECTRONICS LTD,0.008616187989556134,Taiwan,Information Technology
+2359|China,WUXI APPTEC LTD H,0.008616187989556134,China,Health Care
+2883|Taiwan,KGI FINANCIAL HOLDING LTD,0.008616187989556134,Taiwan,Financials
+2357|Taiwan,ASUSTEK COMPUTER INC,0.008616187989556134,Taiwan,Information Technology
+042660|Korea (South),HANWHA OCEAN LTD,0.008616187989556134,Korea (South),Industrials
+SMPH|Philippines,SM PRIME HOLDINGS INC,0.008616187989556134,Philippines,Real Estate
+003490|Korea (South),KOREAN AIR LINES LTD,0.008616187989556134,Korea (South),Industrials
+ENELCHILE|Chile,ENEL CHILE SA,0.008616187989556134,Chile,Utilities
+QIBK|Qatar,QATAR ISLAMIC BANK,0.008616187989556134,Qatar,Financials
+TLKM|Indonesia,TELEKOMUNIKASI INDONESIA,0.008616187989556134,Indonesia,Communication
+PTTEP.R|Thailand,PTT EXPLORATION AND PRODUCTION NON,0.008616187989556134,Thailand,Energy
+042700|Korea (South),HANMI SEMICONDUCTOR LTD,0.008616187989556134,Korea (South),Information Technology
+051910|Korea (South),LG CHEM LTD,0.008616187989556134,Korea (South),Materials
+047810|Korea (South),KOREA AEROSPACE INDUSTRIES LTD,0.008616187989556134,Korea (South),Industrials
+003550|Korea (South),LG CORP,0.008616187989556134,Korea (South),Industrials
+EUROB|Greece,EUROBANK SA,0.008616187989556134,Greece,Financials
+SHP|South Africa,SHOPRITE HOLDINGS LTD,0.008616187989556134,South Africa,Consumer Staples
+SLM|South Africa,SANLAM LIMITED LTD,0.008616187989556134,South Africa,Financials
+3328|China,BANK OF COMMUNICATIONS LTD H,0.008616187989556134,China,Financials
+SDG|Malaysia,SD GUTHRIE,0.008616187989556134,Malaysia,Consumer Staples
+3323|China,CHINA NATIONAL BUILDING MATERIAL L,0.008616187989556134,China,Materials
+SCC.R|Thailand,SIAM CEMENT NON-VOTING DR PCL,0.008616187989556134,Thailand,Materials
+329180|Korea (South),HD HYUNDAI HEAVY INDUSTRIES LTD,0.008616187989556134,Korea (South),Industrials
+SCB.R|Thailand,SCB X PUBLIC COMPANY LIMITED NON-V,0.008616187989556134,Thailand,Financials
+3231|Taiwan,WISTRON CORP,0.008616187989556134,Taiwan,Information Technology
+PCHEM|Malaysia,PETRONAS CHEMICALS GROUP,0.008616187989556134,Malaysia,Materials
+2884|Taiwan,E.SUN FINANCIAL HOLDING LTD,0.008616187989556134,Taiwan,Financials
+TM|Malaysia,TELEKOM MALAYSIA,0.008616187989556134,Malaysia,Communication
+2331|China,LI NING LTD,0.008616187989556134,China,Consumer Discretionary
+2057|China,ZTO EXPRESS (CAYMAN) INC,0.008616187989556134,China,Industrials
+268|China,KINGDEE INT L SOFTWARE GROUP LTD,0.008616187989556134,China,Information Technology
+272210|Korea (South),HANWHA SYSTEMS LTD,0.008616187989556134,Korea (South),Industrials
+247540|Korea (South),ECOPRO BM LTD,0.008616187989556134,Korea (South),Industrials
+278470|Korea (South),APR LTD,0.008616187989556134,Korea (South),Consumer Staples
+TAL|China,TAL EDUCATION GROUP ADR REPTG,0.008616187989556134,China,Consumer Discretionary
+2449|Taiwan,KING YUAN ELECTRONICS LTD,0.008616187989556134,Taiwan,Information Technology
+2423|China,KE HOLDINGS INC,0.008616187989556134,China,Real Estate
+20|China,SENSETIME GROUP CLASS B INC,0.008616187989556134,China,Information Technology
+079550|Korea (South),LIG NEX1 LTD,0.008616187989556134,Korea (South),Industrials
+2688|China,ENN ENERGY HOLDINGS LTD,0.008616187989556134,China,Utilities
+MINT.R|Thailand,MINOR INTERNATIONAL PUBLIC NON-VOT,0.008616187989556134,Thailand,Consumer Discretionary
+SQM.B|Chile,SOCIEDAD QUIMICA Y MINERA DE CHILE,0.008616187989556134,Chile,Materials
+1326|Taiwan,FORMOSA CHEMICALS & FIBRE CORP,0.008616187989556134,Taiwan,Materials
+1301|Taiwan,FORMOSA PLASTICS CORP,0.008616187989556134,Taiwan,Materials
+1208|China,MMG LTD,0.008616187989556134,China,Materials
+1177|China,SINO BIOPHARMACEUTICAL LTD,0.008616187989556134,China,Health Care
+1109|China,CHINA RESOURCES LAND LTD,0.008616187989556134,China,Real Estate
+2327|Taiwan,YAGEO CORP,0.008616187989556134,Taiwan,Information Technology
+241|China,ALIBABA HEALTH INFORMATION TECH LT,0.008616187989556134,China,Consumer Staples
+PBBANK|Malaysia,PUBLIC BANK,0.008616187989556134,Malaysia,Financials
+259960|Korea (South),KRAFTON INC,0.008616187989556134,Korea (South),Communication
+2880|Taiwan,HUA NAN FINANCIAL HOLDINGS LTD,0.008616187989556134,Taiwan,Financials
+2324|Taiwan,COMPAL ELECTRONICS INC,0.008616187989556134,Taiwan,Information Technology
+267|China,CITIC LTD,0.008616187989556134,China,Industrials
+2319|China,CHINA MENGNIU DAIRY LTD,0.008616187989556134,China,Consumer Staples
+2313|China,SHENZHOU INTERNATIONAL GROUP LTD,0.008616187989556134,China,Consumer Discretionary
+LTM|Chile,LATAM AIRLINES GROUP SA,0.008616187989556134,Chile,Industrials
+2890|Taiwan,SINOPAC FINANCIAL HOLDINGS LTD,0.008616187989556134,Taiwan,Financials
+2892|Taiwan,FIRST FINANCIAL HOLDING LTD,0.008616187989556134,Taiwan,Financials
+2259|China,ZIJIN GOLD INTERNATIONAL LTD,0.008616187989556134,China,Materials
+MARK|Qatar,MASRAF AL RAYAN,0.008616187989556134,Qatar,Financials
+2382|China,SUNNY OPTICAL TECHNOLOGY LTD,0.008616187989556134,China,Information Technology
+HTHT|China,H WORLD GROUP ADR LTD,0.008616187989556134,China,Consumer Discretionary
+ICT|Philippines,INTERNATIONAL CONTAINER TERMINAL S,0.008616187989556134,Philippines,Industrials
+2601|China,CHINA PACIFIC INSURANCE (GROUP) LT,0.008616187989556134,China,Financials
+267250|Korea (South),HD HYUNDAI LTD,0.008616187989556134,Korea (South),Energy
+IOICORP|Malaysia,IOI CORPORATION,0.008616187989556134,Malaysia,Consumer Staples
+267260|Korea (South),HD HYUNDAI ELECTRIC LTD,0.008616187989556134,Korea (South),Industrials
+2600|China,ALUMINUM CORPORATION OF CHINA LTD,0.008616187989556134,China,Materials
+2886|Taiwan,MEGA FINANCIAL HOLDING LTD,0.008616187989556134,Taiwan,Financials
+ASIANPAINT|India,ASIAN PAINTS LTD,0.00841930576249472,India,Materials
+RENT3|Brazil,LOCALIZA RENT A CAR SA,0.008376243513897609,Brazil,Industrials
+BBAS3|Brazil,BANCO DO BRASIL SA,0.008323891991935747,Brazil,Financials
+ONGC|India,OIL AND NATURAL GAS LTD,0.008289777981533263,India,Energy
+2503|Japan,KIRIN HOLDINGS LTD,0.00823,Japan,Consumer Staples
+9766|Japan,KONAMI GROUP CORP,0.00823,Japan,Communication
+BZU|Italy,BUZZI,0.00819,Italy,Materials
+AYV|France,AYVENS SA,0.00819,France,Industrials
+SAGA B|Sweden,SAGAX CLASS B,0.00819,Sweden,Real Estate
+ADP|France,AEROPORTS DE PARIS SA,0.00819,France,Industrials
+MAP|Spain,MAPFRE SA,0.00819,Spain,Financials
+BOL|France,BOLLORE,0.00819,France,Energy
+SNAP|United States,SNAP INC CLASS A,0.00817,United States,Communication
+ERIE|United States,ERIE INDEMNITY CLASS A,0.00817,United States,Financials
+OKLO|United States,OKLO INC CLASS A,0.00817,United States,Utilities
+EQH|United States,EQUITABLE HOLDINGS INC,0.00817,United States,Financials
+Z|United States,ZILLOW GROUP INC CLASS C,0.00817,United States,Real Estate
+HRL|United States,HORMEL FOODS CORP,0.00817,United States,Consumer Staples
+H|United States,HYATT HOTELS CORP CLASS A,0.00817,United States,Consumer Discretionary
+UAL|United States,UNITED AIRLINES HOLDINGS INC,0.00817,United States,Industrials
+FOX|United States,FOX CORP CLASS B,0.00817,United States,Communication
+CNH|United States,CNH INDUSTRIAL N.V. NV,0.00817,United States,Industrials
+INDIGO|India,INTERGLOBE AVIATION LTD,0.008160250200571807,India,Industrials
+NESTLEIND|India,NESTLE INDIA LTD,0.008160250200571807,India,Consumer Staples
+APOLLOHOSP|India,APOLLO HOSPITALS ENTERPRISE LTD,0.008030722419610347,India,Health Care
+COALINDIA|India,COAL INDIA LTD,0.008030722419610347,India,Energy
+XP|Brazil,XP CLASS A INC,0.008009782860164587,Brazil,Financials
+6383|Japan,DAIFUKU LTD,0.00799,Japan,Industrials
+2020|Saudi Arabia,SABIC AGRI-NUTRIENTS,0.00797965183795057,Saudi Arabia,Materials
+HAL|India,HINDUSTAN AERONAUTICS LTD,0.00790119463864889,India,Industrials
+MAXHEALTH|India,MAX HEALTHCARE INSTITUTE LTD,0.00790119463864889,India,Health Care
+4307|Japan,NOMURA RESEARCH INSTITUTE LTD,0.00783,Japan,Information Technology
+3402|Japan,TORAY INDUSTRIES INC,0.00783,Japan,Materials
+7270|Japan,SUBARU CORP,0.00775,Japan,Consumer Discretionary
+7186|Japan,YOKOHAMA FINANCIAL GROUP INC,0.00775,Japan,Financials
+1803|Japan,SHIMIZU CORP,0.00775,Japan,Industrials
+7733|Japan,OLYMPUS CORP,0.00775,Japan,Health Care
+ADANIPORTS|India,ADANI PORTS AND SPECIAL ECONOMIC Z,0.007512611295764519,India,Industrials
+SUZB3|Brazil,SUZANO SA,0.007433916118584127,Brazil,Materials
+9021|Japan,WEST JAPAN RAILWAY,0.007429999999999999,Japan,Industrials
+4523|Japan,EISAI LTD,0.007429999999999999,Japan,Health Care
+4684|Japan,OBIC LTD,0.007429999999999999,Japan,Information Technology
+DIVISLAB|India,DIVIS LABORATORIES LTD,0.007383083514803061,India,Health Care
+CIPLA|India,CIPLA LTD,0.007383083514803061,India,Health Care
+6841|Japan,YOKOGAWA ELECTRIC CORP,0.007349999999999999,Japan,Information Technology
+7911|Japan,TOPPAN HOLDINGS INC,0.007349999999999999,Japan,Industrials
+8593|Japan,MITSUBISHI HC CAPITAL INC,0.007349999999999999,Japan,Financials
+6586|Japan,MAKITA CORP,0.0072699999999999996,Japan,Industrials
+4911|Japan,SHISEIDO LTD,0.0072699999999999996,Japan,Consumer Staples
+7912|Japan,DAI NIPPON PRINTING LTD,0.0072699999999999996,Japan,Industrials
+4188|Japan,MITSUBISHI CHEMICAL GROUP CORP,0.0072699999999999996,Japan,Materials
+7309|Japan,SHIMANO INC,0.0072699999999999996,Japan,Consumer Discretionary
+4689|Japan,LY CORP,0.0072699999999999996,Japan,Communication
+9697|Japan,CAPCOM LTD,0.0072699999999999996,Japan,Communication
+4755|Japan,RAKUTEN GROUP INC,0.0072699999999999996,Japan,Consumer Discretionary
+8331|Japan,CHIBA BANK LTD,0.0072699999999999996,Japan,Financials
+GRASIM|India,GRASIM INDUSTRIES LTD,0.007253555733841606,India,Materials
+JSWSTEEL|India,JSW STEEL LTD,0.007253555733841606,India,Materials
+9843|Japan,NITORI HOLDINGS LTD,0.007189999999999999,Japan,Consumer Discretionary
+5201|Japan,AGC INC,0.007189999999999999,Japan,Industrials
+8951|Japan,NIPPON BUILDING FUND REIT INC,0.007189999999999999,Japan,Real Estate
+3659|Japan,NEXON LTD,0.007189999999999999,Japan,Communication
+BAJAJFINSV|India,BAJAJ FINSERV LTD,0.007124027952880149,India,Financials
+8113|Japan,UNICHARM CORP,0.007109999999999999,Japan,Consumer Staples
+1878|Japan,DAITO TRUST CONSTRUCTION LTD,0.007109999999999999,Japan,Real Estate
+4204|Japan,SEKISUI CHEMICAL LTD,0.007109999999999999,Japan,Industrials
+8136|Japan,SANRIO LTD,0.007109999999999999,Japan,Consumer Discretionary
+4612|Japan,NIPPON PAINT HOLDINGS LTD,0.007109999999999999,Japan,Materials
+7272|Japan,YAMAHA MOTOR LTD,0.007109999999999999,Japan,Consumer Discretionary
+6479|Japan,MINEBEA MITSUMI INC,0.007109999999999999,Japan,Industrials
+9042|Japan,HANKYU HANSHIN HOLDINGS INC,0.00703,Japan,Industrials
+2801|Japan,KIKKOMAN CORP,0.00703,Japan,Consumer Staples
+DRREDDY|India,DR REDDYS LABORATORIES LTD,0.00699450017191869,India,Health Care
+TECHM|India,TECH MAHINDRA LTD,0.00699450017191869,India,Information Technology
+7550|Japan,ZENSHO HOLDINGS LTD,0.00695,Japan,Consumer Discretionary
+7701|Japan,SHIMADZU CORP,0.00695,Japan,Information Technology
+9005|Japan,TOKYU CORP,0.00695,Japan,Industrials
+7181|Japan,JAPAN POST INSURANCE LTD,0.00695,Japan,Financials
+9107|Japan,KAWASAKI KISEN LTD,0.00695,Japan,Industrials
+3003|Japan,HULIC LTD,0.00695,Japan,Real Estate
+9024|Japan,SEIBU HOLDINGS INC,0.006869999999999999,Japan,Industrials
+7201|Japan,NISSAN MOTOR LTD,0.006869999999999999,Japan,Consumer Discretionary
+2413|Japan,M3 INC,0.006789999999999999,Japan,Health Care
+6869|Japan,SYSMEX CORP,0.006789999999999999,Japan,Health Care
+HEROMOTOCO|India,HERO MOTOCORP LTD,0.006735444609995775,India,Consumer Discretionary
+CHOLAFIN|India,CHOLAMANDALAM INVESTMENT AND FINAN,0.006735444609995775,India,Financials
+TMPV|India,TATA MOTORS PASSENGER VEHICLES LTD,0.006735444609995775,India,Consumer Discretionary
+9435|Japan,HIKARI TSUSHIN INC,0.00671,Japan,Industrials
+JIOFIN|India,JIO FINANCIAL SERVICES LTD,0.0066059168290343185,India,Financials
+TRENT|India,TRENT LTD,0.0066059168290343185,India,Consumer Discretionary
+VBBR3|Brazil,VIBRA ENERGIA SA,0.006596291767194367,Brazil,Consumer Discretionary
+VIVT3|Brazil,TELEFONICA BRASIL SA,0.006543940245232506,Brazil,Communication
+2082|Saudi Arabia,ACWA POWER CO,0.006536836560977959,Saudi Arabia,Utilities
+CUMMINSIND|India,CUMMINS INDIA LTD,0.006476389048072862,India,Industrials
+3391|Japan,TSURUHA HOLDINGS INC,0.006469999999999999,Japan,Consumer Staples
+3064|Japan,MONOTARO LTD,0.006469999999999999,Japan,Industrials
+7020|Saudi Arabia,ETIHAD ETISALAT,0.006389610512307284,Saudi Arabia,Communication
+DMART|India,AVENUE SUPERMARTS LTD,0.006346861267111405,India,Consumer Staples
+BAJAJ.AUTO|India,BAJAJ AUTO LTD,0.006346861267111405,India,Consumer Discretionary
+BRITANNIA|India,BRITANNIA INDUSTRIES LTD,0.006346861267111405,India,Consumer Staples
+TATACONSUM|India,TATA CONSUMER PRODUCTS LTD,0.006346861267111405,India,Consumer Staples
+JBS|Brazil,JBS N V NV CLASS A,0.006282182635423206,Brazil,Consumer Staples
+HDFCLIFE|India,HDFC LIFE INSURANCE COMPANY LTD,0.006217333486149945,India,Financials
+600036|China,CHINA MERCHANTS BANK LTD A,0.006195017570034746,China,Financials
+1050|Saudi Arabia,BANQUE SAUDI FRANSI,0.006065713205231799,Saudi Arabia,Financials
+RADL3|Brazil,RAIA DROGASIL,0.0060204250256139045,Brazil,Consumer Staples
+RDOR3|Brazil,REDE DOR SAO LUIZ SA,0.005968073503652045,Brazil,Health Care
+PFC|India,POWER FINANCE CORPORATION LTD,0.005958277924227033,India,Financials
+TATAPOWER|India,TATA POWER LTD,0.005958277924227033,India,Utilities
+GRAB|Singapore,GRAB HOLDINGS LTD CLASS A,0.0059099999999999995,Singapore,Industrials
+S63|Singapore,SINGAPORE TECHNOLOGIES ENGINEERING,0.0059099999999999995,Singapore,Industrials
+FSV|Canada,FIRSTSERVICE SUBORDINATE VOTING CO,0.0059099999999999995,Canada,Real Estate
+X|Canada,TMX GROUP LTD,0.0059099999999999995,Canada,Financials
+CICT|Singapore,CAPITALAND INTEGRATED COMMERCIAL T,0.0059099999999999995,Singapore,Real Estate
+CAR|Australia,CAR GROUP LTD,0.0059099999999999995,Australia,Communication
+FPH|New Zealand,FISHER AND PAYKEL HEALTHCARE CORPO,0.0059099999999999995,New Zealand,Health Care
+SGH|Australia,SGH LTD,0.0059099999999999995,Australia,Industrials
+COH|Australia,COCHLEAR LTD,0.0059099999999999995,Australia,Health Care
+F34|Singapore,WILMAR INTERNATIONAL LTD,0.0059099999999999995,Singapore,Consumer Staples
+TLC|Australia,THE LOTTERY CORPORATION LTD,0.0059099999999999995,Australia,Consumer Discretionary
+FUTU|Hong Kong,FUTU HOLDINGS ADR LTD,0.0059099999999999995,Hong Kong,Financials
+SGP|Australia,STOCKLAND STAPLED UNITS LTD,0.0059099999999999995,Australia,Real Estate
+H78|Hong Kong,HONGKONG LAND HOLDINGS LTD,0.0059099999999999995,Hong Kong,Real Estate
+SHL|Australia,SONIC HEALTHCARE LTD,0.0059099999999999995,Australia,Health Care
+S68|Singapore,SINGAPORE EXCHANGE LTD,0.0059099999999999995,Singapore,Financials
+GFL|Canada,GFL ENVIRONMENTAL SUBORDINATE VOTI,0.0059099999999999995,Canada,Industrials
+TIH|Canada,TOROMONT INDUSTRIES LTD,0.0059099999999999995,Canada,Industrials
+CEN|New Zealand,CONTACT ENERGY LTD,0.0059099999999999995,New Zealand,Utilities
+TFII|Canada,TFI INTERNATIONAL INC,0.0059099999999999995,Canada,Industrials
+SAP|Canada,SAPUTO INC,0.0059099999999999995,Canada,Consumer Staples
+CU|Canada,CANADIAN UTILITIES LTD CLASS A,0.0059099999999999995,Canada,Utilities
+CCL.B|Canada,CCL INDUSTRIES INC CLASS B,0.0059099999999999995,Canada,Materials
+U96|Singapore,SEMBCORP INDUSTRIES LTD,0.0059099999999999995,Singapore,Utilities
+BS6|Singapore,YANGZIJIANG SHIPBUILDING (HOLDINGS,0.0059099999999999995,Singapore,Industrials
+DSG|Canada,DESCARTES SYSTEMS GROUP INC,0.0059099999999999995,Canada,Information Technology
+EFN|Canada,ELEMENT FLEET MANAGEMENT CORP,0.0059099999999999995,Canada,Industrials
+SIG|Australia,SIGMA HEALTHCARE LTD,0.0059099999999999995,Australia,Health Care
+XRO|Australia,XERO LTD,0.0059099999999999995,Australia,Information Technology
+EMP.A|Canada,EMPIRE LTD CLASS A,0.0059099999999999995,Canada,Consumer Staples
+T|Canada,TELUS,0.0059099999999999995,Canada,Communication
+CAE|Canada,CAE INC,0.0059099999999999995,Canada,Industrials
+CTC.A|Canada,CANADIAN TIRE LTD CLASS A,0.0059099999999999995,Canada,Consumer Discretionary
+APA|Australia,APA GROUP UNITS,0.0059099999999999995,Australia,Utilities
+C6L|Singapore,SINGAPORE AIRLINES LTD,0.0059099999999999995,Singapore,Industrials
+1113|Hong Kong,CK ASSET HOLDINGS LTD,0.0059099999999999995,Hong Kong,Real Estate
+ALA|Canada,ALTAGAS LTD,0.0059099999999999995,Canada,Utilities
+AIA|New Zealand,AUCKLAND INTERNATIONAL AIRPORT LTD,0.0059099999999999995,New Zealand,Industrials
+NICE|Israel,NICE LTD,0.0059099999999999995,Israel,Information Technology
+LUG|Canada,LUNDIN GOLD INC,0.0059099999999999995,Canada,Materials
+VCX|Australia,VICINITY CENTRES,0.0059099999999999995,Australia,Real Estate
+MEL|New Zealand,MERIDIAN ENERGY LTD,0.0059099999999999995,New Zealand,Utilities
+IFT|New Zealand,INFRATIL LTD,0.0059099999999999995,New Zealand,Financials
+9CI|Singapore,CAPITALAND INVESTMENT LTD,0.0059099999999999995,Singapore,Real Estate
+STN|Canada,STANTEC INC,0.0059099999999999995,Canada,Industrials
+SUN|Australia,SUNCORP GROUP LTD,0.0059099999999999995,Australia,Financials
+27|Hong Kong,GALAXY ENTERTAINMENT GROUP LTD,0.0059099999999999995,Hong Kong,Consumer Discretionary
+OTEX|Canada,OPEN TEXT CORP,0.0059099999999999995,Canada,Information Technology
+BEPC|Canada,BROOKFIELD RENEWABLE SUBORDINATE V,0.0059099999999999995,Canada,Utilities
+IAG|Australia,INSURANCE AUSTRALIA GROUP LTD,0.0059099999999999995,Australia,Financials
+A17U|Singapore,CAPITALAND ASCENDAS REIT,0.0059099999999999995,Singapore,Real Estate
+PME|Australia,PRO MEDICUS LTD,0.0059099999999999995,Australia,Health Care
+12|Hong Kong,HENDERSON LAND DEVELOPMENT LTD,0.0059099999999999995,Hong Kong,Real Estate
+KEY|Canada,KEYERA CORP,0.0059099999999999995,Canada,Energy
+1928|Hong Kong,SANDS CHINA LTD,0.0059099999999999995,Hong Kong,Consumer Discretionary
+1997|Hong Kong,WHARF REAL ESTATE INVESTMENT COMPA,0.0059099999999999995,Hong Kong,Real Estate
+MPL|Australia,MEDIBANK PRIVATE LTD,0.0059099999999999995,Australia,Financials
+MZTF|Israel,MIZRAHI TEFAHOT BANK LTD,0.0059099999999999995,Israel,Financials
+66|Hong Kong,MTR CORPORATION CORP LTD,0.0059099999999999995,Hong Kong,Industrials
+AZRG|Israel,AZRIELI GROUP LTD,0.0059099999999999995,Israel,Real Estate
+WTC|Australia,WISETECH GLOBAL LTD,0.0059099999999999995,Australia,Information Technology
+REA|Australia,REA GROUP LTD,0.0059099999999999995,Australia,Communication
+ATRL|Canada,ATKINSREALIS GROUP INC,0.0059099999999999995,Canada,Industrials
+ASX|Australia,ASX LTD,0.0059099999999999995,Australia,Financials
+IVN|Canada,IVANHOE MINES LTD CLASS A,0.0059099999999999995,Canada,Materials
+6823|Hong Kong,HKT TRUST AND HKT UNITS LTD,0.0059099999999999995,Hong Kong,Communication
+83|Hong Kong,SINO LAND LTD,0.0059099999999999995,Hong Kong,Real Estate
+601899|China,ZIJIN MINING GROUP LTD A,0.005852961385186203,China,Materials
+VBL|India,VARUN BEVERAGES LTD,0.005828750143265575,India,Consumer Staples
+INDUSTOWER|India,INDUS TOWERS LTD,0.005699222362304118,India,Communication
+ASHOKLEY|India,ASHOK LEYLAND LTD,0.005569694581342661,India,Industrials
+LUPIN|India,LUPIN LTD,0.005569694581342661,India,Health Care
+4013|Saudi Arabia,DR SULAIMAN AL HABIB MEDICAL GRP,0.0055651446397515045,Saudi Arabia,Health Care
+CPLE3|Brazil,CIA PARANAENSE DE ENERGIA COPEL,0.0055492613279571655,Brazil,Utilities
+601138|China,FOXCONN INDUSTRIAL INTERNET LTD A,0.005510905200337658,China,Information Technology
+2280|Saudi Arabia,ALMARAI,0.005417918591080831,Saudi Arabia,Consumer Staples
+MAERSK A|Denmark,A P MOLLER MAERSK,0.00532,Denmark,Industrials
+INDHOTEL|India,INDIAN HOTELS LTD,0.005310639019419746,India,Consumer Discretionary
+ETERNAL|India,ETERNAL LTD,0.005310639019419746,India,Consumer Discretionary
+BBDC3|Brazil,BANCO BRADESCO SA,0.005287503718147865,Brazil,Financials
+PERSISTENT|India,PERSISTENT SYSTEMS LTD,0.00518111123845829,India,Information Technology
+WIPRO|India,WIPRO LTD,0.00518111123845829,India,Information Technology
+TORNTPHARM|India,TORRENT PHARMACEUTICALS LTD,0.00518111123845829,India,Health Care
+600900|China,CHINA YANGTZE POWER LTD A,0.005092836529967215,China,Utilities
+601318|China,PING AN INSURANCE (GROUP) OF CHINA,0.005054830287206266,China,Financials
+AUBANK|India,AU SMALL FINANCE BANK LTD,0.005051583457496832,India,Financials
+INDUSINDBK|India,INDUSIND BANK LTD,0.005051583457496832,India,Financials
+MOTHERSON|India,SAMVARDHANA MOTHERSON INTERNATIONA,0.005051583457496832,India,Consumer Discretionary
+CGPOWER|India,CG POWER AND INDUSTRIAL SOLUTIONS,0.005051583457496832,India,Industrials
+POLICYBZR|India,PB FINTECH LTD,0.005051583457496832,India,Financials
+1140|Saudi Arabia,BANK ALBILAD,0.005005685654802941,Saudi Arabia,Financials
+BPCL|India,BHARAT PETROLEUM LTD,0.004922055676535375,India,Energy
+1080|Saudi Arabia,ARAB NATIONAL BANK,0.004829014396398131,Saudi Arabia,Financials
+HDFCAMC|India,HDFC ASSET MANAGEMENT COMPANY LTD,0.004792527895573917,India,Financials
+GVT&D|India,GE VERNOVA T&D INDIA LTD,0.004792527895573917,India,Industrials
+300308|China,ZHONGJI INNOLIGHT LTD A,0.004674767859596772,China,Information Technology
+GGBR4|Brazil,GERDAU PREF SA,0.004659285454605544,Brazil,Materials
+BBSE3|Brazil,BB SEGURIDADE SA,0.004659285454605544,Brazil,Financials
+ICICIGI|India,ICICI LOMBARD GENERAL INSURANCE CO,0.004533472333651003,India,Financials
+688041|China,HYGON INFORMATION TECHNOLOGY LTD A,0.004408724160270126,China,Information Technology
+IOC|India,INDIAN OIL CORP LTD,0.004403944552689546,India,Energy
+GODREJCP|India,GODREJ CONSUMER PRODUCTS LTD,0.004403944552689546,India,Consumer Staples
+TIMS3|Brazil,TIM SA,0.004397527844796243,Brazil,Communication
+601288|China,AGRICULTURAL BANK OF CHINA LTD A,0.004294705431987279,China,Financials
+RAIL3|Brazil,RUMO SA,0.0042928248008725235,Brazil,Industrials
+DLF|India,DLF LTD,0.004274416771728089,India,Real Estate
+PIDILITIND|India,PIDILITE INDUSTRIES LTD,0.004274416771728089,India,Materials
+BHARATFORG|India,BHARAT FORGE LTD,0.004274416771728089,India,Consumer Discretionary
+JINDALSTEL|India,JINDAL STEEL LTD,0.004144888990766631,India,Materials
+FORTIS|India,FORTIS HEALTHCARE LTD,0.004144888990766631,India,Health Care
+SUZLON|India,SUZLON ENERGY LTD,0.004144888990766631,India,Industrials
+AXIA7|Brazil,CENTRAIS ELET BRAS PRF SA,0.004083418713025084,Brazil,Utilities
+002594|China,BYD LTD A,0.004028661732660634,China,Consumer Discretionary
+SOLARINDS|India,SOLAR INDUSTRIES INDIA LTD,0.0040153612098051735,India,Materials
+MARICO|India,MARICO LTD,0.0040153612098051735,India,Consumer Staples
+SWIGGY|India,SWIGGY LTD,0.0040153612098051735,India,Consumer Discretionary
+POLYCAB|India,POLYCAB INDIA LTD,0.0040153612098051735,India,Industrials
+RECLTD|India,REC,0.0040153612098051735,India,Financials
+ENEV3|Brazil,ENEVA SA,0.0039787156691013644,Brazil,Utilities
+CMIG4|Brazil,CIA ENERGETICA DE MINAS GERAIS PRE,0.003926364147139504,Brazil,Utilities
+ADANIPOWER|India,ADANI POWER LTD,0.003885833428843716,India,Utilities
+UNITDSPR|India,UNITED SPIRITS LTD,0.003885833428843716,India,Consumer Staples
+MUTHOOTFIN|India,MUTHOOT FINANCE LTD,0.003885833428843716,India,Financials
+PAYTM|India,ONE COMMUNICATIONS LTD,0.003885833428843716,India,Financials
+DIXON|India,DIXON TECHNOLOGIES (INDIA) LTD,0.003885833428843716,India,Consumer Discretionary
+TOTS3|Brazil,TOTVS SA,0.003874012625177643,Brazil,Information Technology
+BARN|Switzerland,BARRY CALLEBAUT AG,0.0038,Switzerland,Consumer Staples
+UGPA3|Brazil,ULTRAPAR PARTICIPOES SA,0.003769309581253923,Brazil,Consumer Discretionary
+APLAPOLLO|India,APL APOLLO TUBES LTD,0.0037563056478822597,India,Materials
+688256|China,CAMBRICON TECHNOLOGIES CORPORATION,0.003686605547812089,China,Information Technology
+8210|Saudi Arabia,BUPA ARABIA,0.003680651216766869,Saudi Arabia,Financials
+SRF|India,SRF LTD,0.003626777866920803,India,Materials
+HINDPETRO|India,HINDUSTAN PETROLEUM CORP LTD,0.003626777866920803,India,Energy
+SUNDARMFIN|India,SUNDARAM FINANCE LTD,0.003626777866920803,India,Financials
+BSE|India,BSE LTD,0.003497250085959345,India,Financials
+NAUKRI|India,INFO EDGE INDIA LTD,0.003497250085959345,India,Communication
+7203|Saudi Arabia,AL-ELM INFORMATION SECURITY COMPAN,0.0033861991194255184,Saudi Arabia,Information Technology
+601398|China,INDUSTRIAL AND COMMERCIAL BANK OF,0.0033825556057244938,China,Financials
+GAIL|India,GAIL INDIA LTD,0.0033677223049978877,India,Utilities
+HYUNDAI|India,HYUNDAI MOTOR INDIA LTD,0.0033677223049978877,India,Consumer Discretionary
+POWERINDIA|India,HITACHI ENERGY INDIA LTD,0.0033677223049978877,India,Industrials
+ABB|India,ABB INDIA LTD,0.003238194524036431,India,Industrials
+AUROPHARMA|India,AUROBINDO PHARMA LTD,0.003238194524036431,India,Health Care
+ENGI11|Brazil,ENERGISA UNITS SA,0.0031934428396734635,Brazil,Utilities
+ADANIENT|India,ADANI ENTERPRISES LTD,0.0031086667430749726,India,Industrials
+LTM|India,LTIMINDTREE LTD,0.0031086667430749726,India,Information Technology
+PHOENIXLTD|India,PHOENIX MILLS LTD,0.0031086667430749726,India,Real Estate
+MRF|India,MRF LTD,0.0031086667430749726,India,Consumer Discretionary
+YESBANK|India,YES BANK LTD,0.0031086667430749726,India,Financials
+5110|Saudi Arabia,SAUDI ENERGY,0.003091747022084169,Saudi Arabia,Utilities
+MOTV3|Brazil,MOTIVA INFRAESTRUTURA DE MOBILIDAD,0.003088739795749743,Brazil,Industrials
+STNE|Brazil,STONECO LTD CLASS A,0.003088739795749743,Brazil,Financials
+300502|China,EOPTOLINK TECHNOLOGY INC LTD A,0.0030404994208759486,China,Information Technology
+000858|China,WULIANGYE YIBIN LTD A,0.0030404994208759486,China,Consumer Staples
+SOF|Belgium,SOFINA SA,0.00304,Belgium,Financials
+BALD B|Sweden,FASTIGHETS BALDER CLASS B,0.00304,Sweden,Real Estate
+BIM|France,BIOMERIEUX SA,0.00304,France,Health Care
+LOTB|Belgium,LOTUS BAKERIES NV,0.00304,Belgium,Consumer Staples
+KLBN11|Brazil,KLABIN UNITS SA,0.0030363882737878822,Brazil,Materials
+AXIA6|Brazil,CENTRAIS ELETR BRAS-ELETROBRAS PRE,0.0030363882737878822,Brazil,Utilities
+601166|China,INDUSTRIAL BANK LTD A,0.0030024931781149995,China,Financials
+BANKBARODA|India,BANK OF BARODA LTD,0.0029791389621135166,India,Financials
+NYKAA|India,FSN E-COMMERCE VENTURES LTD,0.0029791389621135166,India,Consumer Discretionary
+VOLTAS|India,VOLTAS LTD,0.0029791389621135166,India,Industrials
+UPL|India,UPL LTD,0.0029791389621135166,India,Materials
+SIEMENS|India,SIEMENS LTD,0.0029791389621135166,India,Industrials
+603993|China,CHINA MOLYBDENUM LTD A,0.0029264806925931013,China,Materials
+AMBUJACEM|India,AMBUJA CEMENTS LTD,0.002849611181152059,India,Materials
+UNIONBANK|India,UNION BANK OF INDIA LTD,0.002849611181152059,India,Financials
+HAVELLS|India,HAVELLS INDIA LTD,0.002849611181152059,India,Industrials
+600276|China,JIANGSU HENGRUI MEDICINE LTD A,0.0027744557215493037,China,Health Care
+002475|China,LUXSHARE PRECISION INDUSTRY LTD A,0.0027744557215493037,China,Information Technology
+601328|China,BANK OF COMMUNICATIONS LTD A,0.002736449478788354,China,Financials
+PNB|India,PUNJAB NATIONAL BANK,0.002720083400190602,India,Financials
+MPHASIS|India,MPHASIS LTD,0.002720083400190602,India,Information Technology
+TIINDIA|India,TUBE INVESTMENTS OF INDIA LTD,0.002720083400190602,India,Consumer Discretionary
+BAJAJHLDNG|India,BAJAJ HOLDINGS AND INVESTMENT LTD,0.002720083400190602,India,Financials
+MANKIND|India,MANKIND PHARMA LTD,0.002720083400190602,India,Health Care
+IDEA|India,VODAFONE IDEA LTD,0.002720083400190602,India,Communication
+4300|Saudi Arabia,DAR AL ARKAN REAL ESTATE DEVELOPME,0.0025911784566038753,Saudi Arabia,Real Estate
+COLPAL|India,COLGATE PALMOLIVE INDIA LTD,0.002590555619229145,India,Consumer Staples
+LODHA|India,LODHA DEVELOPERS LTD,0.002590555619229145,India,Real Estate
+BHEL|India,BHARAT HEAVY ELECTRICALS LTD,0.002590555619229145,India,Industrials
+532483|India,CANARA BANK LTD,0.002590555619229145,India,Financials
+300059|China,EAST MONEY INFORMATION LTD A,0.002584424507744557,China,Financials
+002371|China,NAURA TECHNOLOGY GROUP LTD A,0.0025464182649836075,China,Information Technology
+300274|China,SUNGROW POWER SUPPLY LTD A,0.0024704057794617085,China,Industrials
+COROMANDEL|India,COROMANDEL INTERNATIONAL LTD,0.0024610278382676876,India,Materials
+IDFCFIRSTB|India,IDFC FIRST BANK LTD,0.0024610278382676876,India,Financials
+GMRAIRPORT|India,GMR AIRPORTS LTD,0.0024610278382676876,India,Industrials
+DABUR|India,DABUR INDIA LTD,0.0024610278382676876,India,Consumer Staples
+SUPREMEIND|India,SUPREME INDUSTRIES LTD,0.0024610278382676876,India,Industrials
+ENRIN|India,SIEMENS ENERGY INDIA LTD,0.0024610278382676876,India,Industrials
+ALKEM|India,ALKEM LABORATORIES LTD,0.0024610278382676876,India,Health Care
+GODREJPROP|India,GODREJ PROPERTIES LTD,0.0024610278382676876,India,Real Estate
+TORNTPOWER|India,TORRENT POWER LTD,0.0024610278382676876,India,Utilities
+ABCAPITAL|India,ADITYA BIRLA CAPITAL LTD,0.0024610278382676876,India,Financials
+600030|China,CITIC SECURITIES LTD A,0.00243239953670076,China,Financials
+600000|China,SHANGHAI PUDONG DEVELOPMENT BANK L,0.00243239953670076,China,Financials
+8010|Saudi Arabia,THE COOPERATIVE INSURANCE,0.0024145071981990654,Saudi Arabia,Financials
+BOSCHLTD|India,BOSCH LTD,0.00233150005730623,India,Consumer Discretionary
+JSL|India,JINDAL STAINLESS LTD,0.00233150005730623,India,Materials
+VMM|India,VISHAL MEGA MART LTD,0.00233150005730623,India,Consumer Discretionary
+NMDC|India,NMDC LTD,0.00233150005730623,India,Materials
+PIIND|India,P.I. INDUSTRIES LTD,0.00233150005730623,India,Materials
+601088|China,CHINA SHENHUA ENERGY LTD A,0.0023183808084179113,China,Energy
+SALM|Norway,SALMAR,0.00228,Norway,Consumer Staples
+RAND|Netherlands,RANDSTAD HOLDING,0.00228,Netherlands,Industrials
+LATO B|Sweden,LATOUR INVESTMENT CLASS B,0.00228,Sweden,Industrials
+EVK|Germany,EVONIK INDUSTRIES AG,0.00228,Germany,Materials
+SYENS|Belgium,SYENSQO NV,0.00228,Belgium,Materials
+COV|France,COVIVIO SA,0.00228,France,Real Estate
+DHER|Germany,DELIVERY HERO,0.00228,Germany,Consumer Discretionary
+GFC|France,GECINA SA,0.00228,France,Real Estate
+GRF|Spain,GRIFOLS SA CLASS A,0.00228,Spain,Health Care
+4250|Saudi Arabia,JABAL OMAR DEVELOPMENT,0.0022672811495283913,Saudi Arabia,Consumer Discretionary
+2290|Saudi Arabia,YANBU NATIONAL PETROCHEMICALS,0.002208390730060121,Saudi Arabia,Materials
+LTF|India,L&T FINANCE LTD,0.002201972276344773,India,Financials
+PRESTIGE|India,PRESTIGE ESTATES PROJECTS LTD,0.002201972276344773,India,Real Estate
+ICICIPRULI|India,ICICI PRUDENTIAL LIFE INSURANCE CO,0.002201972276344773,India,Financials
+WAAREEENER|India,WAAREE ENERGIES LTD,0.002201972276344773,India,Information Technology
+OIL|India,OIL INDIA LTD,0.002201972276344773,India,Energy
+JSWENERGY|India,JSW ENERGY LTD,0.002201972276344773,India,Utilities
+NHPC|India,NHPC LTD,0.002201972276344773,India,Utilities
+CPFE3|Brazil,CPFL ENERGIA SA,0.0021987639223981217,Brazil,Utilities
+MBRF3|Brazil,MARFRIG GLOBAL FOODS SA,0.0021464124004362617,Brazil,Consumer Staples
+600309|China,WANHUA CHEMICAL GROUP LTD A,0.0021283495946131646,China,Materials
+600150|China,CHINA CSSC HOLDINGS LTD A,0.0021283495946131646,China,Industrials
+CXSE3|Brazil,CAIXA SEGURIDADE PARTICIPACOES SA,0.002094060878474402,Brazil,Financials
+4190|Saudi Arabia,JARIR MARKETING,0.0020906098911235805,Saudi Arabia,Consumer Discretionary
+4100|Saudi Arabia,MAKKAH CONSTRUCTION AND DEVELOPMEN,0.0020906098911235805,Saudi Arabia,Real Estate
+SHREECEM|India,SHREE CEMENT LTD,0.0020724444953833156,India,Materials
+SBICARD|India,SBI CARDS & PAYMENT SERVICES LTD,0.0020724444953833156,India,Financials
+PETRONET|India,PETRONET LNG LTD,0.0020724444953833156,India,Energy
+000333|China,MIDEA GROUP LTD A,0.002052337109091266,China,Consumer Discretionary
+601601|China,CHINA PACIFIC INSURANCE (GROUP) LT,0.002052337109091266,China,Financials
+1030|Saudi Arabia,SAUDI INVESTMENT BANK,0.002031719471655311,Saudi Arabia,Financials
+300394|China,SUZHOU TFC OPTICAL COMMUNICATION L,0.002014330866330317,China,Information Technology
+002714|China,MUYUAN FOODS LTD A,0.002014330866330317,China,Consumer Staples
+601211|China,GUOTAI HAITONG SECURITIES LTD A,0.001976324623569367,China,Financials
+601857|China,PETROCHINA LTD A,0.001976324623569367,China,Energy
+OBEROIRLTY|India,OBEROI REALTY LTD,0.001942916714421858,India,Real Estate
+ASTRAL|India,ASTRAL LTD,0.001942916714421858,India,Industrials
+300476|China,VICTORY GIANT TECHNOLOGY HUIZHOU L,0.0019383183808084179,China,Information Technology
+601816|China,BEIJING-SHANGHAI HIGH SPEED RAILWA,0.0019003121380474683,China,Industrials
+600406|China,NARI TECHNOLOGY LTD A,0.0019003121380474683,China,Industrials
+PSSA3|Brazil,PORTO SEGURO SA,0.0018846547906269614,Brazil,Financials
+601225|China,SHAANXI COAL INDUSTRY LTD A,0.001862305895286519,China,Energy
+1020|Saudi Arabia,BANK ALJAZIRA,0.001825603003516367,Saudi Arabia,Financials
+ZYDUSLIFE|India,ZYDUS LIFESCIENCES LTD,0.0018133889334604014,India,Health Care
+PAGEIND|India,PAGE INDUSTRIES LTD,0.0018133889334604014,India,Consumer Discretionary
+JUBLFOOD|India,JUBILANT FOODWORKS LTD,0.0018133889334604014,India,Consumer Discretionary
+603259|China,WUXI APPTEC LTD A,0.0017862934097646198,China,Health Care
+EGIE3|Brazil,ENGIE BRASIL ENERGIA SA,0.0017799517467032419,Brazil,Utilities
+1111|Saudi Arabia,SAUDI TADAWUL GROUP CO,0.0017372673743139618,Saudi Arabia,Financials
+BALKRISIND|India,BALKRISHNA INDUSTRIES LTD,0.0016838611524989438,India,Consumer Discretionary
+TATACOMM|India,TATA COMMUNICATIONS LTD,0.0016838611524989438,India,Communication
+KALYANKJIL|India,KALYAN JEWELLERS INDIA LTD,0.0016838611524989438,India,Consumer Discretionary
+300760|China,SHENZHEN MINDRAY BIO-MEDICAL ELECT,0.001672274681481772,China,Health Care
+600028|China,CHINA PETROLEUM & CHEMICAL CORP A,0.001634268438720823,China,Energy
+600989|China,NINGXIA BAOFENG ENERGY GROUP LTD A,0.001634268438720823,China,Materials
+601988|China,BANK OF CHINA LTD A,0.001634268438720823,China,Financials
+000001|China,PING AN BANK LTD A,0.0015962621959598733,China,Financials
+002142|China,BANK OF NINGBO LTD A,0.0015962621959598733,China,Financials
+601668|China,CHINA STATE CONSTRUCTION ENGINEERI,0.0015962621959598733,China,Industrials
+4002|Saudi Arabia,AL MOUWASAT MEDICAL SERVICES,0.0015900413256432872,Saudi Arabia,Health Care
+000792|China,QINGHAI SALT LAKE INDUSTRY LTD A,0.0015582559531989238,China,Materials
+688012|China,ADVANCED MICRO-FABRICATION EQUIPME,0.0015582559531989238,China,Information Technology
+002384|China,SUZHOU DONGSHAN PRECISION MANUFACT,0.0015202497104379743,China,Information Technology
+HOLM B|Sweden,HOLMEN CLASS B,0.00152,Sweden,Materials
+CVC|Netherlands,CVC CAPITAL PARTNERS PLC,0.00152,Netherlands,Financials
+ROCK B|Denmark,ROCKWOOL CLASS B,0.00152,Denmark,Industrials
+DEMANT|Denmark,DEMANT,0.00152,Denmark,Health Care
+JD.|United Kingdom,JD SPORTS FASHION PLC,0.00152,United Kingdom,Consumer Discretionary
+600111|China,CHINA NORTHERN RARE EARTH (GROUP),0.0014822434676770254,China,Materials
+600919|China,BANK OF JIANGSU CORPORATION LTD A,0.0014822434676770254,China,Financials
+601919|China,COSCO SHIPPING HOLDINGS LTD A,0.0014822434676770254,China,Industrials
+2382|Saudi Arabia,ADES HOLDING CO,0.0014722604867067476,Saudi Arabia,Energy
+600031|China,SANY HEAVY INDUSTRY LTD A,0.0014442372249160761,China,Industrials
+600809|China,SHANXI XINGHUACUN FEN WINE FACTORY,0.0014442372249160761,China,Consumer Staples
+000338|China,WEICHAI POWER LTD A,0.0014442372249160761,China,Industrials
+603986|China,GIGADEVICE SEMICONDUCTOR INC A,0.0014442372249160761,China,Information Technology
+601939|China,CHINA CONSTRUCTION BANK CORP A,0.0014442372249160761,China,Financials
+4263|Saudi Arabia,SAL SAUDI LOGISTICS SERVICE CO,0.0014428152769726122,Saudi Arabia,Industrials
+RVNL|India,RAIL VIKAS NIGAM LTD,0.0014248055905760294,India,Industrials
+OFSS|India,ORACLE FINANCIAL SERVICES SOFTWARE,0.0014248055905760294,India,Information Technology
+601985|China,CHINA NATIONAL NUCLEAR POWER LTD A,0.0014062309821551266,China,Utilities
+601600|China,ALUMINUM CORPORATION OF CHINA LTD,0.0014062309821551266,China,Materials
+002352|China,S.F. HOLDING LTD A,0.001368224739394177,China,Industrials
+688008|China,MONTAGE TECHNOLOGY LTD A,0.001368224739394177,China,Information Technology
+603288|China,FOSHAN HAI TIAN FLAVOURING & FOOD,0.0013302184966332276,China,Consumer Staples
+002916|China,SHENNAN CIRCUITS LTD A,0.0013302184966332276,China,Information Technology
+600547|China,SHANDONG GOLD-MINING LTD A,0.0013302184966332276,China,Materials
+300033|China,HITHINK ROYALFLUSH INFORMATION NET,0.0013302184966332276,China,Financials
+600887|China,INNER MONGOLIA YILI INDUSTRIAL GRO,0.0012922122538722785,China,Consumer Staples
+600893|China,AECC AVIATION POWER LTD A,0.0012542060111113292,China,Industrials
+601127|China,SERES GROUP LTD A,0.0012542060111113292,China,Consumer Discretionary
+300433|China,LENS TECHNOLOGY LTD A,0.0012542060111113292,China,Information Technology
+600050|China,CHINA UNITED NETWORK COMMUNICATION,0.00121619976835038,China,Communication
+600346|China,HENGLI PETROCHEMICAL LTD A,0.00121619976835038,China,Materials
+000725|China,BOE TECHNOLOGY GROUP LTD A,0.00121619976835038,China,Information Technology
+600089|China,TBEA LTD A,0.00121619976835038,China,Industrials
+000657|China,CHINA TUNGSTEN AND HIGHTECH MATERI,0.0011781935255894302,China,Materials
+601100|China,JIANGSU HENGLI HYDRAULIC LTD A,0.0011781935255894302,China,Industrials
+600489|China,ZHONGJIN GOLD CORP LTD A,0.0011781935255894302,China,Materials
+600690|China,HAIER SMART HOME LTD A,0.0011781935255894302,China,Consumer Discretionary
+600019|China,BAOSHAN IRON & STEEL LTD A,0.0011781935255894302,China,Materials
+000568|China,LUZHOU LAO JIAO LTD A,0.0011781935255894302,China,Consumer Staples
+601766|China,CRRC CORP LTD A,0.0011781935255894302,China,Industrials
+600183|China,SHENGYI TECHNOLOGY LTD A,0.0011781935255894302,China,Information Technology
+601336|China,NEW CHINA LIFE INSURANCE LTD A,0.0011401872828284809,China,Financials
+000063|China,ZTE CORP A,0.0011401872828284809,China,Information Technology
+601888|China,CHINA TOURISM GROUP DUTY FREE CORP,0.0011401872828284809,China,Consumer Discretionary
+601658|China,POSTAL SAVINGS BANK OF CHINA LTD A,0.0011401872828284809,China,Financials
+601818|China,CHINA EVERBRIGHT BANK LTD A,0.0011401872828284809,China,Financials
+002463|China,WUS PRINTED CIRCUIT (KUNSHAN) LTD,0.0011401872828284809,China,Information Technology
+4091|Japan,NIPPON SANSO HOLDINGS CORP,0.0011200000000000001,Japan,Materials
+000425|China,XCMG CONSTRUCTION MACHINERY LTD A,0.0011021810400675316,China,Industrials
+601688|China,HUATAI SECURITIES LTD A,0.0011021810400675316,China,Financials
+7202|Saudi Arabia,ARABIAN INTERNET AND COMMUNICATION,0.0010894727601629928,Saudi Arabia,Information Technology
+002493|China,RONGSHENG PETRO CHEMICAL LTD A,0.0010641747973065823,China,Materials
+600016|China,CHINA MINSHENG BANKING CORP LTD A,0.0010641747973065823,China,Financials
+601012|China,LONGI GREEN ENERGY TECHNOLOGY LTD,0.0010641747973065823,China,Information Technology
+601009|China,BANK OF NANJING LTD A,0.0010641747973065823,China,Financials
+600010|China,INNER MONGOLIA BAOTOU STEEL UNION,0.0010641747973065823,China,Materials
+603501|China,OMNIVISION INTEGRATED CIRCUITS GRO,0.0010641747973065823,China,Information Technology
+601872|China,CHINA MERCHANTS ENERGY SHIPPING LT,0.001026168554545633,China,Energy
+601229|China,BANK OF SHANGHAI LTD A,0.001026168554545633,China,Financials
+300014|China,EVE ENERGY LTD A,0.0009881623117846835,China,Industrials
+002602|China,ZHEJIANG CENTURY HUATONG GROUP LTD,0.0009881623117846835,China,Communication
+000408|China,ZANGGE MINING LTD A,0.0009881623117846835,China,Materials
+300442|China,RANGE INTELLIGENT COMPUTING TECHNO,0.0009881623117846835,China,Information Technology
+688111|China,BEIJING KINGSOFT OFFICE SOFTWARE I,0.0009881623117846835,China,Information Technology
+600875|China,DONGFANG ELECTRIC CORP LTD A,0.0009881623117846835,China,Industrials
+603799|China,ZHEJIANG HUAYOU COBALT LTD A,0.0009881623117846835,China,Industrials
+9602|Japan,TOHO (TOKYO) LTD,0.00096,Japan,Communication
+600905|China,CHINA THREE GORGES RENEWABLES(GROU,0.0009501560690237342,China,Utilities
+600487|China,HENGTONG OPTIC ELECTRIC LTD A,0.0009501560690237342,China,Information Technology
+000988|China,HUAGONG TECH LTD A,0.0009501560690237342,China,Information Technology
+002938|China,AVARY HOLDING (SHENZHEN) LTD A,0.0009501560690237342,China,Information Technology
+002353|China,YANTAI JEREH OILFIELD SERVICES GRO,0.0009501560690237342,China,Energy
+688521|China,VERISILICON MICROELECTRONICS (SHAN,0.0009501560690237342,China,Information Technology
+002230|China,IFLYTEK LTD A,0.0009501560690237342,China,Information Technology
+605499|China,EASTROC BEVERAGE (GROUP) LTD A,0.0009501560690237342,China,Consumer Staples
+600673|China,GUANGDONG HEC TECHNOLOGY HOLDING L,0.0009121498262627845,China,Materials
+600926|China,BANK OF HANGZHOU LTD A,0.0009121498262627845,China,Financials
+601727|China,SHANGHAI ELECTRIC GROUP LTD A,0.0009121498262627845,China,Industrials
+600999|China,CHINA MERCHANTS SECURITIES LTD A,0.0009121498262627845,China,Financials
+601390|China,CHINA RAILWAY GROUP LTD A,0.0009121498262627845,China,Industrials
+601628|China,CHINA LIFE INSURANCE LTD A,0.0009121498262627845,China,Financials
+600660|China,FUYAO GLASS INDUSTRY GROUP LTD A,0.0009121498262627845,China,Consumer Discretionary
+3088|Japan,MATSUKIYOKARA,0.00088,Japan,Consumer Staples
+301308|China,SHENZHEN LONGSYS ELECTRONICS LTD A,0.0008741435835018354,China,Information Technology
+600188|China,YANKUANG ENERGY GROUP LTD A,0.0008741435835018354,China,Energy
+300498|China,WENS FOODSTUFF GROUP LTD,0.0008741435835018354,China,Consumer Staples
+002460|China,GANFENG LITHIUM GROUP LTD A,0.0008741435835018354,China,Materials
+000776|China,GF SECURITIES LTD A,0.0008741435835018354,China,Financials
+300408|China,CHAOZHOU THREE-CIRCLE (GROUP) LTD,0.0008741435835018354,China,Information Technology
+000807|China,YUNNAN ALUMINIUM LTD A,0.0008741435835018354,China,Materials
+600160|China,ZHEJIANG JU HUA LTD A,0.0008741435835018354,China,Materials
+600549|China,XIAMEN TUNGSTEN LTD A,0.0008741435835018354,China,Materials
+002001|China,ZHEJIANG NHU LTD A,0.0008741435835018354,China,Materials
+601169|China,BANK OF BEIJING LTD A,0.0008741435835018354,China,Financials
+600886|China,SDIC POWER HOLDINGS LTD A,0.0008741435835018354,China,Utilities
+601689|China,NINGBO TUOPU GROUP CLS LTD A,0.0008741435835018354,China,Consumer Discretionary
+605117|China,NINGBO DEYE TECHNOLOGY LTD A,0.000836137340740886,China,Industrials
+600418|China,ANHUI JIANGHUAI AUTOMOBILE CORP LT,0.000836137340740886,China,Consumer Discretionary
+600104|China,SAIC MOTOR CORP LTD A,0.000836137340740886,China,Consumer Discretionary
+600362|China,JIANGXI COPPER LTD A,0.000836137340740886,China,Materials
+000166|China,SHENWAN HONGYUAN GROUP LTD A,0.000836137340740886,China,Financials
+600176|China,CHINA JUSHI LTD A,0.000836137340740886,China,Materials
+4768|Japan,OTSUKA CORP,0.0008,Japan,Information Technology
+2587|Japan,SUNTORY BEVERAGE & FOOD LTD,0.0008,Japan,Consumer Staples
+3626|Japan,TIS INC,0.0008,Japan,Information Technology
+601881|China,CHINA GALAXY SECURITIES LTD A,0.0007981310979799367,China,Financials
+002600|China,LINGYI ITECH (GUANGDONG) A,0.0007981310979799367,China,Information Technology
+601868|China,CHINA ENERGY ENGINEERING CORP LTD,0.0007981310979799367,China,Industrials
+601179|China,CHINA XD ELECTRIC LTD A,0.0007981310979799367,China,Industrials
+688072|China,PIOTECH INC A,0.0007981310979799367,China,Information Technology
+601006|China,DAQIN RAILWAY LTD A,0.0007981310979799367,China,Industrials
+000651|China,GREE ELECTRIC APPLIANCES INC OF ZH,0.0007981310979799367,China,Consumer Discretionary
+601669|China,POWER CONSTRUCTION CORPORATION OF,0.0007981310979799367,China,Industrials
+002202|China,GOLDWIND SCIENCE&TECHNOLOGY LTD A,0.0007601248552189871,China,Industrials
+601066|China,CHINA SECURITIES LTD A,0.0007601248552189871,China,Financials
+000630|China,TONGLING NONFERROUS METALS GROUP L,0.0007601248552189871,China,Materials
+000538|China,YUNNAN BAIYAO GROUP LTD A,0.0007601248552189871,China,Health Care
+002625|China,KUANG-CHI TECHNOLOGIES LTD A,0.0007601248552189871,China,Industrials
+688271|China,SHANGHAI UNITED IMAGING HEALTHCARE,0.0007601248552189871,China,Health Care
+000100|China,TCL TECHNOLOGY GROUP CORP A,0.0007601248552189871,China,Information Technology
+601995|China,CHINA INTERNATIONAL CAPITAL CORP L,0.0007601248552189871,China,Financials
+600026|China,COSCO SHIPPING ENERGY TRANSPORTATI,0.0007601248552189871,China,Energy
+688525|China,BIWIN STORAGE TECHNOLOGY LTD A,0.0007601248552189871,China,Information Technology
+002027|China,FOCUS MEDIA INFORMATION TECHNOLOGY,0.0007601248552189871,China,Communication
+600585|China,ANHUI CONCH CEMENT LTD A,0.0007601248552189871,China,Materials
+600522|China,JIANGSU ZHONGTIAN TECHNOLOGY LTD A,0.0007601248552189871,China,Industrials
+RED|Spain,REDEIA CORPORACION SA,0.00076,Spain,Utilities
+600436|China,ZHANGZHOU PIENTZEHUANG PHARMACEUTI,0.0007221186124580381,China,Health Care
+000895|China,HENAN SHUANGHUI INVESTMENT & DEVEL,0.0007221186124580381,China,Consumer Staples
+300015|China,AIER EYE HOSPITAL GROUP LTD A,0.0007221186124580381,China,Health Care
+000977|China,INSPUR ELECTRONIC INFORMATION INDU,0.0007221186124580381,China,Information Technology
+600015|China,HUA XIA BANK LTD A,0.0007221186124580381,China,Financials
+600438|China,TONGWEI LTD A,0.0007221186124580381,China,Information Technology
+002837|China,SHENZHEN ENVICOOL TECHNOLOGY LTD A,0.0007221186124580381,China,Industrials
+300124|China,SHENZHEN INOVANCE TECHNOLOGY LTD A,0.0007221186124580381,China,Industrials
+601111|China,AIR CHINA LTD A,0.0007221186124580381,China,Industrials
+002241|China,GOERTEK INC A,0.0006841123696970885,China,Information Technology
+002379|China,SHANDONG HONGQIAO ALUMINUM INDUSTR,0.0006841123696970885,China,Materials
+000426|China,INNER MONGOLIA XINGYE SILVER&TIN M,0.0006841123696970885,China,Materials
+002709|China,GUANGZHOU TINCI MATERIALS TECHNOLO,0.0006841123696970885,China,Materials
+002050|China,ZHEJIANG SANHUA INTELLIGENT CONTRO,0.0006841123696970885,China,Industrials
+000975|China,SHANJIN INTERNATIONAL GOLD LTD A,0.0006841123696970885,China,Materials
+002311|China,GUANGDONG HAID GROUP LTD A,0.0006841123696970885,China,Consumer Staples
+002648|China,SATELLITE CHEMICAL LTD A,0.0006841123696970885,China,Materials
+000625|China,CHONGQING CHANGAN AUTOMOBILE LTD A,0.0006841123696970885,China,Consumer Discretionary
+600795|China,GD POWER DEVELOPMENT LTD A,0.0006841123696970885,China,Utilities
+601998|China,CHINA CITIC BANK CORP LTD A,0.0006841123696970885,China,Financials
+601360|China,360 SECURITY TECHNOLOGY INC A,0.0006841123696970885,China,Information Technology
+688223|China,JINKO SOLAR LTD A,0.0006461061269361392,China,Information Technology
+300604|China,HANGZHOU CHANG CHUAN TECHNOLOGY LT,0.0006461061269361392,China,Information Technology
+300857|China,SHARETRONIC DATA TECHNOLOGY LTD A,0.0006461061269361392,China,Information Technology
+002736|China,GUOSEN SECURITIES LTD A,0.0006461061269361392,China,Financials
+600115|China,CHINA EASTERN AIRLINES CORP LTD A,0.0006461061269361392,China,Industrials
+001979|China,CHINA MERCHANTS SHEKOU INDUSTRIAL,0.0006461061269361392,China,Real Estate
+601877|China,ZHEJIANG CHINT ELECTRICS LTD A,0.0006461061269361392,China,Industrials
+600219|China,SHANDONG NANSHAN ALUMINIUM LTD A,0.0006461061269361392,China,Materials
+600584|China,JCET GROUP LTD A,0.0006461061269361392,China,Information Technology
+4151|Japan,KYOWA KIRIN LTD,0.00064,Japan,Health Care
+3092|Japan,ZOZO INC,0.00064,Japan,Consumer Discretionary
+601825|China,SHANGHAI RURAL COMMERCIAL BANK LTD,0.00060809988417519,China,Financials
+002080|China,SINOMA SCIENCE & TECHNOLOGY LTD A,0.00060809988417519,China,Materials
+601958|China,JINDUICHENG MOLYBDENUM LTD A,0.00060809988417519,China,Materials
+000301|China,JIANGSU EASTERN SHENGHONG LTD A,0.00060809988417519,China,Materials
+601231|China,UNIVERSAL SCIENTIFIC INDUSTRIAL (S,0.00060809988417519,China,Information Technology
+002466|China,TIANQI LITHIUM INDUSTRIES CORP A,0.00060809988417519,China,Materials
+000933|China,HENAN SHENHUO COAL & POWER LTD A,0.00060809988417519,China,Materials
+600426|China,SHANDONG HUALU-HENGSHENG CHEMICAL,0.00060809988417519,China,Materials
+002304|China,JIANGSU YANGHE BREWERY JOINT-STOCK,0.00060809988417519,China,Consumer Staples
+601319|China,THE PEOPLES INSURANCE COMPANY (GRO,0.00060809988417519,China,Financials
+600415|China,ZHEJIANG CHINA COMMODITIES CITY GR,0.00060809988417519,China,Consumer Discretionary
+688498|China,YUANJIE SEMICONDUCTOR TECHNOLOGY L,0.00060809988417519,China,Information Technology
+600703|China,SANAN OPTOELECTRONICS LTD A,0.00060809988417519,China,Information Technology
+002532|China,TIANSHAN ALUMINUM GROUP LTD A,0.00060809988417519,China,Materials
+600498|China,FIBERHOME TELECOMMUNICATION TECHNO,0.00060809988417519,China,Information Technology
+002851|China,SHENZHEN MEGMEET ELECTRICAL LTD A,0.0005700936414142404,China,Industrials
+600958|China,ORIENT SECURITIES LTD A,0.0005700936414142404,China,Financials
+000617|China,CNPC CAPITAL LTD A,0.0005700936414142404,China,Financials
+600674|China,SICHUAN CHUANTOU ENERGY LTD A,0.0005700936414142404,China,Utilities
+600048|China,POLY DEVELOPMENTS AND HOLDINGS GRO,0.0005700936414142404,China,Real Estate
+002595|China,SHANDONG HIMILE MECHANICAL SCIENCE,0.0005700936414142404,China,Industrials
+002128|China,INNER MONGOLIA DIAN TOU ENERGY COR,0.0005700936414142404,China,Energy
+002156|China,TONGFU MICROELECTRONICS LTD A,0.0005700936414142404,China,Information Technology
+601212|China,BAIYIN NONFERROUS GROUP LTD A,0.0005700936414142404,China,Materials
+300475|China,SHANNON SEMICONDUCTOR TECHNOLOGY L,0.0005700936414142404,China,Information Technology
+601168|China,WESTERN MINING LTD A,0.0005700936414142404,China,Materials
+600039|China,SICHUAN ROAD & BRIDGE LTD A,0.0005700936414142404,China,Industrials
+600029|China,CHINA SOUTHERN AIRLINES LTD A,0.0005700936414142404,China,Industrials
+600096|China,YUNNAN YUNTIANHUA LTD A,0.0005700936414142404,China,Materials
+603893|China,ROCKCHIP ELECTRONICS LTD A,0.0005700936414142404,China,Information Technology
+603296|China,HUAQIN TECHNOLOGY LTD A,0.0005700936414142404,China,Information Technology
+9202|Japan,ANA HOLDINGS INC,0.0005600000000000001,Japan,Industrials
+000157|China,ZOOMLION HEAVY INDUSTRY SCIENCE AN,0.0005320873986532911,China,Industrials
+300418|China,KUNLUN TECH LTD A,0.0005320873986532911,China,Communication
+600011|China,HUANENG POWER INTERNATIONAL INC A,0.0005320873986532911,China,Utilities
+000938|China,UNISPLENDOUR CORP LTD A,0.0005320873986532911,China,Information Technology
+688396|China,CHINA RESOURCES MICROELECTRONICS L,0.0005320873986532911,China,Information Technology
+601838|China,BANK OF CHENGDU LTD A,0.0005320873986532911,China,Financials
+300803|China,BEIJING COMPASS TECHNOLOGY DEVELOP,0.0005320873986532911,China,Financials
+300751|China,SUZHOU MAXWELL TECHNOLOGIES LTD A,0.0005320873986532911,China,Information Technology
+002812|China,YUNNAN ENERGY NEW MATERIAL (GROUP),0.0005320873986532911,China,Materials
+002281|China,ACCELINK TECHNOLOGIES LTD A,0.0005320873986532911,China,Information Technology
+600988|China,CHIFENG JILONG GOLD MINING LTD A,0.0005320873986532911,China,Materials
+688110|China,DOSILICON LTD A,0.0005320873986532911,China,Information Technology
+002074|China,GOTION HIGH-TECH LTD A,0.0005320873986532911,China,Industrials
+002920|China,HUIZHOU DESAY SV AUTOMOTIVE LTD A,0.0005320873986532911,China,Consumer Discretionary
+688036|China,SHENZHEN TRANSSION HOLDINGS LTD A,0.0005320873986532911,China,Information Technology
+688027|China,QUANTUMCTEK LTD A,0.0005320873986532911,China,Information Technology
+600580|China,WOLONG ELECTRIC DRIVE GROUP LTD A,0.0005320873986532911,China,Industrials
+300136|China,SHENZHEN SUNWAY COMMUNICATION LTD,0.0005320873986532911,China,Information Technology
+002558|China,GIANT NETWORK GROUP LTD A,0.0005320873986532911,China,Communication
+001309|China,SHENZHEN TECHWINSEMI TECHNOLOGY LT,0.0005320873986532911,China,Information Technology
+688047|China,LOONGSON TECHNOLOGY CORP LTD A,0.0004940811558923417,China,Information Technology
+601916|China,CHINA ZHESHANG BANK LTD A,0.0004940811558923417,China,Financials
+000960|China,YUNNAN TIN LTD A,0.0004940811558923417,China,Materials
+600233|China,YTO EXPRESS GROUP LTD A,0.0004940811558923417,China,Industrials
+300316|China,ZHEJIANG JINGSHENG MECHANICAL & EL,0.0004940811558923417,China,Information Technology
+600221|China,HAINAN AIRLINES HOLDING LTD A,0.0004940811558923417,China,Industrials
+002414|China,WUHAN GUIDE INFRARED LTD A,0.0004940811558923417,China,Information Technology
+688249|China,NEXCHIP SEMICONDUCTOR CORP A,0.0004940811558923417,China,Information Technology
+300757|China,ROBOTECHNIK INTELLIGENT TECHNOLOGY,0.0004940811558923417,China,Industrials
+002049|China,UNIGROUP GUOXIN MICROELECTRONICS L,0.0004940811558923417,China,Information Technology
+688126|China,NATIONAL SILICON INDUSTRY GROUP LT,0.0004940811558923417,China,Information Technology
+688120|China,HWATSING TECHNOLOGY LTD A,0.0004940811558923417,China,Information Technology
+600066|China,YUTONG BUS LTD A,0.0004940811558923417,China,Industrials
+601788|China,EVERBRIGHT SECURITIES LTD A,0.0004940811558923417,China,Financials
+9201|Japan,JAPAN AIRLINES LTD,0.00048,Japan,Industrials
+4716|Japan,ORACLE JAPAN CORP,0.00048,Japan,Information Technology
+300058|China,BLUEFOCUS INTELLIGENT COMMUNICATIO,0.0004560749131313923,China,Communication
+688568|China,GEOVIS TECHNOLOGY LTD A,0.0004560749131313923,China,Information Technology
+603228|China,SHENZHEN KINWONG ELECTRONIC LTD A,0.0004560749131313923,China,Information Technology
+000559|China,WANXIANG QIANCHAO LTD A,0.0004560749131313923,China,Consumer Discretionary
+600895|China,SHANGHAI ZHANGJIANG HI-TECH PARK D,0.0004560749131313923,China,Real Estate
+688777|China,SUPCON TECHNOLOGY LTD A,0.0004560749131313923,China,Information Technology
+300223|China,INGENIC SEMICONDUCTOR LTD A,0.0004560749131313923,China,Information Technology
+600023|China,ZHEJIANG ZHENENG ELECTRIC POWER LT,0.0004560749131313923,China,Utilities
+600021|China,SHANGHAI ELECTRIC POWER LTD A,0.0004560749131313923,China,Utilities
+603659|China,SHANGHAI PUTAILAI NEW ENERGY TECHN,0.0004560749131313923,China,Materials
+002236|China,ZHEJIANG DAHUA TECHNOLOGY LTD A,0.0004560749131313923,China,Information Technology
+600741|China,HUAYU AUTOMOTIVE SYSTEMS LTD A,0.0004560749131313923,China,Consumer Discretionary
+000963|China,HUADONG MEDICINE LTD A,0.0004560749131313923,China,Health Care
+002195|China,SHANGHAI STONEHILL TECHNOLOGY LTD,0.0004560749131313923,China,Information Technology
+601901|China,FOUNDER SECURITIES LTD A,0.0004560749131313923,China,Financials
+688361|China,SKYVERSE TECHNOLOGY LTD A,0.0004560749131313923,China,Information Technology
+601077|China,CHONGQING RURAL COMMERCIAL BANK LT,0.0004560749131313923,China,Financials
+002294|China,SHENZHEN SALUBRIS PHARMACEUTICALS,0.0004560749131313923,China,Health Care
+000831|China,CHINA RARE EARTH RESOURCES AND TEC,0.0004560749131313923,China,Materials
+688469|China,UNITED NOVA TECHNOLOGY LTD A,0.0004560749131313923,China,Information Technology
+002131|China,LEO GROUP LTD A,0.0004560749131313923,China,Communication
+601618|China,METALLURGICAL CORP OF CHINA LTD A,0.000418068670370443,China,Industrials
+688122|China,WESTERN SUPERCONDUCTING TECHNOLOGI,0.000418068670370443,China,Materials
+601377|China,INDUSTRIAL SECURITIES LTD A,0.000418068670370443,China,Financials
+601117|China,CHINA NATIONAL CHEMICAL ENGINEERIN,0.000418068670370443,China,Industrials
+688183|China,SHENGYI ELECTRONICS LTD A,0.000418068670370443,China,Information Technology
+600196|China,SHANGHAI FOSUN PHARMACEUTICAL (GRO,0.000418068670370443,China,Health Care
+600803|China,ENN NATURAL GAS LTD A,0.000418068670370443,China,Utilities
+300454|China,SANGFOR TECHNOLOGIES INC A,0.000418068670370443,China,Information Technology
+002738|China,SINOMINE RESOURCE GROUP LTD A,0.000418068670370443,China,Materials
+000708|China,CITIC PACIFIC SPECIAL STEEL GROUP,0.000418068670370443,China,Materials
+688387|China,CICT MOBILE COMMUNICATION TECHNOLO,0.000418068670370443,China,Information Technology
+000066|China,CHINA GREATWALL TECHNOLOGY GROUP L,0.000418068670370443,China,Information Technology
+600570|China,HUNDSUN TECHNOLOGIES INC A,0.000418068670370443,China,Information Technology
+688472|China,CSI SOLAR LTD A,0.000418068670370443,China,Information Technology
+001965|China,CHINA MERCHANTS EXPRESSWAY NETWORK,0.000418068670370443,China,Industrials
+002064|China,HUAFON CHEMICAL LTD A,0.000418068670370443,China,Materials
+002422|China,SICHUAN KELUN PHARMACEUTICAL LTD A,0.000418068670370443,China,Health Care
+301236|China,ISOFTSTONE INFORMATION TECHNOLOGY,0.00038006242760949357,China,Information Technology
+600733|China,BAIC BLUEPARK NEW ENERGY TECHNOLOG,0.00038006242760949357,China,Consumer Discretionary
+600845|China,SHANGHAI BAOSIGHT SOFTWARE LTD A,0.00038006242760949357,China,Information Technology
+300115|China,SHENZHEN EVERWIN PRECISION TECHNOL,0.00038006242760949357,China,Information Technology
+601021|China,SPRING AIRLINES LTD A,0.00038006242760949357,China,Industrials
+688303|China,XINJIANG DAQO NEW ENERGY LTD A,0.00038006242760949357,China,Information Technology
+600918|China,ZHONGTAI SECURITIES LTD A,0.00038006242760949357,China,Financials
+601878|China,ZHESHANG SECURITIES LTD A,0.00038006242760949357,China,Financials
+300919|China,CNGR ADVANCED MATERIAL LTD A,0.00038006242760949357,China,Industrials
+601607|China,SHANGHAI PHARMACEUTICALS HOLDING L,0.00038006242760949357,China,Health Care
+300866|China,ANKER INNOVATIONS TECHNOLOGY LTD A,0.00038006242760949357,China,Information Technology
+603568|China,ZHEJIANG WEIMING ENVIRONMENT PROTE,0.00038006242760949357,China,Industrials
+601991|China,DATANG INTERNATIONAL POWER GENERAT,0.00038006242760949357,China,Utilities
+603260|China,HOSHINE SILICON INDUSTRY LTD A,0.00038006242760949357,China,Materials
+601216|China,INNER MONGOLIA JUNZHENG ENERGY & C,0.00038006242760949357,China,Materials
+600601|China,FOUNDER TECHNOLOGY GROUP LTD A,0.00038006242760949357,China,Information Technology
+300251|China,BEIJING ENLIGHT MEDIA LTD A,0.00038006242760949357,China,Communication
+601238|China,GUANGZHOU AUTOMOBILE GROUP LTD A,0.00038006242760949357,China,Consumer Discretionary
+000002|China,CHINA VANKE LTD A,0.00038006242760949357,China,Real Estate
+688187|China,ZHUZHOU CRRC TIMES ELECTRIC LTD A,0.00038006242760949357,China,Industrials
+002078|China,SHANDONG SUNPAPER LTD A,0.00038006242760949357,China,Materials
+000999|China,CHINA RESOURCES SANJIU MEDICAL AND,0.00038006242760949357,China,Health Care
+002555|China,37 INTERACTIVE ENTERTAINMENT NETWO,0.00038006242760949357,China,Communication
+601777|China,CHONGQING QIANLI TECHNOLOGY LTD A,0.00038006242760949357,China,Consumer Discretionary
+601555|China,SOOCHOW SECURITIES CO LTD A,0.00038006242760949357,China,Financials
+601058|China,SAILUN GROUP LTD A,0.00038006242760949357,China,Consumer Discretionary
+688347|China,HUA HONG SEMICONDUCTOR LTD A,0.00038006242760949357,China,Information Technology
+600027|China,HUADIAN POWER INTERNATIONAL CORP L,0.00038006242760949357,China,Utilities
+688375|China,GUOBO ELECTRONICS LTD A,0.00038006242760949357,China,Information Technology
+600143|China,KINGFA SCI&TECH LTD A,0.00038006242760949357,China,Materials
+600352|China,ZHEJIANG LONGSHENG GROUP LTD A,0.00038006242760949357,China,Materials
+600460|China,HANGZHOU SILAN MICROELECTRONICS LT,0.00038006242760949357,China,Information Technology
+601456|China,GUOLIAN MINSHENG SECURITIES LTD A,0.00038006242760949357,China,Financials
+688599|China,TRINA SOLAR LTD A,0.0003420561848485443,China,Information Technology
+688019|China,ANJI MICROELECTRONICS TECHNOLOGY (,0.0003420561848485443,China,Information Technology
+603806|China,HANGZHOU FIRST APPLIED MATERIAL LT,0.0003420561848485443,China,Information Technology
+002459|China,JA SOLAR TECHNOLOGY LTD A,0.0003420561848485443,China,Information Technology
+002517|China,KINGNET NETWORK LTD A,0.0003420561848485443,China,Communication
+688578|China,SHANGHAI ALLIST PHARMACEUTICALS LT,0.0003420561848485443,China,Health Care
+603606|China,NINGBO ORIENT WIRES & CABLES LTD A,0.0003420561848485443,China,Industrials
+688009|China,CHINA RAILWAY SIGNAL & COMMUNICATI,0.0003420561848485443,China,Information Technology
+601567|China,NINGBO SANXING MEDICAL ELECTRIC LT,0.0003420561848485443,China,Industrials
+000596|China,ANHUI GUJING DISTILLERY LTD A,0.0003420561848485443,China,Consumer Staples
+603392|China,BEIJING WANTAI BIOLOGICAL PHARMACY,0.0003420561848485443,China,Health Care
+601198|China,DONGXING SECURITIES CORP LTD A,0.0003420561848485443,China,Financials
+002465|China,GUANGZHOU HAIGE COMMUNICATIONS GRO,0.0003420561848485443,China,Information Technology
+000786|China,BEIJING NEW BUILDING MATERIALS PUB,0.0003420561848485443,China,Industrials
+002601|China,LB GROUP LTD A,0.0003420561848485443,China,Materials
+688188|China,SHANGHAI FRIENDESS ELECTRONICS TEC,0.0003420561848485443,China,Information Technology
+601699|China,SHANXI LUAN ENVIRONMENTAL ENERGY D,0.0003420561848485443,China,Energy
+002185|China,TIANSHUI HUATIAN TECHNOLOGY LTD A,0.0003420561848485443,China,Information Technology
+002653|China,HAISCO PHARMACEUTICAL GROUP LTD A,0.0003420561848485443,China,Health Care
+300413|China,MANGO EXCELLENT MEDIA LTD A,0.0003420561848485443,China,Communication
+600588|China,YONYOU NETWORK TECHNOLOGY LTD A,0.0003420561848485443,China,Information Technology
+300207|China,SUNWODA ELECTRONIC LTD A,0.0003420561848485443,China,Industrials
+300661|China,SG MICRO CORP A,0.0003420561848485443,China,Information Technology
+600711|China,CHENGTUN MINING GROUP LTD A,0.0003420561848485443,China,Materials
+600642|China,SHENERGY LTD A,0.0003420561848485443,China,Utilities
+600600|China,TSINGTAO BREWERY LTD A,0.0003420561848485443,China,Consumer Staples
+301269|China,EMPYREAN TECHNOLOGY LTD A,0.0003420561848485443,China,Information Technology
+600839|China,SICHUAN CHANGHONG ELECTRIC LTD A,0.0003420561848485443,China,Consumer Discretionary
+300628|China,YEALINK NETWORK TECHNOLOGY LTD A,0.0003420561848485443,China,Information Technology
+600515|China,HAINAN AIRPORT INFRASTRUCTURE LTD,0.0003420561848485443,China,Real Estate
+300765|China,CSPC INNOVATION PHARMACEUTICAL LTD,0.0003420561848485443,China,Health Care
+300782|China,MAXSCEND MICROELECTRONICS LTD A,0.0003420561848485443,China,Information Technology
+600061|China,SDIC CAPITAL LTD A,0.0003420561848485443,China,Financials
+300896|China,IMEIK TECHNOLOGY DEVELOPMENT LTD A,0.0003420561848485443,China,Health Care
+002340|China,GEM LTD A,0.0003420561848485443,China,Industrials
+601108|China,CAITONG SECURITIES LTD A,0.000304049942087595,China,Financials
+000983|China,SHANXI COKING COAL ENERGY GROUP LT,0.000304049942087595,China,Energy
+600536|China,CHINA NATIONAL SOFTWARE & SERVICE,0.000304049942087595,China,Information Technology
+601162|China,TIANFENG SECURITIES LTD A,0.000304049942087595,China,Financials
+000783|China,CHANGJIANG SECURITIES LTD A,0.000304049942087595,China,Financials
+002129|China,TCL ZHONGHUAN RENEWABLE ENERGY TEC,0.000304049942087595,China,Information Technology
+600745|China,WINGTECH TECHNOLOGY LTD A,0.000304049942087595,China,Information Technology
+000876|China,NEW HOPE LIUHE LTD A,0.000304049942087595,China,Consumer Staples
+300122|China,CHONGQING ZHIFEI BIOLOGICAL PRODUC,0.000304049942087595,China,Health Care
+002939|China,CHINA GREATWALL SECURITIES LTD A,0.000304049942087595,China,Financials
+600085|China,BEIJING TONGRENTANG LTD A,0.000304049942087595,China,Health Care
+600157|China,WINTIME ENERGY GROUP LTD A,0.000304049942087595,China,Utilities
+000564|China,CCOOP GROUP LTD A,0.000304049942087595,China,Consumer Discretionary
+688099|China,AMLOGIC (SHANGHAI) LTD A,0.000304049942087595,China,Information Technology
+601799|China,CHANGZHOU XINGYU AUTOMOTIVE LIGHTI,0.000304049942087595,China,Consumer Discretionary
+603486|China,ECOVACS ROBOTICS LTD A,0.000304049942087595,China,Consumer Discretionary
+300748|China,JL MAG RARE-EARTH LTD A,0.000304049942087595,China,Industrials
+603195|China,GONEO GROUP LTD A,0.000304049942087595,China,Industrials
+300255|China,HEBEI CHANGSHAN BIOCHEMICAL PHARMA,0.000304049942087595,China,Health Care
+300759|China,PHARMARON BEIJING LTD A,0.000304049942087595,China,Health Care
+002252|China,SHANGHAI RAAS BLOOD PRODUCTS LTD A,0.000304049942087595,China,Health Care
+300832|China,SHENZHEN NEW INDUSTRIES BIOMEDICAL,0.000304049942087595,China,Health Care
+000932|China,HUNAN VALIN STEEL LTD A,0.000304049942087595,China,Materials
+601577|China,BANK OF CHANGSHA LTD A,0.000304049942087595,China,Financials
+688082|China,ACM RESEARCH (SHANGHAI) INC A,0.000304049942087595,China,Information Technology
+600109|China,SINOLINK SECURITIES LTD A,0.00026604369932664557,China,Financials
+603369|China,JIANGSU KINGS LUCK BREWERY LTD A,0.00026604369932664557,China,Consumer Staples
+300339|China,JIANGSU HOPERUN SOFTWARE LTD A,0.00026604369932664557,China,Information Technology
+601933|China,YONGHUI SUPERSTORES LTD A,0.00026604369932664557,China,Consumer Staples
+002966|China,BANK OF SUZHOU LTD A,0.00026604369932664557,China,Financials
+601696|China,BOC INTERNATIONAL (CHINA) LTD A,0.00026604369932664557,China,Financials
+600332|China,GUANGZHOU BAIYUNSHAN PHARMACEUTICA,0.00026604369932664557,China,Health Care
+600298|China,ANGEL YEAST LTD A,0.00026604369932664557,China,Consumer Staples
+000728|China,GUOYUAN SECURITIES LTD A,0.00026604369932664557,China,Financials
+603160|China,SHENZHEN GOODIX TECHNOLOGY LTD A,0.00026604369932664557,China,Information Technology
+688169|China,BEIJING ROBOROCK TECHNOLOGY LTD A,0.00026604369932664557,China,Consumer Discretionary
+688538|China,EVERDISPLAY OPTRONICS (SHANGHAI) L,0.00026604369932664557,China,Information Technology
+002673|China,WESTERN SECURITIES CO LTD A,0.00026604369932664557,China,Financials
+688608|China,BESTECHNIC (SHANGHAI) LTD A,0.00026604369932664557,China,Information Technology
+600009|China,SHANGHAI INTERNATIONAL AIRPORT LTD,0.00026604369932664557,China,Industrials
+002085|China,ZHEJIANG WANFENG AUTO WHEEL LTD A,0.00026604369932664557,China,Consumer Discretionary
+688617|China,APT MEDICAL INC A,0.00026604369932664557,China,Health Care
+002223|China,JIANGSU YUYUE MEDICAL EQUIPMENT &,0.00026604369932664557,China,Health Care
+000661|China,CHANGCHUN HIGH & NEW TECHNOLOGY IN,0.00026604369932664557,China,Health Care
+688728|China,GALAXYCORE INC A,0.00022803745656569614,China,Information Technology
+601136|China,CAPITAL SECURITIES CORP LTD A,0.00022803745656569614,China,Financials
+002456|China,O FILM TECH LTD A,0.00022803745656569614,China,Information Technology
+300347|China,HANGZHOU TIGERMED CONSULTING LTD A,0.0001520249710437975,China,Health Care
+TVSLIN|India,TVS MOTORS COMPANY PRF LTD,0.00012952778096145723,India,Consumer Discretionary
+TCELL.E|Turkey,TURKCELL ILETISIM HIZMETLERI A,0.0,Turkey,Communication
+2618|Taiwan,EVA AIRWAYS CORP,0.0,Taiwan,Industrials
+2618|China,JD LOGISTICS INC,0.0,China,Industrials
+IGM|Canada,IGM FINANCIAL INC,0.0,Canada,Financials
+TITIM|Italy,TELECOM ITALIA SPA,0.0,Italy,Communication
+2615|Taiwan,WAN HAI LINES LTD,0.0,Taiwan,Industrials
+2611|China,GUOTAI HAITONG SECURITIES CO LTD H,0.0,China,Financials
+2609|Taiwan,YANG MING MARINE TRANSPORT CORP,0.0,Taiwan,Industrials
+443060|Korea (South),HD HYUNDAI MARINE SOLUTION LTD,0.0,Korea (South),Industrials
+2603|Taiwan,EVERGREEN MARINE CORP (TAIWAN) LTD,0.0,Taiwan,Industrials
+IQCD|Qatar,INDUSTRIES QATAR,0.0,Qatar,Industrials
+2525|China,HESAI GROUP CLASS B,0.0,China,Consumer Discretionary
+EREGL.E|Turkey,EREGLI DEMIR VE CELIK FABRIKALARI,0.0,Turkey,Materials
+CUAN|Indonesia,PETRINDO JAYA KREASI,0.0,Indonesia,Energy
+COMI|Egypt,COMMERCIAL INTERNATIONAL BANK EGYP,0.0,Egypt,Financials
+THYAO.E|Turkey,TURK HAVA YOLLARI AO A,0.0,Turkey,Industrials
+ICL|Israel,ICL GROUP LTD,0.0,Israel,Materials
+3533|Taiwan,LOTES LTD,0.0,Taiwan,Information Technology
+270|China,GUANGDONG INVESTMENT LTD,0.0,China,Utilities
+2799|China,CHINA CITIC FIN ASSET MGT LTD H,0.0,China,Financials
+BBNI|Indonesia,BANK NEGARA INDONESIA,0.0,Indonesia,Financials
+3618|China,CHONGQING RURAL COMMERCIAL BANK LT,0.0,China,Financials
+DIB|United Arab Emirates,DB ISLAMIC BANK,0.0,United Arab Emirates,Financials
+3692|China,HANSOH PHARMACEUTICAL GROUP LTD,0.0,China,Health Care
+3750|China,CONTEMPORARY AMPEREX TECHNOLOGY LT,0.0,China,Industrials
+3800|China,GCL TECHNOLOGY HOLDINGS LTD,0.0,China,Information Technology
+3808|China,SINOTRUK (HONG KONG) LTD,0.0,China,Industrials
+384|China,CHINA GAS HOLDINGS LTD,0.0,China,Utilities
+3888|China,KINGSOFT LTD,0.0,China,Communication
+3998|China,BOSIDENG INTERNATIONAL LTD,0.0,China,Consumer Discretionary
+EMAARDEV|United Arab Emirates,EMAAR DEVELOPMENT,0.0,United Arab Emirates,Real Estate
+2474|Taiwan,CATCHER TECHNOLOGY LTD,0.0,Taiwan,Information Technology
+MIL|Poland,BANK MILLENNIUM SA,0.0,Poland,Financials
+ISCTR.E|Turkey,TURKIYE IS BANKASI C,0.0,Turkey,Financials
+285|China,BYD ELECTRONIC (INTERNATIONAL) LTD,0.0,China,Information Technology
+489|China,DONGFENG MOTOR GROUP LTD H,0.0,China,Consumer Discretionary
+BCE|Canada,BCE INC,0.0,Canada,Communication
+2367|China,GIANT BIOGENE HOLDING LTD,0.0,China,Consumer Staples
+CBQK|Qatar,COMMERCIAL BANK OF QATAR,0.0,Qatar,Financials
+4938|Taiwan,PEGATRON CORP,0.0,Taiwan,Information Technology
+4958|Taiwan,ZHEN DING TECHNOLOGY HOLDING LTD,0.0,Taiwan,Information Technology
+CHDRAUIB|Mexico,GRUPO COMERCIAL CHEDRAUI,0.0,Mexico,Consumer Staples
+CDB|Malaysia,CELCOMDIGI,0.0,Malaysia,Communication
+5347|Taiwan,VANGUARD INTERNATIONAL SEMICONDUCT,0.0,Taiwan,Information Technology
+5871|Taiwan,CHAILEASE HOLDING LTD,0.0,Taiwan,Financials
+BZ|China,KANZHUN AMERICAN DEPOSITORY SHARES,0.0,China,Industrials
+BEKE|China,KE HOLDINGS ADR REPRESENTING INC,0.0,China,Real Estate
+-|United States,CYBERARK SOFTWARE CONTRA,0.0,United States,Other
+BRPT|Indonesia,BARITO PACIFIC,0.0,Indonesia,Materials
+2395|Taiwan,ADVANTECH LTD,0.0,Taiwan,Information Technology
+BRMS|Indonesia,BUMI RESOURCES MINERALS,0.0,Indonesia,Materials
+BREN|Indonesia,BARITO RENEWABLES ENERGY,0.0,Indonesia,Utilities
+KIMBERA|Mexico,KIMBERLY-CLARK DE MEXICO CLASS A,0.0,Mexico,Consumer Staples
+2379|Taiwan,REALTEK SEMICONDUCTOR CORP,0.0,Taiwan,Information Technology
+4904|Taiwan,FAR EASTONE TELECOMMUNICATIONS LTD,0.0,Taiwan,Communication
+BDX|Poland,BUDIMEX SA,0.0,Poland,Industrials
+LEGN|China,LEGEND BIOTECH ADR REP CORP,0.0,China,Health Care
+TPIA|Indonesia,CHANDRA ASRI PACIFIC,0.0,Indonesia,Materials
+SWB|Malaysia,SUNWAY BHD,0.0,Malaysia,Industrials
+2356|Taiwan,INVENTEC CORP,0.0,Taiwan,Information Technology
+2338|China,WEICHAI POWER LTD H,0.0,China,Industrials
+2299955D|Canada,CONSTELLATION SOFTWARE INC,0.0,Canada,Information Technology
+AMMN|Indonesia,AMMAN MINERAL INTERNASIONAL,0.0,Indonesia,Materials
+2268|China,WUXI XDC CAYMAN INC,0.0,China,Health Care
+2228|China,XTALPI HOLDINGS LTD,0.0,China,Health Care
+2207|Taiwan,HOTAI MOTOR LTD,0.0,Taiwan,Consumer Discretionary
+2059|Taiwan,KING SLIDE WORKS LTD,0.0,Taiwan,Information Technology
+AKBNK.E|Turkey,AKBANK A,0.0,Turkey,Financials
+2912|Taiwan,PRESIDENT CHAIN STORE CORP,0.0,Taiwan,Consumer Staples
+2026|China,PONY AI INC,0.0,China,Information Technology
+2018|China,AAC TECHNOLOGIES HOLDINGS INC,0.0,China,Information Technology
+VALT|South Africa,VALTERRA PLATINUM LTD,0.0,South Africa,Materials
+2376|Taiwan,GIGABYTE TECHNOLOGY LTD,0.0,Taiwan,Information Technology
+KCHOL.E|Turkey,KOC HOLDING A,0.0,Turkey,Industrials
+1548|China,GENSCRIPT BIOTECH CORP,0.0,China,Health Care
+TPEIR|Greece,PIRAEUS BANK SA,0.0,Greece,Financials
+MRDIY|Malaysia,MR D.I.Y. GROUP (M),0.0,Malaysia,Consumer Discretionary
+902|China,HUANENG POWER INTERNATIONAL INC H,0.0,China,Utilities
+180640|Korea (South),HANJIN KAL,0.0,Korea (South),Consumer Discretionary
+960|China,LONGFOR GROUP HOLDINGS LTD,0.0,China,Real Estate
+9660|China,HORIZON ROBOTICS,0.0,China,Information Technology
+966|China,CHINA TAIPING INSURANCE HLDGS LTD,0.0,China,Financials
+9863|China,ZHEJIANG LEAPMOTOR TECHNOLOGY LTD,0.0,China,Consumer Discretionary
+1929|China,CHOW TAI FOOK JEWELLERY GROUP LTD,0.0,China,Consumer Discretionary
+1504|Taiwan,TECO ELECTRIC & MACHINERY LTD,0.0,Taiwan,Industrials
+291|China,CHINA RESOURCES BEER HOLDINGS LTD,0.0,China,Consumer Staples
+6969|China,SMOORE INTERNATIONAL HOLDINGS LTD,0.0,China,Consumer Staples
+YKBNK.E|Turkey,YAPI VE KREDI BANKASI A,0.0,Turkey,Financials
+000100|Korea (South),YUHAN CORP,0.0,Korea (South),Health Care
+018260|Korea (South),SAMSUNG SDS LTD,0.0,Korea (South),Information Technology
+6186|China,CHINA FEIHE LTD,0.0,China,Consumer Staples
+6181|China,LAOPU GOLD LTD H,0.0,China,Consumer Discretionary
+900948|China,INNER MONGOLIA YITAI COAL LTD B,0.0,China,Energy
+1776|China,GF SECURITIES LTD H,0.0,China,Financials
+0126Z0|Korea (South),SAMSUNG EPIS HOLDINGS LTD,0.0,Korea (South),Health Care
+1772|China,GANFENG LITHIUM LTD H,0.0,China,Materials
+780|China,TONGCHENG TRAVEL HOLDINGS LTD,0.0,China,Consumer Discretionary
+1585|China,YADEA GROUP HOLDINGS LTD,0.0,China,Consumer Discretionary
+8069|Taiwan,E INK HOLDINGS INC,0.0,Taiwan,Information Technology
+9896|China,MINISO GROUP HOLDING LTD,0.0,China,Consumer Discretionary
+19|Hong Kong,SWIRE PACIFIC LTD A,0.0,Hong Kong,Industrials
+836|China,CHINA RESOURCES POWER LTD,0.0,China,Utilities
+1530|China,3SBIO INC,0.0,China,Health Care
+6990|China,SICHUAN KELUN-BIOTECH BIOPHARMACEU,0.0,China,Health Care
+1519|China,J&T GLOBAL EXPRESS LTD,0.0,China,Industrials
+763|China,ZTE CORP H,0.0,China,Information Technology
+9995|China,REMEGEN LTD H,0.0,China,Health Care
+9880|China,UBTECH ROBOTICS CORP LTD H,0.0,China,Industrials
+1590|Taiwan,AIRTAC INTERNATIONAL GROUP,0.0,Taiwan,Industrials
+1988|China,CHINA MINSHENG BANKING CORP LTD H,0.0,China,Financials
+168|China,TSINGTAO BREWERY LTD H,0.0,China,Consumer Staples
+017670|Korea (South),SK TELECOM LTD,0.0,Korea (South),Communication
+011200|Korea (South),HMM LTD,0.0,Korea (South),Industrials
+DSSA|Indonesia,DIAN SWASTATIKA SENTOSA,0.0,Indonesia,Energy
+OMAB|Mexico,GRUPO AEROPORTUARIO DEL CENTRO NOR,0.0,Mexico,Industrials
+1193|China,CHINA RESOURCES GAS GROUP LTD,0.0,China,Utilities
+6881|China,CHINA GALAXY SECURITIES LTD H,0.0,China,Financials
+1171|China,YANKUANG ENERGY GROUP COMPANY LTD,0.0,China,Energy
+1066|China,SHANDONG WEIGAO GP MEDICAL POLYMER,0.0,China,Health Care
+SOL|South Africa,SASOL LTD,0.0,South Africa,Materials
+1044|China,HENGAN INTERNATIONAL GROUP LTD,0.0,China,Consumer Staples
+1038|Hong Kong,CHEUNG KONG INFRASTRUCTURE HOLDING,0.0,Hong Kong,Utilities
+QAN|Australia,QANTAS AIRWAYS LTD,0.0,Australia,Industrials
+ADNOCDIST|United Arab Emirates,ABU DHABI NATIONAL OIL COMPANY FOR,0.0,United Arab Emirates,Consumer Discretionary
+SUNMED|Malaysia,SUNWAY HEALTHCARE HOLDINGS (PROPOS,0.0,Malaysia,Health Care
+MNDY|Israel,MONDAYCOM LTD,0.0,Israel,Information Technology
+3034|Taiwan,NOVATEK MICROELECTRONICS CORP,0.0,Taiwan,Information Technology
+316|China,ORIENT OVERSEAS (INTERNATIONAL) LT,0.0,China,Industrials
+3293|Taiwan,INTERNATIONAL GAMES SYSTEM LTD,0.0,Taiwan,Communication
+3443|Taiwan,GLOBAL UNICHIP CORP,0.0,Taiwan,Information Technology
+SPL|Poland,SANTANDER BANK POLSKA SA,0.0,Poland,Financials
+1308|Hong Kong,SITC INTERNATIONAL HOLDINGS LTD,0.0,Hong Kong,Industrials
+YTL|Malaysia,YTL CORPORATION,0.0,Malaysia,Utilities
+1336|China,NEW CHINA LIFE INSURANCE COMPANY L,0.0,China,Financials
+136|China,CHINA RUYI HOLDINGS LTD,0.0,China,Communication
+005387|Korea (South),HYUNDAI MOTOR S2 PREF,0.0,Korea (South),Consumer Discretionary
+003670|Korea (South),POSCO FUTURE M LTD,0.0,Korea (South),Industrials
+ZAB|Poland,ZABKA GROUP SOCIETE ANONYME SA,0.0,Poland,Consumer Staples
+SAHOL.E|Turkey,HACI OMER SABANCI HOLDING A,0.0,Turkey,Financials
+SALIK|United Arab Emirates,SALIK COMPANY P.J.S.C,0.0,United Arab Emirates,Industrials
+6030|China,CITIC SECURITIES COMPANY LTD H,0.0,China,Financials
+003230|Korea (South),SAM YANG FOODS INC,0.0,Korea (South),Consumer Staples
+6488|Taiwan,GLOBALWAFERS LTD,0.0,Taiwan,Information Technology
+028300|Korea (South),HLB INC,0.0,Korea (South),Health Care
+QGTS|Qatar,QATAR GAS TRANSPORT COMPANY LTD,0.0,Qatar,Energy
+6862|China,HAIDILAO INTERNATIONAL HOLDING LTD,0.0,China,Consumer Discretionary
+1357|China,MEITU INC,0.0,China,Communication
+6919|Taiwan,CALIWAY BIOPHARMACEUTICALS LTD,0.0,Taiwan,Health Care
+ADNOCDRILL|United Arab Emirates,ADNOC DRILLING COMPANY,0.0,United Arab Emirates,Energy
+-|China,KANGMEI PHARMACEUTICAL RIGHTS OF I,0.0,China,Health Care
