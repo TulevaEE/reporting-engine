@@ -7,7 +7,10 @@ Reporting tools for Tuleva investment funds. These are both internal and externa
 ## Commands
 
 - Use `python3` (not `python`) on this machine
-- **Never use multiline strings in shell commands** (e.g. `python3 -c "..."` with newlines). Instead, write code to a temp file and run it, or use heredocs (`python3 <<'EOF' ... EOF`). This avoids permission-check interruptions from special characters (`#`, `;`, etc.) inside quoted strings.
+- **Never run inline Python/code via shell** (`python3 -c "..."`, `python3 -c '...'`). These trigger permission prompts due to `#`, `;`, parentheses, etc. Instead:
+  - For quick snippets: use heredoc (`python3 <<'EOF' ... EOF`)
+  - For anything more than a one-liner: write to a temp `.py` file, run it, then delete it
+  - Same applies to `curl` with complex args, `jq` with special chars, etc. — if a command has characters that look like shell metacharacters inside quotes, use a heredoc or temp file
 - API keys live in `.env` at project root, loaded via `python-dotenv` — never hardcode in notebooks or commit
 - Monthly report: `cd reports/monthly && python3 build_monthly_report.py YYYY M md|html|pdf`
 - Fetch data: `cd reports/monthly && set -a && source ../../.env && set +a && python3 fetch_monthly_data.py YYYY M`
