@@ -18,7 +18,10 @@ Reporting tools for Tuleva investment funds. These are both internal and externa
 ## Notebook workflow
 
 - Execute: `jupyter nbconvert --to notebook --execute --allow-errors --inplace <notebook>.ipynb`
-- Export HTML: `jupyter nbconvert --to html --no-input --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags='["remove_cell"]'`
+- Export HTML: use the config file to avoid shell quoting issues that trigger permission prompts:
+  ```
+  jupyter nbconvert --to html --config common/nbconvert_config.py <notebook>.ipynb
+  ```
 - Tag data/prep cells with `remove_cell` in metadata to hide from HTML output
 - **Execute notebooks incrementally** — run each cell after writing it, don't batch-write the whole notebook then debug multiple stacked errors
 
