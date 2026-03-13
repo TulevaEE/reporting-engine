@@ -921,8 +921,21 @@ function renderOverlap(funds) {
     const r = 120;
     const midX = 200;
     const cy = r + 10;
-    // Circle separation: more overlap = closer centers
-    const gap = 2 * r * (1 - mwo / 100);
+    // Circle separation: solve for distance where lens area = mwo% of circle area
+    function overlapGap(r, pct) {
+      const target = pct / 100;
+      if (target >= 1) return 0;
+      if (target <= 0) return 2 * r;
+      let lo = 0, hi = 2 * r;
+      for (let i = 0; i < 30; i++) {
+        const d = (lo + hi) / 2;
+        const t = d / (2 * r);
+        const area = (2 / Math.PI) * (Math.acos(t) - t * Math.sqrt(1 - t * t));
+        if (area > target) lo = d; else hi = d;
+      }
+      return (lo + hi) / 2;
+    }
+    const gap = overlapGap(r, mwo);
     const cx1 = midX - gap / 2;
     const cx2 = midX + gap / 2;
 
