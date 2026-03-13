@@ -932,7 +932,7 @@ function renderOverlap(funds) {
       : '';
 
     // For low overlap, show % below circles
-    const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 60 : 30) : cy + 8;
+    const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 90 : 30) : cy + 8;
     const subY = pctY + 22;
     const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 70 : 0, mwo < 30 && feeRatioSvg ? subY + 40 : 0);
 
