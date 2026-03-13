@@ -6,7 +6,7 @@
 <meta property="og:title" content="Mida sinu pensionifond tegelikult ostab?">
 <meta property="og:description" content="Võrdle Eesti II samba fonde aktsia haaval. Enamik fonde ostab samu aktsiaid — aga hind erineb kuni 4 korda.">
 <meta property="og:type" content="website">
-<title>MUSTAND — Fondide röntgen</title>
+<title>Fondide röntgen</title>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <style>
   :root {
@@ -151,8 +151,8 @@
 </head>
 <body>
 <div class="container">
-<h1>MUSTAND — Fondide röntgen</h1>
-<p class="subtitle">Paljude pensionifondide portfellid on &uuml;sna sarnased. V&otilde;rdle oma fondi sisu ja vaata, mille eest sa maksad.</p>
+<h1>Fondide röntgen</h1>
+<p class="subtitle">Vaata, mis on sinu fondi sees ja mida see maksab.</p>
 <div class="picker-label">Soovi korral vali 2 fondi</div>
 <div class="provider-tabs" id="providerTabs"></div>
 <div class="fund-grid" id="fundGrid"></div>
@@ -246,8 +246,6 @@
     <strong>&#9888; Hoiatus.</strong> See leht on loodud informatiivsel eesm&auml;rgil. Andmed v&otilde;ivad sisaldada ebat&auml;psusi, kontrolli fakte fondivalitseja ametlikest allikatest. See ei ole investeerimisn&otilde;uanne.
     Osade fondide puhul kasutatakse sarnaste ETFide andmeid l&auml;hendusena (proxy), mist&otilde;ttu v&otilde;ivad kattuvusn&auml;itajad olla ligikaudsed.
     Andmed p&otilde;hinevad fondide investeerimisaruannetel ning v&otilde;ivad olla mitu kuud vanad &mdash; portfelli koosseis muutub pidevalt.
-    <br><br>
-    Finantsteenust pakub Tuleva Fondid AS. Enne fondi valimist tutvu kindlasti tingimuste, prospekti, investori &otilde;iguste kokkuv&otilde;tte ja p&otilde;hiteabega Tuleva Maailma Aktsiate Pensionifond, Tuleva Maailma V&otilde;lakirjade Pensionifond, Tuleva III Samba Pensionifond ja Tuleva T&auml;iendav Kogumisfond ning pea n&otilde;u asjatundjaga. V&otilde;rdluseks leiad k&otilde;igi Eesti pensionifondide info <a href="https://www.pensionikeskus.ee" style="color:inherit;">Pensionikeskusest</a>. Maksustamine oleneb isikuga seotud asjaoludest, sealhulgas residentsusest. III samba sissemaksetelt tulumaksu tagasisaamiseks tuleb esitada tuludeklaratsioon. Maksuseadused muutuvad ajas. Tuleva ega Tuleva t&ouml;&ouml;tajad ei anna investeerimisn&otilde;u ega maksun&otilde;u. II sammas m&otilde;jutab sinu I sammast. &Uuml;heski Tuleva fondis pole tootlus garanteeritud. Meie kodulehel tuginevad arvutused &uuml;ldiselt Pensionikeskuse andmetele.
   </div>
 </div>
 <div class="tooltip" id="tooltip"></div>
@@ -748,13 +746,14 @@ function renderNav(funds) {
   cutoffDate.setFullYear(cutoffDate.getFullYear() - navPeriodYears);
   const cutoffStr = cutoffDate.toISOString().slice(0, 10);
 
-  // Find common start date (latest among all funds' first available date on or after cutoff)
+  // Find common start date (latest among all funds' nearest available date to cutoff)
   let commonStart = cutoffStr;
   funds.forEach(f => {
-    const nd = NAV[f]; if (!nd) return;
-    // Find the first date on or after cutoff (works even if fund has shorter history)
-    const firstAfter = nd.dates.find(d => d >= cutoffStr);
-    if (firstAfter && firstAfter > commonStart) commonStart = firstAfter;
+    const nd = NAV[f]; if (!nd || nd.dates.length === 0) return;
+    const nearest = findNearestDate(nd.dates, cutoffStr);
+    // If fund has no data near cutoff, use its earliest date as candidate
+    const fundStart = nearest || nd.dates[0];
+    if (fundStart > commonStart) commonStart = fundStart;
   });
 
   // Check if actual period differs from selected
@@ -882,6 +881,7 @@ function renderOverlap(funds) {
   const feeA = FEES[f1] || 0, feeB = FEES[f2] || 0;
   const feeDiff = Math.abs(feeA - feeB);
   const eurosPer10k = (feeDiff / 100 * 10000).toFixed(0);
+  const holdingsTableHtml = mergedHoldingsTable(f1, f2, 'stock');
 
   // Venn diagram SVG
   if (mwo >= 50) {
@@ -891,12 +891,12 @@ function renderOverlap(funds) {
     const cheapLabel = LABELS[cheap] || cheap;
     const feeRatio = feeA !== 0 && feeB !== 0 ? (Math.max(feeA, feeB) / Math.min(feeA, feeB)).toFixed(1) : null;
 
-    // Circle geometry
+    // Circle geometry: more overlap = closer centers
     const r = 100;
-    const cx1 = 160, cx2 = 240;
+    const cx1 = 160, cx2 = 240; // gray left, blue right
     const cy = 170;
 
-    // Word-wrap helper
+    // Word-wrap helper: splits text into lines of maxChars
     function wrapText(text, maxChars) {
       const words = text.split(' ');
       const lines = [];
@@ -912,33 +912,47 @@ function renderOverlap(funds) {
     const expLines = wrapText(expLabel, 14);
     const cheapLines = wrapText(cheapLabel, 14);
 
+    // Build label tspans
     const expTspans = expLines.map((l, i) =>
       `<tspan x="52" dy="${i === 0 ? 0 : 14}">${l}</tspan>`).join('');
     const cheapTspans = cheapLines.map((l, i) =>
       `<tspan x="348" dy="${i === 0 ? 0 : 14}">${l}</tspan>`).join('');
 
+    // Leader line endpoints (from label area to circle edge)
     const expLineY = 58 + (expLines.length - 1) * 7;
     const cheapLineY = 58 + (cheapLines.length - 1) * 7;
 
+    // Fee ratio line
     const feeRatioSvg = feeRatio && feeRatio !== '1.0'
       ? `<text x="200" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="16" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev hind</text>`
       : '';
 
     vennEl.innerHTML = `<svg viewBox="0 0 400 ${feeRatioSvg ? 320 : 290}" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gray circle (expensive fund) -->
       <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
+      <!-- Blue circle (cheap fund) -->
       <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
+
+      <!-- Leader lines -->
       <line x1="52" y1="${expLineY + 8}" x2="${cx1 - 20}" y2="${cy - r + 20}" stroke="#d1d5db" stroke-width="1.5"/>
       <line x1="348" y1="${cheapLineY + 8}" x2="${cx2 + 20}" y2="${cy - r + 20}" stroke="#0081EE" stroke-width="1.5" opacity="0.6"/>
+
+      <!-- Expensive fund label (gray, top-left) -->
       <text x="52" y="55" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#6b7280" font-weight="600">${expTspans}</text>
+
+      <!-- Cheap fund label (blue bold, top-right) -->
       <text x="348" y="55" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#0081EE" font-weight="700">${cheapTspans}</text>
+
+      <!-- Center overlap percentage -->
       <text x="200" y="${cy + 5}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#002F63">${mwo}%</text>
       <text x="200" y="${cy + 28}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#002F63">sama portfell</text>
+
+      <!-- Fee ratio -->
       ${feeRatioSvg}
     </svg>`;
   } else {
     vennEl.innerHTML = '';
   }
-  const holdingsTableHtml = mergedHoldingsTable(f1, f2, 'stock');
 
   // NAV return correlation lookup (ESMA metrics)
   const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
@@ -1127,7 +1141,7 @@ function renderScatter(funds) {
     if (a > 0.02 || b > 0.02) { xs.push(a); ys.push(b); names.push(k.replace(/^(PE|RE|BOND|ETF)\|/, '')); }
   });
   document.getElementById('scatterSub').textContent =
-    `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal. Logaritmiline skaala.`;
+    `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
   const mn = Math.min(...xs.filter(v=>v>0), ...ys.filter(v=>v>0)) * 0.8;
   const mx = Math.max(...xs, ...ys) * 1.3;
   const r = DATA.correlation_matrix[`${f1}|${f2}`] || 0;
@@ -1137,8 +1151,8 @@ function renderScatter(funds) {
       hovertemplate:'%{text}<br>'+LABELS[f1]+': %{x:.2f}%<br>'+LABELS[f2]+': %{y:.2f}%<extra></extra>' },
     { x:[mn,mx], y:[mn,mx], mode:'lines', line:{dash:'dash',color:'#ccc'}, showlegend:false },
   ], { ...PL,
-    xaxis:{title:{text:LABELS[f1]+' (%)', font:{size:14}}, type:'log', range:[Math.log10(mn), Math.log10(mx)], tickfont:{size:12}},
-    yaxis:{title:{text:LABELS[f2]+' (%)', font:{size:14}}, type:'log', range:[Math.log10(mn), Math.log10(mx)], tickfont:{size:12}},
+    xaxis:{title:LABELS[f1]+' (%)', type:'log', range:[Math.log10(mn), Math.log10(mx)]},
+    yaxis:{title:LABELS[f2]+' (%)', type:'log', range:[Math.log10(mn), Math.log10(mx)]},
     height:450,
     annotations:[{ x:0.95, y:0.05, xref:'paper', yref:'paper',
       text:`r = ${r.toFixed(3)}`, showarrow:false,
