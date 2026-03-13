@@ -196,7 +196,7 @@
 </div>
 
 <div class="section" id="sectionNav">
-  <div class="section-title">Fondi v&auml;&auml;rtuse ajalugu</div>
+  <div class="section-title">Kas fondide tootlused on sarnased?</div>
   <div class="section-sub" id="navSub">Normaliseeritud 100-le valitud perioodi alguses</div>
   <div id="corrBarContainer"></div>
   <div class="nav-period-btns" id="navPeriodBtns">
@@ -928,13 +928,13 @@ function renderOverlap(funds) {
 
     // Fee ratio text inside SVG
     const feeRatioSvg = feeRatio && feeRatio !== '1'
-      ? `<text x="${midX}" y="${cy + r + 30}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="26" font-weight="800" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
+      ? `<text x="${midX}" y="${cy + r + 45}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
       : '';
 
     // For low overlap, show % below circles
     const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 60 : 30) : cy + 8;
     const subY = pctY + 22;
-    const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 55 : 0, mwo < 30 && feeRatioSvg ? subY + 40 : 0);
+    const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 70 : 0, mwo < 30 && feeRatioSvg ? subY + 40 : 0);
 
     // HTML legend above SVG + SVG diagram
     vennEl.innerHTML = `
