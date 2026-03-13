@@ -221,6 +221,7 @@
       <div class="section-title">Investeeringute kaalud v&otilde;rrelduna</div>
       <div class="section-sub" id="scatterSub"></div>
       <div class="chart-container" id="chartScatter"></div>
+      <div id="scatterNote" style="font-size:0.82rem;color:#666;margin-top:0.3rem;"></div>
     </div>
     <div id="detailSunburst" style="margin-bottom:2rem;">
       <div class="section-title">Portfelli struktuur</div>
@@ -575,8 +576,14 @@ function firstLevelHoldings(f) {
   const fd = DATA.funds[f];
   const items = {};
   if (fd.etf_breakdown) {
-    // Index fund: first level = ETFs
+    // Fund with sub-funds: first level = ETFs + direct stocks + other holdings
     fd.etf_breakdown.forEach(e => { items[e.name || e.etf] = e.fund_weight || 0; });
+    (fd.direct_stock_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.etf_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.pe_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.re_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.bond_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.gold_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
   } else {
     // Active fund: top_holdings are direct stocks, etf_holdings are ETFs, plus PE/RE/bonds
     (fd.top_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
@@ -1024,23 +1031,7 @@ function renderOverlap(funds) {
   });
 }
 
-function renderHoldings(funds) {
-  const el = document.getElementById('holdingsArea');
-  const section = document.getElementById('sectionHoldings');
-  if (funds.length >= 2) { section.classList.remove('visible'); return; }
-  section.classList.add('visible');
-  el.innerHTML = '';
-
-  const f = funds[0];
-  const fd = DATA.funds[f];
-  const items = [];
-  (fd.top_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: h.sector || '', country: h.country || '' }));
-  (fd.pe_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
-  (fd.re_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
-  (fd.bond_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
-  (fd.gold_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: 'Kuld', country: '' }));
-  items.sort((a, b) => b.weight - a.weight);
-
+function renderHoldingsTable(items) {
   let html = `<div style="max-height:500px;overflow-y:auto;border:1px solid var(--g200);border-radius:8px;">
     <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
     <thead style="position:sticky;top:0;background:#fff;z-index:1;">
@@ -1058,7 +1049,60 @@ function renderHoldings(funds) {
     </tr>`;
   });
   html += '</tbody></table></div>';
-  el.innerHTML = html;
+  return html;
+}
+
+function singleFundHoldingsItems(f, level) {
+  const fd = DATA.funds[f];
+  if (level === 'etf') {
+    const map = firstLevelHoldings(f);
+    return Object.entries(map).map(([name, weight]) => ({ name, weight, sector: '', country: '' }))
+      .sort((a, b) => b.weight - a.weight);
+  }
+  // Default: look-through (top_holdings)
+  const items = [];
+  (fd.top_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: h.sector || '', country: h.country || '' }));
+  (fd.pe_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
+  (fd.re_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
+  (fd.bond_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
+  (fd.gold_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: 'Kuld', country: '' }));
+  items.sort((a, b) => b.weight - a.weight);
+  return items;
+}
+
+function renderHoldings(funds) {
+  const el = document.getElementById('holdingsArea');
+  const section = document.getElementById('sectionHoldings');
+  if (funds.length >= 2) { section.classList.remove('visible'); return; }
+  section.classList.add('visible');
+  el.innerHTML = '';
+
+  const f = funds[0];
+  const fd = DATA.funds[f];
+  const hasToggle = !!fd.etf_breakdown;
+
+  let toggleHtml = '';
+  if (hasToggle) {
+    toggleHtml = `<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
+      <div class="nav-period-btns" id="holdingsSingleLevelBtns" style="margin-bottom:0;">
+        <button class="nav-period-btn active" data-level="stock">L\u00e4bivaade</button>
+        <button class="nav-period-btn" data-level="etf">Otse omatud</button>
+      </div>
+    </div>`;
+  }
+
+  const items = singleFundHoldingsItems(f, 'stock');
+  el.innerHTML = toggleHtml + `<div id="holdingsSingleTableContainer">${renderHoldingsTable(items)}</div>`;
+
+  if (hasToggle) {
+    document.getElementById('holdingsSingleLevelBtns').addEventListener('click', (e) => {
+      const btn = e.target.closest('.nav-period-btn');
+      if (!btn) return;
+      document.querySelectorAll('#holdingsSingleLevelBtns .nav-period-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('holdingsSingleTableContainer').innerHTML = renderHoldingsTable(singleFundHoldingsItems(f, btn.dataset.level));
+    });
+  }
 }
 
 function renderESMA(funds) {
@@ -1140,9 +1184,12 @@ function renderScatter(funds) {
   const w2 = DATA.funds[f2].weights || {};
   const allKeys = new Set([...Object.keys(w1), ...Object.keys(w2)]);
   const xs = [], ys = [], names = [];
+  const nonEquityPrefixes = /^(BOND|RE|PE|ETF)\|/;
+  let excl1 = 0, excl2 = 0;
   allKeys.forEach(k => {
+    if (nonEquityPrefixes.test(k)) { excl1 += w1[k]||0; excl2 += w2[k]||0; return; }
     const a = w1[k]||0, b = w2[k]||0;
-    if (a > 0.02 || b > 0.02) { xs.push(a); ys.push(b); names.push(k.replace(/^(PE|RE|BOND|ETF)\|/, '')); }
+    if (a > 0.02 || b > 0.02) { xs.push(a); ys.push(b); names.push(k); }
   });
   document.getElementById('scatterSub').textContent =
     `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
@@ -1162,6 +1209,17 @@ function renderScatter(funds) {
       text:`r = ${r.toFixed(3)}`, showarrow:false,
       font:{size:16,color:'#333'}, bgcolor:'rgba(255,255,255,0.8)' }],
   }, {responsive:true, displayModeBar:false});
+  // Note about excluded non-equity holdings
+  const noteEl = document.getElementById('scatterNote');
+  if (excl1 > 0.5 || excl2 > 0.5) {
+    const parts = [];
+    if (excl1 > 0.5) parts.push(`${LABELS[f1]} sisaldab ka v\u00f5lakirju, kinnisvara jm (${excl1.toFixed(1)}%)`);
+    if (excl2 > 0.5) parts.push(`${LABELS[f2]} sisaldab ka v\u00f5lakirju, kinnisvara jm (${excl2.toFixed(1)}%)`);
+    noteEl.textContent = 'Ainult m\u00f5lema fondi \u00fchised aktsiad. ' + parts.join('; ') + ', mida siin ei kuvata.';
+    noteEl.style.display = 'block';
+  } else {
+    noteEl.style.display = 'none';
+  }
 }
 
 function renderSunburst(funds) {
