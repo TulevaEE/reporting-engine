@@ -919,73 +919,36 @@ function renderOverlap(funds) {
   // === Venn diagram SVG ===
   {
     const r = 120;
-    const midX = 240;
-    const cy = 175;
+    const midX = 200;
+    const cy = r + 10;
     // Circle separation: more overlap = closer centers
     const gap = 2 * r * (1 - mwo / 100);
-    const cx1 = midX - gap / 2;  // expensive (gray, left)
-    const cx2 = midX + gap / 2;  // cheap (blue, right)
-
-    // Word-wrap helper
-    function wrapText(text, maxChars) {
-      const words = text.split(' ');
-      const lines = []; let line = '';
-      for (const w of words) {
-        if (line && (line + ' ' + w).length > maxChars) { lines.push(line); line = w; }
-        else { line = line ? line + ' ' + w : w; }
-      }
-      if (line) lines.push(line);
-      return lines;
-    }
-
-    const expLines = wrapText(expLabel, 16);
-    const cheapLines = wrapText(cheapLabel, 16);
-
-    // Labels at outer edges — never overlap
-    const expLabelX = 50;
-    const cheapLabelX = 430;
-    const labelY = cy - r + 10;
-    const expTspans = expLines.map((l, i) =>
-      `<tspan x="${expLabelX}" dy="${i === 0 ? 0 : 15}">${l}</tspan>`).join('');
-    const cheapTspans = cheapLines.map((l, i) =>
-      `<tspan x="${cheapLabelX}" dy="${i === 0 ? 0 : 15}">${l}</tspan>`).join('');
-
-    // Leader lines from label to circle top
-    const expLineEndY = labelY + (expLines.length - 1) * 15 + 6;
-    const cheapLineEndY = labelY + (cheapLines.length - 1) * 15 + 6;
+    const cx1 = midX - gap / 2;
+    const cx2 = midX + gap / 2;
 
     // Fee ratio text inside SVG
     const feeRatioSvg = feeRatio && feeRatio !== '1'
-      ? `<text x="${midX}" y="${cy + r + 30}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="17" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
+      ? `<text x="${midX}" y="${cy + r + 30}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="26" font-weight="800" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
       : '';
 
-    // For low overlap, show % below circles instead of in tiny overlap zone
+    // For low overlap, show % below circles
     const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 60 : 30) : cy + 8;
     const subY = pctY + 22;
-    const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 48 : 0, mwo < 30 && feeRatioSvg ? subY + 30 : 0);
+    const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 55 : 0, mwo < 30 && feeRatioSvg ? subY + 40 : 0);
 
-    vennEl.innerHTML = `<svg viewBox="0 0 480 ${svgH}" xmlns="http://www.w3.org/2000/svg">
-      <!-- Gray circle (expensive fund) -->
-      <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
-      <!-- Blue circle (cheap fund) -->
-      <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
-
-      <!-- Leader lines -->
-      <line x1="${expLabelX + 10}" y1="${expLineEndY}" x2="${cx1 - r * 0.6}" y2="${cy - r * 0.7}" stroke="#d1d5db" stroke-width="1.5"/>
-      <line x1="${cheapLabelX - 10}" y1="${cheapLineEndY}" x2="${cx2 + r * 0.6}" y2="${cy - r * 0.7}" stroke="#0081EE" stroke-width="1.5" opacity="0.6"/>
-
-      <!-- Expensive fund label (gray, left edge) -->
-      <text x="${expLabelX}" y="${labelY}" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#6b7280" font-weight="600">${expTspans}</text>
-
-      <!-- Cheap fund label (blue, right edge) -->
-      <text x="${cheapLabelX}" y="${labelY}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#0081EE" font-weight="700">${cheapTspans}</text>
-
-      <!-- Overlap percentage -->
-      <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">${mwo}%</text>
-      <text x="${midX}" y="${subY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
-
-      ${feeRatioSvg}
-    </svg>`;
+    // HTML legend above SVG + SVG diagram
+    vennEl.innerHTML = `
+      <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:0.5rem;font-size:0.9rem;font-weight:600;">
+        <span style="display:flex;align-items:center;gap:6px;color:#6b7280;"><span style="width:12px;height:12px;border-radius:50%;background:#d1d5db;flex-shrink:0;"></span>${expLabel}</span>
+        <span style="display:flex;align-items:center;gap:6px;color:#0081EE;"><span style="width:12px;height:12px;border-radius:50%;background:#0081EE;flex-shrink:0;"></span>${cheapLabel}</span>
+      </div>
+      <svg viewBox="0 0 400 ${svgH}" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
+        <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
+        <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">${mwo}%</text>
+        <text x="${midX}" y="${subY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
+        ${feeRatioSvg}
+      </svg>`;
 
     // Fee detail below Venn
     if (feeRatio && feeRatio !== '1.0') {
