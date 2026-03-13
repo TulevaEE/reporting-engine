@@ -3,7 +3,7 @@ Multi-source pipeline for Estonian pension fund analysis.
 
 Parses investment reports from all major pension fund providers,
 looks through ETFs to stock-level, computes overlaps/correlations.
-Exports unified JSON for web/index.html.
+Exports unified JSON to docs/fondide-vordlus/.
 """
 import argparse
 import csv
@@ -30,8 +30,8 @@ if _env_path.exists():
 
 BASE = Path('.')
 CACHE_DIR = BASE / 'data' / 'raw' / 'holdings'
-OUT_DIR = BASE / 'web'
-OUT_DIR.mkdir(exist_ok=True)
+OUT_DIR = Path(__file__).resolve().parent.parent / 'docs' / 'fondide-vordlus'
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 REPORT_DIR = BASE / 'Investeeringute aruanne'
 
 ISIN_RE = re.compile(r'[A-Z]{2}[A-Z0-9]{10}')
@@ -3031,9 +3031,9 @@ def main():
     print('\n=== Pipeline complete ===')
     print(f'Month: {MONTH}')
     print(f'Funds processed: {len(fund_order)}')
-    print(f'fund_data.json:  {Path("web/fund_data.json").stat().st_size:,} bytes')
+    print(f'fund_data.json:  {(OUT_DIR / "fund_data.json").stat().st_size:,} bytes')
     if not args.skip_nav:
-        print(f'nav_data.json:   {Path("web/nav_data.json").stat().st_size:,} bytes')
+        print(f'nav_data.json:   {(OUT_DIR / "nav_data.json").stat().st_size:,} bytes')
 
 
 # ═══════════════════════════════════════════════════════════════════
