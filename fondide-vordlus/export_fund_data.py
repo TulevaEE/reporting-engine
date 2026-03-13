@@ -1943,6 +1943,10 @@ def process_stock_fund(name, parsed, etf_holdings, acwi, acwi_keys, sector_looku
     df.loc[df['sector'].isna(), 'sector'] = 'Unknown'
     df = df.sort_values('weight', ascending=False).reset_index(drop=True)
 
+    # Save direct stock holdings before look-through merge
+    direct_stock_holdings = [{'name': r['name'], 'weight': round(r['weight'], 3)}
+                             for _, r in df.iterrows()]
+
     # Look through equity funds that have ETF mappings
     lookthrough_allocs = []
     opaque_equity_funds = []
@@ -2031,6 +2035,8 @@ def process_stock_fund(name, parsed, etf_holdings, acwi, acwi_keys, sector_looku
         fund_data['re_holdings'] = re_holdings
     if pe_holdings:
         fund_data['pe_holdings'] = pe_holdings
+    if direct_stock_holdings:
+        fund_data['direct_stock_holdings'] = direct_stock_holdings
     if lookthrough_allocs:
         fund_data['etf_breakdown'] = build_etf_breakdown(lookthrough_allocs, etf_holdings)
 
