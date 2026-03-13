@@ -912,7 +912,8 @@ function renderOverlap(funds) {
   const cheapFee = Math.min(feeA, feeB);
   const expLabel = LABELS[expensive] || expensive;
   const cheapLabel = LABELS[cheap] || cheap;
-  const feeRatio = cheapFee > 0 ? (expFee / cheapFee).toFixed(1) : null;
+  const feeRatioRaw = cheapFee > 0 ? expFee / cheapFee : null;
+  const feeRatio = feeRatioRaw !== null ? (feeRatioRaw % 1 === 0 ? feeRatioRaw.toFixed(0) : feeRatioRaw.toFixed(1)) : null;
 
   // === Venn diagram SVG ===
   {
@@ -953,10 +954,14 @@ function renderOverlap(funds) {
     const cheapLineEndY = labelY + (cheapLines.length - 1) * 15 + 6;
 
     // Fee ratio text inside SVG
-    const feeRatioSvg = feeRatio && feeRatio !== '1.0'
+    const feeRatioSvg = feeRatio && feeRatio !== '1'
       ? `<text x="${midX}" y="${cy + r + 30}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="17" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
       : '';
-    const svgH = feeRatioSvg ? cy + r + 48 : cy + r + 15;
+
+    // For low overlap, show % below circles instead of in tiny overlap zone
+    const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 60 : 30) : cy + 8;
+    const subY = pctY + 22;
+    const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 48 : 0, mwo < 30 && feeRatioSvg ? subY + 30 : 0);
 
     vennEl.innerHTML = `<svg viewBox="0 0 480 ${svgH}" xmlns="http://www.w3.org/2000/svg">
       <!-- Gray circle (expensive fund) -->
@@ -974,9 +979,9 @@ function renderOverlap(funds) {
       <!-- Cheap fund label (blue, right edge) -->
       <text x="${cheapLabelX}" y="${labelY}" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#0081EE" font-weight="700">${cheapTspans}</text>
 
-      <!-- Center overlap percentage -->
-      <text x="${midX}" y="${cy + 8}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">${mwo}%</text>
-      <text x="${midX}" y="${cy + 30}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
+      <!-- Overlap percentage -->
+      <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">${mwo}%</text>
+      <text x="${midX}" y="${subY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
 
       ${feeRatioSvg}
     </svg>`;
