@@ -2370,9 +2370,10 @@ def process_luminor_fund(name, parsed, etf_holdings, acwi, acwi_keys, sector_loo
         df_filtered = df[df['stock_id'].isin(acwi_universe)].copy()
         if not df_filtered.empty:
             df = df_filtered
+        equity_total = sum(ef['weight_pct'] for ef in equity_funds)
         total_w = df['weight'].sum()
         if total_w > 0:
-            df['weight'] = df['weight'] / total_w * 100
+            df['weight'] = df['weight'] / total_w * equity_total
         df['norm_key'] = df['name'].apply(normalize_company_name)
 
     acwi_nk = acwi.copy()
