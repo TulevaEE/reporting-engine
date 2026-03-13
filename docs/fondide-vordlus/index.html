@@ -244,8 +244,8 @@
       <div class="chart-container" id="chartCountries"></div>
     </div>
     <div id="detailESMA" style="margin-bottom:2rem;">
-      <div class="section-title">Kas fondid on sisuliselt samad?</div>
-      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kolme n&auml;itajaga:</div>
+      <div class="section-title">Kapiindeksi anal&uuml;&uuml;s (ESMA metoodika)</div>
+      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kahe n&auml;itajaga:</div>
       <div id="esmaContent"></div>
     </div>
   </div>
@@ -1154,7 +1154,7 @@ function renderESMA(funds) {
   let interpBg, interpBorder, interpText;
   if (isSame) {
     interpBg = '#fef2f2'; interpBorder = 'var(--red)';
-    interpText = `<strong>Fondid on sisuliselt samad.</strong> Aktiivne osakaal < 60% ja j\u00e4lgimisviga < 4%. ESMA metoodika j\u00e4rgi on tegemist nn kapiindeksiga \u2014 fond n\u00e4eb v\u00e4lja erinev, aga liigub sarnaselt.`;
+    interpText = `<strong>V\u00f5imalik peidetud indeksij\u00e4lgimine.</strong> Aktiivne osakaal < 60% ja j\u00e4lgimisviga < 4%. ESMA metoodika j\u00e4rgi viitab see closet indexing\u2019ile \u2014 fond n\u00e4eb v\u00e4lja erinev, aga liigub sarnaselt.`;
   } else {
     interpBg = '#f0fdf4'; interpBorder = 'var(--green)';
     interpText = `<strong>Fondid on erinevad.</strong> ESMA closet indexing kriteeriumid pole t\u00e4idetud. Fondide koosseis v\u00f5i tootlused erinevad piisavalt.`;
