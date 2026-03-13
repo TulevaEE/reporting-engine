@@ -135,14 +135,21 @@
   .selected-chip.placeholder { border: 2px dashed var(--g200); background: none; color: var(--g400);
                                 pointer-events: none; }
   .selected-chip.placeholder .chip-name { font-weight: 600; font-size: 0.88rem; color: var(--g400); }
-  .venn-diagram { text-align:center; margin-bottom:2rem; padding:1rem 0; }
-  .venn-diagram svg { max-width:380px; width:100%; height:auto; }
+  .venn-diagram { text-align:center; margin-bottom:1.5rem; padding:1rem 0; }
+  .venn-diagram svg { max-width:480px; width:100%; height:auto; }
+  .venn-fee-compare { text-align:center; margin-bottom:2rem; }
+  .venn-fee-row { display:flex; justify-content:center; align-items:baseline; gap:2rem; flex-wrap:wrap; margin-bottom:0.5rem; }
+  .venn-fee-item { font-size:0.95rem; color:var(--g600); }
+  .venn-fee-item .fee-val { font-family:Georgia,'Times New Roman',serif; font-weight:700; font-size:1.3rem; }
+  .venn-fee-item .fee-val.cheap { color:var(--blue); }
+  .venn-fee-item .fee-val.expensive { color:var(--g600); }
+  .venn-fee-ratio { font-size:1.1rem; font-weight:700; color:var(--navy); margin-top:0.25rem; }
   @media (max-width: 640px) {
     h1 { font-size: 1.5rem; }
     .fund-grid { grid-template-columns: 1fr 1fr; }
     .info-icon .info-tip { width: 240px; left: 0; transform: none; }
     .summary-card { padding: 1.25rem 1.25rem; }
-    .venn-diagram svg { max-width:280px; }
+    .venn-diagram svg { max-width:360px; }
   }
   .tooltip { position:fixed; pointer-events:none; background:var(--navy); color:#fff;
     padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600;
@@ -166,16 +173,20 @@
 <div class="section" id="sectionNarrative"><div class="narrative" id="narrativeText"></div></div>
 
 <div class="section" id="sectionOverlap">
-  <div class="venn-diagram" id="vennDiagram"></div>
   <div class="section-title" style="font-size:1.35rem;">Kas fondid investeerivad samasse kohta?</div>
-  <div class="section-sub">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja v&otilde;rdleme tegelikke aktsiaid.</div>
-  <div id="overlapContent"></div>
+  <div class="venn-diagram" id="vennDiagram"></div>
+  <div class="venn-fee-compare" id="vennFeeCompare"></div>
+  <div id="overlapDisclaimer" style="font-size:0.78rem;color:var(--g400);text-align:center;margin-bottom:1.5rem;max-width:640px;margin-left:auto;margin-right:auto;"></div>
 </div>
 
 <div class="section" id="sectionAssets">
   <div class="section-title">Varaklass</div>
   <div class="section-sub">Kuhu fond investeerib: aktsiad, v&otilde;lakirjad, erakapital, kinnisvara?</div>
   <div id="assetBars"></div>
+</div>
+
+<div class="section" id="sectionHoldingsCompare">
+  <div id="holdingsCompareContent"></div>
 </div>
 
 <div class="section" id="sectionHoldings">
@@ -187,6 +198,7 @@
 <div class="section" id="sectionNav">
   <div class="section-title">Fondi v&auml;&auml;rtuse ajalugu</div>
   <div class="section-sub" id="navSub">Normaliseeritud 100-le valitud perioodi alguses</div>
+  <div id="corrBarContainer"></div>
   <div class="nav-period-btns" id="navPeriodBtns">
     <button class="nav-period-btn" data-years="10">10a</button>
     <button class="nav-period-btn active" data-years="5">5a</button>
@@ -873,7 +885,18 @@ function renderNav(funds) {
 function renderOverlap(funds) {
   const section = document.getElementById('sectionOverlap');
   const vennEl = document.getElementById('vennDiagram');
-  if (funds.length < 2) { section.classList.remove('visible'); vennEl.innerHTML = ''; return; }
+  const feeEl = document.getElementById('vennFeeCompare');
+  const disclaimerEl = document.getElementById('overlapDisclaimer');
+  const corrContainer = document.getElementById('corrBarContainer');
+  const holdingsCompare = document.getElementById('holdingsCompareContent');
+  const holdingsCompareSection = document.getElementById('sectionHoldingsCompare');
+  if (funds.length < 2) {
+    section.classList.remove('visible');
+    holdingsCompareSection.classList.remove('visible');
+    vennEl.innerHTML = ''; feeEl.innerHTML = ''; disclaimerEl.innerHTML = '';
+    corrContainer.innerHTML = ''; holdingsCompare.innerHTML = '';
+    return;
+  }
   section.classList.add('visible');
 
   const [f1, f2] = funds;
@@ -883,24 +906,29 @@ function renderOverlap(funds) {
   const feeDiff = Math.abs(feeA - feeB);
   const eurosPer10k = (feeDiff / 100 * 10000).toFixed(0);
 
-  // Venn diagram SVG
-  if (mwo >= 50) {
-    const expensive = feeA >= feeB ? f1 : f2;
-    const cheap = feeA >= feeB ? f2 : f1;
-    const expLabel = LABELS[expensive] || expensive;
-    const cheapLabel = LABELS[cheap] || cheap;
-    const feeRatio = feeA !== 0 && feeB !== 0 ? (Math.max(feeA, feeB) / Math.min(feeA, feeB)).toFixed(1) : null;
+  // Determine expensive vs cheap
+  const expensive = feeA >= feeB ? f1 : f2;
+  const cheap = feeA >= feeB ? f2 : f1;
+  const expFee = Math.max(feeA, feeB);
+  const cheapFee = Math.min(feeA, feeB);
+  const expLabel = LABELS[expensive] || expensive;
+  const cheapLabel = LABELS[cheap] || cheap;
+  const feeRatio = cheapFee > 0 ? (expFee / cheapFee).toFixed(1) : null;
 
-    // Circle geometry
-    const r = 100;
-    const cx1 = 160, cx2 = 240;
-    const cy = 170;
+  // === Venn diagram SVG ===
+  if (mwo >= 50) {
+    const r = 120;
+    const midX = 240;
+    const cy = 175;
+    // Circle separation: more overlap = closer centers
+    const gap = 2 * r * (1 - mwo / 100);
+    const cx1 = midX - gap / 2;  // expensive (gray, left)
+    const cx2 = midX + gap / 2;  // cheap (blue, right)
 
     // Word-wrap helper
     function wrapText(text, maxChars) {
       const words = text.split(' ');
-      const lines = [];
-      let line = '';
+      const lines = []; let line = '';
       for (const w of words) {
         if (line && (line + ' ' + w).length > maxChars) { lines.push(line); line = w; }
         else { line = line ? line + ' ' + w : w; }
@@ -909,38 +937,70 @@ function renderOverlap(funds) {
       return lines;
     }
 
-    const expLines = wrapText(expLabel, 14);
-    const cheapLines = wrapText(cheapLabel, 14);
+    const expLines = wrapText(expLabel, 16);
+    const cheapLines = wrapText(cheapLabel, 16);
+
+    // Labels positioned directly above each circle
+    const labelGap = 8;
+    const expLabelX = cx1;
+    const cheapLabelX = cx2;
+    const expLabelY = cy - r - labelGap - (expLines.length - 1) * 15;
+    const cheapLabelY = cy - r - labelGap - (cheapLines.length - 1) * 15;
 
     const expTspans = expLines.map((l, i) =>
-      `<tspan x="52" dy="${i === 0 ? 0 : 14}">${l}</tspan>`).join('');
+      `<tspan x="${expLabelX}" dy="${i === 0 ? 0 : 15}">${l}</tspan>`).join('');
     const cheapTspans = cheapLines.map((l, i) =>
-      `<tspan x="348" dy="${i === 0 ? 0 : 14}">${l}</tspan>`).join('');
+      `<tspan x="${cheapLabelX}" dy="${i === 0 ? 0 : 15}">${l}</tspan>`).join('');
 
-    const expLineY = 58 + (expLines.length - 1) * 7;
-    const cheapLineY = 58 + (cheapLines.length - 1) * 7;
+    // Short stub lines from label to circle top
+    const stubTop = cy - r - 3;
+    const expStubBottom = expLabelY + (expLines.length - 1) * 15 + 5;
+    const cheapStubBottom = cheapLabelY + (cheapLines.length - 1) * 15 + 5;
 
-    const feeRatioSvg = feeRatio && feeRatio !== '1.0'
-      ? `<text x="200" y="296" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="16" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev hind</text>`
-      : '';
+    // Dynamic viewBox height
+    const topPadding = Math.min(expLabelY, cheapLabelY) - 15;
+    const svgH = cy + r + 15;
 
-    vennEl.innerHTML = `<svg viewBox="0 0 400 ${feeRatioSvg ? 320 : 290}" xmlns="http://www.w3.org/2000/svg">
+    vennEl.innerHTML = `<svg viewBox="0 ${topPadding} 480 ${svgH - topPadding}" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gray circle (expensive fund) -->
       <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
+      <!-- Blue circle (cheap fund) -->
       <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
-      <line x1="52" y1="${expLineY + 8}" x2="${cx1 - 20}" y2="${cy - r + 20}" stroke="#d1d5db" stroke-width="1.5"/>
-      <line x1="348" y1="${cheapLineY + 8}" x2="${cx2 + 20}" y2="${cy - r + 20}" stroke="#0081EE" stroke-width="1.5" opacity="0.6"/>
-      <text x="52" y="55" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#6b7280" font-weight="600">${expTspans}</text>
-      <text x="348" y="55" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#0081EE" font-weight="700">${cheapTspans}</text>
-      <text x="200" y="${cy + 5}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#002F63">${mwo}%</text>
-      <text x="200" y="${cy + 28}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" fill="#002F63">sama portfell</text>
-      ${feeRatioSvg}
+
+      <!-- Stub lines -->
+      <line x1="${expLabelX}" y1="${expStubBottom}" x2="${cx1}" y2="${stubTop}" stroke="#d1d5db" stroke-width="1.5"/>
+      <line x1="${cheapLabelX}" y1="${cheapStubBottom}" x2="${cx2}" y2="${stubTop}" stroke="#0081EE" stroke-width="1.5" opacity="0.6"/>
+
+      <!-- Expensive fund label (gray) -->
+      <text x="${expLabelX}" y="${expLabelY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#6b7280" font-weight="600">${expTspans}</text>
+
+      <!-- Cheap fund label (blue) -->
+      <text x="${cheapLabelX}" y="${cheapLabelY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#0081EE" font-weight="700">${cheapTspans}</text>
+
+      <!-- Center overlap percentage -->
+      <text x="${midX}" y="${cy + 8}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">${mwo}%</text>
+      <text x="${midX}" y="${cy + 30}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
     </svg>`;
+
+    // Fee comparison below Venn
+    if (feeRatio && feeRatio !== '1.0') {
+      feeEl.innerHTML = `<div class="venn-fee-row">
+        <div class="venn-fee-item"><span class="fee-val expensive">${expFee.toFixed(2)}%</span> ${expLabel}</div>
+        <div class="venn-fee-item"><span class="fee-val cheap">${cheapFee.toFixed(2)}%</span> ${cheapLabel}</div>
+      </div>
+      <div class="venn-fee-ratio">${feeRatio}\u00d7 erinev hind</div>`;
+    } else {
+      feeEl.innerHTML = '';
+    }
   } else {
     vennEl.innerHTML = '';
+    feeEl.innerHTML = '';
   }
-  const holdingsTableHtml = mergedHoldingsTable(f1, f2, 'stock');
 
-  // NAV return correlation lookup (ESMA metrics)
+  // ETF disclaimer
+  disclaimerEl.innerHTML = 'Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja v\u00f5rdleme tegelikke aktsiaid.';
+
+  // === Correlation bar → NAV section ===
   const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
   const navCorr = RET_CORR?.correlations ? (RET_CORR.correlations[k1] ?? RET_CORR.correlations[k2] ?? null) : null;
   const r2 = RET_CORR?.r_squared ? (RET_CORR.r_squared[k1] ?? RET_CORR.r_squared[k2] ?? null) : null;
@@ -948,52 +1008,34 @@ function renderOverlap(funds) {
   const navCorrPct = navCorr !== null ? Math.round(navCorr * 100) : null;
   const r2Pct = r2 !== null ? Math.round(r2 * 100) : null;
 
-  // Verdict: correlation-aware first, then MWO-based fallback
-  let verdict;
-  if (r2Pct !== null && r2Pct > 70 && feeDiff > 0.2) verdict = 'Fondid liiguvad v\u00e4ga sarnaselt, aga hind erineb.';
-  else if (r2Pct !== null && r2Pct > 70) verdict = 'Fondid liiguvad v\u00e4ga sarnaselt.';
-  else if (mwo > 80 && feeDiff > 0.2) verdict = 'V\u00e4ga sarnane sisu, erinev hind.';
-  else if (mwo > 80) verdict = 'V\u00e4ga sarnane sisu ja hind.';
-  else if (mwo > 50 && feeDiff > 0.2) verdict = 'Osaliselt kattuvad, erinev hind.';
-  else if (mwo > 50) verdict = 'Osaliselt kattuvad portfellid.';
-  else verdict = 'Erinevad portfellid.';
-
-  // Story block
-  let story = `<strong>${mwo}%</strong> m\u00f5lema fondi rahast l\u00e4heb samadesse kohtadesse.`;
-  if (r2Pct !== null && r2Pct > mwo + 10) {
-    story += ` Siiski selgitab \u00fcks fond <strong>${r2Pct}%</strong> teise fondi hinnamuutustest, sest ka erinevad investeeringud on omavahel seotud.`;
+  if (r2Pct !== null) {
+    corrContainer.innerHTML = `
+      <div style="margin-top:1.5rem;">
+        <div style="font-size:0.8rem;font-weight:600;color:var(--g600);margin-bottom:2px;">Kui sarnaselt fondid liiguvad</div>
+        <div style="position:relative;height:28px;border-radius:8px;overflow:hidden;background:var(--g200);margin-bottom:0.4rem;">
+          <div style="height:100%;width:${Math.max(r2Pct,2)}%;background:var(--blue);border-radius:8px 0 0 8px;display:flex;align-items:center;${r2Pct >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${r2Pct}%</div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--g400);">
+          ${feeA !== feeB ? `Odavam fond (${LABELS[feeA <= feeB ? f1 : f2]}) selgitab ${r2Pct}% kallima fondi (${LABELS[feeA > feeB ? f1 : f2]}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
+        </div>
+      </div>`;
+  } else {
+    corrContainer.innerHTML = '';
   }
 
-  // Correlation bar HTML (only if data available)
-  const corrBarHtml = r2Pct !== null ? `
-      <div style="font-size:0.8rem;font-weight:600;color:var(--g600);margin-bottom:2px;">Kui sarnaselt fondid liiguvad</div>
-      <div style="position:relative;height:28px;border-radius:8px;overflow:hidden;background:var(--g200);margin-bottom:0.4rem;">
-        <div style="height:100%;width:${Math.max(r2Pct,2)}%;background:var(--blue);border-radius:8px 0 0 8px;display:flex;align-items:center;${r2Pct >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${r2Pct}%</div>
-      </div>
-      <div style="font-size:0.78rem;color:var(--g400);margin-bottom:1rem;">
-        ${feeA !== feeB ? `Odavam fond (${LABELS[feeA <= feeB ? f1 : f2]}) selgitab ${r2Pct}% kallima fondi (${LABELS[feeA > feeB ? f1 : f2]}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
-      </div>` : '';
-
-  document.getElementById('overlapContent').innerHTML = `
-    <div>
-      <div style="font-size:0.8rem;font-weight:600;color:var(--g600);margin-bottom:2px;">Portfellide kattuvus</div>
-      <div style="position:relative;height:28px;border-radius:8px;overflow:hidden;background:var(--g200);margin-bottom:0.4rem;">
-        <div style="height:100%;width:${Math.max(mwo,2)}%;background:var(--navy);border-radius:8px 0 0 8px;display:flex;align-items:center;${mwo >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${mwo}%</div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--g400);margin-bottom:1rem;">
-        <span>Investeerinud samadesse varadesse</span><span>Erinev osa (${diffPct}%)</span>
-      </div>
-      ${corrBarHtml}
-      <div style="margin-top:1.25rem;">
-        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
-          <div style="font-weight:700;font-size:0.8rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em;">Investeeringud v\u00f5rrelduna</div>
-          <div class="nav-period-btns" id="holdingsLevelBtns" style="margin-bottom:0;">
-            <button class="nav-period-btn active" data-level="stock">L\u00e4bivaade</button>
-            <button class="nav-period-btn" data-level="etf">Otse omatud</button>
-          </div>
+  // === Holdings comparison → below assets ===
+  const holdingsTableHtml = mergedHoldingsTable(f1, f2, 'stock');
+  holdingsCompareSection.classList.add('visible');
+  holdingsCompare.innerHTML = `
+    <div style="margin-top:0.5rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
+        <div style="font-weight:700;font-size:0.8rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em;">Investeeringud v\u00f5rrelduna</div>
+        <div class="nav-period-btns" id="holdingsLevelBtns" style="margin-bottom:0;">
+          <button class="nav-period-btn active" data-level="stock">L\u00e4bivaade</button>
+          <button class="nav-period-btn" data-level="etf">Otse omatud</button>
         </div>
-        <div id="holdingsTableContainer">${holdingsTableHtml}</div>
       </div>
+      <div id="holdingsTableContainer">${holdingsTableHtml}</div>
     </div>`;
 
   // Holdings level toggle
