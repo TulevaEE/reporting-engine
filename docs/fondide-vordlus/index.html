@@ -192,7 +192,7 @@
 
 <div class="section" id="sectionHoldings">
   <div class="section-title">Suurimad investeeringud</div>
-  <div class="section-sub">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja n&auml;itame tegelikke aktsiaid.</div>
+  <div class="section-sub">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n&auml;itame tegelikke aktsiaid. Kui m&otilde;ne ETFi andmed pole k&auml;ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet&otilde;ttu ei pruugi andmed olla t&auml;psed.</div>
   <div id="holdingsArea"></div>
 </div>
 
@@ -230,7 +230,7 @@
     </div>
     <div id="detailAllHoldings" style="margin-bottom:2rem;">
       <div class="section-title">K&otilde;ik investeeringud</div>
-      <div class="section-sub" id="allHoldingsSub" style="max-width:700px;">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja n&auml;itame tegelikke aktsiaid.</div>
+      <div class="section-sub" id="allHoldingsSub" style="max-width:700px;">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n&auml;itame tegelikke aktsiaid. Kui m&otilde;ne ETFi andmed pole k&auml;ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet&otilde;ttu ei pruugi andmed olla t&auml;psed.</div>
       <div style="margin-bottom:0.5rem;"><button id="csvDownloadBtn" style="padding:6px 14px;border:1px solid var(--g200);border-radius:6px;background:#fff;cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--navy);">Laadi alla CSV</button></div>
       <div id="allHoldingsList" style="max-height:400px;overflow-y:auto;border:1px solid var(--g200);border-radius:8px;padding:0.5rem;"></div>
     </div>
@@ -982,7 +982,7 @@ function renderOverlap(funds) {
   }
 
   // ETF disclaimer
-  disclaimerEl.innerHTML = 'Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja v\u00f5rdleme tegelikke aktsiaid.';
+  disclaimerEl.innerHTML = 'Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja v\u00f5rdleme tegelikke aktsiaid. Kui m\u00f5ne ETFi andmed pole k\u00e4ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet\u00f5ttu ei pruugi andmed olla t\u00e4psed.';
 
   // === Correlation bar → NAV section ===
   const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
@@ -1449,7 +1449,7 @@ function renderAllHoldings(funds) {
 
   // Update subtitle with date
   const sub = document.getElementById('allHoldingsSub');
-  sub.textContent = `Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja n\u00e4itame tegelikke aktsiaid.${dateStr ? ` Andmed seisuga ${dateStr}.` : ''}`;
+  sub.textContent = `Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n\u00e4itame tegelikke aktsiaid. Kui m\u00f5ne ETFi andmed pole k\u00e4ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet\u00f5ttu ei pruugi andmed olla t\u00e4psed.${dateStr ? ` Andmed seisuga ${dateStr}.` : ''}`;
 
   const allRows = items.map((item, i) => ({rank: i+1, fund: LABELS[f], name: item.name, weight: item.weight, sector: item.sector || '', country: item.country || '', cat: item.cat}));
 
@@ -1473,7 +1473,7 @@ function renderAllHoldings(funds) {
 
   // CSV download
   csvBtn.onclick = () => {
-    const disclaimer = `# Enamik fonde ei osta aktsiaid otse, vaid labi borsil kaubeldavate fondide (ETF). Siin vaatame ETF-ide sisse ja naitame tegelikke aktsiaid.${dateStr ? ` Andmed seisuga ${dateStr}.` : ''}\n`;
+    const disclaimer = `# Enamik fonde ei osta aktsiaid otse, vaid labi borsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja naitame tegelikke aktsiaid. Kui mone ETFi andmed pole kattesaadavad, kasutame sarnase fondi (proxy) andmeid. Seetottu ei pruugi andmed olla tapsed.${dateStr ? ` Andmed seisuga ${dateStr}.` : ''}\n`;
     const header = 'Rank,Fond,Nimi,Osakaal,Sektor,Riik\n';
     const csv = disclaimer + header + allRows.map(r =>
       `${r.rank},"${r.fund}","${r.name}",${r.weight != null ? r.weight.toFixed(4) : ''},"${trSector(r.sector)}","${trCountry(r.country)}"`
