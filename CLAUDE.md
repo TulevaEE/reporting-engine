@@ -48,6 +48,39 @@ Reporting tools for Tuleva investment funds. These are both internal and externa
 - **Validate matching quality** by decomposing active share into weight excluded/added/reduced. Suspiciously large "weight added" signals matching failures, not real portfolio differences.
 - See `/fetch-holdings` skill for full data source details, loading instructions, and name normalization code.
 
+## Fund transaction types
+
+Tuleva fund transactions (Metabase card 2326) are grouped by Application Type:
+
+**Funds:**
+- `EE3600109435` = TUK75 (II pillar)
+- `EE3600109443` = TUK00 (II pillar conservative)
+- `EE3600001707` = TUV100 (III pillar)
+
+**Direction** is determined by Transaction Type: `Osakute märkimine` = inflow, `Broneeritud osakute kustutamine` = outflow.
+
+**Application types:**
+- *(none)* — Regular contributions. II pillar: from Maksuamet. III pillar: from isik (personal) or tööandja (employer)
+- `PEVA` — II pillar fund switching (both in and out)
+- `SWI` — III pillar fund switching (both in and out)
+- `RED` — Redemption
+- `RAVA` — II pillar full withdrawal before pension age
+- `FPAA` / `FPAA3` — Fondipension (II / III pillar)
+- `YKVAK` — Pension lump sum payment
+- `YKVAO` — Partial pension lump sum payment
+- `RES` — Restore / transfer from insurance (inflow)
+- `INS` — Transfer to insurance (III pillar, outflow)
+- `PLAV` — Transfer to insurance / annuity purchase (II pillar, outflow)
+- `PAAV` — Inheritance (both directions)
+- `TV` / `DECO` — Bailiff / bankruptcy redemption
+
+**Key calendar patterns:**
+- II pillar contributions (Maksuamet): land on days 13–16, most often on the 15th
+- II pillar switching (PEVA) and RAVA: quarterly in Jan, May, Sep (days 1–5)
+- Fondipension/YKVAK/YKVAO: monthly around days 15–18
+- III pillar contributions: spread across all business days, spike on day 11
+- III pillar redemptions (RED) and switching (SWI): every business day
+
 ## Style and branding
 
 - Use `common/branding/style.css` for all HTML reports — it defines Tuleva fonts (Merriweather headings, Roboto body), colors (#002F63 navy, #00AEEA blue), and table styles
