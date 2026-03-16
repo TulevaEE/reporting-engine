@@ -1204,7 +1204,93 @@
         }
       ],
       "deposits_pct": 0.29,
-      "direct_bond_pct": 4.72
+      "direct_bond_pct": 0,
+      "bonds": [
+        {
+          "name": "AB Artea bankas 10.75",
+          "isin": "LT0000407751",
+          "weight_pct": 0.38,
+          "type": "bonds"
+        },
+        {
+          "name": "AB Artea bankas 4.853%",
+          "isin": "XS2887816564",
+          "weight_pct": 0.32,
+          "type": "bonds"
+        },
+        {
+          "name": "Akropolis Group 6.000%",
+          "isin": "XS3046302488",
+          "weight_pct": 0.11,
+          "type": "bonds"
+        },
+        {
+          "name": "ELKOLV 7.25 12/20/29",
+          "isin": "LV0000108637",
+          "weight_pct": 0.11,
+          "type": "bonds"
+        },
+        {
+          "name": "EPSO-G 3.117%",
+          "isin": "LT0000406530",
+          "weight_pct": 0.79,
+          "type": "bonds"
+        },
+        {
+          "name": "ESTONIA 3.25",
+          "isin": "XS2740429076",
+          "weight_pct": 0.11,
+          "type": "bonds"
+        },
+        {
+          "name": "ESTONIA 4 12/10/2032",
+          "isin": "XS2532370231",
+          "weight_pct": 0.65,
+          "type": "bonds"
+        },
+        {
+          "name": "LATVEN 0.5 17/05/28",
+          "isin": "LV0000802460",
+          "weight_pct": 0.37,
+          "type": "bonds"
+        },
+        {
+          "name": "LATVEN 2.42 05/05/27",
+          "isin": "LV0000870129",
+          "weight_pct": 0.51,
+          "type": "bonds"
+        },
+        {
+          "name": "Latvia 3.875 25/03/2027",
+          "isin": "XS2549862758",
+          "weight_pct": 0.54,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 2.125",
+          "isin": "XS2487342649",
+          "weight_pct": 0.25,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 3.50",
+          "isin": "XS2841247583",
+          "weight_pct": 0.19,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 3.875",
+          "isin": "XS2604821228",
+          "weight_pct": 0.19,
+          "type": "bonds"
+        },
+        {
+          "name": "RIGUDN 4 06/04/30",
+          "isin": "LV0000104487",
+          "weight_pct": 0.21,
+          "type": "bonds"
+        }
+      ]
     },
     "Luminor 56+": {
       "equity_funds": [
@@ -1312,7 +1398,99 @@
         }
       ],
       "deposits_pct": 1.11,
-      "direct_bond_pct": 16.36
+      "direct_bond_pct": 0,
+      "bonds": [
+        {
+          "name": "AB Artea bankas 10.75",
+          "isin": "LT0000407751",
+          "weight_pct": 0.99,
+          "type": "bonds"
+        },
+        {
+          "name": "AB Artea bankas 4.853%",
+          "isin": "XS2887816564",
+          "weight_pct": 0.61,
+          "type": "bonds"
+        },
+        {
+          "name": "Akropolis Group 6.000%",
+          "isin": "XS3046302488",
+          "weight_pct": 0.63,
+          "type": "bonds"
+        },
+        {
+          "name": "DBR 0% 02/15/2031",
+          "isin": "DE0001102531",
+          "weight_pct": 0.96,
+          "type": "bonds"
+        },
+        {
+          "name": "ELKOLV 7.25 12/20/29",
+          "isin": "LV0000108637",
+          "weight_pct": 0.6,
+          "type": "bonds"
+        },
+        {
+          "name": "EPSO-G 3.117%",
+          "isin": "LT0000406530",
+          "weight_pct": 2.07,
+          "type": "bonds"
+        },
+        {
+          "name": "ESTONIA 3.25",
+          "isin": "XS2740429076",
+          "weight_pct": 0.3,
+          "type": "bonds"
+        },
+        {
+          "name": "ESTONIA 4 12/10/2032",
+          "isin": "XS2532370231",
+          "weight_pct": 1.6,
+          "type": "bonds"
+        },
+        {
+          "name": "Estonian Eurobond 0,125",
+          "isin": "XS2181347183",
+          "weight_pct": 1.35,
+          "type": "bonds"
+        },
+        {
+          "name": "LATVEN 0.5 17/05/28",
+          "isin": "LV0000802460",
+          "weight_pct": 0.56,
+          "type": "bonds"
+        },
+        {
+          "name": "LATVEN 2.42 05/05/27",
+          "isin": "LV0000870129",
+          "weight_pct": 1.48,
+          "type": "bonds"
+        },
+        {
+          "name": "Latvia 3.875 25/03/2027",
+          "isin": "XS2549862758",
+          "weight_pct": 1.18,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 2.125",
+          "isin": "XS2487342649",
+          "weight_pct": 0.57,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 3.625",
+          "isin": "XS3175946071",
+          "weight_pct": 2.85,
+          "type": "bonds"
+        },
+        {
+          "name": "RIGUDN 4 06/04/30",
+          "isin": "LV0000104487",
+          "weight_pct": 0.6,
+          "type": "bonds"
+        }
+      ]
     },
     "Luminor 61-65": {
       "equity_funds": [
@@ -1394,7 +1572,162 @@
       "re_funds": [],
       "pe_funds": [],
       "deposits_pct": 0.16,
-      "direct_bond_pct": 26.32
+      "direct_bond_pct": 0,
+      "bonds": [
+        {
+          "name": "AB Artea bankas 4.853%",
+          "isin": "XS2887816564",
+          "weight_pct": 1.12,
+          "type": "bonds"
+        },
+        {
+          "name": "EPSO-G 3.117%",
+          "isin": "LT0000406530",
+          "weight_pct": 3.64,
+          "type": "bonds"
+        },
+        {
+          "name": "ESTONIA 4 12/10/2032",
+          "isin": "XS2532370231",
+          "weight_pct": 3.58,
+          "type": "bonds"
+        },
+        {
+          "name": "Estonian Eurobond 0,125",
+          "isin": "XS2181347183",
+          "weight_pct": 4.51,
+          "type": "bonds"
+        },
+        {
+          "name": "LATVEN 0.5 17/05/28",
+          "isin": "LV0000802460",
+          "weight_pct": 1.25,
+          "type": "bonds"
+        },
+        {
+          "name": "LATVEN 2.42 05/05/27",
+          "isin": "LV0000870129",
+          "weight_pct": 2.56,
+          "type": "bonds"
+        },
+        {
+          "name": "LITHGB 0 03/03/28",
+          "isin": "LT0000670051",
+          "weight_pct": 1.27,
+          "type": "bonds"
+        },
+        {
+          "name": "Latvia 3.875 25/03/2027",
+          "isin": "XS2549862758",
+          "weight_pct": 5.56,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 2.125",
+          "isin": "XS2487342649",
+          "weight_pct": 0.96,
+          "type": "bonds"
+        },
+        {
+          "name": "Lithuania 3.50",
+          "isin": "XS2841247583",
+          "weight_pct": 1.04,
+          "type": "bonds"
+        },
+        {
+          "name": "RIGUDN 4 06/04/30",
+          "isin": "LV0000104487",
+          "weight_pct": 0.83,
+          "type": "bonds"
+        }
+      ]
+    },
+    "Luminor 16-50": {
+      "equity_funds": [
+        {
+          "name": "Robeco 3D Global Equity UCITS ETF",
+          "weight_pct": 8.87
+        },
+        {
+          "name": "SPDR MSCI World UCITS ETF",
+          "weight_pct": 13.34
+        },
+        {
+          "name": "Xtrackers MSCI World Materials ETF",
+          "weight_pct": 2.63
+        },
+        {
+          "name": "iShares Core MSCI EM IMI UCITS ETF",
+          "weight_pct": 9.99
+        },
+        {
+          "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+          "weight_pct": 14.56
+        },
+        {
+          "name": "iShares Developed World Screened Index Fund (IE)",
+          "weight_pct": 18.3
+        },
+        {
+          "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+          "weight_pct": 5.01
+        },
+        {
+          "name": "iShares Europe Equity Index Fund (LU)",
+          "weight_pct": 5.75
+        },
+        {
+          "name": "iShares Japan Index Fund (IE)",
+          "weight_pct": 2.9
+        },
+        {
+          "name": "iShares MSCI EM EX-China UCITS ETF",
+          "weight_pct": 1.02
+        },
+        {
+          "name": "iShares North America Index Fund",
+          "weight_pct": 11.86
+        }
+      ],
+      "bond_funds": [
+        {
+          "name": "SPDR Bloomberg Barclays Euro High Yield Bond UCITS ETF",
+          "weight_pct": 1.09
+        },
+        {
+          "name": "Xtrackers II EUR High Yield Corporate Bond UCITS ETF",
+          "weight_pct": 1.08
+        },
+        {
+          "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned UCITS ETF",
+          "weight_pct": 2.2
+        }
+      ],
+      "re_funds": [
+        {
+          "name": "EFTEN Kinnisvarafond II AS",
+          "weight_pct": 0.49
+        },
+        {
+          "name": "EfTEN Real Estate Fund",
+          "weight_pct": 0.03
+        }
+      ],
+      "pe_funds": [
+        {
+          "name": "INVL Private Equity Fund II",
+          "weight_pct": 0.06
+        },
+        {
+          "name": "KS Livonia Partners Fund II AIF",
+          "weight_pct": 0.36
+        },
+        {
+          "name": "Raft Capital Baltic Equity Fund",
+          "weight_pct": 0.1
+        }
+      ],
+      "deposits_pct": 0.41
     }
   }
 }

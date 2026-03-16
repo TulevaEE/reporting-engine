@@ -2385,13 +2385,15 @@ def process_luminor_fund(name, parsed, etf_holdings, acwi, acwi_keys, sector_loo
 
     # ETF breakdown
     fund_data['etf_breakdown'] = build_etf_breakdown(
-        [{'isin': '', 'weight_pct': a['weight_pct'], 'etf_ticker': a['etf_ticker']} for a in allocations],
+        [{'isin': '', 'name': a['name'], 'weight_pct': a['weight_pct'], 'etf_ticker': a['etf_ticker']} for a in allocations],
         etf_holdings
     )
 
     # Asset classes
     equity_total = sum(ef['weight_pct'] for ef in equity_funds)
-    bond_total = sum(bf['weight_pct'] for bf in parsed.get('bond_funds', [])) + parsed.get('direct_bond_pct', 0)
+    bond_total = (sum(bf['weight_pct'] for bf in parsed.get('bond_funds', []))
+                 + sum(b['weight_pct'] for b in parsed.get('bonds', []))
+                 + parsed.get('direct_bond_pct', 0))
     re_total = sum(rf['weight_pct'] for rf in parsed.get('re_funds', []))
     pe_total = sum(pf['weight_pct'] for pf in parsed.get('pe_funds', []))
     deposits = parsed.get('deposits_pct', 0)
@@ -2407,7 +2409,9 @@ def process_luminor_fund(name, parsed, etf_holdings, acwi, acwi_keys, sector_loo
         fund_data['asset_classes']['deposits'] = round(deposits, 1)
 
     # Add non-equity holdings for display
-    fund_data['bond_holdings'] = [{'name': b['name'], 'weight': b['weight_pct'], 'type': 'bonds'} for b in parsed.get('bond_funds', [])]
+    direct_bonds = [{'name': b['name'], 'weight': b['weight_pct'], 'type': 'bonds'} for b in parsed.get('bonds', [])]
+    bond_fund_entries = [{'name': b['name'], 'weight': b['weight_pct'], 'type': 'bonds'} for b in parsed.get('bond_funds', [])]
+    fund_data['bond_holdings'] = direct_bonds + bond_fund_entries
     fund_data['re_holdings'] = [{'name': r['name'], 'weight': r['weight_pct'], 'type': 're'} for r in parsed.get('re_funds', [])]
     fund_data['pe_holdings'] = [{'name': p['name'], 'weight': p['weight_pct'], 'type': 'pe'} for p in parsed.get('pe_funds', [])]
     fund_data['etf_holdings'] = opaque_entries
@@ -2531,8 +2535,12 @@ def main():
 
     # ── Fund 2: Luminor 16-50 (Type A/C mixed) ──
     print('\n2. Luminor 16-50...')
-    lum_pdf = REPORT_DIR / reports_cfg['Luminor 16-50']['pdf'] if reports_cfg else REPORT_DIR / 'investeeringute_aruanne_lum16-50_0126.pdf'
-    lum_parsed = parse_luminor_monthly(lum_pdf)
+    if alloc_cfg and 'Luminor 16-50' in alloc_cfg:
+        lum_parsed = _load_luminor_allocations(alloc_cfg['Luminor 16-50'])
+        print('   (from monthly JSON)')
+    else:
+        lum_pdf = REPORT_DIR / reports_cfg['Luminor 16-50']['pdf'] if reports_cfg else REPORT_DIR / 'investeeringute_aruanne_lum16-50_0126.pdf'
+        lum_parsed = parse_luminor_monthly(lum_pdf)
     print(f'   {len(lum_parsed["equity_funds"])} equity funds, {len(lum_parsed["bond_funds"])} bond funds')
 
     lum_data = process_luminor_fund('Luminor 16-50', lum_parsed, etf_holdings, acwi, acwi_keys, sector_lookup)
@@ -2542,7 +2550,8 @@ def main():
         all_funds_data['Luminor 16-50'] = lum_data
         print(f'   => {lum_data["n_stocks"]} stocks (look-through)')
         _date = reports_cfg['Luminor 16-50']['date'] if reports_cfg else '31.01.2026'
-        DATA_SOURCES['Luminor 16-50'] = {'pdf': lum_pdf.name, 'type': 'A (ETF+bonds)', 'date': _date,
+        _pdf = reports_cfg['Luminor 16-50']['pdf'] if reports_cfg else 'est_NPK75_raport_20260228.pdf'
+        DATA_SOURCES['Luminor 16-50'] = {'pdf': _pdf, 'type': 'A (ETF+bonds)', 'date': _date,
                                           'etf_count': len(lum_parsed['equity_funds'])}
 
     # ── Fund 3: SEB Indeks (Type A) ──
