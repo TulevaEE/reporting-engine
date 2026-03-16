@@ -2391,7 +2391,7 @@ def process_luminor_fund(name, parsed, etf_holdings, acwi, acwi_keys, sector_loo
 
     # Asset classes
     equity_total = sum(ef['weight_pct'] for ef in equity_funds)
-    bond_total = sum(bf['weight_pct'] for bf in parsed.get('bond_funds', []))
+    bond_total = sum(bf['weight_pct'] for bf in parsed.get('bond_funds', [])) + parsed.get('direct_bond_pct', 0)
     re_total = sum(rf['weight_pct'] for rf in parsed.get('re_funds', []))
     pe_total = sum(pf['weight_pct'] for pf in parsed.get('pe_funds', []))
     deposits = parsed.get('deposits_pct', 0)
