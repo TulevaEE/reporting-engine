@@ -50,6 +50,7 @@ ISHARES_PRODUCTS = {
     'IKSA': {'id': 279996, 'slug': 'ishares-msci-saudi-arabia-capped-imi-ucits-etf'},
     # Additional iShares ETFs for look-through
     'ISAC': {'id': 251850, 'slug': 'ishares-msci-acwi-ucits-etf'},  # same as SSAC
+    'EMXC': {'id': 315592, 'slug': 'ishares-msci-em-ex-china-ucits-etf'},
 }
 SUB_ETF_TICKERS = {'NDIA', '4BRZ', 'CNYA', 'IKSA'}
 SAEM_TOP_N = 1500
@@ -2335,6 +2336,7 @@ LUMINOR_ETF_PROXY_MAP = {
     'S&P 500 Swap': 'SASU',
     'Robeco 3D Global': 'SAWD',
     'MSCI World Materials': 'SAWD',
+    'MSCI EM EX-China': 'EMXC',
     'iShares S&P 500': 'SASU',
     'EUR High Yield Corp': 'SAEU',  # bond proxy — won't look through but prevents opaque
     'Euro Investment Grade': 'SAEU',
@@ -2475,7 +2477,7 @@ def main():
     # Step 1: Load ETF holdings from iShares CSVs
     print('Loading ETF holdings from CSVs...')
     etf_holdings = {}
-    for tk in ['SAWD', 'SASU', 'SAEU', 'SAJP', 'SAEM', 'SSAC', 'NDIA', '4BRZ', 'CNYA', 'IKSA', 'XTJP', 'SPPY']:
+    for tk in ['SAWD', 'SASU', 'SAEU', 'SAJP', 'SAEM', 'SSAC', 'NDIA', '4BRZ', 'CNYA', 'IKSA', 'XTJP', 'SPPY', 'EMXC']:
         etf_holdings[tk] = fetch_ishares_holdings(tk)
         print(f'  {tk}: {len(etf_holdings[tk])} rows')
 
