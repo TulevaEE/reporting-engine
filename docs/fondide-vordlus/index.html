@@ -543,8 +543,10 @@ function renderSelectedChips() {
 function toggle(key) {
   const idx = selected.indexOf(key);
   if (idx >= 0) selected.splice(idx, 1);
-  else if (selected.length < MAX_SELECT) selected.push(key);
-  else return;
+  else if (selected.length < MAX_SELECT) {
+    selected.push(key);
+    if (typeof gtag === 'function') gtag('event', 'fund_selected', { fund_name: key });
+  } else return;
   document.querySelectorAll('.fund-card').forEach(c =>
     c.classList.toggle('selected', selected.includes(c.dataset.fund)));
   renderSelectedChips();
@@ -654,6 +656,9 @@ function render() {
   renderNav(f);
   renderCTA(f);
   renderShareLink(f);
+  if (f.length === 2 && typeof gtag === 'function') {
+    gtag('event', 'fund_comparison', { fund_1: f[0], fund_2: f[1] });
+  }
   // Details (expandable) — always start hidden
   const detailsToggle = document.getElementById('detailsToggle');
   detailsToggle.textContent = 'Vaata detailsemalt';
@@ -679,6 +684,7 @@ function renderShareLink(funds) {
     navigator.clipboard.writeText(shareUrl.toString()).then(() => {
       btn.textContent = '\u2713 Kopeeritud!';
       setTimeout(() => { btn.textContent = 'Kopeeri v\u00f5rdluse link'; }, 2000);
+      if (typeof gtag === 'function') gtag('event', 'share_link_copied', { funds: funds.join(',') });
     });
   });
 }
