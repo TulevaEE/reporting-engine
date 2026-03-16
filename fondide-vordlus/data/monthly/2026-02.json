@@ -126,34 +126,9 @@
     "SEB 18+": {
       "equity_funds": [
         {
-          "name": "Amundi Euro Stoxx Banks UCITS ETF",
-          "isin": "LU1829219390",
-          "weight_pct": 3.84
-        },
-        {
-          "name": "Federated Hermes Global Emerging Markets Equity Fund",
-          "isin": "IE00B3DJ5M15",
-          "weight_pct": 0.95
-        },
-        {
-          "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
-          "isin": "IE00BFNM3P36",
-          "weight_pct": 2.08
-        },
-        {
-          "name": "iShares MSCI Europe ESG Screened UCITS ETF",
-          "isin": "IE00BFNM3D14",
-          "weight_pct": 1.43
-        },
-        {
-          "name": "iShares MSCI Poland UCITS ETF",
-          "isin": "IE00B4M7GH52",
-          "weight_pct": 1.99
-        },
-        {
-          "name": "iShares MSCI USA ESG Screened UCITS ETF",
-          "isin": "IE000G2LIHG9",
-          "weight_pct": 3.9
+          "name": "SEB Global Exposure Fund",
+          "isin": "LU1711526407",
+          "weight_pct": 20.82
         },
         {
           "name": "iShares MSCI USA ESG Screened UCITS ETF",
@@ -161,9 +136,34 @@
           "weight_pct": 8.97
         },
         {
+          "name": "SEB Emerging Markets Exposure Fund",
+          "isin": "SE0021147394",
+          "weight_pct": 8.86
+        },
+        {
+          "name": "Invesco Nasdaq-100 ESG UCITS ETF",
+          "isin": "IE000COQKPO9",
+          "weight_pct": 8.5
+        },
+        {
+          "name": "Xtrackers MSCI USA Screened UCITS ETF",
+          "isin": "IE00BJZ2DC62",
+          "weight_pct": 4.54
+        },
+        {
           "name": "iShares MSCI USA Small Cap UCITS ETF",
           "isin": "IE00B3VWM098",
           "weight_pct": 4.03
+        },
+        {
+          "name": "iShares MSCI USA ESG Screened UCITS ETF",
+          "isin": "IE000G2LIHG9",
+          "weight_pct": 3.9
+        },
+        {
+          "name": "Amundi Euro Stoxx Banks UCITS ETF",
+          "isin": "LU1829219390",
+          "weight_pct": 3.84
         },
         {
           "name": "iShares MSCI World Value Factor ESG UCITS ETF",
@@ -176,34 +176,9 @@
           "weight_pct": 3.03
         },
         {
-          "name": "L&G Japan Equity UCITS ETF",
-          "isin": "IE00BFXR5T61",
-          "weight_pct": 2.0
-        },
-        {
-          "name": "Morgan Stanley Global Opportunity Fund",
-          "isin": "LU2418734716",
-          "weight_pct": 2.29
-        },
-        {
-          "name": "SEB Emerging Markets Exposure Fund",
-          "isin": "SE0021147394",
-          "weight_pct": 8.86
-        },
-        {
           "name": "SEB Europe Exposure Fund D",
           "isin": "SE0026526592",
           "weight_pct": 2.67
-        },
-        {
-          "name": "SEB Global Exposure Fund",
-          "isin": "LU1711526407",
-          "weight_pct": 20.82
-        },
-        {
-          "name": "SEB Montrusco Bolton Global Equity Fund",
-          "isin": "LU2853083306",
-          "weight_pct": 1.97
         },
         {
           "name": "T Rowe Price Global Focused Growth Equity",
@@ -211,9 +186,39 @@
           "weight_pct": 2.4
         },
         {
-          "name": "Xtrackers MSCI USA Screened UCITS ETF",
-          "isin": "IE00BJZ2DC62",
-          "weight_pct": 4.54
+          "name": "Morgan Stanley Global Opportunity Fund",
+          "isin": "LU2418734716",
+          "weight_pct": 2.29
+        },
+        {
+          "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3P36",
+          "weight_pct": 2.08
+        },
+        {
+          "name": "L&G Japan Equity UCITS ETF",
+          "isin": "IE00BFXR5T61",
+          "weight_pct": 2.0
+        },
+        {
+          "name": "iShares MSCI Poland UCITS ETF",
+          "isin": "IE00B4M7GH52",
+          "weight_pct": 1.99
+        },
+        {
+          "name": "SEB Montrusco Bolton Global Equity Fund",
+          "isin": "LU2853083306",
+          "weight_pct": 1.97
+        },
+        {
+          "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+          "isin": "IE00BFNM3D14",
+          "weight_pct": 1.43
+        },
+        {
+          "name": "Federated Hermes Global Emerging Markets Equity Fund",
+          "isin": "IE00B3DJ5M15",
+          "weight_pct": 0.95
         }
       ],
       "bonds": [
