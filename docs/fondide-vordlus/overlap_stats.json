@@ -176,15 +176,15 @@
     "only_weight_b": 90.03
   },
   "Tuleva|SEB 18+": {
-    "shared": 2181,
-    "only_a": 4,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 0,
+    "only_b": 784,
     "total_a": 2185,
     "total_b": 2969,
-    "shared_weight_a": 99.38,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 0.62,
-    "only_weight_b": 12.42
+    "shared_weight_a": 100.0,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 0,
+    "only_weight_b": 10.62
   },
   "Tuleva|SEB 60+": {
     "shared": 1900,
@@ -429,15 +429,15 @@
     "only_weight_b": 90.03
   },
   "Luminor 16-50|SEB 18+": {
-    "shared": 2181,
-    "only_a": 23,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 19,
+    "only_b": 784,
     "total_a": 2204,
     "total_b": 2969,
-    "shared_weight_a": 93.68,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 5.96,
-    "only_weight_b": 12.42
+    "shared_weight_a": 94.23,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 5.41,
+    "only_weight_b": 10.62
   },
   "Luminor 16-50|SEB 60+": {
     "shared": 1900,
@@ -682,15 +682,15 @@
     "only_weight_b": 90.03
   },
   "SEB Indeks|SEB 18+": {
-    "shared": 2181,
-    "only_a": 11,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 7,
+    "only_b": 784,
     "total_a": 2192,
     "total_b": 2969,
-    "shared_weight_a": 98.98,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 1.02,
-    "only_weight_b": 12.42
+    "shared_weight_a": 99.48,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 0.52,
+    "only_weight_b": 10.62
   },
   "SEB Indeks|SEB 60+": {
     "shared": 1907,
@@ -935,15 +935,15 @@
     "only_weight_b": 92.55
   },
   "Swedbank K1960|SEB 18+": {
-    "shared": 749,
-    "only_a": 266,
-    "only_b": 2220,
+    "shared": 751,
+    "only_a": 264,
+    "only_b": 2218,
     "total_a": 1015,
     "total_b": 2969,
-    "shared_weight_a": 22.66,
-    "shared_weight_b": 56.05,
-    "only_weight_a": 75.59,
-    "only_weight_b": 32.08
+    "shared_weight_a": 22.8,
+    "shared_weight_b": 65.51,
+    "only_weight_a": 75.45,
+    "only_weight_b": 31.07
   },
   "Swedbank K1960|SEB 60+": {
     "shared": 751,
@@ -1188,15 +1188,15 @@
     "only_weight_b": 92.31
   },
   "Swedbank K1970|SEB 18+": {
-    "shared": 1495,
-    "only_a": 149,
-    "only_b": 1474,
+    "shared": 1497,
+    "only_a": 147,
+    "only_b": 1472,
     "total_a": 1644,
     "total_b": 2969,
-    "shared_weight_a": 70.48,
-    "shared_weight_b": 57.15,
-    "only_weight_a": 23.03,
-    "only_weight_b": 30.97
+    "shared_weight_a": 70.92,
+    "shared_weight_b": 65.16,
+    "only_weight_a": 22.59,
+    "only_weight_b": 31.42
   },
   "Swedbank K1970|SEB 60+": {
     "shared": 1215,
@@ -1441,15 +1441,15 @@
     "only_weight_b": 92.31
   },
   "Swedbank K1980|SEB 18+": {
-    "shared": 1495,
-    "only_a": 144,
-    "only_b": 1474,
+    "shared": 1497,
+    "only_a": 142,
+    "only_b": 1472,
     "total_a": 1639,
     "total_b": 2969,
-    "shared_weight_a": 72.22,
-    "shared_weight_b": 57.15,
-    "only_weight_a": 21.27,
-    "only_weight_b": 30.97
+    "shared_weight_a": 72.67,
+    "shared_weight_b": 65.16,
+    "only_weight_a": 20.82,
+    "only_weight_b": 31.42
   },
   "Swedbank K1980|SEB 60+": {
     "shared": 1215,
@@ -1700,9 +1700,9 @@
     "total_a": 298,
     "total_b": 2969,
     "shared_weight_a": 87.58,
-    "shared_weight_b": 41.43,
+    "shared_weight_b": 47.9,
     "only_weight_a": 11.79,
-    "only_weight_b": 46.7
+    "only_weight_b": 48.68
   },
   "Swedbank K1990|SEB 60+": {
     "shared": 249,
@@ -1953,9 +1953,9 @@
     "total_a": 50,
     "total_b": 2969,
     "shared_weight_a": 16.57,
-    "shared_weight_b": 1.99,
+    "shared_weight_b": 2.06,
     "only_weight_a": 24.3,
-    "only_weight_b": 86.14
+    "only_weight_b": 94.52
   },
   "LHV Ettev\u00f5tlik|SEB 60+": {
     "shared": 24,
@@ -2206,9 +2206,9 @@
     "total_a": 130,
     "total_b": 2969,
     "shared_weight_a": 23.86,
-    "shared_weight_b": 3.4,
+    "shared_weight_b": 3.47,
     "only_weight_a": 69.27,
-    "only_weight_b": 84.72
+    "only_weight_b": 93.12
   },
   "LHV Julge|SEB 60+": {
     "shared": 27,
@@ -2453,15 +2453,15 @@
     "only_weight_b": 90.08
   },
   "SEB 55+|SEB 18+": {
-    "shared": 2964,
-    "only_a": 13,
-    "only_b": 5,
+    "shared": 2960,
+    "only_a": 17,
+    "only_b": 9,
     "total_a": 2977,
     "total_b": 2969,
-    "shared_weight_a": 91.61,
-    "shared_weight_b": 86.18,
-    "only_weight_a": 6.73,
-    "only_weight_b": 1.94
+    "shared_weight_a": 89.76,
+    "shared_weight_b": 92.84,
+    "only_weight_a": 8.58,
+    "only_weight_b": 3.74
   },
   "SEB 55+|SEB 60+": {
     "shared": 2675,
@@ -2714,7 +2714,7 @@
     "shared_weight_a": 0.59,
     "shared_weight_b": 0.01,
     "only_weight_a": 95.91,
-    "only_weight_b": 88.12
+    "only_weight_b": 96.58
   },
   "LHV Rahulik|SEB 60+": {
     "shared": 1,
@@ -2959,15 +2959,15 @@
     "only_weight_b": 90.03
   },
   "LHV Indeks|SEB 18+": {
-    "shared": 2181,
-    "only_a": 123,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 119,
+    "only_b": 784,
     "total_a": 2304,
     "total_b": 2969,
-    "shared_weight_a": 99.11,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 0.89,
-    "only_weight_b": 12.42
+    "shared_weight_a": 99.54,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 0.46,
+    "only_weight_b": 10.62
   },
   "LHV Indeks|SEB 60+": {
     "shared": 1907,
@@ -3220,7 +3220,7 @@
     "shared_weight_a": 4.48,
     "shared_weight_b": 1.14,
     "only_weight_a": 90.63,
-    "only_weight_b": 86.98
+    "only_weight_b": 95.44
   },
   "LHV Tasakaalukas|SEB 60+": {
     "shared": 6,
@@ -3465,15 +3465,15 @@
     "only_weight_b": 90.03
   },
   "Luminor Indeks|SEB 18+": {
-    "shared": 2181,
-    "only_a": 4,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 0,
+    "only_b": 784,
     "total_a": 2185,
     "total_b": 2969,
-    "shared_weight_a": 98.94,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 0.53,
-    "only_weight_b": 12.42
+    "shared_weight_a": 99.47,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 0,
+    "only_weight_b": 10.62
   },
   "Luminor Indeks|SEB 60+": {
     "shared": 1900,
@@ -3718,15 +3718,15 @@
     "only_weight_b": 19.51
   },
   "Luminor 50-56|SEB 18+": {
-    "shared": 2181,
-    "only_a": 42,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 38,
+    "only_b": 784,
     "total_a": 2223,
     "total_b": 2969,
-    "shared_weight_a": 79.7,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 19.96,
-    "only_weight_b": 12.42
+    "shared_weight_a": 80.13,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 19.53,
+    "only_weight_b": 10.62
   },
   "Luminor 50-56|SEB 60+": {
     "shared": 1900,
@@ -3971,15 +3971,15 @@
     "only_weight_b": 2.98
   },
   "Luminor 56+|SEB 18+": {
-    "shared": 2181,
-    "only_a": 43,
-    "only_b": 788,
+    "shared": 2185,
+    "only_a": 39,
+    "only_b": 784,
     "total_a": 2224,
     "total_b": 2969,
-    "shared_weight_a": 40.86,
-    "shared_weight_b": 75.7,
-    "only_weight_a": 57.73,
-    "only_weight_b": 12.42
+    "shared_weight_a": 41.08,
+    "shared_weight_b": 85.97,
+    "only_weight_a": 57.51,
+    "only_weight_b": 10.62
   },
   "Luminor 56+|SEB 60+": {
     "shared": 1900,
@@ -4224,15 +4224,15 @@
     "only_weight_b": 14.82
   },
   "Luminor 61-65|SEB 18+": {
-    "shared": 2180,
-    "only_a": 34,
-    "only_b": 789,
+    "shared": 2184,
+    "only_a": 30,
+    "only_b": 785,
     "total_a": 2214,
     "total_b": 2969,
-    "shared_weight_a": 9.36,
-    "shared_weight_b": 75.68,
-    "only_weight_a": 90.08,
-    "only_weight_b": 12.44
+    "shared_weight_a": 9.41,
+    "shared_weight_b": 85.94,
+    "only_weight_a": 90.03,
+    "only_weight_b": 10.65
   },
   "Luminor 61-65|SEB 60+": {
     "shared": 1900,
@@ -4301,70 +4301,70 @@
     "only_weight_b": 97.76
   },
   "SEB 18+|Tuleva": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 4,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 0,
     "total_a": 2969,
     "total_b": 2185,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 99.38,
-    "only_weight_a": 12.42,
-    "only_weight_b": 0.62
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 100.0,
+    "only_weight_a": 10.62,
+    "only_weight_b": 0
   },
   "SEB 18+|Luminor 16-50": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 23,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 19,
     "total_a": 2969,
     "total_b": 2204,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 93.68,
-    "only_weight_a": 12.42,
-    "only_weight_b": 5.96
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 94.23,
+    "only_weight_a": 10.62,
+    "only_weight_b": 5.41
   },
   "SEB 18+|SEB Indeks": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 11,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 7,
     "total_a": 2969,
     "total_b": 2192,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 98.98,
-    "only_weight_a": 12.42,
-    "only_weight_b": 1.02
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 99.48,
+    "only_weight_a": 10.62,
+    "only_weight_b": 0.52
   },
   "SEB 18+|Swedbank K1960": {
-    "shared": 749,
-    "only_a": 2220,
-    "only_b": 266,
+    "shared": 751,
+    "only_a": 2218,
+    "only_b": 264,
     "total_a": 2969,
     "total_b": 1015,
-    "shared_weight_a": 56.05,
-    "shared_weight_b": 22.66,
-    "only_weight_a": 32.08,
-    "only_weight_b": 75.59
+    "shared_weight_a": 65.51,
+    "shared_weight_b": 22.8,
+    "only_weight_a": 31.07,
+    "only_weight_b": 75.45
   },
   "SEB 18+|Swedbank K1970": {
-    "shared": 1495,
-    "only_a": 1474,
-    "only_b": 149,
+    "shared": 1497,
+    "only_a": 1472,
+    "only_b": 147,
     "total_a": 2969,
     "total_b": 1644,
-    "shared_weight_a": 57.15,
-    "shared_weight_b": 70.48,
-    "only_weight_a": 30.97,
-    "only_weight_b": 23.03
+    "shared_weight_a": 65.16,
+    "shared_weight_b": 70.92,
+    "only_weight_a": 31.42,
+    "only_weight_b": 22.59
   },
   "SEB 18+|Swedbank K1980": {
-    "shared": 1495,
-    "only_a": 1474,
-    "only_b": 144,
+    "shared": 1497,
+    "only_a": 1472,
+    "only_b": 142,
     "total_a": 2969,
     "total_b": 1639,
-    "shared_weight_a": 57.15,
-    "shared_weight_b": 72.22,
-    "only_weight_a": 30.97,
-    "only_weight_b": 21.27
+    "shared_weight_a": 65.16,
+    "shared_weight_b": 72.67,
+    "only_weight_a": 31.42,
+    "only_weight_b": 20.82
   },
   "SEB 18+|Swedbank K1990": {
     "shared": 247,
@@ -4372,9 +4372,9 @@
     "only_b": 51,
     "total_a": 2969,
     "total_b": 298,
-    "shared_weight_a": 41.43,
+    "shared_weight_a": 47.9,
     "shared_weight_b": 87.58,
-    "only_weight_a": 46.7,
+    "only_weight_a": 48.68,
     "only_weight_b": 11.79
   },
   "SEB 18+|LHV Ettev\u00f5tlik": {
@@ -4383,9 +4383,9 @@
     "only_b": 26,
     "total_a": 2969,
     "total_b": 50,
-    "shared_weight_a": 1.99,
+    "shared_weight_a": 2.06,
     "shared_weight_b": 16.57,
-    "only_weight_a": 86.14,
+    "only_weight_a": 94.52,
     "only_weight_b": 24.3
   },
   "SEB 18+|LHV Julge": {
@@ -4394,21 +4394,21 @@
     "only_b": 102,
     "total_a": 2969,
     "total_b": 130,
-    "shared_weight_a": 3.4,
+    "shared_weight_a": 3.47,
     "shared_weight_b": 23.86,
-    "only_weight_a": 84.72,
+    "only_weight_a": 93.12,
     "only_weight_b": 69.27
   },
   "SEB 18+|SEB 55+": {
-    "shared": 2964,
-    "only_a": 5,
-    "only_b": 13,
+    "shared": 2960,
+    "only_a": 9,
+    "only_b": 17,
     "total_a": 2969,
     "total_b": 2977,
-    "shared_weight_a": 86.18,
-    "shared_weight_b": 91.61,
-    "only_weight_a": 1.94,
-    "only_weight_b": 6.73
+    "shared_weight_a": 92.84,
+    "shared_weight_b": 89.76,
+    "only_weight_a": 3.74,
+    "only_weight_b": 8.58
   },
   "SEB 18+|LHV Rahulik": {
     "shared": 1,
@@ -4418,19 +4418,19 @@
     "total_b": 29,
     "shared_weight_a": 0.01,
     "shared_weight_b": 0.59,
-    "only_weight_a": 88.12,
+    "only_weight_a": 96.58,
     "only_weight_b": 95.91
   },
   "SEB 18+|LHV Indeks": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 123,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 119,
     "total_a": 2969,
     "total_b": 2304,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 99.11,
-    "only_weight_a": 12.42,
-    "only_weight_b": 0.89
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 99.54,
+    "only_weight_a": 10.62,
+    "only_weight_b": 0.46
   },
   "SEB 18+|LHV Tasakaalukas": {
     "shared": 7,
@@ -4440,74 +4440,74 @@
     "total_b": 97,
     "shared_weight_a": 1.14,
     "shared_weight_b": 4.48,
-    "only_weight_a": 86.98,
+    "only_weight_a": 95.44,
     "only_weight_b": 90.63
   },
   "SEB 18+|Luminor Indeks": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 4,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 0,
     "total_a": 2969,
     "total_b": 2185,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 98.94,
-    "only_weight_a": 12.42,
-    "only_weight_b": 0.53
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 99.47,
+    "only_weight_a": 10.62,
+    "only_weight_b": 0
   },
   "SEB 18+|Luminor 50-56": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 42,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 38,
     "total_a": 2969,
     "total_b": 2223,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 79.7,
-    "only_weight_a": 12.42,
-    "only_weight_b": 19.96
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 80.13,
+    "only_weight_a": 10.62,
+    "only_weight_b": 19.53
   },
   "SEB 18+|Luminor 56+": {
-    "shared": 2181,
-    "only_a": 788,
-    "only_b": 43,
+    "shared": 2185,
+    "only_a": 784,
+    "only_b": 39,
     "total_a": 2969,
     "total_b": 2224,
-    "shared_weight_a": 75.7,
-    "shared_weight_b": 40.86,
-    "only_weight_a": 12.42,
-    "only_weight_b": 57.73
+    "shared_weight_a": 85.97,
+    "shared_weight_b": 41.08,
+    "only_weight_a": 10.62,
+    "only_weight_b": 57.51
   },
   "SEB 18+|Luminor 61-65": {
-    "shared": 2180,
-    "only_a": 789,
-    "only_b": 34,
+    "shared": 2184,
+    "only_a": 785,
+    "only_b": 30,
     "total_a": 2969,
     "total_b": 2214,
-    "shared_weight_a": 75.68,
-    "shared_weight_b": 9.36,
-    "only_weight_a": 12.44,
-    "only_weight_b": 90.08
+    "shared_weight_a": 85.94,
+    "shared_weight_b": 9.41,
+    "only_weight_a": 10.65,
+    "only_weight_b": 90.03
   },
   "SEB 18+|SEB 60+": {
-    "shared": 2669,
-    "only_a": 300,
-    "only_b": 38,
+    "shared": 2673,
+    "only_a": 296,
+    "only_b": 34,
     "total_a": 2969,
     "total_b": 2707,
-    "shared_weight_a": 81.32,
-    "shared_weight_b": 57.59,
-    "only_weight_a": 6.8,
-    "only_weight_b": 38.56
+    "shared_weight_a": 91.58,
+    "shared_weight_b": 57.86,
+    "only_weight_a": 5.01,
+    "only_weight_b": 38.29
   },
   "SEB 18+|SEB 65+": {
-    "shared": 2661,
-    "only_a": 308,
-    "only_b": 38,
+    "shared": 2665,
+    "only_a": 304,
+    "only_b": 34,
     "total_a": 2969,
     "total_b": 2699,
-    "shared_weight_a": 77.72,
-    "shared_weight_b": 12.3,
-    "only_weight_a": 10.4,
-    "only_weight_b": 85.7
+    "shared_weight_a": 87.98,
+    "shared_weight_b": 12.35,
+    "only_weight_a": 8.61,
+    "only_weight_b": 85.65
   },
   "SEB 18+|Swedbank Indeks": {
     "shared": 247,
@@ -4515,21 +4515,21 @@
     "only_b": 51,
     "total_a": 2969,
     "total_b": 298,
-    "shared_weight_a": 41.43,
+    "shared_weight_a": 47.9,
     "shared_weight_b": 87.92,
-    "only_weight_a": 46.7,
+    "only_weight_a": 48.68,
     "only_weight_b": 11.8
   },
   "SEB 18+|Swedbank 2000-09": {
-    "shared": 1223,
-    "only_a": 1746,
-    "only_b": 71,
+    "shared": 1227,
+    "only_a": 1742,
+    "only_b": 67,
     "total_a": 2969,
     "total_b": 1294,
-    "shared_weight_a": 68.45,
-    "shared_weight_b": 84.11,
-    "only_weight_a": 19.68,
-    "only_weight_b": 9.02
+    "shared_weight_a": 78.71,
+    "shared_weight_b": 84.41,
+    "only_weight_a": 17.87,
+    "only_weight_b": 8.72
   },
   "SEB 18+|Swedbank Konservatiivne": {
     "shared": 0,
@@ -4539,7 +4539,7 @@
     "total_b": 94,
     "shared_weight_a": 0,
     "shared_weight_b": 0,
-    "only_weight_a": 88.12,
+    "only_weight_a": 96.58,
     "only_weight_b": 97.08
   },
   "SEB 18+|Tuleva V\u00f5lakirjad": {
@@ -4550,7 +4550,7 @@
     "total_b": 4,
     "shared_weight_a": 0,
     "shared_weight_b": 0,
-    "only_weight_a": 88.12,
+    "only_weight_a": 96.58,
     "only_weight_b": 97.76
   },
   "SEB 60+|Tuleva": {
@@ -4741,15 +4741,15 @@
     "only_weight_b": 90.07
   },
   "SEB 60+|SEB 18+": {
-    "shared": 2669,
-    "only_a": 38,
-    "only_b": 300,
+    "shared": 2673,
+    "only_a": 34,
+    "only_b": 296,
     "total_a": 2707,
     "total_b": 2969,
-    "shared_weight_a": 57.59,
-    "shared_weight_b": 81.32,
-    "only_weight_a": 38.56,
-    "only_weight_b": 6.8
+    "shared_weight_a": 57.86,
+    "shared_weight_b": 91.58,
+    "only_weight_a": 38.29,
+    "only_weight_b": 5.01
   },
   "SEB 60+|SEB 65+": {
     "shared": 2690,
@@ -4994,15 +4994,15 @@
     "only_weight_b": 90.07
   },
   "SEB 65+|SEB 18+": {
-    "shared": 2661,
-    "only_a": 38,
-    "only_b": 308,
+    "shared": 2665,
+    "only_a": 34,
+    "only_b": 304,
     "total_a": 2699,
     "total_b": 2969,
-    "shared_weight_a": 12.3,
-    "shared_weight_b": 77.72,
-    "only_weight_a": 85.7,
-    "only_weight_b": 10.4
+    "shared_weight_a": 12.35,
+    "shared_weight_b": 87.98,
+    "only_weight_a": 85.65,
+    "only_weight_b": 8.61
   },
   "SEB 65+|SEB 60+": {
     "shared": 2690,
@@ -5253,9 +5253,9 @@
     "total_a": 298,
     "total_b": 2969,
     "shared_weight_a": 87.92,
-    "shared_weight_b": 41.43,
+    "shared_weight_b": 47.9,
     "only_weight_a": 11.8,
-    "only_weight_b": 46.7
+    "only_weight_b": 48.68
   },
   "Swedbank Indeks|SEB 60+": {
     "shared": 249,
@@ -5500,15 +5500,15 @@
     "only_weight_b": 91.14
   },
   "Swedbank 2000-09|SEB 18+": {
-    "shared": 1223,
-    "only_a": 71,
-    "only_b": 1746,
+    "shared": 1227,
+    "only_a": 67,
+    "only_b": 1742,
     "total_a": 1294,
     "total_b": 2969,
-    "shared_weight_a": 84.11,
-    "shared_weight_b": 68.45,
-    "only_weight_a": 9.02,
-    "only_weight_b": 19.68
+    "shared_weight_a": 84.41,
+    "shared_weight_b": 78.71,
+    "only_weight_a": 8.72,
+    "only_weight_b": 17.87
   },
   "Swedbank 2000-09|SEB 60+": {
     "shared": 1225,
@@ -5761,7 +5761,7 @@
     "shared_weight_a": 0,
     "shared_weight_b": 0,
     "only_weight_a": 97.08,
-    "only_weight_b": 88.12
+    "only_weight_b": 96.58
   },
   "Swedbank Konservatiivne|SEB 60+": {
     "shared": 0,
@@ -6014,7 +6014,7 @@
     "shared_weight_a": 0,
     "shared_weight_b": 0,
     "only_weight_a": 97.76,
-    "only_weight_b": 88.12
+    "only_weight_b": 96.58
   },
   "Tuleva V\u00f5lakirjad|SEB 60+": {
     "shared": 0,
