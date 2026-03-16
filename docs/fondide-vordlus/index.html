@@ -1184,25 +1184,48 @@ function renderScatter(funds) {
   const w1 = DATA.funds[f1].weights || {};
   const w2 = DATA.funds[f2].weights || {};
   const allKeys = new Set([...Object.keys(w1), ...Object.keys(w2)]);
-  const xs = [], ys = [], names = [];
+  // Separate shared holdings from unique-to-one-fund holdings
+  const sharedX = [], sharedY = [], sharedN = [];
+  const onlyF1X = [], onlyF1Y = [], onlyF1N = [];
+  const onlyF2X = [], onlyF2Y = [], onlyF2N = [];
+  const FLOOR = 0.005; // floor value for log scale when one fund has 0
   allKeys.forEach(k => {
     const a = w1[k]||0, b = w2[k]||0;
-    if (a > 0.02 || b > 0.02) { xs.push(a); ys.push(b); names.push(k.replace(/^(PE|RE|BOND|ETF)\|/, '')); }
+    const label = k.replace(/^(PE|RE|BOND|ETF)\|/, '');
+    if (a > 0.02 && b > 0.02) { sharedX.push(a); sharedY.push(b); sharedN.push(label); }
+    else if (a > 0.02 && b <= 0.02) { onlyF1X.push(a); onlyF1Y.push(FLOOR); onlyF1N.push(label); }
+    else if (b > 0.02 && a <= 0.02) { onlyF2X.push(FLOOR); onlyF2Y.push(b); onlyF2N.push(label); }
   });
+  const nOnly1 = onlyF1X.length, nOnly2 = onlyF2X.length;
   document.getElementById('scatterSub').textContent =
-    `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal. Logaritmiline skaala.`;
-  const mn = Math.min(...xs.filter(v=>v>0), ...ys.filter(v=>v>0)) * 0.8;
-  const mx = Math.max(...xs, ...ys) * 1.3;
+    `${LABELS[f1]} vs ${LABELS[f2]}. Iga t\u00e4pp = \u00fcks investeering. Diagonaalil = identne kaal.`;
+  const allXs = [...sharedX, ...onlyF1X, ...onlyF2X].filter(v=>v>0);
+  const allYs = [...sharedY, ...onlyF1Y, ...onlyF2Y].filter(v=>v>0);
+  const mn = Math.min(...allXs, ...allYs) * 0.8;
+  const mx = Math.max(...allXs, ...allYs) * 1.3;
   const r = DATA.correlation_matrix[`${f1}|${f2}`] || 0;
-  Plotly.newPlot('chartScatter', [
-    { x: xs, y: ys, mode:'markers', showlegend:false,
-      marker:{size:8,color:'#0081EE',opacity:0.45}, text:names,
+  const traces = [
+    { x: sharedX, y: sharedY, mode:'markers', name: 'M\u00f5lemas fondis',
+      marker:{size:8,color:'#0081EE',opacity:0.45}, text:sharedN,
       hovertemplate:'%{text}<br>'+LABELS[f1]+': %{x:.2f}%<br>'+LABELS[f2]+': %{y:.2f}%<extra></extra>' },
     { x:[mn,mx], y:[mn,mx], mode:'lines', line:{dash:'dash',color:'#ccc'}, showlegend:false },
-  ], { ...PL,
+  ];
+  if (nOnly1 > 0) {
+    traces.push({ x: onlyF1X, y: onlyF1Y, mode:'markers',
+      name: `Ainult ${(LABELS[f1]||f1).split(' ').slice(0,2).join(' ')} (${nOnly1})`,
+      marker:{size:7,color:'#dc2626',opacity:0.5,symbol:'diamond'}, text:onlyF1N,
+      hovertemplate:'%{text}<br>'+LABELS[f1]+': %{x:.2f}%<br>'+LABELS[f2]+': 0%<extra>Ainult '+LABELS[f1]+'</extra>' });
+  }
+  if (nOnly2 > 0) {
+    traces.push({ x: onlyF2X, y: onlyF2Y, mode:'markers',
+      name: `Ainult ${(LABELS[f2]||f2).split(' ').slice(0,2).join(' ')} (${nOnly2})`,
+      marker:{size:7,color:'#16a34a',opacity:0.5,symbol:'diamond'}, text:onlyF2N,
+      hovertemplate:'%{text}<br>'+LABELS[f1]+': 0%<br>'+LABELS[f2]+': %{y:.2f}%<extra>Ainult '+LABELS[f2]+'</extra>' });
+  }
+  Plotly.newPlot('chartScatter', traces, { ...PL,
     xaxis:{title:{text:LABELS[f1]+' (%)', font:{size:14}}, type:'log', range:[Math.log10(mn), Math.log10(mx)], tickfont:{size:12}},
     yaxis:{title:{text:LABELS[f2]+' (%)', font:{size:14}}, type:'log', range:[Math.log10(mn), Math.log10(mx)], tickfont:{size:12}},
-    height:450,
+    height:450, legend:{orientation:'h',y:-0.15,x:0.5,xanchor:'center',font:{size:11}},
     annotations:[{ x:0.95, y:0.05, xref:'paper', yref:'paper',
       text:`r = ${r.toFixed(3)}`, showarrow:false,
       font:{size:16,color:'#333'}, bgcolor:'rgba(255,255,255,0.8)' }],
@@ -1240,7 +1263,23 @@ function renderSunburst(funds) {
         nodes.push({id: etfsId, label: `ETF-id ${etfsPct.toFixed(0)}%`, parentId: rootId, value: etfsPct, color: acBaseColors.etfs});
       }
       if (bondsPct > 0.5) nodes.push({id: f+'_ac_bonds', label: `V\u00f5lakirjad ${bondsPct.toFixed(0)}%`, parentId: rootId, value: bondsPct, color: acBaseColors.bonds});
-      if (depositsPct > 0.5) nodes.push({id: f+'_ac_deposits', label: `Hoiused ${depositsPct.toFixed(0)}%`, parentId: rootId, value: depositsPct, color: acBaseColors.deposits});
+      const rePct = ac.re || 0;
+      const pePct = ac.pe || 0;
+      if (rePct > 0.5) nodes.push({id: f+'_ac_re', label: `Kinnisvara ${rePct.toFixed(0)}%`, parentId: rootId, value: rePct, color: '#059669'});
+      if (pePct > 0.5) nodes.push({id: f+'_ac_pe', label: `Erakapital ${pePct.toFixed(0)}%`, parentId: rootId, value: pePct, color: '#7c3aed'});
+      if (depositsPct > 0.5) nodes.push({id: f+'_ac_deposits', label: `Hoiused ${depositsPct.toFixed(0)}%`, parentId: rootId, value: depositsPct, color: '#d1d5db'});
+
+      // Outer ring: individual holdings under RE/PE
+      if (rePct > 0.5 && fd.re_holdings) {
+        fd.re_holdings.forEach((h, i) => {
+          nodes.push({id: f+'_re'+i, label: h.name.length>25?h.name.substring(0,25)+'\u2026':h.name, parentId: f+'_ac_re', value: h.weight, color: '#34d399'});
+        });
+      }
+      if (pePct > 0.5 && fd.pe_holdings) {
+        fd.pe_holdings.forEach((h, i) => {
+          nodes.push({id: f+'_pe'+i, label: h.name.length>25?h.name.substring(0,25)+'\u2026':h.name, parentId: f+'_ac_pe', value: h.weight, color: '#a78bfa'});
+        });
+      }
 
       // Outer ring: individual stocks under Aktsiad
       const topStocks = (fd.top_holdings || []).slice(0, 40);
