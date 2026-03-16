@@ -1,712 +1,367 @@
 {
   "fund_name": "LHV Pensionifond Ettevõtlik",
   "fund_code": "LLK50",
-  "nav_eur": 852083081,
-  "date": "2026-01-31",
+  "nav_eur": 877007836,
+  "date": "2026-02-28",
   "asset_classes": {
-    "bonds": 7.61,
-    "stocks": 23.24,
-    "etfs": 16.68,
-    "pe": 33.44,
-    "re": 14.29,
-    "derivatives": 0.2,
-    "deposits": 4.61
+    "stocks": 22.65,
+    "bonds": 8.48,
+    "etfs": 18.22,
+    "pe": 32.48,
+    "re": 13.93,
+    "deposits": 4.33,
+    "derivatives": 0.06
   },
   "holdings": [
     {
-      "name": "Valaris",
-      "country": "Bermuda",
-      "isin": "BMG9460G1015",
-      "weight": 0.37,
-      "type": "stocks"
-    },
-    {
       "name": "Akadeemia tee 15b osa",
-      "country": "Estonia",
       "isin": "EE3100002734",
-      "weight": 0.34,
+      "weight": 0.33,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "Lumi Kodud Aiandi osa",
-      "country": "Estonia",
       "isin": "EE3100143843",
-      "weight": 0.46,
+      "weight": 0.44,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "Lumi Kodud Manufaktuuri OÜ",
-      "country": "Estonia",
       "isin": "EE3100136789",
-      "weight": 0.66,
+      "weight": 0.64,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "Sopruse pst 157",
-      "country": "Estonia",
       "isin": "EE3100096264",
-      "weight": 0.11,
+      "weight": 0.1,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "Taevakivi 3 OÜ osa",
-      "country": "Estonia",
       "isin": "EE3100079989",
-      "weight": 0.26,
+      "weight": 0.24,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "Tartu mnt 63 osa",
-      "country": "Estonia",
       "isin": "EE3100003930",
-      "weight": 0.63,
+      "weight": 0.61,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "VH KV 002 osa",
-      "country": "Estonia",
       "isin": "EE3100019811",
-      "weight": 0.18,
+      "weight": 0.17,
+      "country": "Estonia",
       "type": "stocks"
     },
     {
       "name": "Glencore",
-      "country": "Jersey",
       "isin": "JE00B4T3BW64",
-      "weight": 0.81,
+      "weight": 0.83,
+      "country": "Jersey",
       "type": "stocks"
     },
     {
       "name": "Alibaba Group Holding",
-      "country": "Cayman Islands",
       "isin": "KYG017191142",
-      "weight": 0.9,
+      "weight": 0.75,
+      "country": "Cayman Islands",
       "type": "stocks"
     },
     {
       "name": "Tencent Holdings",
-      "country": "Cayman Islands",
       "isin": "KYG875721634",
-      "weight": 0.34,
+      "weight": 0.76,
+      "country": "Cayman Islands",
       "type": "stocks"
     },
     {
       "name": "Barrick Mining Corp",
-      "country": "Canada",
       "isin": "CA06849F1080",
-      "weight": 1.78,
+      "weight": 0.97,
+      "country": "Canada",
       "type": "stocks"
     },
     {
       "name": "Nutrien",
-      "country": "Canada",
       "isin": "CA67077M1086",
-      "weight": 0.45,
+      "weight": 0.48,
+      "country": "Canada",
       "type": "stocks"
     },
     {
       "name": "Pan American Silver",
-      "country": "Canada",
       "isin": "CA6979001089",
-      "weight": 0.27,
+      "weight": 0.33,
+      "country": "Canada",
       "type": "stocks"
     },
     {
       "name": "Novaturas",
-      "country": "Lithuania",
       "isin": "LT0000131872",
       "weight": 0.03,
+      "country": "Lithuania",
       "type": "stocks"
     },
     {
       "name": "Silver Screen Holdings",
-      "country": "Lithuania",
       "isin": "LT0000132581",
-      "weight": 0.66,
+      "weight": 0.64,
+      "country": "Lithuania",
       "type": "stocks"
     },
     {
       "name": "Mobility Technology Opportunities",
-      "country": "Luxembourg",
       "isin": null,
-      "weight": 0.26,
+      "weight": 0.25,
+      "country": "Luxembourg",
       "type": "stocks"
     },
     {
       "name": "Matisa 52 osa",
-      "country": "Latvia",
       "isin": null,
       "weight": 0.14,
+      "country": "Latvia",
       "type": "stocks"
     },
     {
       "name": "Equinor",
-      "country": "Norway",
       "isin": "NO0010096985",
-      "weight": 0.33,
+      "weight": 0.35,
+      "country": "Norway",
       "type": "stocks"
     },
     {
       "name": "Legrand",
-      "country": "France",
       "isin": "FR0010307819",
-      "weight": 0.38,
+      "weight": 0.42,
+      "country": "France",
       "type": "stocks"
     },
     {
       "name": "Schneider Electric SE",
-      "country": "France",
       "isin": "FR0000121972",
-      "weight": 0.4,
+      "weight": 0.45,
+      "country": "France",
       "type": "stocks"
     },
     {
       "name": "TotalEnergies",
-      "country": "France",
       "isin": "FR0000120271",
-      "weight": 1.07,
+      "weight": 1.14,
+      "country": "France",
       "type": "stocks"
     },
     {
       "name": "AddTech AB",
-      "country": "Sweden",
       "isin": "SE0014781795",
-      "weight": 0.39,
+      "weight": 0.43,
+      "country": "Sweden",
       "type": "stocks"
     },
     {
       "name": "Atlas Copco",
-      "country": "Sweden",
       "isin": "SE0017486889",
-      "weight": 0.94,
+      "weight": 0.96,
+      "country": "Sweden",
       "type": "stocks"
     },
     {
       "name": "Epiroc A",
-      "country": "Sweden",
       "isin": "SE0015658109",
-      "weight": 0.63,
+      "weight": 0.66,
+      "country": "Sweden",
       "type": "stocks"
     },
     {
       "name": "Indutrade",
-      "country": "Sweden",
       "isin": "SE0001515552",
-      "weight": 0.34,
+      "weight": 0.37,
+      "country": "Sweden",
       "type": "stocks"
     },
     {
       "name": "Investor",
-      "country": "Sweden",
       "isin": "SE0015811963",
-      "weight": 0.96,
+      "weight": 1.01,
+      "country": "Sweden",
       "type": "stocks"
     },
     {
       "name": "Lifco",
-      "country": "Sweden",
       "isin": "SE0015949201",
       "weight": 0.74,
+      "country": "Sweden",
       "type": "stocks"
     },
     {
       "name": "Adidas AG",
-      "country": "Germany",
       "isin": "DE000A1EWWW0",
-      "weight": 0.31,
+      "weight": 0.32,
+      "country": "Germany",
       "type": "stocks"
     },
     {
       "name": "IONOS Group SE",
-      "country": "Germany",
       "isin": "DE000A3E00M1",
-      "weight": 0.27,
+      "weight": 0.22,
+      "country": "Germany",
       "type": "stocks"
     },
     {
       "name": "Fortum",
-      "country": "Finland",
       "isin": "FI0009007132",
-      "weight": 2.34,
+      "weight": 2.27,
+      "country": "Finland",
       "type": "stocks"
     },
     {
       "name": "Ponsse",
-      "country": "Finland",
       "isin": "FI0009005078",
       "weight": 0.07,
+      "country": "Finland",
       "type": "stocks"
     },
     {
       "name": "Stora Enso",
-      "country": "Finland",
       "isin": "FI0009005961",
-      "weight": 1.04,
+      "weight": 1.19,
+      "country": "Finland",
       "type": "stocks"
     },
     {
       "name": "Noble Corp",
-      "country": "United Kingdom",
       "isin": "GB00BMXNWH07",
-      "weight": 0.31,
-      "type": "stocks"
-    },
-    {
-      "name": "Novo Nordisk",
-      "country": "Denmark",
-      "isin": "DK0062498333",
-      "weight": 0.24,
+      "weight": 0.38,
+      "country": "United Kingdom",
       "type": "stocks"
     },
     {
       "name": "Antero Resources Corp",
-      "country": "United States",
       "isin": "US03674X1063",
       "weight": 0.35,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "EQT Corp",
-      "country": "United States",
       "isin": "US26884L1098",
-      "weight": 0.32,
+      "weight": 0.34,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "Freeport-McMoRan",
-      "country": "United States",
       "isin": "US35671D8570",
-      "weight": 1.22,
+      "weight": 1.36,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "MercadoLibre",
-      "country": "United States",
       "isin": "US58733R1023",
-      "weight": 0.43,
+      "weight": 0.35,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "Mosaic",
-      "country": "United States",
       "isin": "US61945C1036",
       "weight": 0.34,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "Newmont Corporation",
-      "country": "United States",
       "isin": "US6516391066",
-      "weight": 0.35,
+      "weight": 0.4,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "QS Urgentmed Holdco pref",
-      "country": "United States",
       "isin": null,
-      "weight": 0.15,
+      "weight": 0.14,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "QS Urgentmed Holdco pref2",
-      "country": "United States",
       "isin": null,
       "weight": 0.02,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "Stryker Corporation",
-      "country": "United States",
       "isin": "US8636671013",
-      "weight": 0.16,
+      "weight": 0.17,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "United Rentals",
-      "country": "United States",
       "isin": "US9113631090",
-      "weight": 0.47,
+      "weight": 0.49,
+      "country": "United States",
       "type": "stocks"
     },
     {
       "name": "Invesco MDAX UCITS ETF Invesco Markets",
-      "country": "Ireland",
       "isin": "IE00BHJYDV33",
-      "weight": 3.74,
+      "weight": 3.68,
+      "country": "Ireland",
       "type": "etfs"
     },
     {
       "name": "iShares Gold Producers UCITS ETF BlackRock Asset Management Ireland Limited",
-      "country": "Ireland",
       "isin": "IE00B6R52036",
-      "weight": 0.92,
+      "weight": 2.31,
+      "country": "Ireland",
       "type": "etfs"
     },
     {
       "name": "AMUNDI EURO STOXX BANKS UCITS ETF Lyxor Asset Management",
-      "country": "Luxembourg",
       "isin": "LU1829219390",
-      "weight": 2.97,
+      "weight": 2.81,
+      "country": "Luxembourg",
       "type": "etfs"
     },
     {
       "name": "ZKB Gold ETF Swisscanto Fondsleitung",
-      "country": "Switzerland",
       "isin": "CH0139101593",
-      "weight": 6.1,
+      "weight": 6.24,
+      "country": "Switzerland",
       "type": "etfs"
     },
     {
       "name": "First Trust RBA American Industrial Renaissance First Trust Portfolios",
-      "country": "United States",
       "isin": "US33738R7044",
-      "weight": 1.2,
+      "weight": 1.26,
+      "country": "United States",
       "type": "etfs"
     },
     {
       "name": "Global X Copper Miners ETF Global X",
-      "country": "United States",
       "isin": "US37954Y8306",
-      "weight": 1.56,
+      "weight": 1.72,
+      "country": "United States",
       "type": "etfs"
     },
     {
       "name": "VanEck Oil Services ETF Van Eck Associates",
-      "country": "United States",
       "isin": "US92189H6071",
-      "weight": 0.18,
+      "weight": 0.2,
+      "country": "United States",
       "type": "etfs"
-    }
-  ],
-  "pe_holdings": [
-    {
-      "name": "Investindustrial VII",
-      "weight": 3.64,
-      "type": "pe"
-    },
-    {
-      "name": "Partners Group Direct Equity 2019",
-      "weight": 2.45,
-      "type": "pe"
-    },
-    {
-      "name": "QS Global Mid-Market Opportunities",
-      "weight": 1.91,
-      "type": "pe"
-    },
-    {
-      "name": "AlpInvest Co-Investment VIII",
-      "weight": 1.79,
-      "type": "pe"
-    },
-    {
-      "name": "BaltCap PE Fund III",
-      "weight": 1.71,
-      "type": "pe"
-    },
-    {
-      "name": "Blackstone Capital Partners VIII",
-      "weight": 1.64,
-      "type": "pe"
-    },
-    {
-      "name": "NOAL BRG",
-      "weight": 1.59,
-      "type": "pe"
-    },
-    {
-      "name": "Ardian ASF VIII",
-      "weight": 1.56,
-      "type": "pe"
-    },
-    {
-      "name": "Monte Rosa V (Pictet)",
-      "weight": 1.23,
-      "type": "pe"
-    },
-    {
-      "name": "KJK Fund III",
-      "weight": 1.2,
-      "type": "pe"
-    },
-    {
-      "name": "Investindustrial Growth III",
-      "weight": 1.15,
-      "type": "pe"
-    },
-    {
-      "name": "AlpInvest Secondaries VII",
-      "weight": 1.12,
-      "type": "pe"
-    },
-    {
-      "name": "BaltCap PE III (BPEF III)",
-      "weight": 1.07,
-      "type": "pe"
-    },
-    {
-      "name": "INVL Baltic Sea Growth",
-      "weight": 1.05,
-      "type": "pe"
-    },
-    {
-      "name": "Karma Ventures I",
-      "weight": 0.97,
-      "type": "pe"
-    },
-    {
-      "name": "KJK Fund II (kokku)",
-      "weight": 1.66,
-      "type": "pe"
-    },
-    {
-      "name": "Tera Ventures II",
-      "weight": 0.76,
-      "type": "pe"
-    },
-    {
-      "name": "Astorg Mid-Cap I",
-      "weight": 0.75,
-      "type": "pe"
-    },
-    {
-      "name": "Equity United PE",
-      "weight": 0.7,
-      "type": "pe"
-    },
-    {
-      "name": "Superangel One",
-      "weight": 0.7,
-      "type": "pe"
-    },
-    {
-      "name": "Quilvest GMMO II",
-      "weight": 0.6,
-      "type": "pe"
-    },
-    {
-      "name": "QCP Buyout Fund III",
-      "weight": 0.52,
-      "type": "pe"
-    },
-    {
-      "name": "BaltCap Infrastructure",
-      "weight": 0.45,
-      "type": "pe"
-    },
-    {
-      "name": "QS Club Fund II",
-      "weight": 0.44,
-      "type": "pe"
-    },
-    {
-      "name": "Trind Ventures I",
-      "weight": 0.43,
-      "type": "pe"
-    },
-    {
-      "name": "Livonia Partners I",
-      "weight": 0.41,
-      "type": "pe"
-    },
-    {
-      "name": "Investindustrial VIII",
-      "weight": 0.4,
-      "type": "pe"
-    },
-    {
-      "name": "QS Capital Strategies II",
-      "weight": 0.32,
-      "type": "pe"
-    },
-    {
-      "name": "BaltCap PE Fund II",
-      "weight": 0.27,
-      "type": "pe"
-    },
-    {
-      "name": "Karma Ventures II",
-      "weight": 0.24,
-      "type": "pe"
-    },
-    {
-      "name": "BPM Mezzanine Fund",
-      "weight": 0.18,
-      "type": "pe"
-    },
-    {
-      "name": "Trind Ventures II",
-      "weight": 0.17,
-      "type": "pe"
-    },
-    {
-      "name": "Superangel Two",
-      "weight": 0.17,
-      "type": "pe"
-    },
-    {
-      "name": "Plural 2022",
-      "weight": 0.12,
-      "type": "pe"
-    },
-    {
-      "name": "Specialist VC II",
-      "weight": 0.08,
-      "type": "pe"
-    },
-    {
-      "name": "BaltCap Latvia VC",
-      "weight": 0.01,
-      "type": "pe"
-    }
-  ],
-  "re_holdings": [
-    {
-      "name": "EfTEN Real Estate Fund",
-      "weight": 2.78,
-      "type": "re"
-    },
-    {
-      "name": "East Capital Baltic Property III",
-      "weight": 2.31,
-      "type": "re"
-    },
-    {
-      "name": "EfTEN Real Estate Fund 4",
-      "weight": 1.85,
-      "type": "re"
-    },
-    {
-      "name": "SG Capital Partners",
-      "weight": 1.84,
-      "type": "re"
-    },
-    {
-      "name": "East Capital Real Estate IV",
-      "weight": 1.72,
-      "type": "re"
-    },
-    {
-      "name": "Birdeye Timber Fund 2",
-      "weight": 1.1,
-      "type": "re"
-    },
-    {
-      "name": "Lords LB Baltic Green Fund",
-      "weight": 0.99,
-      "type": "re"
-    },
-    {
-      "name": "EfTEN Real Estate Fund 5",
-      "weight": 0.6,
-      "type": "re"
-    },
-    {
-      "name": "Birdeye Timber Fund 3",
-      "weight": 0.5,
-      "type": "re"
-    },
-    {
-      "name": "EfTEN Residential Fund",
-      "weight": 0.46,
-      "type": "re"
-    },
-    {
-      "name": "EfTEN Kinnisvarafond II",
-      "weight": 0.14,
-      "type": "re"
-    }
-  ],
-  "bond_holdings": [
-    {
-      "name": "Deutschland 0.5% 02/2026",
-      "weight": 1.51,
-      "type": "bonds"
-    },
-    {
-      "name": "Marati Maja omanikulaen",
-      "weight": 1.15,
-      "type": "bonds"
-    },
-    {
-      "name": "BIGBANK 6.5% 2031",
-      "weight": 0.94,
-      "type": "bonds"
-    },
-    {
-      "name": "Baltic Horizon Fund 2028",
-      "weight": 0.68,
-      "type": "bonds"
-    },
-    {
-      "name": "Aiandi Kodud omanikulaen",
-      "weight": 0.61,
-      "type": "bonds"
-    },
-    {
-      "name": "Coop Pank AT1",
-      "weight": 0.45,
-      "type": "bonds"
-    },
-    {
-      "name": "Manufaktuuri omanikulaen",
-      "weight": 0.35,
-      "type": "bonds"
-    },
-    {
-      "name": "Akadeemia15b omanikulaen",
-      "weight": 0.34,
-      "type": "bonds"
-    },
-    {
-      "name": "Matisa52 omanikulaen",
-      "weight": 0.32,
-      "type": "bonds"
-    },
-    {
-      "name": "Eastnine AB 8.5% 2027",
-      "weight": 0.3,
-      "type": "bonds"
-    },
-    {
-      "name": "BIGBANK 7.5% 2032",
-      "weight": 0.29,
-      "type": "bonds"
-    },
-    {
-      "name": "Taevakivi omanikulaen",
-      "weight": 0.17,
-      "type": "bonds"
-    },
-    {
-      "name": "Kesk Tee Jyri omanikulaen",
-      "weight": 0.15,
-      "type": "bonds"
-    },
-    {
-      "name": "Tartu linn 2032",
-      "weight": 0.14,
-      "type": "bonds"
-    },
-    {
-      "name": "Banco Santander 2026",
-      "weight": 0.13,
-      "type": "bonds"
-    },
-    {
-      "name": "Sopruse157 omanikulaen",
-      "weight": 0.13,
-      "type": "bonds"
-    },
-    {
-      "name": "Liven Kodu 2027",
-      "weight": 0.06,
-      "type": "bonds"
-    },
-    {
-      "name": "Inbank 2031",
-      "weight": 0.02,
-      "type": "bonds"
     }
   ]
 }
