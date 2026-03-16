@@ -95,6 +95,12 @@
       "type": "full"
     },
     {
+      "ticker": "EMXC",
+      "stocks": 606,
+      "source": "iShares CSV",
+      "type": "full"
+    },
+    {
       "ticker": "EMXU",
       "stocks": 46,
       "source": "EODHD API",
