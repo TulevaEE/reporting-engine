@@ -143,6 +143,7 @@ ETF_ISIN_TO_CSV = {
     'IE00BH4GPZ28': 'SPPY',  # SPDR S&P 500 ESG Leaders (real holdings)
     'SE0021147394': 'SSAC_EM',  # SEB Emerging Markets Exposure Fund (proxy: EM from ACWI)
     'LU1118354460': 'SAEU',  # SEB Europe Exposure Fund IC (proxy: Europe)
+    'SE0026526592': 'SAEU',  # SEB Europe Exposure Fund D (proxy: Europe, replaced IC)
     'LU1711526407': 'SAWD',  # SEB Global Exposure Fund (proxy: global developed)
     # Swedbank K-series underlying funds (EODHD)
     'LU2345046655': 'EMXU',  # Amundi MSCI EM Ex China
@@ -162,6 +163,8 @@ ETF_ISIN_TO_CSV = {
     'LU2853083306': 'SAWD',  # SEB Montrusco Bolton Global Equity (proxy: global developed)
     'IE00B3DJ5M15': 'SSAC_EM',  # Federated Hermes Global EM Equity (proxy: EM from ACWI)
     'LU1829219390': 'BNKE',  # Amundi Euro Stoxx Banks UCITS ETF (real holdings)
+    'IE00B4M7GH52': 'SAEU',  # iShares MSCI Poland UCITS ETF (proxy: Europe)
+    'IE000G2LIHG9': 'SASU',  # iShares MSCI USA ESG Screened (2nd share class, proxy: SASU)
 }
 
 # ISINs of SEB internal proprietary funds whose compositions are unknown.
@@ -172,6 +175,7 @@ ETF_ISIN_TO_CSV = {
 TRUE_PROXY_ISINS = {
     'SE0021147394',  # SEB Emerging Markets Exposure Fund (internal)
     'LU1118354460',  # SEB Europe Exposure Fund IC (internal)
+    'SE0026526592',  # SEB Europe Exposure Fund D (internal)
     'LU1711526407',  # SEB Global Exposure Fund (internal)
 }
 
@@ -2543,8 +2547,12 @@ def main():
 
     # ── Fund 3: SEB Indeks (Type A) ──
     print('\n3. SEB Indeks...')
-    seb_idx_pdf = REPORT_DIR / reports_cfg['SEB Indeks']['pdf'] if reports_cfg else REPORT_DIR / 'est_SIK75_raport_20260131.pdf'
-    seb_idx_parsed = parse_seb_indeks_monthly(seb_idx_pdf)
+    if alloc_cfg and 'SEB Indeks' in alloc_cfg:
+        seb_idx_parsed = {'allocations': alloc_cfg['SEB Indeks']}
+        print('   (from monthly JSON)')
+    else:
+        seb_idx_pdf = REPORT_DIR / reports_cfg['SEB Indeks']['pdf'] if reports_cfg else REPORT_DIR / 'est_SIK75_raport_20260131.pdf'
+        seb_idx_parsed = parse_seb_indeks_monthly(seb_idx_pdf)
     print(f'   {len(seb_idx_parsed["allocations"])} ETF allocations')
     for a in seb_idx_parsed['allocations']:
         mapped = ETF_ISIN_TO_CSV.get(a['isin'], 'OPAQUE' if a['isin'] in OPAQUE_FUND_ISINS else '?')
@@ -2558,7 +2566,8 @@ def main():
         all_funds_data['SEB Indeks'] = seb_idx_data
         print(f'   => {seb_idx_data["n_stocks"]} stocks')
         _date = reports_cfg['SEB Indeks']['date'] if reports_cfg else '31.01.2026'
-        DATA_SOURCES['SEB Indeks'] = {'pdf': seb_idx_pdf.name, 'type': 'A (ETF)', 'date': _date,
+        _pdf = reports_cfg['SEB Indeks']['pdf'] if reports_cfg else 'est_SIK75_raport_20260228.pdf'
+        DATA_SOURCES['SEB Indeks'] = {'pdf': _pdf, 'type': 'A (ETF)', 'date': _date,
                                        'etf_count': len(seb_idx_parsed['allocations']),
                                        'opaque_pct': seb_idx_data.get('opaque_pct', 0)}
 
