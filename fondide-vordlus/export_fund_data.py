@@ -30,7 +30,7 @@ from pipeline_shared import (
     fetch_pensionikeskus_aum,
     # Existing parsers (wrapped by v2 parsers)
     parse_tuleva_monthly, parse_tuleva_bond_monthly,
-    parse_swedbank_monthly, parse_seb_indeks_monthly, parse_lhv_monthly,
+    parse_swedbank_monthly, parse_seb_indeks_monthly, parse_seb_pdf, parse_lhv_monthly,
     compute_nav_return_correlations, fetch_nav_history, fetch_acwi_nav,
 )
 
@@ -290,238 +290,36 @@ def _parse_lhv(parsed, pdf_path):
 
 
 def _parse_seb_indeks(parsed, pdf_path):
-    """Wrap existing SEB Indeks parser into standardized format."""
-    raw = parse_seb_indeks_monthly(pdf_path)
-    parsed['equity_funds'] = raw['allocations']
-    parsed['deposits_pct'] = raw.get('deposits_pct', 0.22)
-    return parsed
+    """Parse SEB Indeks from PDF using word-level extraction."""
+    return _parse_seb(parsed, pdf_path)
 
 
 def _parse_seb(parsed, pdf_path):
-    """Parse SEB 55+/18+/60+/65+ from PDF.
+    """Parse any SEB fund PDF using word-level coordinate extraction.
 
-    SEB PDFs have a wide multi-column layout. Each holding is one long line
-    with: Name, Strategy (Estonian), Manager, ISIN, Country, Currency, prices, weight%.
-
-    Sections are identified by "Väärtpaberi liik:" and "Fondi liik:" headers.
+    Uses parse_seb_pdf() which extracts names, ISINs, percentages, and EUR
+    values by matching words at the same y-coordinate across columns.
+    Works for both inline (SEB 18+, 65+) and multi-column (Indeks, 55+, 60+) layouts.
     """
-    import pdfplumber
+    raw = parse_seb_pdf(pdf_path)
 
-    equity_funds = []
-    stocks = []
-    bonds = []
-    bond_funds = []
-    pe_funds = []
-    re_funds = []
-    deposits_pct = 0.0
-    derivatives_pct = 0.0
-    pdf_subtotals = {}
-    pdf_holding_counts = {}
+    if not raw or not raw.get('equity_funds'):
+        print('  SEB PDF: no equity funds parsed from PDF')
+
     total_value_eur = 0
+    for section_key in ['equity_funds', 'stocks', 'bonds', 'bond_funds', 'pe_funds', 're_funds']:
+        for entry in raw.get(section_key, []):
+            if entry.get('value_eur'):
+                total_value_eur += entry['value_eur']
 
-    current_section = None  # 'bonds', 'stocks', 'equity', 're', 'pe', 'bond_fund'
-
-    # Map section to standardized key for subtotals/counts
-    _SEB_SECTION_KEY = {
-        'bonds': 'bonds', 'stocks': 'stocks', 'equity': 'equity_funds',
-        're': 're_funds', 'pe': 'pe_funds', 'bond_fund': 'bond_funds',
-    }
-
-    # Estonian description markers — the fund name is before these
-    EST_MARKERS = [
-        'Vastutustundlik', 'Euroopa ', 'USA ', 'Globaalne ', 'Jaapani ',
-        'Poola ', 'Eesti ', 'indeksfond', 'aktsiate fond', 'võlakirjade fond',
-        'ärikinnisvara fond', 'metsafond', 'börsiväliste',
-        'ujuva intressimääraga', 'võlakiri', 'aktsia',
-        'SEB börsiväliste', 'riskikapitalifond', 'Varajases',
-    ]
-
-    def _extract_name_before_estonian(raw_name):
-        """Split fund name from Estonian strategy description."""
-        best_pos = len(raw_name)
-        for marker in EST_MARKERS:
-            pos = raw_name.find(marker)
-            if 0 < pos < best_pos:
-                best_pos = pos
-        name = raw_name[:best_pos].strip()
-        # Remove footnote markers
-        name = re.sub(r'\s*[²³¹]+\s*', ' ', name).strip()
-        name = re.sub(r'\s+', ' ', name).strip()
-        return name
-
-    # Country name mapping for SEB (Estonian → English)
-    SEB_COUNTRIES = {
-        'Eesti': 'Estonia', 'Leedu': 'Lithuania', 'Läti': 'Latvia',
-        'Luksemburg': 'Luxembourg', 'Iirimaa': 'Ireland', 'Rootsi': 'Sweden',
-        'Saksamaa': 'Germany', 'Soome': 'Finland',
-    }
-
-    with pdfplumber.open(pdf_path) as pdf:
-        for page in pdf.pages:
-            text = page.extract_text() or ''
-            for line in text.splitlines():
-                line = line.strip()
-                if not line:
-                    continue
-
-                # Section headers (may have ¹²³ prefix, space before colon)
-                clean = re.sub(r'[¹²³]+\s*', '', line).strip()
-                clean = re.sub(r'\s+', ' ', clean)
-                if re.search(r'Väärtpaberi liik\s*:\s*Võlakiri', clean):
-                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
-                    if pct_m:
-                        pdf_subtotals['bonds'] = _pct(pct_m[0] + '%')
-                    current_section = 'bonds'
-                    continue
-                if re.search(r'Väärtpaberi liik\s*:\s*Aktsia', clean):
-                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
-                    if pct_m:
-                        pdf_subtotals['stocks'] = _pct(pct_m[0] + '%')
-                    current_section = 'stocks'
-                    continue
-                if re.search(r'Fondi liik\s*:\s*Aktsiafond', clean):
-                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
-                    if pct_m:
-                        pdf_subtotals['equity_funds'] = _pct(pct_m[0] + '%')
-                    current_section = 'equity'
-                    continue
-                if re.search(r'Fondi liik\s*:\s*Kinnisvarafond', clean):
-                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
-                    if pct_m:
-                        pdf_subtotals['re_funds'] = _pct(pct_m[0] + '%')
-                    current_section = 're'
-                    continue
-                if re.search(r'Fondi liik\s*:\s*Private Equity', clean):
-                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
-                    if pct_m:
-                        pdf_subtotals['pe_funds'] = _pct(pct_m[0] + '%')
-                    current_section = 'pe'
-                    continue
-                if re.search(r'Fondi liik\s*:\s*Võlakirjafond', clean):
-                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
-                    if pct_m:
-                        pdf_subtotals['bond_funds'] = _pct(pct_m[0] + '%')
-                    current_section = 'bond_fund'
-                    continue
-                if line.startswith('Tuletisinstrumendid'):
-                    current_section = 'derivatives'
-                    continue
-                if line.startswith('Hoiused'):
-                    current_section = 'deposits'
-                    continue
-                if line.startswith('Muu vara') or line.startswith('Fondi kohustused') or line.startswith('Fondi puhasväärtus'):
-                    current_section = None
-                    continue
-
-                # Skip headers and footers
-                if any(x in line for x in [
-                    'Emitent/väärtpaberi', 'reitinguagentuuri', 'Reguleeritud',
-                    'Taristuinvesteering', 'Fondiosakud', 'Fondi osaku',
-                    'päritoluriik', 'ühikule kokku', 'Investeering Fondivalitsejaga',
-                    'Investeering, mille', 'Investeeringute aruanne', 'SEB pensionifond',
-                    'Tuletisinstrumendi nimetus', 'Väljaandja', 'Krediidiasutuse nimi',
-                    'Kogunenud', 'Arvelduskonto intress', 'Väärtpaberiarveldused',
-                    'poolt', 'Nimi Kuupäev', 'Juhatuse liige',
-                    'Imanta', 'Gert Vilms',
-                ]):
-                    continue
-
-                if current_section is None:
-                    continue
-
-                # Find ISIN and weight
-                isin_match = ISIN_RE.search(line)
-                pcts = re.findall(r'(\d+[\.,]\d+)%', line)
-
-                if current_section == 'deposits':
-                    # Deposit lines: "AS SEB Pank Nõudmiseni hoius Eesti A+, S&P 1 136 572 0,46%"
-                    if pcts:
-                        deposits_pct += _pct(pcts[-1] + '%')
-                    dep_val = _extract_deposit_eur(line)
-                    if dep_val:
-                        total_value_eur += dep_val
-                    continue
-
-                if current_section == 'derivatives':
-                    if pcts:
-                        derivatives_pct += _pct(pcts[-1] + '%')
-                    continue
-
-                if not isin_match or not pcts:
-                    continue
-
-                # Count data lines per section
-                sk = _SEB_SECTION_KEY.get(current_section)
-                if sk:
-                    pdf_holding_counts[sk] = pdf_holding_counts.get(sk, 0) + 1
-
-                isin = isin_match.group(0)
-                weight = _pct(pcts[-1] + '%')
-                if weight <= 0:
-                    continue
-
-                # Extract EUR market value
-                value_eur = _extract_eur_value(line)
-                if value_eur:
-                    total_value_eur += value_eur
-
-                # Extract name from the text before the ISIN
-                raw_before = line[:line.index(isin)].strip()
-                name = _extract_name_before_estonian(raw_before)
-
-                if not name or len(name) < 2:
-                    continue
-
-                if current_section == 'bonds':
-                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
-                    if value_eur:
-                        entry['value_eur'] = value_eur
-                    bonds.append(entry)
-                elif current_section == 'stocks':
-                    country = ''
-                    for est, eng in SEB_COUNTRIES.items():
-                        if est in raw_before:
-                            country = eng
-                    entry = {'name': name, 'isin': isin, 'weight_pct': weight, 'country': country}
-                    if value_eur:
-                        entry['value_eur'] = value_eur
-                    stocks.append(entry)
-                elif current_section == 'equity':
-                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
-                    if value_eur:
-                        entry['value_eur'] = value_eur
-                    equity_funds.append(entry)
-                elif current_section == 're':
-                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
-                    if value_eur:
-                        entry['value_eur'] = value_eur
-                    re_funds.append(entry)
-                elif current_section == 'pe':
-                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
-                    if value_eur:
-                        entry['value_eur'] = value_eur
-                    pe_funds.append(entry)
-                elif current_section == 'bond_fund':
-                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
-                    if value_eur:
-                        entry['value_eur'] = value_eur
-                    bond_funds.append(entry)
-
-    # Check if parsing succeeded (SEB 55+/60+/65+ have multi-column layout
-    # where pdfplumber can't join columns — equity_funds will be empty)
-    if not equity_funds:
-        print('  SEB PDF multi-column layout: no equity funds parsed, needs monthly JSON')
-
-    parsed['equity_funds'] = equity_funds
-    parsed['stocks'] = stocks
-    parsed['bonds'] = bonds
-    parsed['bond_funds'] = bond_funds
-    parsed['pe_funds'] = pe_funds
-    parsed['re_funds'] = re_funds
-    parsed['deposits_pct'] = deposits_pct
-    parsed['derivatives_pct'] = derivatives_pct
-    parsed['_pdf_subtotals'] = pdf_subtotals
-    parsed['_pdf_holding_counts'] = pdf_holding_counts
+    parsed['equity_funds'] = raw.get('equity_funds', [])
+    parsed['stocks'] = raw.get('stocks', [])
+    parsed['bonds'] = raw.get('bonds', [])
+    parsed['bond_funds'] = raw.get('bond_funds', [])
+    parsed['pe_funds'] = raw.get('pe_funds', [])
+    parsed['re_funds'] = raw.get('re_funds', [])
+    parsed['deposits_pct'] = raw.get('deposits_pct', 0.0)
+    parsed['derivatives_pct'] = raw.get('derivatives_pct', 0.0)
     parsed['_total_value_eur'] = total_value_eur
     return parsed
 

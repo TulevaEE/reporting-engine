@@ -4,37 +4,43 @@
   "provider": "SEB",
   "fund_type": "conservative",
   "month": "2026-02",
-  "source": "monthly JSON",
+  "source": "est_SEK00_raport_20260228.pdf",
   "equity_funds": [
     {
       "name": "iShares Developed World ESG Screened Index Fund",
+      "weight_pct": 1.46,
       "isin": "IE00BFG1TM61",
-      "weight_pct": 1.46
+      "value_eur": 485612
     },
     {
       "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+      "weight_pct": 1.01,
       "isin": "IE00BFNM3P36",
-      "weight_pct": 1.01
+      "value_eur": 336433
     },
     {
       "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+      "weight_pct": 0.39,
       "isin": "IE00BFNM3D14",
-      "weight_pct": 0.39
+      "value_eur": 130564
     },
     {
       "name": "iShares MSCI World ESG Screened UCITS ETF",
+      "weight_pct": 0.9,
       "isin": "IE00BFNM3J75",
-      "weight_pct": 0.9
+      "value_eur": 300845
     },
     {
       "name": "L&G Japan Equity UCITS ETF",
+      "weight_pct": 0.25,
       "isin": "IE00BFXR5T61",
-      "weight_pct": 0.25
+      "value_eur": 83322
     },
     {
       "name": "SEB Global Exposure Fund",
+      "weight_pct": 4.01,
       "isin": "LU1711526407",
-      "weight_pct": 4.01
+      "value_eur": 1334519
     }
   ],
   "stocks": [],
@@ -42,191 +48,237 @@
     {
       "name": "Akropolis Group Uab 6% 15.05.2030",
       "weight_pct": 0.67,
-      "type": "bonds"
+      "isin": "XS3046302488",
+      "value_eur": 224189
     },
     {
-      "name": "Artea Bankas FRN Perp",
+      "name": "Artea bankas AB FRN",
       "weight_pct": 1.55,
-      "type": "bonds"
+      "isin": "XS2922133363",
+      "value_eur": 516090
     },
     {
       "name": "Artea Bankas AB FRN 05.12.2028",
       "weight_pct": 1.6,
-      "type": "bonds"
+      "isin": "XS2887816564",
+      "value_eur": 532705
     },
     {
-      "name": "Artea Bankas AB FRN 07.10.2029",
+      "name": "Artea bankas AB FRN 07.10.2029",
       "weight_pct": 0.58,
-      "type": "bonds"
+      "isin": "XS3191554495",
+      "value_eur": 193726
     },
     {
-      "name": "Artea Bankas FRN 2030",
+      "name": "Artea bankas AB FRN 25.06.2030",
       "weight_pct": 0.59,
-      "type": "bonds"
+      "isin": "XS3025213102",
+      "value_eur": 196369
     },
     {
       "name": "AS LHV Group 6% 15.11.2034",
       "weight_pct": 0.05,
-      "type": "bonds"
+      "isin": "EE3300004993",
+      "value_eur": 16596
     },
     {
       "name": "Augstsprieguma Tikls 0.5% 20.01.2027",
       "weight_pct": 2.87,
-      "type": "bonds"
+      "isin": "LV0000802528",
+      "value_eur": 954587
     },
     {
       "name": "Bundesrepublik Deutschland 0% 15.08.2031",
       "weight_pct": 5.89,
-      "type": "bonds"
+      "isin": "DE0001030732",
+      "value_eur": 1958880
     },
     {
       "name": "Bundesrepublik Deutschland Bundesanleihe 2.2% 15.02.2034",
       "weight_pct": 0.73,
-      "type": "bonds"
+      "isin": "DE000BU2Z023",
+      "value_eur": 244218
     },
     {
       "name": "Citadele Banka AS FRN 23.12.2029",
       "weight_pct": 0.12,
-      "type": "bonds"
+      "isin": "XS3148256913",
+      "value_eur": 39511
     },
     {
       "name": "Citadele Banka AS FRN 31.12.2099",
       "weight_pct": 0.84,
-      "type": "bonds"
+      "isin": "XS3060301168",
+      "value_eur": 280456
     },
     {
       "name": "Eesti Energia 7.875% 15.07.2099",
       "weight_pct": 0.81,
-      "type": "bonds"
+      "isin": "XS2824761188",
+      "value_eur": 269660
     },
     {
       "name": "French Republic Goverment OAT 1.25% 25.05.2034",
       "weight_pct": 2.11,
-      "type": "bonds"
+      "isin": "FR0013313582",
+      "value_eur": 702860
     },
     {
       "name": "Ignitis Grupė AB 1.875% 10.07.2028",
       "weight_pct": 1.24,
-      "type": "bonds"
+      "isin": "XS1853999313",
+      "value_eur": 412501
     },
     {
       "name": "Ignitis Grupė AB 2% 14.07.2027",
       "weight_pct": 0.71,
-      "type": "bonds"
+      "isin": "XS1646530565",
+      "value_eur": 237623
     },
     {
       "name": "Ignitis Grupė AB 2% 21.05.2030",
       "weight_pct": 1.29,
-      "type": "bonds"
+      "isin": "XS2177349912",
+      "value_eur": 429163
     },
     {
       "name": "Latvenergo AS 3.612% 13.11.2030",
       "weight_pct": 0.18,
-      "type": "bonds"
+      "isin": "XS3227294132",
+      "value_eur": 59532
     },
     {
-      "name": "Latvenergo AS 4.952% 22.02.2029",
+      "name": "Latvenergo As 4.952% 22.02.2029",
       "weight_pct": 0.95,
-      "type": "bonds"
+      "isin": "LV0000802684",
+      "value_eur": 315883
     },
     {
       "name": "LHV Group AS 9.5 31.12.2099",
       "weight_pct": 1.75,
-      "type": "bonds"
+      "isin": "XS3042781024",
+      "value_eur": 582906
     },
     {
       "name": "LHV Group AS FRN 03.10.2027",
       "weight_pct": 1.34,
-      "type": "bonds"
+      "isin": "XS2693753704",
+      "value_eur": 447132
     },
     {
-      "name": "LHV Group FRN 2035",
+      "name": "LHV Group AS FRN 16.09.2035",
       "weight_pct": 0.62,
-      "type": "bonds"
+      "isin": "XS3153067288",
+      "value_eur": 205026
     },
     {
-      "name": "LHV Group FRN 2029",
+      "name": "LHV Group AS FRN 18.06.2029",
       "weight_pct": 0.59,
-      "type": "bonds"
+      "isin": "XS3090105829",
+      "value_eur": 195225
     },
     {
       "name": "LHV Group AS FRN 24.05.2028",
       "weight_pct": 0.98,
-      "type": "bonds"
+      "isin": "XS2822574245",
+      "value_eur": 324454
     },
     {
-      "name": "Luminor Bank AS/Estonia FRN 08.06.2027",
+      "name": "Luminor Bank As/Estonia FRN 08.06.2027",
       "weight_pct": 1.06,
-      "type": "bonds"
+      "isin": "XS2633112565",
+      "value_eur": 353636
     },
     {
       "name": "Luminor Bank AS/Estonia FRN 10.09.2028",
       "weight_pct": 0.89,
-      "type": "bonds"
+      "isin": "XS2888497067",
+      "value_eur": 296657
     },
     {
-      "name": "Luminor Bank FRN Perp",
+      "name": "Luminor Bank AS/Estonia FRN 12.02.2099",
       "weight_pct": 1.81,
-      "type": "bonds"
+      "isin": "XS2982074861",
+      "value_eur": 602195
     },
     {
-      "name": "Luminor Bank FRN 2029",
+      "name": "Luminor Bank AS/Estonia FRN 12.06.2029",
       "weight_pct": 0.1,
-      "type": "bonds"
+      "isin": "XS3079969104",
+      "value_eur": 33164
     },
     {
-      "name": "Nortal FRN 2029",
+      "name": "Nortal AS FRN 09.02.2029",
       "weight_pct": 0.48,
-      "type": "bonds"
+      "isin": "FI4000566567",
+      "value_eur": 160437
     },
     {
       "name": "Republic of Estonia 4% 12.10.2032",
       "weight_pct": 9.42,
-      "type": "bonds"
+      "isin": "XS2532370231",
+      "value_eur": 3133823
     },
     {
-      "name": "Spain Government Bond 3.25% 2034",
+      "name": "Spain Government Bond 3.25% 30.04.2034",
       "weight_pct": 4.51,
-      "type": "bonds"
+      "isin": "ES0000012M85",
+      "value_eur": 1500352
     },
     {
       "name": "Valstybes Investicinis Kapitalas Uab 3.119% 24.09.2029",
       "weight_pct": 1.18,
-      "type": "bonds"
+      "isin": "LT0000135436",
+      "value_eur": 393787
     }
   ],
   "bond_funds": [
     {
       "name": "Amundi EUR Corporate Bond 1-5Y ESG",
-      "weight_pct": 8.3
+      "weight_pct": 8.3,
+      "isin": "LU1525418643",
+      "value_eur": 2762243
     },
     {
-      "name": "Amundi Index Euro Corporate SRI UCITS ETF",
-      "weight_pct": 12.74
+      "name": "Amundi Index Euro Corporate Sri- UCITS ETF DR Euroopa",
+      "weight_pct": 12.74,
+      "isin": "LU1437018168",
+      "value_eur": 4238477
     },
     {
       "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
-      "weight_pct": 1.49
+      "weight_pct": 1.49,
+      "isin": "LU3192249715",
+      "value_eur": 496668
     },
     {
       "name": "Fair Oaks Dynamic Credit Fund",
-      "weight_pct": 1.26
+      "weight_pct": 1.26,
+      "isin": "LU1902638607",
+      "value_eur": 418107
     },
     {
       "name": "Robeco Euro Credit Bond",
-      "weight_pct": 7.96
+      "weight_pct": 7.96,
+      "isin": "LU0210246277",
+      "value_eur": 2649206
     },
     {
-      "name": "Schroder ISF EURO Corporate Bond",
-      "weight_pct": 3.31
+      "name": "Schroder ISF EURO Corporate Bond Euroopa",
+      "weight_pct": 3.31,
+      "isin": "LU0113258742",
+      "value_eur": 1099451
     },
     {
-      "name": "UBS EUR Corporates Sustainable",
-      "weight_pct": 7.48
+      "name": "UBS Lux Bond SICAV - EUR Corporates Sustainable EUR",
+      "weight_pct": 7.48,
+      "isin": "LU2889894270",
+      "value_eur": 2487578
     }
   ],
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 0.0,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_total_value_eur": 32636368
 }
