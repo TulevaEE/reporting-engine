@@ -196,6 +196,12 @@
   <div id="holdingsArea"></div>
 </div>
 
+<div class="section" id="sectionChanges">
+  <div class="section-title">Suurimad muutused</div>
+  <div class="section-sub" id="changesSub"></div>
+  <div id="changesArea"></div>
+</div>
+
 <div class="section" id="sectionNav">
   <div class="section-title">Kas fondide tootlused on sarnased?</div>
   <div class="section-sub" id="navSub">Normaliseeritud 100-le valitud perioodi alguses</div>
@@ -653,6 +659,7 @@ function render() {
   renderOverlap(f);
   renderAssets(f);
   renderHoldings(f);
+  renderChanges(f);
   renderNav(f);
   renderCTA(f);
   renderShareLink(f);
@@ -1108,6 +1115,94 @@ function renderHoldings(funds) {
       document.querySelectorAll('#holdingsSingleLevelBtns .nav-period-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('holdingsSingleTableContainer').innerHTML = renderHoldingsTable(singleFundHoldingsItems(f, btn.dataset.level));
+    });
+  }
+}
+
+function fmtEurMln(eur) {
+  const mln = eur / 1e6;
+  const abs = Math.abs(mln);
+  if (abs >= 10) return mln.toFixed(1).replace('.', ',') + ' mln \u20ac';
+  if (abs >= 1) return mln.toFixed(2).replace('.', ',') + ' mln \u20ac';
+  return (eur / 1e3).toFixed(0).replace('.', ',') + ' tuh \u20ac';
+}
+
+function renderChangesTable(items, prevMonthLabel, currMonthLabel) {
+  let html = `<div style="max-height:500px;overflow-y:auto;border:1px solid var(--g200);border-radius:8px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+    <thead style="position:sticky;top:0;background:#fff;z-index:1;">
+      <tr style="border-bottom:2px solid var(--g200);">
+        <th style="padding:6px 8px;text-align:left;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">#</th>
+        <th style="padding:6px 8px;text-align:left;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">Nimi</th>
+        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">${prevMonthLabel}</th>
+        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">${currMonthLabel}</th>
+        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">Muutus</th>
+      </tr>
+    </thead><tbody>`;
+  items.forEach((item, i) => {
+    const color = item.change_eur > 0 ? 'var(--green)' : 'var(--red)';
+    const sign = item.change_eur > 0 ? '+' : '';
+    html += `<tr style="border-bottom:1px solid var(--g100);">
+      <td style="padding:4px 8px;color:var(--g400);">${i + 1}</td>
+      <td style="padding:4px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px;" title="${item.name}">${item.name}</td>
+      <td style="padding:4px 8px;text-align:right;font-variant-numeric:tabular-nums;">${item.prev_eur ? fmtEurMln(item.prev_eur) : '\u2013'}</td>
+      <td style="padding:4px 8px;text-align:right;font-variant-numeric:tabular-nums;">${item.curr_eur ? fmtEurMln(item.curr_eur) : '\u2013'}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;color:${color};">${sign}${fmtEurMln(item.change_eur)}</td>
+    </tr>`;
+  });
+  html += '</tbody></table></div>';
+  return html;
+}
+
+function renderChanges(funds) {
+  const section = document.getElementById('sectionChanges');
+  const sub = document.getElementById('changesSub');
+  const area = document.getElementById('changesArea');
+  if (funds.length !== 1) { section.classList.remove('visible'); return; }
+
+  const f = funds[0];
+  const fd = DATA.funds[f];
+  const tc = fd.top_changes;
+  if (!tc || (!tc.parsed.length && !tc.lookthrough.length)) {
+    section.classList.remove('visible'); return;
+  }
+  section.classList.add('visible');
+
+  const MONTHS_ET = {
+    '01':'jaan','02':'veebr','03':'märts','04':'apr','05':'mai','06':'juuni',
+    '07':'juuli','08':'aug','09':'sept','10':'okt','11':'nov','12':'dets'
+  };
+  const prevParts = tc.prev_month.split('-');
+  const prevLabel = MONTHS_ET[prevParts[1]] || prevParts[1];
+  const currParts = (DATA.data_month || '').split('-');
+  const currLabel = MONTHS_ET[currParts[1]] || currParts[1];
+  const prevMonthFull = prevLabel + ' ' + prevParts[0];
+
+  sub.textContent = `V\u00f5rdlus eelmise kuuga (${prevMonthFull})`;
+
+  const hasLookthrough = tc.lookthrough && tc.lookthrough.length > 0;
+  const hasParsed = tc.parsed && tc.parsed.length > 0;
+
+  let toggleHtml = '';
+  if (hasParsed && hasLookthrough) {
+    toggleHtml = `<div class="nav-period-btns" id="changesLevelBtns" style="margin-bottom:0.75rem;">
+      <button class="nav-period-btn active" data-level="parsed">Otse omatud</button>
+      <button class="nav-period-btn" data-level="lookthrough">L\u00e4bivaade</button>
+    </div>`;
+  }
+
+  const defaultLevel = hasParsed ? 'parsed' : 'lookthrough';
+  const defaultItems = defaultLevel === 'parsed' ? tc.parsed : tc.lookthrough;
+  area.innerHTML = toggleHtml + `<div id="changesTableContainer">${renderChangesTable(defaultItems, prevLabel, currLabel)}</div>`;
+
+  if (hasParsed && hasLookthrough) {
+    document.getElementById('changesLevelBtns').addEventListener('click', (e) => {
+      const btn = e.target.closest('.nav-period-btn');
+      if (!btn) return;
+      document.querySelectorAll('#changesLevelBtns .nav-period-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = btn.dataset.level === 'parsed' ? tc.parsed : tc.lookthrough;
+      document.getElementById('changesTableContainer').innerHTML = renderChangesTable(items, prevLabel, currLabel);
     });
   }
 }

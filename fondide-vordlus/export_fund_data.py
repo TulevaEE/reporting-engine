@@ -1387,6 +1387,152 @@ def process_fund(parsed, etf_holdings, acwi, acwi_keys, sector_lookup, fuzzy_sec
 
 
 # ═══════════════════════════════════════════════════════════════════
+# STEP 4.5: TOP CHANGES (month-over-month)
+# ═══════════════════════════════════════════════════════════════════
+
+def _ensure_eur_values(parsed, pk_aum):
+    """For monthly-JSON funds without value_eur, compute from weight_pct × pk_aum.
+
+    Modifies parsed in-place: sets value_eur on each holding and _total_value_eur.
+    """
+    if parsed.get('_total_value_eur'):
+        return  # Already has EUR values from PDF parsing
+    fund_key = parsed.get('fund_key', '')
+    aum = pk_aum.get(fund_key, 0)
+    if not aum:
+        return
+    parsed['_total_value_eur'] = aum
+    for arr_key in ['equity_funds', 'stocks', 'bonds', 'bond_funds', 'pe_funds', 're_funds']:
+        for h in parsed.get(arr_key, []):
+            if 'value_eur' not in h and h.get('weight_pct', 0) > 0:
+                h['value_eur'] = round(h['weight_pct'] / 100 * aum)
+
+
+def _normalize_holding_name(name):
+    """Normalize a holding name for cross-month matching.
+
+    Luminor monthly JSON names vary between months (e.g. 'ETF1 iShares...' vs
+    'iShares ... Fund (IE) Inst Acc EUR'). We strip all variable parts to get
+    a stable core name.
+    """
+    n = name.upper()
+    # Strip common prefixes that vary between months
+    n = re.sub(r'^ETF1?\s+', '', n)
+    n = re.sub(r'^FUND\s+\([A-Z]{2}\)[\s\-]+(INST\s+ACC\s+EUR|[A-Z]{3})\s+', '', n)
+    n = re.sub(r'^INDEX\s+FUND\s+\([A-Z]{2}\)\s+', '', n)
+    n = re.sub(r'^\([A-Z]{2}\)\s+', '', n)
+    # Remove domicile markers
+    # Remove manager names that sometimes appear
+    n = re.sub(r'\s+BLACKROCK\b.*$', '', n)
+    # Remove domicile markers and everything after
+    n = re.sub(r'\s*\(IE\).*$', '', n)
+    n = re.sub(r'\s*\(LU\).*$', '', n)
+    n = re.sub(r'\s*\(LUXEMBOURG\).*$', '', n)
+    # Remove trailing fund type / share class descriptors
+    # Apply repeatedly since multiple suffixes may stack
+    for _ in range(3):
+        n = re.sub(r'\s+(EQUITY\s+)?INDEX(\s+FUND)?$', '', n)
+        n = re.sub(r'\s+FUND$', '', n)
+        n = re.sub(r'\s+ETF(\s+ACC)?$', '', n)
+        n = re.sub(r'\s+UCITS(\s+ETF(\s+ACC)?)?$', '', n)
+        n = re.sub(r'\s+II-ETF\s+A\s+SA$', ' II', n)
+        n = re.sub(r'\s+II\s+UCITS.*$', ' II', n)
+    n = re.sub(r'\s+', ' ', n).strip()
+    return n
+
+
+def _collect_parsed_holdings(parsed):
+    """Collect all holdings from a parsed fund dict, keyed by normalized name.
+
+    Returns dict: norm_name → {name, isin, value_eur}
+    Uses ISIN as primary key if available, falls back to normalized name.
+    """
+    holdings = {}  # key → {name, isin, value_eur}
+    for arr_key in ['equity_funds', 'stocks', 'bonds', 'bond_funds', 'pe_funds', 're_funds']:
+        for h in parsed.get(arr_key, []):
+            name = h.get('name', '')
+            if not name:
+                continue
+            val = h.get('value_eur', 0) or 0
+            isin = h.get('isin', '')
+            # Use ISIN as key if available, else normalized name
+            key = isin if isin else _normalize_holding_name(name)
+            if key in holdings:
+                holdings[key]['value_eur'] += val
+            else:
+                holdings[key] = {'name': name, 'isin': isin, 'value_eur': val}
+    return holdings
+
+
+def compute_top_changes(curr_parsed, prev_parsed, curr_fund_data, prev_fund_data,
+                        curr_total_eur, prev_total_eur):
+    """Compute top 10 biggest month-over-month changes for a fund.
+
+    Returns {"prev_month": ..., "parsed": [...], "lookthrough": [...]} or None.
+    """
+    if not prev_parsed:
+        return None
+
+    prev_month = prev_parsed.get('month', '')
+    result = {'prev_month': prev_month, 'parsed': [], 'lookthrough': []}
+
+    # ── Parsed view: EUR changes at holding level ──
+    curr_h = _collect_parsed_holdings(curr_parsed)
+    prev_h = _collect_parsed_holdings(prev_parsed)
+    all_keys = set(curr_h.keys()) | set(prev_h.keys())
+
+    parsed_changes = []
+    for key in all_keys:
+        curr_entry = curr_h.get(key, {})
+        prev_entry = prev_h.get(key, {})
+        curr_eur = curr_entry.get('value_eur', 0) or 0
+        prev_eur = prev_entry.get('value_eur', 0) or 0
+        if curr_eur == 0 and prev_eur == 0:
+            continue
+        change = curr_eur - prev_eur
+        if change == 0:
+            continue
+        # Use current month name if available, else previous
+        display_name = curr_entry.get('name') or prev_entry.get('name', key)
+        parsed_changes.append({
+            'name': display_name,
+            'prev_eur': prev_eur,
+            'curr_eur': curr_eur,
+            'change_eur': change,
+        })
+
+    parsed_changes.sort(key=lambda x: abs(x['change_eur']), reverse=True)
+    result['parsed'] = parsed_changes[:10]
+
+    # ── Lookthrough view: EUR changes at stock level ──
+    if curr_fund_data and prev_fund_data and curr_total_eur and prev_total_eur:
+        curr_stocks = {h['name']: h['weight'] for h in curr_fund_data.get('top_holdings', [])}
+        prev_stocks = {h['name']: h['weight'] for h in prev_fund_data.get('top_holdings', [])}
+        all_stock_names = set(curr_stocks.keys()) | set(prev_stocks.keys())
+
+        lt_changes = []
+        for name in all_stock_names:
+            cw = curr_stocks.get(name, 0)
+            pw = prev_stocks.get(name, 0)
+            c_eur = round(cw / 100 * curr_total_eur)
+            p_eur = round(pw / 100 * prev_total_eur)
+            change = c_eur - p_eur
+            if change == 0:
+                continue
+            lt_changes.append({
+                'name': name,
+                'prev_eur': p_eur,
+                'curr_eur': c_eur,
+                'change_eur': change,
+            })
+
+        lt_changes.sort(key=lambda x: abs(x['change_eur']), reverse=True)
+        result['lookthrough'] = lt_changes[:10]
+
+    return result
+
+
+# ═══════════════════════════════════════════════════════════════════
 # STEP 5: MAIN
 # ═══════════════════════════════════════════════════════════════════
 
@@ -1483,6 +1629,41 @@ def main():
             print('  No AUM data received (will skip AUM validation)')
         print()
 
+    # Fetch previous month pensionikeskus AUM (for top_changes lookthrough EUR)
+    prev_pk_aum = {}
+    prev_fund_data_all = {}
+    if not args.offline:
+        year, mo = MONTH.split('-')
+        if int(mo) == 1:
+            prev_month_str = f"{int(year) - 1}-12"
+        else:
+            prev_month_str = f"{year}-{int(mo) - 1:02d}"
+        py, pm = prev_month_str.split('-')
+        if int(pm) == 12:
+            prev_next = date(int(py) + 1, 1, 1)
+        else:
+            prev_next = date(int(py), int(pm) + 1, 1)
+        from datetime import timedelta
+        prev_last_day = prev_next - timedelta(days=1)
+        prev_pk_date = prev_last_day.strftime('%Y-%m-%d')
+        print(f'Fetching prev month pensionikeskus AUM for {prev_pk_date}...')
+        prev_pk_aum = fetch_pensionikeskus_aum(prev_pk_date)
+        if prev_pk_aum:
+            print(f'  Got prev AUM data for {len(prev_pk_aum)} funds')
+        else:
+            print('  No prev AUM data received')
+
+        # Load previous month's fund_data.json (for lookthrough comparison)
+        prev_fd_path = OUT_DIR / prev_month_str / 'fund_data.json'
+        if prev_fd_path.exists():
+            with open(prev_fd_path, encoding='utf-8') as f:
+                prev_fd_raw = json.load(f)
+            prev_fund_data_all = prev_fd_raw.get('funds', {})
+            print(f'  Loaded prev fund_data.json ({len(prev_fund_data_all)} funds)')
+        else:
+            print(f'  No prev fund_data.json at {prev_fd_path}')
+        print()
+
     # Output directory
     out_dir = Path(args.output) if args.output else OUT_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -1560,6 +1741,18 @@ def main():
             n = fund_data['n_stocks']
             src = 'JSON' if alloc_entry else (pdf_path.name if pdf_path else '?')
             print(f'   => {n} stocks (from {src})')
+
+            # Compute top changes (month-over-month)
+            _ensure_eur_values(parsed, pk_aum)
+            if prev_parsed:
+                _ensure_eur_values(prev_parsed, prev_pk_aum)
+            curr_total = parsed.get('_total_value_eur', 0) or (pk_aum.get(fund_key, 0))
+            prev_total = (prev_parsed.get('_total_value_eur', 0) if prev_parsed else 0) or prev_pk_aum.get(fund_key, 0)
+            prev_fd = prev_fund_data_all.get(fund_key)
+            tc = compute_top_changes(parsed, prev_parsed, fund_data, prev_fd,
+                                     curr_total, prev_total)
+            if tc:
+                fund_data['top_changes'] = tc
 
             # Track data sources
             _date = reports_cfg[report_key]['date'] if reports_cfg and report_key in reports_cfg else ''

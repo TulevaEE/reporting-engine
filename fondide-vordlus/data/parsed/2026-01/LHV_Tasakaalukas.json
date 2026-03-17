@@ -9,17 +9,20 @@
     {
       "name": "Invesco MDAX UCITS ETF Invesco Markets",
       "isin": "IE00BHJYDV33",
-      "weight_pct": 0.92
+      "weight_pct": 0.92,
+      "value_eur": 1161000
     },
     {
       "name": "iShares Gold Producers UCITS ETF BlackRock Asset Management Ireland Limited",
       "isin": "IE00B6R52036",
-      "weight_pct": 0.44
+      "weight_pct": 0.44,
+      "value_eur": 562050
     },
     {
       "name": "ZKB Gold ETF Swisscanto Fondsleitung",
       "isin": "CH0139101593",
-      "weight_pct": 6.76
+      "weight_pct": 6.76,
+      "value_eur": 8551518
     }
   ],
   "stocks": [
@@ -27,479 +30,591 @@
       "name": "Valaris",
       "isin": "BMG9460G1015",
       "weight_pct": 0.15,
-      "country": "Bermuda"
+      "country": "Bermuda",
+      "value_eur": 187541
     },
     {
       "name": "Akadeemia tee 15b osa",
       "isin": "EE3100002734",
       "weight_pct": 0.44,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 553559
     },
     {
       "name": "Lumi Kodud Aiandi osa",
       "isin": "EE3100143843",
       "weight_pct": 0.17,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 219246
     },
     {
       "name": "Lumi Kodud Manufaktuuri OÜ",
       "isin": "EE3100136789",
       "weight_pct": 0.3,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 376401
     },
     {
       "name": "Sopruse pst 157",
       "isin": "EE3100096264",
       "weight_pct": 0.2,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 249631
     },
     {
       "name": "Taevakivi 3 OÜ osa",
       "isin": "EE3100079989",
       "weight_pct": 0.34,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 424001
     },
     {
       "name": "Tallinna Sadam",
       "isin": "EE3100021635",
       "weight_pct": 0.82,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 1042411
     },
     {
       "name": "Tartu mnt 63 osa",
       "isin": "EE3100003930",
       "weight_pct": 0.73,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 927216
     },
     {
       "name": "VH KV 002 osa",
       "isin": "EE3100019811",
       "weight_pct": 0.23,
-      "country": "Estonia"
+      "country": "Estonia",
+      "value_eur": 289467
     },
     {
       "name": "Glencore",
       "isin": "JE00B4T3BW64",
       "weight_pct": 0.32,
-      "country": "Jersey"
+      "country": "Jersey",
+      "value_eur": 400357
     },
     {
       "name": "Barrick Mining Corp",
       "isin": "CA06849F1080",
       "weight_pct": 1.23,
-      "country": "Canada"
+      "country": "Canada",
+      "value_eur": 1550997
     },
     {
       "name": "Pan American Silver",
       "isin": "CA6979001089",
       "weight_pct": 0.16,
-      "country": "Canada"
+      "country": "Canada",
+      "value_eur": 203393
     },
     {
       "name": "Novaturas",
       "isin": "LT0000131872",
       "weight_pct": 0.02,
-      "country": "Lithuania"
+      "country": "Lithuania",
+      "value_eur": 21223
     },
     {
       "name": "Silver Screen Holdings",
       "isin": "LT0000132581",
       "weight_pct": 0.3,
-      "country": "Lithuania"
+      "country": "Lithuania",
+      "value_eur": 374850
     },
     {
       "name": "Matisa 52 osa",
       "isin": null,
       "weight_pct": 0.14,
-      "country": "Latvia"
+      "country": "Latvia",
+      "value_eur": 175964
     },
     {
       "name": "Equinor",
       "isin": "NO0010096985",
       "weight_pct": 0.25,
-      "country": "Norway"
+      "country": "Norway",
+      "value_eur": 311713
     },
     {
       "name": "TotalEnergies",
       "isin": "FR0000120271",
       "weight_pct": 0.53,
-      "country": "France"
+      "country": "France",
+      "value_eur": 672650
     },
     {
       "name": "Fortum",
       "isin": "FI0009007132",
       "weight_pct": 1.39,
-      "country": "Finland"
+      "country": "Finland",
+      "value_eur": 1752520
     },
     {
       "name": "Stora Enso",
       "isin": "FI0009005961",
       "weight_pct": 0.82,
-      "country": "Finland"
+      "country": "Finland",
+      "value_eur": 1032228
     },
     {
       "name": "Noble Corp",
       "isin": "GB00BMXNWH07",
       "weight_pct": 0.13,
-      "country": "United Kingdom"
+      "country": "United Kingdom",
+      "value_eur": 161379
     }
   ],
   "bonds": [
     {
       "name": "KBC Group NV 0.625% 07/12/2031 BBB+ Belgia",
       "isin": "BE0002819002",
-      "weight_pct": 0.86
+      "weight_pct": 0.86,
+      "value_eur": 1087286
     },
     {
       "name": "Aiandi Kodud omanikulaen -",
       "isin": null,
-      "weight_pct": 0.23
+      "weight_pct": 0.23,
+      "value_eur": 290608
     },
     {
       "name": "Akadeemia15b omanikulaen -",
       "isin": null,
-      "weight_pct": 0.44
+      "weight_pct": 0.44,
+      "value_eur": 555819
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
       "isin": "EE3300003235",
-      "weight_pct": 1.17
+      "weight_pct": 1.17,
+      "value_eur": 1480108
     },
     {
       "name": "BIGBANK 7.5% 16/05/2032",
       "isin": "EE3300002583",
-      "weight_pct": 1.37
+      "weight_pct": 1.37,
+      "value_eur": 1726917
     },
     {
       "name": "Coop Pank 5.0% 10/03/2032",
       "isin": "EE3300002542",
-      "weight_pct": 1.38
+      "weight_pct": 1.38,
+      "value_eur": 1749943
     },
     {
       "name": "Coop Pank AT1 10% PERPETUAL",
       "isin": "EE3300002641",
-      "weight_pct": 0.96
+      "weight_pct": 0.96,
+      "value_eur": 1210000
     },
     {
       "name": "Eesti Energia perpetual NC5.25 Eesti",
       "isin": "XS2824761188",
-      "weight_pct": 7.09
+      "weight_pct": 7.09,
+      "value_eur": 8974396
     },
     {
       "name": "INBANK 6.25% 09/10/2035 -",
       "isin": "EE0000002442",
-      "weight_pct": 0.77
+      "weight_pct": 0.77,
+      "value_eur": 968757
     },
     {
       "name": "Kesk Tee Jyri omanikulaen -",
       "isin": null,
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 248376
     },
     {
       "name": "Liven Kodu 10 8.5% 30/06/2027 -",
       "isin": "EE3300002484",
-      "weight_pct": 0.56
+      "weight_pct": 0.56,
+      "value_eur": 705053
     },
     {
       "name": "Luminor 4.042% 10/09/2028",
       "isin": "XS2888497067",
-      "weight_pct": 0.41
+      "weight_pct": 0.41,
+      "value_eur": 515553
     },
     {
       "name": "Luminor Holding 7.375% PERP",
       "isin": "XS2982074861",
-      "weight_pct": 0.44
+      "weight_pct": 0.44,
+      "value_eur": 551550
     },
     {
       "name": "Manufaktuuri omanikulaen -",
       "isin": null,
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 197590
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
-      "weight_pct": 1.12
+      "weight_pct": 1.12,
+      "value_eur": 1414070
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 274283
     },
     {
       "name": "Sopruse157 omanikulaen -",
       "isin": null,
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 313009
     },
     {
       "name": "Taevakivi omanikulaen -",
       "isin": null,
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 277065
     },
     {
       "name": "Tartu linn 25/10/32 -",
       "isin": "EE2300110602",
-      "weight_pct": 0.97
+      "weight_pct": 0.97,
+      "value_eur": 1227337
     },
     {
       "name": "Banco Santander 3.875% 06/02/26 Aaa",
       "isin": "ES0413900129",
-      "weight_pct": 0.33
+      "weight_pct": 0.33,
+      "value_eur": 415301
     },
     {
       "name": "Banco Santander 4.625% 04/05/27 Aaa",
       "isin": "ES0413900160",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 106425
     },
     {
       "name": "PROSUS 1.539% 03/08/2028",
       "isin": "XS2211183244",
-      "weight_pct": 0.62
+      "weight_pct": 0.62,
+      "value_eur": 779097
     },
     {
       "name": "Artea Bankas 22/06/2033",
       "isin": "LT0000407751",
-      "weight_pct": 0.46
+      "weight_pct": 0.46,
+      "value_eur": 582839
     },
     {
       "name": "Artea Bankas 4.597% 25/06/2030",
       "isin": "XS3025213102",
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 315911
     },
     {
       "name": "Citadele banka 5% 13/12/2031",
       "isin": "LV0000880102",
-      "weight_pct": 1.17
+      "weight_pct": 1.17,
+      "value_eur": 1483542
     },
     {
       "name": "Latvenergo 2.42% 05/05/2027",
       "isin": "LV0000870129",
-      "weight_pct": 0.68
+      "weight_pct": 0.68,
+      "value_eur": 855821
     },
     {
       "name": "Latvenergo 4.952% 22/02/2029",
       "isin": "LV0000802684",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 376836
     },
     {
       "name": "Matisa52 omanikulaen -",
       "isin": null,
-      "weight_pct": 0.32
+      "weight_pct": 0.32,
+      "value_eur": 405609
     },
     {
       "name": "PEKAO 4.0% 24/09/2030 BBB Poola",
       "isin": "XS2906339747",
-      "weight_pct": 1.48
+      "weight_pct": 1.48,
+      "value_eur": 1869817
     },
     {
       "name": "BNP Paribas 2.5% 31/03/2032",
       "isin": "FR0014009HA0",
-      "weight_pct": 2.41
+      "weight_pct": 2.41,
+      "value_eur": 3048897
     },
     {
       "name": "France Government 1% 25/05/27",
       "isin": "FR0013250560",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 95293
     },
     {
       "name": "France Treasury Bond 25/02/2026",
       "isin": "FR0013508470",
-      "weight_pct": 3.32
+      "weight_pct": 3.32,
+      "value_eur": 4194582
     },
     {
       "name": "France Treasury Bond 25/04/2026",
       "isin": "FR0010916924",
-      "weight_pct": 2.28
+      "weight_pct": 2.28,
+      "value_eur": 2883847
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
-      "weight_pct": 1.85
+      "weight_pct": 1.85,
+      "value_eur": 2339100
     },
     {
       "name": "EQT AB 2.875% 06/04/2032",
       "isin": "XS2463990775",
-      "weight_pct": 0.62
+      "weight_pct": 0.62,
+      "value_eur": 789248
     },
     {
       "name": "Romania 3.624% 26/05/30 Rumeenia",
       "isin": "XS2178857954",
-      "weight_pct": 1.54
+      "weight_pct": 1.54,
+      "value_eur": 1943077
     },
     {
       "name": "Deutschland 0.5% 15/02/2026",
       "isin": "DE0001102390",
-      "weight_pct": 8.33
+      "weight_pct": 8.33,
+      "value_eur": 10544357
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
-      "weight_pct": 2.52
+      "weight_pct": 2.52,
+      "value_eur": 3187808
     },
     {
       "name": "German Treasury Bill 18/02/2026",
       "isin": "DE000BU0E261",
-      "weight_pct": 3.32
+      "weight_pct": 3.32,
+      "value_eur": 4196472
     },
     {
       "name": "Kojamo 0.875% 28/05/2029",
       "isin": "XS2345877497",
-      "weight_pct": 1.81
+      "weight_pct": 1.81,
+      "value_eur": 2285073
     },
     {
       "name": "BP Capital Markets 3.625% PERP",
       "isin": "XS2193662728",
-      "weight_pct": 1.18
+      "weight_pct": 1.18,
+      "value_eur": 1495080
     }
   ],
   "bond_funds": [],
   "pe_funds": [
     {
       "name": "BPEF III Supplementary Investment Facility UF BaltCap Private Equity Management III",
-      "weight_pct": 0.57
+      "weight_pct": 0.57,
+      "value_eur": 722574
     },
     {
       "name": "Tera Ventures II Usaldusfond Tera Ventures GP II",
-      "weight_pct": 0.34
+      "weight_pct": 0.34,
+      "value_eur": 430500
     },
     {
       "name": "Trind Ventures II Trind Ventures GP II",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 116920
     },
     {
       "name": "Usaldusfond BaltCap Infrastructure Fund BaltCap Infrastructure Management",
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 272454
     },
     {
       "name": "Usaldusfond BaltCap Private Equity Fund III BaltCap Private Equity Management III",
-      "weight_pct": 0.91
+      "weight_pct": 0.91,
+      "value_eur": 1153374
     },
     {
       "name": "Usaldusfond Superangel One Superangel1 GP",
-      "weight_pct": 0.31
+      "weight_pct": 0.31,
+      "value_eur": 397945
     },
     {
       "name": "Usaldusfond Superangel Two Super2ngel GP",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 97294
     },
     {
       "name": "Usaldusfond Trind Ventures Fund I Trind Ventures",
-      "weight_pct": 0.24
+      "weight_pct": 0.24,
+      "value_eur": 297617
     },
     {
       "name": "INVL Baltic Sea Growth Fund INVL Asset Management",
-      "weight_pct": 0.35
+      "weight_pct": 0.35,
+      "value_eur": 446690
     },
     {
       "name": "BaltCap Private Equity Fund II BaltCap Private Equity Management II",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 95751
     },
     {
       "name": "BPM Mezzanine Fund BPM Mezzanine Fund GP",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 170772
     },
     {
       "name": "Karma Ventures I Karma Ventures",
-      "weight_pct": 0.47
+      "weight_pct": 0.47,
+      "value_eur": 590203
     },
     {
       "name": "Karma Ventures II Karma Ventures II GP",
-      "weight_pct": 0.27
+      "weight_pct": 0.27,
+      "value_eur": 339431
     },
     {
       "name": "KJK Fund II Balkan AI July 2012 KJK Capital Luxembourg",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 43180
     },
     {
       "name": "KJK Fund II Balkan AI Sep 2012 KJK Capital Luxembourg",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 42866
     },
     {
       "name": "KJK Fund II Balkan Discovery A December 2015 KJK Capital Luxembourg",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 127011
     },
     {
       "name": "KJK Fund II Balkan Discovery A December 2016 KJK Capital Luxembourg",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 104013
     },
     {
       "name": "KJK Fund II Balkan Discovery A June 2014 KJK Capital Luxembourg",
-      "weight_pct": 0.44
+      "weight_pct": 0.44,
+      "value_eur": 559539
     },
     {
       "name": "KJK Fund II Balkan Discovery A June 2015 KJK Capital Luxembourg",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 151817
     },
     {
       "name": "KJK Fund II Balkan Discovery A May 2016 KJK Capital Luxembourg",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 122372
     },
     {
       "name": "KJK Fund II Balkan Discovery A November 2017 KJK Capital Luxembourg",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 75159
     },
     {
       "name": "KJK Fund III KJK Capital Luxembourg",
-      "weight_pct": 0.37
+      "weight_pct": 0.37,
+      "value_eur": 463825
     },
     {
       "name": "Livonia Partners Fund I Livonia Partners",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 194508
     },
     {
       "name": "QS Capital Strategies II QSCS II, L.P.",
-      "weight_pct": 1.44
+      "weight_pct": 1.44,
+      "value_eur": 1825429
     }
   ],
   "re_funds": [
     {
       "name": "Birdeye Timber Fund 2 Birdeye Capital",
-      "weight_pct": 0.84
+      "weight_pct": 0.84,
+      "value_eur": 1058556
     },
     {
       "name": "Birdeye Timber Fund 3 Birdeye Capital",
-      "weight_pct": 0.7
+      "weight_pct": 0.7,
+      "value_eur": 890341
     },
     {
       "name": "EfTEN Kinnisvarafond II EfTEN Capital",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 148806
     },
     {
       "name": "EfTEN Real Estate Fund EfTEN Capital",
-      "weight_pct": 3.55
+      "weight_pct": 3.55,
+      "value_eur": 4492296
     },
     {
       "name": "EfTEN Real Estate Fund 5 EfTEN Capital",
-      "weight_pct": 3.14
+      "weight_pct": 3.14,
+      "value_eur": 3970169
     },
     {
       "name": "EfTEN Residential Fund usaldusfond EfTEN Capital",
-      "weight_pct": 0.71
+      "weight_pct": 0.71,
+      "value_eur": 898069
     },
     {
       "name": "EfTEN Special Opportunities Fund EfTEN Capital",
-      "weight_pct": 0.43
+      "weight_pct": 0.43,
+      "value_eur": 547432
     },
     {
       "name": "Usaldusfond EfTEN Real Estate Fund 4 EfTEN Capital",
-      "weight_pct": 0.87
+      "weight_pct": 0.87,
+      "value_eur": 1103393
     },
     {
       "name": "Lords LB Baltic Green Fund (V) Lords LB Asset Management",
-      "weight_pct": 1.14
+      "weight_pct": 1.14,
+      "value_eur": 1445001
     },
     {
       "name": "East Capital Baltic Property Fund III East Capital (Lux) General Partner",
-      "weight_pct": 1.06
+      "weight_pct": 1.06,
+      "value_eur": 1345351
     },
     {
       "name": "East Capital Real Estate Fund IV East Capital (Lux) General Partner",
-      "weight_pct": 2.61
+      "weight_pct": 2.61,
+      "value_eur": 3299529
     },
     {
       "name": "SG Capital Partners Fund 1 SG Capital Partners",
-      "weight_pct": 2.79
+      "weight_pct": 2.79,
+      "value_eur": 3527634
     }
   ],
   "deposits_pct": 4.76,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "bonds": 53.55,
+    "stocks": 8.64,
+    "equity_funds": 8.12,
+    "pe_funds": 6.99,
+    "re_funds": 17.96
+  },
+  "_pdf_holding_counts": {
+    "bonds": 41,
+    "stocks": 23,
+    "equity_funds": 3,
+    "pe_funds": 26,
+    "re_funds": 12
+  },
+  "_total_value_eur": 126789249
 }

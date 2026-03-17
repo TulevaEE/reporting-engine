@@ -9,7 +9,8 @@
     {
       "name": "ZKB Gold ETF Swisscanto Fondsleitung",
       "isin": "CH0139101593",
-      "weight_pct": 6.37
+      "weight_pct": 6.37,
+      "value_eur": 742583
     }
   ],
   "stocks": [
@@ -17,154 +18,194 @@
       "name": "Stora Enso",
       "isin": "FI0009005961",
       "weight_pct": 0.5,
-      "country": "Finland"
+      "country": "Finland",
+      "value_eur": 58428
     }
   ],
   "bonds": [
     {
       "name": "KBC Group NV 0.625% 07/12/2031 BBB+ Belgia",
       "isin": "BE0002819002",
-      "weight_pct": 3.39
+      "weight_pct": 3.39,
+      "value_eur": 395377
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
       "isin": "EE3300003235",
-      "weight_pct": 0.79
+      "weight_pct": 0.79,
+      "value_eur": 92507
     },
     {
       "name": "BIGBANK 7.5% 16/05/2032",
       "isin": "EE3300002583",
-      "weight_pct": 2.61
+      "weight_pct": 2.61,
+      "value_eur": 304750
     },
     {
       "name": "Coop Pank 5.0% 10/03/2032",
       "isin": "EE3300002542",
-      "weight_pct": 3.0
+      "weight_pct": 3.0,
+      "value_eur": 350390
     },
     {
       "name": "Eesti Energia perpetual NC5.25 Eesti",
       "isin": "XS2824761188",
-      "weight_pct": 7.08
+      "weight_pct": 7.08,
+      "value_eur": 825475
     },
     {
       "name": "Luminor 7.75% 08/06/2027",
       "isin": "XS2633112565",
-      "weight_pct": 6.86
+      "weight_pct": 6.86,
+      "value_eur": 800364
     },
     {
       "name": "Luminor Holding 7.375% PERP",
       "isin": "XS2982074861",
-      "weight_pct": 0.46
+      "weight_pct": 0.46,
+      "value_eur": 54074
     },
     {
       "name": "PROSUS 1.539% 03/08/2028",
       "isin": "XS2211183244",
-      "weight_pct": 2.5
+      "weight_pct": 2.5,
+      "value_eur": 292162
     },
     {
       "name": "Artea Bankas 4.597% 25/06/2030",
       "isin": "XS3025213102",
-      "weight_pct": 0.9
+      "weight_pct": 0.9,
+      "value_eur": 105304
     },
     {
       "name": "Ignitis grupe 1.875% 10/07/28 BBB+",
       "isin": "XS1853999313",
-      "weight_pct": 1.94
+      "weight_pct": 1.94,
+      "value_eur": 226560
     },
     {
       "name": "Ignitis grupe 2% 14/07/27 BBB+",
       "isin": "XS1646530565",
-      "weight_pct": 3.04
+      "weight_pct": 3.04,
+      "value_eur": 354916
     },
     {
       "name": "ALTUM 3.576% 30/05/2030",
       "isin": "LV0000104669",
-      "weight_pct": 2.67
+      "weight_pct": 2.67,
+      "value_eur": 311539
     },
     {
       "name": "Citadele banka 5% 13/12/2031",
       "isin": "LV0000880102",
-      "weight_pct": 2.29
+      "weight_pct": 2.29,
+      "value_eur": 267038
     },
     {
       "name": "Latvenergo 2.42% 05/05/2027",
       "isin": "LV0000870129",
-      "weight_pct": 3.02
+      "weight_pct": 3.02,
+      "value_eur": 352397
     },
     {
       "name": "Latvenergo 4.952% 22/02/2029",
       "isin": "LV0000802684",
-      "weight_pct": 1.38
+      "weight_pct": 1.38,
+      "value_eur": 161501
     },
     {
       "name": "PEKAO 4.0% 24/09/2030 BBB Poola",
       "isin": "XS2906339747",
-      "weight_pct": 1.3
+      "weight_pct": 1.3,
+      "value_eur": 151663
     },
     {
       "name": "BNP Paribas 2.5% 31/03/2032",
       "isin": "FR0014009HA0",
-      "weight_pct": 3.48
+      "weight_pct": 3.48,
+      "value_eur": 406520
     },
     {
       "name": "France Treasury Bond 25/02/2026",
       "isin": "FR0013508470",
-      "weight_pct": 6.85
+      "weight_pct": 6.85,
+      "value_eur": 798968
     },
     {
       "name": "France Treasury Bond 25/04/2026",
       "isin": "FR0010916924",
-      "weight_pct": 2.65
+      "weight_pct": 2.65,
+      "value_eur": 308984
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
-      "weight_pct": 1.74
+      "weight_pct": 1.74,
+      "value_eur": 203400
     },
     {
       "name": "EQT AB 2.875% 06/04/2032",
       "isin": "XS2463990775",
-      "weight_pct": 2.54
+      "weight_pct": 2.54,
+      "value_eur": 295968
     },
     {
       "name": "Romania 3.624% 26/05/30 Rumeenia",
       "isin": "XS2178857954",
-      "weight_pct": 0.88
+      "weight_pct": 0.88,
+      "value_eur": 102267
     },
     {
       "name": "Deutschland 0.5% 15/02/2026",
       "isin": "DE0001102390",
-      "weight_pct": 4.3
+      "weight_pct": 4.3,
+      "value_eur": 502112
     },
     {
       "name": "German Treasury Bill 13/05/26",
       "isin": "DE000BU0E295",
-      "weight_pct": 7.67
+      "weight_pct": 7.67,
+      "value_eur": 895113
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
-      "weight_pct": 5.12
+      "weight_pct": 5.12,
+      "value_eur": 597714
     },
     {
       "name": "German Treasury Bill 18/02/2026",
       "isin": "DE000BU0E261",
-      "weight_pct": 4.28
+      "weight_pct": 4.28,
+      "value_eur": 499580
     },
     {
       "name": "Kojamo 0.875% 28/05/2029",
       "isin": "XS2345877497",
-      "weight_pct": 3.9
+      "weight_pct": 3.9,
+      "value_eur": 455518
     },
     {
       "name": "BP Capital Markets 3.625% PERP",
       "isin": "XS2193662728",
-      "weight_pct": 1.32
+      "weight_pct": 1.32,
+      "value_eur": 153604
     }
   ],
   "bond_funds": [],
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 5.26,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "bonds": 87.92,
+    "stocks": 0.5,
+    "equity_funds": 6.37
+  },
+  "_pdf_holding_counts": {
+    "bonds": 28,
+    "stocks": 1,
+    "equity_funds": 1
+  },
+  "_total_value_eur": 11680527
 }
