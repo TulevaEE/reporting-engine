@@ -1,0 +1,71 @@
+{
+  "fund_name": "SEB 65+",
+  "fund_key": "SEB 65+",
+  "provider": "SEB",
+  "fund_type": "conservative",
+  "month": "2026-01",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "iShares Developed World ESG Screened Index Fund",
+      "isin": "IE00BFG1TM61",
+      "weight_pct": 1.46
+    },
+    {
+      "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3D14",
+      "weight_pct": 0.38
+    },
+    {
+      "name": "iShares MSCI World ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3J75",
+      "weight_pct": 0.91
+    },
+    {
+      "name": "SEB Global Exposure Fund",
+      "isin": "LU1711526407",
+      "weight_pct": 4.0
+    }
+  ],
+  "stocks": [],
+  "bonds": [
+    {
+      "name": "Otseobligatsioonid (49.33%)",
+      "weight_pct": 49.33
+    }
+  ],
+  "bond_funds": [
+    {
+      "name": "Amundi EUR Corporate Bond 1-5Y ESG",
+      "weight_pct": 8.36
+    },
+    {
+      "name": "Amundi Index Euro Corporate SRI UCITS ETF",
+      "weight_pct": 12.82
+    },
+    {
+      "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+      "weight_pct": 1.5
+    },
+    {
+      "name": "Fair Oaks Dynamic Credit Fund",
+      "weight_pct": 1.28
+    },
+    {
+      "name": "Robeco Euro Credit Bond",
+      "weight_pct": 8.0
+    },
+    {
+      "name": "Schroder ISF EURO Corporate Bond",
+      "weight_pct": 3.32
+    },
+    {
+      "name": "UBS EUR Corporates Sustainable",
+      "weight_pct": 7.52
+    }
+  ],
+  "pe_funds": [],
+  "re_funds": [],
+  "deposits_pct": 0.0,
+  "derivatives_pct": 0.0
+}

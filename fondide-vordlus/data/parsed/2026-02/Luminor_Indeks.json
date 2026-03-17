@@ -1,0 +1,49 @@
+{
+  "fund_name": "Luminor Indeks",
+  "fund_key": "Luminor Indeks",
+  "provider": "Luminor",
+  "fund_type": "index",
+  "month": "2026-02",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "Amundi Prime Global UCITS ETF",
+      "weight_pct": 28.23
+    },
+    {
+      "name": "Amundi Stoxx Europe 600 UCITS ETF",
+      "weight_pct": 4.68
+    },
+    {
+      "name": "SPDR MSCI World UCITS ETF",
+      "weight_pct": 14.26
+    },
+    {
+      "name": "iShares Core MSCI EM IMI UCITS ETF",
+      "weight_pct": 6.37
+    },
+    {
+      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+      "weight_pct": 19.12
+    },
+    {
+      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+      "weight_pct": 3.99
+    },
+    {
+      "name": "iShares Japan Index Fund (IE)",
+      "weight_pct": 1.38
+    },
+    {
+      "name": "iShares S&P 500 Swap UCITS ETF",
+      "weight_pct": 21.44
+    }
+  ],
+  "stocks": [],
+  "bonds": [],
+  "bond_funds": [],
+  "pe_funds": [],
+  "re_funds": [],
+  "deposits_pct": 0.25,
+  "derivatives_pct": 0.0
+}

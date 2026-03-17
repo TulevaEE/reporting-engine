@@ -1,0 +1,190 @@
+{
+  "fund_name": "Swedbank 2000-09",
+  "fund_key": "Swedbank 2000-09",
+  "provider": "Swedbank",
+  "fund_type": "mixed",
+  "month": "2026-01",
+  "source": "K2000_investment_portfolio.pdf",
+  "equity_funds": [
+    {
+      "name": "Access Edge Global A (2)",
+      "weight_pct": 5.03,
+      "isin": "SE0014429353"
+    },
+    {
+      "name": "Access Edge Japan A (2)",
+      "weight_pct": 0.65,
+      "isin": "SE0007074091"
+    },
+    {
+      "name": "Access Global A (2)",
+      "weight_pct": 13.16,
+      "isin": "SE0007074059"
+    },
+    {
+      "name": "Access USA A (2)",
+      "weight_pct": 5.49,
+      "isin": "SE0007074083"
+    },
+    {
+      "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT Amundi Luxembourg SA",
+      "weight_pct": 4.95,
+      "isin": "LU2345046655"
+    },
+    {
+      "name": "Amundi MSCI World Climate Net Zero Ambition PAB UC Amundi Asset Management SAS",
+      "weight_pct": 14.75,
+      "isin": "IE000CL68Z69"
+    },
+    {
+      "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits Amundi Ireland Ltd",
+      "weight_pct": 9.69,
+      "isin": "IE000O5FBC47"
+    },
+    {
+      "name": "Globalfond A (2)",
+      "weight_pct": 10.75,
+      "isin": "SE0000542979"
+    },
+    {
+      "name": "HSBC MSCI World Climate Paris Aligned UCITS ETF HSBC Holdings PLC",
+      "weight_pct": 15.53,
+      "isin": "IE00BP2C1V62"
+    },
+    {
+      "name": "iShares MSCI World Screened UCITS ETF",
+      "weight_pct": 4.92,
+      "isin": "IE00BFNM3J75"
+    },
+    {
+      "name": "New Energy A (2)",
+      "weight_pct": 0.58,
+      "isin": "SE0000538969"
+    },
+    {
+      "name": "Xtrackers MSCI Japan ESG UCITS ETF",
+      "weight_pct": 6.79,
+      "isin": "IE00BG36TC12"
+    }
+  ],
+  "stocks": [
+    {
+      "name": "Akola group",
+      "isin": "LT0000128092",
+      "country": "LT",
+      "weight_pct": 0.16
+    },
+    {
+      "name": "Apranga",
+      "isin": "LT0000102337",
+      "country": "LT",
+      "weight_pct": 0.14
+    },
+    {
+      "name": "Artea Bankas",
+      "isin": "LT0000102253",
+      "country": "LT",
+      "weight_pct": 0.31
+    },
+    {
+      "name": "AS Merko",
+      "isin": "EE3100098328",
+      "country": "EE",
+      "weight_pct": 0.16
+    },
+    {
+      "name": "Banco Bilbao Vizcaya Argentaria",
+      "isin": "ES0113211835",
+      "country": "ES",
+      "weight_pct": 0.54
+    },
+    {
+      "name": "Bank of America",
+      "isin": "US0605051046",
+      "country": "US",
+      "weight_pct": 0.59
+    },
+    {
+      "name": "Ignitis",
+      "isin": "LT0000115768",
+      "country": "LT",
+      "weight_pct": 0.64
+    },
+    {
+      "name": "Inbank",
+      "isin": "EE3100008574",
+      "country": "EE",
+      "weight_pct": 0.04
+    },
+    {
+      "name": "LHV Group AS",
+      "isin": "EE3100102203",
+      "country": "EE",
+      "weight_pct": 0.74
+    },
+    {
+      "name": "NOBA Bank",
+      "isin": "SE0023135298",
+      "country": "SE",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Sumitomo Mitsui Financial Group",
+      "isin": "JP3890350006",
+      "country": "JP",
+      "weight_pct": 0.61
+    },
+    {
+      "name": "Tallink Grupp",
+      "isin": "EE3100004466",
+      "country": "EE",
+      "weight_pct": 0.1
+    },
+    {
+      "name": "Tallinna Sadam",
+      "isin": "EE3100021635",
+      "country": "EE",
+      "weight_pct": 0.41
+    },
+    {
+      "name": "TKM Grupp",
+      "isin": "EE0000001105",
+      "country": "EE",
+      "weight_pct": 0.55
+    }
+  ],
+  "bonds": [],
+  "bond_funds": [],
+  "pe_funds": [
+    {
+      "name": "NordicNinja Fund II SCSp NordicNinja Fund II General Partner S.à r.l LU EUR 1,00 18 203 1,02 18 638 0,15%",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "Practica Venture Capital III Practica Venture Capital III LT EUR 1,00 10 913 0,87 9 503 0,08%",
+      "weight_pct": 0.08
+    },
+    {
+      "name": "Usaldusfond Trind Ventures Fund II Trind Ventures OU",
+      "weight_pct": 0.07,
+      "isin": "EE3500001625"
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "BaltCap Infrastructure Fund II BaltCap AS EE EUR 1,00 4 349 1,15 5 022 0,04%",
+      "weight_pct": 0.04
+    },
+    {
+      "name": "Usaldusfond",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Eften Real Estate Fund Aktsia III",
+      "weight_pct": 0.66,
+      "isin": "EE3100127242"
+    }
+  ],
+  "deposits_pct": 1.18,
+  "derivatives_pct": 0.0
+}

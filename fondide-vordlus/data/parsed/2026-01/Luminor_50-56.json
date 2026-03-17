@@ -1,0 +1,116 @@
+{
+  "fund_name": "Luminor 50-56",
+  "fund_key": "Luminor 50-56",
+  "provider": "Luminor",
+  "fund_type": "mixed",
+  "month": "2026-01",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "Amundi Nasdaq-100 II-ETF A",
+      "weight_pct": 3.92
+    },
+    {
+      "name": "Robeco 3D Global Equity UCITS ETF",
+      "weight_pct": 8.1
+    },
+    {
+      "name": "SPDR MSCI World UCITS ETF",
+      "weight_pct": 3.06
+    },
+    {
+      "name": "Xtrackers MSCI World Materials ETF",
+      "weight_pct": 1.96
+    },
+    {
+      "name": "iShares Core MSCI EM IMI UCITS ETF",
+      "weight_pct": 5.87
+    },
+    {
+      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+      "weight_pct": 13.2
+    },
+    {
+      "name": "iShares Developed World Screened Index Fund (IE)",
+      "weight_pct": 17.35
+    },
+    {
+      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+      "weight_pct": 4.76
+    },
+    {
+      "name": "iShares Europe Equity Index Fund (LU)",
+      "weight_pct": 3.77
+    },
+    {
+      "name": "iShares Japan Index Fund (IE)",
+      "weight_pct": 2.48
+    },
+    {
+      "name": "iShares North America Index Fund",
+      "weight_pct": 15.55
+    }
+  ],
+  "stocks": [],
+  "bonds": [],
+  "bond_funds": [
+    {
+      "name": "Robeco Euro Credit Bonds I EUR",
+      "weight_pct": 1.89
+    },
+    {
+      "name": "SPDR Bloomberg Barclays Euro High Yield Bond",
+      "weight_pct": 0.9
+    },
+    {
+      "name": "Xtrackers II EUR High Yield Corporate Bond",
+      "weight_pct": 0.12
+    },
+    {
+      "name": "iShares EUR Corp Bond ESG SRI UCITS ETF",
+      "weight_pct": 1.9
+    },
+    {
+      "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned",
+      "weight_pct": 0.19
+    },
+    {
+      "name": "Amundi Euro Government Bond 25+Y",
+      "weight_pct": 0.32
+    },
+    {
+      "name": "BNPP Easy JPM ESG EMBI Global Diversified",
+      "weight_pct": 0.34
+    },
+    {
+      "name": "Neuberger Berman EM Market Debt Hard Currency",
+      "weight_pct": 1.44
+    }
+  ],
+  "pe_funds": [
+    {
+      "name": "INVL Private Equity Fund II",
+      "weight_pct": 0.06
+    },
+    {
+      "name": "KS Livonia Partners Fund II AIF",
+      "weight_pct": 1.13
+    },
+    {
+      "name": "Raft Capital Baltic Equity Fund",
+      "weight_pct": 0.1
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "EFTEN Kinnisvarafond II AS",
+      "weight_pct": 4.95
+    },
+    {
+      "name": "EfTEN Real Estate Fund",
+      "weight_pct": 1.72
+    }
+  ],
+  "deposits_pct": 0.11,
+  "derivatives_pct": 0.0
+}

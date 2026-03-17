@@ -1,0 +1,493 @@
+{
+  "fund_name": "Swedbank Konservatiivne",
+  "fund_key": "Swedbank Konservatiivne",
+  "provider": "Swedbank",
+  "fund_type": "conservative",
+  "month": "2026-01",
+  "source": "KKONS_investment_portfolio.pdf",
+  "equity_funds": [],
+  "stocks": [],
+  "bonds": [
+    {
+      "name": "A2A 3.625% 350130",
+      "isin": "XS2986639701",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "ACEA 0.250% 300728",
+      "isin": "XS2292487076",
+      "weight_pct": 0.46
+    },
+    {
+      "name": "Akelius Residential Property 1.000% 280117",
+      "isin": "XS2228897158",
+      "weight_pct": 0.25
+    },
+    {
+      "name": "Akropolis 6.000% 300515",
+      "isin": "XS3046302488",
+      "weight_pct": 0.43
+    },
+    {
+      "name": "Altum 3.576% 300530",
+      "isin": "LV0000104669",
+      "weight_pct": 1.35
+    },
+    {
+      "name": "Artea Bankas VAR 281205",
+      "isin": "XS2887816564",
+      "weight_pct": 0.81
+    },
+    {
+      "name": "AS Inbank 6.250% 351009",
+      "isin": "EE0000002442",
+      "weight_pct": 0.34
+    },
+    {
+      "name": "AS PRFoods 6.250% 280331",
+      "isin": "EE3300001577",
+      "weight_pct": 0.14
+    },
+    {
+      "name": "AT&T 3.150% 360904",
+      "isin": "XS1629866432",
+      "weight_pct": 0.49
+    },
+    {
+      "name": "Augstsprieguma Tikls 0.500% 270120",
+      "isin": "LV0000802528",
+      "weight_pct": 0.76
+    },
+    {
+      "name": "AXA 1.375% 411007",
+      "isin": "XS2314312179",
+      "weight_pct": 0.47
+    },
+    {
+      "name": "Balder Finland 1.000% 290120",
+      "isin": "XS2288925568",
+      "weight_pct": 0.25
+    },
+    {
+      "name": "Bank Gospodarstwa Krajowego 2.000% 300601",
+      "isin": "XS1829261087",
+      "weight_pct": 1.27
+    },
+    {
+      "name": "Banque Federative du Credit Mutuel 3.125% 310311",
+      "isin": "FR0014014TL2",
+      "weight_pct": 0.78
+    },
+    {
+      "name": "Belfius Bank 3.250% 311114",
+      "isin": "BE0390266352",
+      "weight_pct": 0.78
+    },
+    {
+      "name": "BMS Ireland Capital Fund 3.363% 331110",
+      "isin": "XS3215466338",
+      "weight_pct": 0.52
+    },
+    {
+      "name": "BNP Paribas VAR 310110",
+      "isin": "FR001400F0V4",
+      "weight_pct": 0.27
+    },
+    {
+      "name": "BNP Paribas VAR 321113",
+      "isin": "FR001400LZI6",
+      "weight_pct": 0.84
+    },
+    {
+      "name": "Brenntag Finance 3.875% 320424",
+      "isin": "XS2802928692",
+      "weight_pct": 0.54
+    },
+    {
+      "name": "CaixaBank VAR 290719",
+      "isin": "XS2649712689",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Castellum 0.750% 260904",
+      "isin": "XS2049767598",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Ceska sporitelna VAR 280308",
+      "isin": "XS2676413235",
+      "weight_pct": 0.56
+    },
+    {
+      "name": "Citadele Banka 8.000% 340405",
+      "isin": "LV0000803054",
+      "weight_pct": 0.29
+    },
+    {
+      "name": "Citadele Banka VAR 291223",
+      "isin": "XS3148256913",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "City of Tallinn Estonia FRN 271129 (2)",
+      "isin": "XS0311261936",
+      "weight_pct": 0.76
+    },
+    {
+      "name": "Coca-Cola European Partners 0.700% 310912",
+      "isin": "XS2051655095",
+      "weight_pct": 0.23
+    },
+    {
+      "name": "Continental 4.000% 280601",
+      "isin": "XS2630117328",
+      "weight_pct": 0.55
+    },
+    {
+      "name": "Cooperatieve Rabobank 3.822% 340726",
+      "isin": "XS2753315626",
+      "weight_pct": 0.27
+    },
+    {
+      "name": "Covestro 1.375% 300612",
+      "isin": "XS2188805845",
+      "weight_pct": 0.49
+    },
+    {
+      "name": "Covivio 1.625% 300623",
+      "isin": "FR0013519279",
+      "weight_pct": 0.25
+    },
+    {
+      "name": "Credit Agricole Assurances 2.000% 300717",
+      "isin": "FR0013523602",
+      "weight_pct": 0.25
+    },
+    {
+      "name": "CTP 4.250% 350310",
+      "isin": "XS3017991368",
+      "weight_pct": 0.81
+    },
+    {
+      "name": "Daimler Truck International Finance 3.875% 290619",
+      "isin": "XS2623221228",
+      "weight_pct": 0.55
+    },
+    {
+      "name": "Danaher 2.500% 300330",
+      "isin": "XS2147995372",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Danske Bank VAR 290609",
+      "isin": "XS2351220814",
+      "weight_pct": 0.5
+    },
+    {
+      "name": "Danske Bank VAR 310110",
+      "isin": "XS2573569576",
+      "weight_pct": 0.54
+    },
+    {
+      "name": "Deutsche Telekom 3.000% 320203",
+      "isin": "XS2987630873",
+      "weight_pct": 0.8
+    },
+    {
+      "name": "DNB Bank VAR 301129",
+      "isin": "XS2950722616",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "DSV Finance 3.500% 290626",
+      "isin": "XS2850439642",
+      "weight_pct": 1.08
+    },
+    {
+      "name": "Elia Transmission Belgium 3.500% 351008",
+      "isin": "BE6368381404",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Ellevio 3.750% 350514",
+      "isin": "XS3044299769",
+      "weight_pct": 1.33
+    },
+    {
+      "name": "Engie 3.875% 310106",
+      "isin": "FR001400KHG0",
+      "weight_pct": 0.27
+    },
+    {
+      "name": "EQT 0.875% 310514",
+      "isin": "XS2338570331",
+      "weight_pct": 0.92
+    },
+    {
+      "name": "Essity Capital 0.250% 290915",
+      "isin": "XS2386877133",
+      "weight_pct": 0.47
+    },
+    {
+      "name": "Eurofins Scientific 4.750% 300906",
+      "isin": "XS2676883114",
+      "weight_pct": 0.56
+    },
+    {
+      "name": "Germany Government 0.000% 281115",
+      "isin": "DE0001102556",
+      "weight_pct": 7.34
+    },
+    {
+      "name": "Iberdrola Finanzas 1.375% 320311",
+      "isin": "XS2455983861",
+      "weight_pct": 0.48
+    },
+    {
+      "name": "Iberdrola Finanzas 3.625% 330713",
+      "isin": "XS2648498371",
+      "weight_pct": 0.81
+    },
+    {
+      "name": "Ignitis 2.000% 300521",
+      "isin": "XS2177349912",
+      "weight_pct": 1.98
+    },
+    {
+      "name": "Infineon Technologies 1.625% 290624",
+      "isin": "XS2194283839",
+      "weight_pct": 0.5
+    },
+    {
+      "name": "ING Groep VAR 310526",
+      "isin": "XS2176621170",
+      "weight_pct": 0.79
+    },
+    {
+      "name": "Intesa Sanpaolo 5.625% 330308",
+      "isin": "XS2592658947",
+      "weight_pct": 0.62
+    },
+    {
+      "name": "Italy Government 2.800% 281201",
+      "isin": "IT0005340929",
+      "weight_pct": 10.57
+    },
+    {
+      "name": "KBC Group 0.125% 290114",
+      "isin": "BE0002766476",
+      "weight_pct": 0.5
+    },
+    {
+      "name": "Klepierre 2.000% 290512",
+      "isin": "FR0013512233",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Koninklijke Philips 4.250% 310908",
+      "isin": "XS2676863355",
+      "weight_pct": 0.55
+    },
+    {
+      "name": "Latvenergo 4.952% 290222",
+      "isin": "LV0000802684",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Legrand 3.500% 340626",
+      "isin": "FR001400QQ30",
+      "weight_pct": 0.8
+    },
+    {
+      "name": "LHV Group 9.500% (Perpetual)",
+      "isin": "XS3042781024",
+      "weight_pct": 1.42
+    },
+    {
+      "name": "LHV Group VAR 280524",
+      "isin": "XS2822574245",
+      "weight_pct": 1.1
+    },
+    {
+      "name": "LHV Group VAR 350916",
+      "isin": "XS3153067288",
+      "weight_pct": 0.54
+    },
+    {
+      "name": "Logicor Financing 0.875% 310114",
+      "isin": "XS2286012849",
+      "weight_pct": 0.69
+    },
+    {
+      "name": "Luminor Bank 2.653% 290910",
+      "isin": "XS3176781188",
+      "weight_pct": 0.79
+    },
+    {
+      "name": "Luminor Bank VAR 270608",
+      "isin": "XS2633112565",
+      "weight_pct": 2.77
+    },
+    {
+      "name": "Metso 4.375% 301122",
+      "isin": "XS2717378231",
+      "weight_pct": 0.55
+    },
+    {
+      "name": "Morgan Stanley VAR 271029",
+      "isin": "XS2338643740",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Nationwide Building Society 2.000% 270428",
+      "isin": "XS2473346299",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Nestle Finance International 3.500% 450114",
+      "isin": "XS2976332283",
+      "weight_pct": 0.49
+    },
+    {
+      "name": "Nortal FRN 290209 (2)",
+      "isin": "FI4000566567",
+      "weight_pct": 1.06
+    },
+    {
+      "name": "Orange 8.125% 330128",
+      "isin": "FR0000471930",
+      "weight_pct": 1.35
+    },
+    {
+      "name": "Prologis International 1.625% 320617",
+      "isin": "XS2187529180",
+      "weight_pct": 0.47
+    },
+    {
+      "name": "Royal Schiphol Group 2.000% 290406",
+      "isin": "XS2153459123",
+      "weight_pct": 0.26
+    },
+    {
+      "name": "Santander Consumer Finance 4.125% 280505",
+      "isin": "XS2618690981",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Slovenska Sporitelna 5.375% 281004",
+      "isin": "AT0000A377W8",
+      "weight_pct": 0.55
+    },
+    {
+      "name": "Spain Government 5.150% 281031",
+      "isin": "ES00000124C5",
+      "weight_pct": 11.31
+    },
+    {
+      "name": "Spain Government Bond 3.150% 350430",
+      "isin": "ES0000012O67",
+      "weight_pct": 0.53
+    },
+    {
+      "name": "Stellantis 4.500% 280707",
+      "isin": "XS2199351375",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Stora Enso 0.625% 301202",
+      "isin": "XS2265360359",
+      "weight_pct": 1.18
+    },
+    {
+      "name": "Storebrand Livsforsikring 1.875% 510930",
+      "isin": "XS2325328313",
+      "weight_pct": 0.24
+    },
+    {
+      "name": "Swedbank 3.250% 321013 (4)",
+      "isin": "XS3203385227",
+      "weight_pct": 0.78
+    },
+    {
+      "name": "Telefonica Emisiones 1.807% 320521",
+      "isin": "XS2177442295",
+      "weight_pct": 0.48
+    },
+    {
+      "name": "Teleperformance 5.750% 311122",
+      "isin": "FR001400M2G2",
+      "weight_pct": 0.85
+    },
+    {
+      "name": "Thermo Fisher Scientific 2.375% 320415",
+      "isin": "XS2010032451",
+      "weight_pct": 0.51
+    },
+    {
+      "name": "Traton Finance Luxembourg 0.750% 290324",
+      "isin": "DE000A3KNP96",
+      "weight_pct": 0.25
+    },
+    {
+      "name": "Unibail-Rodamco-Westfield 0.875% 320329",
+      "isin": "FR0013456621",
+      "weight_pct": 0.22
+    },
+    {
+      "name": "Unibail-Rodamco-Westfield 1.750% 340227",
+      "isin": "FR0013405040",
+      "weight_pct": 0.68
+    },
+    {
+      "name": "UPM-Kymmene 0.125% 281119",
+      "isin": "XS2257961818",
+      "weight_pct": 1.21
+    },
+    {
+      "name": "Verizon Communications 0.375% 290322",
+      "isin": "XS2320759538",
+      "weight_pct": 1.45
+    },
+    {
+      "name": "Vestas Wind Systems 4.125% 310615",
+      "isin": "XS2725957042",
+      "weight_pct": 0.55
+    },
+    {
+      "name": "Volkswagen Financial Services 3.375% 280406",
+      "isin": "XS2152061904",
+      "weight_pct": 0.81
+    },
+    {
+      "name": "Vonovia 0.750% 320901",
+      "isin": "DE000A3MP4V7",
+      "weight_pct": 0.44
+    },
+    {
+      "name": "Vonovia 4.000% 361112",
+      "isin": "XS3222746458",
+      "weight_pct": 0.78
+    }
+  ],
+  "bond_funds": [],
+  "pe_funds": [],
+  "re_funds": [
+    {
+      "name": "Birdeye Capital Timber Fund 2 AS Birdeye Capital",
+      "weight_pct": 1.83,
+      "isin": "EE3500110269"
+    },
+    {
+      "name": "Birdeye Capital Timber Fund 3 AS Birdeye Capital",
+      "weight_pct": 1.19,
+      "isin": "EE3600001756"
+    },
+    {
+      "name": "East Capital Baltic Property Fund III East Capital Asset Management AB",
+      "weight_pct": 9.51,
+      "isin": "LU1274822847"
+    }
+  ],
+  "deposits_pct": 2.48,
+  "derivatives_pct": 0.0
+}

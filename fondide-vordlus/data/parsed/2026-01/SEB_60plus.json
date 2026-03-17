@@ -1,0 +1,129 @@
+{
+  "fund_name": "SEB 60+",
+  "fund_key": "SEB 60+",
+  "provider": "SEB",
+  "fund_type": "mixed",
+  "month": "2026-01",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "iShares Developed World ESG Screened Index Fund",
+      "isin": "IE00BFG1TM61",
+      "weight_pct": 1.95
+    },
+    {
+      "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3P36",
+      "weight_pct": 1.97
+    },
+    {
+      "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3D14",
+      "weight_pct": 2.92
+    },
+    {
+      "name": "iShares MSCI World ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3J75",
+      "weight_pct": 5.46
+    },
+    {
+      "name": "L&G Japan Equity UCITS ETF",
+      "isin": "IE00BFXR5T61",
+      "weight_pct": 0.84
+    },
+    {
+      "name": "SEB Global Exposure Fund",
+      "isin": "LU1711526407",
+      "weight_pct": 21.38
+    },
+    {
+      "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+      "isin": "IE00BH4GPZ28",
+      "weight_pct": 8.66
+    }
+  ],
+  "stocks": [
+    {
+      "name": "Ignitis Grupe",
+      "isin": "LT0000115768",
+      "weight_pct": 0.74,
+      "country": "Lithuania"
+    },
+    {
+      "name": "Tallinna Sadam",
+      "isin": "EE3100021635",
+      "weight_pct": 1.1,
+      "country": "Estonia"
+    }
+  ],
+  "bonds": [
+    {
+      "name": "Otseobligatsioonid (26.29%)",
+      "weight_pct": 26.29
+    }
+  ],
+  "bond_funds": [
+    {
+      "name": "Amundi Index Euro Corporate SRI UCITS ETF",
+      "weight_pct": 0.52
+    },
+    {
+      "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+      "weight_pct": 1.49
+    },
+    {
+      "name": "Fair Oaks Dynamic Credit Fund",
+      "weight_pct": 2.37
+    },
+    {
+      "name": "Robeco Euro Credit Bond",
+      "weight_pct": 2.34
+    },
+    {
+      "name": "Schroder ISF EURO Corporate Bond",
+      "weight_pct": 3.5
+    },
+    {
+      "name": "SEB Global High Yield Fund",
+      "weight_pct": 0.0
+    },
+    {
+      "name": "UBS EUR Corporates Sustainable",
+      "weight_pct": 6.03
+    }
+  ],
+  "pe_funds": [
+    {
+      "name": "BaltCap PE Fund II",
+      "weight_pct": 0.33
+    },
+    {
+      "name": "BaltCap PE Fund III",
+      "weight_pct": 0.23
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "BaltCap Infrastructure Fund",
+      "weight_pct": 1.12
+    },
+    {
+      "name": "Baltic Horizon Fund",
+      "weight_pct": 0.12
+    },
+    {
+      "name": "Birdeye Timber Fund 3",
+      "weight_pct": 2.48
+    },
+    {
+      "name": "EfTEN Real Estate Fund IV",
+      "weight_pct": 4.68
+    },
+    {
+      "name": "SG Capital Partners",
+      "weight_pct": 1.9
+    }
+  ],
+  "deposits_pct": 0.0,
+  "derivatives_pct": 0.0
+}

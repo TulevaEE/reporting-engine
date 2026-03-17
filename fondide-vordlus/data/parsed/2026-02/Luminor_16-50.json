@@ -1,0 +1,96 @@
+{
+  "fund_name": "Luminor 16-50",
+  "fund_key": "Luminor 16-50",
+  "provider": "Luminor",
+  "fund_type": "mixed",
+  "month": "2026-02",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "Robeco 3D Global Equity UCITS ETF",
+      "weight_pct": 8.87
+    },
+    {
+      "name": "SPDR MSCI World UCITS ETF",
+      "weight_pct": 13.34
+    },
+    {
+      "name": "Xtrackers MSCI World Materials ETF",
+      "weight_pct": 2.63
+    },
+    {
+      "name": "iShares Core MSCI EM IMI UCITS ETF",
+      "weight_pct": 9.99
+    },
+    {
+      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+      "weight_pct": 14.56
+    },
+    {
+      "name": "iShares Developed World Screened Index Fund (IE)",
+      "weight_pct": 18.3
+    },
+    {
+      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+      "weight_pct": 5.01
+    },
+    {
+      "name": "iShares Europe Equity Index Fund (LU)",
+      "weight_pct": 5.75
+    },
+    {
+      "name": "iShares Japan Index Fund (IE)",
+      "weight_pct": 2.9
+    },
+    {
+      "name": "iShares MSCI EM EX-China UCITS ETF",
+      "weight_pct": 1.02
+    },
+    {
+      "name": "iShares North America Index Fund",
+      "weight_pct": 11.86
+    }
+  ],
+  "stocks": [],
+  "bonds": [],
+  "bond_funds": [
+    {
+      "name": "SPDR Bloomberg Barclays Euro High Yield Bond UCITS ETF",
+      "weight_pct": 1.09
+    },
+    {
+      "name": "Xtrackers II EUR High Yield Corporate Bond UCITS ETF",
+      "weight_pct": 1.08
+    },
+    {
+      "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned UCITS ETF",
+      "weight_pct": 2.2
+    }
+  ],
+  "pe_funds": [
+    {
+      "name": "INVL Private Equity Fund II",
+      "weight_pct": 0.06
+    },
+    {
+      "name": "KS Livonia Partners Fund II AIF",
+      "weight_pct": 0.36
+    },
+    {
+      "name": "Raft Capital Baltic Equity Fund",
+      "weight_pct": 0.1
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "EFTEN Kinnisvarafond II AS",
+      "weight_pct": 0.49
+    },
+    {
+      "name": "EfTEN Real Estate Fund",
+      "weight_pct": 0.03
+    }
+  ],
+  "deposits_pct": 0.41,
+  "derivatives_pct": 0.0
+}

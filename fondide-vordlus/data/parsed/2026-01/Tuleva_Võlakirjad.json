@@ -1,0 +1,37 @@
+{
+  "fund_name": "Tuleva Võlakirjad",
+  "fund_key": "Tuleva Võlakirjad",
+  "provider": "Tuleva",
+  "fund_type": "bond",
+  "month": "2026-01",
+  "source": "est_TUK00_raport_20260130.pdf",
+  "equity_funds": [],
+  "stocks": [],
+  "bonds": [],
+  "bond_funds": [
+    {
+      "name": "Euro Aggregate Bond Index Fund - X2",
+      "isin": "LU0826455353",
+      "weight_pct": 24.62
+    },
+    {
+      "name": "Euro Credit Bond Index Fund - Flexible",
+      "isin": "IE0005032192",
+      "weight_pct": 24.68
+    },
+    {
+      "name": "Euro Government Bond Index Fund - Flexible",
+      "isin": "IE0031080751",
+      "weight_pct": 24.69
+    },
+    {
+      "name": "Global Government Bond Index - X2",
+      "isin": "LU0839970364",
+      "weight_pct": 24.38
+    }
+  ],
+  "pe_funds": [],
+  "re_funds": [],
+  "deposits_pct": 1.65,
+  "derivatives_pct": 0.0
+}

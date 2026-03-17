@@ -1,0 +1,207 @@
+{
+  "fund_name": "Luminor 56+",
+  "fund_key": "Luminor 56+",
+  "provider": "Luminor",
+  "fund_type": "mixed",
+  "month": "2026-02",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "Robeco 3D Global Equity UCITS ETF",
+      "weight_pct": 3.8
+    },
+    {
+      "name": "SPDR MSCI World UCITS ETF",
+      "weight_pct": 1.82
+    },
+    {
+      "name": "Xtrackers MSCI World Materials ETF",
+      "weight_pct": 1.1
+    },
+    {
+      "name": "iShares Core MSCI EM IMI UCITS ETF",
+      "weight_pct": 4.16
+    },
+    {
+      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
+      "weight_pct": 7.93
+    },
+    {
+      "name": "iShares Developed World Screened Index Fund (IE)",
+      "weight_pct": 7.86
+    },
+    {
+      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
+      "weight_pct": 2.43
+    },
+    {
+      "name": "iShares Europe Equity Index Fund (LU)",
+      "weight_pct": 2.45
+    },
+    {
+      "name": "iShares Japan Index Fund (IE)",
+      "weight_pct": 1.25
+    },
+    {
+      "name": "iShares MSCI EM EX-China UCITS ETF",
+      "weight_pct": 0.41
+    },
+    {
+      "name": "iShares North America Index Fund",
+      "weight_pct": 7.87
+    }
+  ],
+  "stocks": [],
+  "bonds": [
+    {
+      "name": "AB Artea bankas 10.75",
+      "isin": "LT0000407751",
+      "weight_pct": 0.99,
+      "type": "bonds"
+    },
+    {
+      "name": "AB Artea bankas 4.853%",
+      "isin": "XS2887816564",
+      "weight_pct": 0.61,
+      "type": "bonds"
+    },
+    {
+      "name": "Akropolis Group 6.000%",
+      "isin": "XS3046302488",
+      "weight_pct": 0.63,
+      "type": "bonds"
+    },
+    {
+      "name": "DBR 0% 02/15/2031",
+      "isin": "DE0001102531",
+      "weight_pct": 0.96,
+      "type": "bonds"
+    },
+    {
+      "name": "ELKOLV 7.25 12/20/29",
+      "isin": "LV0000108637",
+      "weight_pct": 0.6,
+      "type": "bonds"
+    },
+    {
+      "name": "EPSO-G 3.117%",
+      "isin": "LT0000406530",
+      "weight_pct": 2.07,
+      "type": "bonds"
+    },
+    {
+      "name": "ESTONIA 3.25",
+      "isin": "XS2740429076",
+      "weight_pct": 0.3,
+      "type": "bonds"
+    },
+    {
+      "name": "ESTONIA 4 12/10/2032",
+      "isin": "XS2532370231",
+      "weight_pct": 1.6,
+      "type": "bonds"
+    },
+    {
+      "name": "Estonian Eurobond 0,125",
+      "isin": "XS2181347183",
+      "weight_pct": 1.35,
+      "type": "bonds"
+    },
+    {
+      "name": "LATVEN 0.5 17/05/28",
+      "isin": "LV0000802460",
+      "weight_pct": 0.56,
+      "type": "bonds"
+    },
+    {
+      "name": "LATVEN 2.42 05/05/27",
+      "isin": "LV0000870129",
+      "weight_pct": 1.48,
+      "type": "bonds"
+    },
+    {
+      "name": "Latvia 3.875 25/03/2027",
+      "isin": "XS2549862758",
+      "weight_pct": 1.18,
+      "type": "bonds"
+    },
+    {
+      "name": "Lithuania 2.125",
+      "isin": "XS2487342649",
+      "weight_pct": 0.57,
+      "type": "bonds"
+    },
+    {
+      "name": "Lithuania 3.625",
+      "isin": "XS3175946071",
+      "weight_pct": 2.85,
+      "type": "bonds"
+    },
+    {
+      "name": "RIGUDN 4 06/04/30",
+      "isin": "LV0000104487",
+      "weight_pct": 0.6,
+      "type": "bonds"
+    }
+  ],
+  "bond_funds": [
+    {
+      "name": "Amundi Euro Government Bond 25+Y",
+      "weight_pct": 1.74
+    },
+    {
+      "name": "BNPP Easy JPM ESG EMBI Global Diversified",
+      "weight_pct": 2.98
+    },
+    {
+      "name": "Neuberger Berman EM Market Debt Hard Currency",
+      "weight_pct": 4.95
+    },
+    {
+      "name": "Robeco Euro Credit Bonds I EUR",
+      "weight_pct": 8.94
+    },
+    {
+      "name": "SPDR Bloomberg Barclays Euro High Yield Bond",
+      "weight_pct": 3.49
+    },
+    {
+      "name": "Xtrackers II EUR High Yield Corporate Bond",
+      "weight_pct": 1.58
+    },
+    {
+      "name": "iShares EUR Corp Bond ESG SRI UCITS ETF",
+      "weight_pct": 4.41
+    },
+    {
+      "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned",
+      "weight_pct": 0.5
+    },
+    {
+      "name": "iShares Euro Corporate Bond ESG SRI Index Fund (IE)",
+      "weight_pct": 1.32
+    },
+    {
+      "name": "iShares Euro Investment Grade Corporate Bond Index Fund",
+      "weight_pct": 6.33
+    }
+  ],
+  "pe_funds": [
+    {
+      "name": "INVL Private Equity Fund II",
+      "weight_pct": 0.02
+    },
+    {
+      "name": "KS Livonia Partners Fund II AIF",
+      "weight_pct": 0.78
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "EFTEN Kinnisvarafond II AS",
+      "weight_pct": 4.12
+    }
+  ],
+  "deposits_pct": 1.11,
+  "derivatives_pct": 0.0
+}
