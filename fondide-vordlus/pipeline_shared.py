@@ -200,6 +200,62 @@ def _pct(s):
     return float(s)
 
 
+def _strip_fund_manager_suffix(name):
+    """Strip duplicate fund manager name and any trailing PDF data from fund name.
+
+    PE/RE fund names in PDFs follow the pattern:
+      "Fund Name  ManagerName  Country  Currency  Numbers..."
+    The manager name often starts with the same word(s) as the fund name.
+    When PDF parsing fails to split on whitespace, the whole line leaks in.
+
+    Examples:
+      "Karma Ventures I ... Karma Ventures LU EUR 1,00 ..." -> "Karma Ventures I ..."
+      "East Capital Baltic ... East Capital (Lux) GP"        -> "East Capital Baltic ..."
+    """
+    # Strip footnote markers like (1), (2)
+    name = re.sub(r'\s*\(\d+\)\s*', ' ', name).strip()
+    name = re.sub(r'\s+', ' ', name)
+
+    # Truncate at country+currency+numbers pattern (Swedbank lines with leaked data)
+    m = re.search(r'\s[A-Z]{2}\s+(EUR|USD|SEK|GBP|DKK|NOK|CHF)\s+\d', name)
+    if m:
+        name = name[:m.start()].strip()
+
+    # Find where any significant word from the first 4 words repeats later
+    # (= fund manager name starts). Skip roman numerals, generic words, etc.
+    skip_words = {'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII',
+                  'Fund', 'fund', 'AS', 'AB', 'LP', 'SCSp', 'UF', 'OÜ',
+                  'A', 'B', 'C', 'D', 'S.A', 'SA', 'SE', 'NV', 'GP',
+                  'The', 'of', 'and', 'de', 'et'}
+    words = name.split()
+    if len(words) >= 4:
+        for start_idx in range(min(4, len(words))):
+            word = words[start_idx]
+            if word in skip_words or len(word) < 2:
+                continue
+            for i in range(start_idx + 2, len(words)):
+                if words[i] == word:
+                    candidate = ' '.join(words[:i])
+                    if len(candidate.split()) >= 2:
+                        return candidate.strip()
+                    break
+
+    # Known manager names that don't share words with fund name
+    known_managers = ['BaltCap Private Equity Management',
+                      'BaltCap Infrastructure Management']
+    for mgr in known_managers:
+        idx = name.find(mgr)
+        if idx > 0:
+            name = name[:idx].strip()
+            break
+
+    # Strip generic "Usaldusfond" prefix (Estonian for "trust fund")
+    if name.startswith('Usaldusfond ') and len(name) > 15:
+        name = name[len('Usaldusfond '):].strip()
+
+    return name.strip()
+
+
 def _extract_eur_value(line):
     """Extract EUR market value from a PDF investment data line.
 
@@ -641,20 +697,12 @@ def parse_swedbank_monthly(pdf_path):
                         total_value_eur += value_eur
                     isin_match = ISIN_RE.search(line)
                     isin = isin_match.group(0) if isin_match else None
-                    # Name: everything before the fund manager name
+                    # Name: everything before ISIN, or full line if no ISIN
                     if isin_match:
                         name_part = line[:isin_match.start()].strip()
                     else:
-                        name_part = line.split('  ')[0].strip()
-                    # Remove fund manager from name
-                    for mgr in ['Swedbank Robur', 'Amundi', 'BlackRock', 'DWS', 'BaltCap',
-                                'EfTEN', 'East Capital', 'KJK Management', 'Birdeye',
-                                'Nuve Retail', 'SG Capital', 'Livonia', 'Alpha Associates',
-                                'Firebird', 'Morgan Stanley', 'Robeco', 'SPDR']:
-                        idx = name_part.find(mgr)
-                        if idx > 0:
-                            name_part = name_part[:idx].strip()
-                            break
+                        name_part = line
+                    name_part = _strip_fund_manager_suffix(name_part)
                     entry = {'name': name_part, 'weight_pct': weight}
                     if isin:
                         entry['isin'] = isin
@@ -1238,6 +1286,8 @@ def _extract_lhv_name(line, isin):
     name = re.sub(r'\s+(NR|Ba\d|Baa\d|B\d|A\d|Aa\d|AAA|AA\+|AA-|A\+|A-)\s', ' ', name)
     name = re.sub(r'\s+(Moody\'s|S&P|Fitch)\s*', ' ', name)
     name = re.sub(r'\s+', ' ', name).strip()
+    # Strip duplicate fund manager suffix (PE/RE fund names)
+    name = _strip_fund_manager_suffix(name)
     return name
 
 
