@@ -9,37 +9,44 @@
     {
       "name": "Access Edge Emerging Markets A (2)",
       "weight_pct": 0.26,
-      "isin": "SE0012428290"
+      "isin": "SE0012428290",
+      "value_eur": 2668969
     },
     {
       "name": "Access Edge Japan A (2)",
       "weight_pct": 2.78,
-      "isin": "SE0007074091"
+      "isin": "SE0007074091",
+      "value_eur": 28765308
     },
     {
       "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT Amundi Luxembourg SA",
       "weight_pct": 4.33,
-      "isin": "LU2345046655"
+      "isin": "LU2345046655",
+      "value_eur": 44833775
     },
     {
       "name": "Globalfond A (2)",
       "weight_pct": 4.35,
-      "isin": "SE0000542979"
+      "isin": "SE0000542979",
+      "value_eur": 45039468
     },
     {
       "name": "KJK Fund SICAV - SIF- Baltic States (4)",
       "weight_pct": 0.03,
-      "isin": "LU0572687357"
+      "isin": "LU0572687357",
+      "value_eur": 358643
     },
     {
       "name": "New Energy A (2)",
       "weight_pct": 0.5,
-      "isin": "SE0000538969"
+      "isin": "SE0000538969",
+      "value_eur": 5131047
     },
     {
       "name": "Xtrackers MSCI Japan ESG UCITS ETF",
       "weight_pct": 2.7,
-      "isin": "IE00BG36TC12"
+      "isin": "IE00BG36TC12",
+      "value_eur": 28017653
     }
   ],
   "stocks": [
@@ -47,2804 +54,3294 @@
       "name": "3I Group",
       "isin": "GB00B1YW4409",
       "country": "GB",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1327896
     },
     {
       "name": "3M",
       "isin": "US88579Y1010",
       "country": "US",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 1938157
     },
     {
       "name": "Abbott Laboratories",
       "isin": "US0028241000",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 317113
     },
     {
       "name": "AbbVie",
       "isin": "US00287Y1091",
       "country": "US",
-      "weight_pct": 0.27
+      "weight_pct": 0.27,
+      "value_eur": 2785180
     },
     {
       "name": "ABN AMRO Bank",
       "isin": "NL0011540547",
       "country": "NL",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 922371
     },
     {
       "name": "Accenture",
       "isin": "IE00B4BNMY34",
       "country": "IE",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 288210
     },
     {
       "name": "Adobe Systems",
       "isin": "US00724F1012",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 217713
     },
     {
       "name": "Advanced Micro Devices",
       "isin": "US0079031078",
       "country": "US",
-      "weight_pct": 0.37
+      "weight_pct": 0.37,
+      "value_eur": 3856135
     },
     {
       "name": "Advantest",
       "isin": "JP3122400009",
       "country": "JP",
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 2580110
     },
     {
       "name": "Aecom Technology",
       "isin": "US00766T1007",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 119402
     },
     {
       "name": "Aegon",
       "isin": "BMG0112X1056",
       "country": "BM",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1495376
     },
     {
       "name": "Aena",
       "isin": "ES0105046017",
       "country": "ES",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1488758
     },
     {
       "name": "Aflac",
       "isin": "US0010551028",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1796312
     },
     {
       "name": "Air Products and Chemicals",
       "isin": "US0091581068",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 319186
     },
     {
       "name": "Airbnb",
       "isin": "US0090661010",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1420753
     },
     {
       "name": "Akola group",
       "isin": "LT0000128092",
       "country": "LT",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2043673
     },
     {
       "name": "Allstate",
       "isin": "US0200021014",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 319673
     },
     {
       "name": "Alphabet A",
       "isin": "US02079K3059",
       "country": "US",
-      "weight_pct": 1.58
+      "weight_pct": 1.58,
+      "value_eur": 16420074
     },
     {
       "name": "Alphabet C",
       "isin": "US02079K1079",
       "country": "US",
-      "weight_pct": 2.62
+      "weight_pct": 2.62,
+      "value_eur": 27122381
     },
     {
       "name": "Amadeus IT Group",
       "isin": "ES0109067019",
       "country": "ES",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1201278
     },
     {
       "name": "Amazon.com",
       "isin": "US0231351067",
       "country": "US",
-      "weight_pct": 1.67
+      "weight_pct": 1.67,
+      "value_eur": 17354066
     },
     {
       "name": "American Express",
       "isin": "US0258161092",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 325368
     },
     {
       "name": "American International Group",
       "isin": "US0268747849",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1569983
     },
     {
       "name": "American Tower",
       "isin": "US03027X1000",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 212958
     },
     {
       "name": "American Water Works",
       "isin": "US0304201033",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 261710
     },
     {
       "name": "Ametek",
       "isin": "US0311001004",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 142693
     },
     {
       "name": "Amgen",
       "isin": "US0311621009",
       "country": "US",
-      "weight_pct": 0.27
+      "weight_pct": 0.27,
+      "value_eur": 2800058
     },
     {
       "name": "Amphenol",
       "isin": "US0320951017",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 317376
     },
     {
       "name": "Analog Devices",
       "isin": "US0326541051",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 247629
     },
     {
       "name": "Aon",
       "isin": "IE00BLP1HW54",
       "country": "IE",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 136583
     },
     {
       "name": "AP Moller - Maersk",
       "isin": "DK0010244508",
       "country": "DK",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 414200
     },
     {
       "name": "AP Moller - Maersk",
       "isin": "DK0010244425",
       "country": "DK",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1467982
     },
     {
       "name": "Apollo Asset Management",
       "isin": "US03769M1062",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 160148
     },
     {
       "name": "Apple",
       "isin": "US0378331005",
       "country": "US",
-      "weight_pct": 2.82
+      "weight_pct": 2.82,
+      "value_eur": 29211423
     },
     {
       "name": "Applied Materials",
       "isin": "US0382221051",
       "country": "US",
-      "weight_pct": 0.36
+      "weight_pct": 0.36,
+      "value_eur": 3682562
     },
     {
       "name": "AppLovin",
       "isin": "US03831W1080",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1744387
     },
     {
       "name": "Apranga",
       "isin": "LT0000102337",
       "country": "LT",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1567726
     },
     {
       "name": "Archer Daniels Midland Archer-Daniels-Midland",
       "isin": "US0394831020",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 119302
     },
     {
       "name": "Arista Networks",
       "isin": "US0404132054",
       "country": "US",
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 2572354
     },
     {
       "name": "Artea Bankas",
       "isin": "LT0000102253",
       "country": "LT",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1326447
     },
     {
       "name": "Arthur J Gallagher",
       "isin": "US3635761097",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 140367
     },
     {
       "name": "Ashtead Group",
       "isin": "GB0000536739",
       "country": "GB",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 253043
     },
     {
       "name": "ASML",
       "isin": "NL0010273215",
       "country": "NL",
-      "weight_pct": 1.11
+      "weight_pct": 1.11,
+      "value_eur": 11542122
     },
     {
       "name": "Astellas Pharma",
       "isin": "JP3942400007",
       "country": "JP",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 383814
     },
     {
       "name": "AstraZeneca",
       "isin": "GB0009895292",
       "country": "GB",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1626882
     },
     {
       "name": "AT&T",
       "isin": "US00206R1023",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 334082
     },
     {
       "name": "AUGA Group",
       "isin": "LT0000127466",
       "country": "LT",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 67951
     },
     {
       "name": "Autodesk",
       "isin": "US0527691069",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 153781
     },
     {
       "name": "Automatic Data Processing",
       "isin": "US0530151036",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1449048
     },
     {
       "name": "AutoZone",
       "isin": "US0533321024",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 181350
     },
     {
       "name": "AXA",
       "isin": "FR0000120628",
       "country": "FR",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1643608
     },
     {
       "name": "Axon Enterprise",
       "isin": "US05464C1018",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 185628
     },
     {
       "name": "Ball",
       "isin": "US0584981064",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1626064
     },
     {
       "name": "Banca Mediolanum",
       "isin": "IT0004776628",
       "country": "IT",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1444970
     },
     {
       "name": "Banca Monte dei Paschi di Siena",
       "isin": "IT0005508921",
       "country": "IT",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1577544
     },
     {
       "name": "Banco Bilbao Vizcaya Argentaria",
       "isin": "ES0113211835",
       "country": "ES",
-      "weight_pct": 0.71
+      "weight_pct": 0.71,
+      "value_eur": 7314900
     },
     {
       "name": "Banco BPM",
       "isin": "IT0005218380",
       "country": "IT",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1478092
     },
     {
       "name": "Banco Santander",
       "isin": "ES0113900J37",
       "country": "ES",
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 2634391
     },
     {
       "name": "Bank of America",
       "isin": "US0605051046",
       "country": "US",
-      "weight_pct": 0.85
+      "weight_pct": 0.85,
+      "value_eur": 8763862
     },
     {
       "name": "Bank of NY Mellon The",
       "isin": "US0640581007",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 308831
     },
     {
       "name": "Barclays Bank",
       "isin": "GB0031348658",
       "country": "GB",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 599811
     },
     {
       "name": "Baxter International",
       "isin": "US0718131099",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1538394
     },
     {
       "name": "Becton Dickinson",
       "isin": "US0758871091",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 168832
     },
     {
       "name": "Berkshire Hathaway B",
       "isin": "US0846707026",
       "country": "US",
-      "weight_pct": 0.27
+      "weight_pct": 0.27,
+      "value_eur": 2796630
     },
     {
       "name": "Big Yellow Group",
       "isin": "GB0002869419",
       "country": "GB",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 858397
     },
     {
       "name": "Biogen",
       "isin": "US09062X1037",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1622802
     },
     {
       "name": "Blackrock",
       "isin": "US09290D1019",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1501659
     },
     {
       "name": "BNP Paribas",
       "isin": "FR0000131104",
       "country": "FR",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2055010
     },
     {
       "name": "Bombardier",
       "isin": "CA0977518616",
       "country": "CA",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 460197
     },
     {
       "name": "Booking",
       "isin": "US09857L1089",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 312107
     },
     {
       "name": "Boston Scientific",
       "isin": "US1011371077",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 316111
     },
     {
       "name": "Bouygues",
       "isin": "FR0000120503",
       "country": "FR",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1524286
     },
     {
       "name": "BPER Banca",
       "isin": "IT0000066123",
       "country": "IT",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1455038
     },
     {
       "name": "Brenntag",
       "isin": "DE000A1DAHH0",
       "country": "DE",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 958438
     },
     {
       "name": "Bristol-Myers Squibb",
       "isin": "US1101221083",
       "country": "US",
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 2255191
     },
     {
       "name": "British Land",
       "isin": "GB0001367019",
       "country": "GB",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1381102
     },
     {
       "name": "Broadcom",
       "isin": "US11135F1012",
       "country": "US",
-      "weight_pct": 0.91
+      "weight_pct": 0.91,
+      "value_eur": 9417726
     },
     {
       "name": "Broadridge Financial Solutions",
       "isin": "US11133T1034",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 124700
     },
     {
       "name": "Brown-Forman",
       "isin": "US1156372096",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 69485
     },
     {
       "name": "Bunzl",
       "isin": "GB00B0744B38",
       "country": "GB",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 576031
     },
     {
       "name": "BXP",
       "isin": "US1011211018",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 152259
     },
     {
       "name": "Cadence Design Systems",
       "isin": "US1273871087",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 172227
     },
     {
       "name": "Canadian National Railway",
       "isin": "CA1363751027",
       "country": "CA",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1511660
     },
     {
       "name": "Canon",
       "isin": "JP3242800005",
       "country": "JP",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 564980
     },
     {
       "name": "Capital One Financial",
       "isin": "US14040H1059",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 300355
     },
     {
       "name": "Cardinal Health",
       "isin": "US14149Y1082",
       "country": "US",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 853313
     },
     {
       "name": "Carlsberg B",
       "isin": "DK0010181759",
       "country": "DK",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1457992
     },
     {
       "name": "Carnival",
       "isin": "PA1436583006",
       "country": "PA",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1426665
     },
     {
       "name": "Carvana",
       "isin": "US1468691027",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 89976
     },
     {
       "name": "Caterpillar",
       "isin": "US1491231015",
       "country": "US",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 988982
     },
     {
       "name": "Cencora",
       "isin": "US03073E1055",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 179060
     },
     {
       "name": "Centene",
       "isin": "US15135B1017",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1760017
     },
     {
       "name": "Centrica",
       "isin": "GB00B033F229",
       "country": "GB",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1725414
     },
     {
       "name": "CF Industries",
       "isin": "US1252691001",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1497643
     },
     {
       "name": "Charles Schwab The",
       "isin": "US8085131055",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 331531
     },
     {
       "name": "Charter Communications",
       "isin": "US16119P1084",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1553726
     },
     {
       "name": "Check Point Software",
       "isin": "IL0010824113",
       "country": "IL",
-      "weight_pct": 0.65
+      "weight_pct": 0.65,
+      "value_eur": 6762506
     },
     {
       "name": "Chipotle Mexican Grill",
       "isin": "US1696561059",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 123969
     },
     {
       "name": "Chubb",
       "isin": "CH0044328745",
       "country": "CH",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 203713
     },
     {
       "name": "Cigna Group",
       "isin": "US1255231003",
       "country": "US",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 1954877
     },
     {
       "name": "Cisco Systems",
       "isin": "US17275R1023",
       "country": "US",
-      "weight_pct": 0.81
+      "weight_pct": 0.81,
+      "value_eur": 8371568
     },
     {
       "name": "Citigroup",
       "isin": "US1729674242",
       "country": "US",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 3139849
     },
     {
       "name": "Citizens Financial",
       "isin": "US1746101054",
       "country": "US",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1104329
     },
     {
       "name": "Clorox The",
       "isin": "US1890541097",
       "country": "US",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1303616
     },
     {
       "name": "Cloudflare",
       "isin": "US18915M1071",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 75657
     },
     {
       "name": "CME Group",
       "isin": "US12572Q1058",
       "country": "US",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1132387
     },
     {
       "name": "Coca-Cola The",
       "isin": "US1912161007",
       "country": "US",
-      "weight_pct": 0.26
+      "weight_pct": 0.26,
+      "value_eur": 2727884
     },
     {
       "name": "Cochlear",
       "isin": "AU000000COH5",
       "country": "AU",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1580977
     },
     {
       "name": "Cognizant Technology Solutions",
       "isin": "US1924461023",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 142334
     },
     {
       "name": "Coinbase Global",
       "isin": "US19260Q1076",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 79855
     },
     {
       "name": "Colgate-Palmolive",
       "isin": "US1941621039",
       "country": "US",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 2000505
     },
     {
       "name": "Comcast",
       "isin": "US20030N1019",
       "country": "US",
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 2280901
     },
     {
       "name": "Computershare",
       "isin": "AU000000CPU5",
       "country": "AU",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1226802
     },
     {
       "name": "Constellation Brands",
       "isin": "US21036P1084",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1752496
     },
     {
       "name": "Constellation Energy",
       "isin": "US21037T1097",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 196074
     },
     {
       "name": "Copart",
       "isin": "US2172041061",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 512581
     },
     {
       "name": "Cortev Corteva",
       "isin": "US22052L1044",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 338570
     },
     {
       "name": "Costar Group",
       "isin": "US22160N1090",
       "country": "US",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 616553
     },
     {
       "name": "Costco Wholesale",
       "isin": "US22160K1051",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1451787
     },
     {
       "name": "Credit Agricole",
       "isin": "FR0000045072",
       "country": "FR",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1549000
     },
     {
       "name": "Credo Technology",
       "isin": "KYG254571055",
       "country": "KY",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 296134
     },
     {
       "name": "Crowdstrike",
       "isin": "US22788C1053",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 231581
     },
     {
       "name": "Crown Castle",
       "isin": "US22822V1017",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 139353
     },
     {
       "name": "CTP",
       "isin": "NL00150006R6",
       "country": "NL",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1542800
     },
     {
       "name": "Cummins",
       "isin": "US2310211063",
       "country": "US",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2032150
     },
     {
       "name": "CVS Health",
       "isin": "US1266501006",
       "country": "US",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1225839
     },
     {
       "name": "Dai-Ichi Life",
       "isin": "JP3476480003",
       "country": "JP",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1483202
     },
     {
       "name": "Danaher",
       "isin": "US2358511028",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 238951
     },
     {
       "name": "Darden Restaurants",
       "isin": "US2371941053",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 97075
     },
     {
       "name": "Deere & Company",
       "isin": "US2441991054",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 318101
     },
     {
       "name": "Derwent London",
       "isin": "GB0002652740",
       "country": "GB",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 2008125
     },
     {
       "name": "DexCom",
       "isin": "US2521311074",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 99281
     },
     {
       "name": "Digital Realty Trust",
       "isin": "US2538681030",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 156092
     },
     {
       "name": "DNB Bank",
       "isin": "NO0010161896",
       "country": "NO",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1535710
     },
     {
       "name": "Dollar General",
       "isin": "US2566771059",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 106495
     },
     {
       "name": "Dover",
       "isin": "US2600031080",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 196273
     },
     {
       "name": "DR Horton",
       "isin": "US23331A1097",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 108658
     },
     {
       "name": "Eaton",
       "isin": "IE00B8KQN827",
       "country": "IE",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 301014
     },
     {
       "name": "eBay",
       "isin": "US2786421030",
       "country": "US",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1015573
     },
     {
       "name": "EchoStar",
       "isin": "US2787681061",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 491927
     },
     {
       "name": "Edison International",
       "isin": "US2810201077",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1766036
     },
     {
       "name": "Edward Lifesciences Edwards Lifesciences",
       "isin": "US28176E1082",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 120612
     },
     {
       "name": "Eiffage",
       "isin": "FR0000130452",
       "country": "FR",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1369702
     },
     {
       "name": "Electronic Arts",
       "isin": "US2855121099",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1564518
     },
     {
       "name": "Elevance Health",
       "isin": "US0367521038",
       "country": "US",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1123748
     },
     {
       "name": "Eli Lilly",
       "isin": "US5324571083",
       "country": "US",
-      "weight_pct": 0.4
+      "weight_pct": 0.4,
+      "value_eur": 4140939
     },
     {
       "name": "Emerson Electric",
       "isin": "US2910111044",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 175490
     },
     {
       "name": "Enel",
       "isin": "IT0003128367",
       "country": "IT",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 249817
     },
     {
       "name": "Engie",
       "isin": "FR0010208488",
       "country": "FR",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 1942087
     },
     {
       "name": "Equinix",
       "isin": "US29444U7000",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 179427
     },
     {
       "name": "Equitable",
       "isin": "US29452E1010",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 145096
     },
     {
       "name": "Essential Utilities",
       "isin": "US29670G1022",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 287284
     },
     {
       "name": "Everest Group",
       "isin": "BMG3223R1088",
       "country": "BM",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 160947
     },
     {
       "name": "Eversource Energy",
       "isin": "US30040W1080",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 545052
     },
     {
       "name": "Exelon",
       "isin": "US30161N1019",
       "country": "US",
-      "weight_pct": 0.18
+      "weight_pct": 0.18,
+      "value_eur": 1816439
     },
     {
       "name": "Expedia Group",
       "isin": "US30212P3038",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1481399
     },
     {
       "name": "F5",
       "isin": "US3156161024",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1587001
     },
     {
       "name": "Fair Isaac",
       "isin": "US3032501047",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 93825
     },
     {
       "name": "Fastenal",
       "isin": "US3119001044",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 120847
     },
     {
       "name": "FedEx",
       "isin": "US31428X1063",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 229479
     },
     {
       "name": "Ferguson Enterprises",
       "isin": "US31488V1070",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 136928
     },
     {
       "name": "Fidelity National Information",
       "isin": "US31620M1062",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 200985
     },
     {
       "name": "Fifth Third Bancorp",
       "isin": "US3167731005",
       "country": "US",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1223444
     },
     {
       "name": "First Solar",
       "isin": "US3364331070",
       "country": "US",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1345754
     },
     {
       "name": "Fiserv",
       "isin": "US3377381088",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 60341
     },
     {
       "name": "Ford Motor",
       "isin": "US3453708600",
       "country": "US",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1351845
     },
     {
       "name": "Fortescue",
       "isin": "AU000000FMG4",
       "country": "AU",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1006624
     },
     {
       "name": "Fortinet",
       "isin": "US34959E1091",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1738662
     },
     {
       "name": "Fox A",
       "isin": "US35137L1052",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 148176
     },
     {
       "name": "Fox B",
       "isin": "US35137L2043",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1527749
     },
     {
       "name": "Freeport-McMoRan",
       "isin": "US35671D8570",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 219180
     },
     {
       "name": "Galderma Group",
       "isin": "CH1335392721",
       "country": "CH",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 531680
     },
     {
       "name": "Gartner",
       "isin": "US3666511072",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 61328
     },
     {
       "name": "GE Vernova",
       "isin": "US36828A1016",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 375584
     },
     {
       "name": "Gen Digital",
       "isin": "US6687711084",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 493891
     },
     {
       "name": "General Electric",
       "isin": "US3696043013",
       "country": "US",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 802438
     },
     {
       "name": "General Mills",
       "isin": "US3703341046",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1691177
     },
     {
       "name": "General Motors",
       "isin": "US37045V1008",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 206056
     },
     {
       "name": "Genuine Parts",
       "isin": "US3724601055",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 126354
     },
     {
       "name": "Gilead Sciences",
       "isin": "US3755581036",
       "country": "US",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 2937232
     },
     {
       "name": "GoDaddy",
       "isin": "US3802371076",
       "country": "US",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 990147
     },
     {
       "name": "Goldman Sachs The",
       "isin": "US38141G1040",
       "country": "US",
-      "weight_pct": 0.33
+      "weight_pct": 0.33,
+      "value_eur": 3466400
     },
     {
       "name": "Groupe Bruxelles Lambert",
       "isin": "BE0003797140",
       "country": "BE",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1439216
     },
     {
       "name": "GSK",
       "isin": "GB00BN7SWP63",
       "country": "GB",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2069923
     },
     {
       "name": "Hartford Insurance",
       "isin": "US4165151048",
       "country": "US",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 972124
     },
     {
       "name": "HCA Healthcare",
       "isin": "US40412C1018",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 147844
     },
     {
       "name": "Henderson Land Development",
       "isin": "HK0012000102",
       "country": "HK",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1037505
     },
     {
       "name": "Hensoldt",
       "isin": "DE000HAG0005",
       "country": "DE",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1061629
     },
     {
       "name": "Hilton",
       "isin": "US43300A2033",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 277051
     },
     {
       "name": "Home Depot The",
       "isin": "US4370761029",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 493654
     },
     {
       "name": "Honda Motor",
       "isin": "JP3854600008",
       "country": "JP",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1364379
     },
     {
       "name": "Howmet Aerospace",
       "isin": "US4432011082",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 414202
     },
     {
       "name": "HP",
       "isin": "US40434L1052",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 461454
     },
     {
       "name": "HSBC",
       "isin": "GB0005405286",
       "country": "GB",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 3113513
     },
     {
       "name": "Hubbell",
       "isin": "US4435106079",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 143311
     },
     {
       "name": "Humana",
       "isin": "US4448591028",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 723353
     },
     {
       "name": "Huntington Bancshares",
       "isin": "US4461501045",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 683734
     },
     {
       "name": "iA Financial",
       "isin": "CA45075E1043",
       "country": "CA",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 474557
     },
     {
       "name": "IDEX",
       "isin": "US45167R1041",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 146416
     },
     {
       "name": "IGM Financial",
       "isin": "CA4495861060",
       "country": "CA",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1511892
     },
     {
       "name": "Ignitis",
       "isin": "LT0000115768",
       "country": "LT",
-      "weight_pct": 0.58
+      "weight_pct": 0.58,
+      "value_eur": 6023849
     },
     {
       "name": "Illinois Tool Works",
       "isin": "US4523081093",
       "country": "US",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 904969
     },
     {
       "name": "Illumina",
       "isin": "US4523271090",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 334296
     },
     {
       "name": "Inbank",
       "isin": "EE3100008574",
       "country": "EE",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1643800
     },
     {
       "name": "Incyte",
       "isin": "US45337C1027",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1634449
     },
     {
       "name": "Infineon Technologies",
       "isin": "DE0006231004",
       "country": "DE",
-      "weight_pct": 0.71
+      "weight_pct": 0.71,
+      "value_eur": 7366254
     },
     {
       "name": "Ingersoll Rand",
       "isin": "US45687V1061",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 177308
     },
     {
       "name": "Intel",
       "isin": "US4581401001",
       "country": "US",
-      "weight_pct": 0.29
+      "weight_pct": 0.29,
+      "value_eur": 3046781
     },
     {
       "name": "Intercontinental Exchange",
       "isin": "US45866F1049",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 234720
     },
     {
       "name": "International Business Machines",
       "isin": "US4592001014",
       "country": "US",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 2919293
     },
     {
       "name": "Intuit",
       "isin": "US4612021034",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 258858
     },
     {
       "name": "Intuitive Surgical",
       "isin": "US46120E6023",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 335073
     },
     {
       "name": "IonQ",
       "isin": "US46222L1089",
       "country": "US",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 886813
     },
     {
       "name": "Ipsen",
       "isin": "FR0010259150",
       "country": "FR",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 814042
     },
     {
       "name": "Irish Residential Properties REIT",
       "isin": "IE00BJ34P519",
       "country": "IE",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 123808
     },
     {
       "name": "J Sainsbury",
       "isin": "GB00B019KW72",
       "country": "GB",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1436789
     },
     {
       "name": "Jack Henry & Associates",
       "isin": "US4262811015",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 508810
     },
     {
       "name": "Japan Post Insurance",
       "isin": "JP3233250004",
       "country": "JP",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1532770
     },
     {
       "name": "Japan Post",
       "isin": "JP3752900005",
       "country": "JP",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1747501
     },
     {
       "name": "JB Hunt Transport Services",
       "isin": "US4456581077",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 172113
     },
     {
       "name": "JM Smucker The",
       "isin": "US8326964058",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1541251
     },
     {
       "name": "Johnson & Johnson",
       "isin": "US4781601046",
       "country": "US",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 2866954
     },
     {
       "name": "JPMorgan Chase",
       "isin": "US46625H1005",
       "country": "US",
-      "weight_pct": 0.4
+      "weight_pct": 0.4,
+      "value_eur": 4101744
     },
     {
       "name": "Keurig Dr Pepper",
       "isin": "US49271V1008",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 159762
     },
     {
       "name": "Keysight Technologies",
       "isin": "US49338L1035",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1634308
     },
     {
       "name": "Kimberly - Clark Kimberly-Clark",
       "isin": "US4943681035",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1557257
     },
     {
       "name": "Kingfisher",
       "isin": "GB0033195214",
       "country": "GB",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1554943
     },
     {
       "name": "Kinross Gold",
       "isin": "CA4969024047",
       "country": "CA",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1804105
     },
     {
       "name": "KKR",
       "isin": "US48251W1045",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 163118
     },
     {
       "name": "Kla",
       "isin": "US4824801009",
       "country": "US",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 3057019
     },
     {
       "name": "Klepierre",
       "isin": "FR0000121964",
       "country": "FR",
-      "weight_pct": 0.29
+      "weight_pct": 0.29,
+      "value_eur": 2979819
     },
     {
       "name": "Kone",
       "isin": "FI0009013403",
       "country": "FI",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 426888
     },
     {
       "name": "Kongsberg Gruppen",
       "isin": "NO0013536151",
       "country": "NO",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1535898
     },
     {
       "name": "Koninklijke Ahold Delhaize",
       "isin": "NL0011794037",
       "country": "NL",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1456621
     },
     {
       "name": "Kraft Heinz",
       "isin": "US5007541064",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1616912
     },
     {
       "name": "Kroger The",
       "isin": "US5010441013",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 123683
     },
     {
       "name": "Lam Research",
       "isin": "US5128073062",
       "country": "US",
-      "weight_pct": 0.41
+      "weight_pct": 0.41,
+      "value_eur": 4233300
     },
     {
       "name": "Land Securities",
       "isin": "GB00BYW0PQ60",
       "country": "GB",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1400539
     },
     {
       "name": "Lennar",
       "isin": "US5260571048",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 132245
     },
     {
       "name": "LHV Group AS",
       "isin": "EE3100102203",
       "country": "EE",
-      "weight_pct": 0.42
+      "weight_pct": 0.42,
+      "value_eur": 4356864
     },
     {
       "name": "Linde",
       "isin": "IE000S9YS762",
       "country": "IE",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 643472
     },
     {
       "name": "Loews",
       "isin": "US5404241086",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1791100
     },
     {
       "name": "Lowe's Lowe’s Companies,",
       "isin": "US5486611073",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 214731
     },
     {
       "name": "Markel Group",
       "isin": "US5705351048",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 115199
     },
     {
       "name": "Marks & Spencer",
       "isin": "GB0031274896",
       "country": "GB",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1408561
     },
     {
       "name": "Marriott International",
       "isin": "US5719032022",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 201366
     },
     {
       "name": "Marsh & McLennan",
       "isin": "US5717481023",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 119545
     },
     {
       "name": "Marvell Technology",
       "isin": "US5738741041",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 680301
     },
     {
       "name": "Mastercard",
       "isin": "US57636Q1040",
       "country": "US",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1243504
     },
     {
       "name": "McDonald's",
       "isin": "US5801351017",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 374917
     },
     {
       "name": "McKesson",
       "isin": "US58155Q1031",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 194255
     },
     {
       "name": "Medtronic",
       "isin": "IE00BTN1Y115",
       "country": "IE",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 293654
     },
     {
       "name": "MercadoLibre",
       "isin": "US58733R1023",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 199338
     },
     {
       "name": "Mercedes-Benz Group",
       "isin": "DE0007100000",
       "country": "DE",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 724256
     },
     {
       "name": "Merck",
       "isin": "DE0006599905",
       "country": "DE",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1574398
     },
     {
       "name": "Merck",
       "isin": "US58933Y1055",
       "country": "US",
-      "weight_pct": 0.35
+      "weight_pct": 0.35,
+      "value_eur": 3608154
     },
     {
       "name": "Meta Platforms",
       "isin": "US30303M1027",
       "country": "US",
-      "weight_pct": 2.38
+      "weight_pct": 2.38,
+      "value_eur": 24614436
     },
     {
       "name": "Metlife",
       "isin": "US59156R1086",
       "country": "US",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1145385
     },
     {
       "name": "Microchip Technology",
       "isin": "US5950171042",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 87170
     },
     {
       "name": "Micron Technologies",
       "isin": "US5951121038",
       "country": "US",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 2888204
     },
     {
       "name": "Microsoft",
       "isin": "US5949181045",
       "country": "US",
-      "weight_pct": 2.21
+      "weight_pct": 2.21,
+      "value_eur": 22891989
     },
     {
       "name": "Mitsui OSK Lines",
       "isin": "JP3362700001",
       "country": "JP",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1297376
     },
     {
       "name": "Mondelez International",
       "isin": "US6092071058",
       "country": "US",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 631289
     },
     {
       "name": "MongoDB",
       "isin": "US60937P1066",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 79554
     },
     {
       "name": "Monster Beverage",
       "isin": "US61174X1090",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 190565
     },
     {
       "name": "Moody's",
       "isin": "US6153691059",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 152696
     },
     {
       "name": "Morgan Stanley",
       "isin": "US6174464486",
       "country": "US",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 3129662
     },
     {
       "name": "Mowi",
       "isin": "NO0003054108",
       "country": "NO",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1053363
     },
     {
       "name": "MS&AD Insurance Group Holdings",
       "isin": "JP3890310000",
       "country": "JP",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1515193
     },
     {
       "name": "MSCI",
       "isin": "US55354G1004",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 137138
     },
     {
       "name": "Murata Manufacturing",
       "isin": "JP3914400001",
       "country": "JP",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 321411
     },
     {
       "name": "NEC",
       "isin": "JP3733000008",
       "country": "JP",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 539259
     },
     {
       "name": "Nestle",
       "isin": "CH0038863350",
       "country": "CH",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 629915
     },
     {
       "name": "NetApp",
       "isin": "US64110D1046",
       "country": "US",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1305099
     },
     {
       "name": "Netflix",
       "isin": "US64110L1061",
       "country": "US",
-      "weight_pct": 0.26
+      "weight_pct": 0.26,
+      "value_eur": 2650519
     },
     {
       "name": "Newmont",
       "isin": "US6516391066",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 370447
     },
     {
       "name": "News",
       "isin": "US65249B1098",
       "country": "US",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1081530
     },
     {
       "name": "Nextera Energy",
       "isin": "US65339F1012",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1458911
     },
     {
       "name": "Nike",
       "isin": "US6541061031",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 143382
     },
     {
       "name": "Nippon Yusen",
       "isin": "JP3753000003",
       "country": "JP",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1534289
     },
     {
       "name": "NN Group",
       "isin": "NL0010773842",
       "country": "NL",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1567124
     },
     {
       "name": "NOBA Bank",
       "isin": "SE0023135298",
       "country": "SE",
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 2632168
     },
     {
       "name": "Norfolk Southern",
       "isin": "US6558441084",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1723300
     },
     {
       "name": "Northern Trust",
       "isin": "US6658591044",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 270242
     },
     {
       "name": "Novartis",
       "isin": "CH0012005267",
       "country": "CH",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 3097591
     },
     {
       "name": "Novo Nordisk",
       "isin": "DK0062498333",
       "country": "DK",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 998494
     },
     {
       "name": "Nucor",
       "isin": "US6703461052",
       "country": "US",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1050782
     },
     {
       "name": "Nvidia",
       "isin": "US67066G1040",
       "country": "US",
-      "weight_pct": 4.71
+      "weight_pct": 4.71,
+      "value_eur": 48828379
     },
     {
       "name": "NXP Semiconductors",
       "isin": "NL0009538784",
       "country": "NL",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 592261
     },
     {
       "name": "Obic",
       "isin": "JP3173400007",
       "country": "JP",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1045258
     },
     {
       "name": "Old Dominion Freight Line",
       "isin": "US6795801009",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 725269
     },
     {
       "name": "ON Semiconductor",
       "isin": "US6821891057",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 357130
     },
     {
       "name": "Open Text",
       "isin": "CA6837151068",
       "country": "CA",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1058675
     },
     {
       "name": "Oracle",
       "isin": "US68389X1054",
       "country": "US",
-      "weight_pct": 0.55
+      "weight_pct": 0.55,
+      "value_eur": 5720239
     },
     {
       "name": "O'Reilly Automotive",
       "isin": "US67103H1077",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 205567
     },
     {
       "name": "Orkla",
       "isin": "NO0003733800",
       "country": "NO",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 806958
     },
     {
       "name": "Otis Worldwide",
       "isin": "US68902V1070",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 122926
     },
     {
       "name": "Paccar",
       "isin": "US6937181088",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 241028
     },
     {
       "name": "Palantir Technologies",
       "isin": "US69608A1088",
       "country": "US",
-      "weight_pct": 0.31
+      "weight_pct": 0.31,
+      "value_eur": 3255998
     },
     {
       "name": "Palo Alto Networks",
       "isin": "US6974351057",
       "country": "US",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1230379
     },
     {
       "name": "Paychex",
       "isin": "US7043261079",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 124953
     },
     {
       "name": "Paycom Software",
       "isin": "US70432V1026",
       "country": "US",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 780566
     },
     {
       "name": "PayPal",
       "isin": "US70450Y1038",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 98127
     },
     {
       "name": "Pentair",
       "isin": "IE00BLS09M33",
       "country": "IE",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 159940
     },
     {
       "name": "Pepsi",
       "isin": "US7134481081",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1423676
     },
     {
       "name": "Pfizer",
       "isin": "US7170811035",
       "country": "US",
-      "weight_pct": 0.26
+      "weight_pct": 0.26,
+      "value_eur": 2668098
     },
     {
       "name": "Pinterest",
       "isin": "US72352L1061",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 326332
     },
     {
       "name": "PNC Financial Services",
       "isin": "US6934751057",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 224611
     },
     {
       "name": "Power",
       "isin": "CA7392391016",
       "country": "CA",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1490632
     },
     {
       "name": "Procter & Gamble The",
       "isin": "US7427181091",
       "country": "US",
-      "weight_pct": 0.3
+      "weight_pct": 0.3,
+      "value_eur": 3140828
     },
     {
       "name": "Progressive The",
       "isin": "US7433151039",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 236514
     },
     {
       "name": "Prologis",
       "isin": "US74340W1036",
       "country": "US",
-      "weight_pct": 0.23
+      "weight_pct": 0.23,
+      "value_eur": 2368190
     },
     {
       "name": "Prudential",
       "isin": "US7443201022",
       "country": "US",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 618870
     },
     {
       "name": "Public Service Enterprise",
       "isin": "US7445731067",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 266880
     },
     {
       "name": "Public Storage",
       "isin": "US74460D1090",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 135468
     },
     {
       "name": "Pulte Homes PulteGroup",
       "isin": "US7458671010",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 719901
     },
     {
       "name": "Pure Storage",
       "isin": "US74624M1027",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1466289
     },
     {
       "name": "Qualcomm",
       "isin": "US7475251036",
       "country": "US",
-      "weight_pct": 0.41
+      "weight_pct": 0.41,
+      "value_eur": 4260456
     },
     {
       "name": "Quanta Services",
       "isin": "US74762E1029",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 436197
     },
     {
       "name": "Quantas Airways Qantas Airways",
       "isin": "AU000000QAN2",
       "country": "AU",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 512778
     },
     {
       "name": "Raiffeisen",
       "isin": "AT0000606306",
       "country": "AT",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1636479
     },
     {
       "name": "Realty Income",
       "isin": "US7561091049",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 256416
     },
     {
       "name": "Recruit",
       "isin": "JP3970300004",
       "country": "JP",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 548462
     },
     {
       "name": "Reddit",
       "isin": "US75734B1008",
       "country": "US",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1188611
     },
     {
       "name": "Regeneron Pharmaceuticals",
       "isin": "US75886F1075",
       "country": "US",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 2006780
     },
     {
       "name": "Regions Financial",
       "isin": "US7591EP1005",
       "country": "US",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 894605
     },
     {
       "name": "Reliance",
       "isin": "US7595091023",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 115527
     },
     {
       "name": "Renault",
       "isin": "FR0000131906",
       "country": "FR",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1040340
     },
     {
       "name": "Renesas Electronics",
       "isin": "JP3164720009",
       "country": "JP",
-      "weight_pct": 0.06
+      "weight_pct": 0.06,
+      "value_eur": 601633
     },
     {
       "name": "Republic Services",
       "isin": "US7607591002",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 240701
     },
     {
       "name": "Resmed",
       "isin": "US7611521078",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 461685
     },
     {
       "name": "Restaurant Brands International",
       "isin": "CA76131D1033",
       "country": "CA",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1451363
     },
     {
       "name": "Rexel",
       "isin": "FR0010451203",
       "country": "FR",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1582186
     },
     {
       "name": "Robinhood Markets",
       "isin": "US7707001027",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1675513
     },
     {
       "name": "ROBLOX",
       "isin": "US7710491033",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 62889
     },
     {
       "name": "Roche",
       "isin": "CH0012032113",
       "country": "CH",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1100314
     },
     {
       "name": "Roche",
       "isin": "CH0012032048",
       "country": "CH",
-      "weight_pct": 0.29
+      "weight_pct": 0.29,
+      "value_eur": 2995362
     },
     {
       "name": "Rocket Lab USA",
       "isin": "US7731211089",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 134104
     },
     {
       "name": "Rockwell Automation",
       "isin": "US7739031091",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 147603
     },
     {
       "name": "Roper Technologies",
       "isin": "US7766961061",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 144724
     },
     {
       "name": "S&P Global",
       "isin": "US78409V1044",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 314881
     },
     {
       "name": "Salesforce",
       "isin": "US79466L3024",
       "country": "US",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1052086
     },
     {
       "name": "Samsung Electronics",
       "isin": "US7960508882",
       "country": "KR",
-      "weight_pct": 0.75
+      "weight_pct": 0.75,
+      "value_eur": 7799757
     },
     {
       "name": "Sanofi",
       "isin": "FR0000120578",
       "country": "FR",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1444291
     },
     {
       "name": "SBA Communications",
       "isin": "US78410G1040",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 95188
     },
     {
       "name": "Segro",
       "isin": "GB00B5ZN1N88",
       "country": "GB",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1508137
     },
     {
       "name": "Sensata Technologies",
       "isin": "GB00BFMBMT84",
       "country": "GB",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 423059
     },
     {
       "name": "SentinelOne",
       "isin": "US81730H1095",
       "country": "US",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1626140
     },
     {
       "name": "Servicenow",
       "isin": "US81762P1021",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 564878
     },
     {
       "name": "Simon Property Group",
       "isin": "US8288061091",
       "country": "US",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2020435
     },
     {
       "name": "Singapore Airlines",
       "isin": "SG1V61937297",
       "country": "SG",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1192532
     },
     {
       "name": "Smiths",
       "isin": "GB00B1WY2338",
       "country": "GB",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 285769
     },
     {
       "name": "Snap",
       "isin": "US83304A1060",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 290480
     },
     {
       "name": "Snap-On",
       "isin": "US8330341012",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 168360
     },
     {
       "name": "Snowflake",
       "isin": "US8334451098",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 135111
     },
     {
       "name": "Societe Generale",
       "isin": "FR0000130809",
       "country": "FR",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 1953694
     },
     {
       "name": "Sodexo",
       "isin": "FR0000121220",
       "country": "FR",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 327174
     },
     {
       "name": "SoFi Technologies",
       "isin": "US83406F1021",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 57462
     },
     {
       "name": "Sompo",
       "isin": "JP3165000005",
       "country": "JP",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1567240
     },
     {
       "name": "Sonic Healthcare",
       "isin": "AU000000SHL7",
       "country": "AU",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1348533
     },
     {
       "name": "SS&C Technologies Holdings",
       "isin": "US78467J1007",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1543870
     },
     {
       "name": "Standard Chartered Bank",
       "isin": "GB0004082847",
       "country": "GB",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1701436
     },
     {
       "name": "Starbucks",
       "isin": "US8552441094",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 196303
     },
     {
       "name": "Steel Dynamics",
       "isin": "US8581191009",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 200802
     },
     {
       "name": "Stryker",
       "isin": "US8636671013",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 244912
     },
     {
       "name": "Subaru",
       "isin": "JP3814800003",
       "country": "JP",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1379564
     },
     {
       "name": "Sumitomo Mitsui Financial Group",
       "isin": "JP3890350006",
       "country": "JP",
-      "weight_pct": 0.54
+      "weight_pct": 0.54,
+      "value_eur": 5635902
     },
     {
       "name": "Sun Communities",
       "isin": "US8666741041",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 773885
     },
     {
       "name": "Suntory Beverage & Food",
       "isin": "JP3336560002",
       "country": "JP",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1337161
     },
     {
       "name": "Svenska Handelsbanken",
       "isin": "SE0007100599",
       "country": "SE",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1719391
     },
     {
       "name": "Swedbank A",
       "isin": "SE0000242455",
       "country": "SE",
-      "weight_pct": 0.18
+      "weight_pct": 0.18,
+      "value_eur": 1822960
     },
     {
       "name": "Synchrony Financial",
       "isin": "US87165B1035",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1552580
     },
     {
       "name": "Synopsys",
       "isin": "US8716071076",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 211462
     },
     {
       "name": "Sysco",
       "isin": "US8718291078",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 133234
     },
     {
       "name": "Sysmex",
       "isin": "JP3351100007",
       "country": "JP",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 262085
     },
     {
       "name": "T Rowe Price",
       "isin": "US74144T1088",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 266315
     },
     {
       "name": "Taiwan Semiconductor Manufacturing ADR",
       "isin": "US8740391003",
       "country": "TW",
-      "weight_pct": 0.93
+      "weight_pct": 0.93,
+      "value_eur": 9619461
     },
     {
       "name": "Takeda",
       "isin": "JP3463000004",
       "country": "JP",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1012435
     },
     {
       "name": "Tallink Grupp",
       "isin": "EE3100004466",
       "country": "EE",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1534134
     },
     {
       "name": "Tallinna Sadam",
       "isin": "EE3100021635",
       "country": "EE",
-      "weight_pct": 0.18
+      "weight_pct": 0.18,
+      "value_eur": 1910988
     },
     {
       "name": "Target",
       "isin": "US87612E1064",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 537101
     },
     {
       "name": "TE Connectivity",
       "isin": "IE000IVNQZ81",
       "country": "IE",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1419084
     },
     {
       "name": "Techtronic Industries",
       "isin": "HK0669013440",
       "country": "HK",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1325023
     },
     {
       "name": "Telecom Italia",
       "isin": "IT0003497168",
       "country": "IT",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1597012
     },
     {
       "name": "Telefonaktiebolaget LM Ericsson",
       "isin": "SE0000108656",
       "country": "SE",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1741531
     },
     {
       "name": "Telefonica",
       "isin": "ES0178430E18",
       "country": "ES",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1480464
     },
     {
       "name": "Telia Lietuva",
       "isin": "LT0000123911",
       "country": "LT",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 732794
     },
     {
       "name": "Teradyne",
       "isin": "US8807701029",
       "country": "US",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 1958623
     },
     {
       "name": "Tesco",
       "isin": "GB00BLGZ9862",
       "country": "GB",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1535231
     },
     {
       "name": "Tesla",
       "isin": "US88160R1014",
       "country": "US",
-      "weight_pct": 0.68
+      "weight_pct": 0.68,
+      "value_eur": 7047763
     },
     {
       "name": "Texas Instruments",
       "isin": "US8825081040",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 336581
     },
     {
       "name": "Thermo Fisher Scientific",
       "isin": "US8835561023",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 349204
     },
     {
       "name": "Tis",
       "isin": "JP3104890003",
       "country": "JP",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1137049
     },
     {
       "name": "TJX The",
       "isin": "US8725401090",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 560727
     },
     {
       "name": "TKM Grupp",
       "isin": "EE0000001105",
       "country": "EE",
-      "weight_pct": 0.4
+      "weight_pct": 0.4,
+      "value_eur": 4115709
     },
     {
       "name": "T-Mobile US",
       "isin": "US8725901040",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 199778
     },
     {
       "name": "Tokio Marine",
       "isin": "JP3910660004",
       "country": "JP",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1070298
     },
     {
       "name": "Tokyo Electron",
       "isin": "JP3571400005",
       "country": "JP",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1544220
     },
     {
       "name": "Toyota Tsusho",
       "isin": "JP3635000007",
       "country": "JP",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1610092
     },
     {
       "name": "Trade Desk The",
       "isin": "US88339J1051",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 211539
     },
     {
       "name": "Travelers The",
       "isin": "US89417E1091",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 159372
     },
     {
       "name": "Trimble",
       "isin": "US8962391004",
       "country": "US",
-      "weight_pct": 0.05
+      "weight_pct": 0.05,
+      "value_eur": 511088
     },
     {
       "name": "Truist Financial Corporation",
       "isin": "US89832Q1094",
       "country": "US",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1388115
     },
     {
       "name": "Uber Technologies",
       "isin": "US90353T1007",
       "country": "US",
-      "weight_pct": 0.25
+      "weight_pct": 0.25,
+      "value_eur": 2602448
     },
     {
       "name": "UBS",
       "isin": "CH0244767585",
       "country": "CH",
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 2275268
     },
     {
       "name": "Unibail-Rodamco-Westfield",
       "isin": "FR0013326246",
       "country": "FR",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1414226
     },
     {
       "name": "Unilever",
       "isin": "GB00BVZK7T90",
       "country": "GB",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1393955
     },
     {
       "name": "United Airlines",
       "isin": "US9100471096",
       "country": "US",
-      "weight_pct": 0.07
+      "weight_pct": 0.07,
+      "value_eur": 697680
     },
     {
       "name": "United Health Group UnitedHealth Group",
       "isin": "US91324P1021",
       "country": "US",
-      "weight_pct": 0.22
+      "weight_pct": 0.22,
+      "value_eur": 2276737
     },
     {
       "name": "United Parcel Service B",
       "isin": "US9113121068",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 163396
     },
     {
       "name": "United Rentals",
       "isin": "US9113631090",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 136524
     },
     {
       "name": "United Therapeutics",
       "isin": "US91307C1027",
       "country": "US",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1430992
     },
     {
       "name": "US Bancorp",
       "isin": "US9029733048",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 246606
     },
     {
       "name": "Varonis Systems",
       "isin": "US9222801022",
       "country": "US",
-      "weight_pct": 0.42
+      "weight_pct": 0.42,
+      "value_eur": 4401360
     },
     {
       "name": "VeriSign",
       "isin": "US92343E1029",
       "country": "US",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1391922
     },
     {
       "name": "Verisk Analytics",
       "isin": "US92345Y1064",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 128596
     },
     {
       "name": "Verizon Communications",
       "isin": "US92343V1044",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 382909
     },
     {
       "name": "Versant Media Group Inc",
       "isin": "US9252831030",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 101533
     },
     {
       "name": "Vertex Pharmaceuticals",
       "isin": "US92532F1003",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 246210
     },
     {
       "name": "Vertiv Holdings",
       "isin": "US92537N1081",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 207782
     },
     {
       "name": "VICI Properties",
       "isin": "US9256521090",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1532103
     },
     {
       "name": "Visa",
       "isin": "US92826C8394",
       "country": "US",
-      "weight_pct": 0.49
+      "weight_pct": 0.49,
+      "value_eur": 5076523
     },
     {
       "name": "Volvo B",
       "isin": "SE0000115446",
       "country": "SE",
-      "weight_pct": 0.19
+      "weight_pct": 0.19,
+      "value_eur": 1942154
     },
     {
       "name": "Vonovia",
       "isin": "DE000A1ML7J1",
       "country": "DE",
-      "weight_pct": 0.24
+      "weight_pct": 0.24,
+      "value_eur": 2475304
     },
     {
       "name": "Wal-Mart Stores Walmart",
       "isin": "US9311421039",
       "country": "US",
-      "weight_pct": 0.43
+      "weight_pct": 0.43,
+      "value_eur": 4429862
     },
     {
       "name": "Walt Disney The",
       "isin": "US2546871060",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 345127
     },
     {
       "name": "Warner Bros Discovery Discovery",
       "isin": "US9344231041",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 100578
     },
     {
       "name": "Waste Management",
       "isin": "US94106L1098",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 265518
     },
     {
       "name": "Watsco",
       "isin": "US9426222009",
       "country": "US",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 1733061
     },
     {
       "name": "Wells Fargo",
       "isin": "US9497461015",
       "country": "US",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 409646
     },
     {
       "name": "Welltower",
       "isin": "US95040Q1040",
       "country": "US",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2104709
     },
     {
       "name": "Western Digital",
       "isin": "US9581021055",
       "country": "US",
-      "weight_pct": 0.02
+      "weight_pct": 0.02,
+      "value_eur": 198664
     },
     {
       "name": "Weyerhaeuser",
       "isin": "US9621661043",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 120566
     },
     {
       "name": "WH Group",
       "isin": "KYG960071028",
       "country": "KY",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1511649
     },
     {
       "name": "Workday",
       "isin": "US98138H1014",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 118097
     },
     {
       "name": "WP Carey",
       "isin": "US92936U1097",
       "country": "US",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 788257
     },
     {
       "name": "WW Grainger",
       "isin": "US3848021040",
       "country": "US",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 828170
     },
     {
       "name": "Yum Brands Yum! Brands",
       "isin": "US9884981013",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 110996
     },
     {
       "name": "Zalando",
       "isin": "DE000ZAL1111",
       "country": "DE",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 795983
     },
     {
       "name": "Zebra Technologies",
       "isin": "US9892071054",
       "country": "US",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 329425
     },
     {
       "name": "Zimmer Biomet",
       "isin": "US98956P1021",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 125713
     },
     {
       "name": "Zoetis",
       "isin": "US98978V1035",
       "country": "US",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 111608
     },
     {
       "name": "Zoom Video Communications",
       "isin": "US98980L1017",
       "country": "US",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 1530689
     },
     {
       "name": "ZOZO",
       "isin": "JP3399310006",
       "country": "JP",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 414714
     }
   ],
   "bonds": [
     {
       "name": "AS PRFoods 6.250% 280331",
       "isin": "EE3300001577",
-      "weight_pct": 0.13
+      "weight_pct": 0.13,
+      "value_eur": 1370578
     },
     {
       "name": "City of Tallinn Estonia FRN 271129 (3)",
       "isin": "XS0311261936",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1229785
     },
     {
       "name": "Coop Pank 12.000% CoCo (Perpetual) (3)",
       "isin": "EE3300003649",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 1673529
     },
     {
       "name": "LHV Group 10.500% (Perpetual) (3)",
       "isin": "EE3300002856",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 1471568
     },
     {
       "name": "LHV Group 9.500% (Perpetual)",
       "isin": "XS3042781024",
-      "weight_pct": 0.32
+      "weight_pct": 0.32,
+      "value_eur": 3271764
     },
     {
       "name": "Prologis International 1.625% 320617",
       "isin": "XS2187529180",
-      "weight_pct": 0.01
+      "weight_pct": 0.01,
+      "value_eur": 90749
     },
     {
       "name": "UPP Taevavärava Logistics OÜ 5.000% 290228 (3)",
       "isin": "EE3300111665",
-      "weight_pct": 0.47
+      "weight_pct": 0.47,
+      "value_eur": 4826409
     }
   ],
   "bond_funds": [],
   "pe_funds": [
     {
       "name": "Alpha Cee II L.P.",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 306568
     },
     {
       "name": "Amber Trust II S.C.A",
       "weight_pct": 0.06,
-      "isin": "LU0207792929"
+      "isin": "LU0207792929",
+      "value_eur": 589041
     },
     {
       "name": "Baltcap Growth Fund",
-      "weight_pct": 0.48
+      "weight_pct": 0.48,
+      "value_eur": 5019795
     },
     {
       "name": "Baltcap Private Equity Fund",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 288412
     },
     {
       "name": "BPEF III Supplementary Investment Facility UF",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "value_eur": 1160054
     },
     {
       "name": "Karma Ventures I SICAV-SIF fund Karma Ventures LU EUR 1,00 2 116 008 1,39 2 951 015 0,28%",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 2951015
     },
     {
       "name": "Karma Ventures II SCSp Karma Ventures LU EUR 1,00 1 879 754 1,08 2 036 588 0,20%",
-      "weight_pct": 0.2
+      "weight_pct": 0.2,
+      "value_eur": 2036588
     },
     {
       "name": "KS",
-      "weight_pct": 0.51
+      "weight_pct": 0.51,
+      "value_eur": 5311779
     },
     {
       "name": "NordicNinja Fund II SCSp NordicNinja Fund II General Partner S.à r.l LU EUR 1,00 3 640 649 1,02 3 727 501 0,36%",
-      "weight_pct": 0.36
+      "weight_pct": 0.36,
+      "value_eur": 3727501
     },
     {
       "name": "PE FoF usaldusfond PE FoF GP OÜ",
       "weight_pct": 0.03,
-      "isin": "EE3500001583"
+      "isin": "EE3500001583",
+      "value_eur": 278294
     },
     {
       "name": "Practica Venture Capital III Practica Venture Capital III LT EUR 1,00 1 446 994 0,87 1 260 013 0,12%",
-      "weight_pct": 0.12
+      "weight_pct": 0.12,
+      "value_eur": 1260013
     },
     {
       "name": "Usaldusfond Trind Ventures Fund II Trind Ventures OU",
       "weight_pct": 0.11,
-      "isin": "EE3500001625"
+      "isin": "EE3500001625",
+      "value_eur": 1164682
     }
   ],
   "re_funds": [
     {
       "name": "Baltcap Infrastructure Fund",
-      "weight_pct": 0.53
+      "weight_pct": 0.53,
+      "value_eur": 5449075
     },
     {
       "name": "BaltCap Infrastructure Fund II BaltCap AS EE EUR 1,00 869 887 1,15 1 004 386 0,10%",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 1004386
     },
     {
       "name": "Birdeye Capital Timber Fund 2 AS Birdeye Capital",
       "weight_pct": 0.72,
-      "isin": "EE3500110269"
+      "isin": "EE3500110269",
+      "value_eur": 7472509
     },
     {
       "name": "Birdeye Capital Timber Fund 3 AS Birdeye Capital",
       "weight_pct": 0.21,
-      "isin": "EE3600001756"
+      "isin": "EE3600001756",
+      "value_eur": 2162852
     },
     {
       "name": "East Capital Baltic Property Fund III East Capital Asset Management AB",
       "weight_pct": 1.72,
-      "isin": "LU1274822847"
+      "isin": "LU1274822847",
+      "value_eur": 17835558
     },
     {
       "name": "EfTEN Kinnisvarafond II AS EfTEN Capital AS",
       "weight_pct": 2.32,
-      "isin": "EE3100125238"
+      "isin": "EE3100125238",
+      "value_eur": 24024455
     },
     {
       "name": "Lumi Retal Property Fund",
-      "weight_pct": 0.93
+      "weight_pct": 0.93,
+      "value_eur": 9584201
     },
     {
       "name": "SG Capital Partners Fund 1 SG Capital Partners AIFP SIA LV EUR 1,01 4 650 088 1,59 7 273 472 0,70%",
-      "weight_pct": 0.7
+      "weight_pct": 0.7,
+      "value_eur": 7273472
     },
     {
       "name": "Usaldusfond",
-      "weight_pct": 1.04
+      "weight_pct": 1.04,
+      "value_eur": 10813252
     },
     {
       "name": "Usaldusfond",
-      "weight_pct": 0.23
+      "weight_pct": 0.23,
+      "value_eur": 2395016
     }
   ],
   "deposits_pct": 1.79,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "stocks": 71.02,
+    "equity_funds": 14.94,
+    "re_funds": 8.49,
+    "pe_funds": 2.33,
+    "bond_funds": 0.0,
+    "bonds": 1.34
+  },
+  "_pdf_holding_counts": {
+    "stocks": 445,
+    "equity_funds": 8,
+    "re_funds": 10,
+    "pe_funds": 12,
+    "bond_funds": 1,
+    "bonds": 7
+  },
+  "_total_value_eur": 1035281381
 }

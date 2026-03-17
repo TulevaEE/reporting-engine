@@ -9,62 +9,74 @@
     {
       "name": "Access Edge Global A (2)",
       "weight_pct": 5.03,
-      "isin": "SE0014429353"
+      "isin": "SE0014429353",
+      "value_eur": 615852
     },
     {
       "name": "Access Edge Japan A (2)",
       "weight_pct": 0.65,
-      "isin": "SE0007074091"
+      "isin": "SE0007074091",
+      "value_eur": 79550
     },
     {
       "name": "Access Global A (2)",
       "weight_pct": 13.16,
-      "isin": "SE0007074059"
+      "isin": "SE0007074059",
+      "value_eur": 1610071
     },
     {
       "name": "Access USA A (2)",
       "weight_pct": 5.49,
-      "isin": "SE0007074083"
+      "isin": "SE0007074083",
+      "value_eur": 672059
     },
     {
       "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT Amundi Luxembourg SA",
       "weight_pct": 4.95,
-      "isin": "LU2345046655"
+      "isin": "LU2345046655",
+      "value_eur": 605622
     },
     {
       "name": "Amundi MSCI World Climate Net Zero Ambition PAB UC Amundi Asset Management SAS",
       "weight_pct": 14.75,
-      "isin": "IE000CL68Z69"
+      "isin": "IE000CL68Z69",
+      "value_eur": 1805137
     },
     {
       "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits Amundi Ireland Ltd",
       "weight_pct": 9.69,
-      "isin": "IE000O5FBC47"
+      "isin": "IE000O5FBC47",
+      "value_eur": 1185787
     },
     {
       "name": "Globalfond A (2)",
       "weight_pct": 10.75,
-      "isin": "SE0000542979"
+      "isin": "SE0000542979",
+      "value_eur": 1315719
     },
     {
       "name": "HSBC MSCI World Climate Paris Aligned UCITS ETF HSBC Holdings PLC",
       "weight_pct": 15.53,
-      "isin": "IE00BP2C1V62"
+      "isin": "IE00BP2C1V62",
+      "value_eur": 1899671
     },
     {
       "name": "iShares MSCI World Screened UCITS ETF",
       "weight_pct": 4.92,
-      "isin": "IE00BFNM3J75"
+      "isin": "IE00BFNM3J75",
+      "value_eur": 601950
     },
     {
       "name": "New Energy A (2)",
       "weight_pct": 0.58,
-      "isin": "SE0000538969"
+      "isin": "SE0000538969",
+      "value_eur": 71014
     },
     {
       "name": "Xtrackers MSCI Japan ESG UCITS ETF",
       "weight_pct": 6.79,
-      "isin": "IE00BG36TC12"
+      "isin": "IE00BG36TC12",
+      "value_eur": 830604
     }
   ],
   "stocks": [
@@ -72,85 +84,99 @@
       "name": "Akola group",
       "isin": "LT0000128092",
       "country": "LT",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 19635
     },
     {
       "name": "Apranga",
       "isin": "LT0000102337",
       "country": "LT",
-      "weight_pct": 0.14
+      "weight_pct": 0.14,
+      "value_eur": 16605
     },
     {
       "name": "Artea Bankas",
       "isin": "LT0000102253",
       "country": "LT",
-      "weight_pct": 0.31
+      "weight_pct": 0.31,
+      "value_eur": 38416
     },
     {
       "name": "AS Merko",
       "isin": "EE3100098328",
       "country": "EE",
-      "weight_pct": 0.16
+      "weight_pct": 0.16,
+      "value_eur": 19320
     },
     {
       "name": "Banco Bilbao Vizcaya Argentaria",
       "isin": "ES0113211835",
       "country": "ES",
-      "weight_pct": 0.54
+      "weight_pct": 0.54,
+      "value_eur": 65830
     },
     {
       "name": "Bank of America",
       "isin": "US0605051046",
       "country": "US",
-      "weight_pct": 0.59
+      "weight_pct": 0.59,
+      "value_eur": 71860
     },
     {
       "name": "Ignitis",
       "isin": "LT0000115768",
       "country": "LT",
-      "weight_pct": 0.64
+      "weight_pct": 0.64,
+      "value_eur": 77798
     },
     {
       "name": "Inbank",
       "isin": "EE3100008574",
       "country": "EE",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 5500
     },
     {
       "name": "LHV Group AS",
       "isin": "EE3100102203",
       "country": "EE",
-      "weight_pct": 0.74
+      "weight_pct": 0.74,
+      "value_eur": 90500
     },
     {
       "name": "NOBA Bank",
       "isin": "SE0023135298",
       "country": "SE",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 34637
     },
     {
       "name": "Sumitomo Mitsui Financial Group",
       "isin": "JP3890350006",
       "country": "JP",
-      "weight_pct": 0.61
+      "weight_pct": 0.61,
+      "value_eur": 74549
     },
     {
       "name": "Tallink Grupp",
       "isin": "EE3100004466",
       "country": "EE",
-      "weight_pct": 0.1
+      "weight_pct": 0.1,
+      "value_eur": 11801
     },
     {
       "name": "Tallinna Sadam",
       "isin": "EE3100021635",
       "country": "EE",
-      "weight_pct": 0.41
+      "weight_pct": 0.41,
+      "value_eur": 50332
     },
     {
       "name": "TKM Grupp",
       "isin": "EE0000001105",
       "country": "EE",
-      "weight_pct": 0.55
+      "weight_pct": 0.55,
+      "value_eur": 67284
     }
   ],
   "bonds": [],
@@ -158,33 +184,52 @@
   "pe_funds": [
     {
       "name": "NordicNinja Fund II SCSp NordicNinja Fund II General Partner S.à r.l LU EUR 1,00 18 203 1,02 18 638 0,15%",
-      "weight_pct": 0.15
+      "weight_pct": 0.15,
+      "value_eur": 18638
     },
     {
       "name": "Practica Venture Capital III Practica Venture Capital III LT EUR 1,00 10 913 0,87 9 503 0,08%",
-      "weight_pct": 0.08
+      "weight_pct": 0.08,
+      "value_eur": 9503
     },
     {
       "name": "Usaldusfond Trind Ventures Fund II Trind Ventures OU",
       "weight_pct": 0.07,
-      "isin": "EE3500001625"
+      "isin": "EE3500001625",
+      "value_eur": 9027
     }
   ],
   "re_funds": [
     {
       "name": "BaltCap Infrastructure Fund II BaltCap AS EE EUR 1,00 4 349 1,15 5 022 0,04%",
-      "weight_pct": 0.04
+      "weight_pct": 0.04,
+      "value_eur": 5022
     },
     {
       "name": "Usaldusfond",
-      "weight_pct": 0.28
+      "weight_pct": 0.28,
+      "value_eur": 34215
     },
     {
       "name": "Eften Real Estate Fund Aktsia III",
       "weight_pct": 0.66,
-      "isin": "EE3100127242"
+      "isin": "EE3100127242",
+      "value_eur": 80770
     }
   ],
   "deposits_pct": 1.18,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "stocks": 5.26,
+    "equity_funds": 92.3,
+    "re_funds": 0.98,
+    "pe_funds": 0.3
+  },
+  "_pdf_holding_counts": {
+    "stocks": 14,
+    "equity_funds": 13,
+    "re_funds": 3,
+    "pe_funds": 3
+  },
+  "_total_value_eur": 12239236
 }

@@ -9,47 +9,56 @@
     {
       "name": "Amundi Prime All Country World Amundi Prime All Country World",
       "isin": "IE0009HF1MK9",
-      "weight_pct": 6.33
+      "weight_pct": 6.33,
+      "value_eur": 14469312
     },
     {
       "name": "Amundi Prime All Country World Amundi",
       "isin": "IE0003XJA0J9",
-      "weight_pct": 0.17
+      "weight_pct": 0.17,
+      "value_eur": 396760
     },
     {
       "name": "Amundi Prime Global UCITS ETF Amundi Asset Management",
       "isin": "IE000QIF5N15",
-      "weight_pct": 24.27
+      "weight_pct": 24.27,
+      "value_eur": 55458405
     },
     {
       "name": "db x-trackers MSCI Emerging Markets Index UCITS Xtrackers",
       "isin": "IE00BTJRMP35",
-      "weight_pct": 6.06
+      "weight_pct": 6.06,
+      "value_eur": 13852000
     },
     {
       "name": "HSBC EURO STOXX 50 UCITS ETF HSBC ETFs plc",
       "isin": "IE000MWUQBJ0",
-      "weight_pct": 7.12
+      "weight_pct": 7.12,
+      "value_eur": 16266174
     },
     {
       "name": "HSBC MSCI Emerging Markets UCITS HSBC Global Asset Management UK",
       "isin": "IE00B5SSQT16",
-      "weight_pct": 27.2
+      "weight_pct": 27.2,
+      "value_eur": 62156457
     },
     {
       "name": "iShares Core MSCI Emerging Markets IMI UCITS ETF BlackRock Asset Management Ireland Limited",
       "isin": "IE00BKM4GZ66",
-      "weight_pct": 3.6
+      "weight_pct": 3.6,
+      "value_eur": 8217600
     },
     {
       "name": "SPDR S P 500 UCITS ETF SSGA SPDR ETFS Europe II PLC",
       "isin": "IE000XZSV718",
-      "weight_pct": 22.99
+      "weight_pct": 22.99,
+      "value_eur": 52524178
     },
     {
       "name": "AMUNDI PRIME JAPAN UCITS ETF Amundi",
       "isin": "LU2089238385",
-      "weight_pct": 1.92
+      "weight_pct": 1.92,
+      "value_eur": 4392570
     }
   ],
   "stocks": [],
@@ -58,5 +67,12 @@
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 0.35,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "equity_funds": 99.66
+  },
+  "_pdf_holding_counts": {
+    "equity_funds": 9
+  },
+  "_total_value_eur": 228536017
 }
