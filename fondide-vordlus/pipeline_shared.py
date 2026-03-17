@@ -862,132 +862,231 @@ def _clean_luminor_name(raw):
     return result
 
 
-def parse_seb_indeks_monthly(pdf_path):
-    """Parse SEB Indeks monthly report (multi-column layout with ETF allocations).
-    Returns: {allocations: [{name, isin, weight_pct}], deposits_pct: float}
+def parse_seb_pdf(pdf_path):
+    """Parse any SEB fund investment report PDF using word-level extraction.
+
+    Uses pdfplumber word extraction with coordinates to match names, ISINs,
+    percentages, and EUR values that appear on the same row (same y-coordinate).
+    Works for both inline and multi-column SEB PDF layouts.
+
+    Returns dict with keys: equity_funds, bonds, stocks, re_funds, pe_funds,
+    bond_funds, deposits_pct, derivatives_pct.
+    Each list contains dicts: {name, isin, weight_pct, value_eur}.
     """
+    from collections import defaultdict
+
+    # Strategy patterns that mark where the fund name ends
+    _STRATEGY_PATTERNS = [
+        r'\s+Vastutustundlik\b.*',
+        r'\s+Euroopa\s+(pangandussektori|aktsiate|ehituse|ettevõtete|võlakirjade).*',
+        r'\s+USA\s+(tehnoloogia|aktsiate|väikeettevõtete).*',
+        r'\s+Globaalne\b.*',
+        r'\s+Ida-Euroopa\b.*',
+        r'\s+Poola\s+aktsiate.*',
+        r'\s+Jaapani\s+aktsiate.*',
+        r'\s+Eesti,\s+Läti.*',
+        r'\s+Eesti\s+metsafond.*',
+        r'\s+Varajases\b.*',
+        r'\s+arenevate\b.*',
+        r'\s+Šiauliai\b.*',
+        r'\s+Inbank\s+võlakiri.*',
+        r'\s+LHV\s+panga\b.*',
+        r'\s+Luminor\s+panga\b.*',
+        r'\s+IT\s+firma\b.*',
+        r'\s+Bigpank\b.*',
+        r'\s+Coop\s+panga\b.*',
+        r'\s+Eesti\s+Energia\b.*',
+        r'\s+Ignitise\b.*',
+        r'\s+Hepsori\b.*',
+        r'\s+Tallinna\s+Sadama\b.*',
+        r'\s+Leedu\s+energia.*',
+        r'\s+Läti\s+energia.*',
+        r'\s+Läti\s+võrgu.*',
+        r'\s+Saksamaa\b.*',
+        r'\s+Prantsusmaa\b.*',
+        r'\s+Eesti\s+valitsusvõla.*',
+        r'\s+Artea\s+panga\b.*',
+        r'\s+Citadele\s+panga\b.*',
+        r'\s+SEB\s+börsiväliste\b.*',
+    ]
+
+    def _trim_strategy(name):
+        for pat in _STRATEGY_PATTERNS:
+            m = re.search(pat, name)
+            if m and m.start() > 5:
+                return name[:m.start()].strip()
+        return name
+
+    def _clean_name(name):
+        name = re.sub(r'[¹²³]+', '', name).strip()
+        name = re.sub(r'\s+(Eesti|Leedu|Läti|Iirimaa|Rootsi|Saksamaa|Luksemburg|'
+                      r'Hispaania|Prantsusmaa|Suurbritannia|Artea|Citadele|'
+                      r'LHV|Luminor|IT|Šiauliai)\s*$', '', name)
+        name = re.sub(r'\s+', ' ', name).strip()
+        return name
+
+    def _extract_page(page, y_merge=3):
+        words = page.extract_words(x_tolerance=5, y_tolerance=3,
+                                   keep_blank_chars=False)
+        pw = page.width
+
+        # Group words by y, merging nearby rows
+        raw = defaultdict(list)
+        for w in words:
+            raw[round(w['top'], 1)].append(w)
+        sorted_ys = sorted(raw.keys())
+        merged = {}
+        used = set()
+        for y in sorted_ys:
+            if y in used:
+                continue
+            group = list(raw[y])
+            used.add(y)
+            for y2 in sorted_ys:
+                if y2 not in used and abs(y2 - y) <= y_merge:
+                    group.extend(raw[y2])
+                    used.add(y2)
+            merged[y] = group
+
+        items = []
+        section = None
+
+        for y in sorted(merged.keys()):
+            rw = sorted(merged[y], key=lambda w: w['x0'])
+            full = ' '.join(w['text'] for w in rw)
+
+            # Name from leftmost column
+            nlim = pw * 0.25
+            nwords = [w['text'] for w in rw if w['x0'] < nlim]
+            nraw = ' '.join(nwords).strip()
+
+            # Section detection
+            if 'Fondi liik' in full:
+                if 'Aktsiafond' in full:
+                    section = 'equity_funds'
+                elif 'Kinnisvarafond' in full:
+                    section = 're_funds'
+                elif 'Private Equity' in full:
+                    section = 'pe_funds'
+                elif 'Võlakirjafond' in full:
+                    section = 'bond_funds'
+                continue
+            if 'Väärtpaberi liik' in full:
+                if 'Võlakiri' in full:
+                    section = 'bonds'
+                elif 'Aktsia' in full:
+                    section = 'stocks'
+                continue
+            if nraw.startswith('Hoiused') or nraw.startswith('Tuletisinstrumendid'):
+                section = 'other'
+                continue
+            if 'puhasväärtus' in nraw or 'Muu vara' in nraw:
+                section = 'other'
+                continue
+            if nraw.startswith('Fondiosakud') or 'Fondi osaku' in nraw:
+                continue
+            if not section or section == 'other':
+                continue
+
+            # Percentage
+            pct = None
+            for w in reversed(rw):
+                m = re.match(r'^(-?\d+[\.,]\d+)%$', w['text'])
+                if m:
+                    pct = float(m.group(1).replace(',', '.'))
+                    break
+            if pct is None or pct <= 0 or pct >= 100:
+                continue
+
+            # ISIN
+            isin = None
+            for w in rw:
+                if w['x0'] > pw * 0.4:
+                    cl = w['text'].replace(' ', '')
+                    m = ISIN_RE.search(cl)
+                    if m:
+                        isin = m.group(0)
+                        break
+
+            # EUR market value (column at ~89-95% of page width)
+            # SEB PDFs format values as space-separated 3-digit groups
+            # (e.g. "9 580 480"). Occasionally pdfplumber merges a trailing
+            # digit from an adjacent column, producing 4-digit groups like
+            # "7080" instead of "708". Cap each word at 3 digits to fix.
+            mlo, mhi = pw * 0.89, pw * 0.95
+            vw = [w for w in rw if mlo < w['x0'] < mhi
+                  and re.match(r'^[\d\s]+$', w['text'])]
+            eur = None
+            if vw:
+                parts = []
+                for w in vw:
+                    d = re.sub(r'\s', '', w['text'])
+                    if len(d) > 3 and len(parts) > 0:
+                        d = d[:3]  # trim spurious trailing digit
+                    parts.append(d)
+                vd = ''.join(parts)
+                if vd.isdigit() and len(vd) >= 3:
+                    eur = int(vd)
+
+            # Clean name
+            name = _trim_strategy(_clean_name(nraw))
+            name = _clean_name(name)
+            if not name or len(name) < 3:
+                continue
+            if any(name.startswith(s) for s in
+                   ['Reguleeritud', 'Taristui', 'Investeering Fondi', 'Emitendi']):
+                continue
+            if re.match(r'^[\d\s,\.]+$', name):
+                continue
+
+            items.append({
+                'name': name, 'isin': isin,
+                'weight_pct': pct, 'value_eur': eur,
+                'section': section,
+            })
+        return items
+
+    # Parse current-month pages only
     with pdfplumber.open(pdf_path) as pdf:
-        # Page 1 has January 2026 data
-        text = pdf.pages[1].extract_text() or ''
+        if len(pdf.pages) < 2:
+            return {}
+        p2 = pdf.pages[1].extract_text() or ''
+        dates = re.findall(r'seisuga (\d{2}\.\d{2}\.\d{4})', p2)
+        cur_date = dates[0] if dates else ''
 
-    # The SEB format has columns concatenated. We need to extract:
-    # Fund names, ISINs, and weights from the mixed column text.
-    # Strategy: find all ISINs and all weight percentages, then match by position.
-
-    # Find all ISINs
-    isins = []
-    for line in text.splitlines():
-        line = line.strip()
-        # ISINs have spaces in SEB PDFs like "IE00BFG1TM 61"
-        cleaned = line.replace(' ', '')
-        for m in ISIN_RE.finditer(cleaned):
-            isin = m.group(0)
-            if isin not in [i for i, _, _ in isins]:
-                isins.append((isin, line, m.start()))
-
-    # Find weight percentages
-    weights = []
-    for line in text.splitlines():
-        for m in re.finditer(r'(\d+[\.,]\d+)%', line):
-            w = _pct(m.group(1) + '%')
-            if 0 < w <= 100:
-                weights.append(w)
-
-    # SEB Indeks Jan 2026 allocations (extracted from the multi-column layout)
-    # Hard-code the mapping since the PDF layout is very difficult to parse reliably
-    allocations = _extract_seb_allocations_from_text(text)
-
-    return {'allocations': allocations, 'deposits_pct': 0.22}
-
-
-def _extract_seb_allocations_from_text(text):
-    """Extract SEB fund allocations from multi-column text.
-
-    The SEB PDF format concatenates columns vertically, so fund names,
-    ISINs, and weights appear in separate sections of the text.
-    We extract them separately and match by order.
-    """
-    # Split text into lines
-    lines = text.splitlines()
-
-    # Find fund names (in the "Fondi liik: Aktsiafond" section)
-    names = []
-    in_funds = False
-    for line in lines:
-        line = line.strip()
-        if 'Fondi liik: Aktsiafond' in line:
-            in_funds = True
-            continue
-        if in_funds:
-            if line.startswith('¹ Investeering') or line.startswith('Hoiused'):
+        all_items = []
+        for pi in range(1, len(pdf.pages)):
+            pt = pdf.pages[pi].extract_text() or ''
+            d = re.findall(r'seisuga (\d{2}\.\d{2}\.\d{4})', pt)
+            if d and d[0] != cur_date and pi > 1:
                 break
-            if line and not line.startswith('¹'):
-                # Clean up the M-space artifacts
-                clean = line.replace('m ', 'm').replace('W ', 'W').replace('M ', 'M')
-                clean = re.sub(r'\s+', ' ', clean).strip()
-                if clean and len(clean) > 3:
-                    names.append(clean)
-            elif line.startswith('¹'):
-                # SEB internal fund
-                clean = line.lstrip('¹').strip()
-                clean = clean.replace('m ', 'm').replace('W ', 'W').replace('M ', 'M')
-                clean = re.sub(r'\s+', ' ', clean).strip()
-                if clean and len(clean) > 3:
-                    names.append(clean)
+            all_items.extend(_extract_page(pdf.pages[pi]))
 
-    # Find ISINs (in the "ISIN - kood" section)
-    isins = []
-    in_isins = False
-    for line in lines:
-        stripped = line.strip()
-        if 'ISIN' in stripped and 'kood' in stripped:
-            in_isins = True
-            continue
-        if in_isins:
-            # ISINs may have spaces: "IE00BFG1TM 61"
-            cleaned = stripped.replace(' ', '')
-            m = ISIN_RE.search(cleaned)
-            if m:
-                isins.append(m.group(0))
-            elif cleaned and not any(c.isdigit() for c in cleaned[:3]):
-                # Non-ISIN line, stop
-                if len(isins) >= len(names):
-                    break
+    # Group by section
+    result = {
+        'equity_funds': [], 'stocks': [], 'bonds': [],
+        'bond_funds': [], 'pe_funds': [], 're_funds': [],
+        'deposits_pct': 0.0, 'derivatives_pct': 0.0,
+    }
+    for item in all_items:
+        sect = item['section']
+        entry = {'name': item['name'], 'weight_pct': item['weight_pct']}
+        if item.get('isin'):
+            entry['isin'] = item['isin']
+        if item.get('value_eur'):
+            entry['value_eur'] = item['value_eur']
+        result[sect].append(entry)
 
-    # Find weights (in the "Osakaal fondi puhas-väärtusest" section)
-    # Look for the first block of percentages after fund data
-    all_pcts = []
-    in_weights = False
-    for line in lines:
-        stripped = line.strip()
-        if 'Osakaal' in stripped and 'fondi' in stripped:
-            in_weights = True
-            continue
-        if in_weights:
-            pct_m = re.match(r'^(\d+[\.,]\d+)%$', stripped)
-            if pct_m:
-                all_pcts.append(_pct(pct_m.group(1) + '%'))
-            elif stripped and not pct_m and len(all_pcts) > 0:
-                # Check if this is a sub-total or end of section
-                if re.match(r'^[\d\.,]+%', stripped):
-                    all_pcts.append(_pct(stripped.replace('%', '') + '%'))
-                else:
-                    break
+    return result
 
-    # Match names, ISINs, weights
-    allocations = []
-    n = min(len(names), len(isins), len(all_pcts))
-    if n == 0:
-        # Fallback: hard-coded from PDF analysis
-        return _seb_indeks_hardcoded_allocations()
 
-    for i in range(n):
-        allocations.append({
-            'name': names[i],
-            'isin': isins[i],
-            'weight_pct': all_pcts[i],
-        })
-    return allocations if allocations else _seb_indeks_hardcoded_allocations()
+def parse_seb_indeks_monthly(pdf_path):
+    """Parse SEB Indeks monthly report. Returns legacy format for compatibility."""
+    raw = parse_seb_pdf(pdf_path)
+    allocations = raw.get('equity_funds', [])
+    if not allocations:
+        allocations = _seb_indeks_hardcoded_allocations()
+    return {'allocations': allocations, 'deposits_pct': 0.22}
 
 
 def _seb_indeks_hardcoded_allocations():
