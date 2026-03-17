@@ -178,13 +178,13 @@
       "name": "Aiandi Kodud omanikulaen -",
       "isin": null,
       "weight_pct": 0.23,
-      "value_eur": 290608
+      "value_eur": 288556
     },
     {
       "name": "Akadeemia15b omanikulaen -",
       "isin": null,
       "weight_pct": 0.44,
-      "value_eur": 555819
+      "value_eur": 550801
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
@@ -226,7 +226,7 @@
       "name": "Kesk Tee Jyri omanikulaen -",
       "isin": null,
       "weight_pct": 0.2,
-      "value_eur": 248376
+      "value_eur": 245000
     },
     {
       "name": "Liven Kodu 10 8.5% 30/06/2027 -",
@@ -250,37 +250,37 @@
       "name": "Manufaktuuri omanikulaen -",
       "isin": null,
       "weight_pct": 0.16,
-      "value_eur": 197590
+      "value_eur": 195806
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 1.12,
-      "value_eur": 1414070
+      "value_eur": 1398838
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.22,
-      "value_eur": 274283
+      "value_eur": 273000
     },
     {
       "name": "Sopruse157 omanikulaen -",
       "isin": null,
       "weight_pct": 0.25,
-      "value_eur": 313009
+      "value_eur": 309842
     },
     {
       "name": "Taevakivi omanikulaen -",
       "isin": null,
       "weight_pct": 0.22,
-      "value_eur": 277065
+      "value_eur": 273000
     },
     {
       "name": "Tartu linn 25/10/32 -",
       "isin": "EE2300110602",
       "weight_pct": 0.97,
-      "value_eur": 1227337
+      "value_eur": 1218797
     },
     {
       "name": "Banco Santander 3.875% 06/02/26 Aaa",
@@ -334,7 +334,7 @@
       "name": "Matisa52 omanikulaen -",
       "isin": null,
       "weight_pct": 0.32,
-      "value_eur": 405609
+      "value_eur": 401256
     },
     {
       "name": "PEKAO 4.0% 24/09/2030 BBB Poola",
@@ -352,25 +352,25 @@
       "name": "France Government 1% 25/05/27",
       "isin": "FR0013250560",
       "weight_pct": 0.08,
-      "value_eur": 95293
+      "value_eur": 99922
     },
     {
       "name": "France Treasury Bond 25/02/2026",
       "isin": "FR0013508470",
       "weight_pct": 3.32,
-      "value_eur": 4194582
+      "value_eur": 4172258
     },
     {
       "name": "France Treasury Bond 25/04/2026",
       "isin": "FR0010916924",
       "weight_pct": 2.28,
-      "value_eur": 2883847
+      "value_eur": 2816562
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
       "weight_pct": 1.85,
-      "value_eur": 2339100
+      "value_eur": 2311924
     },
     {
       "name": "EQT AB 2.875% 06/04/2032",
@@ -388,19 +388,19 @@
       "name": "Deutschland 0.5% 15/02/2026",
       "isin": "DE0001102390",
       "weight_pct": 8.33,
-      "value_eur": 10544357
+      "value_eur": 10443939
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
       "weight_pct": 2.52,
-      "value_eur": 3187808
+      "value_eur": 3177419
     },
     {
       "name": "German Treasury Bill 18/02/2026",
       "isin": "DE000BU0E261",
       "weight_pct": 3.32,
-      "value_eur": 4196472
+      "value_eur": 4177195
     },
     {
       "name": "Kojamo 0.875% 28/05/2029",
@@ -616,5 +616,5 @@
     "pe_funds": 26,
     "re_funds": 12
   },
-  "_total_value_eur": 126789249
+  "_total_value_eur": 126498139
 }

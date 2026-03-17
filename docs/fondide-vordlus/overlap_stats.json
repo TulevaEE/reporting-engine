@@ -396,26 +396,26 @@
     "only_weight_b": 0
   },
   "Luminor 16-50|Luminor 50-56": {
-    "shared": 2201,
-    "only_a": 3,
-    "only_b": 22,
-    "total_a": 2204,
-    "total_b": 2223,
-    "shared_weight_a": 95.27,
-    "shared_weight_b": 87.97,
-    "only_weight_a": 4.37,
-    "only_weight_b": 11.69
-  },
-  "Luminor 16-50|Luminor 56+": {
-    "shared": 2199,
-    "only_a": 5,
+    "shared": 2198,
+    "only_a": 6,
     "only_b": 25,
     "total_a": 2204,
+    "total_b": 2223,
+    "shared_weight_a": 94.75,
+    "shared_weight_b": 86.69,
+    "only_weight_a": 4.89,
+    "only_weight_b": 12.97
+  },
+  "Luminor 16-50|Luminor 56+": {
+    "shared": 2197,
+    "only_a": 7,
+    "only_b": 27,
+    "total_a": 2204,
     "total_b": 2224,
-    "shared_weight_a": 95.14,
-    "shared_weight_b": 46.0,
-    "only_weight_a": 4.5,
-    "only_weight_b": 52.59
+    "shared_weight_a": 94.72,
+    "shared_weight_b": 45.2,
+    "only_weight_a": 4.92,
+    "only_weight_b": 53.39
   },
   "Luminor 16-50|Luminor 61-65": {
     "shared": 2195,
@@ -3553,15 +3553,15 @@
     "only_weight_b": 0
   },
   "Luminor 50-56|Luminor 16-50": {
-    "shared": 2201,
-    "only_a": 22,
-    "only_b": 3,
+    "shared": 2198,
+    "only_a": 25,
+    "only_b": 6,
     "total_a": 2223,
     "total_b": 2204,
-    "shared_weight_a": 87.97,
-    "shared_weight_b": 95.27,
-    "only_weight_a": 11.69,
-    "only_weight_b": 4.37
+    "shared_weight_a": 86.69,
+    "shared_weight_b": 94.75,
+    "only_weight_a": 12.97,
+    "only_weight_b": 4.89
   },
   "Luminor 50-56|SEB Indeks": {
     "shared": 2185,
@@ -3696,26 +3696,26 @@
     "only_weight_b": 0
   },
   "Luminor 50-56|Luminor 56+": {
-    "shared": 2219,
-    "only_a": 4,
-    "only_b": 5,
+    "shared": 2200,
+    "only_a": 23,
+    "only_b": 24,
     "total_a": 2223,
     "total_b": 2224,
-    "shared_weight_a": 97.5,
-    "shared_weight_b": 85.78,
-    "only_weight_a": 2.16,
-    "only_weight_b": 12.81
+    "shared_weight_a": 87.32,
+    "shared_weight_b": 49.04,
+    "only_weight_a": 12.34,
+    "only_weight_b": 49.55
   },
   "Luminor 50-56|Luminor 61-65": {
-    "shared": 2210,
-    "only_a": 13,
-    "only_b": 4,
+    "shared": 2196,
+    "only_a": 27,
+    "only_b": 18,
     "total_a": 2223,
     "total_b": 2214,
-    "shared_weight_a": 90.39,
-    "shared_weight_b": 79.93,
-    "only_weight_a": 9.27,
-    "only_weight_b": 19.51
+    "shared_weight_a": 80.9,
+    "shared_weight_b": 13.05,
+    "only_weight_a": 18.76,
+    "only_weight_b": 86.39
   },
   "Luminor 50-56|SEB 18+": {
     "shared": 2185,
@@ -3806,15 +3806,15 @@
     "only_weight_b": 0
   },
   "Luminor 56+|Luminor 16-50": {
-    "shared": 2199,
-    "only_a": 25,
-    "only_b": 5,
+    "shared": 2197,
+    "only_a": 27,
+    "only_b": 7,
     "total_a": 2224,
     "total_b": 2204,
-    "shared_weight_a": 46.0,
-    "shared_weight_b": 95.14,
-    "only_weight_a": 52.59,
-    "only_weight_b": 4.5
+    "shared_weight_a": 45.2,
+    "shared_weight_b": 94.72,
+    "only_weight_a": 53.39,
+    "only_weight_b": 4.92
   },
   "Luminor 56+|SEB Indeks": {
     "shared": 2185,
@@ -3949,15 +3949,15 @@
     "only_weight_b": 0
   },
   "Luminor 56+|Luminor 50-56": {
-    "shared": 2219,
-    "only_a": 5,
-    "only_b": 4,
+    "shared": 2200,
+    "only_a": 24,
+    "only_b": 23,
     "total_a": 2224,
     "total_b": 2223,
-    "shared_weight_a": 85.78,
-    "shared_weight_b": 97.5,
-    "only_weight_a": 12.81,
-    "only_weight_b": 2.16
+    "shared_weight_a": 49.04,
+    "shared_weight_b": 87.32,
+    "only_weight_a": 49.55,
+    "only_weight_b": 12.34
   },
   "Luminor 56+|Luminor 61-65": {
     "shared": 2211,
@@ -4202,15 +4202,15 @@
     "only_weight_b": 0.02
   },
   "Luminor 61-65|Luminor 50-56": {
-    "shared": 2210,
-    "only_a": 4,
-    "only_b": 13,
+    "shared": 2196,
+    "only_a": 18,
+    "only_b": 27,
     "total_a": 2214,
     "total_b": 2223,
-    "shared_weight_a": 79.93,
-    "shared_weight_b": 90.39,
-    "only_weight_a": 19.51,
-    "only_weight_b": 9.27
+    "shared_weight_a": 13.05,
+    "shared_weight_b": 80.9,
+    "only_weight_a": 86.39,
+    "only_weight_b": 18.76
   },
   "Luminor 61-65|Luminor 56+": {
     "shared": 2211,

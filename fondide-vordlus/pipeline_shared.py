@@ -243,8 +243,15 @@ def _extract_eur_value(line):
     if len(all_nums) < 2:
         return None
 
-    # EUR value = second-to-last (last is weight%)
-    val = all_nums[-2]
+    # Luminor PDFs have 6 columns: Qty, UnitPrice, MarketValue, UnitCost, CostBasis, Weight%
+    # Other PDFs have 4-5 columns: [NAV], Qty, MarketValue, [UnitCost, CostBasis], Weight%
+    # Detect 6-column layout: 6 nums where [-4] and [-2] are both large integers (value columns)
+    # and [-3] is small (unit cost price)
+    if len(all_nums) >= 6 and all_nums[-4] >= 1000 and all_nums[-2] >= 1000 and all_nums[-3] < 1000:
+        val = all_nums[-4]  # Market value (before cost columns)
+    else:
+        val = all_nums[-2]  # Standard: second-to-last (last is weight%)
+
     if val >= 100:
         return int(round(val))
     return None
