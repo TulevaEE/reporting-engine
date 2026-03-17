@@ -10,24 +10,18 @@ Imports heavy lifting (ETF loading, lookthrough engine, normalization) from v1.
 """
 import argparse
 import json
-import os
 import re
-import sys
 from datetime import date
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 # Import shared infrastructure (constants, ETF loading, lookthrough engine, etc.)
 from pipeline_shared import (
     _pct, _extract_eur_value, _extract_deposit_eur,
-    ISIN_RE, REPORT_DIR, CACHE_DIR, OUT_DIR, COUNTRY_MAP,
+    ISIN_RE, REPORT_DIR, OUT_DIR, COUNTRY_MAP,
     ETF_ISIN_TO_CSV, OPAQUE_FUND_ISINS, TRUE_PROXY_ISINS,
-    LUMINOR_ETF_PROXY_MAP, SUB_ETF_TICKERS, SAEM_TOP_N,
-    ISHARES_PRODUCTS, EODHD_ETFS, EM_COUNTRIES,
-    ETF_DISPLAY_NAMES, _COMPANY_ALIASES,
-    fetch_ishares_holdings, fetch_eodhd_holdings, load_manual_holdings,
+    LUMINOR_ETF_PROXY_MAP, ISHARES_PRODUCTS, EODHD_ETFS, fetch_ishares_holdings, fetch_eodhd_holdings, load_manual_holdings,
     build_lookthrough, build_acwi, build_ssac_em,
     normalize_company_name, _build_sector_lookup_with_fuzzy,
     fund_to_json, build_etf_breakdown,
@@ -36,13 +30,8 @@ from pipeline_shared import (
     fetch_pensionikeskus_aum,
     # Existing parsers (wrapped by v2 parsers)
     parse_tuleva_monthly, parse_tuleva_bond_monthly,
-    parse_swedbank_monthly, parse_luminor_monthly,
-    parse_seb_indeks_monthly, parse_seb_55_monthly, parse_lhv_monthly,
-    _clean_swedbank_name, _clean_luminor_name, _extract_lhv_country, _extract_lhv_name,
-    # NAV functions
-    compute_nav_return_correlations, fetch_nav_history, fetch_acwi_nav, NAV_FUND_IDS,
-    # Manual holdings data
-    GLOBALFOND_A_HOLDINGS,
+    parse_swedbank_monthly, parse_seb_indeks_monthly, parse_lhv_monthly,
+    compute_nav_return_correlations, fetch_nav_history, fetch_acwi_nav,
 )
 
 BASE = Path('.')
@@ -521,7 +510,7 @@ def _parse_seb(parsed, pdf_path):
     # Check if parsing succeeded (SEB 55+/60+/65+ have multi-column layout
     # where pdfplumber can't join columns — equity_funds will be empty)
     if not equity_funds:
-        print(f'  SEB PDF multi-column layout: no equity funds parsed, needs monthly JSON')
+        print('  SEB PDF multi-column layout: no equity funds parsed, needs monthly JSON')
 
     parsed['equity_funds'] = equity_funds
     parsed['stocks'] = stocks
@@ -1161,7 +1150,6 @@ def process_fund(parsed, etf_holdings, acwi, acwi_keys, sector_lookup, fuzzy_sec
     7. Build weight vectors for correlation
     8. Build etf_breakdown
     """
-    fund_key = parsed['fund_key']
     provider = parsed['provider']
 
     # ── 1. ETF lookthrough ──
