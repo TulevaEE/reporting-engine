@@ -196,12 +196,6 @@
   <div id="holdingsArea"></div>
 </div>
 
-<div class="section" id="sectionChanges">
-  <div class="section-title">Suurimad muutused</div>
-  <div class="section-sub" id="changesSub"></div>
-  <div id="changesArea"></div>
-</div>
-
 <div class="section" id="sectionNav">
   <div class="section-title">Kas fondide tootlused on sarnased?</div>
   <div class="section-sub" id="navSub">Normaliseeritud 100-le valitud perioodi alguses</div>
@@ -253,6 +247,11 @@
       <div class="section-title">Kapiindeksi anal&uuml;&uuml;s (ESMA metoodika)</div>
       <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kahe n&auml;itajaga:</div>
       <div id="esmaContent"></div>
+    </div>
+    <div id="detailChanges" style="margin-bottom:2rem;">
+      <div class="section-title">Suurimad muutused</div>
+      <div class="section-sub" id="changesSub"></div>
+      <div id="changesArea"></div>
     </div>
   </div>
 </div>
@@ -659,7 +658,6 @@ function render() {
   renderOverlap(f);
   renderAssets(f);
   renderHoldings(f);
-  renderChanges(f);
   renderNav(f);
   renderCTA(f);
   renderShareLink(f);
@@ -669,7 +667,7 @@ function render() {
   // Details (expandable) — always start hidden
   const detailsToggle = document.getElementById('detailsToggle');
   detailsToggle.textContent = 'Vaata detailsemalt';
-  renderESMA(f); renderScatter(f); renderSunburst(f); renderAllHoldings(f); renderSectors(f); renderCountries(f);
+  renderESMA(f); renderScatter(f); renderSunburst(f); renderAllHoldings(f); renderSectors(f); renderCountries(f); renderChanges(f);
 }
 
 function renderNarrative(funds) {
@@ -1155,18 +1153,18 @@ function renderChangesTable(items, prevMonthLabel, currMonthLabel) {
 }
 
 function renderChanges(funds) {
-  const section = document.getElementById('sectionChanges');
+  const el = document.getElementById('detailChanges');
   const sub = document.getElementById('changesSub');
   const area = document.getElementById('changesArea');
-  if (funds.length !== 1) { section.classList.remove('visible'); return; }
+  if (funds.length !== 1) { el.style.display = 'none'; return; }
 
   const f = funds[0];
   const fd = DATA.funds[f];
   const tc = fd.top_changes;
   if (!tc || (!tc.parsed.length && !tc.lookthrough.length)) {
-    section.classList.remove('visible'); return;
+    el.style.display = 'none'; return;
   }
-  section.classList.add('visible');
+  el.style.display = 'block';
 
   const MONTHS_ET = {
     '01':'jaan','02':'veebr','03':'märts','04':'apr','05':'mai','06':'juuni',
