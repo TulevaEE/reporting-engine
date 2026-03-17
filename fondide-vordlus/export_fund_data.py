@@ -21,7 +21,8 @@ import pandas as pd
 
 # Import shared infrastructure (constants, ETF loading, lookthrough engine, etc.)
 from pipeline_shared import (
-    _pct, ISIN_RE, REPORT_DIR, CACHE_DIR, OUT_DIR, COUNTRY_MAP,
+    _pct, _extract_eur_value, _extract_deposit_eur,
+    ISIN_RE, REPORT_DIR, CACHE_DIR, OUT_DIR, COUNTRY_MAP,
     ETF_ISIN_TO_CSV, OPAQUE_FUND_ISINS, TRUE_PROXY_ISINS,
     LUMINOR_ETF_PROXY_MAP, SUB_ETF_TICKERS, SAEM_TOP_N,
     ISHARES_PRODUCTS, EODHD_ETFS, EM_COUNTRIES,
@@ -32,6 +33,7 @@ from pipeline_shared import (
     fund_to_json, build_etf_breakdown,
     compute_pairwise_correlations,
     load_monthly_config,
+    fetch_pensionikeskus_aum,
     # Existing parsers (wrapped by v2 parsers)
     parse_tuleva_monthly, parse_tuleva_bond_monthly,
     parse_swedbank_monthly, parse_luminor_monthly,
@@ -196,6 +198,9 @@ def _parse_tuleva(parsed, pdf_path):
     raw = parse_tuleva_monthly(pdf_path)
     parsed['equity_funds'] = raw['allocations']
     parsed['deposits_pct'] = raw.get('deposits_pct', 0.07)
+    parsed['_pdf_subtotals'] = raw.get('_pdf_subtotals', {})
+    parsed['_pdf_holding_counts'] = raw.get('_pdf_holding_counts', {})
+    parsed['_total_value_eur'] = raw.get('_total_value_eur', 0)
     return parsed
 
 
@@ -204,6 +209,9 @@ def _parse_tuleva_bond(parsed, pdf_path):
     raw = parse_tuleva_bond_monthly(pdf_path)
     parsed['bond_funds'] = raw['bond_funds']
     parsed['deposits_pct'] = raw.get('deposits_pct', 0)
+    parsed['_pdf_subtotals'] = raw.get('_pdf_subtotals', {})
+    parsed['_pdf_holding_counts'] = raw.get('_pdf_holding_counts', {})
+    parsed['_total_value_eur'] = raw.get('_total_value_eur', 0)
     return parsed
 
 
@@ -218,6 +226,9 @@ def _parse_swedbank(parsed, pdf_path):
     parsed['re_funds'] = raw.get('re_funds', [])
     parsed['deposits_pct'] = raw.get('deposits_pct', 0)
     parsed['derivatives_pct'] = raw.get('derivatives_pct', 0)
+    parsed['_pdf_subtotals'] = raw.get('_pdf_subtotals', {})
+    parsed['_pdf_holding_counts'] = raw.get('_pdf_holding_counts', {})
+    parsed['_total_value_eur'] = raw.get('_total_value_eur', 0)
     return parsed
 
 
@@ -232,42 +243,60 @@ def _parse_lhv(parsed, pdf_path):
     # Split holdings into stocks and equity_funds
     for h in raw.get('holdings', []):
         if h.get('type') == 'stocks':
-            parsed['stocks'].append({
+            entry = {
                 'name': h['name'],
                 'isin': h.get('isin'),
                 'weight_pct': h['weight'],
                 'country': h.get('country', ''),
-            })
+            }
+            if h.get('value_eur'):
+                entry['value_eur'] = h['value_eur']
+            parsed['stocks'].append(entry)
         elif h.get('type') == 'etfs':
-            parsed['equity_funds'].append({
+            entry = {
                 'name': h['name'],
                 'isin': h.get('isin', ''),
                 'weight_pct': h['weight'],
-            })
+            }
+            if h.get('value_eur'):
+                entry['value_eur'] = h['value_eur']
+            parsed['equity_funds'].append(entry)
 
     # Bonds
     for h in raw.get('bond_holdings', []):
-        parsed['bonds'].append({
+        entry = {
             'name': h['name'],
             'isin': h.get('isin'),
             'weight_pct': h['weight'],
-        })
+        }
+        if h.get('value_eur'):
+            entry['value_eur'] = h['value_eur']
+        parsed['bonds'].append(entry)
 
     # PE funds
     for h in raw.get('pe_holdings', []):
-        parsed['pe_funds'].append({
+        entry = {
             'name': h['name'],
             'weight_pct': h['weight'],
-        })
+        }
+        if h.get('value_eur'):
+            entry['value_eur'] = h['value_eur']
+        parsed['pe_funds'].append(entry)
 
     # RE funds
     for h in raw.get('re_holdings', []):
-        parsed['re_funds'].append({
+        entry = {
             'name': h['name'],
             'weight_pct': h['weight'],
-        })
+        }
+        if h.get('value_eur'):
+            entry['value_eur'] = h['value_eur']
+        parsed['re_funds'].append(entry)
 
     parsed['deposits_pct'] = raw.get('deposits_pct', 0)
+    parsed['_pdf_subtotals'] = raw.get('_pdf_subtotals', {})
+    parsed['_pdf_holding_counts'] = raw.get('_pdf_holding_counts', {})
+    parsed['_total_value_eur'] = raw.get('_total_value_eur', 0)
     return parsed
 
 
@@ -297,8 +326,17 @@ def _parse_seb(parsed, pdf_path):
     re_funds = []
     deposits_pct = 0.0
     derivatives_pct = 0.0
+    pdf_subtotals = {}
+    pdf_holding_counts = {}
+    total_value_eur = 0
 
     current_section = None  # 'bonds', 'stocks', 'equity', 're', 'pe', 'bond_fund'
+
+    # Map section to standardized key for subtotals/counts
+    _SEB_SECTION_KEY = {
+        'bonds': 'bonds', 'stocks': 'stocks', 'equity': 'equity_funds',
+        're': 're_funds', 'pe': 'pe_funds', 'bond_fund': 'bond_funds',
+    }
 
     # Estonian description markers — the fund name is before these
     EST_MARKERS = [
@@ -341,21 +379,39 @@ def _parse_seb(parsed, pdf_path):
                 clean = re.sub(r'[¹²³]+\s*', '', line).strip()
                 clean = re.sub(r'\s+', ' ', clean)
                 if re.search(r'Väärtpaberi liik\s*:\s*Võlakiri', clean):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
+                    if pct_m:
+                        pdf_subtotals['bonds'] = _pct(pct_m[0] + '%')
                     current_section = 'bonds'
                     continue
                 if re.search(r'Väärtpaberi liik\s*:\s*Aktsia', clean):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
+                    if pct_m:
+                        pdf_subtotals['stocks'] = _pct(pct_m[0] + '%')
                     current_section = 'stocks'
                     continue
                 if re.search(r'Fondi liik\s*:\s*Aktsiafond', clean):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
+                    if pct_m:
+                        pdf_subtotals['equity_funds'] = _pct(pct_m[0] + '%')
                     current_section = 'equity'
                     continue
                 if re.search(r'Fondi liik\s*:\s*Kinnisvarafond', clean):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
+                    if pct_m:
+                        pdf_subtotals['re_funds'] = _pct(pct_m[0] + '%')
                     current_section = 're'
                     continue
                 if re.search(r'Fondi liik\s*:\s*Private Equity', clean):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
+                    if pct_m:
+                        pdf_subtotals['pe_funds'] = _pct(pct_m[0] + '%')
                     current_section = 'pe'
                     continue
                 if re.search(r'Fondi liik\s*:\s*Võlakirjafond', clean):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', clean)
+                    if pct_m:
+                        pdf_subtotals['bond_funds'] = _pct(pct_m[0] + '%')
                     current_section = 'bond_fund'
                     continue
                 if line.startswith('Tuletisinstrumendid'):
@@ -392,6 +448,9 @@ def _parse_seb(parsed, pdf_path):
                     # Deposit lines: "AS SEB Pank Nõudmiseni hoius Eesti A+, S&P 1 136 572 0,46%"
                     if pcts:
                         deposits_pct += _pct(pcts[-1] + '%')
+                    dep_val = _extract_deposit_eur(line)
+                    if dep_val:
+                        total_value_eur += dep_val
                     continue
 
                 if current_section == 'derivatives':
@@ -402,10 +461,20 @@ def _parse_seb(parsed, pdf_path):
                 if not isin_match or not pcts:
                     continue
 
+                # Count data lines per section
+                sk = _SEB_SECTION_KEY.get(current_section)
+                if sk:
+                    pdf_holding_counts[sk] = pdf_holding_counts.get(sk, 0) + 1
+
                 isin = isin_match.group(0)
                 weight = _pct(pcts[-1] + '%')
                 if weight <= 0:
                     continue
+
+                # Extract EUR market value
+                value_eur = _extract_eur_value(line)
+                if value_eur:
+                    total_value_eur += value_eur
 
                 # Extract name from the text before the ISIN
                 raw_before = line[:line.index(isin)].strip()
@@ -415,22 +484,39 @@ def _parse_seb(parsed, pdf_path):
                     continue
 
                 if current_section == 'bonds':
-                    bonds.append({'name': name, 'isin': isin, 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    bonds.append(entry)
                 elif current_section == 'stocks':
-                    # Extract country from Estonian country name in the raw text
                     country = ''
                     for est, eng in SEB_COUNTRIES.items():
                         if est in raw_before:
                             country = eng
-                    stocks.append({'name': name, 'isin': isin, 'weight_pct': weight, 'country': country})
+                    entry = {'name': name, 'isin': isin, 'weight_pct': weight, 'country': country}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    stocks.append(entry)
                 elif current_section == 'equity':
-                    equity_funds.append({'name': name, 'isin': isin, 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    equity_funds.append(entry)
                 elif current_section == 're':
-                    re_funds.append({'name': name, 'isin': isin, 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    re_funds.append(entry)
                 elif current_section == 'pe':
-                    pe_funds.append({'name': name, 'isin': isin, 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    pe_funds.append(entry)
                 elif current_section == 'bond_fund':
-                    bond_funds.append({'name': name, 'isin': isin, 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    bond_funds.append(entry)
 
     # Check if parsing succeeded (SEB 55+/60+/65+ have multi-column layout
     # where pdfplumber can't join columns — equity_funds will be empty)
@@ -445,6 +531,9 @@ def _parse_seb(parsed, pdf_path):
     parsed['re_funds'] = re_funds
     parsed['deposits_pct'] = deposits_pct
     parsed['derivatives_pct'] = derivatives_pct
+    parsed['_pdf_subtotals'] = pdf_subtotals
+    parsed['_pdf_holding_counts'] = pdf_holding_counts
+    parsed['_total_value_eur'] = total_value_eur
     return parsed
 
 
@@ -465,11 +554,20 @@ def _parse_luminor(parsed, pdf_path):
     re_funds = []
     pe_funds = []
     deposits_pct = 0.0
+    pdf_subtotals = {}
+    pdf_holding_counts = {}
+    total_value_eur = 0
 
     # Section types for fund-style sections (no ISIN column)
     FUND_SECTIONS = {'equity', 'bond_fund', 'real_estate', 'pe'}
     current_section = None  # None, or one of FUND_SECTIONS, or 'bonds'
     pending_lines = []  # accumulate multi-line entries
+
+    # Map Luminor section names to standardized keys
+    _LUM_SECTION_KEY = {
+        'equity': 'equity_funds', 'bond_fund': 'bond_funds',
+        'real_estate': 're_funds', 'pe': 'pe_funds', 'bonds': 'bonds',
+    }
 
     # Known manager fragments to strip from fund names
     MANAGERS = [
@@ -512,7 +610,7 @@ def _parse_luminor(parsed, pdf_path):
         return result
 
     def _flush_fund_entry(lines_block, section):
-        """Parse a multi-line fund entry into a name + weight_pct dict."""
+        """Parse a multi-line fund entry into a name + weight_pct + value_eur dict."""
         if not lines_block:
             return None
 
@@ -526,6 +624,9 @@ def _parse_luminor(parsed, pdf_path):
         weight = _pct(pct_m[-1] + '%')
         if weight <= 0:
             return None
+
+        # Extract EUR market value from the full text
+        value_eur = _extract_eur_value(full_text)
 
         # Remove everything from the country code + currency onwards
         # Pattern: 2-letter country + EUR/USD/GBP/etc + numbers
@@ -544,7 +645,10 @@ def _parse_luminor(parsed, pdf_path):
         if not name or len(name) < 3:
             return None
 
-        return {'name': name, 'weight_pct': weight}
+        entry = {'name': name, 'weight_pct': weight}
+        if value_eur:
+            entry['value_eur'] = value_eur
+        return entry
 
     def _flush_bond_entry(lines_block):
         """Parse a multi-line direct bond entry.
@@ -627,9 +731,14 @@ def _parse_luminor(parsed, pdf_path):
         if not name or len(name) < 2:
             return None
 
+        # Extract EUR market value from the data line
+        value_eur = _extract_eur_value(data_line) if data_line else None
+
         entry = {'name': name, 'weight_pct': weight}
         if isin:
             entry['isin'] = isin
+        if value_eur:
+            entry['value_eur'] = value_eur
         return entry
 
     with pdfplumber.open(pdf_path) as pdf:
@@ -658,6 +767,9 @@ def _parse_luminor(parsed, pdf_path):
                         entry = _flush_fund_entry(pending_lines, current_section)
                         if entry:
                             equity_funds.append(entry)
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['equity_funds'] = _pct(pct_m[0] + '%')
                     pending_lines = []
                     current_section = None
                     continue
@@ -675,6 +787,9 @@ def _parse_luminor(parsed, pdf_path):
                         entry = _flush_fund_entry(pending_lines, current_section)
                         if entry:
                             bond_funds.append(entry)
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['bond_funds'] = _pct(pct_m[0] + '%')
                     pending_lines = []
                     current_section = None
                     continue
@@ -692,6 +807,9 @@ def _parse_luminor(parsed, pdf_path):
                         entry = _flush_fund_entry(pending_lines, current_section)
                         if entry:
                             re_funds.append(entry)
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['re_funds'] = _pct(pct_m[0] + '%')
                     pending_lines = []
                     current_section = None
                     continue
@@ -709,6 +827,9 @@ def _parse_luminor(parsed, pdf_path):
                         entry = _flush_fund_entry(pending_lines, current_section)
                         if entry:
                             pe_funds.append(entry)
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['pe_funds'] = _pct(pct_m[0] + '%')
                     pending_lines = []
                     current_section = None
                     continue
@@ -728,6 +849,9 @@ def _parse_luminor(parsed, pdf_path):
                         entry = _flush_bond_entry(pending_lines)
                         if entry:
                             bonds.append(entry)
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['bonds'] = _pct(pct_m[0] + '%')
                     pending_lines = []
                     current_section = None
                     continue
@@ -737,6 +861,10 @@ def _parse_luminor(parsed, pdf_path):
                     pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
                     if pct_m:
                         deposits_pct = _pct(pct_m[-1] + '%')
+                    # Extract deposit EUR value
+                    dep_val = _extract_eur_value(line)
+                    if dep_val:
+                        total_value_eur += dep_val
                     continue
 
                 # Skip non-data lines
@@ -760,10 +888,15 @@ def _parse_luminor(parsed, pdf_path):
                 if current_section in FUND_SECTIONS:
                     pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
                     if pct_m:
-                        # This line completes an entry
+                        # This line completes an entry — count it
+                        sk = _LUM_SECTION_KEY.get(current_section)
+                        if sk:
+                            pdf_holding_counts[sk] = pdf_holding_counts.get(sk, 0) + 1
                         pending_lines.append(line)
                         entry = _flush_fund_entry(pending_lines, current_section)
                         if entry:
+                            if entry.get('value_eur'):
+                                total_value_eur += entry['value_eur']
                             if current_section == 'equity':
                                 equity_funds.append(entry)
                             elif current_section == 'bond_fund':
@@ -782,9 +915,12 @@ def _parse_luminor(parsed, pdf_path):
                     # Data lines have 2+ percentages (YTM% and Weight%)
                     # Name lines may have 1 percentage (coupon like "4.853%")
                     if len(pct_m) >= 2:
+                        pdf_holding_counts['bonds'] = pdf_holding_counts.get('bonds', 0) + 1
                         pending_lines.append(line)
                         entry = _flush_bond_entry(pending_lines)
                         if entry:
+                            if entry.get('value_eur'):
+                                total_value_eur += entry['value_eur']
                             bonds.append(entry)
                         pending_lines = []
                     else:
@@ -796,6 +932,9 @@ def _parse_luminor(parsed, pdf_path):
     parsed['pe_funds'] = pe_funds
     parsed['re_funds'] = re_funds
     parsed['deposits_pct'] = deposits_pct
+    parsed['_pdf_subtotals'] = pdf_subtotals
+    parsed['_pdf_holding_counts'] = pdf_holding_counts
+    parsed['_total_value_eur'] = total_value_eur
     return parsed
 
 
@@ -803,7 +942,7 @@ def _parse_luminor(parsed, pdf_path):
 # STEP 3: VALIDATION
 # ═══════════════════════════════════════════════════════════════════
 
-def validate_parsed_fund(parsed, prev_parsed=None):
+def validate_parsed_fund(parsed, prev_parsed=None, pk_aum=None):
     """Validate a standardized parsed fund dict. Raises ValueError on errors.
 
     Checks:
@@ -812,8 +951,10 @@ def validate_parsed_fund(parsed, prev_parsed=None):
     - stocks entries must have country
     - equity_funds entries should have isin (warning if missing, not error — Luminor doesn't have them)
     - Total weight ~100% (warning if off by >3pp, error if >5pp)
-    - Non-empty asset class arrays if weight > 1%
-    - Cross-month consistency checks
+    - CHECK 1: PDF section subtotals vs parsed sums
+    - CHECK 2: PDF holding counts vs parsed counts
+    - CHECK 3: Sum of parsed EUR values vs pensionikeskus AUM
+    - CHECK 4: Enhanced cross-month consistency
     """
     fund_key = parsed.get('fund_key', '?')
     errors = []
@@ -863,13 +1004,16 @@ def validate_parsed_fund(parsed, prev_parsed=None):
     if errors:
         raise ValueError(f"[{fund_key}] Holding errors: {'; '.join(errors)}")
 
-    # Consistency: compute total weight
-    equity_funds_pct = sum(ef['weight_pct'] for ef in parsed['equity_funds'])
-    stocks_pct = sum(s['weight_pct'] for s in parsed['stocks'])
-    bonds_pct = sum(b['weight_pct'] for b in parsed['bonds'])
-    bond_funds_pct = sum(bf['weight_pct'] for bf in parsed['bond_funds'])
-    pe_pct = sum(p['weight_pct'] for p in parsed['pe_funds'])
-    re_pct = sum(r['weight_pct'] for r in parsed['re_funds'])
+    # Compute per-class weight sums
+    class_weights = {}
+    for arr_key in required_arrays:
+        class_weights[arr_key] = sum(h['weight_pct'] for h in parsed[arr_key])
+    equity_funds_pct = class_weights['equity_funds']
+    stocks_pct = class_weights['stocks']
+    bonds_pct = class_weights['bonds']
+    bond_funds_pct = class_weights['bond_funds']
+    pe_pct = class_weights['pe_funds']
+    re_pct = class_weights['re_funds']
     deposits = parsed.get('deposits_pct', 0)
     derivatives = abs(parsed.get('derivatives_pct', 0))
     total = equity_funds_pct + stocks_pct + bonds_pct + bond_funds_pct + pe_pct + re_pct + deposits + derivatives
@@ -888,21 +1032,107 @@ def validate_parsed_fund(parsed, prev_parsed=None):
             f"bonds={bonds_pct:.1f}+{bond_funds_pct:.1f}, pe={pe_pct:.1f}, re={re_pct:.1f}"
         )
 
-    # Cross-month checks
+    # ── CHECK 1: PDF section subtotals vs parsed sums ──
+    pdf_subtotals = parsed.get('_pdf_subtotals', {})
+    if pdf_subtotals:
+        for section_key, pdf_pct in pdf_subtotals.items():
+            parsed_pct = class_weights.get(section_key, 0)
+            diff = abs(parsed_pct - pdf_pct)
+            if diff > 0.5:
+                warnings.append(
+                    f"Subtotal mismatch: {section_key} parsed={parsed_pct:.2f}% vs PDF kokku={pdf_pct:.2f}% (diff={diff:.2f}pp)"
+                )
+
+    # ── CHECK 2: PDF holding counts vs parsed counts ──
+    pdf_holding_counts = parsed.get('_pdf_holding_counts', {})
+    if pdf_holding_counts:
+        for section_key, pdf_count in pdf_holding_counts.items():
+            parsed_count = len(parsed.get(section_key, []))
+            if parsed_count != pdf_count:
+                # Use warning (not error) when parsed < pdf (some lines may be intentionally skipped)
+                # Use error only when parsed > pdf (double-counting)
+                if parsed_count > pdf_count:
+                    errors.append(
+                        f"Holding count: {section_key} parsed={parsed_count} > PDF lines={pdf_count} (double-counted?)"
+                    )
+                else:
+                    warnings.append(
+                        f"Holding count: {section_key} parsed={parsed_count} < PDF lines={pdf_count} (skipped {pdf_count - parsed_count})"
+                    )
+
+    # ── CHECK 3: Sum of parsed EUR values vs pensionikeskus AUM ──
+    total_value_eur = parsed.get('_total_value_eur', 0)
+    if total_value_eur > 0 and pk_aum:
+        pk_value = pk_aum.get(fund_key)
+        if pk_value and pk_value > 0:
+            pct_diff = abs(total_value_eur - pk_value) / pk_value
+            if pct_diff > 0.10:
+                errors.append(
+                    f"AUM mismatch >10%: parsed EUR total={total_value_eur:,.0f} vs pensionikeskus={pk_value:,.0f} "
+                    f"(diff={pct_diff:.1%})"
+                )
+            elif pct_diff > 0.03:
+                warnings.append(
+                    f"AUM mismatch >3%: parsed EUR total={total_value_eur:,.0f} vs pensionikeskus={pk_value:,.0f} "
+                    f"(diff={pct_diff:.1%})"
+                )
+
+    # ── CHECK 4: Enhanced cross-month consistency ──
     if prev_parsed:
         checks = [
             ('pe_funds', 'PE'),
             ('re_funds', 'RE'),
             ('bonds', 'bonds'),
+            ('bond_funds', 'bond funds'),
             ('equity_funds', 'equity funds'),
             ('stocks', 'stocks'),
         ]
         for key, label in checks:
             prev_count = len(prev_parsed.get(key, []))
             curr_count = len(parsed[key])
+
+            # Original check: complete disappearance
             if prev_count > 5 and curr_count == 0:
                 warnings.append(
                     f"{label}: had {prev_count} entries last month, now 0 — likely parsing failure"
+                )
+            # Enhanced: large count change (>20%)
+            elif prev_count > 3 and curr_count > 0:
+                count_change = abs(curr_count - prev_count) / prev_count
+                if count_change > 0.20:
+                    warnings.append(
+                        f"{label}: count changed from {prev_count} to {curr_count} "
+                        f"({count_change:.0%} change)"
+                    )
+
+        # Asset class weight stability (>5pp change)
+        prev_class_weights = {}
+        for arr_key in required_arrays:
+            prev_class_weights[arr_key] = sum(
+                h.get('weight_pct', 0) for h in prev_parsed.get(arr_key, [])
+            )
+        for arr_key in required_arrays:
+            curr_w = class_weights[arr_key]
+            prev_w = prev_class_weights[arr_key]
+            if prev_w > 1 or curr_w > 1:  # Only check non-trivial classes
+                diff = abs(curr_w - prev_w)
+                if diff > 5:
+                    label = arr_key.replace('_', ' ')
+                    warnings.append(
+                        f"{label} weight changed by {diff:.1f}pp: {prev_w:.1f}% → {curr_w:.1f}%"
+                    )
+
+        # Total weight stability (>3pp change)
+        prev_total = (
+            sum(prev_class_weights.values())
+            + prev_parsed.get('deposits_pct', 0)
+            + abs(prev_parsed.get('derivatives_pct', 0))
+        )
+        if prev_total > 0:
+            total_diff = abs(total - prev_total)
+            if total_diff > 3:
+                warnings.append(
+                    f"Total weight changed by {total_diff:.1f}pp: {prev_total:.1f}% → {total:.1f}%"
                 )
 
     # Print results
@@ -1230,6 +1460,8 @@ def main():
                         help='Skip NAV history fetch')
     parser.add_argument('--output', default=None,
                         help='Output path for fund_data.json (default: docs/fondide-vordlus/)')
+    parser.add_argument('--offline', action='store_true',
+                        help='Skip external data fetches (pensionikeskus AUM check)')
     args = parser.parse_args()
 
     print('=== V2 Multi-Source Pension Fund Pipeline ===\n')
@@ -1242,6 +1474,26 @@ def main():
     reports_cfg, alloc_cfg = load_monthly_config(MONTH)
     alloc_cfg = alloc_cfg or {}
     print(f'Month: {MONTH} ({len(reports_cfg or {})} reports, {len(alloc_cfg)} allocations)\n')
+
+    # Fetch pensionikeskus AUM for validation check 3
+    pk_aum = {}
+    if not args.offline:
+        # Compute last day of month for pensionikeskus query
+        year, mo = MONTH.split('-')
+        if int(mo) == 12:
+            next_month = date(int(year) + 1, 1, 1)
+        else:
+            next_month = date(int(year), int(mo) + 1, 1)
+        from datetime import timedelta
+        last_day = next_month - timedelta(days=1)
+        pk_date = last_day.strftime('%Y-%m-%d')
+        print(f'Fetching pensionikeskus AUM for {pk_date}...')
+        pk_aum = fetch_pensionikeskus_aum(pk_date)
+        if pk_aum:
+            print(f'  Got AUM data for {len(pk_aum)} funds')
+        else:
+            print('  No AUM data received (will skip AUM validation)')
+        print()
 
     # Output directory
     out_dir = Path(args.output) if args.output else OUT_DIR
@@ -1298,7 +1550,7 @@ def main():
         # Validate
         prev_parsed = load_prev_parsed(fund_key, MONTH)
         try:
-            validate_parsed_fund(parsed, prev_parsed)
+            validate_parsed_fund(parsed, prev_parsed, pk_aum=pk_aum)
         except ValueError as e:
             print(f'   VALIDATION ERROR: {e}')
             continue

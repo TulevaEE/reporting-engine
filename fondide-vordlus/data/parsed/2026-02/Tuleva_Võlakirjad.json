@@ -12,26 +12,37 @@
     {
       "name": "Euro Aggregate Bond Index Fund - X2",
       "isin": "LU0826455353",
-      "weight_pct": 24.43
+      "weight_pct": 24.43,
+      "value_eur": 2894495
     },
     {
       "name": "Euro Credit Bond Index Fund - Flexible",
       "isin": "IE0005032192",
-      "weight_pct": 24.4
+      "weight_pct": 24.4,
+      "value_eur": 2891311
     },
     {
       "name": "Euro Government Bond Index Fund - Flexible",
       "isin": "IE0031080751",
-      "weight_pct": 24.51
+      "weight_pct": 24.51,
+      "value_eur": 2903671
     },
     {
       "name": "Global Government Bond Index - X2",
       "isin": "LU0839970364",
-      "weight_pct": 24.42
+      "weight_pct": 24.42,
+      "value_eur": 2892868
     }
   ],
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 2.27,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "bond_funds": 97.76
+  },
+  "_pdf_holding_counts": {
+    "bond_funds": 4
+  },
+  "_total_value_eur": 11851174
 }
