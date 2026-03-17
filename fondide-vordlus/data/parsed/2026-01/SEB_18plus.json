@@ -1,0 +1,208 @@
+{
+  "fund_name": "SEB 18+",
+  "fund_key": "SEB 18+",
+  "provider": "SEB",
+  "fund_type": "active",
+  "month": "2026-01",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "Amundi Euro Stoxx Banks UCITS ETF",
+      "isin": "LU1829219390",
+      "weight_pct": 3.61
+    },
+    {
+      "name": "Federated Hermes Global EM Equity Fund",
+      "isin": "IE00B3DJ5M15",
+      "weight_pct": 0.9
+    },
+    {
+      "name": "Invesco Nasdaq-100 ESG UCITS ETF",
+      "isin": "IE000COQKPO9",
+      "weight_pct": 8.01
+    },
+    {
+      "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3P36",
+      "weight_pct": 1.03
+    },
+    {
+      "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3D14",
+      "weight_pct": 2.88
+    },
+    {
+      "name": "iShares MSCI USA ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3G45",
+      "weight_pct": 16.83
+    },
+    {
+      "name": "iShares MSCI USA Small Cap UCITS ETF",
+      "isin": "IE00B3VWM098",
+      "weight_pct": 4.95
+    },
+    {
+      "name": "iShares MSCI World Value Factor ESG UCITS ETF",
+      "isin": "IE000H1H16W5",
+      "weight_pct": 3.62
+    },
+    {
+      "name": "iShares STOXX Europe 600 Constr. & Mater. UCITS ETF",
+      "isin": "DE000A0H08F7",
+      "weight_pct": 0.98
+    },
+    {
+      "name": "L&G Japan Equity UCITS ETF",
+      "isin": "IE00BFXR5T61",
+      "weight_pct": 1.86
+    },
+    {
+      "name": "Morgan Stanley Global Opportunity Fund",
+      "isin": "LU2418734716",
+      "weight_pct": 2.38
+    },
+    {
+      "name": "SEB Emerging Markets Exposure Fund",
+      "isin": "SE0021147394",
+      "weight_pct": 8.54
+    },
+    {
+      "name": "SEB Europe Exposure Fund IC",
+      "isin": "LU1118354460",
+      "weight_pct": 2.6
+    },
+    {
+      "name": "SEB Global Exposure Fund",
+      "isin": "LU1711526407",
+      "weight_pct": 20.84
+    },
+    {
+      "name": "SEB Montrusco Bolton Global Equity Fund",
+      "isin": "LU2853083306",
+      "weight_pct": 2.06
+    },
+    {
+      "name": "T Rowe Price Global Focused Growth Equity",
+      "isin": "LU2942508834",
+      "weight_pct": 2.42
+    },
+    {
+      "name": "Xtrackers MSCI USA Screened UCITS ETF",
+      "isin": "IE00BJZ2DC62",
+      "weight_pct": 4.66
+    }
+  ],
+  "stocks": [
+    {
+      "name": "Hepsor",
+      "isin": "EE3100082306",
+      "weight_pct": 0.14,
+      "country": "Estonia"
+    },
+    {
+      "name": "Ignitis Grupe",
+      "isin": "LT0000115768",
+      "weight_pct": 0.51,
+      "country": "Lithuania"
+    },
+    {
+      "name": "Tallinna Sadam",
+      "isin": "EE3100021635",
+      "weight_pct": 0.87,
+      "country": "Estonia"
+    }
+  ],
+  "bonds": [
+    {
+      "name": "Bigbank 12% XXXX",
+      "weight_pct": 0.32,
+      "type": "bonds"
+    },
+    {
+      "name": "COOP Pank AT1 12%",
+      "weight_pct": 0.26,
+      "type": "bonds"
+    },
+    {
+      "name": "Inbank 5.5% 2031",
+      "weight_pct": 0.04,
+      "type": "bonds"
+    },
+    {
+      "name": "Inbank AT1 7.5% 2031",
+      "weight_pct": 0.15,
+      "type": "bonds"
+    },
+    {
+      "name": "LHV Group FRN 2035",
+      "weight_pct": 0.65,
+      "type": "bonds"
+    },
+    {
+      "name": "Luminor Bank FRN Perp",
+      "weight_pct": 0.11,
+      "type": "bonds"
+    },
+    {
+      "name": "Nortal FRN 2029",
+      "weight_pct": 0.46,
+      "type": "bonds"
+    }
+  ],
+  "bond_funds": [
+    {
+      "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+      "weight_pct": 0.98
+    }
+  ],
+  "pe_funds": [
+    {
+      "name": "BaltCap PE Fund II",
+      "weight_pct": 0.08
+    },
+    {
+      "name": "INVL PE Fund II",
+      "weight_pct": 0.06
+    },
+    {
+      "name": "Schroders Capital PE Global Innovation XI",
+      "weight_pct": 0.57
+    },
+    {
+      "name": "SEB PE Global Direct III",
+      "weight_pct": 0.71
+    },
+    {
+      "name": "BaltCap PE Fund III",
+      "weight_pct": 0.35
+    },
+    {
+      "name": "Superangel Two",
+      "weight_pct": 0.41
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "Baltic Horizon Fund",
+      "weight_pct": 0.05
+    },
+    {
+      "name": "Birdeye Timber Fund 3",
+      "weight_pct": 1.0
+    },
+    {
+      "name": "EfTEN Real Estate Fund IV",
+      "weight_pct": 1.37
+    },
+    {
+      "name": "EfTEN Special Opportunities Fund",
+      "weight_pct": 0.53
+    },
+    {
+      "name": "SG Capital Partners",
+      "weight_pct": 0.59
+    }
+  ],
+  "deposits_pct": 0.0,
+  "derivatives_pct": 0.0
+}

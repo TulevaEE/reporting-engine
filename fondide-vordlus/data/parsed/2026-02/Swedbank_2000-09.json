@@ -1,0 +1,322 @@
+{
+  "fund_name": "Swedbank 2000-09",
+  "fund_key": "Swedbank 2000-09",
+  "provider": "Swedbank",
+  "fund_type": "mixed",
+  "month": "2026-02",
+  "source": "K2000_investment_portfolio.pdf",
+  "equity_funds": [
+    {
+      "name": "Access Edge Global A (2)",
+      "weight_pct": 4.87,
+      "isin": "SE0014429353"
+    },
+    {
+      "name": "Access Edge Japan A (2)",
+      "weight_pct": 0.68,
+      "isin": "SE0007074091"
+    },
+    {
+      "name": "Access Global A (2)",
+      "weight_pct": 12.74,
+      "isin": "SE0007074059"
+    },
+    {
+      "name": "Access USA A (2)",
+      "weight_pct": 5.23,
+      "isin": "SE0007074083"
+    },
+    {
+      "name": "Amundi MSCI Emerging Ex China ESG Selection -UCITS Amundi Luxembourg SA",
+      "weight_pct": 4.95,
+      "isin": "LU2345046655"
+    },
+    {
+      "name": "Amundi MSCI World Climate Net Zero Ambition PAB UC Amundi Asset Management SAS",
+      "weight_pct": 1.08,
+      "isin": "IE000CL68Z69"
+    },
+    {
+      "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits Amundi Ireland Ltd",
+      "weight_pct": 1.44,
+      "isin": "IE000O5FBC47"
+    },
+    {
+      "name": "Globalfond A (2)",
+      "weight_pct": 10.37,
+      "isin": "SE0000542979"
+    },
+    {
+      "name": "HSBC MSCI World Climate Paris Aligned UCITS ETF HSBC Holdings PLC",
+      "weight_pct": 14.7,
+      "isin": "IE00BP2C1V62"
+    },
+    {
+      "name": "iShares MSCI World Screened UCITS ETF",
+      "weight_pct": 17.7,
+      "isin": "IE00BFNM3J75"
+    },
+    {
+      "name": "New Energy A (2)",
+      "weight_pct": 0.57,
+      "isin": "SE0000538969"
+    },
+    {
+      "name": "Xtrackers MSCI Japan ESG UCITS ETF",
+      "weight_pct": 6.95,
+      "isin": "IE00BG36TC12"
+    }
+  ],
+  "stocks": [
+    {
+      "name": "Akola group",
+      "isin": "LT0000128092",
+      "country": "LT",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "Alphabet C",
+      "isin": "US02079K1079",
+      "country": "US",
+      "weight_pct": 1.02
+    },
+    {
+      "name": "Amazon.com",
+      "isin": "US0231351067",
+      "country": "US",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "Apranga",
+      "isin": "LT0000102337",
+      "country": "LT",
+      "weight_pct": 0.13
+    },
+    {
+      "name": "Artea Bankas",
+      "isin": "LT0000102253",
+      "country": "LT",
+      "weight_pct": 0.28
+    },
+    {
+      "name": "AS Merko",
+      "isin": "EE3100098328",
+      "country": "EE",
+      "weight_pct": 0.18
+    },
+    {
+      "name": "Banco Bilbao Vizcaya Argentaria",
+      "isin": "ES0113211835",
+      "country": "ES",
+      "weight_pct": 0.47
+    },
+    {
+      "name": "Bank of America",
+      "isin": "US0605051046",
+      "country": "US",
+      "weight_pct": 0.52
+    },
+    {
+      "name": "Big Yellow Group",
+      "isin": "GB0002869419",
+      "country": "GB",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "British Land",
+      "isin": "GB0001367019",
+      "country": "GB",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "Check Point Software Technologies",
+      "isin": "IL0010824113",
+      "country": "IL",
+      "weight_pct": 0.62
+    },
+    {
+      "name": "Cisco Systems",
+      "isin": "US17275R1023",
+      "country": "US",
+      "weight_pct": 0.52
+    },
+    {
+      "name": "CTP",
+      "isin": "NL00150006R6",
+      "country": "NL",
+      "weight_pct": 0.19
+    },
+    {
+      "name": "Derwent London",
+      "isin": "GB0002652740",
+      "country": "GB",
+      "weight_pct": 0.2
+    },
+    {
+      "name": "Fortinet",
+      "isin": "US34959E1091",
+      "country": "US",
+      "weight_pct": 0.09
+    },
+    {
+      "name": "Ignitis",
+      "isin": "LT0000115768",
+      "country": "LT",
+      "weight_pct": 0.61
+    },
+    {
+      "name": "Inbank",
+      "isin": "EE3100008574",
+      "country": "EE",
+      "weight_pct": 0.04
+    },
+    {
+      "name": "Infineon Technologies",
+      "isin": "DE0006231004",
+      "country": "DE",
+      "weight_pct": 1.06
+    },
+    {
+      "name": "Klepierre",
+      "isin": "FR0000121964",
+      "country": "FR",
+      "weight_pct": 0.37
+    },
+    {
+      "name": "LHV Group AS",
+      "isin": "EE3100102203",
+      "country": "EE",
+      "weight_pct": 0.68
+    },
+    {
+      "name": "Meta Platforms",
+      "isin": "US30303M1027",
+      "country": "US",
+      "weight_pct": 0.85
+    },
+    {
+      "name": "NOBA Bank",
+      "isin": "SE0023135298",
+      "country": "SE",
+      "weight_pct": 0.23
+    },
+    {
+      "name": "Nvidia",
+      "isin": "US67066G1040",
+      "country": "US",
+      "weight_pct": 2.22
+    },
+    {
+      "name": "NXP Semiconductors",
+      "isin": "NL0009538784",
+      "country": "NL",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "ON Semiconductor",
+      "isin": "US6821891057",
+      "country": "US",
+      "weight_pct": 0.09
+    },
+    {
+      "name": "Oracle",
+      "isin": "US68389X1054",
+      "country": "US",
+      "weight_pct": 0.29
+    },
+    {
+      "name": "Qualcomm",
+      "isin": "US7475251036",
+      "country": "US",
+      "weight_pct": 0.19
+    },
+    {
+      "name": "Samsung Electronics",
+      "isin": "US7960508882",
+      "country": "KR",
+      "weight_pct": 1.08
+    },
+    {
+      "name": "Sensata Technologies",
+      "isin": "GB00BFMBMT84",
+      "country": "GB",
+      "weight_pct": 0.1
+    },
+    {
+      "name": "Sumitomo Mitsui Financial Group",
+      "isin": "JP3890350006",
+      "country": "JP",
+      "weight_pct": 0.63
+    },
+    {
+      "name": "Taiwan Semiconductor Manufacturing ADR",
+      "isin": "US8740391003",
+      "country": "TW",
+      "weight_pct": 1.06
+    },
+    {
+      "name": "Tallink Grupp",
+      "isin": "EE3100004466",
+      "country": "EE",
+      "weight_pct": 0.07
+    },
+    {
+      "name": "Tallinna Sadam",
+      "isin": "EE3100021635",
+      "country": "EE",
+      "weight_pct": 0.38
+    },
+    {
+      "name": "TE Connectivity",
+      "isin": "IE000IVNQZ81",
+      "country": "IE",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "TKM Grupp",
+      "isin": "EE0000001105",
+      "country": "EE",
+      "weight_pct": 0.54
+    },
+    {
+      "name": "Vonovia",
+      "isin": "DE000A1ML7J1",
+      "country": "DE",
+      "weight_pct": 0.27
+    }
+  ],
+  "bonds": [],
+  "bond_funds": [],
+  "pe_funds": [
+    {
+      "name": "NordicNinja Fund II SCSp NordicNinja Fund II General Partner S.à r.l LU EUR 1,00 19 408 1,02 19 842 0,15%",
+      "weight_pct": 0.15
+    },
+    {
+      "name": "Practica Venture Capital III Practica Venture Capital III LT EUR 1,00 10 913 0,94 10 254 0,08%",
+      "weight_pct": 0.08
+    },
+    {
+      "name": "Usaldusfond Trind Ventures Fund II (1) Trind Ventures OU",
+      "weight_pct": 0.08,
+      "isin": "EE3500001625"
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "BaltCap Infrastructure Fund II (1) BaltCap AS EE EUR 1,00 4 349 1,30 5 648 0,04%",
+      "weight_pct": 0.04
+    },
+    {
+      "name": "Eften Real Estate Fund Aktsia III",
+      "weight_pct": 0.63,
+      "isin": "EE3100127242"
+    },
+    {
+      "name": "Usaldusfond",
+      "weight_pct": 0.27
+    }
+  ],
+  "deposits_pct": 1.51,
+  "derivatives_pct": 0.0
+}

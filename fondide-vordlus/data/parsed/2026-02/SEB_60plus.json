@@ -1,0 +1,238 @@
+{
+  "fund_name": "SEB 60+",
+  "fund_key": "SEB 60+",
+  "provider": "SEB",
+  "fund_type": "mixed",
+  "month": "2026-02",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "iShares Developed World ESG Screened Index Fund",
+      "isin": "IE00BFG1TM61",
+      "weight_pct": 1.95
+    },
+    {
+      "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3P36",
+      "weight_pct": 3.07
+    },
+    {
+      "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3D14",
+      "weight_pct": 2.99
+    },
+    {
+      "name": "iShares MSCI World ESG Screened UCITS ETF",
+      "isin": "IE00BFNM3J75",
+      "weight_pct": 5.42
+    },
+    {
+      "name": "L&G Japan Equity UCITS ETF",
+      "isin": "IE00BFXR5T61",
+      "weight_pct": 1.15
+    },
+    {
+      "name": "SEB Global Exposure Fund",
+      "isin": "LU1711526407",
+      "weight_pct": 21.41
+    },
+    {
+      "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+      "isin": "IE00BH4GPZ28",
+      "weight_pct": 8.54
+    }
+  ],
+  "stocks": [],
+  "bonds": [
+    {
+      "name": "Akropolis Group Uab 6% 15.05.2030",
+      "weight_pct": 0.61,
+      "type": "bonds"
+    },
+    {
+      "name": "Artea Bankas FRN Perp",
+      "weight_pct": 1.39,
+      "type": "bonds"
+    },
+    {
+      "name": "Artea Bankas AB FRN 05.12.2028",
+      "weight_pct": 1.2,
+      "type": "bonds"
+    },
+    {
+      "name": "Artea Bankas AB FRN 07.10.2029",
+      "weight_pct": 0.57,
+      "type": "bonds"
+    },
+    {
+      "name": "Artea Bankas FRN 2030",
+      "weight_pct": 0.63,
+      "type": "bonds"
+    },
+    {
+      "name": "AS LHV Group 6% 15.11.2034",
+      "weight_pct": 0.18,
+      "type": "bonds"
+    },
+    {
+      "name": "Citadele Banka AS FRN 23.12.2029",
+      "weight_pct": 0.12,
+      "type": "bonds"
+    },
+    {
+      "name": "Citadele Banka AS FRN 31.12.2099",
+      "weight_pct": 0.83,
+      "type": "bonds"
+    },
+    {
+      "name": "Eesti Energia 7.875% 15.07.2099",
+      "weight_pct": 0.73,
+      "type": "bonds"
+    },
+    {
+      "name": "Ignitis Grupė AB 1.875% 10.07.2028",
+      "weight_pct": 0.69,
+      "type": "bonds"
+    },
+    {
+      "name": "Ignitis Grupė AB 2% 21.05.2030",
+      "weight_pct": 0.6,
+      "type": "bonds"
+    },
+    {
+      "name": "Inbank 5.5% 2031",
+      "weight_pct": 0.09,
+      "type": "bonds"
+    },
+    {
+      "name": "Inbank AT1 7.5% 2031",
+      "weight_pct": 0.33,
+      "type": "bonds"
+    },
+    {
+      "name": "Latvenergo AS 3.612% 13.11.2030",
+      "weight_pct": 0.18,
+      "type": "bonds"
+    },
+    {
+      "name": "LHV Group AS 9.5 31.12.2099",
+      "weight_pct": 1.29,
+      "type": "bonds"
+    },
+    {
+      "name": "LHV Group AS FRN 03.10.2027",
+      "weight_pct": 1.75,
+      "type": "bonds"
+    },
+    {
+      "name": "LHV Group FRN 2035",
+      "weight_pct": 0.6,
+      "type": "bonds"
+    },
+    {
+      "name": "LHV Group FRN 2029",
+      "weight_pct": 0.53,
+      "type": "bonds"
+    },
+    {
+      "name": "LHV Group AS FRN 24.05.2028",
+      "weight_pct": 0.4,
+      "type": "bonds"
+    },
+    {
+      "name": "Luminor Bank AS/Estonia FRN 08.06.2027",
+      "weight_pct": 0.98,
+      "type": "bonds"
+    },
+    {
+      "name": "Luminor Bank AS/Estonia FRN 10.09.2028",
+      "weight_pct": 0.78,
+      "type": "bonds"
+    },
+    {
+      "name": "Luminor Bank FRN Perp",
+      "weight_pct": 1.68,
+      "type": "bonds"
+    },
+    {
+      "name": "Luminor Bank FRN 2029",
+      "weight_pct": 0.11,
+      "type": "bonds"
+    },
+    {
+      "name": "Nortal FRN 2029",
+      "weight_pct": 0.56,
+      "type": "bonds"
+    },
+    {
+      "name": "Republic of Estonia 4% 12.10.2032",
+      "weight_pct": 8.59,
+      "type": "bonds"
+    },
+    {
+      "name": "Valstybes Investicinis Kapitalas Uab 3.119% 24.09.2029",
+      "weight_pct": 0.77,
+      "type": "bonds"
+    }
+  ],
+  "bond_funds": [
+    {
+      "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
+      "weight_pct": 1.48
+    },
+    {
+      "name": "Fair Oaks Dynamic Credit Fund",
+      "weight_pct": 2.33
+    },
+    {
+      "name": "Robeco Euro Credit Bond",
+      "weight_pct": 2.33
+    },
+    {
+      "name": "Schroder ISF EURO Corporate Bond",
+      "weight_pct": 3.48
+    },
+    {
+      "name": "SEB Global High Yield Fund",
+      "weight_pct": 0.0
+    },
+    {
+      "name": "UBS EUR Corporates Sustainable",
+      "weight_pct": 5.99
+    }
+  ],
+  "pe_funds": [
+    {
+      "name": "BaltCap PE Fund II",
+      "weight_pct": 0.33
+    },
+    {
+      "name": "BaltCap PE Fund III",
+      "weight_pct": 0.23
+    }
+  ],
+  "re_funds": [
+    {
+      "name": "BaltCap Infrastructure Fund",
+      "weight_pct": 1.08
+    },
+    {
+      "name": "Baltic Horizon Fund",
+      "weight_pct": 0.11
+    },
+    {
+      "name": "Birdeye Timber Fund 3",
+      "weight_pct": 2.45
+    },
+    {
+      "name": "EfTEN Real Estate Fund IV",
+      "weight_pct": 4.67
+    },
+    {
+      "name": "SG Capital Partners",
+      "weight_pct": 1.88
+    }
+  ],
+  "deposits_pct": 0.0,
+  "derivatives_pct": 0.0
+}

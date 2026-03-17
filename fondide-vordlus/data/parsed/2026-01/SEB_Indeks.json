@@ -1,0 +1,52 @@
+{
+  "fund_name": "SEB Indeks",
+  "fund_key": "SEB Indeks",
+  "provider": "SEB",
+  "fund_type": "index",
+  "month": "2026-01",
+  "source": "monthly JSON",
+  "equity_funds": [
+    {
+      "name": "iShares Developed World ESG Screened Index Fund",
+      "isin": "IE00BFG1TM61",
+      "weight_pct": 25.85
+    },
+    {
+      "name": "L&G Japan Equity UCITS ETF",
+      "isin": "IE00BFXR5T61",
+      "weight_pct": 3.02
+    },
+    {
+      "name": "L&G US Equity UCITS ETF",
+      "isin": "IE00BFXR5Q31",
+      "weight_pct": 10.89
+    },
+    {
+      "name": "SEB Emerging Markets Exposure Fund",
+      "isin": "SE0021147394",
+      "weight_pct": 11.22
+    },
+    {
+      "name": "SEB Europe Exposure Fund IC",
+      "isin": "LU1118354460",
+      "weight_pct": 7.1
+    },
+    {
+      "name": "SEB Global Exposure Fund",
+      "isin": "LU1711526407",
+      "weight_pct": 10.0
+    },
+    {
+      "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+      "isin": "IE00BH4GPZ28",
+      "weight_pct": 29.57
+    }
+  ],
+  "stocks": [],
+  "bonds": [],
+  "bond_funds": [],
+  "pe_funds": [],
+  "re_funds": [],
+  "deposits_pct": 0.0,
+  "derivatives_pct": 0.0
+}
