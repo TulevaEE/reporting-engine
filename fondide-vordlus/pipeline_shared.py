@@ -200,24 +200,142 @@ def _pct(s):
     return float(s)
 
 
+def _extract_eur_value(line):
+    """Extract EUR market value from a PDF investment data line.
+
+    Returns int (EUR market value) or None if extraction fails.
+
+    After the currency code (EUR/USD/GBP/...), PDF lines contain columns:
+    [unit_price] [quantity_or_cost_value] [eur_price] [eur_market_value] [weight%]
+    The EUR market value is the second-to-last number (last is weight%).
+
+    Handles space-separated integers (9 006 167) and comma-thousands (2,766,000).
+    """
+    # Find currency code and work only with text after it
+    curr_match = re.search(r'\b(EUR|USD|GBP|JPY|CHF|SEK|DKK|NOK|AUD|CAD|HKD|SGD|NZD|KRW|TWD|INR|BRL|MXN|ZAR|PLN|CZK|HUF|TRY|ILS|THB)\b', line)
+    if not curr_match:
+        return None
+
+    num_text = line[curr_match.end():]
+
+    # Collapse space-separated digit groups: "9 006 167" -> "9006167"
+    # Lookbehind prevents matching digits that are part of a decimal
+    # (both dot decimals like "8.57 150..." and Estonian comma decimals like "37,89 132...")
+    collapsed = re.sub(
+        r'(?<![.,\d])\d{1,3}(?:\s\d{3})+',
+        lambda m: m.group(0).replace(' ', ''),
+        num_text,
+    )
+    # Collapse comma-thousands: "2,766,000" -> "2766000"
+    def _fix_comma_thousands(m):
+        parts = m.group(0).split(',')
+        if all(len(p) == 3 for p in parts[1:]):
+            return m.group(0).replace(',', '')
+        return m.group(0)
+    collapsed = re.sub(r'\d{1,3}(?:,\d{1,3})+', _fix_comma_thousands, collapsed)
+
+    # Extract all numbers (decimal or integer)
+    all_nums = []
+    for m in re.finditer(r'(\d+[.,]\d+|\d+)', collapsed):
+        s = m.group(1).replace(',', '.')
+        all_nums.append(float(s))
+
+    if len(all_nums) < 2:
+        return None
+
+    # EUR value = second-to-last (last is weight%)
+    val = all_nums[-2]
+    if val >= 100:
+        return int(round(val))
+    return None
+
+
+def _extract_deposit_eur(line):
+    """Extract EUR market value from a deposit/HOIUSED KOKKU line.
+
+    Format: "HOIUSED KOKKU [soetusmaksumus] [turuväärtus] [pct%] [change%]"
+    or:     "2. Hoiused [value] [pct%] [pct%]"
+    or:     "AS SEB Pank Nõudmiseni hoius ... [value] [pct%]"
+
+    Can't use generic _extract_eur_value because adjacent space-separated integers
+    (e.g. "268 829 268 829") get merged during collapse.
+
+    Strategy: extract all digit groups before the first percentage, then split:
+    - Even count → two numbers (soetusmaksumus, turuväärtus) → take second half
+    - Odd count → one number → take all
+    """
+    # Find position of first percentage
+    pct_match = re.search(r'(\d+[\.,]\d+)\s*%', line)
+    if not pct_match:
+        return None
+
+    # Text before the percentage value
+    before_pct = line[:pct_match.start()].rstrip()
+
+    # Find the contiguous numeric tail (digits and spaces only, right-to-left)
+    i = len(before_pct) - 1
+    while i >= 0 and (before_pct[i].isdigit() or before_pct[i] == ' '):
+        i -= 1
+    numeric_tail = before_pct[i + 1:].strip()
+    if not numeric_tail:
+        return None
+
+    # Extract digit groups from the numeric tail
+    groups = re.findall(r'\d+', numeric_tail)
+    if not groups:
+        return None
+
+    # If even number of groups, likely two equal-length numbers
+    # (soetusmaksumus and turuväärtus) — take the second half
+    if len(groups) >= 4 and len(groups) % 2 == 0:
+        half = len(groups) // 2
+        value = int(''.join(groups[half:]))
+    else:
+        value = int(''.join(groups))
+
+    if value >= 100:
+        return value
+    return None
+
+
 def parse_tuleva_monthly(pdf_path):
     """Parse Tuleva monthly investment report (1-page PDF with ETF allocations).
-    Returns: {allocations: [{name, isin, weight_pct}], deposits_pct: float}
+    Returns: {allocations: [{name, isin, weight_pct, value_eur}], deposits_pct: float,
+              _pdf_subtotals, _pdf_holding_counts, _total_value_eur}
     """
     with pdfplumber.open(pdf_path) as pdf:
         text = pdf.pages[0].extract_text() or ''
 
     allocations = []
     in_equity_funds = False
+    pdf_subtotals = {}
+    pdf_holding_count = 0
+    total_value_eur = 0
+
     for line in text.splitlines():
         line = line.strip()
         if 'Aktsiafondid' == line:
             in_equity_funds = True
             continue
         if line.startswith('Aktsiafondid kokku'):
-            break
+            pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+            if pct_m:
+                pdf_subtotals['equity_funds'] = _pct(pct_m[0] + '%')
+            in_equity_funds = False
+            continue
+        # Extract deposit EUR value from "HOIUSED KOKKU [soetus] [turuv] [pct%] [change%]"
+        if line.startswith('HOIUSED KOKKU'):
+            dep_val = _extract_deposit_eur(line)
+            if dep_val:
+                total_value_eur += dep_val
+            continue
         if not in_equity_funds:
             continue
+
+        # Count all data lines with a percentage (independent of parsing success)
+        if re.search(r'\d+[\.,]\d+%', line):
+            pdf_holding_count += 1
+
         # Find ISIN in line
         isin_match = ISIN_RE.search(line)
         if not isin_match:
@@ -228,6 +346,12 @@ def parse_tuleva_monthly(pdf_path):
         if not pct_matches:
             continue
         weight = _pct(pct_matches[0])  # First percentage is the weight
+
+        # Extract EUR market value
+        value_eur = _extract_eur_value(line)
+        if value_eur:
+            total_value_eur += value_eur
+
         # Name is everything before the fund manager name
         name = line[:isin_match.start()].strip()
         # Remove fund manager suffix (e.g. "BlackRock Asset Management Ireland Ltd")
@@ -242,14 +366,25 @@ def parse_tuleva_monthly(pdf_path):
                 name = name[dash + 3:].strip()
             else:
                 name = name.replace('BlackRock ISF', '').strip()
-        allocations.append({'name': name, 'isin': isin, 'weight_pct': weight})
 
-    return {'allocations': allocations, 'deposits_pct': 0.07}
+        entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+        if value_eur:
+            entry['value_eur'] = value_eur
+        allocations.append(entry)
+
+    return {
+        'allocations': allocations,
+        'deposits_pct': 0.07,
+        '_pdf_subtotals': pdf_subtotals,
+        '_pdf_holding_counts': {'equity_funds': pdf_holding_count},
+        '_total_value_eur': total_value_eur,
+    }
 
 
 def parse_tuleva_bond_monthly(pdf_path):
     """Parse Tuleva Võlakirjad monthly investment report (bond funds + deposit).
-    Returns: {bond_funds: [{name, isin, weight_pct}], deposits_pct: float}
+    Returns: {bond_funds: [{name, isin, weight_pct, value_eur}], deposits_pct: float,
+              _pdf_subtotals, _pdf_holding_counts, _total_value_eur}
     """
     with pdfplumber.open(pdf_path) as pdf:
         text = pdf.pages[0].extract_text() or ''
@@ -257,6 +392,9 @@ def parse_tuleva_bond_monthly(pdf_path):
     bond_funds = []
     in_bond_funds = False
     deposits_pct = 0.0
+    pdf_subtotals = {}
+    pdf_holding_count = 0
+    total_value_eur = 0
 
     for line in text.splitlines():
         line = line.strip()
@@ -264,15 +402,25 @@ def parse_tuleva_bond_monthly(pdf_path):
             in_bond_funds = True
             continue
         if line.startswith('Võlakirjafondid kokku'):
+            pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+            if pct_m:
+                pdf_subtotals['bond_funds'] = _pct(pct_m[0] + '%')
             in_bond_funds = False
             continue
         if line.startswith('HOIUSED KOKKU'):
             pct_m = re.findall(r'(\d+[\.,]\d+%)', line)
             if pct_m:
                 deposits_pct = _pct(pct_m[0])
+            dep_val = _extract_deposit_eur(line)
+            if dep_val:
+                total_value_eur += dep_val
             continue
         if not in_bond_funds:
             continue
+
+        # Count data lines with percentage
+        if re.search(r'\d+[\.,]\d+%', line):
+            pdf_holding_count += 1
 
         isin_match = ISIN_RE.search(line)
         if not isin_match:
@@ -282,6 +430,12 @@ def parse_tuleva_bond_monthly(pdf_path):
         if not pct_matches:
             continue
         weight = _pct(pct_matches[-1])  # Last percentage is the weight
+
+        # Extract EUR market value
+        value_eur = _extract_eur_value(line)
+        if value_eur:
+            total_value_eur += value_eur
+
         name = line[:isin_match.start()].strip()
         for mgr in ('BlackRock Asset Management', 'BlackRock Investment Management',
                      'Blackrock Luxembourg SA'):
@@ -292,14 +446,26 @@ def parse_tuleva_bond_monthly(pdf_path):
             dash = name.find(' - ')
             if dash >= 0:
                 name = name[dash + 3:].strip()
-        bond_funds.append({'name': name, 'isin': isin, 'weight_pct': weight})
 
-    return {'bond_funds': bond_funds, 'deposits_pct': deposits_pct}
+        entry = {'name': name, 'isin': isin, 'weight_pct': weight}
+        if value_eur:
+            entry['value_eur'] = value_eur
+        bond_funds.append(entry)
+
+    return {
+        'bond_funds': bond_funds,
+        'deposits_pct': deposits_pct,
+        '_pdf_subtotals': pdf_subtotals,
+        '_pdf_holding_counts': {'bond_funds': pdf_holding_count},
+        '_total_value_eur': total_value_eur,
+    }
 
 
 def parse_swedbank_monthly(pdf_path):
     """Parse Swedbank K-series monthly investment report.
-    Returns: {stocks, bonds, equity_funds, bond_funds, re_funds, pe_funds, deposits_pct, derivatives_pct}
+    Returns: {stocks, bonds, equity_funds, bond_funds, re_funds, pe_funds,
+              deposits_pct, derivatives_pct,
+              _pdf_subtotals, _pdf_holding_counts, _total_value_eur}
     """
     stocks = []
     bonds = []
@@ -311,6 +477,19 @@ def parse_swedbank_monthly(pdf_path):
     in_sub = None  # sub-section within FONDIOSAKUD
     deposits_pct = 0.0
     derivatives_pct = 0.0
+    pdf_subtotals = {}
+    pdf_holding_counts = {}  # section → count of data lines with %
+    total_value_eur = 0
+
+    # Track current section key for holding counts
+    def _count_key():
+        if in_section == 'stocks':
+            return 'stocks'
+        if in_section == 'bonds':
+            return 'bonds'
+        if in_section == 'fondiosakud' and in_sub:
+            return in_sub
+        return None
 
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
@@ -325,12 +504,18 @@ def parse_swedbank_monthly(pdf_path):
                     in_section = 'stocks'
                     continue
                 if line.startswith('AKTSIAD KOKKU'):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['stocks'] = _pct(pct_m[0] + '%')
                     in_section = None
                     continue
                 if line == 'VÕLAKIRJAD' or line.startswith('VÕLAKIRJAD (järg)'):
                     in_section = 'bonds'
                     continue
                 if line.startswith('VÕLAKIRJAD KOKKU'):
+                    pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                    if pct_m:
+                        pdf_subtotals['bonds'] = _pct(pct_m[0] + '%')
                     in_section = None
                     continue
                 if line == 'FONDIOSAKUD' or line.startswith('FONDIOSAKUD (järg)'):
@@ -345,6 +530,9 @@ def parse_swedbank_monthly(pdf_path):
                     pct_m = re.findall(r'(\d+[\.,]\d+%)', line)
                     if pct_m:
                         deposits_pct = _pct(pct_m[0])
+                    dep_val = _extract_deposit_eur(line)
+                    if dep_val:
+                        total_value_eur += dep_val
                     continue
                 if line.startswith('TULETISINSTRUMENDID KOKKU'):
                     pct_m = re.findall(r'-?\d+[\.,]\d+%', line)
@@ -358,30 +546,47 @@ def parse_swedbank_monthly(pdf_path):
                         in_sub = 'equity_funds'
                         continue
                     if line.startswith('Aktsiafondid kokku'):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                        if pct_m:
+                            pdf_subtotals['equity_funds'] = _pct(pct_m[0] + '%')
                         in_sub = None
                         continue
                     if line.startswith('Kinnisvarafondid') and 'kokku' not in line.lower():
                         in_sub = 're_funds'
                         continue
                     if line.startswith('Kinnisvarafondid kokku'):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                        if pct_m:
+                            pdf_subtotals['re_funds'] = _pct(pct_m[0] + '%')
                         in_sub = None
                         continue
                     if line.startswith('Private Equity') and 'kokku' not in line.lower():
                         in_sub = 'pe_funds'
                         continue
                     if line.startswith('Private Equity fondid kokku'):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                        if pct_m:
+                            pdf_subtotals['pe_funds'] = _pct(pct_m[0] + '%')
                         in_sub = None
                         continue
                     if line.startswith('Võlakirjafondid') and 'kokku' not in line.lower():
                         in_sub = 'bond_funds'
                         continue
                     if line.startswith('Võlakirjafondid kokku'):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)\s*%', line)
+                        if pct_m:
+                            pdf_subtotals['bond_funds'] = _pct(pct_m[0] + '%')
                         in_sub = None
                         continue
 
                 # Skip headers
                 if any(x in line for x in ['Nimetus', 'maksumus', 'puhasväärtusest']):
                     continue
+
+                # Count data lines with percentage per section
+                ck = _count_key()
+                if ck and re.search(r'\d+[\.,]\d+%', line):
+                    pdf_holding_counts[ck] = pdf_holding_counts.get(ck, 0) + 1
 
                 if in_section == 'stocks':
                     isin_match = ISIN_RE.search(line)
@@ -394,12 +599,18 @@ def parse_swedbank_monthly(pdf_path):
                     weight = _pct(pct_matches[0])
                     if weight <= 0:
                         continue
+                    value_eur = _extract_eur_value(line)
+                    if value_eur:
+                        total_value_eur += value_eur
                     name_part = line[:isin_match.start()].strip()
                     after_isin = line[isin_match.end():].strip()
                     country_m = re.match(r'([A-Z]{2})\s', after_isin)
                     country = country_m.group(1) if country_m else ''
                     name = _clean_swedbank_name(name_part)
-                    stocks.append({'name': name, 'isin': isin, 'country': country, 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin, 'country': country, 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    stocks.append(entry)
 
                 elif in_section == 'bonds':
                     isin_match = ISIN_RE.search(line)
@@ -409,8 +620,14 @@ def parse_swedbank_monthly(pdf_path):
                     if not pct_matches:
                         continue
                     weight = _pct(pct_matches[-1])
+                    value_eur = _extract_eur_value(line)
+                    if value_eur:
+                        total_value_eur += value_eur
                     name = line[:isin_match.start()].strip()
-                    bonds.append({'name': name, 'isin': isin_match.group(0), 'weight_pct': weight})
+                    entry = {'name': name, 'isin': isin_match.group(0), 'weight_pct': weight}
+                    if value_eur:
+                        entry['value_eur'] = value_eur
+                    bonds.append(entry)
 
                 elif in_section == 'fondiosakud' and in_sub:
                     pct_matches = re.findall(r'(\d+[\.,]\d+%)', line)
@@ -419,6 +636,9 @@ def parse_swedbank_monthly(pdf_path):
                     weight = _pct(pct_matches[0])
                     if weight <= 0:
                         continue
+                    value_eur = _extract_eur_value(line)
+                    if value_eur:
+                        total_value_eur += value_eur
                     isin_match = ISIN_RE.search(line)
                     isin = isin_match.group(0) if isin_match else None
                     # Name: everything before the fund manager name
@@ -438,6 +658,8 @@ def parse_swedbank_monthly(pdf_path):
                     entry = {'name': name_part, 'weight_pct': weight}
                     if isin:
                         entry['isin'] = isin
+                    if value_eur:
+                        entry['value_eur'] = value_eur
                     if in_sub == 'equity_funds':
                         equity_funds.append(entry)
                     elif in_sub == 'bond_funds':
@@ -452,6 +674,9 @@ def parse_swedbank_monthly(pdf_path):
         'equity_funds': equity_funds, 'bond_funds': bond_funds,
         'pe_funds': pe_funds, 're_funds': re_funds,
         'deposits_pct': deposits_pct, 'derivatives_pct': derivatives_pct,
+        '_pdf_subtotals': pdf_subtotals,
+        '_pdf_holding_counts': pdf_holding_counts,
+        '_total_value_eur': total_value_eur,
     }
 
 
@@ -773,7 +998,8 @@ def _seb_indeks_hardcoded_allocations():
 
 def parse_lhv_monthly(pdf_path):
     """Parse LHV monthly report (bonds, stocks, ETFs, PE, RE).
-    Returns dict matching LLK50_parsed.json format.
+    Returns dict matching LLK50_parsed.json format, plus
+    _pdf_subtotals, _pdf_holding_counts, _total_value_eur.
     """
     bonds = []
     stocks = []
@@ -782,8 +1008,18 @@ def parse_lhv_monthly(pdf_path):
     re_funds = []
     deposits_pct = 0.0
     derivatives_pct = 0.0
+    pdf_subtotals = {}
+    pdf_holding_counts = {}
+    total_value_eur = 0
 
     current_section = None  # 'bonds', 'stocks', 'etf_equity', 'pe', 're'
+
+    # Map section names to standardized keys for subtotals/counts
+    _SECTION_TO_KEY = {
+        'bonds': 'bonds', 'stocks': 'stocks',
+        'etf_equity': 'equity_funds', 'fondiosakud': 'equity_funds',
+        'pe': 'pe_funds', 're': 're_funds',
+    }
 
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
@@ -793,23 +1029,39 @@ def parse_lhv_monthly(pdf_path):
                 if not line:
                     continue
 
-                # Section markers
+                # Section markers — LHV section headers include count and percentage:
+                # "Võlainstrumendid 12 ... 8.45%", "Aktsiad 43 ... 22.63%"
                 if 'Võlainstrumendid' in line and 'kokku' not in line.lower():
                     if re.match(r'^Võlainstrumendid\s', line):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)%', line)
+                        if pct_m:
+                            pdf_subtotals['bonds'] = _pct(pct_m[0] + '%')
                         current_section = 'bonds'
                         continue
                 if line.startswith('Aktsiad') and 'kokku' not in line.lower() and 'fond' not in line.lower():
                     if re.match(r'^Aktsiad\s+\d', line):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)%', line)
+                        if pct_m:
+                            pdf_subtotals['stocks'] = _pct(pct_m[0] + '%')
                         current_section = 'stocks'
                         continue
                 if line.startswith('Aktsiafondid') and 'kokku' not in line.lower():
                     if re.match(r'^Aktsiafondid\s+\d', line):
+                        pct_m = re.findall(r'(\d+[\.,]\d+)%', line)
+                        if pct_m:
+                            pdf_subtotals['equity_funds'] = _pct(pct_m[0] + '%')
                         current_section = 'etf_equity'
                         continue
                 if line.startswith('Erakapitalifondid') and 'kokku' not in line.lower():
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', line)
+                    if pct_m:
+                        pdf_subtotals['pe_funds'] = _pct(pct_m[0] + '%')
                     current_section = 'pe'
                     continue
                 if line.startswith('Kinnisvarafondid') and 'kokku' not in line.lower():
+                    pct_m = re.findall(r'(\d+[\.,]\d+)%', line)
+                    if pct_m:
+                        pdf_subtotals['re_funds'] = _pct(pct_m[0] + '%')
                     current_section = 're'
                     continue
                 if 'Fondiosakud' in line and re.match(r'^Fondiosakud\s+\d', line):
@@ -823,10 +1075,13 @@ def parse_lhv_monthly(pdf_path):
                     current_section = None
                     continue
                 if '2. Hoiused' in line:
-                    # Extract deposit percentage from line like "2. Hoiused 18 488 908 5.67% 9.88%"
+                    # Extract deposit percentage from line like "2. Hoiused 37 956 570 4.33% 4.61%"
                     pct_m = re.findall(r'(\d+[\.,]\d+)%', line)
                     if pct_m:
                         deposits_pct = _pct(pct_m[0] + '%')
+                    dep_val = _extract_deposit_eur(line)
+                    if dep_val:
+                        total_value_eur += dep_val
                     current_section = 'deposits'
                     continue
 
@@ -854,6 +1109,11 @@ def parse_lhv_monthly(pdf_path):
                     # "2. Hoiused 18 488 908 5.67% 9.88%" — the section header has the total
                     continue
 
+                # Count data lines with percentage per section
+                sk = _SECTION_TO_KEY.get(current_section)
+                if sk and re.search(r'\d+[\.,]\d+%', line):
+                    pdf_holding_counts[sk] = pdf_holding_counts.get(sk, 0) + 1
+
                 # Parse data lines - need percentage at end
                 pct_matches = re.findall(r'(\d+[\.,]\d+)%', line)
                 if not pct_matches:
@@ -861,6 +1121,11 @@ def parse_lhv_monthly(pdf_path):
                 weight = _pct(pct_matches[-1] + '%')
                 if weight <= 0 or weight > 50:
                     continue
+
+                # Extract EUR market value
+                value_eur = _extract_eur_value(line)
+                if value_eur:
+                    total_value_eur += value_eur
 
                 # Find ISIN if present
                 isin_match = ISIN_RE.search(line)
@@ -876,18 +1141,25 @@ def parse_lhv_monthly(pdf_path):
                     continue
 
                 entry = {'name': name, 'isin': isin, 'weight': weight, 'country': country}
+                if value_eur:
+                    entry['value_eur'] = value_eur
 
                 if current_section == 'bonds':
                     bonds.append({**entry, 'type': 'bonds'})
                 elif current_section == 'stocks':
                     stocks.append({**entry, 'type': 'stocks'})
                 elif current_section in ('etf_equity', 'fondiosakud'):
-                    # Check if it's an ETF or PE/RE
                     etf_equity.append({**entry, 'type': 'etfs'})
                 elif current_section == 'pe':
-                    pe_funds.append({'name': name, 'weight': weight, 'type': 'pe'})
+                    pe_entry = {'name': name, 'weight': weight, 'type': 'pe'}
+                    if value_eur:
+                        pe_entry['value_eur'] = value_eur
+                    pe_funds.append(pe_entry)
                 elif current_section == 're':
-                    re_funds.append({'name': name, 'weight': weight, 'type': 're'})
+                    re_entry = {'name': name, 'weight': weight, 'type': 're'}
+                    if value_eur:
+                        re_entry['value_eur'] = value_eur
+                    re_funds.append(re_entry)
 
     # Compute asset class percentages
     stock_pct = sum(s['weight'] for s in stocks)
@@ -915,6 +1187,9 @@ def parse_lhv_monthly(pdf_path):
         're_holdings': re_funds,
         'asset_classes': ac,
         'deposits_pct': deposits_pct,
+        '_pdf_subtotals': pdf_subtotals,
+        '_pdf_holding_counts': pdf_holding_counts,
+        '_total_value_eur': total_value_eur,
     }
 
 
@@ -1353,6 +1628,136 @@ def _luminor_61_65_hardcoded():
         'direct_bond_pct': 26.30,
         'deposits_pct': 0.28,
     }
+
+
+# ── Pensionikeskus AUM data ──
+
+# Map pensionikeskus fund names to our fund_keys
+_PK_NAME_TO_FUND_KEY = {
+    # Tuleva
+    'Tuleva Maailma Aktsiate Pensionifond': 'Tuleva',
+    'Tuleva Maailma Võlakirjade Pensionifond': 'Tuleva Võlakirjad',
+    # LHV
+    'LHV Pensionifond Ettevõtlik': 'LHV Ettevõtlik',
+    'LHV Pensionifond Julge': 'LHV Julge',
+    'LHV Pensionifond Rahulik': 'LHV Rahulik',
+    'LHV Pensionifond Indeks': 'LHV Indeks',
+    'LHV Pensionifond Tasakaalukas': 'LHV Tasakaalukas',
+    # Luminor (pensionikeskus uses lowercase "pensionifond")
+    'Luminor 16-50 pensionifond': 'Luminor 16-50',
+    'Luminor Indeks Pensionifond': 'Luminor Indeks',
+    'Luminor 50-56 pensionifond': 'Luminor 50-56',
+    'Luminor 56+ pensionifond': 'Luminor 56+',
+    'Luminor 61-65 pensionifond': 'Luminor 61-65',
+    # SEB
+    'SEB pensionifond indeks': 'SEB Indeks',
+    'SEB pensionifond 18+': 'SEB 18+',
+    'SEB pensionifond 55+': 'SEB 55+',
+    'SEB pensionifond 60+': 'SEB 60+',
+    'SEB pensionifond 65+': 'SEB 65+',
+    # Swedbank
+    'Swedbanki pensionifond 1960-69 sündinutele': 'Swedbank K1960',
+    'Swedbanki pensionifond 1970-79 sündinutele': 'Swedbank K1970',
+    'Swedbanki pensionifond 1980-89 sündinutele': 'Swedbank K1980',
+    'Swedbanki pensionifond indeks 1990-99 sündinutele': 'Swedbank K1990',
+    'Swedbank Pensionifond Indeks': 'Swedbank Indeks',
+    'Swedbanki pensionifond 2000-09 sündinutele': 'Swedbank 2000-09',
+    'Swedbanki pensionifond Konservatiivne': 'Swedbank Konservatiivne',
+}
+
+_pk_aum_cache = {}
+
+
+def fetch_pensionikeskus_aum(date_str):
+    """Fetch fund AUM data from pensionikeskus.ee for a given date.
+
+    Args:
+        date_str: Date in 'YYYY-MM-DD' format (last day of month)
+
+    Returns:
+        dict: {fund_key: aum_eur} where aum_eur is in EUR (not millions).
+        Returns empty dict on failure.
+    """
+    if date_str in _pk_aum_cache:
+        return _pk_aum_cache[date_str]
+
+    import io
+    try:
+        import urllib.request
+        url = f'https://www.pensionikeskus.ee/statistika/ii-sammas/kogumispensioni-paevastatistika/?date_from={date_str}&date_to={date_str}&download=xls'
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 Tuleva-pipeline/1.0'})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            raw = resp.read()
+    except Exception as e:
+        print(f'  WARNING: Failed to fetch pensionikeskus AUM: {e}')
+        _pk_aum_cache[date_str] = {}
+        return {}
+
+    # Parse TSV (UTF-16 LE with BOM)
+    try:
+        text = raw.decode('utf-16-le')
+    except UnicodeDecodeError:
+        # Fallback encodings
+        for enc in ('utf-16', 'utf-8', 'latin-1'):
+            try:
+                text = raw.decode(enc)
+                break
+            except UnicodeDecodeError:
+                continue
+        else:
+            print('  WARNING: Could not decode pensionikeskus response')
+            _pk_aum_cache[date_str] = {}
+            return {}
+
+    # Parse as TSV
+    lines = text.strip().splitlines()
+    if not lines:
+        _pk_aum_cache[date_str] = {}
+        return {}
+
+    # Find header row and locate "Maht" column
+    header = lines[0].split('\t')
+    maht_idx = None
+    name_idx = None
+    for i, col in enumerate(header):
+        col_clean = col.strip().strip('\ufeff').strip('"')
+        if 'Maht' in col_clean or 'maht' in col_clean:
+            maht_idx = i
+        if 'Fondi nimi' in col_clean or 'fond' in col_clean.lower():
+            name_idx = i
+
+    if maht_idx is None:
+        # Try column by common position — typically: Date, Fund name, ..., Maht(volume)
+        # Let's look for a numeric column with values in millions
+        print('  WARNING: Could not find "Maht" column in pensionikeskus data')
+        _pk_aum_cache[date_str] = {}
+        return {}
+    if name_idx is None:
+        name_idx = 1  # Typical position
+
+    result = {}
+    for line in lines[1:]:
+        cols = line.split('\t')
+        if len(cols) <= max(maht_idx, name_idx):
+            continue
+        fund_name = cols[name_idx].strip().strip('"')
+        maht_raw = cols[maht_idx].strip().strip('"').replace(' ', '').replace(',', '.')
+        if not maht_raw or not fund_name:
+            continue
+        try:
+            # Maht is in millions EUR
+            maht_millions = float(maht_raw)
+            aum_eur = int(round(maht_millions * 1_000_000))
+        except ValueError:
+            continue
+
+        # Map pensionikeskus name to our fund_key
+        fund_key = _PK_NAME_TO_FUND_KEY.get(fund_name)
+        if fund_key:
+            result[fund_key] = aum_eur
+
+    _pk_aum_cache[date_str] = result
+    return result
 
 
 # ── Monthly JSON config loader ──

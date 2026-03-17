@@ -9,32 +9,38 @@
     {
       "name": "CCF Developed World (ESG Screened) Index Fund",
       "isin": "IE0009FT4LX4",
-      "weight_pct": 29.14
+      "weight_pct": 29.14,
+      "value_eur": 278244545
     },
     {
       "name": "Developed World ESG Screened Index",
       "isin": "IE00BFG1TM61",
-      "weight_pct": 29.03
+      "weight_pct": 29.03,
+      "value_eur": 277189868
     },
     {
       "name": "iShares Emerging Market Screened Equity Index Fund (IE)",
       "isin": "IE00BKPTWY98",
-      "weight_pct": 10.95
+      "weight_pct": 10.95,
+      "value_eur": 104593661
     },
     {
       "name": "iShares MSCI Europe ESG Screened UCITS ETF",
       "isin": "IE00BFNM3D14",
-      "weight_pct": 7.8
+      "weight_pct": 7.8,
+      "value_eur": 74500180
     },
     {
       "name": "iShares MSCI Japan ESG Screened UCITS ETF",
       "isin": "IE00BFNM3L97",
-      "weight_pct": 0.87
+      "weight_pct": 0.87,
+      "value_eur": 8263924
     },
     {
       "name": "iShares MSCI USA ESG Screened UCITS ETF",
       "isin": "IE00BFNM3G45",
-      "weight_pct": 22.03
+      "weight_pct": 22.03,
+      "value_eur": 210323043
     }
   ],
   "stocks": [],
@@ -43,5 +49,12 @@
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 0.07,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "equity_funds": 99.82
+  },
+  "_pdf_holding_counts": {
+    "equity_funds": 6
+  },
+  "_total_value_eur": 954955953
 }
