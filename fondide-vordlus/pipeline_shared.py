@@ -1681,7 +1681,6 @@ def fetch_pensionikeskus_aum(date_str):
     if date_str in _pk_aum_cache:
         return _pk_aum_cache[date_str]
 
-    import io
     try:
         import urllib.request
         url = f'https://www.pensionikeskus.ee/statistika/ii-sammas/kogumispensioni-paevastatistika/?date_from={date_str}&date_to={date_str}&download=xls'
