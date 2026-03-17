@@ -7,7 +7,7 @@
   "source": "est_LMK25_raport_20260131.pdf",
   "equity_funds": [
     {
-      "name": "Invesco MDAX UCITS ETF Invesco Markets",
+      "name": "Invesco MDAX UCITS ETF",
       "isin": "IE00BHJYDV33",
       "weight_pct": 0.92
     },
@@ -181,7 +181,7 @@
       "weight_pct": 0.96
     },
     {
-      "name": "Eesti Energia perpetual NC5.25 Eesti",
+      "name": "Eesti Energia perpetual NC5.25",
       "isin": "XS2824761188",
       "weight_pct": 7.09
     },
@@ -354,95 +354,95 @@
   "bond_funds": [],
   "pe_funds": [
     {
-      "name": "BPEF III Supplementary Investment Facility UF BaltCap Private Equity Management III",
+      "name": "BPEF III Supplementary Investment Facility UF",
       "weight_pct": 0.57
     },
     {
-      "name": "Tera Ventures II Usaldusfond Tera Ventures GP II",
+      "name": "Tera Ventures II Usaldusfond",
       "weight_pct": 0.34
     },
     {
-      "name": "Trind Ventures II Trind Ventures GP II",
+      "name": "Trind Ventures II",
       "weight_pct": 0.09
     },
     {
-      "name": "Usaldusfond BaltCap Infrastructure Fund BaltCap Infrastructure Management",
+      "name": "BaltCap Infrastructure Fund",
       "weight_pct": 0.22
     },
     {
-      "name": "Usaldusfond BaltCap Private Equity Fund III BaltCap Private Equity Management III",
+      "name": "BaltCap Private Equity Fund III",
       "weight_pct": 0.91
     },
     {
-      "name": "Usaldusfond Superangel One Superangel1 GP",
+      "name": "Superangel One Superangel1 GP",
       "weight_pct": 0.31
     },
     {
-      "name": "Usaldusfond Superangel Two Super2ngel GP",
+      "name": "Superangel Two Super2ngel GP",
       "weight_pct": 0.08
     },
     {
-      "name": "Usaldusfond Trind Ventures Fund I Trind Ventures",
+      "name": "Trind Ventures Fund I",
       "weight_pct": 0.24
     },
     {
-      "name": "INVL Baltic Sea Growth Fund INVL Asset Management",
+      "name": "INVL Baltic Sea Growth Fund",
       "weight_pct": 0.35
     },
     {
-      "name": "BaltCap Private Equity Fund II BaltCap Private Equity Management II",
+      "name": "BaltCap Private Equity Fund II",
       "weight_pct": 0.08
     },
     {
-      "name": "BPM Mezzanine Fund BPM Mezzanine Fund GP",
+      "name": "BPM Mezzanine Fund",
       "weight_pct": 0.14
     },
     {
-      "name": "Karma Ventures I Karma Ventures",
+      "name": "Karma Ventures I",
       "weight_pct": 0.47
     },
     {
-      "name": "Karma Ventures II Karma Ventures II GP",
+      "name": "Karma Ventures II",
       "weight_pct": 0.27
     },
     {
-      "name": "KJK Fund II Balkan AI July 2012 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan AI July 2012",
       "weight_pct": 0.03
     },
     {
-      "name": "KJK Fund II Balkan AI Sep 2012 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan AI Sep 2012",
       "weight_pct": 0.03
     },
     {
-      "name": "KJK Fund II Balkan Discovery A December 2015 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A December 2015",
       "weight_pct": 0.1
     },
     {
-      "name": "KJK Fund II Balkan Discovery A December 2016 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A December 2016",
       "weight_pct": 0.08
     },
     {
-      "name": "KJK Fund II Balkan Discovery A June 2014 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A June 2014",
       "weight_pct": 0.44
     },
     {
-      "name": "KJK Fund II Balkan Discovery A June 2015 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A June 2015",
       "weight_pct": 0.12
     },
     {
-      "name": "KJK Fund II Balkan Discovery A May 2016 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A May 2016",
       "weight_pct": 0.1
     },
     {
-      "name": "KJK Fund II Balkan Discovery A November 2017 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A November 2017",
       "weight_pct": 0.06
     },
     {
-      "name": "KJK Fund III KJK Capital Luxembourg",
+      "name": "KJK Fund III",
       "weight_pct": 0.37
     },
     {
-      "name": "Livonia Partners Fund I Livonia Partners",
+      "name": "Livonia Partners Fund I",
       "weight_pct": 0.15
     },
     {
@@ -452,51 +452,51 @@
   ],
   "re_funds": [
     {
-      "name": "Birdeye Timber Fund 2 Birdeye Capital",
+      "name": "Birdeye Timber Fund 2",
       "weight_pct": 0.84
     },
     {
-      "name": "Birdeye Timber Fund 3 Birdeye Capital",
+      "name": "Birdeye Timber Fund 3",
       "weight_pct": 0.7
     },
     {
-      "name": "EfTEN Kinnisvarafond II EfTEN Capital",
+      "name": "EfTEN Kinnisvarafond II",
       "weight_pct": 0.12
     },
     {
-      "name": "EfTEN Real Estate Fund EfTEN Capital",
+      "name": "EfTEN Real Estate Fund",
       "weight_pct": 3.55
     },
     {
-      "name": "EfTEN Real Estate Fund 5 EfTEN Capital",
+      "name": "EfTEN Real Estate Fund 5",
       "weight_pct": 3.14
     },
     {
-      "name": "EfTEN Residential Fund usaldusfond EfTEN Capital",
+      "name": "EfTEN Residential Fund usaldusfond",
       "weight_pct": 0.71
     },
     {
-      "name": "EfTEN Special Opportunities Fund EfTEN Capital",
+      "name": "EfTEN Special Opportunities Fund",
       "weight_pct": 0.43
     },
     {
-      "name": "Usaldusfond EfTEN Real Estate Fund 4 EfTEN Capital",
+      "name": "EfTEN Real Estate Fund 4",
       "weight_pct": 0.87
     },
     {
-      "name": "Lords LB Baltic Green Fund (V) Lords LB Asset Management",
+      "name": "Lords LB Baltic Green Fund (V)",
       "weight_pct": 1.14
     },
     {
-      "name": "East Capital Baltic Property Fund III East Capital (Lux) General Partner",
+      "name": "East Capital Baltic Property Fund III",
       "weight_pct": 1.06
     },
     {
-      "name": "East Capital Real Estate Fund IV East Capital (Lux) General Partner",
+      "name": "East Capital Real Estate Fund IV",
       "weight_pct": 2.61
     },
     {
-      "name": "SG Capital Partners Fund 1 SG Capital Partners",
+      "name": "SG Capital Partners Fund 1",
       "weight_pct": 2.79
     }
   ],

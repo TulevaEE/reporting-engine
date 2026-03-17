@@ -7,47 +7,47 @@
   "source": "K2000_investment_portfolio.pdf",
   "equity_funds": [
     {
-      "name": "Access Edge Global A (2)",
+      "name": "Access Edge Global A",
       "weight_pct": 5.03,
       "isin": "SE0014429353"
     },
     {
-      "name": "Access Edge Japan A (2)",
+      "name": "Access Edge Japan A",
       "weight_pct": 0.65,
       "isin": "SE0007074091"
     },
     {
-      "name": "Access Global A (2)",
+      "name": "Access Global A",
       "weight_pct": 13.16,
       "isin": "SE0007074059"
     },
     {
-      "name": "Access USA A (2)",
+      "name": "Access USA A",
       "weight_pct": 5.49,
       "isin": "SE0007074083"
     },
     {
-      "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT Amundi Luxembourg SA",
+      "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT",
       "weight_pct": 4.95,
       "isin": "LU2345046655"
     },
     {
-      "name": "Amundi MSCI World Climate Net Zero Ambition PAB UC Amundi Asset Management SAS",
+      "name": "Amundi MSCI World Climate Net Zero Ambition PAB UC",
       "weight_pct": 14.75,
       "isin": "IE000CL68Z69"
     },
     {
-      "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits Amundi Ireland Ltd",
+      "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits",
       "weight_pct": 9.69,
       "isin": "IE000O5FBC47"
     },
     {
-      "name": "Globalfond A (2)",
+      "name": "Globalfond A",
       "weight_pct": 10.75,
       "isin": "SE0000542979"
     },
     {
-      "name": "HSBC MSCI World Climate Paris Aligned UCITS ETF HSBC Holdings PLC",
+      "name": "HSBC MSCI World Climate Paris Aligned UCITS ETF",
       "weight_pct": 15.53,
       "isin": "IE00BP2C1V62"
     },
@@ -57,7 +57,7 @@
       "isin": "IE00BFNM3J75"
     },
     {
-      "name": "New Energy A (2)",
+      "name": "New Energy A",
       "weight_pct": 0.58,
       "isin": "SE0000538969"
     },
@@ -157,26 +157,26 @@
   "bond_funds": [],
   "pe_funds": [
     {
-      "name": "NordicNinja Fund II SCSp NordicNinja Fund II General Partner S.à r.l LU EUR 1,00 18 203 1,02 18 638 0,15%",
+      "name": "NordicNinja Fund II SCSp",
       "weight_pct": 0.15
     },
     {
-      "name": "Practica Venture Capital III Practica Venture Capital III LT EUR 1,00 10 913 0,87 9 503 0,08%",
+      "name": "Practica Venture Capital III",
       "weight_pct": 0.08
     },
     {
-      "name": "Usaldusfond Trind Ventures Fund II Trind Ventures OU",
+      "name": "Trind Ventures Fund II",
       "weight_pct": 0.07,
       "isin": "EE3500001625"
     }
   ],
   "re_funds": [
     {
-      "name": "BaltCap Infrastructure Fund II BaltCap AS EE EUR 1,00 4 349 1,15 5 022 0,04%",
+      "name": "BaltCap Infrastructure Fund II",
       "weight_pct": 0.04
     },
     {
-      "name": "Usaldusfond",
+      "name": "EfTEN Special Opportunities Fund",
       "weight_pct": 0.28
     },
     {

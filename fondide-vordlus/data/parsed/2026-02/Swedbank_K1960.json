@@ -7,32 +7,32 @@
   "source": "K1960_investment_portfolio.pdf",
   "equity_funds": [
     {
-      "name": "Access Edge Japan A (2)",
+      "name": "Access Edge Japan A",
       "weight_pct": 0.87,
       "isin": "SE0007074091"
     },
     {
-      "name": "Amundi MSCI Emerging Ex China ESG Selection -UCITS Amundi Luxembourg SA",
+      "name": "Amundi MSCI Emerging Ex China ESG Selection -UCITS",
       "weight_pct": 1.43,
       "isin": "LU2345046655"
     },
     {
-      "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits Amundi Ireland Ltd",
+      "name": "Amundi S&P 500 Climate Net Zero Ambition Pab Ucits",
       "weight_pct": 1.95,
       "isin": "IE000O5FBC47"
     },
     {
-      "name": "Globalfond A (2)",
+      "name": "Globalfond A",
       "weight_pct": 1.23,
       "isin": "SE0000542979"
     },
     {
-      "name": "KJK Fund SICAV - SIF- Baltic States (4)",
+      "name": "KJK Fund SICAV - SIF- Baltic States",
       "weight_pct": 0.04,
       "isin": "LU0572687357"
     },
     {
-      "name": "New Energy A (2)",
+      "name": "New Energy A",
       "weight_pct": 0.16,
       "isin": "SE0000538969"
     },
@@ -1292,7 +1292,7 @@
       "weight_pct": 0.13
     },
     {
-      "name": "Quantas Airways Qantas Airways",
+      "name": "Quantas Airways Qantas",
       "isin": "AU000000QAN2",
       "country": "AU",
       "weight_pct": 0.02
@@ -1706,7 +1706,7 @@
       "weight_pct": 0.02
     },
     {
-      "name": "United Health Group UnitedHealth Group",
+      "name": "United Health Group UnitedHealth",
       "isin": "US91324P1021",
       "country": "US",
       "weight_pct": 0.06
@@ -1985,7 +1985,7 @@
       "weight_pct": 0.06
     },
     {
-      "name": "City of Tallinn Estonia FRN 271129 (3)",
+      "name": "City of Tallinn Estonia FRN 271129",
       "isin": "XS0311261936",
       "weight_pct": 0.28
     },
@@ -2240,7 +2240,7 @@
       "weight_pct": 0.26
     },
     {
-      "name": "LHV Group 10.500% (Perpetual) (3)",
+      "name": "LHV Group 10.500% (Perpetual)",
       "isin": "EE3300002856",
       "weight_pct": 0.11
     },
@@ -2255,7 +2255,7 @@
       "weight_pct": 0.69
     },
     {
-      "name": "LHV Group VAR 270526 (3)",
+      "name": "LHV Group VAR 270526",
       "isin": "EE3300003250",
       "weight_pct": 0.09
     },
@@ -2350,7 +2350,7 @@
       "weight_pct": 0.84
     },
     {
-      "name": "Nortal FRN 290209 (3)",
+      "name": "Nortal FRN 290209",
       "isin": "FI4000566567",
       "weight_pct": 0.88
     },
@@ -2395,7 +2395,7 @@
       "weight_pct": 0.62
     },
     {
-      "name": "Riigi Kinnisvara 1.610% 270609 (3)",
+      "name": "Riigi Kinnisvara 1.610% 270609",
       "isin": "EE3300111236",
       "weight_pct": 0.44
     },
@@ -2485,7 +2485,7 @@
       "weight_pct": 0.09
     },
     {
-      "name": "Swedbank 3.250% 321013 (6)",
+      "name": "Swedbank 3.250% 321013",
       "isin": "XS3203385227",
       "weight_pct": 0.22
     },
@@ -2525,7 +2525,7 @@
       "weight_pct": 0.21
     },
     {
-      "name": "UPP Taevavärava Logistics OÜ 5.000% 290228 (3)",
+      "name": "UPP Taevavärava Logistics OÜ 5.000% 290228",
       "isin": "EE3300111665",
       "weight_pct": 0.72
     },
@@ -2557,12 +2557,12 @@
   ],
   "bond_funds": [
     {
-      "name": "Amundi EUR Corporate Bond ESG Amundi Asset Management SAS",
+      "name": "Amundi EUR Corporate Bond ESG",
       "weight_pct": 0.77,
       "isin": "LU1737653987"
     },
     {
-      "name": "Corporate Bond Europe High Yield A (2)",
+      "name": "Corporate Bond Europe High Yield A",
       "weight_pct": 6.45,
       "isin": "SE0011062025"
     },
@@ -2591,7 +2591,7 @@
       "weight_pct": 0.25
     },
     {
-      "name": "PE FoF usaldusfond PE FoF GP OÜ",
+      "name": "PE FoF usaldusfond",
       "weight_pct": 0.09,
       "isin": "EE3500001583"
     }
@@ -2602,22 +2602,22 @@
       "weight_pct": 0.55
     },
     {
-      "name": "Birdeye Capital Timber Fund 2 AS Birdeye Capital",
+      "name": "Birdeye Capital Timber Fund 2 AS",
       "weight_pct": 1.48,
       "isin": "EE3500110269"
     },
     {
-      "name": "Birdeye Capital Timber Fund 3 AS Birdeye Capital",
+      "name": "Birdeye Capital Timber Fund 3 AS",
       "weight_pct": 0.42,
       "isin": "EE3600001756"
     },
     {
-      "name": "East Capital Baltic Property Fund III East Capital Asset Management AB",
+      "name": "East Capital Baltic Property Fund III",
       "weight_pct": 1.95,
       "isin": "LU1274822847"
     },
     {
-      "name": "EfTEN Kinnisvarafond II AS EfTEN Capital AS",
+      "name": "EfTEN Kinnisvarafond II AS",
       "weight_pct": 3.32,
       "isin": "EE3100125238"
     },
@@ -2626,11 +2626,11 @@
       "weight_pct": 1.0
     },
     {
-      "name": "SG Capital Partners Fund 1 SG Capital Partners AIFP SIA LV EUR 1,01 1 782 534 1,59 2 788 165 0,87%",
+      "name": "SG Capital Partners Fund 1",
       "weight_pct": 0.87
     },
     {
-      "name": "Usaldusfond",
+      "name": "EfTEN Real Estate Fund 4",
       "weight_pct": 1.04
     }
   ],

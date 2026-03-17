@@ -7,27 +7,27 @@
   "source": "K1980_investment_portfolio.pdf",
   "equity_funds": [
     {
-      "name": "Access Edge Emerging Markets A (2)",
+      "name": "Access Edge Emerging Markets A",
       "weight_pct": 0.66,
       "isin": "SE0012428290"
     },
     {
-      "name": "Access Edge Japan A (2)",
+      "name": "Access Edge Japan A",
       "weight_pct": 2.84,
       "isin": "SE0007074091"
     },
     {
-      "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT Amundi Luxembourg SA",
+      "name": "Amundi MSCI Emerging Ex China ESG Selection - UCIT",
       "weight_pct": 4.01,
       "isin": "LU2345046655"
     },
     {
-      "name": "Globalfond A (2)",
+      "name": "Globalfond A",
       "weight_pct": 4.16,
       "isin": "SE0000542979"
     },
     {
-      "name": "New Energy A (2)",
+      "name": "New Energy A",
       "weight_pct": 0.51,
       "isin": "SE0000538969"
     },
@@ -885,7 +885,7 @@
       "weight_pct": 0.18
     },
     {
-      "name": "Edward Lifesciences Edwards Lifesciences",
+      "name": "Edward Lifesciences Edwards",
       "isin": "US28176E1082",
       "country": "US",
       "weight_pct": 0.01
@@ -1953,7 +1953,7 @@
       "weight_pct": 0.04
     },
     {
-      "name": "Quantas Airways Qantas Airways",
+      "name": "Quantas Airways Qantas",
       "isin": "AU000000QAN2",
       "country": "AU",
       "weight_pct": 0.05
@@ -2487,7 +2487,7 @@
       "weight_pct": 0.07
     },
     {
-      "name": "United Health Group UnitedHealth Group",
+      "name": "United Health Group UnitedHealth",
       "isin": "US91324P1021",
       "country": "US",
       "weight_pct": 0.23
@@ -2661,7 +2661,7 @@
       "weight_pct": 0.08
     },
     {
-      "name": "Yum Brands Yum! Brands",
+      "name": "Yum Brands Yum!",
       "isin": "US9884981013",
       "country": "US",
       "weight_pct": 0.01
@@ -2705,22 +2705,22 @@
   ],
   "bonds": [
     {
-      "name": "City of Tallinn Estonia FRN 271129 (3)",
+      "name": "City of Tallinn Estonia FRN 271129",
       "isin": "XS0311261936",
       "weight_pct": 0.03
     },
     {
-      "name": "Coop Pank 10.000% CoCo (Perpetual) (3)",
+      "name": "Coop Pank 10.000% CoCo (Perpetual)",
       "isin": "EE3300002641",
       "weight_pct": 0.18
     },
     {
-      "name": "Coop Pank 12.000% CoCo (Perpetual) (3)",
+      "name": "Coop Pank 12.000% CoCo (Perpetual)",
       "isin": "EE3300003649",
       "weight_pct": 0.08
     },
     {
-      "name": "LHV Group 10.500% (Perpetual) (3)",
+      "name": "LHV Group 10.500% (Perpetual)",
       "isin": "EE3300002856",
       "weight_pct": 0.15
     },
@@ -2737,7 +2737,7 @@
       "weight_pct": 0.33
     },
     {
-      "name": "BaltCap Private Equity Fund II BaltCap AS LU EUR 1,45 283 514 3,14 612 806 0,10%",
+      "name": "BaltCap Private Equity Fund II",
       "weight_pct": 0.1
     },
     {
@@ -2745,11 +2745,11 @@
       "weight_pct": 0.1
     },
     {
-      "name": "Karma Ventures I SICAV-SIF fund Karma Ventures LU EUR 1,00 1 410 671 1,39 1 967 343 0,33%",
+      "name": "Karma Ventures I SICAV-SIF fund",
       "weight_pct": 0.33
     },
     {
-      "name": "Karma Ventures II SCSp Karma Ventures LU EUR 1,00 1 879 754 1,08 2 036 588 0,34%",
+      "name": "Karma Ventures II SCSp",
       "weight_pct": 0.34
     },
     {
@@ -2757,15 +2757,15 @@
       "weight_pct": 0.63
     },
     {
-      "name": "NordicNinja Fund II SCSp NordicNinja Fund II General Partner S.à r.l LU EUR 1,00 2 123 712 1,02 2 174 375 0,36%",
+      "name": "NordicNinja Fund II SCSp",
       "weight_pct": 0.36
     },
     {
-      "name": "Practica Venture Capital III Practica Venture Capital III LT EUR 1,00 1 446 994 0,87 1 260 013 0,21%",
+      "name": "Practica Venture Capital III",
       "weight_pct": 0.21
     },
     {
-      "name": "Usaldusfond Trind Ventures Fund II Trind Ventures OU",
+      "name": "Trind Ventures Fund II",
       "weight_pct": 0.19,
       "isin": "EE3500001625"
     }
@@ -2776,31 +2776,31 @@
       "weight_pct": 0.6
     },
     {
-      "name": "BaltCap Infrastructure Fund II BaltCap AS EE EUR 1,00 579 925 1,15 669 591 0,11%",
+      "name": "BaltCap Infrastructure Fund II",
       "weight_pct": 0.11
     },
     {
-      "name": "Birdeye Capital Timber Fund 2 AS Birdeye Capital",
+      "name": "Birdeye Capital Timber Fund 2 AS",
       "weight_pct": 0.22,
       "isin": "EE3500110269"
     },
     {
-      "name": "Birdeye Capital Timber Fund 3 AS Birdeye Capital",
+      "name": "Birdeye Capital Timber Fund 3 AS",
       "weight_pct": 0.42,
       "isin": "EE3600001756"
     },
     {
-      "name": "East Capital Baltic Property Fund III East Capital Asset Management AB",
+      "name": "East Capital Baltic Property Fund III",
       "weight_pct": 0.79,
       "isin": "LU1274822847"
     },
     {
-      "name": "EfTEN Kinnisvarafond II AS EfTEN Capital AS",
+      "name": "EfTEN Kinnisvarafond II AS",
       "weight_pct": 1.0,
       "isin": "EE3100125238"
     },
     {
-      "name": "EfTEN Real Estate Fund 5 usaldusfond EfTEN Capital AS EE EUR 1,01 3 785 957 1,21 4 537 336 0,75%",
+      "name": "EfTEN Real Estate Fund 5 usaldusfond",
       "weight_pct": 0.75
     },
     {
@@ -2808,11 +2808,11 @@
       "weight_pct": 0.53
     },
     {
-      "name": "SG Capital Partners Fund 1 SG Capital Partners AIFP SIA LV EUR 1,01 1 007 519 1,59 1 575 918 0,26%",
+      "name": "SG Capital Partners Fund 1",
       "weight_pct": 0.26
     },
     {
-      "name": "Usaldusfond",
+      "name": "EfTEN Real Estate Fund 4",
       "weight_pct": 0.73
     }
   ],

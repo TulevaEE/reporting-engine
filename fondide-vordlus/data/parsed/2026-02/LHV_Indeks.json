@@ -7,17 +7,17 @@
   "source": "est_LIK75_raport_20260228.pdf",
   "equity_funds": [
     {
-      "name": "Amundi Prime All Country World Amundi Prime All Country World",
+      "name": "Amundi Prime All Country World",
       "isin": "IE0009HF1MK9",
       "weight_pct": 6.12
     },
     {
-      "name": "Amundi Prime All Country World Amundi",
+      "name": "Amundi Prime All Country World",
       "isin": "IE0003XJA0J9",
       "weight_pct": 0.17
     },
     {
-      "name": "Amundi Prime Global UCITS ETF Amundi Asset Management",
+      "name": "Amundi Prime Global UCITS ETF",
       "isin": "IE000QIF5N15",
       "weight_pct": 23.33
     },
@@ -27,12 +27,12 @@
       "weight_pct": 6.17
     },
     {
-      "name": "HSBC EURO STOXX 50 UCITS ETF HSBC ETFs plc",
+      "name": "HSBC EURO STOXX 50 UCITS ETF",
       "isin": "IE000MWUQBJ0",
       "weight_pct": 7.25
     },
     {
-      "name": "HSBC MSCI Emerging Markets UCITS HSBC Global Asset Management UK",
+      "name": "HSBC MSCI Emerging Markets UCITS",
       "isin": "IE00B5SSQT16",
       "weight_pct": 27.63
     },
@@ -42,7 +42,7 @@
       "weight_pct": 3.65
     },
     {
-      "name": "SPDR S P 500 UCITS ETF SSGA SPDR ETFS Europe II PLC",
+      "name": "SPDR S P 500 UCITS ETF SSGA",
       "isin": "IE000XZSV718",
       "weight_pct": 23.41
     },

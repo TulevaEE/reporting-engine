@@ -129,7 +129,7 @@
       "weight_pct": 0.26
     },
     {
-      "name": "City of Tallinn Estonia FRN 271129 (2)",
+      "name": "City of Tallinn Estonia FRN 271129",
       "isin": "XS0311261936",
       "weight_pct": 0.76
     },
@@ -349,7 +349,7 @@
       "weight_pct": 0.49
     },
     {
-      "name": "Nortal FRN 290209 (2)",
+      "name": "Nortal FRN 290209",
       "isin": "FI4000566567",
       "weight_pct": 1.04
     },
@@ -399,7 +399,7 @@
       "weight_pct": 0.24
     },
     {
-      "name": "Swedbank 3.250% 321013 (4)",
+      "name": "Swedbank 3.250% 321013",
       "isin": "XS3203385227",
       "weight_pct": 0.79
     },
@@ -468,17 +468,17 @@
   "pe_funds": [],
   "re_funds": [
     {
-      "name": "Birdeye Capital Timber Fund 2 AS Birdeye Capital",
+      "name": "Birdeye Capital Timber Fund 2 AS",
       "weight_pct": 1.81,
       "isin": "EE3500110269"
     },
     {
-      "name": "Birdeye Capital Timber Fund 3 AS Birdeye Capital",
+      "name": "Birdeye Capital Timber Fund 3 AS",
       "weight_pct": 1.18,
       "isin": "EE3600001756"
     },
     {
-      "name": "East Capital Baltic Property Fund III East Capital Asset Management AB",
+      "name": "East Capital Baltic Property Fund III",
       "weight_pct": 9.49,
       "isin": "LU1274822847"
     }
