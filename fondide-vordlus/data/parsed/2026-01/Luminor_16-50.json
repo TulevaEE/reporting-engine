@@ -7,88 +7,107 @@
   "source": "investeeringute_aruanne_lum16-50_0126.pdf",
   "equity_funds": [
     {
-      "name": "Amundi Nasdaq-100 II-ETF A SA",
-      "weight_pct": 4.25
+      "name": "Amundi Nasdaq-100 II-ETF A Amundi Luxembourg SA",
+      "weight_pct": 4.25,
+      "value_eur": 15041401
     },
     {
-      "name": "Robeco 3D Global Equity UCITS",
-      "weight_pct": 9.0
+      "name": "Robeco 3D Global Equity UCITS Robeco Institutional Asset",
+      "weight_pct": 9.0,
+      "value_eur": 31808493
     },
     {
-      "name": "ETF SPDR MSCI World UCITS ETF",
-      "weight_pct": 13.96
+      "name": "ETF Management B.V. SSGA SPDR ETFS SPDR MSCI World UCITS ETF",
+      "weight_pct": 13.96,
+      "value_eur": 49359090
     },
     {
-      "name": "Xtrackers MSCI World Materials",
-      "weight_pct": 2.44
+      "name": "Europe Plc Xtrackers MSCI World Materials",
+      "weight_pct": 2.44,
+      "value_eur": 8614350
     },
     {
-      "name": "ETF iShares Core MSCI EM IMI UCITS",
-      "weight_pct": 7.32
+      "name": "ETF BlackRock Asset iShares Core MSCI EM IMI UCITS Management Ireland",
+      "weight_pct": 7.32,
+      "value_eur": 25877090
     },
     {
-      "name": "ETF1 iShares Developed World Index",
-      "weight_pct": 14.71
+      "name": "ETF1 Limited BlackRock Asset iShares Developed World Index Management Ireland",
+      "weight_pct": 14.71,
+      "value_eur": 52003864
     },
     {
-      "name": "Fund (IE) Inst Acc EUR iShares Developed World Screened",
-      "weight_pct": 18.59
+      "name": "Fund (IE) Inst Acc EUR Limited BlackRock Asset iShares Developed World Screened Management Ireland",
+      "weight_pct": 18.59,
+      "value_eur": 65718886
     },
     {
-      "name": "Index Fund (IE) iShares Emerging Markets Index",
-      "weight_pct": 4.88
+      "name": "Index Fund (IE) Limited BlackRock Asset iShares Emerging Markets Index Management Ireland",
+      "weight_pct": 4.88,
+      "value_eur": 17268258
     },
     {
-      "name": "Fund (IE) - EUR iShares Europe Equity Index Fund BlackRock (Luxembourg)",
-      "weight_pct": 3.87
+      "name": "Fund (IE) - EUR Limited iShares Europe Equity Index Fund BlackRock (Luxembourg)",
+      "weight_pct": 3.87,
+      "value_eur": 13689811
     },
     {
-      "name": "(LU) iShares Japan Index Fund (IE)",
-      "weight_pct": 2.76
+      "name": "(LU) S.A. BlackRock Asset iShares Japan Index Fund (IE) Management Ireland",
+      "weight_pct": 2.76,
+      "value_eur": 9741478
     },
     {
-      "name": "iShares North America Index Fund",
-      "weight_pct": 12.14
+      "name": "Limited BlackRock Asset iShares North America Index Fund Management Ireland",
+      "weight_pct": 12.14,
+      "value_eur": 42905493
     }
   ],
   "stocks": [],
   "bonds": [],
   "bond_funds": [
     {
-      "name": "SPDR Bloomberg Barclays Euro High",
-      "weight_pct": 1.15
+      "name": "SPDR Bloomberg Barclays Euro High SSGA SPDR ETFS",
+      "weight_pct": 1.15,
+      "value_eur": 4050816
     },
     {
-      "name": "Yield Bond Ucits ETF Xtrackers",
-      "weight_pct": 1.13
+      "name": "Yield Bond Ucits ETF Europe Plc Xtrackers",
+      "weight_pct": 1.13,
+      "value_eur": 3988832
     },
     {
-      "name": "Bond UCITS ETF iShares EUR HGHYLD CORPB ESG",
-      "weight_pct": 2.26
+      "name": "Bond UCITS ETF BlackRock Asset iShares EUR HGHYLD CORPB ESG Management Ireland",
+      "weight_pct": 2.26,
+      "value_eur": 7986384
     }
   ],
   "pe_funds": [
     {
-      "name": "INVL Private Equity Fund II",
-      "weight_pct": 0.09
+      "name": "UAB INVL Asset INVL Private Equity Fund II",
+      "weight_pct": 0.09,
+      "value_eur": 302927
     },
     {
-      "name": "Management Partners KS Livonia Partners Fund II AIF",
-      "weight_pct": 0.35
+      "name": "Management SIA Livonia Partners KS Livonia Partners Fund II AIF",
+      "weight_pct": 0.35,
+      "value_eur": 1241331
     },
     {
-      "name": "AIFP Raft Capital Baltic Equity Fund",
-      "weight_pct": 0.11
+      "name": "AIFP Raft Capital Management Raft Capital Baltic Equity Fund",
+      "weight_pct": 0.11,
+      "value_eur": 388598
     }
   ],
   "re_funds": [
     {
       "name": "EFTEN Kinnisvarafond II AS",
-      "weight_pct": 0.5
+      "weight_pct": 0.5,
+      "value_eur": 1765437
     },
     {
       "name": "EfTEN Real Estate Fund",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 111528
     },
     {
       "name": "1,876,965 0.53 %",
@@ -96,5 +115,17 @@
     }
   ],
   "deposits_pct": 0.55,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "equity_funds": 93.91,
+    "bond_funds": 4.53,
+    "pe_funds": 0.55
+  },
+  "_pdf_holding_counts": {
+    "equity_funds": 11,
+    "bond_funds": 3,
+    "re_funds": 3,
+    "pe_funds": 3
+  },
+  "_total_value_eur": 353812083
 }

@@ -4,93 +4,125 @@
   "provider": "Luminor",
   "fund_type": "mixed",
   "month": "2026-02",
-  "source": "monthly JSON",
+  "source": "est_NPK75_raport_20260228.pdf",
   "equity_funds": [
     {
-      "name": "Robeco 3D Global Equity UCITS ETF",
-      "weight_pct": 8.87
+      "name": "Robeco Institutional Asset Robeco 3D Global Equity UCITS ETF",
+      "weight_pct": 8.87,
+      "value_eur": 32188698
     },
     {
-      "name": "SPDR MSCI World UCITS ETF",
-      "weight_pct": 13.34
+      "name": "Management B.V. SSGA SPDR ETFS Europe SPDR MSCI World UCITS ETF",
+      "weight_pct": 13.34,
+      "value_eur": 48446838
     },
     {
-      "name": "Xtrackers MSCI World Materials ETF",
-      "weight_pct": 2.63
+      "name": "Plc Xtrackers MSCI World Materials ETF1",
+      "weight_pct": 2.63,
+      "value_eur": 9547200
     },
     {
-      "name": "iShares Core MSCI EM IMI UCITS ETF",
-      "weight_pct": 9.99
+      "name": "BlackRock Asset iShares Core MSCI EM IMI UCITS ETF",
+      "weight_pct": 9.99,
+      "value_eur": 36251307
     },
     {
-      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
-      "weight_pct": 14.56
+      "name": "iShares Developed World Index Fund BlackRock Asset",
+      "weight_pct": 14.56,
+      "value_eur": 52852409
     },
     {
-      "name": "iShares Developed World Screened Index Fund (IE)",
-      "weight_pct": 18.3
+      "name": "(IE) Inst Acc EUR iShares Developed World Screened BlackRock Asset",
+      "weight_pct": 18.3,
+      "value_eur": 66428152
     },
     {
-      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
-      "weight_pct": 5.01
+      "name": "Index Fund (IE) iShares Emerging Markets Index Fund BlackRock Asset",
+      "weight_pct": 5.01,
+      "value_eur": 18191554
     },
     {
-      "name": "iShares Europe Equity Index Fund (LU)",
-      "weight_pct": 5.75
+      "name": "(IE) - EUR BlackRock (Luxembourg) iShares Europe Equity Index Fund (LU)",
+      "weight_pct": 5.75,
+      "value_eur": 20873872
     },
     {
-      "name": "iShares Japan Index Fund (IE)",
-      "weight_pct": 2.9
+      "name": "S.A. BlackRock Asset iShares Japan Index Fund (IE)",
+      "weight_pct": 2.9,
+      "value_eur": 10535987
     },
     {
-      "name": "iShares MSCI EM EX-China UCITS ETF",
-      "weight_pct": 1.02
+      "name": "BlackRock Asset iShares MSCI EM EX-China UCITS ETF",
+      "weight_pct": 1.02,
+      "value_eur": 3708600
     },
     {
-      "name": "iShares North America Index Fund",
-      "weight_pct": 11.86
+      "name": "BlackRock Asset iShares North America Index Fund",
+      "weight_pct": 11.86,
+      "value_eur": 43065981
     }
   ],
   "stocks": [],
   "bonds": [],
   "bond_funds": [
     {
-      "name": "SPDR Bloomberg Barclays Euro High Yield Bond UCITS ETF",
-      "weight_pct": 1.09
+      "name": "SPDR Bloomberg Barclays Euro High SSGA SPDR ETFS Europe",
+      "weight_pct": 1.09,
+      "value_eur": 3947790
     },
     {
-      "name": "Xtrackers II EUR High Yield Corporate Bond UCITS ETF",
-      "weight_pct": 1.08
+      "name": "Yield Bond Ucits ETF Plc Xtrackers",
+      "weight_pct": 1.08,
+      "value_eur": 3937620
     },
     {
-      "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned UCITS ETF",
-      "weight_pct": 2.2
+      "name": "Bond UCITS ETF iShares EUR HGHYLD CORPB ESG BlackRock Asset",
+      "weight_pct": 2.2,
+      "value_eur": 7987904
     }
   ],
   "pe_funds": [
     {
-      "name": "INVL Private Equity Fund II",
-      "weight_pct": 0.06
+      "name": "UAB INVL Asset INVL Private Equity Fund II",
+      "weight_pct": 0.06,
+      "value_eur": 202477
     },
     {
-      "name": "KS Livonia Partners Fund II AIF",
-      "weight_pct": 0.36
+      "name": "Management KS Livonia Partners Fund II AIF",
+      "weight_pct": 0.36,
+      "value_eur": 1298974
     },
     {
-      "name": "Raft Capital Baltic Equity Fund",
-      "weight_pct": 0.1
+      "name": "Raft Capital Management Raft Capital Baltic Equity Fund",
+      "weight_pct": 0.1,
+      "value_eur": 374340
     }
   ],
   "re_funds": [
     {
       "name": "EFTEN Kinnisvarafond II AS",
-      "weight_pct": 0.49
+      "weight_pct": 0.49,
+      "value_eur": 1777973
     },
     {
       "name": "EfTEN Real Estate Fund",
-      "weight_pct": 0.03
+      "weight_pct": 0.03,
+      "value_eur": 112093
     }
   ],
   "deposits_pct": 0.41,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "equity_funds": 94.23,
+    "bond_funds": 4.37,
+    "re_funds": 0.52,
+    "pe_funds": 0.52
+  },
+  "_pdf_holding_counts": {
+    "equity_funds": 11,
+    "bond_funds": 3,
+    "re_funds": 2,
+    "pe_funds": 3
+  },
+  "_total_value_eur": 363221496
 }

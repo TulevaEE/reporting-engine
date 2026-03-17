@@ -129,19 +129,19 @@
       "name": "France Treasury Bond 25/04/2026",
       "isin": "FR0010916924",
       "weight_pct": 7.02,
-      "value_eur": 825192
+      "value_eur": 802985
     },
     {
       "name": "France Treasury Bond 25/05/2026",
       "isin": "FR0013131877",
       "weight_pct": 4.25,
-      "value_eur": 500136
+      "value_eur": 498265
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
       "weight_pct": 1.74,
-      "value_eur": 204722
+      "value_eur": 200000
     },
     {
       "name": "EQT AB 2.875% 06/04/2032",
@@ -159,19 +159,19 @@
       "name": "German Treasury Bill 13/05/26",
       "isin": "DE000BU0E295",
       "weight_pct": 7.63,
-      "value_eur": 896562
+      "value_eur": 892738
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
       "weight_pct": 5.09,
-      "value_eur": 598614
+      "value_eur": 595766
     },
     {
       "name": "German Treasury Bill 17/06/2026",
       "isin": "DE000BU0E303",
       "weight_pct": 8.46,
-      "value_eur": 994340
+      "value_eur": 993743
     },
     {
       "name": "Kojamo 0.875% 28/05/2029",
@@ -201,5 +201,5 @@
     "stocks": 1,
     "equity_funds": 1
   },
-  "_total_value_eur": 11770661
+  "_total_value_eur": 11734592
 }

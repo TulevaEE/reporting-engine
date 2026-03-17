@@ -4,198 +4,223 @@
   "provider": "Luminor",
   "fund_type": "mixed",
   "month": "2026-02",
-  "source": "monthly JSON",
+  "source": "est_NPK50_raport_20260228.pdf",
   "equity_funds": [
     {
-      "name": "Robeco 3D Global Equity UCITS ETF",
-      "weight_pct": 8.01
+      "name": "Robeco Institutional Asset Robeco 3D Global Equity UCITS ETF",
+      "weight_pct": 8.01,
+      "value_eur": 15221298
     },
     {
-      "name": "SPDR MSCI World UCITS ETF",
-      "weight_pct": 3.03
+      "name": "Management B.V. SPDR MSCI World UCITS ETF",
+      "weight_pct": 3.03,
+      "value_eur": 5760981
     },
     {
-      "name": "Xtrackers MSCI World Materials ETF",
-      "weight_pct": 2.12
+      "name": "Xtrackers MSCI World Materials ETF1",
+      "weight_pct": 2.12,
+      "value_eur": 4031040
     },
     {
-      "name": "iShares Core MSCI EM IMI UCITS ETF",
-      "weight_pct": 8.21
+      "name": "iShares Core MSCI EM IMI UCITS",
+      "weight_pct": 8.21,
+      "value_eur": 15596291
     },
     {
-      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
-      "weight_pct": 13.13
+      "name": "ETF1 iShares Developed World Index Fund",
+      "weight_pct": 13.13,
+      "value_eur": 24931698
     },
     {
-      "name": "iShares Developed World Screened Index Fund (IE)",
-      "weight_pct": 17.16
+      "name": "(IE) Inst Acc EUR iShares Developed World Screened",
+      "weight_pct": 17.16,
+      "value_eur": 32589614
     },
     {
-      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
-      "weight_pct": 4.91
+      "name": "Index Fund (IE) iShares Emerging Markets Index",
+      "weight_pct": 4.91,
+      "value_eur": 9317710
     },
     {
-      "name": "iShares Europe Equity Index Fund (LU)",
-      "weight_pct": 4.84
+      "name": "Fund (IE) - EUR iShares Europe Equity Index Fund",
+      "weight_pct": 4.84,
+      "value_eur": 9184103
     },
     {
-      "name": "iShares Japan Index Fund (IE)",
-      "weight_pct": 2.63
+      "name": "(LU)1 iShares Japan Index Fund (IE)",
+      "weight_pct": 2.63,
+      "value_eur": 4985905
     },
     {
-      "name": "iShares MSCI EM EX-China UCITS ETF",
-      "weight_pct": 0.82
+      "name": "iShares MSCI EM EX-China UCITS",
+      "weight_pct": 0.82,
+      "value_eur": 1554080
     },
     {
-      "name": "iShares North America Index Fund",
-      "weight_pct": 15.27
+      "name": "ETF iShares North America Index Fund",
+      "weight_pct": 15.27,
+      "value_eur": 29007808
     }
   ],
   "stocks": [],
   "bonds": [
     {
       "name": "AB Artea bankas 10.75",
-      "isin": "LT0000407751",
       "weight_pct": 0.38,
-      "type": "bonds"
+      "isin": "LT0000407751"
     },
     {
-      "name": "AB Artea bankas 4.853%",
-      "isin": "XS2887816564",
+      "name": "06/22/33",
       "weight_pct": 0.32,
-      "type": "bonds"
+      "isin": "XS2887816564"
     },
     {
-      "name": "Akropolis Group 6.000%",
-      "isin": "XS3046302488",
+      "name": "12/05/2028",
       "weight_pct": 0.11,
-      "type": "bonds"
+      "isin": "XS3046302488"
     },
     {
-      "name": "ELKOLV 7.25 12/20/29",
-      "isin": "LV0000108637",
+      "name": "05/15/2030",
       "weight_pct": 0.11,
-      "type": "bonds"
+      "isin": "LV0000108637"
     },
     {
       "name": "EPSO-G 3.117%",
-      "isin": "LT0000406530",
       "weight_pct": 0.79,
-      "type": "bonds"
+      "isin": "LT0000406530"
     },
     {
-      "name": "ESTONIA 3.25",
-      "isin": "XS2740429076",
+      "name": "08/06/27",
       "weight_pct": 0.11,
-      "type": "bonds"
+      "isin": "XS2740429076"
     },
     {
-      "name": "ESTONIA 4 12/10/2032",
-      "isin": "XS2532370231",
+      "name": "01/17/2034 ESTONIA 4 12/10/2032 A+",
       "weight_pct": 0.65,
-      "type": "bonds"
+      "isin": "XS2532370231"
     },
     {
-      "name": "LATVEN 0.5 17/05/28",
-      "isin": "LV0000802460",
+      "name": "Baa2 LATVEN 0.5 17/05/28",
       "weight_pct": 0.37,
-      "type": "bonds"
+      "isin": "LV0000802460"
     },
     {
-      "name": "LATVEN 2.42 05/05/27",
-      "isin": "LV0000870129",
+      "name": "(Moody's)",
       "weight_pct": 0.51,
-      "type": "bonds"
+      "isin": "LV0000870129"
     },
     {
-      "name": "Latvia 3.875 25/03/2027",
-      "isin": "XS2549862758",
+      "name": "(Moody's) Latvia 3.875 25/03/2027 A-",
       "weight_pct": 0.54,
-      "type": "bonds"
+      "isin": "XS2549862758"
     },
     {
-      "name": "Lithuania 2.125",
-      "isin": "XS2487342649",
+      "name": "Lithuania 2.125 A",
       "weight_pct": 0.25,
-      "type": "bonds"
+      "isin": "XS2487342649"
     },
     {
-      "name": "Lithuania 3.50",
-      "isin": "XS2841247583",
+      "name": "01/06/2032 Lithuania 3.50 A",
       "weight_pct": 0.19,
-      "type": "bonds"
+      "isin": "XS2841247583"
     },
     {
-      "name": "Lithuania 3.875",
-      "isin": "XS2604821228",
+      "name": "07/03/2031 Lithuania 3.875 A",
       "weight_pct": 0.19,
-      "type": "bonds"
+      "isin": "XS2604821228"
     },
     {
-      "name": "RIGUDN 4 06/04/30",
-      "isin": "LV0000104487",
+      "name": "06/14/2033",
       "weight_pct": 0.21,
-      "type": "bonds"
+      "isin": "LV0000104487"
     }
   ],
   "bond_funds": [
     {
-      "name": "Amundi Euro Government Bond 25+Y",
-      "weight_pct": 0.32
+      "name": "Amundi Euro Government Bond",
+      "weight_pct": 0.32,
+      "value_eur": 613776
     },
     {
-      "name": "BNPP Easy JPM ESG EMBI Global Diversified",
-      "weight_pct": 0.33
+      "name": "25+Y UCITS ETF S.A.S. BNPP Easy JPM ESG EMBI Global BNP Paribas Asset",
+      "weight_pct": 0.33,
+      "value_eur": 555255
     },
     {
-      "name": "Neuberger Berman EM Market Debt Hard Currency",
-      "weight_pct": 1.43
+      "name": "Diversified Composite Management Neuberger Berman Emerging Market Neuberger Berman Asset Debt - Hard Currency Fund EUR I",
+      "weight_pct": 1.43,
+      "value_eur": 2707969
     },
     {
-      "name": "Robeco Euro Credit Bonds I EUR",
-      "weight_pct": 1.85
+      "name": "Management Ireland Ltd Acc Robeco Euro Credit Bonds I EUR",
+      "weight_pct": 1.85,
+      "value_eur": 3521440
     },
     {
-      "name": "SPDR Bloomberg Barclays Euro High Yield Bond",
-      "weight_pct": 0.86
+      "name": "pensionifondide prospektide ning põhiteabe dokumentidega saab tutvuda veebilehel www.luminor.ee/era/pension ja Luminor panga kontorites. Enne pensionifondiga liitumist soovitame pidada nõu ka panga töötajaga. SPDR Bloomberg Barclays Euro High",
+      "weight_pct": 0.86,
+      "value_eur": 1635513
     },
     {
-      "name": "Xtrackers II EUR High Yield Corporate Bond",
-      "weight_pct": 0.12
+      "name": "Yield Bond Ucits ETF Xtrackers",
+      "weight_pct": 0.12,
+      "value_eur": 219110
     },
     {
-      "name": "iShares EUR Corp Bond ESG SRI UCITS ETF",
-      "weight_pct": 1.86
+      "name": "Bond UCITS ETF iShares EUR Corp Bond ESG SRI",
+      "weight_pct": 1.86,
+      "value_eur": 3539153
     },
     {
-      "name": "iShares EUR HGHYLD CORPB ESG Paris-Aligned",
-      "weight_pct": 0.19
+      "name": "UCITS ETF iShares EUR HGHYLD CORPB ESG",
+      "weight_pct": 0.19,
+      "value_eur": 352098
     }
   ],
   "pe_funds": [
     {
-      "name": "INVL Private Equity Fund II",
-      "weight_pct": 0.04
+      "name": "INVL Private Equity Fund II1",
+      "weight_pct": 0.04,
+      "value_eur": 74991
     },
     {
       "name": "KS Livonia Partners Fund II AIF",
-      "weight_pct": 1.15
+      "weight_pct": 1.15,
+      "value_eur": 2192018
     },
     {
       "name": "Raft Capital Baltic Equity Fund",
-      "weight_pct": 0.09
+      "weight_pct": 0.09,
+      "value_eur": 170155
     }
   ],
   "re_funds": [
     {
       "name": "EFTEN Kinnisvarafond II AS",
-      "weight_pct": 4.87
+      "weight_pct": 4.87,
+      "value_eur": 9255436
     },
     {
       "name": "EfTEN Real Estate Fund",
-      "weight_pct": 1.69
+      "weight_pct": 1.69,
+      "value_eur": 3218658
     }
   ],
   "deposits_pct": 0.29,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "equity_funds": 80.13,
+    "bond_funds": 6.96,
+    "re_funds": 6.57,
+    "pe_funds": 1.28,
+    "bonds": 4.72
+  },
+  "_pdf_holding_counts": {
+    "equity_funds": 11,
+    "bond_funds": 8,
+    "re_funds": 2,
+    "pe_funds": 3,
+    "bonds": 14
+  },
+  "_total_value_eur": 182780898
 }
