@@ -6,7 +6,7 @@
 <meta property="og:title" content="Mida sinu pensionifond tegelikult ostab?">
 <meta property="og:description" content="Võrdle Eesti II samba fonde aktsia haaval. Enamik fonde ostab samu aktsiaid — aga hind erineb kuni 4 korda.">
 <meta property="og:type" content="website">
-<title>MUSTAND — Fondide röntgen</title>
+<title>Beetaversioon — Fondide röntgen</title>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <style>
   :root {
@@ -158,7 +158,7 @@
 </head>
 <body>
 <div class="container">
-<h1>MUSTAND — Fondide röntgen</h1>
+<h1>Beetaversioon — Fondide röntgen</h1>
 <p class="subtitle">Paljude pensionifondide portfellid on &uuml;sna sarnased. V&otilde;rdle oma fondi sisu ja vaata, mille eest sa maksad.</p>
 <div id="dataFreshness" style="font-size:0.85rem;color:var(--g400);margin-bottom:1.5rem;"></div>
 <div class="picker-label">Soovi korral vali 2 fondi</div>
@@ -169,7 +169,7 @@
   <div class="selected-chips" id="selectedChips"></div>
 </div>
 <p class="hint" id="hint">Vali v&auml;hemalt 1 fond.</p>
-<p style="font-size:0.8rem;color:var(--g400);margin-top:-1rem;margin-bottom:2rem;">Ei tea oma fondi? <a href="https://pension.tuleva.ee/login" style="color:var(--g400);text-decoration:underline;">Vaata siit &rarr;</a></p>
+<p style="font-size:0.8rem;color:var(--g400);margin-top:-1rem;margin-bottom:2rem;">Ei tea oma fondi? <a href="https://pension.tuleva.ee/login?utm_source=fondide-rontgen&utm_medium=web" style="color:var(--g400);text-decoration:underline;">Vaata siit &rarr;</a></p>
 
 <div class="section" id="sectionNarrative"><div class="narrative" id="narrativeText"></div></div>
 
@@ -243,11 +243,6 @@
       <div class="section-title">Riigid</div>
       <div class="chart-container" id="chartCountries"></div>
     </div>
-    <div id="detailESMA" style="margin-bottom:2rem;">
-      <div class="section-title">Kapiindeksi anal&uuml;&uuml;s (ESMA metoodika)</div>
-      <div class="section-sub" style="max-width:700px;">Euroopa V&auml;&auml;rtpaberituruj&auml;relevalve (ESMA) t&ouml;&ouml;tas 2016. aastal v&auml;lja meetodi, kuidas tuvastada fonde, mis n&auml;evad v&auml;lja erinevad, aga liiguvad tegelikult sarnaselt. Kui fond k&uuml;sib k&otilde;rgemat tasu, aga ei paku tegelikku erinevust, on tegemist nn kapiindeksiga. ESMA m&otilde;&otilde;dab seda kahe n&auml;itajaga:</div>
-      <div id="esmaContent"></div>
-    </div>
     <div id="detailChanges" style="margin-bottom:2rem;">
       <div class="section-title">Suurimad muutused</div>
       <div class="section-sub" id="changesSub"></div>
@@ -265,7 +260,7 @@
     Erinevused &plusmn;2&ndash;3 protsendipunkti kattuvuses ei ole statistiliselt olulised.
     Andmed p&otilde;hinevad fondide investeerimisaruannetel ning v&otilde;ivad olla mitu kuud vanad &mdash; portfelli koosseis muutub pidevalt.
     <br><br>
-    Finantsteenust pakub Tuleva Fondid AS. Enne fondi valimist tutvu kindlasti tingimuste, prospekti, investori &otilde;iguste kokkuv&otilde;tte ja p&otilde;hiteabega Tuleva Maailma Aktsiate Pensionifond, Tuleva Maailma V&otilde;lakirjade Pensionifond, Tuleva III Samba Pensionifond ja Tuleva T&auml;iendav Kogumisfond ning pea n&otilde;u asjatundjaga. V&otilde;rdluseks leiad k&otilde;igi Eesti pensionifondide info <a href="https://www.pensionikeskus.ee" style="color:inherit;">Pensionikeskusest</a>. Maksustamine oleneb isikuga seotud asjaoludest, sealhulgas residentsusest. III samba sissemaksetelt tulumaksu tagasisaamiseks tuleb esitada tuludeklaratsioon. Maksuseadused muutuvad ajas. Tuleva ega Tuleva t&ouml;&ouml;tajad ei anna investeerimisn&otilde;u ega maksun&otilde;u. II sammas m&otilde;jutab sinu I sammast. &Uuml;heski Tuleva fondis pole tootlus garanteeritud. Meie kodulehel tuginevad arvutused &uuml;ldiselt Pensionikeskuse andmetele.
+    Finantsteenust pakub Tuleva Fondid AS. Enne fondi valimist tutvu kindlasti tingimuste, prospekti, investori &otilde;iguste kokkuv&otilde;tte ja p&otilde;hiteabega aadressil <a href="https://tuleva.ee?utm_source=fondide-rontgen&amp;utm_medium=web" style="color:inherit;">tuleva.ee</a>: Tuleva Maailma Aktsiate Pensionifond, Tuleva Maailma V&otilde;lakirjade Pensionifond, Tuleva III Samba Pensionifond ja Tuleva T&auml;iendav Kogumisfond ning pea n&otilde;u asjatundjaga. V&otilde;rdluseks leiad k&otilde;igi Eesti pensionifondide info <a href="https://www.pensionikeskus.ee" style="color:inherit;">Pensionikeskusest</a>. Maksustamine oleneb isikuga seotud asjaoludest, sealhulgas residentsusest. III samba sissemaksetelt tulumaksu tagasisaamiseks tuleb esitada tuludeklaratsioon. Maksuseadused muutuvad ajas. Tuleva ega Tuleva t&ouml;&ouml;tajad ei anna investeerimisn&otilde;u ega maksun&otilde;u. II sammas m&otilde;jutab sinu I sammast. &Uuml;heski Tuleva fondis pole tootlus garanteeritud. Meie kodulehel tuginevad arvutused &uuml;ldiselt Pensionikeskuse andmetele.
   </div>
 </div>
 <div class="tooltip" id="tooltip"></div>
@@ -376,7 +371,7 @@ const CTA_CONFIG = (() => {
   return {
     text: `Fondivahetus on tasuta ja võtab paar minutit. Järgmine tähtaeg: ${deadline}.`,
     buttonText: 'Vaata lähemalt \u2192',
-    buttonUrl: 'https://pension.tuleva.ee',
+    buttonUrl: 'https://pension.tuleva.ee?utm_source=fondide-rontgen&utm_medium=web&utm_content=cta',
   };
 })();
 
