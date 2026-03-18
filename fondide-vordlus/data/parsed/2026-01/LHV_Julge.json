@@ -7,7 +7,7 @@
   "source": "est_LXK75_raport_20260131.pdf",
   "equity_funds": [
     {
-      "name": "Invesco MDAX UCITS ETF Invesco Markets",
+      "name": "Invesco MDAX UCITS ETF",
       "isin": "IE00BHJYDV33",
       "weight_pct": 3.68,
       "value_eur": 12002160
@@ -25,19 +25,19 @@
       "value_eur": 9109422
     },
     {
-      "name": "Amundi S P Eurozone PAB Net Zero Ambition UCITS ETF Amundi",
+      "name": "Amundi S P Eurozone PAB Net Zero Ambition UCITS ETF",
       "isin": "LU2195226068",
       "weight_pct": 0.69,
       "value_eur": 2235465
     },
     {
-      "name": "Xtrackers MSCI Europe Financia Xtrackers",
+      "name": "Xtrackers MSCI Europe Financia",
       "isin": "LU0292103651",
       "weight_pct": 0.55,
       "value_eur": 1783858
     },
     {
-      "name": "Amundi MSCI Water ESG Screened Amundi Asset Management",
+      "name": "Amundi MSCI Water ESG Screened",
       "isin": "FR0010527275",
       "weight_pct": 0.7,
       "value_eur": 2269099
@@ -61,25 +61,25 @@
       "value_eur": 20442792
     },
     {
-      "name": "First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund ETF First Trust",
+      "name": "First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund ETF",
       "isin": "US33737A1088",
       "weight_pct": 0.44,
       "value_eur": 1445638
     },
     {
-      "name": "First Trust RBA American Industrial Renaissance First Trust Portfolios",
+      "name": "First Trust RBA American Industrial Renaissance",
       "isin": "US33738R7044",
       "weight_pct": 2.68,
       "value_eur": 8742681
     },
     {
-      "name": "Global X Copper Miners ETF Global X",
+      "name": "Global X Copper Miners ETF",
       "isin": "US37954Y8306",
       "weight_pct": 2.75,
       "value_eur": 8954681
     },
     {
-      "name": "Global X US Infrastructure Development Global X",
+      "name": "Global X US Infrastructure Development",
       "isin": "US37954Y6730",
       "weight_pct": 0.83,
       "value_eur": 2703771
@@ -490,7 +490,7 @@
       "value_eur": 2011556
     },
     {
-      "name": "Eesti Energia perpetual NC5.25 Eesti",
+      "name": "Eesti Energia perpetual NC5.25",
       "isin": "XS2824761188",
       "weight_pct": 3.11,
       "value_eur": 10143819
@@ -583,132 +583,132 @@
   "bond_funds": [],
   "pe_funds": [
     {
-      "name": "BPEF III Supplementary Investment Facility UF BaltCap Private Equity Management III",
+      "name": "BPEF III Supplementary Investment Facility UF",
       "weight_pct": 0.31,
       "value_eur": 1011493
     },
     {
-      "name": "Specialist VC II Specialist Fund Management",
+      "name": "Specialist VC II",
       "weight_pct": 0.22,
       "value_eur": 717148
     },
     {
-      "name": "Tera Ventures II Usaldusfond Tera Ventures GP II",
+      "name": "Tera Ventures II Usaldusfond",
       "weight_pct": 0.53,
       "value_eur": 1722056
     },
     {
-      "name": "Trind Ventures II Trind Ventures GP II",
+      "name": "Trind Ventures II",
       "weight_pct": 0.12,
       "value_eur": 389732
     },
     {
-      "name": "Usaldusfond BaltCap Infrastructure Fund BaltCap Infrastructure Management",
+      "name": "Usaldusfond BaltCap Infrastructure Fund",
       "weight_pct": 0.14,
       "value_eur": 454089
     },
     {
-      "name": "Usaldusfond BaltCap Private Equity Fund III BaltCap Private Equity Management III",
+      "name": "Usaldusfond BaltCap Private Equity Fund III",
       "weight_pct": 0.5,
       "value_eur": 1614724
     },
     {
-      "name": "Usaldusfond Equity United PE 1 Equity United GP1",
+      "name": "Usaldusfond Equity United PE 1",
       "weight_pct": 0.54,
       "value_eur": 1764259
     },
     {
-      "name": "Usaldusfond Superangel One Superangel1 GP",
+      "name": "Superangel One Superangel1 GP",
       "weight_pct": 0.49,
       "value_eur": 1591782
     },
     {
-      "name": "Usaldusfond Superangel Two Super2ngel GP",
+      "name": "Superangel Two Super2ngel GP",
       "weight_pct": 0.12,
       "value_eur": 389175
     },
     {
-      "name": "Usaldusfond Trind Ventures Fund I Trind Ventures",
+      "name": "Usaldusfond Trind Ventures Fund I",
       "weight_pct": 0.3,
       "value_eur": 992058
     },
     {
-      "name": "INVL Baltic Sea Growth Fund INVL Asset Management",
+      "name": "INVL Baltic Sea Growth Fund",
       "weight_pct": 0.36,
       "value_eur": 1161395
     },
     {
-      "name": "Astorg Mid-Cap I Astorg Mid-Cap I (GP) S.a r.l.",
+      "name": "Astorg Mid-Cap I",
       "weight_pct": 1.3,
       "value_eur": 4232733
     },
     {
-      "name": "BaltCap Private Equity Fund II BaltCap Private Equity Management II",
+      "name": "BaltCap Private Equity Fund II",
       "weight_pct": 0.14,
       "value_eur": 459604
     },
     {
-      "name": "BPM Mezzanine Fund BPM Mezzanine Fund GP",
+      "name": "BPM Mezzanine Fund",
       "weight_pct": 0.1,
       "value_eur": 341543
     },
     {
-      "name": "Investindustrial VIII Investindustrial Fund VIII GP",
+      "name": "Investindustrial VIII",
       "weight_pct": 0.53,
       "value_eur": 1718459
     },
     {
-      "name": "Karma Ventures I Karma Ventures",
+      "name": "Karma Ventures I",
       "weight_pct": 0.3,
       "value_eur": 983672
     },
     {
-      "name": "Karma Ventures II Karma Ventures II GP",
+      "name": "Karma Ventures II",
       "weight_pct": 0.31,
       "value_eur": 1018294
     },
     {
-      "name": "KJK Fund II Balkan AI July 2012 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan AI July 2012",
       "weight_pct": 0.08,
       "value_eur": 259066
     },
     {
-      "name": "KJK Fund II Balkan AI Sep 2012 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan AI Sep 2012",
       "weight_pct": 0.08,
       "value_eur": 257174
     },
     {
-      "name": "KJK Fund II Balkan Discovery A December 2015 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A December 2015",
       "weight_pct": 0.12,
       "value_eur": 381041
     },
     {
-      "name": "KJK Fund II Balkan Discovery A December 2016 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A December 2016",
       "weight_pct": 0.1,
       "value_eur": 312028
     },
     {
-      "name": "KJK Fund II Balkan Discovery A June 2014 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A June 2014",
       "weight_pct": 0.24,
       "value_eur": 789084
     },
     {
-      "name": "KJK Fund II Balkan Discovery A June 2015 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A June 2015",
       "weight_pct": 0.14,
       "value_eur": 455452
     },
     {
-      "name": "KJK Fund II Balkan Discovery A May 2016 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A May 2016",
       "weight_pct": 0.11,
       "value_eur": 367109
     },
     {
-      "name": "KJK Fund II Balkan Discovery A November 2017 KJK Capital Luxembourg",
+      "name": "KJK Fund II Balkan Discovery A November 2017",
       "weight_pct": 0.07,
       "value_eur": 225466
     },
     {
-      "name": "KJK Fund III KJK Capital Luxembourg",
+      "name": "KJK Fund III",
       "weight_pct": 0.91,
       "value_eur": 2968480
     },
@@ -718,104 +718,104 @@
       "value_eur": 5220604
     },
     {
-      "name": "NOAL BRG NOAL GP",
+      "name": "NOAL BRG",
       "weight_pct": 0.83,
       "value_eur": 2705067
     },
     {
-      "name": "Plural 2022 Plural Platform S.a r.l.",
+      "name": "Plural 2022",
       "weight_pct": 0.32,
       "value_eur": 1037811
     },
     {
-      "name": "QCP Buyout Fund III Quilvest Capital Partners Buyout Fund GP",
+      "name": "QCP Buyout Fund III Quilvest Capital Partners",
       "weight_pct": 0.34,
       "value_eur": 1115957
     },
     {
-      "name": "QCP PE Fund III Quilvest Capital Partners PE Fund GP",
+      "name": "QCP PE Fund III Quilvest Capital Partners",
       "weight_pct": 1.02,
       "value_eur": 3335519
     },
     {
-      "name": "BaltCap Latvia Venture Capital Fund AIF KS BaltCap AIFP",
+      "name": "BaltCap Latvia Venture Capital Fund AIF KS",
       "weight_pct": 0.01,
       "value_eur": 19890
     },
     {
-      "name": "Livonia Partners Fund I Livonia Partners",
+      "name": "Livonia Partners Fund I",
       "weight_pct": 0.36,
       "value_eur": 1167049
     },
     {
-      "name": "Investindustrial VII L.P. Investindustrial VII GP",
+      "name": "Investindustrial VII L.P.",
       "weight_pct": 1.9,
       "value_eur": 6195152
     },
     {
-      "name": "Axcel VI Axcel VI GP ApS",
+      "name": "Axcel VI",
       "weight_pct": 2.65,
       "value_eur": 8626269
     }
   ],
   "re_funds": [
     {
-      "name": "Birdeye Timber Fund 2 Birdeye Capital",
+      "name": "Birdeye Timber Fund 2",
       "weight_pct": 0.5,
       "value_eur": 1639274
     },
     {
-      "name": "Birdeye Timber Fund 3 Birdeye Capital",
+      "name": "Birdeye Timber Fund 3",
       "weight_pct": 0.49,
       "value_eur": 1611442
     },
     {
-      "name": "EfTEN Kinnisvarafond II EfTEN Capital",
+      "name": "EfTEN Kinnisvarafond II",
       "weight_pct": 0.09,
       "value_eur": 297612
     },
     {
-      "name": "EfTEN Real Estate Fund EfTEN Capital",
+      "name": "EfTEN Real Estate Fund",
       "weight_pct": 1.29,
       "value_eur": 4202385
     },
     {
-      "name": "EfTEN Real Estate Fund 5 EfTEN Capital",
+      "name": "EfTEN Real Estate Fund 5",
       "weight_pct": 0.35,
       "value_eur": 1134334
     },
     {
-      "name": "EfTEN Residential Fund usaldusfond EfTEN Capital",
+      "name": "EfTEN Residential Fund usaldusfond",
       "weight_pct": 0.21,
       "value_eur": 673551
     },
     {
-      "name": "EfTEN Special Opportunities Fund EfTEN Capital",
+      "name": "EfTEN Special Opportunities Fund",
       "weight_pct": 0.38,
       "value_eur": 1231721
     },
     {
-      "name": "Usaldusfond EfTEN Real Estate Fund 4 EfTEN Capital",
+      "name": "Usaldusfond EfTEN Real Estate Fund 4",
       "weight_pct": 1.49,
       "value_eur": 4854929
     },
     {
-      "name": "Lords LB Baltic Green Fund (V) Lords LB Asset Management",
+      "name": "Lords LB Baltic Green Fund (V)",
       "weight_pct": 0.25,
       "value_eur": 812813
     },
     {
-      "name": "East Capital Baltic Property Fund III East Capital (Lux) General Partner",
+      "name": "East Capital Baltic Property Fund III",
       "weight_pct": 1.65,
       "value_eur": 5381406
     },
     {
-      "name": "East Capital Real Estate Fund IV East Capital (Lux) General Partner",
+      "name": "East Capital Real Estate Fund IV",
       "weight_pct": 0.54,
       "value_eur": 1749750
     },
     {
-      "name": "SG Capital Partners Fund 1 SG Capital Partners",
+      "name": "SG Capital Partners Fund 1",
       "weight_pct": 1.38,
       "value_eur": 4509552
     }

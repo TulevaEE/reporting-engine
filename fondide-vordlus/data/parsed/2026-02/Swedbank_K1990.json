@@ -526,7 +526,7 @@
       "value_eur": 2216374
     },
     {
-      "name": "Compagnie Financiere Richemont Cie Financiere Richemont",
+      "name": "Compagnie Financiere Richemont Cie",
       "isin": "CH0210483332",
       "country": "CH",
       "weight_pct": 0.19,
@@ -694,7 +694,7 @@
       "value_eur": 1021112
     },
     {
-      "name": "Edward Lifesciences Edwards Lifesciences",
+      "name": "Edward Lifesciences Edwards",
       "isin": "US28176E1082",
       "country": "US",
       "weight_pct": 0.13,
@@ -1933,7 +1933,7 @@
       "value_eur": 1715447
     },
     {
-      "name": "United Health Group UnitedHealth Group",
+      "name": "United Health Group UnitedHealth",
       "isin": "US91324P1021",
       "country": "US",
       "weight_pct": 0.31,
