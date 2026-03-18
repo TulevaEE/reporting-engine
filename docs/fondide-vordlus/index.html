@@ -662,7 +662,7 @@ function render() {
   // Details (expandable) — always start hidden
   const detailsToggle = document.getElementById('detailsToggle');
   detailsToggle.textContent = 'Vaata detailsemalt';
-  renderESMA(f); renderScatter(f); renderSunburst(f); renderAllHoldings(f); renderSectors(f); renderCountries(f); renderChanges(f);
+  renderScatter(f); renderSunburst(f); renderAllHoldings(f); renderSectors(f); renderCountries(f); renderChanges(f);
 }
 
 function renderNarrative(funds) {
@@ -1200,72 +1200,6 @@ function renderChanges(funds) {
   }
 }
 
-function renderESMA(funds) {
-  const el = document.getElementById('detailESMA');
-  const content = document.getElementById('esmaContent');
-  if (funds.length < 2) { el.style.display = 'none'; return; }
-
-  const [f1, f2] = funds;
-  // Only show for funds from the same manager
-  const prov1 = DATA.funds[f1].provider, prov2 = DATA.funds[f2].provider;
-  if (prov1 !== prov2) { el.style.display = 'none'; return; }
-  const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
-
-  // Use last-1-year data if available, fallback to full period
-  const esmaSource = RET_CORR?.last_1y || RET_CORR;
-  const te = esmaSource?.tracking_error_pct ? (esmaSource.tracking_error_pct[k1] ?? esmaSource.tracking_error_pct[k2] ?? null) : null;
-
-  const mwo = Math.round(calcMWO(f1, f2));
-  const activeShare = 100 - mwo;
-  const teFmt = te !== null ? te.toFixed(1) : '\u2013';
-
-  if (te === null && activeShare === 0) { el.style.display = 'none'; return; }
-  el.style.display = 'block';
-
-  // ESMA/2016/165: Active Share <60% AND Tracking Error <4%
-  const flagAS = activeShare < 60;
-  const flagTE = te !== null && te < 4;
-  const isSame = flagAS && flagTE;
-
-  function metricRow(label, value, desc, flag) {
-    const flagIcon = flag ? ' \u26a0\ufe0f' : '';
-    const flagStyle = flag ? 'color:var(--red);' : '';
-    return `<div style="display:flex;align-items:baseline;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--g100);">
-      <div style="min-width:180px;">
-        <div style="font-weight:700;font-size:0.9rem;${flagStyle}">${label}${flagIcon}</div>
-        <div style="font-size:0.75rem;color:var(--g400);">${desc}</div>
-      </div>
-      <div style="font-size:1.1rem;font-weight:800;font-variant-numeric:tabular-nums;${flagStyle}">${value}</div>
-    </div>`;
-  }
-
-  let html = metricRow('Aktiivne osakaal', `${activeShare}%`,
-    `Kui suur osa portfellist erineb. ESMA l\u00e4vend: < 60%`, flagAS);
-  html += metricRow('J\u00e4lgimisviga (Tracking Error)', `${teFmt}% aastas`,
-    `Fondide tootluste erinevuse volatiilsus. ESMA l\u00e4vend: < 4%`, flagTE);
-
-  // Interpretation: 2 tiers — same (red) vs different (green)
-  let interpBg, interpBorder, interpText;
-  if (isSame) {
-    interpBg = '#fef2f2'; interpBorder = 'var(--red)';
-    interpText = `<strong>V\u00f5imalik peidetud indeksij\u00e4lgimine.</strong> Aktiivne osakaal < 60% ja j\u00e4lgimisviga < 4%. ESMA metoodika j\u00e4rgi viitab see closet indexing\u2019ile \u2014 fond n\u00e4eb v\u00e4lja erinev, aga liigub sarnaselt.`;
-  } else {
-    interpBg = '#f0fdf4'; interpBorder = 'var(--green)';
-    interpText = `<strong>Fondid on erinevad.</strong> ESMA closet indexing kriteeriumid pole t\u00e4idetud. Fondide koosseis v\u00f5i tootlused erinevad piisavalt.`;
-  }
-
-  html += `<div style="margin-top:1rem;padding:0.8rem 1rem;background:${interpBg};border-radius:8px;border-left:3px solid ${interpBorder};font-size:0.85rem;line-height:1.6;">
-    ${interpText}
-  </div>`;
-
-  const esmaPeriod = esmaSource?.period || RET_CORR?.period || '\u2013';
-  html += `<div style="margin-top:1rem;font-size:0.75rem;color:var(--g400);line-height:1.6;">
-    Periood: ${esmaPeriod}. N\u00e4dalased logaritmilised tootlused.
-    ESMA l\u00e4vendid p\u00e4rinevad dokumendist <a href="https://www.esma.europa.eu/sites/default/files/library/2016-165_public_statement_-_supervisory_work_on_potential_closet_index_tracking.pdf" style="color:var(--g400);">ESMA/2016/165</a> (para. 15).
-  </div>`;
-
-  content.innerHTML = html;
-}
 
 function renderScatter(funds) {
   const detailScatter = document.getElementById('detailScatter');
