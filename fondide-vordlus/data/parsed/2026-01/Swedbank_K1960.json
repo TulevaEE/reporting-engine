@@ -3017,7 +3017,7 @@
       "name": "Amundi EUR Corporate Bond ESG",
       "weight_pct": 0.77,
       "isin": "LU1737653987",
-      "value_eur": 2450143
+      "value_eur": 2408389
     },
     {
       "name": "Corporate Bond Europe High Yield A",
@@ -3029,7 +3029,7 @@
       "name": "iShares EUR High Yield Corp Bond ESG UCITS ETF",
       "weight_pct": 5.28,
       "isin": "IE00BJK55C48",
-      "value_eur": 16702680
+      "value_eur": 13782513
     }
   ],
   "pe_funds": [
@@ -3125,5 +3125,5 @@
     "bond_funds": 3,
     "bonds": 150
   },
-  "_total_value_eur": 320187316
+  "_total_value_eur": 317225395
 }

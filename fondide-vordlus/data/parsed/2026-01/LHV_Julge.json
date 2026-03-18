@@ -469,13 +469,13 @@
       "name": "Aiandi Kodud omanikulaen -",
       "isin": null,
       "weight_pct": 0.56,
-      "value_eur": 1816297
+      "value_eur": 1803472
     },
     {
       "name": "Akadeemia15b omanikulaen -",
       "isin": null,
       "weight_pct": 0.1,
-      "value_eur": 332616
+      "value_eur": 329613
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
@@ -499,7 +499,7 @@
       "name": "Kesk Tee Jyri omanikulaen -",
       "isin": null,
       "weight_pct": 0.07,
-      "value_eur": 212893
+      "value_eur": 210000
     },
     {
       "name": "Luminor Holding 7.375% PERP",
@@ -511,31 +511,31 @@
       "name": "Manufaktuuri omanikulaen -",
       "isin": null,
       "weight_pct": 0.24,
-      "value_eur": 790358
+      "value_eur": 783222
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.4,
-      "value_eur": 1305295
+      "value_eur": 1291235
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.08,
-      "value_eur": 253184
+      "value_eur": 252000
     },
     {
       "name": "Sopruse157 omanikulaen -",
       "isin": null,
       "weight_pct": 0.16,
-      "value_eur": 508640
+      "value_eur": 506359
     },
     {
       "name": "Taevakivi omanikulaen -",
       "isin": null,
       "weight_pct": 0.07,
-      "value_eur": 237484
+      "value_eur": 234000
     },
     {
       "name": "Artea Bankas 05/12/2028",
@@ -553,25 +553,25 @@
       "name": "Matisa52 omanikulaen -",
       "isin": null,
       "weight_pct": 0.17,
-      "value_eur": 553103
+      "value_eur": 547168
     },
     {
       "name": "France Treasury Bond 25/02/2026",
       "isin": "FR0013508470",
       "weight_pct": 1.53,
-      "value_eur": 4993550
+      "value_eur": 4966970
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
       "weight_pct": 1.37,
-      "value_eur": 4474800
+      "value_eur": 4400000
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
       "weight_pct": 1.53,
-      "value_eur": 4980950
+      "value_eur": 4964718
     },
     {
       "name": "BP Capital Markets 3.625% PERP",
@@ -836,5 +836,5 @@
     "pe_funds": 36,
     "re_funds": 12
   },
-  "_total_value_eur": 326481491
+  "_total_value_eur": 326311078
 }

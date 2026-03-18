@@ -4,39 +4,47 @@
   "provider": "Luminor",
   "fund_type": "index",
   "month": "2026-01",
-  "source": "monthly JSON",
+  "source": "est_NIK100_raport_20260131.pdf",
   "equity_funds": [
     {
-      "name": "Amundi Prime Global UCITS ETF",
-      "weight_pct": 29.07
+      "name": "Amundi Prime Global UCITS ETF C1 Amundi",
+      "weight_pct": 29.07,
+      "value_eur": 2478560
     },
     {
-      "name": "Amundi Stoxx Europe 600 UCITS ETF",
-      "weight_pct": 4.7
+      "name": "Amundi Stoxx Europe 600 UCITS Amundi Luxembourg SA",
+      "weight_pct": 4.7,
+      "value_eur": 401132
     },
     {
-      "name": "SPDR MSCI World UCITS ETF",
-      "weight_pct": 12.47
+      "name": "ETF SSGA SPDR ETFS SPDR MSCI World UCITS ETF",
+      "weight_pct": 12.47,
+      "value_eur": 1063087
     },
     {
-      "name": "iShares Core MSCI EM IMI UCITS ETF",
-      "weight_pct": 6.27
+      "name": "Europe Plc BlackRock Asset iShares Core MSCI EM IMI UCITS Management Ireland",
+      "weight_pct": 6.27,
+      "value_eur": 534472
     },
     {
-      "name": "iShares Developed World Index Fund (IE) Inst Acc EUR",
-      "weight_pct": 19.6
+      "name": "ETF1 Limited BlackRock Asset iShares Developed World Index Management Ireland",
+      "weight_pct": 19.6,
+      "value_eur": 1671328
     },
     {
-      "name": "iShares Emerging Markets Index Fund (IE) - EUR",
-      "weight_pct": 3.94
+      "name": "Fund (IE) Inst Acc EUR Limited BlackRock Asset iShares Emerging Markets Index Management Ireland",
+      "weight_pct": 3.94,
+      "value_eur": 336083
     },
     {
-      "name": "iShares Japan Index Fund (IE)",
-      "weight_pct": 1.33
+      "name": "Fund (IE) - EUR Limited BlackRock Asset iShares Japan Index Fund (IE) Management Ireland",
+      "weight_pct": 1.33,
+      "value_eur": 113292
     },
     {
-      "name": "iShares S&P 500 Swap UCITS ETF",
-      "weight_pct": 22.43
+      "name": "Limited BlackRock Asset iShares S&P 500 Swap UCITS ETF1 Management Ireland",
+      "weight_pct": 22.43,
+      "value_eur": 1912316
     }
   ],
   "stocks": [],
@@ -45,5 +53,12 @@
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 0.2,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_pdf_subtotals": {
+    "equity_funds": 99.81
+  },
+  "_pdf_holding_counts": {
+    "equity_funds": 8
+  },
+  "_total_value_eur": 8527646
 }

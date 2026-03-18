@@ -4,42 +4,49 @@
   "provider": "SEB",
   "fund_type": "mixed",
   "month": "2026-02",
-  "source": "monthly JSON",
+  "source": "est_SEK25_raport_20260228.pdf",
   "equity_funds": [
     {
       "name": "iShares Developed World ESG Screened Index Fund",
+      "weight_pct": 1.95,
       "isin": "IE00BFG1TM61",
-      "weight_pct": 1.95
+      "value_eur": 452835
     },
     {
       "name": "iShares MSCI EM IMI ESG Screened UCITS ETF",
+      "weight_pct": 3.07,
       "isin": "IE00BFNM3P36",
-      "weight_pct": 3.07
+      "value_eur": 713099
     },
     {
       "name": "iShares MSCI Europe ESG Screened UCITS ETF",
+      "weight_pct": 2.99,
       "isin": "IE00BFNM3D14",
-      "weight_pct": 2.99
+      "value_eur": 695534
     },
     {
       "name": "iShares MSCI World ESG Screened UCITS ETF",
+      "weight_pct": 5.42,
       "isin": "IE00BFNM3J75",
-      "weight_pct": 5.42
+      "value_eur": 1259710
     },
     {
       "name": "L&G Japan Equity UCITS ETF",
+      "weight_pct": 1.15,
       "isin": "IE00BFXR5T61",
-      "weight_pct": 1.15
+      "value_eur": 267144
     },
     {
       "name": "SEB Global Exposure Fund",
+      "weight_pct": 21.41,
       "isin": "LU1711526407",
-      "weight_pct": 21.41
+      "value_eur": 4974057
     },
     {
       "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+      "weight_pct": 8.54,
       "isin": "IE00BH4GPZ28",
-      "weight_pct": 8.54
+      "value_eur": 1985409
     }
   ],
   "stocks": [],
@@ -47,192 +54,234 @@
     {
       "name": "Akropolis Group Uab 6% 15.05.2030",
       "weight_pct": 0.61,
-      "type": "bonds"
+      "isin": "XS3046302488",
+      "value_eur": 142465
     },
     {
-      "name": "Artea Bankas FRN Perp",
+      "name": "Artea bankas AB FRN",
       "weight_pct": 1.39,
-      "type": "bonds"
+      "isin": "XS2922133363",
+      "value_eur": 322014
     },
     {
       "name": "Artea Bankas AB FRN 05.12.2028",
       "weight_pct": 1.2,
-      "type": "bonds"
+      "isin": "XS2887816564",
+      "value_eur": 279333
     },
     {
-      "name": "Artea Bankas AB FRN 07.10.2029",
+      "name": "Artea bankas AB FRN 07.10.2029",
       "weight_pct": 0.57,
-      "type": "bonds"
+      "isin": "XS3191554495",
+      "value_eur": 132549
     },
     {
-      "name": "Artea Bankas FRN 2030",
+      "name": "Artea bankas AB FRN 25.06.2030",
       "weight_pct": 0.63,
-      "type": "bonds"
+      "isin": "XS3025213102",
+      "value_eur": 147542
     },
     {
       "name": "AS LHV Group 6% 15.11.2034",
       "weight_pct": 0.18,
-      "type": "bonds"
+      "isin": "EE3300004993",
+      "value_eur": 41491
     },
     {
       "name": "Citadele Banka AS FRN 23.12.2029",
       "weight_pct": 0.12,
-      "type": "bonds"
+      "isin": "XS3148256913",
+      "value_eur": 27354
     },
     {
       "name": "Citadele Banka AS FRN 31.12.2099",
       "weight_pct": 0.83,
-      "type": "bonds"
+      "isin": "XS3060301168",
+      "value_eur": 191730
     },
     {
       "name": "Eesti Energia 7.875% 15.07.2099",
       "weight_pct": 0.73,
-      "type": "bonds"
+      "isin": "XS2824761188",
+      "value_eur": 169746
     },
     {
       "name": "Ignitis Grupė AB 1.875% 10.07.2028",
       "weight_pct": 0.69,
-      "type": "bonds"
+      "isin": "XS1853999313",
+      "value_eur": 159487
     },
     {
       "name": "Ignitis Grupė AB 2% 21.05.2030",
       "weight_pct": 0.6,
-      "type": "bonds"
+      "isin": "XS2177349912",
+      "value_eur": 139214
     },
     {
-      "name": "Inbank 5.5% 2031",
+      "name": "Inbank allutatud võlakiri 5.5% 15.12.2031",
       "weight_pct": 0.09,
-      "type": "bonds"
+      "isin": "EE3300002302",
+      "value_eur": 21808
     },
     {
-      "name": "Inbank AT1 7.5% 2031",
+      "name": "Inbank AT1 allutatud võlakiri 7.5% 28.12.2031",
       "weight_pct": 0.33,
-      "type": "bonds"
+      "isin": "EE3300002286",
+      "value_eur": 77144
     },
     {
       "name": "Latvenergo AS 3.612% 13.11.2030",
       "weight_pct": 0.18,
-      "type": "bonds"
+      "isin": "XS3227294132",
+      "value_eur": 41369
     },
     {
       "name": "LHV Group AS 9.5 31.12.2099",
       "weight_pct": 1.29,
-      "type": "bonds"
+      "isin": "XS3042781024",
+      "value_eur": 299152
     },
     {
       "name": "LHV Group AS FRN 03.10.2027",
       "weight_pct": 1.75,
-      "type": "bonds"
+      "isin": "XS2693753704",
+      "value_eur": 407742
     },
     {
-      "name": "LHV Group FRN 2035",
+      "name": "LHV Group AS FRN 16.09.2035",
       "weight_pct": 0.6,
-      "type": "bonds"
+      "isin": "XS3153067288",
+      "value_eur": 138419
     },
     {
-      "name": "LHV Group FRN 2029",
+      "name": "LHV Group AS FRN 18.06.2029",
       "weight_pct": 0.53,
-      "type": "bonds"
+      "isin": "XS3090105829",
+      "value_eur": 123953
     },
     {
       "name": "LHV Group AS FRN 24.05.2028",
       "weight_pct": 0.4,
-      "type": "bonds"
+      "isin": "XS2822574245",
+      "value_eur": 93613
     },
     {
-      "name": "Luminor Bank AS/Estonia FRN 08.06.2027",
+      "name": "Luminor Bank As/Estonia FRN 08.06.2027",
       "weight_pct": 0.98,
-      "type": "bonds"
+      "isin": "XS2633112565",
+      "value_eur": 227566
     },
     {
       "name": "Luminor Bank AS/Estonia FRN 10.09.2028",
       "weight_pct": 0.78,
-      "type": "bonds"
+      "isin": "XS2888497067",
+      "value_eur": 180888
     },
     {
-      "name": "Luminor Bank FRN Perp",
+      "name": "Luminor Bank AS/Estonia FRN 12.02.2099",
       "weight_pct": 1.68,
-      "type": "bonds"
+      "isin": "XS2982074861",
+      "value_eur": 389531
     },
     {
-      "name": "Luminor Bank FRN 2029",
+      "name": "Luminor Bank AS/Estonia FRN 12.06.2029",
       "weight_pct": 0.11,
-      "type": "bonds"
+      "isin": "XS3079969104",
+      "value_eur": 24873
     },
     {
-      "name": "Nortal FRN 2029",
+      "name": "Nortal AS FRN 09.02.2029",
       "weight_pct": 0.56,
-      "type": "bonds"
+      "isin": "FI4000566567",
+      "value_eur": 130355
     },
     {
       "name": "Republic of Estonia 4% 12.10.2032",
       "weight_pct": 8.59,
-      "type": "bonds"
+      "isin": "XS2532370231",
+      "value_eur": 1996715
     },
     {
       "name": "Valstybes Investicinis Kapitalas Uab 3.119% 24.09.2029",
       "weight_pct": 0.77,
-      "type": "bonds"
+      "isin": "LT0000135436",
+      "value_eur": 178625
     }
   ],
   "bond_funds": [
     {
       "name": "Fair Oaks CLO Mezzanine Opportunities Fund",
-      "weight_pct": 1.48
+      "weight_pct": 1.48,
+      "isin": "LU3192249715",
+      "value_eur": 343847
     },
     {
       "name": "Fair Oaks Dynamic Credit Fund",
-      "weight_pct": 2.33
+      "weight_pct": 2.33,
+      "isin": "LU1902638607",
+      "value_eur": 541587
     },
     {
       "name": "Robeco Euro Credit Bond",
-      "weight_pct": 2.33
+      "weight_pct": 2.33,
+      "isin": "LU0210246277",
+      "value_eur": 540889
     },
     {
       "name": "Schroder ISF EURO Corporate Bond",
-      "weight_pct": 3.48
+      "weight_pct": 3.48,
+      "isin": "LU0113258742",
+      "value_eur": 808708
     },
     {
-      "name": "SEB Global High Yield Fund",
-      "weight_pct": 0.0
-    },
-    {
-      "name": "UBS EUR Corporates Sustainable",
-      "weight_pct": 5.99
+      "name": "UBS Lux Bond SICAV - EUR Corporates Sustainable EUR",
+      "weight_pct": 5.99,
+      "isin": "LU2889894270",
+      "value_eur": 1391044
     }
   ],
   "pe_funds": [
     {
-      "name": "BaltCap PE Fund II",
-      "weight_pct": 0.33
+      "name": "Baltcap Private Equity Fund II L.P",
+      "weight_pct": 0.33,
+      "value_eur": 76601
     },
     {
-      "name": "BaltCap PE Fund III",
-      "weight_pct": 0.23
+      "name": "Usaldusfond BaltCap Private Equity Fund III",
+      "weight_pct": 0.23,
+      "value_eur": 52664
     }
   ],
   "re_funds": [
     {
       "name": "BaltCap Infrastructure Fund",
-      "weight_pct": 1.08
+      "weight_pct": 1.08,
+      "value_eur": 251799
     },
     {
       "name": "Baltic Horizon Fund",
-      "weight_pct": 0.11
+      "weight_pct": 0.11,
+      "isin": "EE3500110244",
+      "value_eur": 25489
     },
     {
-      "name": "Birdeye Timber Fund 3",
-      "weight_pct": 2.45
+      "name": "Birdeye Timber Fund 3 Usaldusfond",
+      "weight_pct": 2.45,
+      "isin": "EE3600001756",
+      "value_eur": 569780
     },
     {
       "name": "EfTEN Real Estate Fund IV",
-      "weight_pct": 4.67
+      "weight_pct": 4.67,
+      "value_eur": 1084624
     },
     {
-      "name": "SG Capital Partners",
-      "weight_pct": 1.88
+      "name": "SG Capital Partners Fund 1, KS",
+      "weight_pct": 1.88,
+      "value_eur": 436408
     }
   ],
   "deposits_pct": 0.0,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_total_value_eur": 22555906
 }

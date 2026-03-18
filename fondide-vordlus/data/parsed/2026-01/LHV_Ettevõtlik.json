@@ -371,13 +371,13 @@
       "name": "Aiandi Kodud omanikulaen -",
       "isin": null,
       "weight_pct": 0.61,
-      "value_eur": 5158283
+      "value_eur": 5121861
     },
     {
       "name": "Akadeemia15b omanikulaen -",
       "isin": null,
       "weight_pct": 0.34,
-      "value_eur": 2875380
+      "value_eur": 2849419
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
@@ -413,7 +413,7 @@
       "name": "Kesk Tee Jyri omanikulaen -",
       "isin": null,
       "weight_pct": 0.15,
-      "value_eur": 1312842
+      "value_eur": 1295000
     },
     {
       "name": "Liven Kodu 10 8.5% 30/06/2027 -",
@@ -425,37 +425,37 @@
       "name": "Manufaktuuri omanikulaen -",
       "isin": null,
       "weight_pct": 0.35,
-      "value_eur": 2963843
+      "value_eur": 2937083
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.96,
-      "value_eur": 8158094
+      "value_eur": 8070218
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.19,
-      "value_eur": 1582400
+      "value_eur": 1575000
     },
     {
       "name": "Sopruse157 omanikulaen -",
       "isin": null,
       "weight_pct": 0.13,
-      "value_eur": 1134658
+      "value_eur": 1123177
     },
     {
       "name": "Taevakivi omanikulaen -",
       "isin": null,
       "weight_pct": 0.17,
-      "value_eur": 1464485
+      "value_eur": 1443000
     },
     {
       "name": "Tartu linn 25/10/32 -",
       "isin": "EE2300110602",
       "weight_pct": 0.14,
-      "value_eur": 1190958
+      "value_eur": 1182671
     },
     {
       "name": "Banco Santander 3.875% 06/02/26 Aaa",
@@ -467,19 +467,19 @@
       "name": "Matisa52 omanikulaen -",
       "isin": null,
       "weight_pct": 0.32,
-      "value_eur": 2728642
+      "value_eur": 2699362
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
       "weight_pct": 0.3,
-      "value_eur": 2542500
+      "value_eur": 2500000
     },
     {
       "name": "Deutschland 0.5% 15/02/2026",
       "isin": "DE0001102390",
       "weight_pct": 1.51,
-      "value_eur": 12854074
+      "value_eur": 12785556
     }
   ],
   "bond_funds": [],
@@ -773,5 +773,5 @@
     "pe_funds": 44,
     "re_funds": 11
   },
-  "_total_value_eur": 853571735
+  "_total_value_eur": 853187923
 }

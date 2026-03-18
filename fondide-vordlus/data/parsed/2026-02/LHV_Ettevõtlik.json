@@ -357,13 +357,13 @@
       "name": "Aiandi Kodud omanikulaen -",
       "isin": null,
       "weight_pct": 0.59,
-      "value_eur": 5190153
+      "value_eur": 5121861
     },
     {
       "name": "Akadeemia15b omanikulaen -",
       "isin": null,
       "weight_pct": 0.33,
-      "value_eur": 2893110
+      "value_eur": 2849419
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
@@ -411,55 +411,55 @@
       "name": "Manufaktuuri omanikulaen -",
       "isin": null,
       "weight_pct": 0.34,
-      "value_eur": 2982119
+      "value_eur": 2937083
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.94,
-      "value_eur": 8208308
+      "value_eur": 8070218
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.28,
-      "value_eur": 2417383
+      "value_eur": 2400000
     },
     {
       "name": "Sopruse157 omanikulaen -",
       "isin": null,
       "weight_pct": 0.13,
-      "value_eur": 1141647
+      "value_eur": 1123177
     },
     {
       "name": "Taevakivi omanikulaen -",
       "isin": null,
       "weight_pct": 0.16,
-      "value_eur": 1443962
+      "value_eur": 1443000
     },
     {
       "name": "Tartu linn 25/10/32 -",
       "isin": "EE2300110602",
       "weight_pct": 0.14,
-      "value_eur": 1193325
+      "value_eur": 1182671
     },
     {
       "name": "Matisa52 omanikulaen -",
       "isin": null,
       "weight_pct": 0.31,
-      "value_eur": 2702248
+      "value_eur": 2699362
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
       "weight_pct": 0.29,
-      "value_eur": 2559028
+      "value_eur": 2500000
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
       "weight_pct": 2.45,
-      "value_eur": 21450335
+      "value_eur": 21439424
     }
   ],
   "bond_funds": [],
@@ -753,5 +753,5 @@
     "pe_funds": 44,
     "re_funds": 11
   },
-  "_total_value_eur": 878481551
+  "_total_value_eur": 878066148
 }
