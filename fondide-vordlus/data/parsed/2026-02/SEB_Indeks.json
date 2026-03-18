@@ -4,42 +4,49 @@
   "provider": "SEB",
   "fund_type": "index",
   "month": "2026-02",
-  "source": "monthly JSON",
+  "source": "est_SIK75_raport_20260228.pdf",
   "equity_funds": [
     {
       "name": "iShares Developed World ESG Screened Index Fund",
+      "weight_pct": 28.79,
       "isin": "IE00BFG1TM61",
-      "weight_pct": 28.79
+      "value_eur": 104702088
     },
     {
       "name": "L&G Japan Equity UCITS ETF",
+      "weight_pct": 3.21,
       "isin": "IE00BFXR5T61",
-      "weight_pct": 3.21
+      "value_eur": 11659897
     },
     {
       "name": "L&G US Equity UCITS ETF",
+      "weight_pct": 10.58,
       "isin": "IE00BFXR5Q31",
-      "weight_pct": 10.58
+      "value_eur": 38488268
     },
     {
       "name": "SEB Emerging Markets Exposure Fund",
+      "weight_pct": 11.53,
       "isin": "SE0021147394",
-      "weight_pct": 11.53
+      "value_eur": 41928075
     },
     {
       "name": "SEB Europe Exposure Fund D",
+      "weight_pct": 7.21,
       "isin": "SE0026526592",
-      "weight_pct": 7.21
+      "value_eur": 26215587
     },
     {
       "name": "SEB Global Exposure Fund",
+      "weight_pct": 9.89,
       "isin": "LU1711526407",
-      "weight_pct": 9.89
+      "value_eur": 35958054
     },
     {
       "name": "SPDR S&P 500 ESG Leaders UCITS ETF",
+      "weight_pct": 28.62,
       "isin": "IE00BH4GPZ28",
-      "weight_pct": 28.62
+      "value_eur": 104104607
     }
   ],
   "stocks": [],
@@ -48,5 +55,6 @@
   "pe_funds": [],
   "re_funds": [],
   "deposits_pct": 0.0,
-  "derivatives_pct": 0.0
+  "derivatives_pct": 0.0,
+  "_total_value_eur": 363056576
 }

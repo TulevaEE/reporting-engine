@@ -455,13 +455,13 @@
       "name": "Aiandi Kodud omanikulaen -",
       "isin": null,
       "weight_pct": 0.54,
-      "value_eur": 1827519
+      "value_eur": 1803472
     },
     {
       "name": "Akadeemia15b omanikulaen -",
       "isin": null,
       "weight_pct": 0.1,
-      "value_eur": 334667
+      "value_eur": 329613
     },
     {
       "name": "Baltic Horizon Fund 08/05/28 -",
@@ -497,31 +497,31 @@
       "name": "Manufaktuuri omanikulaen -",
       "isin": null,
       "weight_pct": 0.23,
-      "value_eur": 795232
+      "value_eur": 783222
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.39,
-      "value_eur": 1313329
+      "value_eur": 1291235
     },
     {
       "name": "Marati Maja omanikulaen -",
       "isin": null,
       "weight_pct": 0.11,
-      "value_eur": 386781
+      "value_eur": 384000
     },
     {
       "name": "Sopruse157 omanikulaen -",
       "isin": null,
       "weight_pct": 0.15,
-      "value_eur": 511773
+      "value_eur": 506359
     },
     {
       "name": "Taevakivi omanikulaen -",
       "isin": null,
       "weight_pct": 0.07,
-      "value_eur": 234156
+      "value_eur": 234000
     },
     {
       "name": "Artea Bankas 05/12/2028",
@@ -539,25 +539,25 @@
       "name": "Matisa52 omanikulaen -",
       "isin": null,
       "weight_pct": 0.16,
-      "value_eur": 547753
+      "value_eur": 547168
     },
     {
       "name": "France Treasury Bond 25/04/2026",
       "isin": "FR0010916924",
       "weight_pct": 1.52,
-      "value_eur": 5157451
+      "value_eur": 5011920
     },
     {
       "name": "Eastnine AB 8.5% 20/11/2027 -",
       "isin": null,
       "weight_pct": 1.33,
-      "value_eur": 4503889
+      "value_eur": 4400000
     },
     {
       "name": "German Treasury Bill 15/04/2026",
       "isin": "DE000BU0E287",
       "weight_pct": 1.47,
-      "value_eur": 4988450
+      "value_eur": 4964718
     },
     {
       "name": "BP Capital Markets 3.625% PERP",
@@ -822,5 +822,5 @@
     "pe_funds": 36,
     "re_funds": 12
   },
-  "_total_value_eur": 339965367
+  "_total_value_eur": 339620074
 }
