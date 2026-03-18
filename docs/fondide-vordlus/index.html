@@ -825,9 +825,9 @@ function renderNav(funds) {
     const acwiBase = acwiRaw[0] || 1;
     const acwiNorm = acwiRaw.map(v => v / acwiBase * 100);
     traces.push({
-      x: acwiDates, y: acwiNorm, mode: 'lines', name: 'Maailmaturu indeks',
+      x: acwiDates, y: acwiNorm, mode: 'lines', name: 'Maailma aktsiaturu indeks',
       line: { color: '#999', width: 1.5, dash: 'dash' },
-      hovertemplate: 'Maailmaturu indeks (MSCI ACWI)<br>%{x}: %{y:.1f}<extra></extra>'
+      hovertemplate: 'Maailma aktsiaturu indeks (MSCI ACWI)<br>%{x}: %{y:.1f}<extra></extra>'
     });
   }
 
@@ -853,23 +853,25 @@ function renderNav(funds) {
     const startDate = nd.dates[si], endDate = nd.dates[nd.dates.length - 1];
     const actualYrs = (new Date(endDate) - new Date(startDate)) / (365.25 * 86400000);
     if (actualYrs < yrs * 0.7 || !startVal) return null;
-    return (Math.pow(endVal / startVal, 1 / actualYrs) - 1) * 100;
+    return { ret: (Math.pow(endVal / startVal, 1 / actualYrs) - 1) * 100, startDate, endDate };
   }
 
   // Only show pension fund rows (skip ACWI)
-  const fundRows = funds.filter(f => f !== 'MSCI ACWI' && f !== 'Maailmaturu indeks' && NAV[f]);
+  const fundRows = funds.filter(f => f !== 'MSCI ACWI' && f !== 'Maailma aktsiaturu indeks' && NAV[f]);
 
   if (fundRows.length > 0) {
     let html = `<table class="return-table"><thead><tr>
       <th>Fond</th><th>2a</th><th>3a</th><th>5a</th><th>Jooksev tasu</th>
     </tr></thead><tbody>`;
+    const periodDates = {};
     fundRows.forEach(f => {
       const fee = FEES[f] || 0;
       html += `<tr><td class="fund-name" style="color:${COLORS[f]}">${LABELS[f]}</td>`;
       periods.forEach(p => {
-        const ret = calcAnnReturn(f, p);
-        if (ret !== null) {
-          html += `<td style="font-weight:700">${ret >= 0 ? '+' : ''}${ret.toFixed(2)}%</td>`;
+        const result = calcAnnReturn(f, p);
+        if (result !== null) {
+          html += `<td style="font-weight:700">${result.ret >= 0 ? '+' : ''}${result.ret.toFixed(2)}%</td>`;
+          if (!periodDates[p]) periodDates[p] = { start: result.startDate, end: result.endDate };
         } else {
           html += `<td style="color:var(--g400);">\u2013</td>`;
         }
@@ -890,7 +892,9 @@ function renderNav(funds) {
       }
     }
     html += '</tbody></table>';
-    html += `<div style="font-size:0.75rem;color:var(--g400);margin-top:0.5rem;">Graafik n\u00e4itab, kuidas fondide v\u00e4\u00e4rtus on muutunud. Isegi sarnase portfelliga fondid v\u00f5ivad ajalooliselt erineda, sest varasematel aastatel v\u00f5is nende koosseis olla teistsugune. Mineviku tulemused ei garanteeri tulevikku.</div>`;
+    const pdParts = periods.filter(p => periodDates[p]).map(p => `${p}a: ${periodDates[p].start} \u2013 ${periodDates[p].end}`);
+    const pdText = pdParts.length > 0 ? ` Perioodid: ${pdParts.join(', ')}.` : '';
+    html += `<div style="font-size:0.75rem;color:var(--g400);margin-top:0.5rem;">Graafik n\u00e4itab, kuidas fondide v\u00e4\u00e4rtus on muutunud. Isegi sarnase portfelliga fondid v\u00f5ivad ajalooliselt erineda, sest varasematel aastatel v\u00f5is nende koosseis olla teistsugune. Mineviku tootlus ei garanteeri tootlust tulevikus.${pdText}</div>`;
     retTable.innerHTML = html;
   } else {
     retTable.innerHTML = '';
