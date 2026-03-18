@@ -661,6 +661,8 @@ function render() {
   }
   // Details (expandable) — always start hidden
   const detailsToggle = document.getElementById('detailsToggle');
+  const detailsBody = document.getElementById('detailsBody');
+  detailsBody.classList.remove('show');
   detailsToggle.textContent = 'Vaata detailsemalt';
   renderScatter(f); renderSunburst(f); renderAllHoldings(f); renderSectors(f); renderCountries(f); renderChanges(f);
 }
@@ -977,7 +979,7 @@ function renderOverlap(funds) {
       </svg>`;
 
     // Fee detail below Venn
-    if (feeRatio && feeRatio !== '1.0') {
+    if (feeRatio && feeRatio !== '1') {
       feeEl.innerHTML = `<div class="venn-fee-row">
         <div class="venn-fee-item"><span class="fee-val expensive">${expFee.toFixed(2)}%</span> ${expLabel}</div>
         <div class="venn-fee-item"><span class="fee-val cheap">${cheapFee.toFixed(2)}%</span> ${cheapLabel}</div>
@@ -1501,7 +1503,7 @@ function renderAllHoldings(funds) {
 
   // CSV download
   csvBtn.onclick = () => {
-    const disclaimer = `# Enamik fonde ei osta aktsiaid otse, vaid labi borsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja naitame tegelikke aktsiaid. Kui mone ETFi andmed pole kattesaadavad, kasutame sarnase fondi (proxy) andmeid. Seetottu ei pruugi andmed olla tapsed.${dateStr ? ` Andmed seisuga ${dateStr}.` : ''}\n`;
+    const disclaimer = `# Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n\u00e4itame tegelikke aktsiaid. Kui m\u00f5ne ETFi andmed pole k\u00e4ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet\u00f5ttu ei pruugi andmed olla t\u00e4psed.${dateStr ? ` Andmed seisuga ${dateStr}.` : ''}\n`;
     const header = 'Rank,Fond,Nimi,Osakaal,Sektor,Riik\n';
     const csv = disclaimer + header + allRows.map(r =>
       `${r.rank},"${r.fund}","${r.name}",${r.weight != null ? r.weight.toFixed(4) : ''},"${trSector(r.sector)}","${trCountry(r.country)}"`
