@@ -892,7 +892,8 @@ function renderNav(funds) {
       }
     }
     html += '</tbody></table>';
-    const pdParts = periods.filter(p => periodDates[p]).map(p => `${p}a: ${periodDates[p].start} \u2013 ${periodDates[p].end}`);
+    const today = new Date().toISOString().slice(0, 10);
+    const pdParts = periods.filter(p => periodDates[p]).map(p => `${p}a: ${periodDates[p].start} \u2013 ${periodDates[p].end > today ? today : periodDates[p].end}`);
     const pdText = pdParts.length > 0 ? ` Perioodid: ${pdParts.join(', ')}.` : '';
     html += `<div style="font-size:0.75rem;color:var(--g400);margin-top:0.5rem;">Graafik n\u00e4itab, kuidas fondide v\u00e4\u00e4rtus on muutunud. Isegi sarnase portfelliga fondid v\u00f5ivad ajalooliselt erineda, sest varasematel aastatel v\u00f5is nende koosseis olla teistsugune. Mineviku tootlus ei garanteeri tootlust tulevikus.${pdText}</div>`;
     retTable.innerHTML = html;
