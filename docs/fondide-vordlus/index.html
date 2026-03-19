@@ -322,7 +322,7 @@ let FEES = {
   'LHV Rahulik': 0.53, 'LHV Indeks': 0.27, 'LHV Tasakaalukas': 1.13,
 };
 const AC_COLORS = { stocks:'#0081EE', etfs:'#60a5fa', bonds:'#6b7280',
-                    pe:'#7c3aed', re:'#059669', deposits:'#d1d5db', derivatives:'#f59e0b', gold:'#d4a017', unknown:'#fca5a5' };
+                    pe:'#7c3aed', re:'#059669', deposits:'#94a3b8', derivatives:'#f59e0b', gold:'#d4a017', unknown:'#fca5a5' };
 const AC_LABELS = { stocks:'Aktsiad', etfs:'Fondid (l\u00e4bipaistmatud)', bonds:'V\u00f5lakirjad',
                     pe:'Erakapital', re:'Kinnisvara', deposits:'Hoiused', derivatives:'Tuletisinstr.', gold:'Kuld', unknown:'Andmed puuduvad' };
 const PL = {
@@ -600,14 +600,38 @@ function firstLevelHoldings(f) {
   return items;
 }
 
+let _compRows = [], _compF1 = '', _compF2 = '', _compSort = {col:'max', asc:false};
 function buildComparisonTable(rows, f1, f2) {
+  _compRows = rows; _compF1 = f1; _compF2 = f2;
+  return _buildCompTableHtml();
+}
+function _sortCompRows(col) {
+  if (_compSort.col === col) _compSort.asc = !_compSort.asc;
+  else { _compSort.col = col; _compSort.asc = col === 'name'; }
+  const container = document.getElementById('holdingsTableContainer');
+  if (container) container.innerHTML = _buildCompTableHtml();
+}
+function _buildCompTableHtml() {
+  const rows = [..._compRows];
+  const {col, asc} = _compSort;
+  rows.sort((x, y) => {
+    let va, vb;
+    if (col === 'name') { va = x.name.toLowerCase(); vb = y.name.toLowerCase(); return asc ? va.localeCompare(vb) : vb.localeCompare(va); }
+    if (col === 'a') { va = x.a; vb = y.a; }
+    else if (col === 'b') { va = x.b; vb = y.b; }
+    else { va = x.max; vb = y.max; }
+    return asc ? va - vb : vb - va;
+  });
+  const f1 = _compF1, f2 = _compF2;
+  const arrow = (c) => _compSort.col === c ? (_compSort.asc ? ' \u25B2' : ' \u25BC') : '';
+  const thStyle = 'padding:6px 8px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;cursor:pointer;user-select:none;';
   let html = `<div style="max-height:500px;overflow-y:auto;border:1px solid var(--g200);border-radius:8px;">
     <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
     <thead style="position:sticky;top:0;background:#fff;z-index:1;">
       <tr style="border-bottom:2px solid var(--g200);">
-        <th style="padding:6px 8px;text-align:left;font-size:0.75rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.03em;">Investeering</th>
-        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:${COLORS[f1]};text-transform:uppercase;letter-spacing:0.03em;">${SHORT[f1]||f1}</th>
-        <th style="padding:6px 8px;text-align:right;font-size:0.75rem;font-weight:600;color:${COLORS[f2]};text-transform:uppercase;letter-spacing:0.03em;">${SHORT[f2]||f2}</th>
+        <th style="${thStyle}text-align:left;color:var(--g400);" onclick="_sortCompRows('name')">Investeering${arrow('name')}</th>
+        <th style="${thStyle}text-align:right;color:${COLORS[f1]};padding-right:16px;" onclick="_sortCompRows('a')">${SHORT[f1]||f1}${arrow('a')}</th>
+        <th style="${thStyle}text-align:right;color:${COLORS[f2]};padding-right:16px;" onclick="_sortCompRows('b')">${SHORT[f2]||f2}${arrow('b')}</th>
       </tr>
     </thead><tbody>`;
   rows.forEach(r => {
@@ -615,8 +639,8 @@ function buildComparisonTable(rows, f1, f2) {
     const bg = exclusive ? 'background:var(--g50);' : '';
     html += `<tr style="border-bottom:1px solid var(--g100);${bg}">
       <td style="padding:4px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px;" title="${r.name}">${r.name}</td>
-      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;">${r.a > 0 ? r.a.toFixed(2) + '%' : '\u2013'}</td>
-      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;">${r.b > 0 ? r.b.toFixed(2) + '%' : '\u2013'}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;padding-right:16px;">${r.a > 0 ? r.a.toFixed(2) + '%' : '\u2013'}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;padding-right:16px;">${r.b > 0 ? r.b.toFixed(2) + '%' : '\u2013'}</td>
     </tr>`;
   });
   html += '</tbody></table></div>';
@@ -740,8 +764,8 @@ function renderAssets(funds) {
       if (pct < 0.3) return;
       const w = pct / total * 100;
       let label = '';
-      if (pct >= 15) label = AC_LABELS[k]+' '+pct.toFixed(0)+'%';
-      else if (pct >= 10) label = AC_SHORT[k]+' '+pct.toFixed(0)+'%';
+      if (pct >= 15) label = AC_LABELS[k]+' '+pct.toFixed(1)+'%';
+      else if (pct >= 10) label = AC_SHORT[k]+' '+pct.toFixed(1)+'%';
       bar += `<div class="seg" style="width:${w}%;background:${AC_COLORS[k]}" data-tip="${AC_LABELS[k]} ${pct.toFixed(1)}%">${label}</div>`;
     });
     bar += '</div>';
@@ -1281,7 +1305,7 @@ function renderSunburst(funds) {
 
     if (fd.etf_breakdown) {
       // Index fund: inner ring = asset classes, outer ring = top stocks
-      const acBaseColors = { stocks:'#0081EE', etfs:'#60a5fa', bonds:'#6b7280', deposits:'#d1d5db' };
+      const acBaseColors = { stocks:'#0081EE', etfs:'#60a5fa', bonds:'#6b7280', deposits:'#94a3b8' };
       const acLabelsMap = { stocks:'Aktsiad', etfs:'ETF-id (selgitamata)', bonds:'V\u00f5lakirjad', deposits:'Hoiused' };
 
       // Compute asset class weights for inner ring
@@ -1302,7 +1326,7 @@ function renderSunburst(funds) {
       const pePct = ac.pe || 0;
       if (rePct > 0.5) nodes.push({id: f+'_ac_re', label: `Kinnisvara ${rePct.toFixed(0)}%`, parentId: rootId, value: rePct, color: '#059669'});
       if (pePct > 0.5) nodes.push({id: f+'_ac_pe', label: `Erakapital ${pePct.toFixed(0)}%`, parentId: rootId, value: pePct, color: '#7c3aed'});
-      if (depositsPct > 0.5) nodes.push({id: f+'_ac_deposits', label: `Hoiused ${depositsPct.toFixed(0)}%`, parentId: rootId, value: depositsPct, color: '#d1d5db'});
+      if (depositsPct > 0.5) nodes.push({id: f+'_ac_deposits', label: `Hoiused ${depositsPct.toFixed(0)}%`, parentId: rootId, value: depositsPct, color: '#94a3b8'});
 
       // Outer ring: individual holdings under RE/PE
       if (rePct > 0.5 && fd.re_holdings) {
@@ -1375,7 +1399,7 @@ function renderSunburst(funds) {
         nodes.push({id: bondId, label: 'V\u00f5lakirjad', parentId: rootId, value: 0, color: '#6b7280'});
       }
 
-      if ((ac.deposits||0) > 0.5) nodes.push({id: f+'_dep', label: 'Hoiused', parentId: rootId, value: ac.deposits, color: '#d1d5db'});
+      if ((ac.deposits||0) > 0.5) nodes.push({id: f+'_dep', label: 'Hoiused', parentId: rootId, value: ac.deposits, color: '#94a3b8'});
 
       nodes.push({id: stockId, label: 'Aktsiad', parentId: rootId, value: 0, color: '#0081EE'});
       nodes.push({id: peId, label: 'Erakapital', parentId: rootId, value: 0, color: '#7c3aed'});
