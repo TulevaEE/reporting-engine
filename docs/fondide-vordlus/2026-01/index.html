@@ -1063,6 +1063,7 @@ function singleFundHoldingsItems(f, level) {
   // Default: look-through (top_holdings)
   const items = [];
   (fd.top_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: h.sector || '', country: h.country || '' }));
+  (fd.etf_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
   (fd.pe_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
   (fd.re_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
   (fd.bond_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
