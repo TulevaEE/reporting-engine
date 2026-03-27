@@ -255,10 +255,20 @@
   <div>Andmed: investeerimisaruanded, pensionikeskus.ee, iShares, Swedbank Robur.</div>
   <div style="margin-top:0.5rem;"><a href="sources.html" style="color:var(--blue);font-weight:600;">Kuidas need numbrid on leitud? Andmeallikad ja metoodika &rarr;</a></div>
   <div style="margin-top:1rem;padding:0.8rem 1rem;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;font-size:0.85rem;line-height:1.6;">
-    <strong>&#9888; Hoiatus.</strong> See leht on loodud informatiivsel eesm&auml;rgil. Andmed v&otilde;ivad sisaldada ebat&auml;psusi, kontrolli fakte fondivalitseja ametlikest allikatest. See ei ole investeerimisn&otilde;uanne.
-    Osade fondide puhul kasutatakse sarnaste ETFide andmeid l&auml;hendusena (proxy), mist&otilde;ttu v&otilde;ivad kattuvusn&auml;itajad olla ligikaudsed.
-    Erinevused &plusmn;2&ndash;3 protsendipunkti kattuvuses ei ole statistiliselt olulised.
+    <strong>&#9888; Hoiatus.</strong> See leht on loodud informatiivsel eesm&auml;rgil. See ei ole investeerimisn&otilde;uanne. Kontrolli fakte fondivalitseja ametlikest allikatest.
+    <br><br>
+    <strong>See t&ouml;&ouml;riist p&otilde;hineb fondivalitsejate avaldatud investeeringute aruannetel.</strong> Erinevuste ja sarnasuste hindamisel vaatasime v&otilde;imaluse korral ka allfondide sisse. Jooksvad tasud on p&auml;rit Pensionikeskusest.
+    <br><br>
+    <strong>Mida ei ole v&otilde;imalik t&auml;ielikult arvesse v&otilde;tta:</strong>
+    <ul style="margin:0.3rem 0 0.3rem 1.2rem;padding:0;">
+      <li>K&otilde;igi ETF-ide t&auml;pset koosseisu &mdash; kui andmed pole avalikult k&auml;ttesaadavad, kasutasime sarnaste fondide andmeid l&auml;hendusena (proxy).</li>
+      <li>Instrumente, mille kohta ei saa investeeringute aruandest j&auml;reldusi teha &mdash; n&auml;iteks tuletisinstrumente (futuure, optsioone) ja valuutariski maandamise instrumente.</li>
+      <li>Investeeringuid kinnistesse fondidesse (erakapital, kinnisvara), mille sisemine koosseis ei ole avalik.</li>
+    </ul>
+    <strong>Seet&otilde;ttu on kattuvusn&auml;itajad ligikaudsed.</strong>
     Andmed p&otilde;hinevad fondide investeerimisaruannetel ning v&otilde;ivad olla mitu kuud vanad &mdash; portfelli koosseis muutub pidevalt.
+    <br>
+    Pikemalt on metoodika lahti kirjutatud <a href="sources.html" style="color:inherit;font-weight:600;">siin</a>.
     <br><br>
     Finantsteenust pakub Tuleva Fondid AS. Enne fondi valimist tutvu kindlasti tingimuste, prospekti, investori &otilde;iguste kokkuv&otilde;tte ja p&otilde;hiteabega aadressil <a href="https://tuleva.ee?utm_source=fondide-rontgen&amp;utm_medium=web" style="color:inherit;">tuleva.ee</a>: Tuleva Maailma Aktsiate Pensionifond, Tuleva Maailma V&otilde;lakirjade Pensionifond, Tuleva III Samba Pensionifond ja Tuleva T&auml;iendav Kogumisfond ning pea n&otilde;u asjatundjaga. V&otilde;rdluseks leiad k&otilde;igi Eesti pensionifondide info <a href="https://www.pensionikeskus.ee" style="color:inherit;">Pensionikeskusest</a>. Maksustamine oleneb isikuga seotud asjaoludest, sealhulgas residentsusest. III samba sissemaksetelt tulumaksu tagasisaamiseks tuleb esitada tuludeklaratsioon. Maksuseadused muutuvad ajas. Tuleva ega Tuleva t&ouml;&ouml;tajad ei anna investeerimisn&otilde;u ega maksun&otilde;u. II sammas m&otilde;jutab sinu I sammast. &Uuml;heski Tuleva fondis pole tootlus garanteeritud. Meie kodulehel tuginevad arvutused &uuml;ldiselt Pensionikeskuse andmetele.
   </div>
@@ -1002,7 +1012,7 @@ function renderOverlap(funds) {
       <svg viewBox="0 0 400 ${svgH}" xmlns="http://www.w3.org/2000/svg">
         <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
         <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
-        <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">${mwo}%</text>
+        <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">~${mwo}%</text>
         <text x="${midX}" y="${subY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
         ${feeRatioSvg}
       </svg>`;
