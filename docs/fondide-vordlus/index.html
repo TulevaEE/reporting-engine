@@ -1343,7 +1343,7 @@ function renderSunburst(funds) {
       if (depositsPct > 0.5) nodes.push({id: f+'_ac_deposits', label: `Hoiused ${depositsPct.toFixed(0)}%`, parentId: rootId, value: depositsPct, color: '#94a3b8'});
       const derivPct = ac.derivatives || 0;
       if (derivPct > 0 && fd.derivative_holdings) {
-        nodes.push({id: f+'_ac_deriv', label: `Tuletisinstr. ${derivPct.toFixed(1)}%`, parentId: rootId, value: derivPct, color: '#f59e0b'});
+        nodes.push({id: f+'_ac_deriv', label: `Tuletisinstr. ${derivPct.toFixed(1)}%`, parentId: rootId, value: 0, color: '#f59e0b'});
         fd.derivative_holdings.forEach((h, i) => {
           nodes.push({id: f+'_deriv'+i, label: h.name.length>25?h.name.substring(0,25)+'\u2026':h.name, parentId: f+'_ac_deriv', value: h.weight, color: '#fbbf24'});
         });
