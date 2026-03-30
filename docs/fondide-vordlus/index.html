@@ -598,6 +598,7 @@ function firstLevelHoldings(f) {
     (fd.re_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
     (fd.bond_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
     (fd.gold_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.derivative_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
   } else {
     // Active fund: top_holdings are direct stocks, etf_holdings are ETFs, plus PE/RE/bonds
     (fd.top_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
@@ -606,6 +607,7 @@ function firstLevelHoldings(f) {
     (fd.re_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
     (fd.bond_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
     (fd.gold_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
+    (fd.derivative_holdings || []).forEach(h => { items[h.name] = (items[h.name] || 0) + h.weight; });
   }
   return items;
 }
@@ -1115,6 +1117,7 @@ function singleFundHoldingsItems(f, level) {
   (fd.re_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
   (fd.bond_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: '', country: '' }));
   (fd.gold_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: 'Kuld', country: '' }));
+  (fd.derivative_holdings || []).forEach(h => items.push({ name: h.name, weight: h.weight, sector: 'Tuletisinstr.', country: '' }));
   items.sort((a, b) => b.weight - a.weight);
   return items;
 }
@@ -1338,6 +1341,13 @@ function renderSunburst(funds) {
       if (rePct > 0.5) nodes.push({id: f+'_ac_re', label: `Kinnisvara ${rePct.toFixed(0)}%`, parentId: rootId, value: rePct, color: '#059669'});
       if (pePct > 0.5) nodes.push({id: f+'_ac_pe', label: `Erakapital ${pePct.toFixed(0)}%`, parentId: rootId, value: pePct, color: '#7c3aed'});
       if (depositsPct > 0.5) nodes.push({id: f+'_ac_deposits', label: `Hoiused ${depositsPct.toFixed(0)}%`, parentId: rootId, value: depositsPct, color: '#94a3b8'});
+      const derivPct = ac.derivatives || 0;
+      if (derivPct > 0 && fd.derivative_holdings) {
+        nodes.push({id: f+'_ac_deriv', label: `Tuletisinstr. ${derivPct.toFixed(1)}%`, parentId: rootId, value: derivPct, color: '#f59e0b'});
+        fd.derivative_holdings.forEach((h, i) => {
+          nodes.push({id: f+'_deriv'+i, label: h.name.length>25?h.name.substring(0,25)+'\u2026':h.name, parentId: f+'_ac_deriv', value: h.weight, color: '#fbbf24'});
+        });
+      }
 
       // Outer ring: individual holdings under RE/PE
       if (rePct > 0.5 && fd.re_holdings) {
@@ -1411,6 +1421,14 @@ function renderSunburst(funds) {
       }
 
       if ((ac.deposits||0) > 0.5) nodes.push({id: f+'_dep', label: 'Hoiused', parentId: rootId, value: ac.deposits, color: '#94a3b8'});
+
+      if (fd.derivative_holdings && fd.derivative_holdings.length > 0) {
+        const derivId = f + '_deriv';
+        fd.derivative_holdings.forEach((h, i) => {
+          nodes.push({id: f+'_d'+i, label: h.name.length>20?h.name.substring(0,20)+'\u2026':h.name, parentId: derivId, value: h.weight, color: '#fbbf24'});
+        });
+        nodes.push({id: derivId, label: 'Tuletisinstr.', parentId: rootId, value: 0, color: '#f59e0b'});
+      }
 
       nodes.push({id: stockId, label: 'Aktsiad', parentId: rootId, value: 0, color: '#0081EE'});
       nodes.push({id: peId, label: 'Erakapital', parentId: rootId, value: 0, color: '#7c3aed'});
@@ -1505,6 +1523,7 @@ function renderAllHoldings(funds) {
   (fd.re_holdings || []).forEach(h => items.push({...h, cat: 're'}));
   (fd.bond_holdings || []).forEach(h => items.push({...h, cat: 'bond'}));
   (fd.gold_holdings || []).forEach(h => items.push({...h, cat: 'gold'}));
+  (fd.derivative_holdings || []).forEach(h => items.push({...h, cat: 'derivatives'}));
   items.sort((a, b) => (b.weight || 0) - (a.weight || 0));
 
   // Data date from pipeline
