@@ -4,9 +4,16 @@
 
 Reporting tools for Tuleva investment funds. These are both internal and external but we always assume that even external reports should be made so that we are ready to make them public. The repo is **public** (GitHub Pages), so never commit secrets nor any personal data.
 
+## Environment
+
+- **Python venv**: `/Users/tonupekk/Desktop/tuleva-reports/.venv/bin/python3` (Python 3.14)
+- **Jupyter**: `/Users/tonupekk/Desktop/tuleva-reports/.venv/bin/jupyter`
+- Always use the venv python/jupyter, not system python — system python cannot install packages (PEP 668)
+- Shorthand: `VENV=../../.venv/bin` from `reports/adhoc/` or `reports/monthly/`
+
 ## Commands
 
-- Use `python3` (not `python`) on this machine
+- Use `.venv/bin/python3` (not bare `python3`) for all execution
 - **Never run inline Python/code via shell** (`python3 -c "..."`, `python3 -c '...'`). These trigger permission prompts due to `#`, `;`, parentheses, etc. Instead:
   - For quick snippets: use heredoc (`python3 <<'EOF' ... EOF`)
   - For anything more than a one-liner: write to a temp `.py` file, run it, then delete it
