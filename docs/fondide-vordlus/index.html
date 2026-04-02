@@ -174,7 +174,7 @@
 <div class="section" id="sectionNarrative"><div class="narrative" id="narrativeText"></div></div>
 
 <div class="section" id="sectionOverlap">
-  <div class="section-title" style="font-size:1.35rem;">Kas fondid investeerivad samasse kohta?</div>
+  <div class="section-title" id="overlapTitle" style="font-size:1.35rem;">Kas fondid investeerivad samasse kohta?</div>
   <div class="venn-diagram" id="vennDiagram"></div>
   <div class="venn-fee-compare" id="vennFeeCompare"></div>
   <div id="overlapDisclaimer" style="font-size:0.78rem;color:var(--g400);text-align:center;margin-bottom:1.5rem;max-width:640px;margin-left:auto;margin-right:auto;"></div>
@@ -192,7 +192,7 @@
 
 <div class="section" id="sectionHoldings">
   <div class="section-title">Suurimad investeeringud</div>
-  <div class="section-sub">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n&auml;itame tegelikke aktsiaid. Kui m&otilde;ne ETFi andmed pole k&auml;ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet&otilde;ttu ei pruugi andmed olla t&auml;psed.</div>
+  <div class="section-sub" id="holdingsSub">Enamik fonde ei osta aktsiaid otse, vaid l&auml;bi b&ouml;rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n&auml;itame tegelikke aktsiaid. Kui m&otilde;ne ETFi andmed pole k&auml;ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet&otilde;ttu ei pruugi andmed olla t&auml;psed.</div>
   <div id="holdingsArea"></div>
 </div>
 
@@ -577,6 +577,9 @@ function toggle(key) {
   render();
 }
 
+const SEB_FULL = new URLSearchParams(window.location.search).has('seb');
+function isSEB(f) { return !SEB_FULL && DATA.funds[f] && DATA.funds[f].provider === 'SEB'; }
+
 function calcMWO(f1, f2) {
   const w1 = DATA.funds[f1].weights || {};
   const w2 = DATA.funds[f2].weights || {};
@@ -700,6 +703,16 @@ function render() {
   const detailsBody = document.getElementById('detailsBody');
   detailsBody.classList.remove('show');
   detailsToggle.textContent = 'Vaata detailsemalt';
+  const anySEBSelected = f.some(isSEB);
+  // Hide look-through detail sections when SEB is involved
+  ['detailScatter','detailSunburst','detailAllHoldings','detailSectors','detailCountries'].forEach(id => {
+    document.getElementById(id).style.display = anySEBSelected ? 'none' : '';
+  });
+  if (anySEBSelected) {
+    detailsToggle.style.display = 'none';
+  } else {
+    detailsToggle.style.display = '';
+  }
   renderScatter(f); renderSunburst(f); renderAllHoldings(f); renderSectors(f); renderCountries(f); renderChanges(f);
 }
 
@@ -943,6 +956,7 @@ function renderOverlap(funds) {
   const vennEl = document.getElementById('vennDiagram');
   const feeEl = document.getElementById('vennFeeCompare');
   const disclaimerEl = document.getElementById('overlapDisclaimer');
+  const overlapTitle = document.getElementById('overlapTitle');
   const corrContainer = document.getElementById('corrBarContainer');
   const holdingsCompare = document.getElementById('holdingsCompareContent');
   const holdingsCompareSection = document.getElementById('sectionHoldingsCompare');
@@ -953,132 +967,149 @@ function renderOverlap(funds) {
     corrContainer.innerHTML = ''; holdingsCompare.innerHTML = '';
     return;
   }
-  section.classList.add('visible');
-
   const [f1, f2] = funds;
-  const mwo = Math.round(calcMWO(f1, f2));
-  const diffPct = 100 - mwo;
-  const feeA = FEES[f1] || 0, feeB = FEES[f2] || 0;
-  const feeDiff = Math.abs(feeA - feeB);
-  const eurosPer10k = (feeDiff / 100 * 10000).toFixed(0);
+  const anySEB = isSEB(f1) || isSEB(f2);
 
-  // Determine expensive vs cheap
-  const expensive = feeA >= feeB ? f1 : f2;
-  const cheap = feeA >= feeB ? f2 : f1;
-  const expFee = Math.max(feeA, feeB);
-  const cheapFee = Math.min(feeA, feeB);
-  const expLabel = LABELS[expensive] || expensive;
-  const cheapLabel = LABELS[cheap] || cheap;
-  const feeRatioRaw = cheapFee > 0 ? expFee / cheapFee : null;
-  const feeRatio = feeRatioRaw !== null ? (feeRatioRaw % 1 === 0 ? feeRatioRaw.toFixed(0) : feeRatioRaw.toFixed(1)) : null;
+  section.classList.add('visible');
+  overlapTitle.style.display = anySEB ? 'none' : '';
 
-  // === Venn diagram SVG ===
-  {
-    const r = 120;
-    const midX = 200;
-    const cy = r + 10;
-    // Circle separation: solve for distance where lens area = mwo% of circle area
-    function overlapGap(r, pct) {
-      const target = pct / 100;
-      if (target >= 1) return 0;
-      if (target <= 0) return 2 * r;
-      let lo = 0, hi = 2 * r;
-      for (let i = 0; i < 30; i++) {
-        const d = (lo + hi) / 2;
-        const t = d / (2 * r);
-        const area = (2 / Math.PI) * (Math.acos(t) - t * Math.sqrt(1 - t * t));
-        if (area > target) lo = d; else hi = d;
-      }
-      return (lo + hi) / 2;
-    }
-    const gap = overlapGap(r, mwo);
-    const cx1 = midX - gap / 2;
-    const cx2 = midX + gap / 2;
-
-    // Fee ratio text inside SVG
-    const feeRatioSvg = feeRatio && feeRatio !== '1'
-      ? `<text x="${midX}" y="${cy + r + 45}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
-      : '';
-
-    // For low overlap, show % below circles
-    const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 90 : 30) : cy + 8;
-    const subY = pctY + 22;
-    const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 70 : 0, mwo < 30 && feeRatioSvg ? subY + 40 : 0);
-
-    // HTML legend above SVG + SVG diagram
-    vennEl.innerHTML = `
-      <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:0.5rem;font-size:0.9rem;font-weight:600;">
-        <span style="display:flex;align-items:center;gap:6px;color:#6b7280;"><span style="width:12px;height:12px;border-radius:50%;background:#d1d5db;flex-shrink:0;"></span>${expLabel}</span>
-        <span style="display:flex;align-items:center;gap:6px;color:#0081EE;"><span style="width:12px;height:12px;border-radius:50%;background:#0081EE;flex-shrink:0;"></span>${cheapLabel}</span>
-      </div>
-      <svg viewBox="0 0 400 ${svgH}" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
-        <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
-        <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">~${mwo}%</text>
-        <text x="${midX}" y="${subY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
-        ${feeRatioSvg}
-      </svg>`;
-
-    // Fee detail below Venn
-    if (feeRatio && feeRatio !== '1') {
-      feeEl.innerHTML = `<div class="venn-fee-row">
-        <div class="venn-fee-item"><span class="fee-val expensive">${expFee.toFixed(2)}%</span> ${expLabel}</div>
-        <div class="venn-fee-item"><span class="fee-val cheap">${cheapFee.toFixed(2)}%</span> ${cheapLabel}</div>
-      </div>`;
-    } else {
-      feeEl.innerHTML = '';
-    }
-  }
-
-  // ETF disclaimer
-  disclaimerEl.innerHTML = 'Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja v\u00f5rdleme tegelikke aktsiaid. Kui m\u00f5ne ETFi andmed pole k\u00e4ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet\u00f5ttu ei pruugi andmed olla t\u00e4psed.';
-
-  // === Correlation bar → NAV section ===
-  const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
-  const navCorr = RET_CORR?.correlations ? (RET_CORR.correlations[k1] ?? RET_CORR.correlations[k2] ?? null) : null;
-  const r2 = RET_CORR?.r_squared ? (RET_CORR.r_squared[k1] ?? RET_CORR.r_squared[k2] ?? null) : null;
-  const te = RET_CORR?.tracking_error_pct ? (RET_CORR.tracking_error_pct[k1] ?? RET_CORR.tracking_error_pct[k2] ?? null) : null;
-  const navCorrPct = navCorr !== null ? Math.round(navCorr * 100) : null;
-  const r2Pct = r2 !== null ? Math.round(r2 * 100) : null;
-
-  if (r2Pct !== null) {
-    corrContainer.innerHTML = `
-      <div style="margin-top:1.5rem;">
-        <div style="font-size:0.8rem;font-weight:600;color:var(--g600);margin-bottom:2px;">Kui sarnaselt fondid liiguvad</div>
-        <div style="position:relative;height:28px;border-radius:8px;overflow:hidden;background:var(--g200);margin-bottom:0.4rem;">
-          <div style="height:100%;width:${Math.max(r2Pct,2)}%;background:var(--blue);border-radius:8px 0 0 8px;display:flex;align-items:center;${r2Pct >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${r2Pct}%</div>
-        </div>
-        <div style="font-size:0.78rem;color:var(--g400);">
-          ${feeA !== feeB ? `Odavam fond (${LABELS[feeA <= feeB ? f1 : f2]}) selgitab ${r2Pct}% kallima fondi (${LABELS[feeA > feeB ? f1 : f2]}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
-        </div>
-      </div>`;
-  } else {
+  if (anySEB) {
+    // SEB disclaimer instead of Venn/overlap
+    vennEl.innerHTML = `<div style="text-align:center;padding:2rem 1rem;color:var(--g400);font-size:0.95rem;line-height:1.6;max-width:540px;margin:0 auto;">
+      SEB palus meil mitte n\u00e4idata portfellide kattuvust, kuna nende hinnangul ei ole avalikult k\u00e4ttesaadavatest andmetest v\u00f5imalik nende fondi t\u00e4pse koosseisu kohta usaldusväärseid j\u00e4reldusi teha.
+    </div>`;
+    feeEl.innerHTML = '';
+    disclaimerEl.innerHTML = '';
     corrContainer.innerHTML = '';
+  } else {
+    const mwo = Math.round(calcMWO(f1, f2));
+    const diffPct = 100 - mwo;
+    const feeA = FEES[f1] || 0, feeB = FEES[f2] || 0;
+    const feeDiff = Math.abs(feeA - feeB);
+    const eurosPer10k = (feeDiff / 100 * 10000).toFixed(0);
+
+    // Determine expensive vs cheap
+    const expensive = feeA >= feeB ? f1 : f2;
+    const cheap = feeA >= feeB ? f2 : f1;
+    const expFee = Math.max(feeA, feeB);
+    const cheapFee = Math.min(feeA, feeB);
+    const expLabel = LABELS[expensive] || expensive;
+    const cheapLabel = LABELS[cheap] || cheap;
+    const feeRatioRaw = cheapFee > 0 ? expFee / cheapFee : null;
+    const feeRatio = feeRatioRaw !== null ? (feeRatioRaw % 1 === 0 ? feeRatioRaw.toFixed(0) : feeRatioRaw.toFixed(1)) : null;
+
+    // === Venn diagram SVG ===
+    {
+      const r = 120;
+      const midX = 200;
+      const cy = r + 10;
+      // Circle separation: solve for distance where lens area = mwo% of circle area
+      function overlapGap(r, pct) {
+        const target = pct / 100;
+        if (target >= 1) return 0;
+        if (target <= 0) return 2 * r;
+        let lo = 0, hi = 2 * r;
+        for (let i = 0; i < 30; i++) {
+          const d = (lo + hi) / 2;
+          const t = d / (2 * r);
+          const area = (2 / Math.PI) * (Math.acos(t) - t * Math.sqrt(1 - t * t));
+          if (area > target) lo = d; else hi = d;
+        }
+        return (lo + hi) / 2;
+      }
+      const gap = overlapGap(r, mwo);
+      const cx1 = midX - gap / 2;
+      const cx2 = midX + gap / 2;
+
+      // Fee ratio text inside SVG
+      const feeRatioSvg = feeRatio && feeRatio !== '1'
+        ? `<text x="${midX}" y="${cy + r + 45}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" font-weight="700" fill="#002F63">${feeRatio}\u00d7 erinev tasu</text>`
+        : '';
+
+      // For low overlap, show % below circles
+      const pctY = mwo < 30 ? cy + r + (feeRatioSvg ? 90 : 30) : cy + 8;
+      const subY = pctY + 22;
+      const svgH = Math.max(cy + r + 15, subY + 15, feeRatioSvg ? cy + r + 70 : 0, mwo < 30 && feeRatioSvg ? subY + 40 : 0);
+
+      // HTML legend above SVG + SVG diagram
+      vennEl.innerHTML = `
+        <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:0.5rem;font-size:0.9rem;font-weight:600;">
+          <span style="display:flex;align-items:center;gap:6px;color:#6b7280;"><span style="width:12px;height:12px;border-radius:50%;background:#d1d5db;flex-shrink:0;"></span>${expLabel}</span>
+          <span style="display:flex;align-items:center;gap:6px;color:#0081EE;"><span style="width:12px;height:12px;border-radius:50%;background:#0081EE;flex-shrink:0;"></span>${cheapLabel}</span>
+        </div>
+        <svg viewBox="0 0 400 ${svgH}" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="${cx1}" cy="${cy}" r="${r}" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2" opacity="0.85"/>
+          <circle cx="${cx2}" cy="${cy}" r="${r}" fill="#0081EE" stroke="#0081EE" stroke-width="2" opacity="0.3"/>
+          <text x="${midX}" y="${pctY}" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="48" font-weight="700" fill="#002F63">~${mwo}%</text>
+          <text x="${midX}" y="${subY}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" fill="#002F63">sama portfell</text>
+          ${feeRatioSvg}
+        </svg>`;
+
+      // Fee detail below Venn
+      if (feeRatio && feeRatio !== '1') {
+        feeEl.innerHTML = `<div class="venn-fee-row">
+          <div class="venn-fee-item"><span class="fee-val expensive">${expFee.toFixed(2)}%</span> ${expLabel}</div>
+          <div class="venn-fee-item"><span class="fee-val cheap">${cheapFee.toFixed(2)}%</span> ${cheapLabel}</div>
+        </div>`;
+      } else {
+        feeEl.innerHTML = '';
+      }
+    }
+
+    // ETF disclaimer
+    disclaimerEl.innerHTML = 'Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja v\u00f5rdleme tegelikke aktsiaid. Kui m\u00f5ne ETFi andmed pole k\u00e4ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet\u00f5ttu ei pruugi andmed olla t\u00e4psed.';
+
+    // === Correlation bar → NAV section ===
+    const k1 = `${f1}|${f2}`, k2 = `${f2}|${f1}`;
+    const navCorr = RET_CORR?.correlations ? (RET_CORR.correlations[k1] ?? RET_CORR.correlations[k2] ?? null) : null;
+    const r2 = RET_CORR?.r_squared ? (RET_CORR.r_squared[k1] ?? RET_CORR.r_squared[k2] ?? null) : null;
+    const te = RET_CORR?.tracking_error_pct ? (RET_CORR.tracking_error_pct[k1] ?? RET_CORR.tracking_error_pct[k2] ?? null) : null;
+    const navCorrPct = navCorr !== null ? Math.round(navCorr * 100) : null;
+    const r2Pct = r2 !== null ? Math.round(r2 * 100) : null;
+
+    if (r2Pct !== null) {
+      corrContainer.innerHTML = `
+        <div style="margin-top:1.5rem;">
+          <div style="font-size:0.8rem;font-weight:600;color:var(--g600);margin-bottom:2px;">Kui sarnaselt fondid liiguvad</div>
+          <div style="position:relative;height:28px;border-radius:8px;overflow:hidden;background:var(--g200);margin-bottom:0.4rem;">
+            <div style="height:100%;width:${Math.max(r2Pct,2)}%;background:var(--blue);border-radius:8px 0 0 8px;display:flex;align-items:center;${r2Pct >= 20 ? 'justify-content:center;' : 'justify-content:flex-end;padding-right:6px;'}color:#fff;font-size:0.9rem;font-weight:800;">${r2Pct}%</div>
+          </div>
+          <div style="font-size:0.78rem;color:var(--g400);">
+            ${feeA !== feeB ? `Odavam fond (${LABELS[feeA <= feeB ? f1 : f2]}) selgitab ${r2Pct}% kallima fondi (${LABELS[feeA > feeB ? f1 : f2]}) hinnamuutustest.` : `Fondide hinnamuutused on ${r2Pct}% ulatuses koos seletatavad.`}
+          </div>
+        </div>`;
+    } else {
+      corrContainer.innerHTML = '';
+    }
   }
 
   // === Holdings comparison → below assets ===
-  const holdingsTableHtml = mergedHoldingsTable(f1, f2, 'stock');
+  const defaultLevel = anySEB ? 'etf' : 'stock';
+  const holdingsTableHtml = mergedHoldingsTable(f1, f2, defaultLevel);
   holdingsCompareSection.classList.add('visible');
-  holdingsCompare.innerHTML = `
-    <div style="margin-top:0.5rem;">
-      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
-        <div style="font-weight:700;font-size:0.8rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em;">Investeeringud v\u00f5rrelduna</div>
+  const toggleBtns = anySEB ? '' : `
         <div class="nav-period-btns" id="holdingsLevelBtns" style="margin-bottom:0;">
           <button class="nav-period-btn active" data-level="stock">L\u00e4bivaade</button>
           <button class="nav-period-btn" data-level="etf">Otse omatud</button>
-        </div>
+        </div>`;
+  holdingsCompare.innerHTML = `
+    <div style="margin-top:0.5rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">
+        <div style="font-weight:700;font-size:0.8rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em;">Investeeringud v\u00f5rrelduna</div>${toggleBtns}
       </div>
       <div id="holdingsTableContainer">${holdingsTableHtml}</div>
     </div>`;
 
   // Holdings level toggle
-  document.getElementById('holdingsLevelBtns').addEventListener('click', (e) => {
-    const btn = e.target.closest('.nav-period-btn');
-    if (!btn) return;
-    document.querySelectorAll('#holdingsLevelBtns .nav-period-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('holdingsTableContainer').innerHTML = mergedHoldingsTable(f1, f2, btn.dataset.level);
-  });
+  if (!anySEB) {
+    document.getElementById('holdingsLevelBtns').addEventListener('click', (e) => {
+      const btn = e.target.closest('.nav-period-btn');
+      if (!btn) return;
+      document.querySelectorAll('#holdingsLevelBtns .nav-period-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('holdingsTableContainer').innerHTML = mergedHoldingsTable(f1, f2, btn.dataset.level);
+    });
+  }
 }
 
 function renderHoldingsTable(items) {
@@ -1125,13 +1156,21 @@ function singleFundHoldingsItems(f, level) {
 function renderHoldings(funds) {
   const el = document.getElementById('holdingsArea');
   const section = document.getElementById('sectionHoldings');
+  const holdingsSub = document.getElementById('holdingsSub');
   if (funds.length >= 2) { section.classList.remove('visible'); return; }
   section.classList.add('visible');
   el.innerHTML = '';
+  if (isSEB(funds[0])) {
+    holdingsSub.textContent = 'Fondi otse omatud investeeringud.';
+  } else {
+    holdingsSub.innerHTML = 'Enamik fonde ei osta aktsiaid otse, vaid l\u00e4bi b\u00f6rsil kaubeldavate fondide (ETF). Vaatame ETF-ide sisse ja n\u00e4itame tegelikke aktsiaid. Kui m\u00f5ne ETFi andmed pole k\u00e4ttesaadavad, kasutame sarnase fondi (proxy) andmeid. Seet\u00f5ttu ei pruugi andmed olla t\u00e4psed.';
+  }
 
   const f = funds[0];
   const fd = DATA.funds[f];
-  const hasToggle = !!fd.etf_breakdown;
+  const sebFund = isSEB(f);
+  const hasToggle = !!fd.etf_breakdown && !sebFund;
+  const defaultLevel = sebFund ? 'etf' : 'stock';
 
   let toggleHtml = '';
   if (hasToggle) {
@@ -1143,7 +1182,7 @@ function renderHoldings(funds) {
     </div>`;
   }
 
-  const items = singleFundHoldingsItems(f, 'stock');
+  const items = singleFundHoldingsItems(f, defaultLevel);
   el.innerHTML = toggleHtml + `<div id="holdingsSingleTableContainer">${renderHoldingsTable(items)}</div>`;
 
   if (hasToggle) {
@@ -1221,19 +1260,21 @@ function renderChanges(funds) {
   const hasLookthrough = tc.lookthrough && tc.lookthrough.length > 0;
   const hasParsed = tc.parsed && tc.parsed.length > 0;
 
+  const sebFund = isSEB(f);
   let toggleHtml = '';
-  if (hasParsed && hasLookthrough) {
+  if (hasParsed && hasLookthrough && !sebFund) {
     toggleHtml = `<div class="nav-period-btns" id="changesLevelBtns" style="margin-bottom:0.75rem;">
       <button class="nav-period-btn active" data-level="parsed">Otse omatud</button>
       <button class="nav-period-btn" data-level="lookthrough">L\u00e4bivaade</button>
     </div>`;
   }
 
-  const defaultLevel = hasParsed ? 'parsed' : 'lookthrough';
+  const defaultLevel = hasParsed ? 'parsed' : (sebFund ? null : 'lookthrough');
+  if (!defaultLevel) { el.style.display = 'none'; return; }
   const defaultItems = defaultLevel === 'parsed' ? tc.parsed : tc.lookthrough;
   area.innerHTML = toggleHtml + `<div id="changesTableContainer">${renderChangesTable(defaultItems, prevLabel, currLabel)}</div>`;
 
-  if (hasParsed && hasLookthrough) {
+  if (hasParsed && hasLookthrough && !sebFund) {
     document.getElementById('changesLevelBtns').addEventListener('click', (e) => {
       const btn = e.target.closest('.nav-period-btn');
       if (!btn) return;
