@@ -99,11 +99,6 @@
   .summary-fees { font-size: 0.95rem; color: var(--g800); margin-bottom: 0.25rem; }
   .summary-diff { font-size: 1rem; font-weight: 700; color: var(--red); margin-bottom: 0.75rem; }
   .summary-verdict { font-size: 1.2rem; font-weight: 800; color: var(--navy); }
-  .cta-box { background: var(--bg-pale); border-radius: 12px; padding: 2rem; text-align: center; margin: 2rem 0; }
-  .cta-box p { font-size: 1rem; color: var(--navy); margin-bottom: 1rem; line-height: 1.5; }
-  .cta-btn { display: inline-block; background: var(--navy); color: #fff; font-size: 1.05rem; font-weight: 700;
-             padding: 0.85rem 2.5rem; border-radius: 10px; text-decoration: none; transition: background 0.15s; }
-  .cta-btn:hover { background: var(--blue); }
   .copy-link-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: 1.5px solid var(--g200);
                    border-radius: 6px; padding: 0.4rem 0.8rem; font-size: 0.8rem; color: var(--g600); cursor: pointer;
                    font-family: inherit; transition: all 0.15s; margin-top: 0.75rem; }
@@ -211,7 +206,6 @@
 
 
 
-<div class="section" id="sectionCTA"></div>
 
 <div class="section" id="sectionShare"></div>
 
@@ -282,54 +276,53 @@ const selected = [];
 const MAX_SELECT = 2;
 
 const COLORS = {
-  'Tuleva': '#013063', 'Tuleva Võlakirjad': '#4b9cd3',
+  'Tuleva': '#013063',
   'Luminor 16-50': '#D63B84', 'Luminor Indeks': '#ec4899',
-  'Luminor 50-56': '#f472b6', 'Luminor 56+': '#fb7185', 'Luminor 61-65': '#fda4af',
+  'Luminor 50-56': '#f472b6', 'Luminor 56+': '#fb7185',
   'SEB Indeks': '#51c26c', 'SEB 18+': '#f97316', 'SEB 55+': '#ea580c',
-  'SEB 60+': '#fb923c', 'SEB 65+': '#fdba74',
+  'SEB 60+': '#fb923c',
   'Swedbank K1960': '#e8a317', 'Swedbank K1970': '#e8a317',
   'Swedbank K1980': '#F7A600', 'Swedbank K1990': '#d4900e',
-  'Swedbank Indeks': '#ca8a04', 'Swedbank 2000-09': '#eab308', 'Swedbank Konservatiivne': '#fde047',
+  'Swedbank Indeks': '#ca8a04', 'Swedbank 2000-09': '#eab308',
   'LHV Ettev\u00f5tlik': '#7c3aed', 'LHV Julge': '#9333ea',
-  'LHV Rahulik': '#a78bfa', 'LHV Indeks': '#2563eb', 'LHV Tasakaalukas': '#8b5cf6',
+  'LHV Indeks': '#2563eb', 'LHV Tasakaalukas': '#8b5cf6',
 };
 const LABELS = {
-  'Tuleva': 'Tuleva Maailma Aktsiad', 'Tuleva Võlakirjad': 'Tuleva Võlakirjad',
+  'Tuleva': 'Tuleva Maailma Aktsiad',
   'Luminor 16-50': 'Luminor 16\u201350', 'Luminor Indeks': 'Luminor Indeks',
-  'Luminor 50-56': 'Luminor 50\u201356', 'Luminor 56+': 'Luminor 56+', 'Luminor 61-65': 'Luminor 61\u201365',
+  'Luminor 50-56': 'Luminor 50\u201356', 'Luminor 56+': 'Luminor 56+',
   'SEB Indeks': 'SEB Indeks', 'SEB 18+': 'SEB 18+', 'SEB 55+': 'SEB 55+',
-  'SEB 60+': 'SEB 60+', 'SEB 65+': 'SEB 65+',
+  'SEB 60+': 'SEB 60+',
   'Swedbank K1960': 'Swedbank 1960\u201369', 'Swedbank K1970': 'Swedbank 1970\u201379',
   'Swedbank K1980': 'Swedbank 1980\u201389', 'Swedbank K1990': 'Swedbank 1990\u201399',
   'Swedbank Indeks': 'Swedbank Indeks', 'Swedbank 2000-09': 'Swedbank 2000\u201309',
-  'Swedbank Konservatiivne': 'Swedbank Kons.',
   'LHV Ettev\u00f5tlik': 'LHV Ettev\u00f5tlik', 'LHV Julge': 'LHV Julge',
-  'LHV Rahulik': 'LHV Rahulik', 'LHV Indeks': 'LHV Indeks', 'LHV Tasakaalukas': 'LHV Tasakaalukas',
+  'LHV Indeks': 'LHV Indeks', 'LHV Tasakaalukas': 'LHV Tasakaalukas',
 };
 const SHORT = {
-  'Tuleva': 'Tuleva', 'Tuleva Võlakirjad': 'Tuleva VK',
+  'Tuleva': 'Tuleva',
   'Luminor 16-50': 'Luminor 16\u201350', 'Luminor Indeks': 'Lum. Ind.',
-  'Luminor 50-56': 'Lum. 50\u201356', 'Luminor 56+': 'Lum. 56+', 'Luminor 61-65': 'Lum. 61\u201365',
+  'Luminor 50-56': 'Lum. 50\u201356', 'Luminor 56+': 'Lum. 56+',
   'SEB Indeks': 'SEB Indeks', 'SEB 18+': 'SEB 18+', 'SEB 55+': 'SEB 55+',
-  'SEB 60+': 'SEB 60+', 'SEB 65+': 'SEB 65+',
+  'SEB 60+': 'SEB 60+',
   'Swedbank K1960': 'Swedbank 60\u201369', 'Swedbank K1970': 'Swedbank 70\u201379',
   'Swedbank K1980': 'Swedbank 80\u201389', 'Swedbank K1990': 'Swedbank 90\u201399',
-  'Swedbank Indeks': 'SWB Ind.', 'Swedbank 2000-09': 'SWB 00\u201309', 'Swedbank Konservatiivne': 'SWB Kons.',
+  'Swedbank Indeks': 'SWB Ind.', 'Swedbank 2000-09': 'SWB 00\u201309',
   'LHV Ettev\u00f5tlik': 'LHV Ettev.', 'LHV Julge': 'LHV Julge',
-  'LHV Rahulik': 'LHV Rah.', 'LHV Indeks': 'LHV Ind.', 'LHV Tasakaalukas': 'LHV Tasak.',
+  'LHV Indeks': 'LHV Ind.', 'LHV Tasakaalukas': 'LHV Tasak.',
 };
 // Fallback fees — overridden by DATA.fees from fund_data.json when available
 let FEES = {
-  'Tuleva': 0.28, 'Tuleva Võlakirjad': 0.28,
+  'Tuleva': 0.28,
   'Luminor 16-50': 1.08, 'Luminor Indeks': 0.27,
-  'Luminor 50-56': 1.13, 'Luminor 56+': 1.14, 'Luminor 61-65': 0.88,
+  'Luminor 50-56': 1.13, 'Luminor 56+': 1.14,
   'SEB Indeks': 0.28, 'SEB 18+': 0.95, 'SEB 55+': 0.99,
-  'SEB 60+': 0.90, 'SEB 65+': 0.50,
+  'SEB 60+': 0.90,
   'Swedbank K1960': 0.74, 'Swedbank K1970': 0.74,
   'Swedbank K1980': 0.72, 'Swedbank K1990': 0.31,
-  'Swedbank Indeks': 0.27, 'Swedbank 2000-09': 0.75, 'Swedbank Konservatiivne': 0.47,
+  'Swedbank Indeks': 0.27, 'Swedbank 2000-09': 0.75,
   'LHV Ettev\u00f5tlik': 1.57, 'LHV Julge': 1.21,
-  'LHV Rahulik': 0.53, 'LHV Indeks': 0.27, 'LHV Tasakaalukas': 1.13,
+  'LHV Indeks': 0.27, 'LHV Tasakaalukas': 1.13,
 };
 const AC_COLORS = { stocks:'#0081EE', etfs:'#60a5fa', bonds:'#6b7280',
                     pe:'#7c3aed', re:'#059669', deposits:'#94a3b8', derivatives:'#f59e0b', gold:'#d4a017', unknown:'#fca5a5' };
@@ -367,23 +360,6 @@ function trCountry(c) { return COUNTRY_ET[c] || c; }
 function trSector(s) { return SECTOR_ET[s] || s; }
 
 let navPeriodYears = 5;
-
-// Fund switch deadlines: March 31 and November 30 each year
-const CTA_CONFIG = (() => {
-  const now = new Date();
-  const y = now.getFullYear();
-  const mar31 = new Date(y, 2, 31);
-  const nov30 = new Date(y, 10, 30);
-  let deadline;
-  if (now <= mar31) deadline = `31. märts ${y}`;
-  else if (now <= nov30) deadline = `30. november ${y}`;
-  else deadline = `31. märts ${y + 1}`;
-  return {
-    text: `Fondivahetus on tasuta ja võtab paar minutit. Järgmine tähtaeg: ${deadline}.`,
-    buttonText: 'Vaata lähemalt \u2192',
-    buttonUrl: 'https://pension.tuleva.ee?utm_source=fondide-rontgen&utm_medium=web&utm_content=cta',
-  };
-})();
 
 // Toggles & URL params
 document.addEventListener('DOMContentLoaded', () => {
@@ -501,7 +477,10 @@ function buildGrid() {
 function showProvider(provider) {
   const grid = document.getElementById('fundGrid');
   grid.innerHTML = '';
-  (fundGroups[provider] || []).forEach(key => {
+  (fundGroups[provider] || []).filter(key => {
+    const t = (DATA.funds[key] || {}).type;
+    return t !== 'conservative' && t !== 'bond';
+  }).forEach(key => {
     const fee = FEES[key];
     const feeText = fee ? 'Tasu ' + fee.toFixed(2) + '%' : '';
     const bc = fee && fee <= 0.5 ? 'badge-low' : 'badge-high';
@@ -693,7 +672,6 @@ function render() {
   renderAssets(f);
   renderHoldings(f);
   renderNav(f);
-  renderCTA(f);
   renderShareLink(f);
   if (f.length === 2 && typeof gtag === 'function') {
     gtag('event', 'fund_comparison', { fund_1: f[0], fund_2: f[1] });
@@ -738,40 +716,6 @@ function renderShareLink(funds) {
       if (typeof gtag === 'function') gtag('event', 'share_link_copied', { funds: funds.join(',') });
     });
   });
-}
-
-function renderCTA(funds) {
-  const el = document.getElementById('sectionCTA');
-  el.classList.add('visible');
-
-  const hasTuleva = funds.includes(TULEVA_KEY);
-  const otherFund = funds.find(f => f !== TULEVA_KEY);
-  const feeOther = otherFund ? (FEES[otherFund] || 0) : 0;
-  const feeTuleva = FEES[TULEVA_KEY] || 0;
-  const cheaper = feeTuleva < feeOther;
-
-  const mwo = (hasTuleva && otherFund) ? Math.round(calcMWO(TULEVA_KEY, otherFund)) : 0;
-  let parts = [];
-
-  if (hasTuleva && otherFund && cheaper) {
-    const diff = feeOther - feeTuleva;
-    const eurosPer10k = Math.round(diff / 100 * 10000);
-    if (eurosPer10k >= 10) {
-      parts.push(`Tuleva tasu on ${diff.toFixed(2)} protsendipunkti madalam \u2014 see on ${eurosPer10k}\u20ac aastas iga 10\u2009000\u20ac kohta.`);
-    }
-  }
-
-  let ctaText;
-  if (parts.length > 0) {
-    ctaText = parts.join(' ') + ' ' + CTA_CONFIG.text;
-  } else {
-    ctaText = CTA_CONFIG.text;
-  }
-
-  el.innerHTML = `<div class="cta-box">
-    <p>${ctaText}</p>
-    <a href="${CTA_CONFIG.buttonUrl}" class="cta-btn" target="_blank">${CTA_CONFIG.buttonText}</a>
-  </div>`;
 }
 
 function renderAssets(funds) {
@@ -976,7 +920,7 @@ function renderOverlap(funds) {
   if (anySEB) {
     // SEB disclaimer instead of Venn/overlap
     vennEl.innerHTML = `<div style="text-align:center;padding:2rem 1rem;color:var(--g400);font-size:0.95rem;line-height:1.6;max-width:540px;margin:0 auto;">
-      SEB palus meil mitte n\u00e4idata portfellide kattuvust, kuna nende hinnangul ei ole avalikult k\u00e4ttesaadavatest andmetest v\u00f5imalik nende fondi alusvarade kohta usaldusväärseid j\u00e4reldusi teha.
+      SEB palus meil mitte n\u00e4idata portfellide kattuvust, kuna nende hinnangul ei ole meie metoodikaga avalikult k\u00e4ttesaadavatest andmetest v\u00f5imalik nende fondi alusvarade kohta usaldusväärseid j\u00e4reldusi teha.
     </div>`;
     feeEl.innerHTML = '';
     disclaimerEl.innerHTML = '';
