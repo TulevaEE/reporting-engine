@@ -370,9 +370,13 @@ def preprocess_data(data, year, month):
             'puhaskasum',
             'litsentsitasu',
         ]
-        report['financials'] = [
+        selected = [
             by_name[name] for name in selected_rows if name in by_name
         ]
+        # Skip section if any required values are None (financials not yet finalized)
+        if all(row.get('Kuu Tulemus') is not None and row.get('YoY %') is not None
+               for row in selected):
+            report['financials'] = selected
 
     return report
 
