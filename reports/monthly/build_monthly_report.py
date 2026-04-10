@@ -503,6 +503,9 @@ def build_html(year: int, month: int) -> Path:
 
     html_document = md_to_html(md_text, f"Tuleva Monthly Board Report - {month_name} {year}")
 
+    # Embed images as base64 so the HTML is self-contained
+    html_document = embed_images_as_base64(html_document, output_dir)
+
     html_file = output_dir / f'monthly_report_{year}-{month:02d}.html'
     with open(html_file, 'w') as f:
         f.write(html_document)
