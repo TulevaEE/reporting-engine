@@ -19,6 +19,7 @@ Reporting tools for Tuleva investment funds. These are both internal and externa
   - For anything more than a one-liner: write to a temp `.py` file, run it, then delete it
   - Same applies to `curl` with complex args, `jq` with special chars, etc. — if a command has characters that look like shell metacharacters inside quotes, use a heredoc or temp file
 - API keys live in `.env` at project root, loaded via `python-dotenv` — never hardcode in notebooks or commit
+- **Google Sheets/Docs/Slides** access via GCP service account — see `common/config/google-sheets-setup.md` for team setup instructions
 - Monthly report: `cd reports/monthly && python3 build_monthly_report.py YYYY M md|html|pdf`
 - Fetch data: `cd reports/monthly && set -a && source ../../.env && set +a && python3 fetch_monthly_data.py YYYY M`
 
