@@ -4,6 +4,22 @@
 
 Reporting tools for Tuleva investment funds. These are both internal and external but we always assume that even external reports should be made so that we are ready to make them public. The repo is **public** (GitHub Pages), so never commit secrets nor any personal data.
 
+## Caching customer-level data
+
+CRM dumps, cohort exports and any per-person data must be cached **outside the repo**, not in `reports/adhoc/data/`. Convention: `~/.cache/tuleva-reports/` (override with `TULEVA_CACHE_DIR` env var). Notebook pattern:
+
+```python
+import os
+from pathlib import Path
+CACHE_DIR = Path(os.environ.get('TULEVA_CACHE_DIR', Path.home() / '.cache' / 'tuleva-reports'))
+CACHE_DIR.mkdir(parents=True, exist_ok=True)
+df = pd.read_pickle(CACHE_DIR / 'card_2345_crm.pkl')
+```
+
+Why outside the repo: gitignore alone is fragile (typos, new filenames, file already tracked). Keeping the cache outside the working tree means `git add -A` cannot accidentally stage it. `reports/adhoc/data/` is reserved for files we intentionally publish (market aggregates, benchmarks, look-throughs). `.gitignore` carries belt-and-suspenders patterns (`card_*.pkl`, `*cohort*.csv`, `*customer*.csv`) for the case someone caches in the wrong place.
+
+Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (counts, %, quartiles, charts) — never raw rows of customer data.
+
 ## Environment
 
 - **Python venv**: `/Users/tonupekk/Desktop/tuleva-reports/.venv/bin/python3` (Python 3.14)

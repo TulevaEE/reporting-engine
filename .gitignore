@@ -227,8 +227,11 @@ fondide-vordlus/web/
 # Temp folder
 temp/
 
-# Sensitive CRM/cohort data files (must never reach public repo)
+# Sensitive CRM/cohort data files (must never reach public repo).
+# Primary defence: cache CRM/cohort/customer-level files to ~/.cache/tuleva-reports/
+# (outside repo) — see CLAUDE.md "Caching customer-level data" section.
+# Patterns below are belt-and-suspenders in case anyone caches inside repo.
 reports/adhoc/data/card_*.pkl
-reports/adhoc/data/iii_new_savers_cohort*.csv
-reports/adhoc/data/campaign_customers.csv
+reports/adhoc/data/*cohort*.csv
+reports/adhoc/data/*customer*.csv
 reports/adhoc/data/campaign_cache.json
