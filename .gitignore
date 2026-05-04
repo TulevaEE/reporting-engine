@@ -223,3 +223,12 @@ fondide-vordlus/__pycache__/
 fondide-vordlus/.claude/
 fondide-vordlus/data/.mplconfig/
 fondide-vordlus/web/
+
+# Temp folder
+temp/
+
+# Sensitive CRM/cohort data files (must never reach public repo)
+reports/adhoc/data/card_*.pkl
+reports/adhoc/data/iii_new_savers_cohort*.csv
+reports/adhoc/data/campaign_customers.csv
+reports/adhoc/data/campaign_cache.json
