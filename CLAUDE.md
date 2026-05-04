@@ -20,6 +20,8 @@ Why outside the repo: gitignore alone is fragile (typos, new filenames, file alr
 
 Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (counts, %, quartiles, charts) — never raw rows of customer data.
 
+**Licensed bulk data** (e.g. pensionikeskuse market dump): same rule — cache to `~/.cache/tuleva-reports/`, never to `reports/adhoc/data/`. Even if the data isn't personal data, the data-sharing agreement may permit only aggregate republishing. Default assumption for any bulk dataset received under licence: aggregate-only outputs in committed files, raw rows stay outside the repo.
+
 ## Environment
 
 - **Python venv**: `/Users/tonupekk/Desktop/tuleva-reports/.venv/bin/python3` (Python 3.14)
@@ -48,6 +50,7 @@ Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (cou
   ```
 - Tag data/prep cells with `remove_cell` in metadata to hide from HTML output
 - **Execute notebooks incrementally** — run each cell after writing it, don't batch-write the whole notebook then debug multiple stacked errors
+- **Verify numbers in prose against current outputs** — when writing markdown summaries (kokkuvõtted, järeldused), copy each number from the cell that just ran, not from earlier iterations or memory. Numbers drift across iterations of the same analysis; pasted-from-memory claims regularly turn out wrong by the time you publish.
 
 ## Publishing (GitHub Pages)
 
@@ -61,6 +64,7 @@ Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (cou
 - **Verify data sources before writing code that depends on them** — test API calls, check ticker availability, confirm which funds appear on which pages
 - **Always handle missing data gracefully** — external sources (pensionikeskus, EODHD, Yahoo) may not have data for expected dates; write fallbacks from the start
 - **Every price must have a date attached** — always verify the price date matches the expected NAV date, and flag/warn when it doesn't
+- **Sanity check derived datasets against an independent public baseline** before drawing conclusions. Example: when filtering CRM (card 2345) for a cohort, compare cohort size to the public aggregate (card 1520) for the overlapping window — within ±10% means the filter is sound. A larger gap means you're filtering on the wrong field.
 - pensionikeskus.ee III pillar page does NOT include TKF (Täiendav Kogumisfond) — it's a separate fund category
 
 ## ETF holdings matching
@@ -109,6 +113,7 @@ Tuleva fund transactions (Metabase card 2326) are grouped by Application Type:
 
 - Use `common/branding/style.css` for all HTML reports — it defines Tuleva fonts (Merriweather headings, Roboto body), colors (#002F63 navy, #00AEEA blue), and table styles
 - Don't reinvent styles inline when the CSS already covers it
+- For cohort/customer behaviour summaries: prefer **distributions** (quartiles, buckets, share-by-segment) over single-number averages. Averages hide the heterogeneity that drives interpretation. When using Q1/Median/Q3, label as "kvartiilipiirid" (quartile boundaries) — these are 3 cut-points dividing data into 4 quartiles, not 4 quartiles themselves.
 
 ## Tuleva tone and communication principles
 
