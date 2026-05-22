@@ -18,7 +18,7 @@ import pandas as pd
 
 # Import shared infrastructure (constants, ETF loading, lookthrough engine, etc.)
 from pipeline_shared import (
-    _pct, _extract_eur_value, _extract_deposit_eur,
+    _pct, _extract_eur_value,
     ISIN_RE, REPORT_DIR, OUT_DIR, COUNTRY_MAP,
     ETF_ISIN_TO_CSV, OPAQUE_FUND_ISINS, TRUE_PROXY_ISINS,
     LUMINOR_ETF_PROXY_MAP, ISHARES_PRODUCTS, EODHD_ETFS, fetch_ishares_holdings, fetch_eodhd_holdings, load_manual_holdings,
@@ -30,7 +30,7 @@ from pipeline_shared import (
     fetch_pensionikeskus_aum,
     # Existing parsers (wrapped by v2 parsers)
     parse_tuleva_monthly, parse_tuleva_bond_monthly,
-    parse_swedbank_monthly, parse_seb_indeks_monthly, parse_seb_pdf, parse_lhv_monthly,
+    parse_swedbank_monthly, parse_seb_pdf, parse_lhv_monthly,
     compute_nav_return_correlations, fetch_nav_history, fetch_acwi_nav,
 )
 

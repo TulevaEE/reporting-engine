@@ -188,7 +188,7 @@ def main():
             compat = regions_compatible(proxy_region, detected)
             if compat is None:
                 status = "SKIP"
-                msg = f"Offline mode, cannot verify"
+                msg = "Offline mode, cannot verify"
             elif compat:
                 status = "PASS"
                 msg = f"Comment region matches proxy ({proxy_region})"
