@@ -74,7 +74,9 @@ Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (cou
 - **OpenFIGI is unreliable** for cross-provider matching — it returns local exchange tickers that don't match iShares conventions (e.g. `0Y3K|Ireland` instead of `EATON|United States`).
 - **Never match on ticker alone** across providers — same ticker can be different companies in different countries (e.g. `CFR` = Cullen/Frost in US, Richemont in Switzerland).
 - **Validate matching quality** by decomposing active share into weight excluded/added/reduced. Suspiciously large "weight added" signals matching failures, not real portfolio differences.
-- See `/fetch-holdings` skill for full data source details, loading instructions, and name normalization code.
+- **Prebuilt mapping files** in `reports/adhoc/data/`: `isin_to_stockid.json` (1,698 ISIN→Ticker|Location), `provider_name_mappings.json` (705 Amundi/Xtrackers→SSAC name mappings). Use as fallback when ISIN matching isn't available.
+- **Amundi XLSX files** have broken XML stylesheets — parse via `zipfile` + raw XML, not `openpyxl`. See `/fetch-holdings` skill for the parser function.
+- See `/fetch-holdings` skill for full data source details, loading instructions, data refresh workflow, and name normalization code.
 
 ## Fund transaction types
 

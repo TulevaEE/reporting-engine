@@ -39,6 +39,66 @@ Do NOT use iShares SSAC — its CSV omits ISINs (only Ticker, Name, Location). S
 | iShares SAWD | iShares CSV | **No** | Has Ticker+Location only. Need name→ISIN bridge via SPDR |
 | Vanguard ESG NA | Downloaded XLSX | **No** | Has Ticker+Name only. Need name→ISIN bridge via SPDR |
 
+### Proposed equity model portfolio ETFs
+
+| ETF | ISIN | Source | Has ISINs? | Notes |
+|-----|------|--------|-----------|-------|
+| Amundi MSCI USA Screened | IE000F60HVH9 | Amundi XLSX | Yes | openpyxl fails on stylesheet — parse via `zipfile` + raw XML (see below) |
+| Xtrackers MSCI USA Screened | IE00BJZ2DC62 | DWS XLSX | Yes | Skip 3 rows, header row 4, column C is ISIN, column K is Weighting (0–1 scale, multiply by 100) |
+| iShares MSCI USA Screened (SASU) | IE00BFNM3G45 | iShares CSV | **No** | Standard iShares format. Bridge to ISIN via SPDR name matching |
+| Amundi MSCI World Ex USA Screened | FR0013209921 | Amundi XLSX | Yes | Same XML parsing as Amundi USA |
+| iShares MSCI EM IMI Screened (SAEM) | IE00BFNM3P36 | iShares CSV | **No** | ~2,650 stocks (IMI includes small-caps). Many won't match ACWI — expected |
+
+### Parsing Amundi XLSX files
+
+Amundi XLSX files have broken XML stylesheets that crash `openpyxl`. Parse via raw XML extraction:
+
+```python
+import zipfile, re, html
+
+def parse_amundi_holdings(fpath):
+    """Parse Amundi fund holdings XLSX via raw XML (bypasses broken stylesheet)."""
+    with zipfile.ZipFile(fpath) as z:
+        # Read shared strings
+        ss = []
+        if 'xl/sharedStrings.xml' in z.namelist():
+            for si in re.findall(r'<si>(.*?)</si>',
+                    z.read('xl/sharedStrings.xml').decode('utf-8'), re.DOTALL):
+                ss.append(''.join(re.findall(r'<t[^>]*>([^<]*)</t>', si)))
+        # Read sheet rows
+        sheet_xml = z.read('xl/worksheets/sheet1.xml').decode('utf-8')
+        rows = []
+        for rxml in re.findall(r'<row[^>]*>(.*?)</row>', sheet_xml, re.DOTALL):
+            d = {}
+            for ref, attrs, val in re.findall(
+                    r'<c\s+r="([^"]+)"([^>]*)><v>([^<]*)</v></c>', rxml):
+                col = re.match(r'([A-Z]+)', ref).group(1)
+                if 't="s"' in attrs:
+                    d[col] = ss[int(val)] if int(val) < len(ss) else ''
+                else:
+                    try: d[col] = float(val)
+                    except: d[col] = val
+            if d: rows.append(d)
+    # Find header row, parse holdings
+    hi = next(i for i, r in enumerate(rows) if 'ISIN code' in r.values())
+    # Columns: B=ISIN, C=Name, D=Asset class, E=Currency, F=Weight (0-1), G=Sector, H=Country
+    holdings = {}
+    for r in rows[hi+1:]:
+        isin = html.unescape(str(r.get('B', '')))
+        if len(isin) == 12 and r.get('D', '') == 'EQUITY':
+            holdings[isin] = float(r.get('F', 0)) * 100  # Convert 0.09 → 9%
+    return holdings
+```
+
+### Prebuilt mapping files
+
+Two mapping files in `reports/adhoc/data/` speed up cross-provider matching:
+
+- **`isin_to_stockid.json`** — 1,698 ISIN → `Ticker|Location` mappings. Built from `isin_ticker_map.json` + matched Amundi/Xtrackers holdings. Use when bridging ISIN-based funds to `Ticker|Location`-based benchmarks (e.g. legacy SSAC).
+- **`provider_name_mappings.json`** — 705 fuzzy name mappings per provider (Amundi USA, Xtrackers USA, Amundi World Ex USA). Maps provider-specific names to SSAC `stock_id`. Use as fallback when ISIN matching isn't available.
+
+For ISIN-based active share (preferred), neither file is needed — join directly on ISIN against SPDR ACWI.
+
 ### Building a name→ISIN bridge for iShares/Vanguard
 
 For the 2 ETFs without ISINs, use SPDR ACWI as a bridge:
@@ -136,3 +196,47 @@ def bridge_to_isin(ticker, name, country):
                     return spdr_prefix_country[key]
     return None
 ```
+
+## Data refresh workflow for active share analysis
+
+When running a new active share analysis, download fresh data on the **same day** to ensure dates match:
+
+### 1. Download ACWI benchmark
+
+Download SPDR MSCI ACWI (SPYY) daily holdings XLSX:
+```
+https://www.ssga.com/uk/en_gb/intermediary/etfs/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-spyy-gy.xlsx
+```
+- Updated daily. Check row 4 for "Holdings As Of:" date.
+- Save to working directory (not committed to repo — large file, changes daily).
+
+### 2. Download fund holdings (same day)
+
+| Fund | Where to download |
+|------|-------------------|
+| **Amundi USA Screened** (IE000F60HVH9) | amundietf.com → product page → Documents → Fund Holdings XLSX |
+| **Xtrackers USA Screened** (IE00BJZ2DC62) | etf.dws.com → product page → Documents → Constituent XLSX |
+| **iShares USA Screened** (SASU, IE00BFNM3G45) | ishares.com → product page → Holdings → Download CSV |
+| **Amundi World Ex USA Screened** (FR0013209921) | amundietf.com → product page → Documents → Fund Holdings XLSX |
+| **iShares EM IMI Screened** (SAEM, IE00BFNM3P36) | ishares.com → product page → Holdings → Download CSV |
+
+### 3. Match and compute
+
+**Preferred: ISIN-based matching** (no mapping files needed)
+1. Load SPDR ACWI — `pd.read_excel(..., skiprows=5)`, filter equities by ISIN regex, `groupby('ISIN')` to aggregate
+2. Load Amundi XLSX — use `parse_amundi_holdings()` (see above) — returns `{ISIN: weight}`
+3. Load Xtrackers XLSX — `pd.read_excel(..., header=3)`, ISIN in column C, weight in column K (×100)
+4. Load iShares CSVs — bridge names to ISINs via SPDR (see two-pass bridge above)
+5. Build portfolio: for each fund, scale stock weights by allocation percentage, aggregate by ISIN
+6. Compute: `Active Share = ½ × Σ|w_portfolio[i] − w_benchmark[i]|` over all ISINs
+
+**Fallback: name-based matching** (when using SSAC benchmark)
+- Use `provider_name_mappings.json` for Amundi/Xtrackers → SSAC `stock_id` matching
+- Use `isin_to_stockid.json` to bridge remaining ISINs to `Ticker|Location`
+
+### 4. Validate
+
+- Total matched weight should be >99% for ISIN-bearing funds (Amundi, Xtrackers)
+- iShares bridging: >98% for USA (SASU), ~40-50% for EM IMI (SAEM) — the rest are small-caps not in ACWI
+- Check benchmark date matches fund holdings dates (within 1-2 days)
+- "Weight added" (portfolio-only stocks) should be <0.5% — higher signals matching bugs
