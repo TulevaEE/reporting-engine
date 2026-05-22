@@ -1,0 +1,2835 @@
+{
+  "_metadata": {
+    "description": "Name mapping: provider fund names → SSAC benchmark stock_ids",
+    "benchmark": "SSAC (iShares MSCI ACWI UCITS ETF)",
+    "benchmark_date": "Feb 2026",
+    "usage": "Use stock_id to match fund holdings against SSAC benchmark for active share calculation",
+    "generated": "2026-05-22"
+  },
+  "amundi_usa_screened_IE000F60HVH9": {
+    "AMAZON.COM INC": {
+      "stock_id": "AMZN|United States",
+      "ssac_name": "AMAZON COM INC"
+    },
+    "ALPHABET INC CL A": {
+      "stock_id": "GOOGL|United States",
+      "ssac_name": "ALPHABET INC CLASS A"
+    },
+    "ALPHABET INC CL C": {
+      "stock_id": "GOOG|United States",
+      "ssac_name": "ALPHABET INC CLASS C"
+    },
+    "META PLATFORMS INC-CLASS A": {
+      "stock_id": "META|United States",
+      "ssac_name": "META PLATFORMS INC CLASS A"
+    },
+    "ELI LILLY & CO": {
+      "stock_id": "LLY|United States",
+      "ssac_name": "ELI LILLY"
+    },
+    "ADVANCED MICRO DEVICES": {
+      "stock_id": "AMD|United States",
+      "ssac_name": "ADVANCED MICRO DEVICES INC"
+    },
+    "VISA INC-CLASS A SHARES": {
+      "stock_id": "V|United States",
+      "ssac_name": "VISA INC CLASS A"
+    },
+    "INTEL CORP": {
+      "stock_id": "INCY|United States",
+      "ssac_name": "INCYTE CORP"
+    },
+    "MASTERCARD INC-CL A": {
+      "stock_id": "MA|United States",
+      "ssac_name": "MASTERCARD INC CLASS A"
+    },
+    "NETFLIX INC USD": {
+      "stock_id": "NFLX|United States",
+      "ssac_name": "NETFLIX INC"
+    },
+    "APPLIED MATERIALS INC": {
+      "stock_id": "AMAT|United States",
+      "ssac_name": "APPLIED MATERIAL INC"
+    },
+    "GENERAL ELECTRIC": {
+      "stock_id": "EMR|United States",
+      "ssac_name": "EMERSON ELECTRIC"
+    },
+    "PALANTIR TECHNOLOGIES INC-A": {
+      "stock_id": "PLTR|United States",
+      "ssac_name": "PALANTIR TECHNOLOGIES INC CLASS A"
+    },
+    "MERCK & CO. INC.": {
+      "stock_id": "MRK|United States",
+      "ssac_name": "MERCK & CO INC"
+    },
+    "TEXAS INSTRUMENTS  COM USD1": {
+      "stock_id": "TXN|United States",
+      "ssac_name": "TEXAS INSTRUMENT INC"
+    },
+    "WELLS FARGO   CO": {
+      "stock_id": "WFC|United States",
+      "ssac_name": "WELLS FARGO"
+    },
+    "INTL BUSINESS MACHINES CORP": {
+      "stock_id": "IBM|United States",
+      "ssac_name": "INTERNATIONAL BUSINESS MACHINES CO"
+    },
+    "MCDONALD S CORP  COM NPV": {
+      "stock_id": "MCD|United States",
+      "ssac_name": "MCDONALDS CORP"
+    },
+    "WALT DISNEY CO/THE": {
+      "stock_id": "DIS|United States",
+      "ssac_name": "WALT DISNEY"
+    },
+    "TJX COMPANIES INC": {
+      "stock_id": "LOW|United States",
+      "ssac_name": "LOWES COMPANIES INC"
+    },
+    "SALESFORCE COM": {
+      "stock_id": "CRM|United States",
+      "ssac_name": "SALESFORCE INC"
+    },
+    "SEAGATE TECHNOLOGY HOLDINGS": {
+      "stock_id": "STX|United States",
+      "ssac_name": "SEAGATE TECHNOLOGY HOLDINGS PLC"
+    },
+    "CROWDSTRIKE HOLDINGS INC - A": {
+      "stock_id": "CRWD|United States",
+      "ssac_name": "CROWDSTRIKE HOLDINGS INC CLASS A"
+    },
+    "WESTERN DIGITAL CORPORATION": {
+      "stock_id": "WDC|United States",
+      "ssac_name": "WESTERN DIGITAL CORP"
+    },
+    "SCHWAB (CHARLES) CORP": {
+      "stock_id": "SCHW|United States",
+      "ssac_name": "CHARLES SCHWAB CORP"
+    },
+    "AMPHENOL CORP CL-A": {
+      "stock_id": "APH|United States",
+      "ssac_name": "AMPHENOL CORP CLASS A"
+    },
+    "EATON CORP PLC": {
+      "stock_id": "ETN|United States",
+      "ssac_name": "EATON PLC"
+    },
+    "DEERE & CO": {
+      "stock_id": "DE|United States",
+      "ssac_name": "DEERE"
+    },
+    "PROLOGIS INC": {
+      "stock_id": "PLD|United States",
+      "ssac_name": "PROLOGIS REIT INC"
+    },
+    "BRISTOL-MYERS SQUIBB CO": {
+      "stock_id": "BMY|United States",
+      "ssac_name": "BRISTOL MYERS SQUIBB"
+    },
+    "VERTIV HOLDINGS CO-A": {
+      "stock_id": "VRT|United States",
+      "ssac_name": "VERTIV HOLDINGS CLASS A"
+    },
+    "NEWMONT CORP USD": {
+      "stock_id": "2356|Taiwan",
+      "ssac_name": "INVENTEC CORP"
+    },
+    "CAPITAL ONE FINL COM US 0.01": {
+      "stock_id": "COF|United States",
+      "ssac_name": "CAPITAL ONE FINANCIAL CORP"
+    },
+    "PARKER HANNIFIN CORP": {
+      "stock_id": "PH|United States",
+      "ssac_name": "PARKER-HANNIFIN CORP"
+    },
+    "STRYKER CORPORATION": {
+      "stock_id": "SYK|United States",
+      "ssac_name": "STRYKER CORP"
+    },
+    "APPLOVIN CORP-CLASS A": {
+      "stock_id": "APP|United States",
+      "ssac_name": "APPLOVIN CORP CLASS A"
+    },
+    "ACCENTURE PLC -A": {
+      "stock_id": "ACN|United States",
+      "ssac_name": "ACCENTURE PLC CLASS A"
+    },
+    "VERTEX PHARMACEUTICALS": {
+      "stock_id": "VRTX|United States",
+      "ssac_name": "VERTEX PHARMACEUTICALS INC"
+    },
+    "CME GROUP INC": {
+      "stock_id": "MKL|United States",
+      "ssac_name": "MARKEL GROUP INC"
+    },
+    "EQUINIX INC": {
+      "stock_id": "EFX|United States",
+      "ssac_name": "EQUIFAX INC"
+    },
+    "T-MOBILE US INC": {
+      "stock_id": "TMUS|United States",
+      "ssac_name": "T MOBILE US INC"
+    },
+    "WILLIAMS COS INC": {
+      "stock_id": "WMB|United States",
+      "ssac_name": "WILLIAMS INC"
+    },
+    "CADENCE DESIGN SYS INC": {
+      "stock_id": "CDNS|United States",
+      "ssac_name": "CADENCE DESIGN SYSTEMS INC"
+    },
+    "AUTOMATIC DATA PROCESSING": {
+      "stock_id": "ADP|United States",
+      "ssac_name": "AUTOMATIC DATA PROCESSING INC"
+    },
+    "FREEPORT-MCMORAN INC": {
+      "stock_id": "FCX|United States",
+      "ssac_name": "FREEPORT MCMORAN INC"
+    },
+    "COMCAST CORP-CLASS A": {
+      "stock_id": "CMCSA|United States",
+      "ssac_name": "COMCAST CORP CLASS A"
+    },
+    "CONSTELLATION ENERGY": {
+      "stock_id": "CEG|United States",
+      "ssac_name": "CONSTELLATION ENERGY CORP"
+    },
+    "JOHNSON CONTROLS INTERNATIONAL": {
+      "stock_id": "JCI|United States",
+      "ssac_name": "JOHNSON CONTROLS INTERNATIONAL PLC"
+    },
+    "PNC FINANCIAL SERVICES GROUP": {
+      "stock_id": "PNC|United States",
+      "ssac_name": "PNC FINANCIAL SERVICES GROUP INC"
+    },
+    "MARRIOTT INTERNATIONAL-CL A": {
+      "stock_id": "MAR|United States",
+      "ssac_name": "MARRIOTT INTERNATIONAL INC CLASS A"
+    },
+    "AMERICAN TOWER CORP CL A": {
+      "stock_id": "AMT|United States",
+      "ssac_name": "AMERICAN TOWER REIT CORP"
+    },
+    "SLB LTD": {
+      "stock_id": "CSL|Australia",
+      "ssac_name": "CSL LTD"
+    },
+    "NXP SEMICONDUCTORS NV USD": {
+      "stock_id": "NXPI|United States",
+      "ssac_name": "NXP SEMICONDUCTORS NV"
+    },
+    "O REILLY AUTOMOTIVE INC": {
+      "stock_id": "ORLY|United States",
+      "ssac_name": "OREILLY AUTOMOTIVE INC"
+    },
+    "DELL TECHNOLOGIES -C": {
+      "stock_id": "UBER|United States",
+      "ssac_name": "UBER TECHNOLOGIES INC"
+    },
+    "HILTON WORLDWIDE HOLDINGS IN": {
+      "stock_id": "HLT|United States",
+      "ssac_name": "HILTON WORLDWIDE HOLDINGS INC"
+    },
+    "MERCADOLIBRE": {
+      "stock_id": "MELI|United States",
+      "ssac_name": "MERCADOLIBRE INC"
+    },
+    "UNITED PARCEL SERVICE CL B": {
+      "stock_id": "UPS|United States",
+      "ssac_name": "UNITED PARCEL SERVICE INC CLASS B"
+    },
+    "THE CIGNA GROUP": {
+      "stock_id": "SGE|United Kingdom",
+      "ssac_name": "THE SAGE GROUP PLC"
+    },
+    "ILLINOIS TOOL WORK": {
+      "stock_id": "ITW|United States",
+      "ssac_name": "ILLINOIS TOOL INC"
+    },
+    "GENERAL MOTORS CO": {
+      "stock_id": "GM|United States",
+      "ssac_name": "GENERAL MOTORS"
+    },
+    "ROSS STORES": {
+      "stock_id": "ROST|United States",
+      "ssac_name": "ROSS STORES INC"
+    },
+    "MOODY S CORP": {
+      "stock_id": "MCO|United States",
+      "ssac_name": "MOODYS CORP"
+    },
+    "SHERWIN-WILLIAMS CO/THE": {
+      "stock_id": "SHW|United States",
+      "ssac_name": "SHERWIN WILLIAMS"
+    },
+    "BAKER HUGHES A GE CO": {
+      "stock_id": "BKR|United States",
+      "ssac_name": "BAKER HUGHES CLASS A"
+    },
+    "AON PLC-CLASS A": {
+      "stock_id": "AON|United States",
+      "ssac_name": "AON PLC CLASS A"
+    },
+    "CLOUDFLARE INC - CLASS A": {
+      "stock_id": "NET|United States",
+      "ssac_name": "CLOUDFLARE INC CLASS A"
+    },
+    "SIMON PROPERTY GROUP INC": {
+      "stock_id": "SPG|United States",
+      "ssac_name": "SIMON PROPERTY GROUP REIT INC"
+    },
+    "ROYAL CARIBBEAN CRUISES LTD": {
+      "stock_id": "RCL|United States",
+      "ssac_name": "ROYAL CARIBBEAN GROUP LTD"
+    },
+    "WARNER BROS DISCOVERY INC": {
+      "stock_id": "WBD|United States",
+      "ssac_name": "WARNER BROS. DISCOVERY INC SERIES"
+    },
+    "DIGITAL REALTY TRUST": {
+      "stock_id": "DLR|United States",
+      "ssac_name": "DIGITAL REALTY TRUST REIT INC"
+    },
+    "AIR PRODUCTS & CHEMICALS INC": {
+      "stock_id": "APD|United States",
+      "ssac_name": "AIR PRODUCTS AND CHEMICALS INC"
+    },
+    "BLOOM ENERGY CORPORATION": {
+      "stock_id": "BE|United States",
+      "ssac_name": "BLOOM ENERGY CLASS A CORP"
+    },
+    "DATADOG INC - CLASS A": {
+      "stock_id": "DDOG|United States",
+      "ssac_name": "DATADOG INC CLASS A"
+    },
+    "REGENERON PHARMACEUTICALS": {
+      "stock_id": "REGN|United States",
+      "ssac_name": "REGENERON PHARMACEUTICALS INC"
+    },
+    "UNITED RENTALS": {
+      "stock_id": "URI|United States",
+      "ssac_name": "UNITED RENTALS INC"
+    },
+    "MONSTER BEVERAGE CORPORATION": {
+      "stock_id": "MNST|United States",
+      "ssac_name": "MONSTER BEVERAGE CORP"
+    },
+    "KKR & CO INC": {
+      "stock_id": "KKR|United States",
+      "ssac_name": "KKR AND CO INC"
+    },
+    "DOORDASH INC - A": {
+      "stock_id": "DASH|United States",
+      "ssac_name": "DOORDASH INC CLASS A"
+    },
+    "ALLSTATE CORP  COM STK US 0.01": {
+      "stock_id": "ALL|United States",
+      "ssac_name": "ALLSTATE CORP"
+    },
+    "ROBINHOOD MARKETS INC - A": {
+      "stock_id": "HOOD|United States",
+      "ssac_name": "ROBINHOOD MARKETS INC CLASS A"
+    },
+    "AIRBNB INC-CLASS A": {
+      "stock_id": "ABNB|United States",
+      "ssac_name": "AIRBNB INC CLASS A"
+    },
+    "REALTY INCOME CORP": {
+      "stock_id": "O|United States",
+      "ssac_name": "REALTY INCOME REIT CORP"
+    },
+    "ARTHUR J GALLAGHER & CO": {
+      "stock_id": "AJG|United States",
+      "ssac_name": "ARTHUR J GALLAGHER"
+    },
+    "NIKE INC -CL B": {
+      "stock_id": "NKE|United States",
+      "ssac_name": "NIKE INC CLASS B"
+    },
+    "FASTENAL CO": {
+      "stock_id": "FAST|United States",
+      "ssac_name": "FASTENAL"
+    },
+    "PUBLIC STORAGE": {
+      "stock_id": "PSA|United States",
+      "ssac_name": "PUBLIC STORAGE REIT"
+    },
+    "FORD MOTOR COMPANY": {
+      "stock_id": "F|United States",
+      "ssac_name": "FORD MOTOR CO"
+    },
+    "CHIPOTLE MEXICAN GRILL-CL A": {
+      "stock_id": "CMG|United States",
+      "ssac_name": "CHIPOTLE MEXICAN GRILL INC"
+    },
+    "WABTEC CORP": {
+      "stock_id": "WAT|United States",
+      "ssac_name": "WATERS CORP"
+    },
+    "AMERIPRISE FINANCIAL": {
+      "stock_id": "AMP|United States",
+      "ssac_name": "AMERIPRISE FINANCE INC"
+    },
+    "VENTAS INC": {
+      "stock_id": "VTR|United States",
+      "ssac_name": "VENTAS REIT INC"
+    },
+    "KROGER CO": {
+      "stock_id": "KR|United States",
+      "ssac_name": "KROGER"
+    },
+    "ON SEMICONDUCTOR CORPORATION": {
+      "stock_id": "ON|United States",
+      "ssac_name": "ON SEMICONDUCTOR CORP"
+    },
+    "TAKE-TWO INTERACTIVE SOFTWARE": {
+      "stock_id": "TTWO|United States",
+      "ssac_name": "TAKE TWO INTERACTIVE SOFTWARE INC"
+    },
+    "OLD DOMINION FREIGHT LINE": {
+      "stock_id": "ODFL|United States",
+      "ssac_name": "OLD DOMINION FREIGHT LINE INC"
+    },
+    "STRATEGY INC": {
+      "stock_id": "STN|Canada",
+      "ssac_name": "STANTEC INC"
+    },
+    "WASTE CONNECTIONS INC(USD)": {
+      "stock_id": "WCN|United States",
+      "ssac_name": "WASTE CONNECTIONS INC"
+    },
+    "YUM! BRANDS INC": {
+      "stock_id": "YUM|United States",
+      "ssac_name": "YUM BRANDS INC"
+    },
+    "PUBLIC SERVICE ENTERPRISE GP": {
+      "stock_id": "PEG|United States",
+      "ssac_name": "PUBLIC SERVICE ENTERPRISE GROUP IN"
+    },
+    "CARVANA CO": {
+      "stock_id": "CVNA|United States",
+      "ssac_name": "CARVANA CLASS A"
+    },
+    "COINBASE GLOBAL INC -CLASS A": {
+      "stock_id": "COIN|United States",
+      "ssac_name": "COINBASE GLOBAL INC CLASS A"
+    },
+    "AMERICAN INTER.GROUP": {
+      "stock_id": "AIG|United States",
+      "ssac_name": "AMERICAN INTERNATIONAL GROUP INC"
+    },
+    "CBRE GROUP INC": {
+      "stock_id": "CG|United States",
+      "ssac_name": "CARLYLE GROUP INC"
+    },
+    "DR HORTON INC": {
+      "stock_id": "DHI|United States",
+      "ssac_name": "D R HORTON INC"
+    },
+    "CROWN CASTLE INTL CORP": {
+      "stock_id": "CCI|United States",
+      "ssac_name": "CROWN CASTLE INC"
+    },
+    "INTERACTIVE BROKERS GRO-CL A": {
+      "stock_id": "IBKR|United States",
+      "ssac_name": "INTERACTIVE BROKERS GROUP INC CLAS"
+    },
+    "BLOCK INC": {
+      "stock_id": "BLK|United States",
+      "ssac_name": "BLACKROCK INC"
+    },
+    "VULCAN MATERIALS CO": {
+      "stock_id": "VMC|United States",
+      "ssac_name": "VULCAN MATERIALS"
+    },
+    "CARNIVAL CORP LTD": {
+      "stock_id": "CCL|United States",
+      "ssac_name": "CARNIVAL CORP"
+    },
+    "KIMBERLY-CLARK CORP": {
+      "stock_id": "KMB|United States",
+      "ssac_name": "KIMBERLY CLARK CORP"
+    },
+    "M & T BANK CORP": {
+      "stock_id": "MTB|United States",
+      "ssac_name": "M&T BANK CORP"
+    },
+    "ZOETIS INC": {
+      "stock_id": "3626|Japan",
+      "ssac_name": "TIS INC"
+    },
+    "P G & E CORP": {
+      "stock_id": "PCG|United States",
+      "ssac_name": "PG&E CORP"
+    },
+    "INGERSOLL-RAND INC": {
+      "stock_id": "IR|United States",
+      "ssac_name": "INGERSOLL RAND INC"
+    },
+    "MARTIN MARIETTA MATERIALS": {
+      "stock_id": "MLM|United States",
+      "ssac_name": "MARTIN MARIETTA MATERIALS INC"
+    },
+    "CURTISS-WRIGHT": {
+      "stock_id": "CW|United States",
+      "ssac_name": "CURTISS WRIGHT CORP"
+    },
+    "STEEL DYNAMICS INC.": {
+      "stock_id": "STLD|United States",
+      "ssac_name": "STEEL DYNAMICS INC"
+    },
+    "VICI PROPERTIES INC": {
+      "stock_id": "VICI|United States",
+      "ssac_name": "VICI PPTYS INC"
+    },
+    "EXTRA SPACE STORAGE": {
+      "stock_id": "EXR|United States",
+      "ssac_name": "EXTRA SPACE STORAGE REIT INC"
+    },
+    "TWILIO INC - A": {
+      "stock_id": "TWLO|United States",
+      "ssac_name": "TWILIO INC CLASS A"
+    },
+    "ROBLOX CORP -CLASS A": {
+      "stock_id": "RBLX|United States",
+      "ssac_name": "ROBLOX CORP CLASS A"
+    },
+    "GE HEALTHCARE TECHNOLOGY": {
+      "stock_id": "GEHC|United States",
+      "ssac_name": "GE HEALTHCARE TECHNOLOGIES INC"
+    },
+    "CREDO TECHNOLOGY GROUP HOLDI": {
+      "stock_id": "CRDO|United States",
+      "ssac_name": "CREDO TECHNOLOGY GROUP HOLDING LTD"
+    },
+    "RAYMOND JAMES FINANCIAL": {
+      "stock_id": "RJF|United States",
+      "ssac_name": "RAYMOND JAMES INC"
+    },
+    "HERSHEY CO/THE": {
+      "stock_id": "HSY|United States",
+      "ssac_name": "HERSHEY FOODS"
+    },
+    "ZOOM COMMUNICATIONS INC": {
+      "stock_id": "VZ|United States",
+      "ssac_name": "VERIZON COMMUNICATIONS INC"
+    },
+    "AVALONBAY COMMUNITIES INC": {
+      "stock_id": "AVB|United States",
+      "ssac_name": "AVALONBAY COMMUNITIES REIT INC"
+    },
+    "WORKDAY INC": {
+      "stock_id": "CPAY|United States",
+      "ssac_name": "CORPAY INC"
+    },
+    "MONGODB INC": {
+      "stock_id": "MDB|United States",
+      "ssac_name": "MONGODB INC CLASS A"
+    },
+    "AMERICAN WATER WORKS": {
+      "stock_id": "AWK|United States",
+      "ssac_name": "AMERICAN WATER WORKS INC"
+    },
+    "COREWEAVE INC-CL A": {
+      "stock_id": "CRWV|United States",
+      "ssac_name": "COREWEAVE INC CLASS A"
+    },
+    "VEEVA SYSTEMS INC": {
+      "stock_id": "VEEV|United States",
+      "ssac_name": "VEEVA SYSTEMS INC CLASS A"
+    },
+    "COGNIZANT TECH SOLUTION A": {
+      "stock_id": "CTSH|United States",
+      "ssac_name": "COGNIZANT TECHNOLOGY SOLUTIONS COR"
+    },
+    "PULTE GROUP INC": {
+      "stock_id": "PHM|United States",
+      "ssac_name": "PULTEGROUP INC"
+    },
+    "SBA COMMUNICATIONS CORP": {
+      "stock_id": "SBAC|United States",
+      "ssac_name": "SBA COMMUNICATIONS REIT CORP CLASS"
+    },
+    "AMRIZE LTD USD": {
+      "stock_id": "AMRZ|United States",
+      "ssac_name": "AMRIZE AG"
+    },
+    "C.H. ROBINSON WORLDWIDE INC": {
+      "stock_id": "CHRW|United States",
+      "ssac_name": "CH ROBINSON WORLDWIDE INC"
+    },
+    "EQUITY RESIDENTIAL PROPERTIES": {
+      "stock_id": "EQR|United States",
+      "ssac_name": "EQUITY RESIDENTIAL REIT"
+    },
+    "ARES MANAGEMENT CORP - A": {
+      "stock_id": "ARES|United States",
+      "ssac_name": "ARES MANAGEMENT CORP CLASS A"
+    },
+    "EXPEDITORS INTL WASH INC": {
+      "stock_id": "EXPD|United States",
+      "ssac_name": "EXPEDITORS INTERNATIONAL OF WASHIN"
+    },
+    "SNAP-ON INC": {
+      "stock_id": "SNA|United States",
+      "ssac_name": "SNAP ON INC"
+    },
+    "KRAFT HEINZ CO/THE": {
+      "stock_id": "KHC|United States",
+      "ssac_name": "KRAFT HEINZ"
+    },
+    "CONSTELLATION BRANDS - A": {
+      "stock_id": "STZ|United States",
+      "ssac_name": "CONSTELLATION BRANDS INC CLASS A"
+    },
+    "ECHOSTAR CORP-A": {
+      "stock_id": "SATS|United States",
+      "ssac_name": "ECHOSTAR CORP CLASS A"
+    },
+    "PRINCIPAL FINANCIAL GROUP": {
+      "stock_id": "PFG|United States",
+      "ssac_name": "PRINCIPAL FINANCIAL GROUP INC"
+    },
+    "DOLLAR GENERAL": {
+      "stock_id": "DG|United States",
+      "ssac_name": "DOLLAR GENERAL CORP"
+    },
+    "LPL FINANCIAL HLDG INC": {
+      "stock_id": "LPLA|United States",
+      "ssac_name": "LPL FINANCIAL HOLDINGS INC"
+    },
+    "PURE STORAGE INC CL A": {
+      "stock_id": "MSTR|United States",
+      "ssac_name": "STRATEGY INC CLASS A"
+    },
+    "HEICO CORP-CLASS A": {
+      "stock_id": "HEIA|United States",
+      "ssac_name": "HEICO CORP CLASS A"
+    },
+    "INTL FLAVORS   FRAGRANCES": {
+      "stock_id": "IFF|United States",
+      "ssac_name": "INTERNATIONAL FLAVORS & FRAGRANCES"
+    },
+    "FIDELITY NATIONAL INFORMATION": {
+      "stock_id": "FIS|United States",
+      "ssac_name": "FIDELITY NATIONAL INFORMATION SERV"
+    },
+    "RELIANCE STEEL & ALUMINIUM": {
+      "stock_id": "RS|United States",
+      "ssac_name": "RELIANCE STEEL & ALUMINUM"
+    },
+    "QUEST DIAGNOSTICS": {
+      "stock_id": "DGX|United States",
+      "ssac_name": "QUEST DIAGNOSTICS INC"
+    },
+    "EQUIFAX INC  COM USD2.50": {
+      "stock_id": "EFX|United States",
+      "ssac_name": "EQUIFAX INC"
+    },
+    "DARDEN RESTAURANTS": {
+      "stock_id": "DRI|United States",
+      "ssac_name": "DARDEN RESTAURANTS INC"
+    },
+    "ESSEX PROPERTY": {
+      "stock_id": "ESS|United States",
+      "ssac_name": "ESSEX PROPERTY TRUST REIT INC"
+    },
+    "STERIS PLC": {
+      "stock_id": "STE|United States",
+      "ssac_name": "STERIS"
+    },
+    "CHURCH & DWIGHT INC": {
+      "stock_id": "CHD|United States",
+      "ssac_name": "CHURCH AND DWIGHT INC"
+    },
+    "WEST PHARMACEUTICAL SERVICES": {
+      "stock_id": "WST|United States",
+      "ssac_name": "WEST PHARMACEUTICAL SERVICES INC"
+    },
+    "LIBERTY MEDIA CORP-FORMULA-C": {
+      "stock_id": "FWONK|United States",
+      "ssac_name": "LIBERTY MEDIA FORMULA ONE SERIES C"
+    },
+    "ESTEE LAUDER (A)": {
+      "stock_id": "EL|United States",
+      "ssac_name": "ESTEE LAUDER INC CLASS A"
+    },
+    "METTLER-TOLEDO INTERNATIONAL": {
+      "stock_id": "RMS|France",
+      "ssac_name": "HERMES INTERNATIONAL"
+    },
+    "ROYALTY PHARMA PLC- CL A": {
+      "stock_id": "RPRX|United States",
+      "ssac_name": "ROYALTY PHARMA PLC CLASS A"
+    },
+    "WILLIAMS-SONOMA INC": {
+      "stock_id": "WSM|United States",
+      "ssac_name": "WILLIAMS SONOMA INC"
+    },
+    "TYSON FOODS INC-CL A": {
+      "stock_id": "TSN|United States",
+      "ssac_name": "TYSON FOODS INC CLASS A"
+    },
+    "AFFIRM HOLDINGS INC": {
+      "stock_id": "AFRM|United States",
+      "ssac_name": "AFFIRM HOLDINGS INC CLASS A"
+    },
+    "HUNT (JB) TRANSPRT SVCS INC": {
+      "stock_id": "JBHT|United States",
+      "ssac_name": "JB HUNT TRANSPORT SERVICES INC"
+    },
+    "CARLISLE COS INC": {
+      "stock_id": "CSL|United States",
+      "ssac_name": "CARLISLE COMPANIES INC"
+    },
+    "SUN COMMUNITIES INC": {
+      "stock_id": "SUI|United States",
+      "ssac_name": "SUN COMMUNITIES REIT INC"
+    },
+    "AST SPACEMOBILE INC": {
+      "stock_id": "ASTS|United States",
+      "ssac_name": "AST SPACEMOBILE INC CLASS A"
+    },
+    "OKTA INC": {
+      "stock_id": "CTVA|United States",
+      "ssac_name": "CORTEVA INC"
+    },
+    "FLUTTER ENTERTAINMENT PLC-DI": {
+      "stock_id": "FLUT|United States",
+      "ssac_name": "FLUTTER ENTERTAINMENT PLC"
+    },
+    "REDDIT INC-CL A": {
+      "stock_id": "RDDT|United States",
+      "ssac_name": "REDDIT INC CLASS A"
+    },
+    "CF INDUSTRIES HOLDINGS": {
+      "stock_id": "CF|United States",
+      "ssac_name": "CF INDUSTRIES HOLDINGS INC"
+    },
+    "FIRST CITIZENS BCSHS  -CL A": {
+      "stock_id": "FCNCA|United States",
+      "ssac_name": "FIRST CITIZENS BANCSHARES INC CLAS"
+    },
+    "PENTAIR PLC": {
+      "stock_id": "ENT|United Kingdom",
+      "ssac_name": "ENTAIN PLC"
+    },
+    "WP CAREY INC": {
+      "stock_id": "WPC|United States",
+      "ssac_name": "W. P. CAREY REIT INC"
+    },
+    "INCYTE CORP LTD": {
+      "stock_id": "INCY|United States",
+      "ssac_name": "INCYTE CORP"
+    },
+    "LYONDELLBASELL IND A": {
+      "stock_id": "LYB|United States",
+      "ssac_name": "LYONDELLBASELL INDUSTRIES NV CLASS"
+    },
+    "ANNALY CAPITAL MANAGEMENT IN": {
+      "stock_id": "NLY|United States",
+      "ssac_name": "ANNALY CAPITAL MANAGEMENT REIT INC"
+    },
+    "KIMCO REALTY CORP": {
+      "stock_id": "KIM|United States",
+      "ssac_name": "KIMCO REALTY REIT CORP"
+    },
+    "INVITATION HOMES": {
+      "stock_id": "INVH|United States",
+      "ssac_name": "INVITATION HOMES INC"
+    },
+    "BROADRIDGE FINANCIAL SOL": {
+      "stock_id": "BR|United States",
+      "ssac_name": "BROADRIDGE FINANCIAL SOLUTIONS INC"
+    },
+    "LENNAR CORP COM": {
+      "stock_id": "LEN|United States",
+      "ssac_name": "LENNAR A CORP CLASS A"
+    },
+    "DELTA AIR LINES": {
+      "stock_id": "DAL|United States",
+      "ssac_name": "DELTA AIR LINES INC"
+    },
+    "SS&C TECHNOLOGIES HOLDINGS INC": {
+      "stock_id": "2018|China",
+      "ssac_name": "AAC TECHNOLOGIES HOLDINGS INC"
+    },
+    "DICK S SPORTING GOOD": {
+      "stock_id": "DKS|United States",
+      "ssac_name": "DICKS SPORTING INC"
+    },
+    "GAMING AND LEISURE PROPERTIE": {
+      "stock_id": "GLPI|United States",
+      "ssac_name": "GAMING AND LEISURE PROPERTIES REIT"
+    },
+    "REGENCY CENTERS CORP": {
+      "stock_id": "REG|United States",
+      "ssac_name": "REGENCY CENTERS REIT CORP"
+    },
+    "PINNACLE FINANCIAL PARTNERS": {
+      "stock_id": "PNFP|United States",
+      "ssac_name": "PINNACLE FINANCIAL PARTNERS INC"
+    },
+    "MID-AMERICA APARTMENT COMM": {
+      "stock_id": "MAA|United States",
+      "ssac_name": "MID AMERICA APARTMENT COMMUNITIES"
+    },
+    "INTERNATIONAL PAPER CO": {
+      "stock_id": "IP|United States",
+      "ssac_name": "INTERNATIONAL PAPER"
+    },
+    "BEST BUY CO INC": {
+      "stock_id": "BBY|United States",
+      "ssac_name": "BEST BUY INC"
+    },
+    "TRADEWEB MARKETS INC-CLASS A": {
+      "stock_id": "TW|United States",
+      "ssac_name": "TRADEWEB MARKETS INC CLASS A"
+    },
+    "CNH INDUSTRIAL NV": {
+      "stock_id": "CNH|United States",
+      "ssac_name": "CNH INDUSTRIAL N.V. NV"
+    },
+    "ROCKET COS INC-CLASS A": {
+      "stock_id": "RKT|United States",
+      "ssac_name": "ROCKET COMPANIES INC CLASS A"
+    },
+    "ATLASSIAN CORP-CL A": {
+      "stock_id": "TEAM|United States",
+      "ssac_name": "ATLASSIAN CORP CLASS A"
+    },
+    "CDW CORP/DE": {
+      "stock_id": "CDW|United States",
+      "ssac_name": "CDW CORP"
+    },
+    "DRAFTKINGS INC-CL A": {
+      "stock_id": "DKNG|United States",
+      "ssac_name": "DRAFTKINGS INC CLASS A"
+    },
+    "CLOROX COMPANY": {
+      "stock_id": "TELIA|Sweden",
+      "ssac_name": "TELIA COMPANY"
+    },
+    "TOAST INC-CLASS A": {
+      "stock_id": "TOST|United States",
+      "ssac_name": "TOAST INC CLASS A"
+    },
+    "COOPER COS INC/THE": {
+      "stock_id": "COO|United States",
+      "ssac_name": "COOPER INC"
+    },
+    "RIVIAN AUTOMOTIVE INC-A": {
+      "stock_id": "RIVN|United States",
+      "ssac_name": "RIVIAN AUTOMOTIVE INC CLASS A"
+    },
+    "FOX CORP - CLASS A": {
+      "stock_id": "FOXA|United States",
+      "ssac_name": "FOX CORP CLASS A"
+    },
+    "DECKERS OUTDOOR": {
+      "stock_id": "DECK|United States",
+      "ssac_name": "DECKERS OUTDOOR CORP"
+    },
+    "FIDELITY NATIONAL FINANCIAL": {
+      "stock_id": "FNF|United States",
+      "ssac_name": "FIDELITY NATIONAL FINANCIAL INC"
+    },
+    "GENUINE PARTS CO": {
+      "stock_id": "GPC|United States",
+      "ssac_name": "GENUINE PARTS"
+    },
+    "PINTEREST INC- CLASS A": {
+      "stock_id": "PINS|United States",
+      "ssac_name": "PINTEREST INC CLASS A"
+    },
+    "CHARTER COMMUNICATIONS INC A": {
+      "stock_id": "CHTR|United States",
+      "ssac_name": "CHARTER COMMUNICATIONS INC CLASS A"
+    },
+    "DOMINO  S PIZZA INC": {
+      "stock_id": "DPZ|United States",
+      "ssac_name": "DOMINOS PIZZA INC"
+    },
+    "ZEBRA TECHNOLOGIES CLASS A": {
+      "stock_id": "ZBRA|United States",
+      "ssac_name": "ZEBRA TECHNOLOGIES CORP CLASS A"
+    },
+    "CARLYLE GROUP INC/THE": {
+      "stock_id": "CG|United States",
+      "ssac_name": "CARLYLE GROUP INC"
+    },
+    "MCCORMICK & CO-NON VTG SHRS": {
+      "stock_id": "MKC|United States",
+      "ssac_name": "MCCORMICK & CO NON-VOTING INC"
+    },
+    "SAMSARA INC": {
+      "stock_id": "IOT|United States",
+      "ssac_name": "SAMSARA INC CLASS A"
+    },
+    "OKLO INC": {
+      "stock_id": "3092|Japan",
+      "ssac_name": "ZOZO INC"
+    },
+    "FOX CORP - CLASS B": {
+      "stock_id": "FOX|United States",
+      "ssac_name": "FOX CORP CLASS B"
+    },
+    "NEWS CORP - CLASS A": {
+      "stock_id": "NWSA|United States",
+      "ssac_name": "NEWS CORP CLASS A"
+    },
+    "TRADE DESK INC/THE -CLASS A": {
+      "stock_id": "TTD|United States",
+      "ssac_name": "TRADE DESK INC CLASS A"
+    },
+    "ERIE INDEMNITY COMPANY-CL A": {
+      "stock_id": "ERIE|United States",
+      "ssac_name": "ERIE INDEMNITY CLASS A"
+    },
+    "ZILLOW GROUP INC - C": {
+      "stock_id": "Z|United States",
+      "ssac_name": "ZILLOW GROUP INC CLASS C"
+    },
+    "COREBRIDGE FINANCIAL INC": {
+      "stock_id": "IAG|Canada",
+      "ssac_name": "IA FINANCIAL INC"
+    },
+    "HYATT HOTELS CORP": {
+      "stock_id": "H|United States",
+      "ssac_name": "HYATT HOTELS CORP CLASS A"
+    }
+  },
+  "xtrackers_usa_screened_IE00BJZ2DC62": {
+    "JPMORGAN CHASE": {
+      "stock_id": "JPM|United States",
+      "ssac_name": "JPMORGAN CHASE & CO"
+    },
+    "ELI LILLY + CO": {
+      "stock_id": "LLY|United States",
+      "ssac_name": "ELI LILLY"
+    },
+    "VISA INC CLASS A SHARES": {
+      "stock_id": "V|United States",
+      "ssac_name": "VISA INC CLASS A"
+    },
+    "INTEL CORP": {
+      "stock_id": "INCY|United States",
+      "ssac_name": "INCYTE CORP"
+    },
+    "MASTERCARD INC   A": {
+      "stock_id": "MA|United States",
+      "ssac_name": "MASTERCARD INC CLASS A"
+    },
+    "APPLIED MATERIALS INC": {
+      "stock_id": "AMAT|United States",
+      "ssac_name": "APPLIED MATERIAL INC"
+    },
+    "MERCK + CO. INC.": {
+      "stock_id": "MRK|United States",
+      "ssac_name": "MERCK & CO INC"
+    },
+    "INTL BUSINESS MACHINES CORP": {
+      "stock_id": "IBM|United States",
+      "ssac_name": "INTERNATIONAL BUSINESS MACHINES CO"
+    },
+    "BLACKROCK FUNDING INC": {
+      "stock_id": "BLK|United States",
+      "ssac_name": "BLACKROCK INC"
+    },
+    "AMPHENOL CORP-CL A": {
+      "stock_id": "APH|United States",
+      "ssac_name": "AMPHENOL CORP CLASS A"
+    },
+    "DEERE + CO": {
+      "stock_id": "DE|United States",
+      "ssac_name": "DEERE"
+    },
+    "LOWE'S COS INC": {
+      "stock_id": "LOW|United States",
+      "ssac_name": "LOWES COMPANIES INC"
+    },
+    "BRISTOL-MYERS SQUIBB CO": {
+      "stock_id": "BMY|United States",
+      "ssac_name": "BRISTOL MYERS SQUIBB"
+    },
+    "EQUINIX INC": {
+      "stock_id": "EFX|United States",
+      "ssac_name": "EQUIFAX INC"
+    },
+    "CADENCE DESIGN SYS INC": {
+      "stock_id": "CDNS|United States",
+      "ssac_name": "CADENCE DESIGN SYSTEMS INC"
+    },
+    "FREEPORT-MCMORAN INC": {
+      "stock_id": "FCX|United States",
+      "ssac_name": "FREEPORT MCMORAN INC"
+    },
+    "JOHNSON CONTROLS INTERNATION": {
+      "stock_id": "JCI|United States",
+      "ssac_name": "JOHNSON CONTROLS INTERNATIONAL PLC"
+    },
+    "O REILLY AUTOMOTIVE INC": {
+      "stock_id": "ORLY|United States",
+      "ssac_name": "OREILLY AUTOMOTIVE INC"
+    },
+    "UNITED PARCEL SERVICE CL B": {
+      "stock_id": "UPS|United States",
+      "ssac_name": "UNITED PARCEL SERVICE INC CLASS B"
+    },
+    "SHERWIN-WILLIAMS CO/THE": {
+      "stock_id": "SHW|United States",
+      "ssac_name": "SHERWIN WILLIAMS"
+    },
+    "MOODY'S CORP": {
+      "stock_id": "MCO|United States",
+      "ssac_name": "MOODYS CORP"
+    },
+    "GENERAL MOTORS CO": {
+      "stock_id": "GM|United States",
+      "ssac_name": "GENERAL MOTORS"
+    },
+    "ILLINOIS TOOL WORKS": {
+      "stock_id": "ITW|United States",
+      "ssac_name": "ILLINOIS TOOL INC"
+    },
+    "CRH PLC": {
+      "stock_id": "AMCR|United States",
+      "ssac_name": "AMCOR PLC"
+    },
+    "REGENERON PHARMACEUTICALS": {
+      "stock_id": "REGN|United States",
+      "ssac_name": "REGENERON PHARMACEUTICALS INC"
+    },
+    "SIMON PROPERTY GROUP  INC": {
+      "stock_id": "SPG|United States",
+      "ssac_name": "SIMON PROPERTY GROUP REIT INC"
+    },
+    "CLOUDFLARE INC - CLASS A": {
+      "stock_id": "NET|United States",
+      "ssac_name": "CLOUDFLARE INC CLASS A"
+    },
+    "WARNER BROS DISCOVERY INC": {
+      "stock_id": "WBD|United States",
+      "ssac_name": "WARNER BROS. DISCOVERY INC SERIES"
+    },
+    "BLOOM ENERGY CORP- A": {
+      "stock_id": "BE|United States",
+      "ssac_name": "BLOOM ENERGY CLASS A CORP"
+    },
+    "NIKE INC  CL B": {
+      "stock_id": "NKE|United States",
+      "ssac_name": "NIKE INC CLASS B"
+    },
+    "BECTON DICKINSON AND CO": {
+      "stock_id": "BDX|United States",
+      "ssac_name": "BECTON DICKINSON"
+    },
+    "COINBASE GLOBAL INC  CLASS A": {
+      "stock_id": "COIN|United States",
+      "ssac_name": "COINBASE GLOBAL INC CLASS A"
+    },
+    "PUBLIC SERVICE ENTERPRISE GP": {
+      "stock_id": "PEG|United States",
+      "ssac_name": "PUBLIC SERVICE ENTERPRISE GROUP IN"
+    },
+    "P G & E CORP": {
+      "stock_id": "PCG|United States",
+      "ssac_name": "PG&E CORP"
+    },
+    "ZOETIS INC": {
+      "stock_id": "3626|Japan",
+      "ssac_name": "TIS INC"
+    },
+    "CARNIVAL CORPORATION LTD": {
+      "stock_id": "BID|South Africa",
+      "ssac_name": "BID CORPORATION LTD"
+    },
+    "CREDO TECHNOLOGY GROUP HOLDI": {
+      "stock_id": "CRDO|United States",
+      "ssac_name": "CREDO TECHNOLOGY GROUP HOLDING LTD"
+    },
+    "GE HEALTHCARE TECHNOLOGY": {
+      "stock_id": "GEHC|United States",
+      "ssac_name": "GE HEALTHCARE TECHNOLOGIES INC"
+    },
+    "MONGODB INC": {
+      "stock_id": "MDB|United States",
+      "ssac_name": "MONGODB INC CLASS A"
+    },
+    "VEEVA SYSTEMS INC-CLASS A": {
+      "stock_id": "VEEV|United States",
+      "ssac_name": "VEEVA SYSTEMS INC CLASS A"
+    },
+    "ZOOM COMMUNICATIONS INC": {
+      "stock_id": "VZ|United States",
+      "ssac_name": "VERIZON COMMUNICATIONS INC"
+    },
+    "AMRIZE LTD": {
+      "stock_id": "AMRZ|United States",
+      "ssac_name": "AMRIZE AG"
+    },
+    "EQUITY RESIDENTIAL": {
+      "stock_id": "EQR|United States",
+      "ssac_name": "EQUITY RESIDENTIAL REIT"
+    },
+    "ECHOSTAR CORP A": {
+      "stock_id": "SATS|United States",
+      "ssac_name": "ECHOSTAR CORP CLASS A"
+    },
+    "ESTEE LAUDER COMPANIES-CL A": {
+      "stock_id": "EL|United States",
+      "ssac_name": "ESTEE LAUDER INC CLASS A"
+    },
+    "RELIANCE INC": {
+      "stock_id": "ROL|United States",
+      "ssac_name": "ROLLINS INC"
+    },
+    "TYSON FOODS INC-CL A": {
+      "stock_id": "TSN|United States",
+      "ssac_name": "TYSON FOODS INC CLASS A"
+    },
+    "AFFIRM HOLDINGS INC": {
+      "stock_id": "AFRM|United States",
+      "ssac_name": "AFFIRM HOLDINGS INC CLASS A"
+    },
+    "BROADRIDGE FINANCIAL SOLUTIO": {
+      "stock_id": "BR|United States",
+      "ssac_name": "BROADRIDGE FINANCIAL SOLUTIONS INC"
+    },
+    "HEICO CORP-CLASS A": {
+      "stock_id": "HEIA|United States",
+      "ssac_name": "HEICO CORP CLASS A"
+    },
+    "FLUTTER ENTERTAINMENT PLC-DI": {
+      "stock_id": "FLUT|United States",
+      "ssac_name": "FLUTTER ENTERTAINMENT PLC"
+    },
+    "BUNGE GLOBAL SA": {
+      "stock_id": "BG|United States",
+      "ssac_name": "BUNGE GLOBAL"
+    },
+    "MID-AMERICA APARTMENT COMM": {
+      "stock_id": "MAA|United States",
+      "ssac_name": "MID AMERICA APARTMENT COMMUNITIES"
+    },
+    "SUN COMMUNITIES INC": {
+      "stock_id": "SUI|United States",
+      "ssac_name": "SUN COMMUNITIES REIT INC"
+    },
+    "REDDIT INC-CL A": {
+      "stock_id": "RDDT|United States",
+      "ssac_name": "REDDIT INC CLASS A"
+    },
+    "SS&C TECHNOLOGIES HOLDINGS": {
+      "stock_id": "2018|China",
+      "ssac_name": "AAC TECHNOLOGIES HOLDINGS INC"
+    },
+    "REGENCY CENTERS CORP": {
+      "stock_id": "REG|United States",
+      "ssac_name": "REGENCY CENTERS REIT CORP"
+    },
+    "TRADEWEB MARKETS INC-CLASS A": {
+      "stock_id": "TW|United States",
+      "ssac_name": "TRADEWEB MARKETS INC CLASS A"
+    },
+    "COOPER COS INC/THE": {
+      "stock_id": "COO|United States",
+      "ssac_name": "COOPER INC"
+    },
+    "PINTEREST INC- CLASS A": {
+      "stock_id": "PINS|United States",
+      "ssac_name": "PINTEREST INC CLASS A"
+    },
+    "TOAST INC-CLASS A": {
+      "stock_id": "TOST|United States",
+      "ssac_name": "TOAST INC CLASS A"
+    },
+    "DOMINO'S PIZZA INC": {
+      "stock_id": "DPZ|United States",
+      "ssac_name": "DOMINOS PIZZA INC"
+    },
+    "TRADE DESK INC/THE -CLASS A": {
+      "stock_id": "TTD|United States",
+      "ssac_name": "TRADE DESK INC CLASS A"
+    },
+    "CNH INDUSTRIAL NV": {
+      "stock_id": "CNH|United States",
+      "ssac_name": "CNH INDUSTRIAL N.V. NV"
+    },
+    "COREBRIDGE FINANCIAL INC": {
+      "stock_id": "IAG|Canada",
+      "ssac_name": "IA FINANCIAL INC"
+    },
+    "HYATT HOTELS CORP - CL A": {
+      "stock_id": "H|United States",
+      "ssac_name": "HYATT HOTELS CORP CLASS A"
+    },
+    "ZILLOW GROUP INC - C": {
+      "stock_id": "Z|United States",
+      "ssac_name": "ZILLOW GROUP INC CLASS C"
+    },
+    "SNAP INC   A": {
+      "stock_id": "SNAP|United States",
+      "ssac_name": "SNAP INC CLASS A"
+    }
+  },
+  "amundi_world_ex_usa_FR0013209921": {
+    "ROCHE HOLDING AG - GENUSSS CHF": {
+      "stock_id": "RO|Switzerland",
+      "ssac_name": "ROCHE HOLDING AG"
+    },
+    "ASTRAZENECA GBP": {
+      "stock_id": "AZN|United Kingdom",
+      "ssac_name": "ASTRAZENECA PLC"
+    },
+    "NOVARTIS AG-REG": {
+      "stock_id": "NOVN|Switzerland",
+      "ssac_name": "NOVARTIS AG"
+    },
+    "ROYAL BANK OF CANADA CAD": {
+      "stock_id": "RY|Canada",
+      "ssac_name": "ROYAL BANK OF CANADA"
+    },
+    "SHELL PLC EUR": {
+      "stock_id": "SHEL|United Kingdom",
+      "ssac_name": "SHELL PLC"
+    },
+    "SIEMENS AG-REG": {
+      "stock_id": "SIE|Germany",
+      "ssac_name": "SIEMENS N AG"
+    },
+    "MITSUBISHI UFJ FINANCIAL GROUP": {
+      "stock_id": "8306|Japan",
+      "ssac_name": "MITSUBISHI UFJ FINANCIAL GROUP INC"
+    },
+    "TORONTO-DOMINIO.BANK": {
+      "stock_id": "TD|Canada",
+      "ssac_name": "TORONTO DOMINION"
+    },
+    "TOTALENERGIES SE PARIS": {
+      "stock_id": "TTE|France",
+      "ssac_name": "TOTALENERGIES"
+    },
+    "BANCO SANTANDER SA MADRID": {
+      "stock_id": "SAN|Spain",
+      "ssac_name": "BANCO SANTANDER SA"
+    },
+    "ALLIANZ SE-REG": {
+      "stock_id": "ALV|Germany",
+      "ssac_name": "ALLIANZ"
+    },
+    "SCHNEIDER ELECT SE": {
+      "stock_id": "SU|France",
+      "ssac_name": "SCHNEIDER ELECTRIC"
+    },
+    "ABB LTD-REG": {
+      "stock_id": "ABBN|Switzerland",
+      "ssac_name": "ABB LTD"
+    },
+    "NOVO NORDISK A/S-B": {
+      "stock_id": "NOVO B|Denmark",
+      "ssac_name": "NOVO NORDISK CLASS B"
+    },
+    "SONY GROUP CORP (JT)": {
+      "stock_id": "6758|Japan",
+      "ssac_name": "SONY GROUP CORP"
+    },
+    "SUMITOMO MITSUI FINANCIAL GROUP": {
+      "stock_id": "8316|Japan",
+      "ssac_name": "SUMITOMO MITSUI FINANCIAL GROUP IN"
+    },
+    "TOKYO ELECTRON  JPY50": {
+      "stock_id": "8035|Japan",
+      "ssac_name": "TOKYO ELECTRON LTD"
+    },
+    "BANCO BILBAO VIZCAYA ARGENTA": {
+      "stock_id": "BBVA|Spain",
+      "ssac_name": "BANCO BILBAO VIZCAYA ARGENTARIA SA"
+    },
+    "SHOPIFY INC-A CAD": {
+      "stock_id": "SOF|Belgium",
+      "ssac_name": "SOFINA SA"
+    },
+    "DEUTSCHE TELEKOM NAMEN (XETRA)": {
+      "stock_id": "DTE|Germany",
+      "ssac_name": "DEUTSCHE TELEKOM N AG"
+    },
+    "ADVANTEST CORP  Y50": {
+      "stock_id": "6857|Japan",
+      "ssac_name": "ADVANTEST CORP"
+    },
+    "UNICREDIT SPA": {
+      "stock_id": "UCG|Italy",
+      "ssac_name": "UNICREDIT"
+    },
+    "RIO TINTO PLC (GBR)": {
+      "stock_id": "RIO|United Kingdom",
+      "ssac_name": "RIO TINTO PLC"
+    },
+    "ZURICH INSURANCE GROUP AG": {
+      "stock_id": "ZURN|Switzerland",
+      "ssac_name": "ZURICH INSURANCE GROUP LTD"
+    },
+    "CAN IMPERIAL BK OF COMMERCE": {
+      "stock_id": "CM|Canada",
+      "ssac_name": "CANADIAN IMPERIAL BANK OF COMMERCE"
+    },
+    "BNP PARIBAS": {
+      "stock_id": "BNP|France",
+      "ssac_name": "BNP PARIBAS SA"
+    },
+    "GSK PLC": {
+      "stock_id": "SSE|United Kingdom",
+      "ssac_name": "SSE PLC"
+    },
+    "L OREAL": {
+      "stock_id": "OR|France",
+      "ssac_name": "LOREAL SA"
+    },
+    "SANOFI - PARIS": {
+      "stock_id": "SAN|France",
+      "ssac_name": "SANOFI SA"
+    },
+    "BROOKFIELD CORP": {
+      "stock_id": "BN|Canada",
+      "ssac_name": "BROOKFIELD CORP CLASS A"
+    },
+    "ENEL SPA": {
+      "stock_id": "RXL|France",
+      "ssac_name": "REXEL SA"
+    },
+    "AGNICO EAGLE MINES-CAD": {
+      "stock_id": "AEM|Canada",
+      "ssac_name": "AGNICO EAGLE MINES LTD"
+    },
+    "FAST RETAILING CO  JPY50": {
+      "stock_id": "9983|Japan",
+      "ssac_name": "FAST RETAILING LTD"
+    },
+    "KEYENCE CORP  JPY50": {
+      "stock_id": "6861|Japan",
+      "ssac_name": "KEYENCE CORP"
+    },
+    "RECRUIT HOLDINGS CO LTD": {
+      "stock_id": "6098|Japan",
+      "ssac_name": "RECRUIT HOLDINGS LTD"
+    },
+    "WESTPAC BANK CORP  AUD1": {
+      "stock_id": "WBC|Australia",
+      "ssac_name": "WESTPAC BANKING CORPORATION CORP"
+    },
+    "ANHEUSER-BUSCH INBEV SA/NV": {
+      "stock_id": "ABI|Belgium",
+      "ssac_name": "ANHEUSER-BUSCH INBEV SA"
+    },
+    "NATIONAL AUSTRALIA BANK": {
+      "stock_id": "NAB|Australia",
+      "ssac_name": "NATIONAL AUSTRALIA BANK LTD"
+    },
+    "CANADIAN PACIFIC KANSAS CITY CAD": {
+      "stock_id": "CP|Canada",
+      "ssac_name": "CANADIAN PACIFIC KANSAS CITY LTD"
+    },
+    "BAE SYSTEMS PLC GBP": {
+      "stock_id": "BA.|United Kingdom",
+      "ssac_name": "BAE SYSTEMS PLC"
+    },
+    "SHIN-ETSU CHEM CO  JPY50": {
+      "stock_id": "4063|Japan",
+      "ssac_name": "SHIN ETSU CHEMICAL LTD"
+    },
+    "VINCI SA (PARIS)": {
+      "stock_id": "DG|France",
+      "ssac_name": "VINCI SA"
+    },
+    "INVESTOR AB-B SHS": {
+      "stock_id": "INVE B|Sweden",
+      "ssac_name": "INVESTOR CLASS B"
+    },
+    "MITSUBISHI ELEC CP JPY50": {
+      "stock_id": "6503|Japan",
+      "ssac_name": "MITSUBISHI ELECTRIC CORP"
+    },
+    "RHEINMETALL ORD": {
+      "stock_id": "RHM|Germany",
+      "ssac_name": "RHEINMETALL AG"
+    },
+    "HONG KONG EXCHANGES & CLEAR": {
+      "stock_id": "388|Hong Kong",
+      "ssac_name": "HONG KONG EXCHANGES AND CLEARING L"
+    },
+    "MURATA MANUFACT CO LTD  JPY50": {
+      "stock_id": "6981|Japan",
+      "ssac_name": "MURATA MANUFACTURING LTD"
+    },
+    "ESSILORLUXOTTICA": {
+      "stock_id": "EL|France",
+      "ssac_name": "ESSILORLUXOTTICA SA"
+    },
+    "PROSUS NV": {
+      "stock_id": "PRX|Netherlands",
+      "ssac_name": "PROSUS NV CLASS N"
+    },
+    "OVERSEA-CHINESE BANKING CORP": {
+      "stock_id": "O39|Singapore",
+      "ssac_name": "OVERSEA-CHINESE BANKING LTD"
+    },
+    "MACQUARIE GROUP": {
+      "stock_id": "MQG|Australia",
+      "ssac_name": "MACQUARIE GROUP LTD DEF"
+    },
+    "WESFARMERS LIMITED": {
+      "stock_id": "WES|Australia",
+      "ssac_name": "WESFARMERS LTD"
+    },
+    "DEUTSCHE BANK AG NAMEN": {
+      "stock_id": "DBK|Germany",
+      "ssac_name": "DEUTSCHE BANK AG"
+    },
+    "NORDEA BANK ABP": {
+      "stock_id": "NDA FI|Finland",
+      "ssac_name": "NORDEA BANK"
+    },
+    "LONDON STOCK EXCHANGE GROUP GBP": {
+      "stock_id": "LSEG|United Kingdom",
+      "ssac_name": "LONDON STOCK EXCHANGE GROUP PLC"
+    },
+    "ENGIE": {
+      "stock_id": "ENGI|France",
+      "ssac_name": "ENGIE SA"
+    },
+    "SOCIETE GENERALE": {
+      "stock_id": "GLE|France",
+      "ssac_name": "SOCIETE GENERALE SA"
+    },
+    "VOLVO AB-B SHS": {
+      "stock_id": "VOLV B|Sweden",
+      "ssac_name": "VOLVO CLASS B"
+    },
+    "TAKEDA PHARMACEUTICAL": {
+      "stock_id": "4502|Japan",
+      "ssac_name": "TAKEDA PHARMACEUTICAL LTD"
+    },
+    "NINTENDO CO LTD": {
+      "stock_id": "7974|Japan",
+      "ssac_name": "NINTENDO LTD"
+    },
+    "DHL GROUP (XETRA)": {
+      "stock_id": "002601|China",
+      "ssac_name": "LB GROUP LTD A"
+    },
+    "ATLAS COPCO AB-A SHS": {
+      "stock_id": "ATCO B|Sweden",
+      "ssac_name": "ATLAS COPCO CLASS B"
+    },
+    "HOLCIM LTD": {
+      "stock_id": "HOLN|Switzerland",
+      "ssac_name": "HOLCIM LTD AG"
+    },
+    "ARGENX SE": {
+      "stock_id": "ARGX|Belgium",
+      "ssac_name": "ARGENX"
+    },
+    "E.ON SE": {
+      "stock_id": "EOAN|Germany",
+      "ssac_name": "E.ON N"
+    },
+    "SUMITOMO ELEC INDS JPY50": {
+      "stock_id": "5802|Japan",
+      "ssac_name": "SUMITOMO ELECTRIC INDUSTRIES LTD"
+    },
+    "PRYSMIAN SPA": {
+      "stock_id": "PRY|Italy",
+      "ssac_name": "PRYSMIAN"
+    },
+    "DIAGEO PLC GBP": {
+      "stock_id": "DGE|United Kingdom",
+      "ssac_name": "DIAGEO PLC"
+    },
+    "CAMECO CORPORATION": {
+      "stock_id": "METSO|Finland",
+      "ssac_name": "METSO CORPORATION"
+    },
+    "GOODMAN GROUP": {
+      "stock_id": "GMG|Australia",
+      "ssac_name": "GOODMAN GROUP UNITS"
+    },
+    "STMICROELECTRONICS/PARIS": {
+      "stock_id": "STMPA|France",
+      "ssac_name": "STMICROELECTRONICS NV"
+    },
+    "LONZA GROUP AG-REG": {
+      "stock_id": "LONN|Switzerland",
+      "ssac_name": "LONZA GROUP AG"
+    },
+    "SANDVIK AB": {
+      "stock_id": "SAND|Sweden",
+      "ssac_name": "SANDVIK"
+    },
+    "MERCEDES-BENZ GROUP AG": {
+      "stock_id": "MBG|Germany",
+      "ssac_name": "MERCEDES-BENZ GROUP N AG"
+    },
+    "TEVA PHARMACEUTICAL ADR": {
+      "stock_id": "4502|Japan",
+      "ssac_name": "TAKEDA PHARMACEUTICAL LTD"
+    },
+    "RECKITT BENCKISER GROUP PLC GBP": {
+      "stock_id": "RKT|United Kingdom",
+      "ssac_name": "RECKITT BENCKISER GROUP PLC"
+    },
+    "SUN LIFE FINANCIAL": {
+      "stock_id": "SLF|Canada",
+      "ssac_name": "SUN LIFE FINANCIAL INC"
+    },
+    "ORANGE": {
+      "stock_id": "ORA|France",
+      "ssac_name": "ORANGE SA"
+    },
+    "FERRARI NV MILAN": {
+      "stock_id": "RACE|Italy",
+      "ssac_name": "FERRARI NV"
+    },
+    "CELESTICA INC CAD": {
+      "stock_id": "CLS|Canada",
+      "ssac_name": "CELESTICA INC"
+    },
+    "KONINKLIJKE AHOLD DELHAIZE": {
+      "stock_id": "AD|Netherlands",
+      "ssac_name": "KONINKLIJKE AHOLD DELHAIZE NV"
+    },
+    "COMPAGNIE DE SAINT GOBAIN": {
+      "stock_id": "SGO|France",
+      "ssac_name": "COMPAGNIE DE SAINT GOBAIN SA"
+    },
+    "BANK LEUMI LE-ISRAEL": {
+      "stock_id": "LUMI|Israel",
+      "ssac_name": "BANK LEUMI LE ISRAEL"
+    },
+    "DAI-ICHI LIFE HLDG INC": {
+      "stock_id": "8750|Japan",
+      "ssac_name": "DAI-ICHI LIFE HOLDINGS INC"
+    },
+    "SUN HUNG KAI PROP  HK 0.50": {
+      "stock_id": "16|Hong Kong",
+      "ssac_name": "SUN HUNG KAI PROPERTIES LTD"
+    },
+    "GENERALI": {
+      "stock_id": "ENEL|Italy",
+      "ssac_name": "ENEL"
+    },
+    "GALDERMA GROUP AG": {
+      "stock_id": "G1A|Germany",
+      "ssac_name": "GEA GROUP AG"
+    },
+    "ASSA ABLOY AB -B": {
+      "stock_id": "ASSA B|Sweden",
+      "ssac_name": "ASSA ABLOY B"
+    },
+    "FUJITSU LIMITED": {
+      "stock_id": "6702|Japan",
+      "ssac_name": "FUJITSU LTD"
+    },
+    "ERICSSON LM-B SHS": {
+      "stock_id": "ERIC B|Sweden",
+      "ssac_name": "ERICSSON B"
+    },
+    "MS&AD INSURANCE GROUP HOLDIN": {
+      "stock_id": "8725|Japan",
+      "ssac_name": "MS&AD INSURANCE GROUP HOLDINGS INC"
+    },
+    "ERSTE GROUP BANK": {
+      "stock_id": "EBS|Austria",
+      "ssac_name": "ERSTE GROUP BANK AG"
+    },
+    "FAIRFAX FINANCIAL HLDGS LTD": {
+      "stock_id": "FFH|Canada",
+      "ssac_name": "FAIRFAX FINANCIAL HOLDINGS SUB VOT"
+    },
+    "JAPAN POST BANK CO LTD": {
+      "stock_id": "7182|Japan",
+      "ssac_name": "JAPAN POST BANK LTD"
+    },
+    "KINROSS GOLD CORPORATION": {
+      "stock_id": "K|Canada",
+      "ssac_name": "KINROSS GOLD CORP"
+    },
+    "DANSKE BANK A/S": {
+      "stock_id": "DANSKE|Denmark",
+      "ssac_name": "DANSKE BANK"
+    },
+    "FERROVIAL SE MADRID": {
+      "stock_id": "FER|Spain",
+      "ssac_name": "FERROVIAL"
+    },
+    "SEA LTD-ADR": {
+      "stock_id": "600089|China",
+      "ssac_name": "TBEA LTD A"
+    },
+    "CHUGAI PHARMACEUTICAL CO LTD": {
+      "stock_id": "4519|Japan",
+      "ssac_name": "CHUGAI PHARMACEUTICAL LTD"
+    },
+    "BANK HAPOALIM LTD": {
+      "stock_id": "POLI|Israel",
+      "ssac_name": "BANK HAPOALIM BM"
+    },
+    "POWER CORP OF CANADA": {
+      "stock_id": "POW|Canada",
+      "ssac_name": "POWER CORPORATION OF CANADA"
+    },
+    "EQUINOR ASA": {
+      "stock_id": "EQNR|Norway",
+      "ssac_name": "EQUINOR"
+    },
+    "SWISS LIFE HOLDINGS AG": {
+      "stock_id": "SLHN|Switzerland",
+      "ssac_name": "SWISS LIFE HOLDING AG"
+    },
+    "TRANSURBAN GROUP": {
+      "stock_id": "SBK|South Africa",
+      "ssac_name": "STANDARD BANK GROUP"
+    },
+    "TECHTRONIC INDUSTRIES CO": {
+      "stock_id": "669|Hong Kong",
+      "ssac_name": "TECHTRONIC INDUSTRIES LTD"
+    },
+    "SUNBELT RENTALS HOLDINGS INC GBP": {
+      "stock_id": "SUNB|United Kingdom",
+      "ssac_name": "SUNBELT RENTALS HOLDINGS INC"
+    },
+    "HONDA MOTOR CO LTD": {
+      "stock_id": "7267|Japan",
+      "ssac_name": "HONDA MOTOR LTD"
+    },
+    "OTSUKA HOLDINGS CO LTD": {
+      "stock_id": "4578|Japan",
+      "ssac_name": "OTSUKA HOLDINGS LTD"
+    },
+    "SWEDBANK AB": {
+      "stock_id": "SWED A|Sweden",
+      "ssac_name": "SWEDBANK"
+    },
+    "VESTAS WIND SYSTEMS A/S": {
+      "stock_id": "VWS|Denmark",
+      "ssac_name": "VESTAS WIND SYSTEMS"
+    },
+    "GIVAUDAN-REG": {
+      "stock_id": "GIVN|Switzerland",
+      "ssac_name": "GIVAUDAN SA"
+    },
+    "WOOLWORTHS GROUP LTD  AUD0.25": {
+      "stock_id": "WOW|Australia",
+      "ssac_name": "WOOLWORTHS GROUP LTD"
+    },
+    "SKANDINAVISKA ENSKILDA BANKEN A": {
+      "stock_id": "SEB A|Sweden",
+      "ssac_name": "SKANDINAVISKA ENSKILDA BANKEN"
+    },
+    "KBC GROUP NV": {
+      "stock_id": "NN|Netherlands",
+      "ssac_name": "NN GROUP NV"
+    },
+    "DAIICHI SANKYO": {
+      "stock_id": "4568|Japan",
+      "ssac_name": "DAIICHI SANKYO LTD"
+    },
+    "ADIDAS AG": {
+      "stock_id": "ADS|Germany",
+      "ssac_name": "ADIDAS N AG"
+    },
+    "SINGAPORE TELECOMMUNICATIONS": {
+      "stock_id": "Z74|Singapore",
+      "ssac_name": "SINGAPORE TELECOMMUNICATIONS LTD"
+    },
+    "AJINOMOTO CO INC": {
+      "stock_id": "2802|Japan",
+      "ssac_name": "AJINOMOTO INC"
+    },
+    "TECK RESOURCES LTD B CAD": {
+      "stock_id": "ARX|Canada",
+      "ssac_name": "ARC RESOURCES LTD"
+    },
+    "DNB BANK ASA": {
+      "stock_id": "DNB|Norway",
+      "ssac_name": "DNB BANK"
+    },
+    "SIKA AG-REG": {
+      "stock_id": "SIKA|Switzerland",
+      "ssac_name": "SIKA AG"
+    },
+    "ACS ACTIVIDADES CONS Y SERV": {
+      "stock_id": "ACS|Spain",
+      "ssac_name": "ACS ACTIVIDADES DE CONSTRUCCION Y"
+    },
+    "MITSUBISHI ESTATE CO LTD Y50": {
+      "stock_id": "8802|Japan",
+      "ssac_name": "MITSUBISHI ESTATE CO LTD"
+    },
+    "ATLAS COPCO AB-B SHS": {
+      "stock_id": "ATCO B|Sweden",
+      "ssac_name": "ATLAS COPCO CLASS B"
+    },
+    "SAMPO OYJ-A SHS": {
+      "stock_id": "SAMPO|Finland",
+      "ssac_name": "SAMPO CLASS A"
+    },
+    "QBE INSURANCE": {
+      "stock_id": "QBE|Australia",
+      "ssac_name": "QBE INSURANCE GROUP LTD"
+    },
+    "VEOLIA ENVIRONNEMENT": {
+      "stock_id": "VIE|France",
+      "ssac_name": "VEOLIA ENVIRON. SA"
+    },
+    "RESTAURANT BRANDS INTL INC CAD": {
+      "stock_id": "QSR|Canada",
+      "ssac_name": "RESTAURANTS BRANDS INTERNATIONAL I"
+    },
+    "HEIDELBERGCEMENT AG": {
+      "stock_id": "HEI|Germany",
+      "ssac_name": "HEIDELBERG MATERIALS AG"
+    },
+    "MITSUI FUDOSAN CO  JPY50": {
+      "stock_id": "8801|Japan",
+      "ssac_name": "MITSUI FUDOSAN LTD"
+    },
+    "PARTNERS GROUP AG": {
+      "stock_id": "PGHN|Switzerland",
+      "ssac_name": "PARTNERS GROUP HOLDING AG"
+    },
+    "LEONARDO SPA": {
+      "stock_id": "LDO|Italy",
+      "ssac_name": "LEONARDO FINMECCANICA SPA"
+    },
+    "BRIDGESTONE CORP  JPY50": {
+      "stock_id": "5108|Japan",
+      "ssac_name": "BRIDGESTONE CORP"
+    },
+    "MICHELIN (CGDE)": {
+      "stock_id": "ML|France",
+      "ssac_name": "MICHELIN"
+    },
+    "IBIDEN CO LTD": {
+      "stock_id": "4062|Japan",
+      "ssac_name": "IBIDEN LTD"
+    },
+    "HEXAGON AB-B SHS": {
+      "stock_id": "HEXA B|Sweden",
+      "ssac_name": "HEXAGON CLASS B"
+    },
+    "PAN AMERICAN SILVER USD": {
+      "stock_id": "PAAS|Canada",
+      "ssac_name": "PAN AMERICAN SILVER CORP"
+    },
+    "RYANAIR HOLDINGS PLC IRL": {
+      "stock_id": "RYA|Ireland",
+      "ssac_name": "RYANAIR HOLDINGS PLC"
+    },
+    "SMC CORP": {
+      "stock_id": "SYY|United States",
+      "ssac_name": "SYSCO CORP"
+    },
+    "EAST JAPAN RAILWAY JPY50000": {
+      "stock_id": "9020|Japan",
+      "ssac_name": "EAST JAPAN RAILWAY"
+    },
+    "SUMITOMO MITSUI TRUST HOLDINGS": {
+      "stock_id": "8309|Japan",
+      "ssac_name": "SUMITOMO MITSUI TRUST GROUP INC"
+    },
+    "INTERCONTINENTAL HOTELS GROU": {
+      "stock_id": "IHG|United Kingdom",
+      "ssac_name": "INTERCONTINENTAL HOTELS GROUP PLC"
+    },
+    "HELVETIA BALOISE HOLDING AG": {
+      "stock_id": "HBAN|Switzerland",
+      "ssac_name": "HELVETIA BALOISE HOLDING N AG"
+    },
+    "BE SEMICONDUCTOR INDUSTRIES": {
+      "stock_id": "BESI|Netherlands",
+      "ssac_name": "BE SEMICONDUCTOR INDUSTRIES NV"
+    },
+    "SWISSCOM AG-REG": {
+      "stock_id": "SCMN|Switzerland",
+      "ssac_name": "SWISSCOM AG"
+    },
+    "ABN AMRO BANK NV-CVA": {
+      "stock_id": "ABN|Netherlands",
+      "ssac_name": "ABN AMRO BANK NV"
+    },
+    "GEBERIT AG-REG": {
+      "stock_id": "GEBN|Switzerland",
+      "ssac_name": "GEBERIT AG"
+    },
+    "AEON CO LTD": {
+      "stock_id": "8267|Japan",
+      "ssac_name": "AEON LTD"
+    },
+    "SVENSKA HANDELSBKN SER A": {
+      "stock_id": "SHB A|Sweden",
+      "ssac_name": "SVENSKA HANDELSBANKEN-A SHS"
+    },
+    "KERING PARIS": {
+      "stock_id": "KER|France",
+      "ssac_name": "KERING SA"
+    },
+    "JAPAN POST HOLDINGS CO LTD": {
+      "stock_id": "6178|Japan",
+      "ssac_name": "JAPAN POST HOLDINGS LTD"
+    },
+    "ARISTOCRAT LEISURE LIMITED": {
+      "stock_id": "ALL|Australia",
+      "ssac_name": "ARISTOCRAT LEISURE LTD"
+    },
+    "LEGAL & GENERAL GROUP PLC": {
+      "stock_id": "LGEN|United Kingdom",
+      "ssac_name": "LEGAL AND GENERAL GROUP PLC"
+    },
+    "WARTSILA OYJ": {
+      "stock_id": "WRT1V|Finland",
+      "ssac_name": "WARTSILA"
+    },
+    "NOVONESIS (NOVOZYMES) B": {
+      "stock_id": "NSIS B|Denmark",
+      "ssac_name": "NOVOZYMES B"
+    },
+    "BPER BANCA SPA": {
+      "stock_id": "BPE|Italy",
+      "ssac_name": "BPER BANCA"
+    },
+    "BANCA MONTE DEI PASCHI SIENA REGR": {
+      "stock_id": "BMPS|Italy",
+      "ssac_name": "BANCA MONTE DEI PASCHI DI SIENA SP"
+    },
+    "BROOKFIELD ASSET MGMT-A": {
+      "stock_id": "BN|Canada",
+      "ssac_name": "BROOKFIELD CORP CLASS A"
+    },
+    "TERUMO CORP  JPY50": {
+      "stock_id": "4543|Japan",
+      "ssac_name": "TERUMO CORP"
+    },
+    "FRESENIUS SE & CO KGAA": {
+      "stock_id": "FRE|Germany",
+      "ssac_name": "FRESENIUS SE AND CO KGAA"
+    },
+    "COCA-COLA EUROPACIFIC PARTNE": {
+      "stock_id": "CCEP|Netherlands",
+      "ssac_name": "COCA COLA EUROPACIFIC PARTNERS PLC"
+    },
+    "BANK OF IRELAND GROUP PLC DUBLIN": {
+      "stock_id": "BIRG|Ireland",
+      "ssac_name": "BANK OF IRELAND GROUP PLC"
+    },
+    "EPIROC AB-A": {
+      "stock_id": "EPI B|Sweden",
+      "ssac_name": "EPIROC CLASS B"
+    },
+    "BOMBARDIER INC-B": {
+      "stock_id": "BBD.B|Canada",
+      "ssac_name": "BOMBARDIER INC CLASS B"
+    },
+    "MERCK KGAA": {
+      "stock_id": "MRK|Germany",
+      "ssac_name": "MERCK"
+    },
+    "CAPGEMINI SE": {
+      "stock_id": "CAP|France",
+      "ssac_name": "CAPGEMINI"
+    },
+    "SGS SA-REG": {
+      "stock_id": "SGSN|Switzerland",
+      "ssac_name": "SGS SA"
+    },
+    "JULIUS BAER GROUP LTD": {
+      "stock_id": "BAER|Switzerland",
+      "ssac_name": "JULIUS BAER GRUPPE AG"
+    },
+    "SAAB AB-B": {
+      "stock_id": "SAAB B|Sweden",
+      "ssac_name": "SAAB CLASS B"
+    },
+    "LOGITECH INTERNATIONAL-REG": {
+      "stock_id": "LOGN|Switzerland",
+      "ssac_name": "LOGITECH INTERNATIONAL SA"
+    },
+    "BANCO BPM SPA": {
+      "stock_id": "BAMI|Italy",
+      "ssac_name": "BANCO BPM"
+    },
+    "SUZUKI MOTOR CORP  Y50": {
+      "stock_id": "7269|Japan",
+      "ssac_name": "SUZUKI MOTOR CORP"
+    },
+    "HANNOVER RUECK SE": {
+      "stock_id": "HNR1|Germany",
+      "ssac_name": "HANNOVER RUECK"
+    },
+    "MTU AERO ENGINES AG": {
+      "stock_id": "MTX|Germany",
+      "ssac_name": "MTU AERO ENGINES HOLDING AG"
+    },
+    "CENTRAL JAPAN RAILWAY CO": {
+      "stock_id": "9022|Japan",
+      "ssac_name": "CENTRAL JAPAN RAILWAY"
+    },
+    "WOLTERS KLUWER": {
+      "stock_id": "WKL|Netherlands",
+      "ssac_name": "WOLTERS KLUWER NV"
+    },
+    "ALFA LAVAL AB": {
+      "stock_id": "ALFA|Sweden",
+      "ssac_name": "ALFA LAVAL"
+    },
+    "ORIENTAL LAND CO LTD": {
+      "stock_id": "4661|Japan",
+      "ssac_name": "ORIENTAL LAND LTD"
+    },
+    "EVOLUTION MINING": {
+      "stock_id": "EVN|Australia",
+      "ssac_name": "EVOLUTION MINING LTD"
+    },
+    "ALAMOS GOLD INC NEW CL A": {
+      "stock_id": "AGI|Canada",
+      "ssac_name": "ALAMOS GOLD INC CLASS A"
+    },
+    "ESSITY AKTIEBOLAG - B": {
+      "stock_id": "ESSITY B|Sweden",
+      "ssac_name": "ESSITY CLASS B"
+    },
+    "TERNA-RETE ELETTRICA NAZIONA": {
+      "stock_id": "TRN|Italy",
+      "ssac_name": "TERNA RETE ELETTRICA NAZIONALE"
+    },
+    "KUBOTA CORP  JPY50": {
+      "stock_id": "6326|Japan",
+      "ssac_name": "KUBOTA CORP"
+    },
+    "EDP SA": {
+      "stock_id": "WEGE3|Brazil",
+      "ssac_name": "WEG SA"
+    },
+    "CELLNEX TELECOM SA": {
+      "stock_id": "CLNX|Spain",
+      "ssac_name": "CELLNEX TELECOM"
+    },
+    "EQT AB": {
+      "stock_id": "EQT|Sweden",
+      "ssac_name": "EQT"
+    },
+    "NORSK HYDRO ASA  NOK20": {
+      "stock_id": "NHY|Norway",
+      "ssac_name": "NORSK HYDRO"
+    },
+    "GENMAB A/S": {
+      "stock_id": "GMAB|Denmark",
+      "ssac_name": "GENMAB"
+    },
+    "RENTOKIL INITIAL 05": {
+      "stock_id": "RTO|United Kingdom",
+      "ssac_name": "RENTOKIL INITIAL PLC"
+    },
+    "SECOM CO LTD": {
+      "stock_id": "9735|Japan",
+      "ssac_name": "SECOM LTD"
+    },
+    "DAIWA HOUSE INDUSTRY": {
+      "stock_id": "1925|Japan",
+      "ssac_name": "DAIWA HOUSE INDUSTRY LTD"
+    },
+    "DASSAULT SYSTEMES SE": {
+      "stock_id": "DSY|France",
+      "ssac_name": "DASSAULT SYSTEMES"
+    },
+    "GREAT-WEST LIFECO INC": {
+      "stock_id": "GWO|Canada",
+      "ssac_name": "GREAT WEST LIFECO INC"
+    },
+    "UPM-KYMMENE OYJ": {
+      "stock_id": "UPM|Finland",
+      "ssac_name": "UPM-KYMMENE"
+    },
+    "ASAHI GROUP HOLDINGS": {
+      "stock_id": "2502|Japan",
+      "ssac_name": "ASAHI GROUP HOLDINGS LTD"
+    },
+    "SWISS PRIME SITE": {
+      "stock_id": "SPSN|Switzerland",
+      "ssac_name": "SWISS PRIME SITE AG"
+    },
+    "STELLANTIS": {
+      "stock_id": "STLAM|Italy",
+      "ssac_name": "STELLANTIS NV"
+    },
+    "FINECOBANK SPA": {
+      "stock_id": "EUROB|Greece",
+      "ssac_name": "EUROBANK SA"
+    },
+    "SNAM SPA": {
+      "stock_id": "SOF|Belgium",
+      "ssac_name": "SOFINA SA"
+    },
+    "KONGSBERG GRUPPEN ASA": {
+      "stock_id": "KOG|Norway",
+      "ssac_name": "KONGSBERG GRUPPEN"
+    },
+    "PERNOD RICARD": {
+      "stock_id": "RI|France",
+      "ssac_name": "PERNOD RICARD SA"
+    },
+    "KAJIMA CORP  JPY50": {
+      "stock_id": "1812|Japan",
+      "ssac_name": "KAJIMA CORP"
+    },
+    "SINGAPORE TECH ENGINEERING": {
+      "stock_id": "S63|Singapore",
+      "ssac_name": "SINGAPORE TECHNOLOGIES ENGINEERING"
+    },
+    "NIPPON YUSEN KK  JPY50": {
+      "stock_id": "9101|Japan",
+      "ssac_name": "NIPPON YUSEN"
+    },
+    "SINGAPORE EXCHANGE LIMITED": {
+      "stock_id": "S68|Singapore",
+      "ssac_name": "SINGAPORE EXCHANGE LTD"
+    },
+    "SHIONOGI & CO LTD": {
+      "stock_id": "4507|Japan",
+      "ssac_name": "SHIONOGI LTD"
+    },
+    "ROCHE HOLDING AG-BEARER": {
+      "stock_id": "RO|Switzerland",
+      "ssac_name": "ROCHE HOLDING AG"
+    },
+    "SUMITOMO REALTY & DEVELOPMEN": {
+      "stock_id": "8830|Japan",
+      "ssac_name": "SUMITOMO REALTY & DEVELOPMENT LTD"
+    },
+    "METRO INC/CN": {
+      "stock_id": "MRU|Canada",
+      "ssac_name": "METRO INC"
+    },
+    "SCHINDLER HOLDING-PART CERT": {
+      "stock_id": "SCHP|Switzerland",
+      "ssac_name": "SCHINDLER HOLDING PAR AG"
+    },
+    "KERRY GROUP PLC-A": {
+      "stock_id": "KRZ|Ireland",
+      "ssac_name": "KERRY GROUP PLC"
+    },
+    "CARLSBERG AS-B": {
+      "stock_id": "CARL B|Denmark",
+      "ssac_name": "CARLSBERG AS CL B"
+    },
+    "BOLIDEN AB": {
+      "stock_id": "BOL|Sweden",
+      "ssac_name": "BOLIDEN"
+    },
+    "SUMITOMO METAL MNG JPY50": {
+      "stock_id": "5713|Japan",
+      "ssac_name": "SUMITOMO METAL MINING LTD"
+    },
+    "UNIBAIL-RODAMCO-WESTFIELD /PARIS": {
+      "stock_id": "URW|France",
+      "ssac_name": "UNIBAIL RODAMCO WE STAPLED UNITS"
+    },
+    "MONCLER SPA": {
+      "stock_id": "MONC|Italy",
+      "ssac_name": "MONCLER"
+    },
+    "NESTE OYJ": {
+      "stock_id": "NESTE|Finland",
+      "ssac_name": "NESTE"
+    },
+    "INSURANCE AUSTRALIA GROUP": {
+      "stock_id": "IAG|Australia",
+      "ssac_name": "INSURANCE AUSTRALIA GROUP LTD"
+    },
+    "DAIFUKU CO LTD": {
+      "stock_id": "6383|Japan",
+      "ssac_name": "DAIFUKU LTD"
+    },
+    "ISRAEL DISCOUNT BANK": {
+      "stock_id": "DSCT|Israel",
+      "ssac_name": "ISRAEL DISCOUNT BANK LTD"
+    },
+    "DSM-FIRMENICH AG": {
+      "stock_id": "DSFIR|Netherlands",
+      "ssac_name": "DSM FIRMENICH AG"
+    },
+    "LINK REIT": {
+      "stock_id": "ROSN|Russian Federation",
+      "ssac_name": "NK ROSNEFT"
+    },
+    "KIRIN HOLDINGS": {
+      "stock_id": "2503|Japan",
+      "ssac_name": "KIRIN HOLDINGS LTD"
+    },
+    "ROGERS COMMUNICATIONS INC-B": {
+      "stock_id": "VZ|United States",
+      "ssac_name": "VERIZON COMMUNICATIONS INC"
+    },
+    "KAWASAKI HEAVY IND JPY50": {
+      "stock_id": "7012|Japan",
+      "ssac_name": "KAWASAKI HEAVY INDUSTRIES LTD"
+    },
+    "SONOVA HOLDING CHF": {
+      "stock_id": "SOON|Switzerland",
+      "ssac_name": "SONOVA HOLDING AG"
+    },
+    "TOKYO GAS CO  Y50": {
+      "stock_id": "9531|Japan",
+      "ssac_name": "TOKYO GAS LTD"
+    },
+    "EURONEXT NV PARIS": {
+      "stock_id": "ENX|France",
+      "ssac_name": "EURONEXT NV"
+    },
+    "POSTE ITALIANE SPA": {
+      "stock_id": "PST|Italy",
+      "ssac_name": "POSTE ITALIANE"
+    },
+    "CHECK POINT SOFTWARE TECHNOLOGIE": {
+      "stock_id": "CHKP|Israel",
+      "ssac_name": "CHECK POINT SOFTWARE TECHNOLOGIES"
+    },
+    "OLYMPUS CORPORATION": {
+      "stock_id": "METSO|Finland",
+      "ssac_name": "METSO CORPORATION"
+    },
+    "THOMSON REUTERS CORP CAD": {
+      "stock_id": "TRI|Canada",
+      "ssac_name": "THOMSON REUTERS CORP"
+    },
+    "OSAKA GAS CO  JPY50": {
+      "stock_id": "9532|Japan",
+      "ssac_name": "OSAKA GAS LTD"
+    },
+    "KINGSPAN GROUP": {
+      "stock_id": "KRX|Ireland",
+      "ssac_name": "KINGSPAN GROUP PLC"
+    },
+    "STRAUMANN HOLDING AG-REG": {
+      "stock_id": "STMN|Switzerland",
+      "ssac_name": "STRAUMANN HOLDING AG"
+    },
+    "TELIA CO AB / SEK": {
+      "stock_id": "TELIA|Sweden",
+      "ssac_name": "TELIA COMPANY"
+    },
+    "NITTO DENKO": {
+      "stock_id": "6988|Japan",
+      "ssac_name": "NITTO DENKO CORP"
+    },
+    "UNITED UTILITIES GROUP PLC NEW": {
+      "stock_id": "UU.|United Kingdom",
+      "ssac_name": "UNITED UTILITIES GROUP PLC"
+    },
+    "CGI INC CAD": {
+      "stock_id": "GIB.A|Canada",
+      "ssac_name": "CGI INC CLASS A"
+    },
+    "SEKISUI HOUSE LTD JPY50": {
+      "stock_id": "1928|Japan",
+      "ssac_name": "SEKISUI HOUSE LTD"
+    },
+    "COMPUTERSHARE LIMITED": {
+      "stock_id": "CPU|Australia",
+      "ssac_name": "COMPUTERSHARE LTD"
+    },
+    "SMITH & NEPHEW PLC": {
+      "stock_id": "SN.|United Kingdom",
+      "ssac_name": "SMITH AND NEPHEW PLC"
+    },
+    "EVOLUTION AB": {
+      "stock_id": "EVO|Sweden",
+      "ssac_name": "EVOLUTION"
+    },
+    "HENKEL AG & CO KGAA VOR-PFD": {
+      "stock_id": "HEN3|Germany",
+      "ssac_name": "HENKEL & KGAA PREF AG"
+    },
+    "COCA-COLA HBC AG-DI - LDN": {
+      "stock_id": "CCH|United Kingdom",
+      "ssac_name": "COCA COLA HBC AG"
+    },
+    "WESTON (GEORGE) LTD": {
+      "stock_id": "SUZLON|India",
+      "ssac_name": "SUZLON ENERGY LTD"
+    },
+    "MOWI ASA": {
+      "stock_id": "RAIL3|Brazil",
+      "ssac_name": "RUMO SA"
+    },
+    "SEGRO PLC": {
+      "stock_id": "SGRO|United Kingdom",
+      "ssac_name": "SEGRO REIT PLC"
+    },
+    "AKER BP ASA": {
+      "stock_id": "AKRBP|Norway",
+      "ssac_name": "AKER BP"
+    },
+    "KUEHNE + NAGEL INTL AG-REG": {
+      "stock_id": "KNIN|Switzerland",
+      "ssac_name": "KUEHNE UND NAGEL INTERNATIONAL AG"
+    },
+    "METSO CORP": {
+      "stock_id": "MAS|United States",
+      "ssac_name": "MASCO CORP"
+    },
+    "IA FINANCIAL CORP INC": {
+      "stock_id": "IAG|Canada",
+      "ssac_name": "IA FINANCIAL INC"
+    },
+    "AGEAS": {
+      "stock_id": "AGS|Belgium",
+      "ssac_name": "AGEAS SA"
+    },
+    "SAGE GROUP PLC": {
+      "stock_id": "SGE|United Kingdom",
+      "ssac_name": "THE SAGE GROUP PLC"
+    },
+    "SYMRISE AG XETRA": {
+      "stock_id": "SY1|Germany",
+      "ssac_name": "SYMRISE AG"
+    },
+    "FISHER & PAYKEL HEALTHCARE C": {
+      "stock_id": "FPH|New Zealand",
+      "ssac_name": "FISHER AND PAYKEL HEALTHCARE CORPO"
+    },
+    "NOMURA RESEARCH INSTITUTE": {
+      "stock_id": "4307|Japan",
+      "ssac_name": "NOMURA RESEARCH INSTITUTE LTD"
+    },
+    "ENDEAVOUR MINING PLC": {
+      "stock_id": "EDV|United Kingdom",
+      "ssac_name": "ENDEAVOUR MINING"
+    },
+    "RYOHIN KEIKAKU CO LTD": {
+      "stock_id": "7453|Japan",
+      "ssac_name": "RYOHIN KEIKAKU LTD"
+    },
+    "AEGON LTD AMSTERDAM": {
+      "stock_id": "AGN|Netherlands",
+      "ssac_name": "AEGON LTD"
+    },
+    "SCREEN HOLDINGS CO": {
+      "stock_id": "7735|Japan",
+      "ssac_name": "SCREEN HOLDINGS LTD"
+    },
+    "BUREAU VERITAS": {
+      "stock_id": "BVI|France",
+      "ssac_name": "BUREAU VERITAS SA"
+    },
+    "FORTUM OYJ": {
+      "stock_id": "FORTUM|Finland",
+      "ssac_name": "FORTUM"
+    },
+    "CAPITALAND INTEGRATED COM TR": {
+      "stock_id": "CICT|Singapore",
+      "ssac_name": "CAPITALAND INTEGRATED COMMERCIAL T"
+    },
+    "BUNZL PLC": {
+      "stock_id": "BNZL|United Kingdom",
+      "ssac_name": "BUNZL"
+    },
+    "TELENOR ASA": {
+      "stock_id": "TEL|Norway",
+      "ssac_name": "TELENOR"
+    },
+    "PAN PACIFIC INTERNATIONAL HO": {
+      "stock_id": "7532|Japan",
+      "ssac_name": "PAN PACIFIC INTERNATIONAL HOLDINGS"
+    },
+    "GRAB HOLDINGS LTD - CL A": {
+      "stock_id": "GRAB|Singapore",
+      "ssac_name": "GRAB HOLDINGS LTD CLASS A"
+    },
+    "AP MOLLER-MAERSK A/S-B": {
+      "stock_id": "MAERSK B|Denmark",
+      "ssac_name": "A P MOLLER MAERSK B"
+    },
+    "LOTTERY CORP LTD/THE": {
+      "stock_id": "TLC|Australia",
+      "ssac_name": "THE LOTTERY CORPORATION LTD"
+    },
+    "EIFFAGE": {
+      "stock_id": "FGR|France",
+      "ssac_name": "EIFFAGE SA"
+    },
+    "AP MOLLER-MAERSK A/S-A": {
+      "stock_id": "MAERSK B|Denmark",
+      "ssac_name": "A P MOLLER MAERSK B"
+    },
+    "ORKLA ASA": {
+      "stock_id": "ORK|Norway",
+      "ssac_name": "ORKLA"
+    },
+    "AKZO NOBEL N.V.": {
+      "stock_id": "AKZA|Netherlands",
+      "ssac_name": "AKZO NOBEL NV"
+    },
+    "MAGNUM ICE CREAM CO NV/THE": {
+      "stock_id": "MICC|Netherlands",
+      "ssac_name": "MAGNUM ICE CREAM NV"
+    },
+    "GILDAN ACTIVEWEAR CAD": {
+      "stock_id": "GIL|Canada",
+      "ssac_name": "GILDAN ACTIVEWEAR INC"
+    },
+    "SWATCH GROUP AG/THE-BR": {
+      "stock_id": "UHR|Switzerland",
+      "ssac_name": "THE SWATCH GROUP AG"
+    },
+    "FRESENIUS MED CARE AG CO": {
+      "stock_id": "FME|Germany",
+      "ssac_name": "FRESENIUS MEDICAL CARE AG"
+    },
+    "ATKINSREALIS GROUP INC CAD": {
+      "stock_id": "ATRL|Canada",
+      "ssac_name": "ATKINSREALIS GROUP INC"
+    },
+    "APA GROUP": {
+      "stock_id": "APA|Australia",
+      "ssac_name": "APA GROUP UNITS"
+    },
+    "MARKS & SPENCER GROUP PLC": {
+      "stock_id": "MKS|United Kingdom",
+      "ssac_name": "MARKS AND SPENCER GROUP PLC"
+    },
+    "HOCHTIEF AG  DM50": {
+      "stock_id": "HOT|Germany",
+      "ssac_name": "HOCHTIEF AG"
+    },
+    "EPIROC AB-B": {
+      "stock_id": "EPI B|Sweden",
+      "ssac_name": "EPIROC CLASS B"
+    },
+    "CCL INDUSTRIES INC - CL B": {
+      "stock_id": "CCL.B|Canada",
+      "ssac_name": "CCL INDUSTRIES INC CLASS B"
+    },
+    "GEA GROUP AG EX MG TECHNOLOGIE": {
+      "stock_id": "WAB|United States",
+      "ssac_name": "WESTINGHOUSE AIR BRAKE TECHNOLOGIE"
+    },
+    "ORION OYJ-CLASS B": {
+      "stock_id": "ORNBV|Finland",
+      "ssac_name": "ORION CLASS B"
+    },
+    "SWEDISH ORPHAN BIOVITRUM AB": {
+      "stock_id": "SOBI|Sweden",
+      "ssac_name": "SWEDISH ORPHAN BIOVITRUM"
+    },
+    "ADDTECH AB-B SHARES": {
+      "stock_id": "ADDT B|Sweden",
+      "ssac_name": "ADDTECH CLASS B"
+    },
+    "SKANSKA AB-B SHS": {
+      "stock_id": "SKA B|Sweden",
+      "ssac_name": "SKANSKA B"
+    },
+    "UNIPOL ASSICURAZIONI SPA": {
+      "stock_id": "G|Italy",
+      "ssac_name": "ASSICURAZIONI GENERALI"
+    },
+    "GFL ENVIRONMENTAL INC-SUB VT": {
+      "stock_id": "GFL|Canada",
+      "ssac_name": "GFL ENVIRONMENTAL SUBORDINATE VOTI"
+    },
+    "TRELLEBORG AB": {
+      "stock_id": "TREL B|Sweden",
+      "ssac_name": "TRELLEBORG B"
+    },
+    "PEARSON PLC GBP": {
+      "stock_id": "PSON|United Kingdom",
+      "ssac_name": "PEARSON PLC"
+    },
+    "HENNES & MAURITZ AB-B SHS": {
+      "stock_id": "HM B|Sweden",
+      "ssac_name": "HENNES & MAURITZ"
+    },
+    "KNORR-BREME AG": {
+      "stock_id": "KBX|Germany",
+      "ssac_name": "KNORR BREMSE AG"
+    },
+    "KLEPIERRE": {
+      "stock_id": "LI|France",
+      "ssac_name": "KLEPIERRE REIT SA"
+    },
+    "AZRIELI GROUP": {
+      "stock_id": "ELI|Belgium",
+      "ssac_name": "ELIA GROUP SA"
+    },
+    "OBIC CO LTD": {
+      "stock_id": "4684|Japan",
+      "ssac_name": "OBIC LTD"
+    },
+    "FUTU HOLDINGS LTD-ADR": {
+      "stock_id": "FUTU|Hong Kong",
+      "ssac_name": "FUTU HOLDINGS ADR LTD"
+    },
+    "BRENNTAG SE": {
+      "stock_id": "BNR|Germany",
+      "ssac_name": "BRENNTAG"
+    },
+    "CHIBA BANK LTD/THE": {
+      "stock_id": "8331|Japan",
+      "ssac_name": "CHIBA BANK LTD"
+    },
+    "SECURITAS AB -B-SEK5": {
+      "stock_id": "SECU B|Sweden",
+      "ssac_name": "SECURITAS B"
+    },
+    "BELIMO HOLDING AG-REG": {
+      "stock_id": "BEAN|Switzerland",
+      "ssac_name": "BELIMO N AG"
+    },
+    "KIKKOMAN CORPORATION": {
+      "stock_id": "IOICORP|Malaysia",
+      "ssac_name": "IOI CORPORATION"
+    },
+    "BANCO COMERCIAL PORTUGUES": {
+      "stock_id": "BCP|Portugal",
+      "ssac_name": "BANCO COMERCIAL PORTUGUES SA"
+    },
+    "WISE GROUP PLC-CL A": {
+      "stock_id": "III|United Kingdom",
+      "ssac_name": "3I GROUP PLC"
+    },
+    "INDUSTRIVARDEN AB-C SHS": {
+      "stock_id": "INDU C|Sweden",
+      "ssac_name": "INDUSTRIVARDEN SERIES"
+    },
+    "SCHINDLER HOLDING AG-REGD": {
+      "stock_id": "SCHN|Switzerland",
+      "ssac_name": "SCHINDLER HOLDING AG"
+    },
+    "COLOPLAST-B": {
+      "stock_id": "COLO B|Denmark",
+      "ssac_name": "COLOPLAST B"
+    },
+    "TRYG A/S": {
+      "stock_id": "TRYG|Denmark",
+      "ssac_name": "TRYG"
+    },
+    "AUCKLAND INTL AIRPORT": {
+      "stock_id": "AIA|New Zealand",
+      "ssac_name": "AUCKLAND INTERNATIONAL AIRPORT LTD"
+    },
+    "ELEMENT FLEET MANAGEMENT COR": {
+      "stock_id": "EFN|Canada",
+      "ssac_name": "ELEMENT FLEET MANAGEMENT CORP"
+    },
+    "MITSUBISHI CHEMICAL CORP": {
+      "stock_id": "4188|Japan",
+      "ssac_name": "MITSUBISHI CHEMICAL GROUP CORP"
+    },
+    "SHIMANO INC  JPY50": {
+      "stock_id": "7309|Japan",
+      "ssac_name": "SHIMANO INC"
+    },
+    "YANGZIJIANG SHIPBUILDING": {
+      "stock_id": "BS6|Singapore",
+      "ssac_name": "YANGZIJIANG SHIPBUILDING (HOLDINGS"
+    },
+    "HANKYU HANSHIN HLDGS INC": {
+      "stock_id": "9042|Japan",
+      "ssac_name": "HANKYU HANSHIN HOLDINGS INC"
+    },
+    "GROUPE BRUXELLES LAMBERT SA": {
+      "stock_id": "GBLB|Belgium",
+      "ssac_name": "GROUPE BRUXELLES LAMBERT NV"
+    },
+    "STANDARD LIFE PLC": {
+      "stock_id": "STAN|United Kingdom",
+      "ssac_name": "STANDARD CHARTERED PLC"
+    },
+    "MITSUBISHI UFJ LEASE FINANCE": {
+      "stock_id": "8306|Japan",
+      "ssac_name": "MITSUBISHI UFJ FINANCIAL GROUP INC"
+    },
+    "LIFCO AB-B SHS": {
+      "stock_id": "LIFCO B|Sweden",
+      "ssac_name": "LIFCO CLASS B"
+    },
+    "HENKEL AG & CO KGAA": {
+      "stock_id": "HEN3|Germany",
+      "ssac_name": "HENKEL & KGAA PREF AG"
+    },
+    "LUNDIN GOLD INC (CAN)": {
+      "stock_id": "LUG|Canada",
+      "ssac_name": "LUNDIN GOLD INC"
+    },
+    "EMS-CHEMIE HOLDING AG-REG": {
+      "stock_id": "EMSN|Switzerland",
+      "ssac_name": "EMS-CHEMIE HOLDING AG"
+    },
+    "SHISEIDO CO  Y50": {
+      "stock_id": "4911|Japan",
+      "ssac_name": "SHISEIDO LTD"
+    },
+    "EISAI CO LTD Y50": {
+      "stock_id": "4523|Japan",
+      "ssac_name": "EISAI LTD"
+    },
+    "ITALGAS SPA": {
+      "stock_id": "IG|Italy",
+      "ssac_name": "ITALGAS"
+    },
+    "QIAGEN N.V.XETRA": {
+      "stock_id": "QIA|Germany",
+      "ssac_name": "QIAGEN NV"
+    },
+    "RAIFFEISEN BANK INTL": {
+      "stock_id": "RBI|Austria",
+      "ssac_name": "RAIFFEISEN BANK INTERNATIONAL AG"
+    },
+    "YAMAHA MOTOR": {
+      "stock_id": "7272|Japan",
+      "ssac_name": "YAMAHA MOTOR LTD"
+    },
+    "WEST JAPAN RAILWAY CO": {
+      "stock_id": "9021|Japan",
+      "ssac_name": "WEST JAPAN RAILWAY"
+    },
+    "REDEIA CORP SA": {
+      "stock_id": "RED|Spain",
+      "ssac_name": "REDEIA CORPORACION SA"
+    },
+    "NISSAN MOTOR CO LTD": {
+      "stock_id": "7201|Japan",
+      "ssac_name": "NISSAN MOTOR LTD"
+    },
+    "HKT TRUST AND HKT LTD": {
+      "stock_id": "6823|Hong Kong",
+      "ssac_name": "HKT TRUST AND HKT UNITS LTD"
+    },
+    "CAPCOM CO LTD Y50": {
+      "stock_id": "9697|Japan",
+      "ssac_name": "CAPCOM LTD"
+    },
+    "ELISA OYJ": {
+      "stock_id": "ELISA|Finland",
+      "ssac_name": "ELISA"
+    },
+    "RECORDATI INDUSTRIA CHIMICA": {
+      "stock_id": "REC|Italy",
+      "ssac_name": "RECORDATI INDUSTRIA CHIMICA E FARM"
+    },
+    "SARTORIUS PFD": {
+      "stock_id": "SRT3|Germany",
+      "ssac_name": "SARTORIUS PREF AG"
+    },
+    "ALSTOM": {
+      "stock_id": "ALO|France",
+      "ssac_name": "ALSTOM SA"
+    },
+    "DAI NIPPON PRINTING CO LTD": {
+      "stock_id": "7912|Japan",
+      "ssac_name": "DAI NIPPON PRINTING LTD"
+    },
+    "ELIA GROUP SA/NV": {
+      "stock_id": "ELI|Belgium",
+      "ssac_name": "ELIA GROUP SA"
+    },
+    "STORA ENSO OYJ-R SHS": {
+      "stock_id": "STERV|Finland",
+      "ssac_name": "STORA ENSO CLASS R"
+    },
+    "CANADIAN TIRE CORP - CL A": {
+      "stock_id": "CTC.A|Canada",
+      "ssac_name": "CANADIAN TIRE LTD CLASS A"
+    },
+    "NIPPON BUILDING FUND INC": {
+      "stock_id": "8951|Japan",
+      "ssac_name": "NIPPON BUILDING FUND REIT INC"
+    },
+    "GETLINK SE": {
+      "stock_id": "GET|France",
+      "ssac_name": "GETLINK"
+    },
+    "NIBE INDUSTRIER AB-B SHS": {
+      "stock_id": "NIBE B|Sweden",
+      "ssac_name": "NIBE INDUSTRIER CLASS B"
+    },
+    "SCOUT24 SE": {
+      "stock_id": "G24|Germany",
+      "ssac_name": "SCOUT24 N"
+    },
+    "IVANHOE MINES LTD": {
+      "stock_id": "IVN|Canada",
+      "ssac_name": "IVANHOE MINES LTD CLASS A"
+    },
+    "EMPIRE CO LTD A": {
+      "stock_id": "EMP.A|Canada",
+      "ssac_name": "EMPIRE LTD CLASS A"
+    },
+    "TELUS CORP NON CAN": {
+      "stock_id": "000063|China",
+      "ssac_name": "ZTE CORP A"
+    },
+    "SALMAR ASA": {
+      "stock_id": "SALM|Norway",
+      "ssac_name": "SALMAR"
+    },
+    "DAITO TRUST CONST  JPY50": {
+      "stock_id": "1878|Japan",
+      "ssac_name": "DAITO TRUST CONSTRUCTION LTD"
+    },
+    "NITORI HOLDINGS CO LTD": {
+      "stock_id": "9843|Japan",
+      "ssac_name": "NITORI HOLDINGS LTD"
+    },
+    "NIPPON PAINT CO LTD": {
+      "stock_id": "4612|Japan",
+      "ssac_name": "NIPPON PAINT HOLDINGS LTD"
+    },
+    "JERONIMO MARTINS": {
+      "stock_id": "JMT|Portugal",
+      "ssac_name": "JERONIMO MARTINS SA"
+    },
+    "SONIC HEALTHCARE": {
+      "stock_id": "SHL|Australia",
+      "ssac_name": "SONIC HEALTHCARE LTD"
+    },
+    "DR ING HC F PORSCHE AG": {
+      "stock_id": "P911|Germany",
+      "ssac_name": "DR ING HC F PORSCHE PRF AG"
+    },
+    "DEMANT A/S": {
+      "stock_id": "DEMANT|Denmark",
+      "ssac_name": "DEMANT"
+    },
+    "LAND SECURITIES GROUP PLC": {
+      "stock_id": "LAND|United Kingdom",
+      "ssac_name": "LAND SECURITIES GROUP REIT PLC"
+    },
+    "INDUTRADE AB": {
+      "stock_id": "INDT|Sweden",
+      "ssac_name": "INDUTRADE"
+    },
+    "BEIJER REF AB": {
+      "stock_id": "BEIJ B|Sweden",
+      "ssac_name": "BEIJER REF CLASS B"
+    },
+    "SARTORIUS STEDIM BIOTECH": {
+      "stock_id": "DIM|France",
+      "ssac_name": "SARTORIUS STEDIM BIOTECH SA"
+    },
+    "KAWASAKI KISEN KAI JPY50": {
+      "stock_id": "9107|Japan",
+      "ssac_name": "KAWASAKI KISEN LTD"
+    },
+    "SCHRODERS PLC": {
+      "stock_id": "TSCO|United Kingdom",
+      "ssac_name": "TESCO PLC"
+    },
+    "CAPITALAND INVESTMENT LTD/SI": {
+      "stock_id": "9CI|Singapore",
+      "ssac_name": "CAPITALAND INVESTMENT LTD"
+    },
+    "INDUSTRIVAERDEN -A-": {
+      "stock_id": "INDU C|Sweden",
+      "ssac_name": "INDUSTRIVARDEN SERIES"
+    },
+    "FIRSTSERVICE CORP": {
+      "stock_id": "FE|United States",
+      "ssac_name": "FIRSTENERGY CORP"
+    },
+    "BKW AG": {
+      "stock_id": "BKW|Switzerland",
+      "ssac_name": "BKW N AG"
+    },
+    "DEUTSCHE LUFTHANSA NOMINATIVE": {
+      "stock_id": "LHA|Germany",
+      "ssac_name": "DEUTSCHE LUFTHANSA AG"
+    },
+    "BROOKFIELD RENEWABLE CORP": {
+      "stock_id": "BEPC|Canada",
+      "ssac_name": "BROOKFIELD RENEWABLE SUBORDINATE V"
+    },
+    "JAPAN POST INSURANCE CO LTD": {
+      "stock_id": "7181|Japan",
+      "ssac_name": "JAPAN POST INSURANCE LTD"
+    },
+    "MONDAY.COM LTD": {
+      "stock_id": "MNDY|Israel",
+      "ssac_name": "MONDAYCOM LTD"
+    },
+    "TELECOM ITALIA - RNC": {
+      "stock_id": "TIT|Italy",
+      "ssac_name": "TELECOM ITALIA"
+    },
+    "NEXON CO LTD": {
+      "stock_id": "3659|Japan",
+      "ssac_name": "NEXON LTD"
+    },
+    "SHIMADZU CORP  Y50": {
+      "stock_id": "7701|Japan",
+      "ssac_name": "SHIMADZU CORP"
+    },
+    "CYBERARK SOFTWARE LTD/ISRAEL ACQU": {
+      "stock_id": "-|United States",
+      "ssac_name": "CYBERARK SOFTWARE CONTRA"
+    },
+    "ZALANDO SE": {
+      "stock_id": "ZAL|Germany",
+      "ssac_name": "ZALANDO"
+    },
+    "SEKISUI CHEMICAL  JPY50": {
+      "stock_id": "4204|Japan",
+      "ssac_name": "SEKISUI CHEMICAL LTD"
+    },
+    "EDP RENOVAVEIS": {
+      "stock_id": "EDPR|Portugal",
+      "ssac_name": "EDP RENOVAVEIS SA"
+    },
+    "SYENSQO SA": {
+      "stock_id": "SYENS|Belgium",
+      "ssac_name": "SYENSQO NV"
+    },
+    "SANRIO CO LTD": {
+      "stock_id": "8136|Japan",
+      "ssac_name": "SANRIO LTD"
+    },
+    "BANCA MEDIOLANUM SPA": {
+      "stock_id": "MIL|Poland",
+      "ssac_name": "BANK MILLENNIUM SA"
+    },
+    "HULIC CO LTD": {
+      "stock_id": "ICL|Israel",
+      "ssac_name": "ICL GROUP LTD"
+    },
+    "CANADIAN UTILITIES LTD": {
+      "stock_id": "000783|China",
+      "ssac_name": "CHANGJIANG SECURITIES LTD A"
+    },
+    "IGM FINANCIAL INC CAN": {
+      "stock_id": "IAG|Canada",
+      "ssac_name": "IA FINANCIAL INC"
+    },
+    "MATSUKIYOCOCOKARA & CO": {
+      "stock_id": "3088|Japan",
+      "ssac_name": "MATSUKIYOKARA"
+    },
+    "SVENSKA CELLULOSA AB": {
+      "stock_id": "SCA B|Sweden",
+      "ssac_name": "SVENSKA CELLULOSA B"
+    },
+    "SYSMEX CORPORATION": {
+      "stock_id": "METSO|Finland",
+      "ssac_name": "METSO CORPORATION"
+    },
+    "MAPFRE SA": {
+      "stock_id": "SAF|France",
+      "ssac_name": "SAFRAN SA"
+    },
+    "NEMETSCHEK AG": {
+      "stock_id": "NEM|Germany",
+      "ssac_name": "NEMETSCHEK"
+    },
+    "AYVENS SA": {
+      "stock_id": "AGS|Belgium",
+      "ssac_name": "AGEAS SA"
+    },
+    "SOFINA": {
+      "stock_id": "SOF|Belgium",
+      "ssac_name": "SOFINA SA"
+    },
+    "ADP": {
+      "stock_id": "SAP|Germany",
+      "ssac_name": "SAP"
+    },
+    "BOLLORE SE": {
+      "stock_id": "OR|France",
+      "ssac_name": "LOREAL SA"
+    },
+    "TOHO CO LTD/TOKYO": {
+      "stock_id": "9602|Japan",
+      "ssac_name": "TOHO (TOKYO) LTD"
+    },
+    "CTS EVENTIM": {
+      "stock_id": "EVD|Germany",
+      "ssac_name": "CTS EVENTIM AG"
+    },
+    "SAGAX AB-B": {
+      "stock_id": "SAGA B|Sweden",
+      "ssac_name": "SAGAX CLASS B"
+    },
+    "SEMBCORP INDUSTRIES": {
+      "stock_id": "U96|Singapore",
+      "ssac_name": "SEMBCORP INDUSTRIES LTD"
+    },
+    "AIRTEL AFRICA PLC": {
+      "stock_id": "AAL|United Kingdom",
+      "ssac_name": "ANGLO AMERICAN PLC"
+    },
+    "FASTIGHETS AB BALDER-B SHRS": {
+      "stock_id": "BALD B|Sweden",
+      "ssac_name": "FASTIGHETS BALDER CLASS B"
+    },
+    "D IETEREN GROUP": {
+      "stock_id": "ITRK|United Kingdom",
+      "ssac_name": "INTERTEK GROUP PLC"
+    },
+    "GECINA SA": {
+      "stock_id": "ANA|Spain",
+      "ssac_name": "ACCIONA SA"
+    },
+    "BUZZI SPA": {
+      "stock_id": "BZU|Italy",
+      "ssac_name": "BUZZI"
+    },
+    "OPEN TEXT CORP CAD": {
+      "stock_id": "OTEX|Canada",
+      "ssac_name": "OPEN TEXT CORP"
+    },
+    "BIOMERIEUX": {
+      "stock_id": "BIM|France",
+      "ssac_name": "BIOMERIEUX SA"
+    },
+    "KYOWA KIRIN CO LTD": {
+      "stock_id": "4151|Japan",
+      "ssac_name": "KYOWA KIRIN LTD"
+    },
+    "GJENSIDIGE FORSIKRING ASA": {
+      "stock_id": "GJF|Norway",
+      "ssac_name": "GJENSIDIGE FORSIKRING"
+    },
+    "GRIFOLS SA": {
+      "stock_id": "GRF|Spain",
+      "ssac_name": "GRIFOLS SA CLASS A"
+    },
+    "LEG IMMOBILIEN AG": {
+      "stock_id": "LEG|Germany",
+      "ssac_name": "LEG IMMOBILIEN N"
+    },
+    "MONOTARO CO LTD": {
+      "stock_id": "3064|Japan",
+      "ssac_name": "MONOTARO LTD"
+    },
+    "ROCKWOOL A/S-B SHS": {
+      "stock_id": "ROCK B|Denmark",
+      "ssac_name": "ROCKWOOL CLASS B"
+    },
+    "MTR CORP": {
+      "stock_id": "6762|Japan",
+      "ssac_name": "TDK CORP"
+    },
+    "RANDSTAD NV": {
+      "stock_id": "RAND|Netherlands",
+      "ssac_name": "RANDSTAD HOLDING"
+    },
+    "SINO LAND CO  HKD1": {
+      "stock_id": "83|Hong Kong",
+      "ssac_name": "SINO LAND LTD"
+    },
+    "EDP RENOVAVEIS-BONUS RIGHTS": {
+      "stock_id": "EDPR|Portugal",
+      "ssac_name": "EDP RENOVAVEIS SA"
+    }
+  }
+}
