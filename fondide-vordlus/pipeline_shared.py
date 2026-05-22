@@ -2333,8 +2333,15 @@ def fund_to_json(df, name, acwi_nk, acwi_keys, sector_lookup):
         h['weight'] = round(h['weight'], 3)
 
     key_col = 'norm_key' if 'norm_key' in df.columns else 'stock_id'
-    in_acwi = df[df[key_col].isin(acwi_keys)]
-    overlap_w = round(in_acwi['weight'].sum(), 2)
+
+    # Overlap with ACWI: Σ min(w_fund[i], w_acwi[i]) for all stocks
+    # This is 1 − Active Share (Cremers & Petajisto 2009).
+    fund_weights = df.groupby(key_col)['weight'].sum()
+    acwi_weights = acwi_nk.groupby(key_col)['weight'].sum()
+    all_keys = fund_weights.index.union(acwi_weights.index)
+    fw = fund_weights.reindex(all_keys, fill_value=0)
+    aw = acwi_weights.reindex(all_keys, fill_value=0)
+    overlap_w = round(fw.clip(upper=aw).sum(), 2)
 
     m = df[[key_col, 'weight']].merge(acwi_nk[[key_col, 'weight']], on=key_col, suffixes=('_f', '_a'))
     corr = round(m['weight_f'].corr(m['weight_a']), 4) if len(m) > 5 else 0
