@@ -248,8 +248,9 @@
       "ssac_name": "UNITED PARCEL SERVICE INC CLASS B"
     },
     "THE CIGNA GROUP": {
-      "stock_id": "SGE|United Kingdom",
-      "ssac_name": "THE SAGE GROUP PLC"
+      "stock_id": "CI|United States",
+      "ssac_name": "CIGNA GROUP",
+      "isin": "US1255231003"
     },
     "ILLINOIS TOOL WORK": {
       "stock_id": "ITW|United States",
@@ -1275,8 +1276,9 @@
       "ssac_name": "BANCO BILBAO VIZCAYA ARGENTARIA SA"
     },
     "SHOPIFY INC-A CAD": {
-      "stock_id": "SOF|Belgium",
-      "ssac_name": "SOFINA SA"
+      "stock_id": "SHOP|Canada",
+      "ssac_name": "SHOPIFY INC CLASS A",
+      "isin": "CA82509L1076"
     },
     "DEUTSCHE TELEKOM NAMEN (XETRA)": {
       "stock_id": "DTE|Germany",
@@ -1307,8 +1309,9 @@
       "ssac_name": "BNP PARIBAS SA"
     },
     "GSK PLC": {
-      "stock_id": "SSE|United Kingdom",
-      "ssac_name": "SSE PLC"
+      "stock_id": "GSK|United Kingdom",
+      "ssac_name": "GSK PLC",
+      "isin": "GB00BN7SWP63"
     },
     "L OREAL": {
       "stock_id": "OR|France",
@@ -1615,8 +1618,9 @@
       "ssac_name": "SWISS LIFE HOLDING AG"
     },
     "TRANSURBAN GROUP": {
-      "stock_id": "SBK|South Africa",
-      "ssac_name": "STANDARD BANK GROUP"
+      "stock_id": "TCL|Australia",
+      "ssac_name": "TRANSURBAN GROUP LTD",
+      "isin": "AU000000TCL6"
     },
     "TECHTRONIC INDUSTRIES CO": {
       "stock_id": "669|Hong Kong",
@@ -1831,8 +1835,9 @@
       "ssac_name": "BANCA MONTE DEI PASCHI DI SIENA SP"
     },
     "BROOKFIELD ASSET MGMT-A": {
-      "stock_id": "BN|Canada",
-      "ssac_name": "BROOKFIELD CORP CLASS A"
+      "stock_id": "BAM|Canada",
+      "ssac_name": "BROOKFIELD ASSET MANAGEMENT LTD CLASS A",
+      "isin": "CA1130041058"
     },
     "TERUMO CORP  JPY50": {
       "stock_id": "4543|Japan",
@@ -2471,12 +2476,9 @@
       "ssac_name": "GROUPE BRUXELLES LAMBERT NV"
     },
     "STANDARD LIFE PLC": {
-      "stock_id": "STAN|United Kingdom",
-      "ssac_name": "STANDARD CHARTERED PLC"
-    },
-    "MITSUBISHI UFJ LEASE FINANCE": {
-      "stock_id": "8306|Japan",
-      "ssac_name": "MITSUBISHI UFJ FINANCIAL GROUP INC"
+      "stock_id": "SL|United Kingdom",
+      "ssac_name": "STANDARD LIFE PLC",
+      "isin": "GB00BGXQNP29"
     },
     "LIFCO AB-B SHS": {
       "stock_id": "LIFCO B|Sweden",
