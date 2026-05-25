@@ -36,8 +36,9 @@
       "ssac_name": "VISA INC CLASS A"
     },
     "INTEL CORP": {
-      "stock_id": "INCY|United States",
-      "ssac_name": "INCYTE CORP"
+      "stock_id": "INTC|United States",
+      "ssac_name": "INTEL CORP",
+      "isin": "US4581401001"
     },
     "MASTERCARD INC-CL A": {
       "stock_id": "MA|United States",
@@ -52,8 +53,9 @@
       "ssac_name": "APPLIED MATERIAL INC"
     },
     "GENERAL ELECTRIC": {
-      "stock_id": "EMR|United States",
-      "ssac_name": "EMERSON ELECTRIC"
+      "stock_id": "GE|United States",
+      "ssac_name": "GE AEROSPACE",
+      "isin": "US3696043013"
     },
     "PALANTIR TECHNOLOGIES INC-A": {
       "stock_id": "PLTR|United States",
@@ -84,8 +86,9 @@
       "ssac_name": "WALT DISNEY"
     },
     "TJX COMPANIES INC": {
-      "stock_id": "LOW|United States",
-      "ssac_name": "LOWES COMPANIES INC"
+      "stock_id": "TJX|United States",
+      "ssac_name": "TJX COMPANIES INC",
+      "isin": "US8725401090"
     },
     "SALESFORCE COM": {
       "stock_id": "CRM|United States",
@@ -132,8 +135,9 @@
       "ssac_name": "VERTIV HOLDINGS CLASS A"
     },
     "NEWMONT CORP USD": {
-      "stock_id": "2356|Taiwan",
-      "ssac_name": "INVENTEC CORP"
+      "stock_id": "NEM|United States",
+      "ssac_name": "NEWMONT CORPORATION",
+      "isin": "US6516391066"
     },
     "CAPITAL ONE FINL COM US 0.01": {
       "stock_id": "COF|United States",
@@ -160,12 +164,14 @@
       "ssac_name": "VERTEX PHARMACEUTICALS INC"
     },
     "CME GROUP INC": {
-      "stock_id": "MKL|United States",
-      "ssac_name": "MARKEL GROUP INC"
+      "stock_id": "CME|United States",
+      "ssac_name": "CME GROUP INC CLASS A",
+      "isin": "US12572Q1058"
     },
     "EQUINIX INC": {
-      "stock_id": "EFX|United States",
-      "ssac_name": "EQUIFAX INC"
+      "stock_id": "EQIX|United States",
+      "ssac_name": "EQUINIX INC",
+      "isin": "US29444U7000"
     },
     "T-MOBILE US INC": {
       "stock_id": "TMUS|United States",
@@ -212,8 +218,9 @@
       "ssac_name": "AMERICAN TOWER REIT CORP"
     },
     "SLB LTD": {
-      "stock_id": "CSL|Australia",
-      "ssac_name": "CSL LTD"
+      "stock_id": "SLB|United States",
+      "ssac_name": "SCHLUMBERGER NV",
+      "isin": "AN8068571086"
     },
     "NXP SEMICONDUCTORS NV USD": {
       "stock_id": "NXPI|United States",
@@ -224,8 +231,9 @@
       "ssac_name": "OREILLY AUTOMOTIVE INC"
     },
     "DELL TECHNOLOGIES -C": {
-      "stock_id": "UBER|United States",
-      "ssac_name": "UBER TECHNOLOGIES INC"
+      "stock_id": "DELL|United States",
+      "ssac_name": "DELL TECHNOLOGIES INC CLASS C",
+      "isin": "US24703L2025"
     },
     "HILTON WORLDWIDE HOLDINGS IN": {
       "stock_id": "HLT|United States",
@@ -364,8 +372,9 @@
       "ssac_name": "CHIPOTLE MEXICAN GRILL INC"
     },
     "WABTEC CORP": {
-      "stock_id": "WAT|United States",
-      "ssac_name": "WATERS CORP"
+      "stock_id": "WAB|United States",
+      "ssac_name": "WESTINGHOUSE AIR BRAKE TECHNOLOGIES CORP",
+      "isin": "US9297401088"
     },
     "AMERIPRISE FINANCIAL": {
       "stock_id": "AMP|United States",
@@ -392,8 +401,9 @@
       "ssac_name": "OLD DOMINION FREIGHT LINE INC"
     },
     "STRATEGY INC": {
-      "stock_id": "STN|Canada",
-      "ssac_name": "STANTEC INC"
+      "stock_id": "MSTR|United States",
+      "ssac_name": "STRATEGY INCORPORATED",
+      "isin": "US5949724083"
     },
     "WASTE CONNECTIONS INC(USD)": {
       "stock_id": "WCN|United States",
@@ -420,8 +430,9 @@
       "ssac_name": "AMERICAN INTERNATIONAL GROUP INC"
     },
     "CBRE GROUP INC": {
-      "stock_id": "CG|United States",
-      "ssac_name": "CARLYLE GROUP INC"
+      "stock_id": "CBRE|United States",
+      "ssac_name": "CBRE GROUP INC CLASS A",
+      "isin": "US12504L1098"
     },
     "DR HORTON INC": {
       "stock_id": "DHI|United States",
@@ -436,8 +447,9 @@
       "ssac_name": "INTERACTIVE BROKERS GROUP INC CLAS"
     },
     "BLOCK INC": {
-      "stock_id": "BLK|United States",
-      "ssac_name": "BLACKROCK INC"
+      "stock_id": "XYZ|United States",
+      "ssac_name": "BLOCK INC CLASS A",
+      "isin": "US8522341036"
     },
     "VULCAN MATERIALS CO": {
       "stock_id": "VMC|United States",
@@ -456,8 +468,9 @@
       "ssac_name": "M&T BANK CORP"
     },
     "ZOETIS INC": {
-      "stock_id": "3626|Japan",
-      "ssac_name": "TIS INC"
+      "stock_id": "ZTS|United States",
+      "ssac_name": "ZOETIS INC CLASS A",
+      "isin": "US98978V1035"
     },
     "P G & E CORP": {
       "stock_id": "PCG|United States",
@@ -512,16 +525,18 @@
       "ssac_name": "HERSHEY FOODS"
     },
     "ZOOM COMMUNICATIONS INC": {
-      "stock_id": "VZ|United States",
-      "ssac_name": "VERIZON COMMUNICATIONS INC"
+      "stock_id": "ZM|United States",
+      "ssac_name": "ZOOM VIDEO COMMUNICATIONS INC CLASS A",
+      "isin": "US98980L1017"
     },
     "AVALONBAY COMMUNITIES INC": {
       "stock_id": "AVB|United States",
       "ssac_name": "AVALONBAY COMMUNITIES REIT INC"
     },
     "WORKDAY INC": {
-      "stock_id": "CPAY|United States",
-      "ssac_name": "CORPAY INC"
+      "stock_id": "WDAY|United States",
+      "ssac_name": "WORKDAY INC CLASS A",
+      "isin": "US98138H1014"
     },
     "MONGODB INC": {
       "stock_id": "MDB|United States",
@@ -600,8 +615,9 @@
       "ssac_name": "LPL FINANCIAL HOLDINGS INC"
     },
     "PURE STORAGE INC CL A": {
-      "stock_id": "MSTR|United States",
-      "ssac_name": "STRATEGY INC CLASS A"
+      "stock_id": "PSTG|United States",
+      "ssac_name": "PURE STORAGE INC CLASS A",
+      "isin": "US74624M1027"
     },
     "HEICO CORP-CLASS A": {
       "stock_id": "HEIA|United States",
@@ -656,8 +672,9 @@
       "ssac_name": "ESTEE LAUDER INC CLASS A"
     },
     "METTLER-TOLEDO INTERNATIONAL": {
-      "stock_id": "RMS|France",
-      "ssac_name": "HERMES INTERNATIONAL"
+      "stock_id": "MTD|United States",
+      "ssac_name": "METTLER TOLEDO INTERNATIONAL INC",
+      "isin": "US5926881054"
     },
     "ROYALTY PHARMA PLC- CL A": {
       "stock_id": "RPRX|United States",
@@ -692,8 +709,9 @@
       "ssac_name": "AST SPACEMOBILE INC CLASS A"
     },
     "OKTA INC": {
-      "stock_id": "CTVA|United States",
-      "ssac_name": "CORTEVA INC"
+      "stock_id": "OKTA|United States",
+      "ssac_name": "OKTA INC CLASS A",
+      "isin": "US6792951054"
     },
     "FLUTTER ENTERTAINMENT PLC-DI": {
       "stock_id": "FLUT|United States",
@@ -712,8 +730,9 @@
       "ssac_name": "FIRST CITIZENS BANCSHARES INC CLAS"
     },
     "PENTAIR PLC": {
-      "stock_id": "ENT|United Kingdom",
-      "ssac_name": "ENTAIN PLC"
+      "stock_id": "PNR|United States",
+      "ssac_name": "PENTAIR PLC",
+      "isin": "IE00BLS09M33"
     },
     "WP CAREY INC": {
       "stock_id": "WPC|United States",
@@ -752,8 +771,9 @@
       "ssac_name": "DELTA AIR LINES INC"
     },
     "SS&C TECHNOLOGIES HOLDINGS INC": {
-      "stock_id": "2018|China",
-      "ssac_name": "AAC TECHNOLOGIES HOLDINGS INC"
+      "stock_id": "SSNC|United States",
+      "ssac_name": "SS&C TECHNOLOGIES HOLDINGS INC",
+      "isin": "US78467J1007"
     },
     "DICK S SPORTING GOOD": {
       "stock_id": "DKS|United States",
@@ -808,8 +828,9 @@
       "ssac_name": "DRAFTKINGS INC CLASS A"
     },
     "CLOROX COMPANY": {
-      "stock_id": "TELIA|Sweden",
-      "ssac_name": "TELIA COMPANY"
+      "stock_id": "CLX|United States",
+      "ssac_name": "CLOROX COMPANY",
+      "isin": "US1890541097"
     },
     "TOAST INC-CLASS A": {
       "stock_id": "TOST|United States",
@@ -867,10 +888,6 @@
       "stock_id": "IOT|United States",
       "ssac_name": "SAMSARA INC CLASS A"
     },
-    "OKLO INC": {
-      "stock_id": "3092|Japan",
-      "ssac_name": "ZOZO INC"
-    },
     "FOX CORP - CLASS B": {
       "stock_id": "FOX|United States",
       "ssac_name": "FOX CORP CLASS B"
@@ -892,8 +909,9 @@
       "ssac_name": "ZILLOW GROUP INC CLASS C"
     },
     "COREBRIDGE FINANCIAL INC": {
-      "stock_id": "IAG|Canada",
-      "ssac_name": "IA FINANCIAL INC"
+      "stock_id": "CRBG|United States",
+      "ssac_name": "COREBRIDGE FINANCIAL INC",
+      "isin": "US21871X1090"
     },
     "HYATT HOTELS CORP": {
       "stock_id": "H|United States",
@@ -914,8 +932,9 @@
       "ssac_name": "VISA INC CLASS A"
     },
     "INTEL CORP": {
-      "stock_id": "INCY|United States",
-      "ssac_name": "INCYTE CORP"
+      "stock_id": "INTC|United States",
+      "ssac_name": "INTEL CORP",
+      "isin": "US4581401001"
     },
     "MASTERCARD INC   A": {
       "stock_id": "MA|United States",
@@ -954,8 +973,9 @@
       "ssac_name": "BRISTOL MYERS SQUIBB"
     },
     "EQUINIX INC": {
-      "stock_id": "EFX|United States",
-      "ssac_name": "EQUIFAX INC"
+      "stock_id": "EQIX|United States",
+      "ssac_name": "EQUINIX INC",
+      "isin": "US29444U7000"
     },
     "CADENCE DESIGN SYS INC": {
       "stock_id": "CDNS|United States",
@@ -994,8 +1014,9 @@
       "ssac_name": "ILLINOIS TOOL INC"
     },
     "CRH PLC": {
-      "stock_id": "AMCR|United States",
-      "ssac_name": "AMCOR PLC"
+      "stock_id": "CRH|United States",
+      "ssac_name": "CRH PLC",
+      "isin": "IE0001827041"
     },
     "REGENERON PHARMACEUTICALS": {
       "stock_id": "REGN|United States",
@@ -1038,12 +1059,14 @@
       "ssac_name": "PG&E CORP"
     },
     "ZOETIS INC": {
-      "stock_id": "3626|Japan",
-      "ssac_name": "TIS INC"
+      "stock_id": "ZTS|United States",
+      "ssac_name": "ZOETIS INC CLASS A",
+      "isin": "US98978V1035"
     },
     "CARNIVAL CORPORATION LTD": {
-      "stock_id": "BID|South Africa",
-      "ssac_name": "BID CORPORATION LTD"
+      "stock_id": "CCL|United States",
+      "ssac_name": "CARNIVAL CORPORATION LTD",
+      "isin": "BMG2004J1036"
     },
     "CREDO TECHNOLOGY GROUP HOLDI": {
       "stock_id": "CRDO|United States",
@@ -1062,8 +1085,9 @@
       "ssac_name": "VEEVA SYSTEMS INC CLASS A"
     },
     "ZOOM COMMUNICATIONS INC": {
-      "stock_id": "VZ|United States",
-      "ssac_name": "VERIZON COMMUNICATIONS INC"
+      "stock_id": "ZM|United States",
+      "ssac_name": "ZOOM VIDEO COMMUNICATIONS INC CLASS A",
+      "isin": "US98980L1017"
     },
     "AMRIZE LTD": {
       "stock_id": "AMRZ|United States",
@@ -1082,8 +1106,9 @@
       "ssac_name": "ESTEE LAUDER INC CLASS A"
     },
     "RELIANCE INC": {
-      "stock_id": "ROL|United States",
-      "ssac_name": "ROLLINS INC"
+      "stock_id": "RS|United States",
+      "ssac_name": "RELIANCE INC",
+      "isin": "US7595091023"
     },
     "TYSON FOODS INC-CL A": {
       "stock_id": "TSN|United States",
@@ -1122,8 +1147,9 @@
       "ssac_name": "REDDIT INC CLASS A"
     },
     "SS&C TECHNOLOGIES HOLDINGS": {
-      "stock_id": "2018|China",
-      "ssac_name": "AAC TECHNOLOGIES HOLDINGS INC"
+      "stock_id": "SSNC|United States",
+      "ssac_name": "SS&C TECHNOLOGIES HOLDINGS INC",
+      "isin": "US78467J1007"
     },
     "REGENCY CENTERS CORP": {
       "stock_id": "REG|United States",
@@ -1158,8 +1184,9 @@
       "ssac_name": "CNH INDUSTRIAL N.V. NV"
     },
     "COREBRIDGE FINANCIAL INC": {
-      "stock_id": "IAG|Canada",
-      "ssac_name": "IA FINANCIAL INC"
+      "stock_id": "CRBG|United States",
+      "ssac_name": "COREBRIDGE FINANCIAL INC",
+      "isin": "US21871X1090"
     },
     "HYATT HOTELS CORP - CL A": {
       "stock_id": "H|United States",
