@@ -235,3 +235,7 @@ reports/adhoc/data/card_*.pkl
 reports/adhoc/data/*cohort*.csv
 reports/adhoc/data/*customer*.csv
 reports/adhoc/data/campaign_cache.json
+
+# Blog post task notes — internal planning, not for publication
+blogposts/*/task*.md
+blogposts/*/task*.txt

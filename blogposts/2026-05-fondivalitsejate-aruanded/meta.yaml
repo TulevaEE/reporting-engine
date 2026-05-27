@@ -1,0 +1,22 @@
+# Metadata for blog post: mida-raagivad-fondivalitsejate-aruanded-2025
+# Skriptid (push_to_doc, pull_from_doc, export_notebook) loevad seda faili.
+
+title: Mida räägivad meile fondivalitsejate 2025. aasta aruanded?
+slug: mida-raagivad-fondivalitsejate-aruanded-2025
+date: 2026-05-27
+author: Tõnu
+status: draft        # draft | in_review | published
+
+# Failid posti kataloogis
+post_md: post.md
+notebook: analysis.ipynb
+charts_dir: charts
+data_dir: data
+
+# Google Doc (kolleegide toimetamine)
+google_doc_id: 1dMuprG_rN64WtTxGJLq3JbG_wwhgSaokShJdW0wzV2g
+google_doc_url: https://docs.google.com/document/d/1dMuprG_rN64WtTxGJLq3JbG_wwhgSaokShJdW0wzV2g/edit
+
+# Avaldamine
+notebook_html_target: docs/blogposts/2026-05-fondivalitsejate-aruanded.html
+wordpress_url:       # täita publikatsiooni järel

@@ -1,27 +1,31 @@
 ---
 title: Mida räägivad meile fondivalitsejate 2025. aasta aruanded?
-date: 2026-MM-DD
+slug: mida-raagivad-fondivalitsejate-aruanded-2025
+date: 2026-05-27
 author: Tõnu
-status: draft
-based_on:
-  - knowledge/blog/data/posts/2023/2023-06-06-mida-raagivad-fondivalitsejate-aruanded.md
+status: draft  # draft | in_review | published
+google_doc_id: 1dMuprG_rN64WtTxGJLq3JbG_wwhgSaokShJdW0wzV2g
+google_doc_url: https://docs.google.com/document/d/1dMuprG_rN64WtTxGJLq3JbG_wwhgSaokShJdW0wzV2g/edit
+notebook_html_url: https://tulevaee.github.io/reporting-engine/blogposts/2026-05-fondivalitsejate-aruanded.html  # täidetakse pärast esimest publi-katsetust
+wordpress_url:  # täita publikatsiooni järel
+summary: 2025. aasta aruannete põhjal kulutavad pankade fondivalitsejad kogujate raha valdavalt müügile ja kasumiks, mitte fondi tegelikuks haldamiseks. Tuleva kulud on 2-3 korda madalamad.
 data_sources:
-  - /Users/tonupekk/Desktop/tuleva-reports/reports/adhoc/fund_manager_expenses.ipynb (2025)
+  - analysis.ipynb (jooksvad arvutused)
   - Pensionikeskus.ee (II ja III samba NAV 2020–2025)
   - Fondivalitsejate avaldatud 2025. a aastaaruanded
 charts:
-  - chart-a-ii-samba-churn-2025.{svg,png}
-  - chart-b-teenustasu-pie-2025.{svg,png}
-  - chart-c-indeksifondide-osakaal-2020-2025.{svg,png}
+  - chart-a-ii-samba-churn-2025.png
+  - chart-b-teenustasu-pie-2025.png
+  - chart-c-indeksifondide-osakaal-2020-2025.png
 ---
 
 # Mida räägivad meile fondivalitsejate 2025. aasta aruanded?
 
-*Kui Tulevaga alustasime, panime tähele, et pankade kõrged tasud ei läinud mitte suure investeerimismeeskonna tasudeks vaid müügiks ja emaettevõtte kasumiks. Kuigi pensionifondide tasud on viimase 10 aastaga tublisti langenud, näitavad ka 2025. aasta aruanded, et ka täna läheb enamus kõrgest tasust sinna. Paradoksaalne on seejuures, et hoolimata kõrgetest müügikuludest, pankade vanade pensionifondide maht ei kasva.*
+*Kui Tulevaga alustasime, panime tähele, et pankade kõrged tasud ei läinud mitte suure investeerimismeeskonna tasudeks vaid müügiks ja emaettevõtte kasumiks. Kuigi pensionifondide tasud on viimase 10 aastaga tublisti langenud, paistab ka 2025. aasta aruannetest, et ka täna läheb enamus kõrgest tasust sinna. Paradoksaalne on seejuures, et hoolimata kõrgetest müügikuludest, pankade vanade pensionifondide maht ei kasva.*
 
 ##### Miks pankade fondiäri ei kasva?
 
-[![II samba churn 2025](chart-a-ii-samba-churn-2025.svg)](chart-a-ii-samba-churn-2025.svg)
+![II samba churn 2025](charts/chart-a-ii-samba-churn-2025.png)
 
 *Allikas: Pensionikeskus.ee, Tuleva analüüs. „Churn" = aasta jooksul fondist välja vahetatud raha osakaal aasta algse fondimahu suhtes.*
 
@@ -46,7 +50,7 @@ Kogukulud suhtena fondide vara mahtu (II + III sammas, 2025):
 
 ##### Kuhu kulub pensionifondide teenustasu?
 
-[![Pie chart 2025](chart-b-teenustasu-pie-2025.svg)](chart-b-teenustasu-pie-2025.svg)
+![Pie chart 2025](charts/chart-b-teenustasu-pie-2025.png)
 
 Küsisime seda küsimust juba [8 aastat tagasi](/?p=16506), kui Tuleva alustas. Pangad väitsid, et madalama tasuga ei saa pensionifonde teha. Meie näitasime, et saame. Tuleb lihtsalt raha kulutada ainult neile tegevustele, mis kogujatele väärtust loovad.
 
@@ -54,13 +58,13 @@ Tänagi maksavad pankade pensionifondides kogujad raha teenuse eest, mida nad ei
 
 Ehk **igast 100 eurost, mille koguja maksab teenustasuna pankade pensionifondile, läheb ainult ~18 eurot fondi tegelikuks haldamiseks**. Ülejäänud ~82 eurot kulub müügile ja kasumiks — tegevustele, mis kogujale väärtust ei loo.
 
-*[Vaata detailsemat analüüsi koos viidetega aruannetele.](https://tulevaee.github.io/reporting-engine/fund_manager_expenses.html)*
+*[Vaata detailsemat analüüsi koos viidetega aruannetele.](https://tulevaee.github.io/reporting-engine/blogposts/2026-05-fondivalitsejate-aruanded.html)*
 
 ##### Mida see kogujatele tähendab?
 
 Kogujad hääletavad jalgadega ning järjest suurem osa ei ole nõus enam pankade kõrgeid kulusid kinni maksma. Seepärast kasvab indeksifondide maht nii teises kui kolmandas sambas kiiresti. Täpselt nii nagu mujalgi maailmas.
 
-[![Indeksifondide osakaal 2020-2025](chart-c-indeksifondide-osakaal-2020-2025.svg)](chart-c-indeksifondide-osakaal-2020-2025.svg)
+![Indeksifondide osakaal 2020-2025](charts/chart-c-indeksifondide-osakaal-2020-2025.png)
 
 *Allikas: Pensionikeskus.ee. „Indeksifondid" = passiivselt juhitud fondid (nimes „Indeks" / „Index" + Tuleva fondid).*
 
@@ -76,24 +80,10 @@ Seda, kui palju sinu fond tasu võtab, näed Pensionikeskuse lehel või veelgi l
 
 ---
 
-*(1) Detailset analüüsi koos viidetega aruannetele [vaata siit](https://tulevaee.github.io/reporting-engine/fund_manager_expenses.html).*
-*(2) [Pensionifondide müügistatistika leiad Pensionikeskuse lehelt.](https://www.pensionikeskus.ee/statistika/ii-sammas/kogumispensioni-fondide-pik-vahetus/)*
-*(3) [Pensionifondide jooksvad tasud leiad Pensionikeskuse lehelt.](https://www.pensionikeskus.ee/ii-sammas/kohustuslikud-pensionifondid/jooksvate-tasude-vordlus/)*
-*(4) [Morningstar Inc. Fund fees predict future success or failure](https://www.morningstar.com/articles/752485/fund-fees-predict-future-success-or-failure).*
+*Andmenohikule: kogu analüüs, allikad ja arvutused on avalikud — [vaata notebookki repos](https://github.com/TulevaEE/reporting-engine/blob/main/blogposts/2026-05-fondivalitsejate-aruanded/analysis.ipynb) või [renderdatud HTML versioonina](https://tulevaee.github.io/reporting-engine/blogposts/2026-05-fondivalitsejate-aruanded.html).*
 
 ---
 
-## Kuluartiklid 2025
-
-Allikas: `tuleva-reports/reports/adhoc/fund_manager_expenses.ipynb`. Summad € tuhandetes.
-
-| Fondivalitseja | Depootasu | Tööjõukulud | Muud halduskulud | Põhivara amort | Kapitaliseeritud kulud | Korrigeeritud kulud kokku |
-|---|---:|---:|---:|---:|---:|---:|
-| Swedbank | 1 476 | 1 308 | 10 526 | 0 | 0 | **13 309** |
-| LHV | 587 | 2 644 | 2 888 | 1 248 | 422 | **6 543** |
-| SEB | 509 | 897 | 4 398 | 11 | 0 | **5 804** |
-| Luminor | 304 | 645 | 683 | 1 878 | 1 886 | **3 518** |
-| **Pangad kokku** | **2 876** | **5 494** | **18 495** | **3 137** | **2 308** | **29 174** |
-| Tuleva | 210 | 909 | 1 343 | 63 | 252 | **2 714** |
-
-*Arvestusmeetodi ühtlustamiseks võtsime kulude summast välja amortisatsiooni ja lisasime aasta jooksul kapitaliseeritud kulud.*
+*(1) [Pensionifondide müügistatistika leiad Pensionikeskuse lehelt.](https://www.pensionikeskus.ee/statistika/ii-sammas/kogumispensioni-fondide-pik-vahetus/)*
+*(2) [Pensionifondide jooksvad tasud leiad Pensionikeskuse lehelt.](https://www.pensionikeskus.ee/ii-sammas/kohustuslikud-pensionifondid/jooksvate-tasude-vordlus/)*
+*(3) [Morningstar Inc. Fund fees predict future success or failure](https://www.morningstar.com/articles/752485/fund-fees-predict-future-success-or-failure).*
