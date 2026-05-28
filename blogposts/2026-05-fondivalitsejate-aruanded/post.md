@@ -52,7 +52,7 @@ Kogukulud suhtena fondide vara mahtu (II + III sammas, 2025):
 
 ![Pie chart 2025](charts/chart-b-teenustasu-pie-2025.png)*Igast eurost teenustasu pankade pensionifondides läheb fondi haldamiseks ainult 18%. Graafikul on pankade kogutud teenustasu jagunemine, 2025. a kokku 50,7 mln €.*
 
-Küsisime seda küsimust juba [kaheksa aastat tagasi](http://docs.google.com/?p=16506), kui Tuleva alustas. Pangad väitsid, et madalama tasuga ei saa pensionifonde teha. Meie näitasime, et saame. Tuleb lihtsalt raha kulutada ainult neile tegevustele, mis kogujatele väärtust loovad.
+Küsisime seda küsimust juba [kaheksa aastat tagasi](https://tuleva.ee/analuusid/mida-raagivad-fondivalitsejate-aruanded/), kui Tuleva alustas. Pangad väitsid, et madalama tasuga ei saa pensionifonde teha. Meie näitasime, et saame. Tuleb lihtsalt raha kulutada ainult neile tegevustele, mis kogujatele väärtust loovad.
 
 Tänagi maksavad pankade pensionifondides kogujad raha teenuse eest, mida nad ei vaja. Pangad teenisid 2025. aastal Eesti II ja III samba pensionifondidest **50,7 miljonit eurot** valitsemistasu tulu. Sellest läks **ainult 18% (9 miljonit eurot) fondi tegelikuks haldamiseks: investeerimistiimi palkadeks**, IT-le, depootasudele ja muudeks tegevuskuludeks. **Ülejäänud 82% (42 miljonit eurot) kulus müügile, turundusele, emaettevõtte vahendustasudele ja jäi pankade kasumiks**.
 
