@@ -112,54 +112,15 @@
 <body>
 <header class="hero">
   <div class="page" style="padding:0;max-width:1064px;">
-    <h1>Tee €2,6 miljardini</h1>
-    <p class="sub">Tuleva varade kasvu strateegia · 2026 → 2029. aasta keskpaik · nõukogu materjal</p>
-    <div class="hero-flow">
-      <div class="hero-num">
-        <span class="lbl">AUM täna</span>
-        <span class="big">€1,64 mld</span>
-      </div>
-      <div class="hero-arrow">→</div>
-      <div class="hero-num target">
-        <span class="lbl">Eesmärk 2029 H1</span>
-        <span class="big">€2,6 mld</span>
-      </div>
-      <div class="hero-tag">
-        <b>+€0,96 mld kolme aastaga.</b> Kasvu mootor on madal lahkumismäär (churn alla 3%) ja sissemaksete 15–20% aastakasv.
-      </div>
-    </div>
+    <h1>Eesmärk: varade mahu kasv</h1>
   </div>
 </header>
 
 <div class="page">
 
-  <!-- KPI STRIP -->
-  <div class="kpis">
-    <div class="kpi green">
-      <div class="k">Churn — võtmemõõdik</div>
-      <div class="v">&lt; 3%</div>
-      <div class="note">varadest aastas · baseline <b>1,3%</b></div>
-    </div>
-    <div class="kpi">
-      <div class="k">Sissemaksed 2025</div>
-      <div class="v">€169 m</div>
-      <div class="note">~30 000 inimeselt · siht <b>+15–20%/a</b></div>
-    </div>
-    <div class="kpi">
-      <div class="k">Sissevahetused II 2025</div>
-      <div class="v">€67 m</div>
-      <div class="note">4 797 inimeselt · ~€14k inimene</div>
-    </div>
-    <div class="kpi">
-      <div class="k">Eesmärk 2029 H1</div>
-      <div class="v">€2,6 mld</div>
-      <div class="note">tänaselt €1,64 mld tasemelt</div>
-    </div>
-  </div>
-
   <!-- WATERFALL -->
-  <h2>Kuidas €1,64 mld → €2,6 mld koosneb</h2>
-  <p class="sub">Kolme aasta varade kasvu sild (€ miljardites). Turu mõju, lahkumised ja väljumised eeldame ligikaudu tasakaalus.</p>
+  <h2>Kuidas me 1,6 miljardilt 2,6ni jõuame?</h2>
+  <p class="sub">Peamised kasvuallikad</p>
   <div class="card">
     <div class="legend">
       <span><i class="sw" style="background:var(--navy)"></i> Tänane / siht AUM</span>
@@ -171,13 +132,13 @@
   </div>
 
   <!-- CONTRIBUTIONS BREAKDOWN -->
-  <h2>Tükk I — Sissemaksed: €675–780 m kolme aasta peale</h2>
+  <h2>Kasv sissemaksetest</h2>
   <p class="sub">Baseline 2025: €169 m kokku, jagunenud II ja III samba vahel üsna võrdselt (€83,1 m + €85,9 m). Siht: +15–20% aastas.</p>
 
   <div class="drivers">
     <!-- II pillar -->
     <div class="card">
-      <h3>II sammas — +15–17% aastas</h3>
+      <h3>II samba sissemaksete kasv 15–17% aastas</h3>
       <p class="baseline">Baseline: €83,1 m · ~30 000 sissemaksjat</p>
 
       <div class="drow">
@@ -200,7 +161,7 @@
 
     <!-- III pillar + TKF -->
     <div class="card">
-      <h3>III sammas — +15% aastas</h3>
+      <h3>III samba sissemaksete kasv 15% aastas</h3>
       <p class="baseline">Baseline: €85,9 m · 46 000 inimest · €1 852 inimese kohta</p>
 
       <div class="drow">
@@ -222,27 +183,13 @@
   </div>
 
   <!-- SWITCHES -->
-  <h2>Tükk II ja III — Sissevahetused: €230–260 m kolme aasta peale</h2>
+  <h2>Sissevahetused: 230–260 m eurot</h2>
   <div class="card">
-    <table class="mini">
-      <thead>
-        <tr><th>Allikas</th><th>Baseline 2025</th><th>Eeldus</th><th class="num">3 aasta panus</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><b>Sissevahetused II sammas</b></td>
-          <td>€66,9 m · 4 797 in · ~€14k/in</td>
-          <td>5–7 000 in/a, keskm. €13–17k → €70–100 m/a</td>
-          <td class="num">€70 + 75 + 85 m<br><b>≈ €230 m</b></td>
-        </tr>
-        <tr>
-          <td><b>Sissevahetused III sammas</b></td>
-          <td>—</td>
-          <td>~€10 m/a</td>
-          <td class="num">≈ €30 m</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="legend">
+      <span><i class="sw" style="background:#00AEEA"></i> II sammas</span>
+      <span><i class="sw" style="background:#5ec8f0"></i> III sammas</span>
+    </div>
+    <svg id="switches" viewBox="0 0 1000 340" role="img" aria-label="Sissevahetused aastate lõikes"></svg>
   </div>
 
   <!-- CHURN -->
@@ -279,8 +226,7 @@
   const steps=[
     {label:'AUM täna',           type:'total',   base:0,    val:1.64, color:'#002F63'},
     {label:'Sissemaksed',        type:'delta',   base:1.64, val:0.70, color:'#2ca05a'},
-    {label:'Sissevahetused II',  type:'delta',   base:2.34, val:0.24, color:'#00AEEA'},
-    {label:'Sissevahetused III', type:'delta',   base:2.58, val:0.03, color:'#5ec8f0'},
+    {label:'Sissevahetused',     type:'delta',   base:2.34, val:0.27, color:'#00AEEA'},
     {label:'Turg / väljum.',     type:'neutral', base:2.61, val:0.00, color:'#8a97a8'},
     {label:'2029 eesmärk',       type:'total',   base:0,    val:2.61, color:'#002F63'}
   ];
@@ -347,6 +293,53 @@
   document.getElementById('waterfall').innerHTML=svg;
 })();
 
+// ---------- SISSEVAHETUSED (stacked) ----------
+(function(){
+  const W=1000,H=340, padL=64, padR=20, padT=24, padB=46;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  const yMax=100;
+  const y=v=>padT+plotH-(v/yMax)*plotH;
+
+  const years=[
+    {label:'1. aasta', ii:70, iii:10},
+    {label:'2. aasta', ii:75, iii:10},
+    {label:'3. aasta', ii:85, iii:10}
+  ];
+  const cII='#00AEEA', cIII='#5ec8f0';
+  const n=years.length, gap=80;
+  const bw=(plotW-gap*(n-1))/n;
+
+  let svg='';
+  // gridlines + y axis
+  svg+='<g class="grid">';
+  for(let g=0; g<=100; g+=20){
+    const yy=y(g);
+    svg+=`<line x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}"/>`;
+    svg+=`<text x="${padL-10}" y="${yy+4}" text-anchor="end" font="12px Roboto" fill="#8a97a8">${g}</text>`;
+  }
+  svg+='</g>';
+  svg+=`<text x="${16}" y="${padT+plotH/2}" transform="rotate(-90 16 ${padT+plotH/2})" text-anchor="middle" font="600 12px Roboto" fill="#8a97a8">€ miljonites</text>`;
+
+  years.forEach((d,i)=>{
+    const x=padL+i*(bw+gap);
+    const total=d.ii+d.iii;
+    // II sammas (bottom)
+    const yII=y(d.ii), hII=y(0)-yII;
+    svg+=`<rect x="${x}" y="${yII}" width="${bw}" height="${hII}" rx="5" fill="${cII}"/>`;
+    svg+=`<text x="${x+bw/2}" y="${yII+hII/2+5}" text-anchor="middle" class="bar-val" fill="#fff">€${d.ii} m</text>`;
+    // III sammas (top)
+    const yIII=y(total), hIII=yII-yIII;
+    svg+=`<rect x="${x}" y="${yIII}" width="${bw}" height="${hIII}" rx="5" fill="${cIII}"/>`;
+    svg+=`<text x="${x+bw/2}" y="${yIII+hIII/2+5}" text-anchor="middle" class="bar-val" fill="#002F63">€${d.iii} m</text>`;
+    // total label
+    svg+=`<text x="${x+bw/2}" y="${yIII-10}" text-anchor="middle" class="bar-val" fill="#002F63">€${total} m</text>`;
+    // x label
+    svg+=`<text x="${x+bw/2}" y="${padT+plotH+26}" text-anchor="middle" class="bar-lbl">${d.label}</text>`;
+  });
+
+  document.getElementById('switches').innerHTML=svg;
+})();
+
 // ---------- CHURN BENCHMARK ----------
 (function(){
   const W=1000,H=320, padL=170, padR=70, padT=14, padB=40;
@@ -356,7 +349,7 @@
 
   const rows=[
     {label:'Tuleva (baseline)', lo:1.3, hi:1.3,  color:'#2ca05a', txt:'1,3%'},
-    {label:'Tuleva (eesmärk)',  lo:3.0, hi:3.0,  color:'#2ca05a', txt:'< 3%', target:true},
+    {label:'Tuleva (maksimum lubatud)',  lo:3.0, hi:3.0,  color:'#2ca05a', txt:'< 3%', target:true},
     {label:'Swedbank',          lo:7,   hi:8,    color:'#8a97a8', txt:'7–8%'},
     {label:'Indexo / Goindex',  lo:15,  hi:15,   color:'#8a97a8', txt:'15%+', plus:true},
     {label:'LHV / Luminor',     lo:15,  hi:19,   color:'#8a97a8', txt:'15–19%'}
