@@ -343,7 +343,7 @@ function renderOpen() {
       <p class="q-text">${escapeHtml(SCENARIOS[openIndex].text)}</p>
       <textarea id="answer" placeholder="Kirjuta siia, kuidas sa kliendile vastaksid…"></textarea>
       <button class="btn" id="submit">Saada vastus</button>
-      <div class="hint">Vasta nii, nagu ütleksid kliendile – paari lausega. Vastus jääb sinu seadmesse.</div>
+      <div class="hint">Vasta nii, nagu ütleksid kliendile – paari lausega. Vastus saadetakse AI-le tagasiside jaoks ja salvestatakse anonüümselt koolituse tabelisse.</div>
     </div>
     <div id="feedback"></div>`;
   const ansEl = document.getElementById("answer");
