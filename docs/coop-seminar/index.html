@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tuleva – harjuta kliendile vastamist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #002f63;        /* Navy Blue – bränd, pealkirjad, tekst-rõhk */
+    --bright: #00aeea;      /* Bright Blue – AINULT logo/dekoratiivne aktsent */
+    --blue: #006ce6;        /* Action Blue – nupud, lingid */
+    --blue-dark: #008dee;   /* Action Blue Light – hover */
+    --text: #293036;
+    --muted: #6b7074;
+    --border: #e0e6ec;
+    --border-soft: #d6dee6;
+    --bg-soft: #edf7fd;     /* Blue Background 4 – valgussinine */
+    --blue-tint: #edf7fd;
+    --green: #008300;
+    --green-tint: #e6f4e6;
+    --red: #db2200;
+    --red-tint: #fdece9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Roboto", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #fff;
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 28px 18px 90px; }
+
+  header { margin-bottom: 8px; }
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    font-size: 0.875rem; color: var(--muted);
+    padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+  }
+  .topbar .logo svg { display: block; width: 146px; height: auto; }
+  .eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); margin: 24px 0 8px; }
+  header h1 { font-family: "Merriweather", Georgia, serif; font-size: clamp(1.5rem, 5vw, 2rem); margin: 0 0 8px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; line-height: 1.2; }
+  header p { color: var(--muted); margin: 0; font-size: 1rem; line-height: 1.5; }
+
+  .progress { color: var(--muted); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; margin: 20px 0 8px; }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,47,99,0.04);
+  }
+
+  .tag {
+    display: inline-block; font-size: 0.8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--blue); margin-bottom: 12px;
+  }
+  .q-text { font-family: "Merriweather", Georgia, serif; font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--navy); letter-spacing: -0.01em; line-height: 1.32; }
+
+  /* Valikvastused */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .opt {
+    text-align: left; width: 100%;
+    background: #fff; color: var(--text);
+    border: 1.5px solid var(--border-soft); border-radius: 0.75rem;
+    padding: 13px 15px; font-size: 1rem; font-family: inherit; cursor: pointer;
+    margin: 0; font-weight: 400; transition: border-color .12s, background .12s;
+  }
+  .opt:hover:not(:disabled) { border-color: #b9dcff; background: #f7fbff; }
+  .opt:disabled { cursor: default; }
+  .opt.correct { border-color: var(--green); background: var(--green-tint); font-weight: 600; }
+  .opt.wrong { border-color: var(--red); background: var(--red-tint); }
+  .selgitus { margin-top: 14px; padding: 13px 15px; border-radius: 0 0.5rem 0.5rem 0; background: var(--bg-soft); border-left: 4px solid var(--bright); font-size: 0.96rem; }
+  .selgitus .k { font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; color: var(--muted); }
+
+  textarea {
+    width: 100%; min-height: 130px;
+    border: 1.5px solid var(--border); border-radius: 0.75rem;
+    padding: 13px; font-family: inherit; font-size: 1rem; resize: vertical; margin-top: 16px;
+    color: var(--text);
+  }
+  textarea:focus { outline: none; border-color: var(--blue); }
+
+  button.btn {
+    background: var(--blue); color: #fff;
+    border: none; border-radius: 0.5rem; padding: 13px 24px;
+    font-size: 1rem; font-weight: 600; font-family: inherit; cursor: pointer; margin-top: 16px;
+    transition: background .12s;
+  }
+  button.btn:hover:not(:disabled) { background: var(--blue-dark); }
+  button.btn:disabled { opacity: 0.55; cursor: default; }
+  button.ghost { background: #f4f6f8; color: var(--navy); border: 1px solid var(--border-soft); }
+  button.ghost:hover:not(:disabled) { background: #e9edf1; }
+
+  .score { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .stars { font-size: 1.4rem; letter-spacing: 3px; color: var(--blue); }
+  .score strong { font-size: 1.1rem; color: var(--navy); }
+  .fb-row { margin: 12px 0; }
+  .fb-row .k { font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 3px; }
+  .fb-row.good { background: var(--green-tint); border-left: 4px solid var(--green); padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
+  .fb-row.good .k { color: var(--green); }
+  .fb-row.flag { background: var(--red-tint); border-left: 4px solid var(--red); padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
+  .fb-row.flag .k { color: var(--red); }
+  .model-answer { background: var(--bg-soft); border-left: 4px solid var(--bright); padding: 13px 15px; border-radius: 0 0.5rem 0.5rem 0; margin-top: 14px; }
+  .model-answer .k { color: var(--muted); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+
+  /* Ühine arutelu – koolitaja paneel (tumesinine, eristub valgest tagasisidekaardist) */
+  .discuss { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .discuss .tag { color: var(--bright); }
+  .discuss .d-block { margin: 14px 0; }
+  .discuss .d-block .k { font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: #9fd0ff; margin-bottom: 4px; }
+  .discuss ul { margin: 6px 0 0; padding-left: 20px; }
+  .discuss li { margin-bottom: 6px; }
+  .discuss .naide { background: rgba(255,255,255,0.07); border-left: 4px solid #ffc107; padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
+  .discuss .oppetund { background: rgba(255,255,255,0.07); border-left: 4px solid var(--bright); padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
+  .discuss .btn { background: var(--bright); color: var(--navy); }
+  .discuss .btn:hover:not(:disabled) { background: #2bc0f5; }
+
+  .error { background: var(--red-tint); border: 1px solid #eccaca; color: #8f2424; padding: 12px 14px; border-radius: 0.75rem; }
+  .spinner { display: inline-block; width: 16px; height: 16px; border: 2.5px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 8px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .hint { font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+  .big { font-family: "Merriweather", Georgia, serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
+  ul.rules { margin: 12px 0 0; padding-left: 20px; }
+  ul.rules li { margin-bottom: 8px; }
+  ul.rules li strong { color: var(--navy); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="topbar">
+      <span class="logo" aria-label="Tuleva">
+        <svg fill="none" height="66" viewBox="0 0 146 66" width="146" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill-rule="evenodd"><g fill="#002f63"><path d="m94.6888 50.6664c-1.029-3.461-3.602-5.285-6.689-5.285-3.086 0-5.612 1.917-6.408 5.285zm4.49 8.747c-2.713 3.414-6.455 5.472-10.524 5.519-7.904 0-12.488-5.94-12.488-11.928 0-5.986 4.584-11.926 12.488-11.926 4.724 0 11.7402 3.882 11.7402 12.722v.888h-18.8032c.282 3.461 3.509 5.941 6.923 5.941 2.619 0 4.864-1.263 6.548-3.508zm39.6892-5.7953c-1.43.28-2.798.531-4.158.821-1.171.249-2.357.47-3.49.842-.965.316-1.768.942-1.907 2.062-.189 1.514.68 2.577 2.246 2.836 1.234.203 2.461.16 3.666-.148 1.703-.435 3.118-1.29 3.469-3.147.206-1.089.128-2.231.174-3.266zm7.131 10.546c-1.7.624-3.396.681-4.889-.238-.65-.4-.995-1.052-1.241-1.822-.3.279-.549.538-.825.764-1.113.91-2.419 1.39-3.812 1.648-2.118.393-4.234.482-6.342-.097-2.751-.757-4.48-2.632-4.763-5.37-.289-2.8.754-5.003 3.205-6.478 1.846-1.111 3.891-1.625 5.983-1.994 1.349-.237 2.709-.419 4.054-.675.591-.113 1.254-.26 1.402-.988.164-.805.065-1.584-.546-2.212-.738-.758-1.701-.981-2.7-1.057-2.797-.211-4.882.787-7.209 3.084-1.104-1.041-2.091-1.97-3.118-2.937 1.417-1.853 2.893-2.949 4.863-3.724 2.405-.947 4.889-1.072 7.415-.686 1.653.252 3.188.797 4.453 1.942 1.25 1.131 1.863 2.581 2.011 4.228.079.878.073 1.766.076 2.65.009 2.547.003 5.094.003 7.641 0 .137-.001.274.003.411.039 1.344.383 1.694 1.716 1.745.073.003.149.004.261.004zm-95.358.6195c1.808.021 3.577-.305 5.281-1.116 2.79-1.33 4.353-3.578 4.802-6.611.095-.646.125-1.559.125-1.959v-13.191h-5.349v12.657c-.004.679-.082 1.371-.232 2.033-.416 1.837-1.641 2.863-3.451 3.199-.393.073-.786.114-1.177.118-.391-.004-.784-.045-1.177-.118-1.809-.336-3.035-1.362-3.451-3.199-.15-.662-.228-1.354-.231-2.033v-12.657h-5.35v13.191c0 .4.03 1.313.126 1.959.449 3.033 2.011 5.281 4.801 6.611 1.704.811 3.475 1.137 5.283 1.116z"/><path d="m124.384 41.4719-12.035 23.894-12.034-23.894 5.359-.027 6.675 13.254 6.663-13.227z"/><path d="m73.2382 60.024c-1.282-.067-1.989-.705-2.183-1.975-.079-.518-.103-1.048-.103-1.572v-23.1h-5.404v23.684c.001.818.024 1.647.144 2.455.285 1.918 1.079 3.55 2.852 4.543 1.165.653 2.447.878 3.757.885.979.006 1.959-.105 2.936-.163v-4.751c-.681 0-1.342.029-1.999-.006z"/><path d="m1.064 28 24.936 13.864v-8.485l-9.5-5.379z"/><path d="m5.944 0-1.647 7.64 21.253 11.36h15.641z"/></g><path d="m19 64.5h7v-21l-7-4z" fill="#00aeea"/><path d="m1.651 20.0439-1.651 6.956h40.825l1.582-6.956z" fill="#00aeea"/><path d="m27 33.377v4.951 26.172h5.084v-26.172h8.347v-4.951z" fill="#002f63"/></g></svg>
+      </span>
+      <span class="meta">Coop Pank</span>
+    </div>
+    <span class="eyebrow">Harjutus</span>
+    <h1>Harjuta kliendile vastamist</h1>
+    <p>Esmalt viis kiirküsimust, siis neli päris olukorda: kõigepealt vastad ise, seejärel arutame koos.</p>
+  </header>
+
+  <div class="progress" id="progress"></div>
+  <div id="stage"></div>
+</div>
+
+<script>
+/* =========================================================================
+   SEADISTUS – muuda ainult seda plokki
+   ========================================================================= */
+
+// 1) Google Apps Scripti veebirakenduse URL (Deploy → Web app → kopeeri URL siia).
+//    OpenAI võti, mudel ja spikker elavad Apps Scriptis (apps-script.gs), MITTE siin lehel.
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzy78ki2-ZnLV16vOtkrSstcv_GPuXYnmhFKS2IlitL8giEen7bonnjdOI2h8AySKxC8Q/exec";
+
+// 2) Valikvastustega soojendus.
+const MC = [
+  {
+    q: "Klient küsib: «Millisesse Tuleva fondi te soovitaksite mul raha panna?» Mida sa teed?",
+    options: [
+      "Soovitan Tuleva Maailma Aktsiate fondi – noorele sobib aktsiafond.",
+      "Selgitan, mida fondi valikul kaaluda, ja suunan Tuleva lehele või spetsialisti poole.",
+      "Ütlen, et aktsiafond on andnud kõrgemat tootlust, nii et tasub sinna panna."
+    ],
+    correct: 1,
+    selgitus: "Me ei anna investeerimisnõu ega tohi soovitada konkreetset fondi ega lubada tootlust. Tohime selgitada, mida valikul kaaluda, ja suunata kliendi ise teadlikku otsust tegema."
+  },
+  {
+    q: "Klient tahab koguda II sambasse. Mitu protsenti brutopalgast saab ta valida?",
+    options: ["2%, 4% või 6%", "Ükskõik mis summa kuni 15%", "Ainult 6%"],
+    correct: 0,
+    selgitus: "II sambasse saab valida 2%, 4% või 6% brutopalgast ja riik lisab 4% sotsiaalmaksust. (Kuni 15% / 6000 € käib hoopis III samba maksusoodustuse kohta.)"
+  },
+  {
+    q: "Mis on III samba peamine eelis?",
+    options: [
+      "Riik garanteerib kõrge tootluse.",
+      "Riik lisab sissemaksele 4%.",
+      "Tulumaksusoodustus – sissemaksed on tulumaksuvabad kuni 15% brutosissetulekust, max 6000 € aastas."
+    ],
+    correct: 2,
+    selgitus: "III samba peamine eelis on tulumaksusoodustus: kuni 15% maksustatavast brutosissetulekust, kuid mitte üle 6000 € aastas. (4% lisamine on II samba oma.)"
+  },
+  {
+    q: "Klient palub: «Kontrollige ära, kas mu fondivahetuse avaldus läks läbi.» Mida teed?",
+    options: [
+      "Vaatan süsteemist järele ja ütlen talle kohe vastuse.",
+      "Ütlen, et küll see läbi läks, pole vaja muretseda.",
+      "Suunan ta kirjalikult tuleva@tuleva.ee'le või Pensionikeskusele, või Coop Panga äppi seisu vaatama."
+    ],
+    correct: 2,
+    selgitus: "Me ei kommenteeri kliendi pensionivara seisu ega avaldusi. Sellised pöördumised suuname kirjalikult Tulevale või Pensionikeskusele, või kliendi enda Coop Panga äppi."
+  },
+  {
+    q: "Venekeelne klient tahab Coop Panga äpis Tulevaga liituda. Mis on tõsi?",
+    options: [
+      "Äpis saab liituda ka vene keeles.",
+      "Äpis on liitumine täna ainult eesti ja inglise keeles – saan saata infot kirjalikult ja suunata Tulevale.",
+      "Venekeelsed kliendid ei saa Tulevaga liituda."
+    ],
+    correct: 1,
+    selgitus: "Coop Panga äpis ja internetipangas on Tulevaga liitumine täna toetatud ainult eesti ja inglise keeles. Klienti saab vene keeles suuliselt aidata, saata infot kirjalikult ja suunata Tulevale (644 5100, tuleva@tuleva.ee)."
+  }
+];
+
+// 4) Vaba vastusega stsenaariumid – pärit Coop Panga päris kõnelogidest.
+const SCENARIOS = [
+  {
+    text: "Klient küsib otse: «Millisesse Tuleva fondi te soovitaksite mul oma raha panna? Kui suur on tootlus olnud — kas tasub?»",
+    arutelu: {
+      punktid: [
+        "Kus on piir «selgitamise» ja «soovitamise» vahel?",
+        "Milliseid sõnu peaks vältima? (nt «soovitan», «kõige tootlikum», «tasub»)",
+        "Kuidas vastata nii, et klient saab abi, aga sina ei anna nõu?"
+      ],
+      naide: "Päris kõne (märts 2026): «Soovitame liituda Tuleva aktsiate fondidega, see on tootlikum… Tuleva on Eestis kõige parema tootlikkusega.» → investeerimisnõu + tootluslubadus, mõlemad keelatud.",
+      oppetund: "Ära soovita fondi ega luba tootlust. Selgita, mida valikul kaaluda (tasu, aktsiate osakaal, ajahorisont), näita kust statistikat vaadata (Pensionikeskus), ja suuna Tuleva poole. Otsuse teeb klient ise."
+    }
+  },
+  {
+    text: "Klient: «Mul on II sammas Swedis, aga tahaksin loobuda ja ise investeerida. Kas teil on ka see 10 aasta reegel?»",
+    arutelu: {
+      punktid: [
+        "Kas tohid klienti tema otsusest ümber veenda?",
+        "Mis on siin fakt (mida tohid öelda) ja mis on nõu (mida ei tohi)?",
+        "Kas tohid rääkida, kuidas sina ise tegid?"
+      ],
+      naide: "Päris kõne (jaan 2025): teenindaja hakkas klienti ümber veenma — «Ma soovitan jätta II sammas alles… maksate tulumaksu ära, see on puhas kaotus» — ja rääkis, kuidas ise II välja võttis. → veenmine + maksunõu + isiklik lugu, kõik üle piiri.",
+      oppetund: "Esita faktid neutraalselt: enne eelpensioniiga saab ainult täies ulatuses välja, riik peab tulumaksu, taasliitumine on piiratud 10 aastaks. Ära veena, ära anna maksunõu, ära jaga oma otsust. Täpsemate küsimustega suuna Tuleva/Pensionikeskuse poole."
+    }
+  },
+  {
+    text: "Klient: «Tahan oma II samba Swedbankist Tulevasse tuua. Kuidas seda teha — kas saab Coop Panga äpi kaudu?»",
+    arutelu: {
+      punktid: [
+        "Kas oskad kogu sammuraja kliendile selgelt ette öelda?",
+        "Mis vahe on valikuavaldusel ja vahetusavaldusel? Millal raha jõustub?",
+        "Millal piisab juhendamisest ja millal suunata Tuleva poole?"
+      ],
+      naide: "Päris kõnedes suunati klient sageli lihtsalt «äppi» või Tuleva numbrile, samme lõpuni juhendamata — klient jäi poolele teele.",
+      oppetund: "Coop äpis/internetipangas → logi Tulevasse → vali fondivahetus. Kaks asja: valikuavaldus (tulevased maksed, jõustub kohe) ja vahetusavaldus (olemasolev raha, tähtajad 31.03/31.07/30.11). Tasuta. Igapäevapangandus ja sammas pole seotud. Täpsem abi: Tuleva 644 5100."
+    }
+  },
+  {
+    text: "Klient: «Tahaksin avada selle uue kasvukonto — mitte III samba, vaid selle teise, kust saab igal ajal välja võtta. Kas teie kaudu saab?»",
+    arutelu: {
+      punktid: [
+        "Mida teha, kui klient küsib toodet, mida sa ei tunne?",
+        "Miks on ohtlik improviseerida või segada II/III sambaga?",
+        "Kuidas öelda «ma ei tea» professionaalselt?"
+      ],
+      naide: "Päris kõne (jaan 2026): teenindaja polnud «kasvukontost» kuulnud, hakkas rääkima II sambast ja segas teema ära — «ei saanud aru, mida klient tahab». Eskalatsioonimärge: «kõnes oli küsitavusi».",
+      oppetund: "Klient mõtleb tõenäoliselt Tuleva Täiendavat Kogumisfondi (pensionisüsteemiväline indeksfond, paindlik väljavõtmine, maksusoodustust pole). Kui sa pole kindel — ära improviseeri ega sega II/III sambaga. Ütle ausalt «täpsustan/uurin» ja suuna Tuleva poole."
+    }
+  }
+];
+
+// SPIKKER, tagasiside-prompt ja skeem elavad nüüd Apps Scriptis (apps-script.gs).
+// Siin lehel neid pole — leht ainult saadab vastuse backendi ja kuvab tagasiside.
+
+/* =========================================================================
+   Edasi ei pea midagi muutma
+   ========================================================================= */
+
+const stage = document.getElementById("stage");
+const progEl = document.getElementById("progress");
+
+let phase = "mc";   // "mc" | "open" | "done"
+let mcIndex = 0;
+let mcCorrect = 0;
+let openIndex = 0;
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+function stars(n) { return "★".repeat(n) + "☆".repeat(5 - n); }
+
+/* ---------- Valikvastused ---------- */
+function renderMC() {
+  progEl.textContent = `Soojendus · küsimus ${mcIndex + 1} / ${MC.length}`;
+  const item = MC[mcIndex];
+  stage.innerHTML = `
+    <div class="card">
+      <span class="tag">Vali õige</span>
+      <p class="q-text">${escapeHtml(item.q)}</p>
+      <div class="options" id="opts">
+        ${item.options.map((o,i) => `<button class="opt" data-i="${i}">${escapeHtml(o)}</button>`).join("")}
+      </div>
+      <div id="mc-after"></div>
+    </div>`;
+  stage.querySelectorAll(".opt").forEach(btn => {
+    btn.addEventListener("click", () => answerMC(parseInt(btn.dataset.i, 10)));
+  });
+}
+
+function answerMC(choice) {
+  const item = MC[mcIndex];
+  const btns = stage.querySelectorAll(".opt");
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === item.correct) b.classList.add("correct");
+    if (i === choice && choice !== item.correct) b.classList.add("wrong");
+  });
+  if (choice === item.correct) mcCorrect++;
+  const last = mcIndex === MC.length - 1;
+  document.getElementById("mc-after").innerHTML = `
+    <div class="selgitus"><div class="k">Selgitus</div>${escapeHtml(item.selgitus)}</div>
+    <button class="btn" id="mc-next">${last ? "Edasi harjutama →" : "Järgmine küsimus →"}</button>`;
+  document.getElementById("mc-next").addEventListener("click", () => {
+    if (last) { phase = "open"; renderOpenIntro(); }
+    else { mcIndex++; renderMC(); }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+/* ---------- Üleminek ---------- */
+function renderOpenIntro() {
+  progEl.textContent = "Harjutus";
+  stage.innerHTML = `
+    <div class="card">
+      <span class="tag">Soojendus tehtud</span>
+      <p class="big">Said ${mcCorrect} / ${MC.length} õigesti 👍</p>
+      <p>Nüüd neli päris olukorda. Kirjuta oma vastus nii, nagu ütleksid seda kliendile – paari lausega. AI annab kohe tagasiside, seejärel vaatame koos «Ühise arutelu».</p>
+      <button class="btn" id="start-open">Alustan →</button>
+    </div>`;
+  document.getElementById("start-open").addEventListener("click", () => { renderOpen(); window.scrollTo({top:0,behavior:"smooth"}); });
+}
+
+/* ---------- Vaba vastus + AI tagasiside ---------- */
+function renderOpen() {
+  progEl.textContent = `Harjutus · olukord ${openIndex + 1} / ${SCENARIOS.length}`;
+  stage.innerHTML = `
+    <div class="card">
+      <span class="tag">Olukord</span>
+      <p class="q-text">${escapeHtml(SCENARIOS[openIndex].text)}</p>
+      <textarea id="answer" placeholder="Kirjuta siia, kuidas sa kliendile vastaksid…"></textarea>
+      <button class="btn" id="submit">Saada vastus</button>
+      <div class="hint">Vasta nii, nagu ütleksid kliendile – paari lausega. Vastus jääb sinu seadmesse.</div>
+    </div>
+    <div id="feedback"></div>`;
+  const ansEl = document.getElementById("answer");
+  const submitBtn = document.getElementById("submit");
+  ansEl.focus();
+  submitBtn.addEventListener("click", async () => {
+    const answer = ansEl.value.trim();
+    if (!answer) { ansEl.focus(); return; }
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span>Hindan…';
+    document.getElementById("feedback").innerHTML = "";
+    try {
+      const fb = await getFeedback(SCENARIOS[openIndex].text, answer);
+      renderFeedback(fb);
+      submitBtn.style.display = "none";
+      ansEl.readOnly = true;
+    } catch (e) {
+      document.getElementById("feedback").innerHTML = `<div class="card"><div class="error">${escapeHtml(e.message)}</div></div>`;
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Proovi uuesti";
+    }
+  });
+}
+
+async function getFeedback(scenario, answer) {
+  // Saadab vastuse Google Apps Scriptile. Ilma custom-päiseta → Content-Type on
+  // text/plain, mis väldib CORS-preflighti (Apps Script ei vasta preflightile).
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf("PANE-SIIA") === 0) {
+    throw new Error("APPS_SCRIPT_URL on seadistamata (vt index.html ülaosa).");
+  }
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({ scenario, answer })
+  });
+  if (!res.ok) throw new Error("Viga ühenduses (" + res.status + ")");
+  const data = await res.json();
+  if (data.error) throw new Error(data.error);
+  return data;
+}
+
+function renderFeedback(fb) {
+  const breach = /ületa|rikku|keelat|ei tohi|investeerimisnõu|tootlus|maksunõu/i.test(fb.piirid)
+                 && !/korras|ei ületa|polnud|ei rikkunud|ei ületatud|peetud/i.test(fb.piirid);
+  const last = openIndex === SCENARIOS.length - 1;
+  document.getElementById("feedback").innerHTML = `
+    <div class="card">
+      <div class="score"><span class="stars">${stars(fb.skoor)}</span> <strong>${fb.skoor}/5</strong></div>
+      <div class="fb-row good"><div class="k">Tugevus</div>${escapeHtml(fb.tugevus)}</div>
+      <div class="fb-row"><div class="k">Faktid</div>${escapeHtml(fb.faktid)}</div>
+      <div class="fb-row ${breach ? "flag" : ""}"><div class="k">Piirid · nõu · tootlus · maks</div>${escapeHtml(fb.piirid)}</div>
+      <div class="fb-row"><div class="k">Suunamine</div>${escapeHtml(fb.suunamine)}</div>
+      <div class="fb-row"><div class="k">Üks asi paremaks</div>${escapeHtml(fb.arenukoht)}</div>
+      <div class="model-answer"><div class="k">Näide heast vastusest</div>${escapeHtml(fb.mudelvastus)}</div>
+      <button class="btn" id="to-discuss">Ühine arutelu →</button>
+    </div>`;
+  document.getElementById("to-discuss").addEventListener("click", renderDiscussion);
+}
+
+/* ---------- Ühine arutelu (juhib koolitaja) ---------- */
+function renderDiscussion() {
+  const a = SCENARIOS[openIndex].arutelu;
+  const last = openIndex === SCENARIOS.length - 1;
+  const td = document.getElementById("to-discuss");
+  if (td) td.style.display = "none";
+  const panel = document.createElement("div");
+  panel.className = "card discuss";
+  panel.innerHTML = `
+    <span class="tag">Ühine arutelu</span>
+    <div class="d-block"><div class="k">Arutame koos</div>
+      <ul>${a.punktid.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>
+    <div class="d-block naide"><div class="k">Päris kõnest</div>${escapeHtml(a.naide)}</div>
+    <div class="d-block oppetund"><div class="k">Õige hoiak</div>${escapeHtml(a.oppetund)}</div>
+    <button class="btn" id="next">${last ? "Lõpeta →" : "Järgmine olukord →"}</button>`;
+  document.getElementById("feedback").appendChild(panel);
+  document.getElementById("next").addEventListener("click", () => {
+    if (last) { renderDone(); }
+    else { openIndex++; renderOpen(); }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+/* ---------- Lõpp ---------- */
+function renderDone() {
+  progEl.textContent = "Valmis";
+  stage.innerHTML = `
+    <div class="card">
+      <span class="tag">Tubli töö!</span>
+      <p class="big">Kolm kuldreeglit, mida meeles pidada:</p>
+      <ul class="rules">
+        <li><strong>Ära anna investeerimisnõu</strong> – ära soovita konkreetset fondi. Selgita, mida kaaluda, ja suuna Tuleva lehele.</li>
+        <li><strong>Ära luba tootlust</strong> – mineviku tootlus ei ennusta tulevikku.</li>
+        <li><strong>Suuna Tulevale</strong> põhjalikumate küsimustega: tuleva@tuleva.ee või 644 5100 (E–R 9–17).</li>
+      </ul>
+      <button class="btn" id="restart">Tee uuesti</button>
+    </div>`;
+  document.getElementById("restart").addEventListener("click", () => {
+    phase = "mc"; mcIndex = 0; mcCorrect = 0; openIndex = 0; renderMC(); window.scrollTo({top:0,behavior:"smooth"});
+  });
+}
+
+renderMC();
+</script>
+</body>
+</html>
