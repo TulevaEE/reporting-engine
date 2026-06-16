@@ -123,6 +123,7 @@
   .discuss .naide { background: rgba(255,255,255,0.07); border-left: 4px solid #ffc107; padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
   .discuss .oppetund { background: rgba(255,255,255,0.07); border-left: 4px solid var(--bright); padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
   .discuss .mudel { background: rgba(255,255,255,0.07); border-left: 4px solid #ffffff; padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; white-space: pre-line; }
+  .discuss .d-divider { margin: 16px 0 4px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9fd0ff; }
   .discuss .btn { background: var(--bright); color: var(--navy); }
   .discuss .btn:hover:not(:disabled) { background: #2bc0f5; }
 
@@ -147,7 +148,7 @@
     </div>
     <span class="eyebrow">Harjutus</span>
     <h1>Harjuta kliendile vastamist</h1>
-    <p>Esmalt viis kiirküsimust, siis neli kliendi e-kirja. Vastad ise (anonüümselt), AI annab sulle kohe tagasiside, lõpus arutame vastuseid koos läbi.</p>
+    <p>Esmalt viis kiirküsimust, siis neli kliendi e-kirja. Vastad ise (anonüümselt), AI annab sulle kohe tagasiside ja soovitused, lõpus arutame vastuseid koos läbi.</p>
   </header>
 
   <div class="progress" id="progress"></div>
@@ -225,7 +226,7 @@ const SCENARIOS = [
       ],
       naide: "Päris kõne (märts 2026): «Soovitame liituda Tuleva aktsiate fondidega, see on tootlikum… Tuleva on Eestis kõige parema tootlikkusega.» → investeerimisnõu + tootluslubadus, mõlemad keelatud.",
       oppetund: "Coop ei anna investeerimisnõu ega luba tootlust. Hoia lühike: ütle, et fondi valib klient ise, ja suuna ta Tuleva lehele võrdlema ja Tulevaga nõu pidama.",
-      mudelvastus: "Tere!\n\nAitäh küsimuse eest. Konkreetset fondi me sulle valida ei aita ja tootlust lubada ei saa — selle otsuse teed sina ise. Küll aga saad Tuleva fonde ja nende erinevusi võrrelda Tuleva kodulehel ning varasemaid tootlusi vaadata Pensionikeskuse statistikast. Kui soovid valikut põhjalikumalt arutada, aitavad Tuleva nõustajad: tuleva@tuleva.ee või 644 5100.\n\nAnna julgesti märku, kui saan veel abiks olla!\n\nHeade soovidega,\n[sinu nimi]"
+      mudelvastus: "Tere!\n\nKonkreetset fondi me Teile soovitada ei saa, kuid saate ise hea ülevaate: Tuleva kodulehel saate tutvuda fondide erinevustega ning Pensionikeskuse lehel vaadata statistikat ja varasemat tootlust, et endale sobivaim valida. Täpsema nõu saamiseks pöörduge julgelt Tuleva poole: tuleva@tuleva.ee või 644 5100.\n\nHeade soovidega,\n[teie nimi]"
     }
   },
   {
@@ -238,7 +239,7 @@ const SCENARIOS = [
       ],
       naide: "Päris kõne (jaan 2025): teenindaja hakkas klienti ümber veenma — «Ma soovitan jätta II sammas alles… maksate tulumaksu ära, see on puhas kaotus» — ja rääkis, kuidas ise II välja võttis. → veenmine + maksunõu + isiklik lugu, kõik üle piiri.",
       oppetund: "See on kliendi enda otsus. Coop ei anna arvamust, ei veena ega jaga isiklikku kogemust. Ütle lühidalt, et otsuse teeb tema, ja suuna Tulevasse nõu pidama.",
-      mudelvastus: "Tere!\n\nHea, et enne otsustamist küsid. Kas II sambast loobuda, on suur ja isiklik otsus, mille saad teha ainult sina ise — meie ei soovita ega veena. Tasub teada, et II sambal on riigi maksusoodustus, mida tavalisel investeerimisel ei ole, nii et enne otsust on mõistlik plussid ja miinused rahulikult läbi kaaluda. Selles aitavad Tuleva nõustajad hea meelega: tuleva@tuleva.ee või 644 5100.\n\nAnna teada, kui saan veel aidata!\n\nHeade soovidega,\n[sinu nimi]"
+      mudelvastus: "Tere!\n\nSee on Teie otsus, mida me Teie eest teha ei saa. II samba kasulikkuse kohta saate lugeda näiteks Tuleva lehelt — mõelge otsus kindlasti rahulikult läbi. Soovi korral aitab Tuleva Teid nõuga: tuleva@tuleva.ee või 644 5100.\n\nHeade soovidega,\n[teie nimi]"
     }
   },
   {
@@ -251,7 +252,7 @@ const SCENARIOS = [
       ],
       naide: "Päris kõnedes suunati klient sageli lihtsalt «äppi» või Tuleva numbrile, samme lõpuni juhendamata — klient jäi poolele teele.",
       oppetund: "Anna lihtne kindel esimene samm (Coop äpp/internetipank → Tuleva → avaldus) ja suuna täpsema abi saamiseks Tulevasse. Sa ei pea kogu protsessi peast teadma.",
-      mudelvastus: "Tere!\n\nJah, saad selle teha meie kaudu. Coop Pank vahendab Tuleva fonde, nii et logid Coop Panga äpis või internetipangas Tulevasse ja esitad sealt II samba vahetusavalduse — eraldi kuhugi mujale minema ei pea. Kui mõni samm jääb segaseks või tahad enne üle küsida, aitavad Tuleva nõustajad: tuleva@tuleva.ee või 644 5100.\n\nAnna julgesti märku, kui saan veel abiks olla!\n\nHeade soovidega,\n[sinu nimi]"
+      mudelvastus: "Tere!\n\nJah, saate seda teha meie kaudu: Coop Panga internetipangas või äpis logite Tulevasse ja täidate seal II samba vahetusavalduse — eraldi kuhugi mujale minema ei pea. Kui midagi jääb segaseks, aitab Tuleva: tuleva@tuleva.ee või 644 5100.\n\nHeade soovidega,\n[teie nimi]"
     }
   },
   {
@@ -264,7 +265,7 @@ const SCENARIOS = [
       ],
       naide: "Päris kõne (nov 2025): klient kartis, et panka kolides peab ka sambad üle tooma — «ei saanud aru, et fondid võivad olla ühes pangas, aga arveldus teises».",
       oppetund: "Igapäevapangandus ja pensionifond EI ole seotud. Klient ei pea midagi üle tooma — fond võib olla ühes pangas, arveldus teises. Rahusta ja selgita seda lihtsalt.",
-      mudelvastus: "Tere!\n\nEi pea — igapäevapangandus ja pensionisammas ei ole omavahel seotud. Sinu sammas võib rahulikult jääda sinna, kus praegu on, ka siis kui kolid igapäevapanganduse Coopi. Kui sa aga soovid, saad Coop Panga kaudu Tuleva II ja III samba fondidega liituda — aga kohustust pole. Rohkem infot leiad Tuleva kodulehelt või küsi Tulevalt: tuleva@tuleva.ee, 644 5100.\n\nAnna teada, kui saan veel aidata!\n\nHeade soovidega,\n[sinu nimi]"
+      mudelvastus: "Tere!\n\nEi pea — pensionisambad ei pea olema samas pangas, kus igapäevaselt arveldate. Teie sammas võib rahulikult jääda sinna, kus praegu on. Huvi korral saate Tuleva kohta lugeda meie panga kodulehelt või Tuleva kodulehelt; samuti aitab Tuleva: tuleva@tuleva.ee või 644 5100.\n\nHeade soovidega,\n[teie nimi]"
     }
   }
 ];
@@ -334,7 +335,7 @@ function renderOpenIntro() {
     <div class="card">
       <span class="tag">Soojendus tehtud</span>
       <p class="big">Said ${mcCorrect} / ${MC.length} õigesti 👍</p>
-      <p>Nüüd neli kliendi e-kirja. Vasta igaühele nii, nagu kirjutaksid päris e-kirja vastuse. AI annab sulle kohe tagasiside, lõpus arutame vastuseid koos läbi. Sinu vastused on anonüümsed.</p>
+      <p>Nüüd neli kliendi e-kirja. Vasta igaühele nii, nagu kirjutaksid päris e-kirja vastuse. AI annab sulle kohe tagasiside ja soovitused; ühised arutelud teeme päeva lõpus. Sinu vastused on anonüümsed.</p>
       <button class="btn" id="start-open">Alustan →</button>
     </div>`;
   document.getElementById("start-open").addEventListener("click", () => { renderOpen(); window.scrollTo({top:0,behavior:"smooth"}); });
@@ -402,26 +403,23 @@ function renderFeedback(fb) {
       <div class="fb-row ${breach ? "flag" : ""}"><div class="k">Piirid · nõu · tootlus · maks</div>${escapeHtml(fb.piirid)}</div>
       <div class="fb-row"><div class="k">Suunamine</div>${escapeHtml(fb.suunamine)}</div>
       <div class="fb-row"><div class="k">Üks asi paremaks</div>${escapeHtml(fb.arenukoht)}</div>
-      <button class="btn" id="to-discuss">Ühine arutelu →</button>
     </div>`;
-  document.getElementById("to-discuss").addEventListener("click", renderDiscussion);
+  renderRecommendations();
 }
 
-/* ---------- Ühine arutelu (juhib koolitaja) ---------- */
-function renderDiscussion() {
+/* ---------- Soovitused (näidisvastus + hoiak); ühine arutelu päeva lõpus ---------- */
+function renderRecommendations() {
   const a = SCENARIOS[openIndex].arutelu;
   const last = openIndex === SCENARIOS.length - 1;
-  const td = document.getElementById("to-discuss");
-  if (td) td.style.display = "none";
   const panel = document.createElement("div");
   panel.className = "card discuss";
   panel.innerHTML = `
-    <span class="tag">Ühine arutelu</span>
-    <div class="d-block"><div class="k">Arutame koos</div>
-      <ul>${a.punktid.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>
-    <div class="d-block naide"><div class="k">Päris kõnest</div>${escapeHtml(a.naide)}</div>
-    <div class="d-block oppetund"><div class="k">Õige hoiak</div>${escapeHtml(a.oppetund)}</div>
+    <span class="tag">Soovitused</span>
     <div class="d-block mudel"><div class="k">Näide heast vastusest</div>${escapeHtml(a.mudelvastus)}</div>
+    <div class="d-block oppetund"><div class="k">Õige hoiak</div>${escapeHtml(a.oppetund)}</div>
+    <div class="d-divider">Päeva lõpus arutame koos</div>
+    <div class="d-block"><ul>${a.punktid.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>
+    <div class="d-block naide"><div class="k">Päris kõnest</div>${escapeHtml(a.naide)}</div>
     <button class="btn" id="next">${last ? "Lõpeta →" : "Järgmine olukord →"}</button>`;
   document.getElementById("feedback").appendChild(panel);
   document.getElementById("next").addEventListener("click", () => {
