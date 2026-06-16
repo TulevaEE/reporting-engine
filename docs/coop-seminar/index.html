@@ -175,7 +175,7 @@ const MC = [
   },
   {
     q: "Klient tahab koguda II sambasse. Mitu protsenti brutopalgast saab ta valida?",
-    options: ["2%, 4% või 6%", "Ükskõik mis summa kuni 15%", "Ainult 6%"],
+    options: ["2%, 4% või 6%", "Ükskõik milline summa kuni 15%", "Ainult 6%"],
     correct: 0,
     selgitus: "II sambasse saab valida 2%, 4% või 6% brutopalgast ja riik lisab 4% sotsiaalmaksust. (Kuni 15% / 6000 € käib hoopis III samba maksusoodustuse kohta.)"
   },
@@ -194,20 +194,20 @@ const MC = [
     options: [
       "Vaatan süsteemist järele ja ütlen talle kohe vastuse.",
       "Ütlen, et küll see läbi läks, pole vaja muretseda.",
-      "Suunan ta kirjalikult tuleva@tuleva.ee'le või Pensionikeskusele, või Coop Panga äppi seisu vaatama."
+      "Suunan ta kirjalikult tuleva@tuleva.ee-le või Pensionikeskusele või Coop Panga äppi seisu vaatama."
     ],
     correct: 2,
-    selgitus: "Me ei kommenteeri kliendi pensionivara seisu ega avaldusi. Sellised pöördumised suuname kirjalikult Tulevale või Pensionikeskusele, või kliendi enda Coop Panga äppi."
+    selgitus: "Me ei kommenteeri kliendi pensionivara seisu ega avaldusi. Sellised pöördumised suuname kirjalikult Tulevale või Pensionikeskusele või kliendi enda Coop Panga äppi."
   },
   {
     q: "Venekeelne klient tahab Coop Panga äpis Tulevaga liituda. Mis on tõsi?",
     options: [
       "Äpis saab liituda ka vene keeles.",
-      "Äpis on liitumine täna ainult eesti ja inglise keeles – saan saata infot kirjalikult ja suunata Tulevale.",
+      "Äpis on liitumine praegu ainult eesti ja inglise keeles – saan saata infot kirjalikult ja suunata Tulevale.",
       "Venekeelsed kliendid ei saa Tulevaga liituda."
     ],
     correct: 1,
-    selgitus: "Coop Panga äpis ja internetipangas on Tulevaga liitumine täna toetatud ainult eesti ja inglise keeles. Klienti saab vene keeles suuliselt aidata, saata infot kirjalikult ja suunata Tulevale (644 5100, tuleva@tuleva.ee)."
+    selgitus: "Coop Panga äpis ja internetipangas on Tulevaga liitumine praegu toetatud ainult eesti ja inglise keeles. Klienti saab vene keeles suuliselt aidata, saata infot kirjalikult ja suunata Tulevale (644 5100, tuleva@tuleva.ee)."
   }
 ];
 
@@ -222,7 +222,7 @@ const SCENARIOS = [
         "Kuidas vastata nii, et klient saab abi, aga sina ei anna nõu?"
       ],
       naide: "Päris kõne (märts 2026): «Soovitame liituda Tuleva aktsiate fondidega, see on tootlikum… Tuleva on Eestis kõige parema tootlikkusega.» → investeerimisnõu + tootluslubadus, mõlemad keelatud.",
-      oppetund: "Ära soovita fondi ega luba tootlust. Selgita, mida valikul kaaluda (tasu, aktsiate osakaal, ajahorisont), näita kust statistikat vaadata (Pensionikeskus), ja suuna Tuleva poole. Otsuse teeb klient ise."
+      oppetund: "Ära soovita fondi ega luba tootlust. Selgita, mida valikul kaaluda (tasu, aktsiate osakaal, ajahorisont), näita, kust statistikat vaadata (Pensionikeskus), ja suuna Tuleva poole. Otsuse teeb klient ise."
     }
   },
   {
@@ -234,7 +234,7 @@ const SCENARIOS = [
         "Kas tohid rääkida, kuidas sina ise tegid?"
       ],
       naide: "Päris kõne (jaan 2025): teenindaja hakkas klienti ümber veenma — «Ma soovitan jätta II sammas alles… maksate tulumaksu ära, see on puhas kaotus» — ja rääkis, kuidas ise II välja võttis. → veenmine + maksunõu + isiklik lugu, kõik üle piiri.",
-      oppetund: "Esita faktid neutraalselt: enne eelpensioniiga saab ainult täies ulatuses välja, riik peab tulumaksu, taasliitumine on piiratud 10 aastaks. Ära veena, ära anna maksunõu, ära jaga oma otsust. Täpsemate küsimustega suuna Tuleva/Pensionikeskuse poole."
+      oppetund: "Esita faktid neutraalselt: enne eelpensioniiga saab ainult täies ulatuses välja, riik peab tulumaksu kinni, taasliitumine on piiratud 10 aastaks. Ära veena, ära anna maksunõu, ära jaga oma otsust. Täpsemate küsimustega suuna Tuleva/Pensionikeskuse poole."
     }
   },
   {
@@ -258,7 +258,7 @@ const SCENARIOS = [
         "Kuidas öelda «ma ei tea» professionaalselt?"
       ],
       naide: "Päris kõne (jaan 2026): teenindaja polnud «kasvukontost» kuulnud, hakkas rääkima II sambast ja segas teema ära — «ei saanud aru, mida klient tahab». Eskalatsioonimärge: «kõnes oli küsitavusi».",
-      oppetund: "Klient mõtleb tõenäoliselt Tuleva Täiendavat Kogumisfondi (pensionisüsteemiväline indeksfond, paindlik väljavõtmine, maksusoodustust pole). Kui sa pole kindel — ära improviseeri ega sega II/III sambaga. Ütle ausalt «täpsustan/uurin» ja suuna Tuleva poole."
+      oppetund: "Klient mõtleb tõenäoliselt Tuleva Täiendavat Kogumisfondi (pensionisüsteemiväline indeksfond, paindlik väljavõtmine, maksusoodustust pole). Kui sa pole kindel — ära improviseeri ega sega II/III sambaga. Ütle ausalt: «täpsustan/uurin» ja suuna Tuleva poole."
     }
   }
 ];
@@ -436,7 +436,7 @@ function renderDone() {
       <ul class="rules">
         <li><strong>Ära anna investeerimisnõu</strong> – ära soovita konkreetset fondi. Selgita, mida kaaluda, ja suuna Tuleva lehele.</li>
         <li><strong>Ära luba tootlust</strong> – mineviku tootlus ei ennusta tulevikku.</li>
-        <li><strong>Suuna Tulevale</strong> põhjalikumate küsimustega: tuleva@tuleva.ee või 644 5100 (E–R 9–17).</li>
+        <li><strong>Suuna Tuleva poole</strong> põhjalikumate küsimuste korral: tuleva@tuleva.ee või 644 5100 (E–R 9–17).</li>
       </ul>
       <button class="btn" id="restart">Tee uuesti</button>
     </div>`;
