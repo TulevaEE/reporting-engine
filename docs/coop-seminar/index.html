@@ -121,6 +121,7 @@
   .discuss li { margin-bottom: 6px; }
   .discuss .naide { background: rgba(255,255,255,0.07); border-left: 4px solid #ffc107; padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
   .discuss .oppetund { background: rgba(255,255,255,0.07); border-left: 4px solid var(--bright); padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
+  .discuss .mudel { background: rgba(255,255,255,0.07); border-left: 4px solid #ffffff; padding: 11px 14px; border-radius: 0 0.5rem 0.5rem 0; }
   .discuss .btn { background: var(--bright); color: var(--navy); }
   .discuss .btn:hover:not(:disabled) { background: #2bc0f5; }
 
@@ -219,46 +220,50 @@ const SCENARIOS = [
       punktid: [
         "Kus on piir «selgitamise» ja «soovitamise» vahel?",
         "Milliseid sõnu peaks vältima? (nt «soovitan», «kõige tootlikum», «tasub»)",
-        "Kuidas vastata nii, et klient saab abi, aga sina ei anna nõu?"
+        "Kuhu saad kliendi suunata, et ta ise infot leiaks?"
       ],
       naide: "Päris kõne (märts 2026): «Soovitame liituda Tuleva aktsiate fondidega, see on tootlikum… Tuleva on Eestis kõige parema tootlikkusega.» → investeerimisnõu + tootluslubadus, mõlemad keelatud.",
-      oppetund: "Ära soovita fondi ega luba tootlust. Selgita, mida valikul kaaluda (tasu, aktsiate osakaal, ajahorisont), näita, kust statistikat vaadata (Pensionikeskus), ja suuna Tuleva poole. Otsuse teeb klient ise."
+      oppetund: "Coop ei anna investeerimisnõu ega luba tootlust. Hoia lühike: ütle, et fondi valib klient ise, ja suuna ta Tuleva lehele võrdlema ja Tulevaga nõu pidama.",
+      mudelvastus: "Konkreetset fondi me ei soovita ja tootlust ei luba — selle otsuse teed sina ise. Tuleva fonde saad omavahel võrrelda nende kodulehel ja täpsemat nõu küsida otse Tulevalt: tuleva@tuleva.ee või 644 5100."
     }
   },
   {
-    text: "Klient: «Mul on II sammas Swedis, aga tahaksin loobuda ja ise investeerida. Kas teil on ka see 10 aasta reegel?»",
+    text: "Klient: «Ma kaalun II sambast loobumist ja tahaksin ise investeerida. Mis te arvate, kas peaks?»",
     arutelu: {
       punktid: [
-        "Kas tohid klienti tema otsusest ümber veenda?",
-        "Mis on siin fakt (mida tohid öelda) ja mis on nõu (mida ei tohi)?",
-        "Kas tohid rääkida, kuidas sina ise tegid?"
+        "Kas tohid öelda oma arvamust või klienti otsusest ümber veenda?",
+        "Kas tohid rääkida, kuidas sina ise tegid?",
+        "Kuhu suunad kliendi, kes tahab otsust kaaluda?"
       ],
       naide: "Päris kõne (jaan 2025): teenindaja hakkas klienti ümber veenma — «Ma soovitan jätta II sammas alles… maksate tulumaksu ära, see on puhas kaotus» — ja rääkis, kuidas ise II välja võttis. → veenmine + maksunõu + isiklik lugu, kõik üle piiri.",
-      oppetund: "Esita faktid neutraalselt: enne eelpensioniiga saab ainult täies ulatuses välja, riik peab tulumaksu kinni, taasliitumine on piiratud 10 aastaks. Ära veena, ära anna maksunõu, ära jaga oma otsust. Täpsemate küsimustega suuna Tuleva/Pensionikeskuse poole."
+      oppetund: "See on kliendi enda otsus. Coop ei anna arvamust, ei veena ega jaga isiklikku kogemust. Ütle lühidalt, et otsuse teeb tema, ja suuna Tulevasse nõu pidama.",
+      mudelvastus: "See on suur ja isiklik otsus, mille saad teha ainult sina ise — meie ei soovita ega veena. Enne tasub kindlasti Tulevaga nõu pidada, kus oskavad sulle plussid ja miinused selgitada: tuleva@tuleva.ee või 644 5100."
     }
   },
   {
-    text: "Klient: «Tahan oma II samba Swedbankist Tulevasse tuua. Kuidas seda teha — kas saab Coop Panga äpi kaudu?»",
+    text: "Klient helistab: «Ma mõtlen panka vahetada, mul on praegu II sammas Swedbankis. Kuidas ma selle Tulevasse saan — kas see käib üldse teie kaudu või pean mujale pöörduma?»",
     arutelu: {
       punktid: [
-        "Kas oskad kogu sammuraja kliendile selgelt ette öelda?",
-        "Mis vahe on valikuavaldusel ja vahetusavaldusel? Millal raha jõustub?",
-        "Millal piisab juhendamisest ja millal suunata Tuleva poole?"
+        "Kas oskad öelda lihtsa kindla esimese sammu, ilma kogu protsessi ette lugemata?",
+        "Kuhu suunad kliendi, kes tahab täpsemat juhendamist?",
+        "Kas igapäevapangandus ja pensionisammas on omavahel seotud?"
       ],
       naide: "Päris kõnedes suunati klient sageli lihtsalt «äppi» või Tuleva numbrile, samme lõpuni juhendamata — klient jäi poolele teele.",
-      oppetund: "Coop äpis/internetipangas → logi Tulevasse → vali fondivahetus. Kaks asja: valikuavaldus (tulevased maksed, jõustub kohe) ja vahetusavaldus (olemasolev raha, tähtajad 31.03/31.07/30.11). Tasuta. Igapäevapangandus ja sammas pole seotud. Täpsem abi: Tuleva 644 5100."
+      oppetund: "Anna lihtne kindel esimene samm (Coop äpp/internetipank → Tuleva → avaldus) ja suuna täpsema abi saamiseks Tulevasse. Sa ei pea kogu protsessi peast teadma.",
+      mudelvastus: "Jah, saad seda teha mugavalt Coop Panga äpis või internetipangas — sealt logid Tulevasse ja esitad avalduse, eraldi mujale minema ei pea. Kui mõni samm jääb segaseks, aitab Tuleva: tuleva@tuleva.ee või 644 5100."
     }
   },
   {
-    text: "Klient: «Tahaksin avada selle uue kasvukonto — mitte III samba, vaid selle teise, kust saab igal ajal välja võtta. Kas teie kaudu saab?»",
+    text: "Klient: «Ma kolin oma igapäevapanganduse Swedist Coop Panka. Kas ma pean nüüd ka oma pensionisambad siia üle tooma?»",
     arutelu: {
       punktid: [
-        "Mida teha, kui klient küsib toodet, mida sa ei tunne?",
-        "Miks on ohtlik improviseerida või segada II/III sambaga?",
-        "Kuidas öelda «ma ei tea» professionaalselt?"
+        "Kas igapäevapangandus (konto, kaart) ja pensionisammas on omavahel seotud?",
+        "Kas klient peab midagi üle tooma, kui ta ise ei taha?",
+        "Kuidas rahustada klienti, kes kardab, et peab kõik korraga ümber tegema?"
       ],
-      naide: "Päris kõne (jaan 2026): teenindaja polnud «kasvukontost» kuulnud, hakkas rääkima II sambast ja segas teema ära — «ei saanud aru, mida klient tahab». Eskalatsioonimärge: «kõnes oli küsitavusi».",
-      oppetund: "Klient mõtleb tõenäoliselt Tuleva Täiendavat Kogumisfondi (pensionisüsteemiväline indeksfond, paindlik väljavõtmine, maksusoodustust pole). Kui sa pole kindel — ära improviseeri ega sega II/III sambaga. Ütle ausalt: «täpsustan/uurin» ja suuna Tuleva poole."
+      naide: "Päris kõne (nov 2025): klient kartis, et panka kolides peab ka sambad üle tooma — «ei saanud aru, et fondid võivad olla ühes pangas, aga arveldus teises».",
+      oppetund: "Igapäevapangandus ja pensionifond EI ole seotud. Klient ei pea midagi üle tooma — fond võib olla ühes pangas, arveldus teises. Rahusta ja selgita seda lihtsalt.",
+      mudelvastus: "Ei pea — igapäevapangandus ja pensionisammas ei ole omavahel seotud. Sinu sammas võib rahulikult jääda sinna, kus praegu on, ka siis kui igapäevapangandus on Coopis. Kui tahad sammast siiski Tulevasse tuua, saad seda teha, aga kohustust pole — ja Tuleva aitab: tuleva@tuleva.ee või 644 5100."
     }
   }
 ];
@@ -396,7 +401,6 @@ function renderFeedback(fb) {
       <div class="fb-row ${breach ? "flag" : ""}"><div class="k">Piirid · nõu · tootlus · maks</div>${escapeHtml(fb.piirid)}</div>
       <div class="fb-row"><div class="k">Suunamine</div>${escapeHtml(fb.suunamine)}</div>
       <div class="fb-row"><div class="k">Üks asi paremaks</div>${escapeHtml(fb.arenukoht)}</div>
-      <div class="model-answer"><div class="k">Näide heast vastusest</div>${escapeHtml(fb.mudelvastus)}</div>
       <button class="btn" id="to-discuss">Ühine arutelu →</button>
     </div>`;
   document.getElementById("to-discuss").addEventListener("click", renderDiscussion);
@@ -416,6 +420,7 @@ function renderDiscussion() {
       <ul>${a.punktid.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>
     <div class="d-block naide"><div class="k">Päris kõnest</div>${escapeHtml(a.naide)}</div>
     <div class="d-block oppetund"><div class="k">Õige hoiak</div>${escapeHtml(a.oppetund)}</div>
+    <div class="d-block mudel"><div class="k">Näide heast vastusest</div>${escapeHtml(a.mudelvastus)}</div>
     <button class="btn" id="next">${last ? "Lõpeta →" : "Järgmine olukord →"}</button>`;
   document.getElementById("feedback").appendChild(panel);
   document.getElementById("next").addEventListener("click", () => {
