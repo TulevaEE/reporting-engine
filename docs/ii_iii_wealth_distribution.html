@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>II ja III samba vara jaotus Eesti turul (2025)</title>
+<style>
+/* Tuleva Reporting Engine - Brand Styles */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+@page {
+    size: A4;
+    margin: 2.5cm 2cm;
+
+    @bottom-center {
+        content: "Tuleva Annual Report";
+        font-family: 'Roboto', sans-serif;
+        font-size: 9pt;
+        color: #666;
+    }
+
+    @bottom-right {
+        content: counter(page);
+        font-family: 'Roboto', sans-serif;
+        font-size: 9pt;
+        color: #666;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    color: #002F63;  /* Tuleva dark navy */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 24pt;
+    border-bottom: 2px solid #00AEEA;
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+h3 {
+    font-size: 14pt;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #002F63;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+tr:nth-child(even) {
+    background-color: #edf7fe;
+}
+
+strong {
+    font-weight: 700;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 2em 0;
+}
+
+em {
+    color: #666;
+    font-size: 10pt;
+}
+
+body { max-width: 900px; margin: 0 auto; padding: 2em 1.5em; }
+table { font-size: 10.5pt; }
+td:not(:first-child), th:not(:first-child) { text-align: right; }
+.lead { font-size: 12pt; color: #444; }
+.note { background:#edf7fe; border-left:4px solid #00AEEA; padding:0.8em 1.2em; margin:1.5em 0; border-radius:4px; }
+.kpi { font-weight:700; color:#002F63; }
+</style>
+</head>
+<body>
+<h1>II ja III samba vara jaotus Eesti turul</h1>
+<p class="lead">Kogu Eesti II ja III samba kogujate andmestiku põhjal (2025). Vaatame, kuidas
+pensionivara on inimeste vahel jaotunud, ja eraldi neid, kellel II sammas puudub, aga III sambas on raha.</p>
+<p><em>Allikas: pensionikeskuse turuväljavõte, 924,849 inimest. Saldod on ümardatud lähima 100 € peale.
+Kõik arvud on agregaadid — ükski isikuandmete rida ei ole avaldatud.</em></p>
+
+<h2>1. II sammas = 0, aga III sambas on raha</h2>
+<p>Need on inimesed, kel <strong>II samba saldo on null</strong> — kas pole sinna kunagi kuulunud
+(nt enne 1983 sündinud, kes ei liitunud) või on raha 2021. aasta reformi järel välja võtnud —
+<strong>kuid III sambas on vara olemas</strong>. Kokku <span class="kpi">45,237 inimest</span>.
+Allpool on nad jaotatud III samba vara järgi viide võrdsesse kvintiili.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Inimesi</th>
+      <th>III saldo vahemik</th>
+      <th>Mediaan</th>
+      <th>III vara kokku</th>
+    </tr>
+    <tr>
+      <th>q</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Q1 (madalaim)</th>
+      <td>9048</td>
+      <td>100 € – 200 €</td>
+      <td>100 €</td>
+      <td>1.2 M€</td>
+    </tr>
+    <tr>
+      <th>Q2</th>
+      <td>9047</td>
+      <td>200 € – 800 €</td>
+      <td>500 €</td>
+      <td>4.4 M€</td>
+    </tr>
+    <tr>
+      <th>Q3</th>
+      <td>9047</td>
+      <td>800 € – 2 100 €</td>
+      <td>1 400 €</td>
+      <td>12.5 M€</td>
+    </tr>
+    <tr>
+      <th>Q4</th>
+      <td>9047</td>
+      <td>2 100 € – 5 600 €</td>
+      <td>3 300 €</td>
+      <td>31.4 M€</td>
+    </tr>
+    <tr>
+      <th>Q5 (kõrgeim)</th>
+      <td>9048</td>
+      <td>5 600 € – 382 200 €</td>
+      <td>10 800 €</td>
+      <td>149.4 M€</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note">Vara on tugevalt koondunud: ülemine kvintiil (Q5) hoiab ligi kolmveerandi selle grupi
+III samba varast, alumine pool alla 3%.</div>
+
+<h2>2. Kas nad maksavad III sambasse sisse?</h2>
+<p>Eelmise grupi 45,237 inimesest teeb <span class="kpi">31,306 (69%)</span>
+aktiivselt III samba sissemakseid. Mida suurem on kogutud vara, seda tõenäolisemalt inimene ka sisse maksab.
+Allpool on aktiivsed sissemaksjad jaotatud aastase sissemakse suuruse järgi kvintiilidesse
+(kokku ~35.1 M€ aastas).</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Inimesi</th>
+      <th>Sissemakse vahemik</th>
+      <th>Mediaan</th>
+      <th>Sissemaksed kokku</th>
+    </tr>
+    <tr>
+      <th>q</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Q1 (madalaim)</th>
+      <td>6262</td>
+      <td>100 € – 200 €</td>
+      <td>100 €</td>
+      <td>0.9 M€</td>
+    </tr>
+    <tr>
+      <th>Q2</th>
+      <td>6261</td>
+      <td>200 € – 500 €</td>
+      <td>400 €</td>
+      <td>2.3 M€</td>
+    </tr>
+    <tr>
+      <th>Q3</th>
+      <td>6261</td>
+      <td>500 € – 700 €</td>
+      <td>600 €</td>
+      <td>3.6 M€</td>
+    </tr>
+    <tr>
+      <th>Q4</th>
+      <td>6261</td>
+      <td>700 € – 1 400 €</td>
+      <td>1 000 €</td>
+      <td>6.4 M€</td>
+    </tr>
+    <tr>
+      <th>Q5 (kõrgeim)</th>
+      <td>6261</td>
+      <td>1 400 € – 65 000 €</td>
+      <td>2 800 €</td>
+      <td>22.0 M€</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>3. II + III samba koguväärtuse detsiilid — kogu populatsioon</h2>
+<p>Kogu 924,849 inimese II ja III samba kombineeritud vara, jaotatud kümnesse võrdse arvukusega gruppi.
+<strong>43% (401,595 inimest) koguväärtus on null</strong> — seetõttu on alumised neli detsiili
+läbinisti nullid (väärtuspõhised piirid ei tekiks).</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Inimesi</th>
+      <th>Vahemik</th>
+      <th>Mediaan</th>
+      <th>Vara kokku</th>
+      <th>Osa AUM-ist</th>
+    </tr>
+    <tr>
+      <th>d</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>D1</th>
+      <td>92485</td>
+      <td>0 € – 0 €</td>
+      <td>0 €</td>
+      <td>0.0 M€</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <th>D2</th>
+      <td>92485</td>
+      <td>0 € – 0 €</td>
+      <td>0 €</td>
+      <td>0.0 M€</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <th>D3</th>
+      <td>92485</td>
+      <td>0 € – 0 €</td>
+      <td>0 €</td>
+      <td>0.0 M€</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <th>D4</th>
+      <td>92485</td>
+      <td>0 € – 0 €</td>
+      <td>0 €</td>
+      <td>0.0 M€</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <th>D5</th>
+      <td>92485</td>
+      <td>0 € – 400 €</td>
+      <td>100 €</td>
+      <td>11.6 M€</td>
+      <td>0.1%</td>
+    </tr>
+    <tr>
+      <th>D6</th>
+      <td>92484</td>
+      <td>400 € – 1 800 €</td>
+      <td>900 €</td>
+      <td>91.1 M€</td>
+      <td>1.2%</td>
+    </tr>
+    <tr>
+      <th>D7</th>
+      <td>92485</td>
+      <td>1 800 € – 5 500 €</td>
+      <td>3 300 €</td>
+      <td>313.1 M€</td>
+      <td>4.0%</td>
+    </tr>
+    <tr>
+      <th>D8</th>
+      <td>92485</td>
+      <td>5 500 € – 13 200 €</td>
+      <td>8 800 €</td>
+      <td>831.2 M€</td>
+      <td>10.5%</td>
+    </tr>
+    <tr>
+      <th>D9</th>
+      <td>92485</td>
+      <td>13 200 € – 27 000 €</td>
+      <td>19 000 €</td>
+      <td>1 791.4 M€</td>
+      <td>22.7%</td>
+    </tr>
+    <tr>
+      <th>D10</th>
+      <td>92485</td>
+      <td>27 000 € – 2 342 400 €</td>
+      <td>41 500 €</td>
+      <td>4 862.2 M€</td>
+      <td>61.5%</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note">Mediaan kogu populatsioonis on vaid <span class="kpi">400 €</span>,
+sest pea pool rahvastikust on nulliga. Ülemine detsiil hoiab <span class="kpi">61,5%</span> kogu varast.
+II + III vara kokku: <span class="kpi">7 900.6 M€</span>.</div>
+
+<h2>4. Sama jaotus — ainult vara &gt; 0 inimesed</h2>
+<p>Kui nullidega inimesed välja jätta, jääb <span class="kpi">523,254 inimest</span>, kel on II
+ja/või III sambas raha. Detsiilipiirid muutuvad sujuvamaks ja paremini tõlgendatavaks.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Inimesi</th>
+      <th>Vahemik</th>
+      <th>Mediaan</th>
+      <th>Vara kokku</th>
+      <th>Osa AUM-ist</th>
+    </tr>
+    <tr>
+      <th>d</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>D1</th>
+      <td>52326</td>
+      <td>100 € – 300 €</td>
+      <td>200 €</td>
+      <td>8.7 M€</td>
+      <td>0.1%</td>
+    </tr>
+    <tr>
+      <th>D2</th>
+      <td>52325</td>
+      <td>300 € – 900 €</td>
+      <td>600 €</td>
+      <td>29.8 M€</td>
+      <td>0.4%</td>
+    </tr>
+    <tr>
+      <th>D3</th>
+      <td>52325</td>
+      <td>900 € – 1 900 €</td>
+      <td>1 300 €</td>
+      <td>71.1 M€</td>
+      <td>0.9%</td>
+    </tr>
+    <tr>
+      <th>D4</th>
+      <td>52326</td>
+      <td>1 900 € – 3 600 €</td>
+      <td>2 700 €</td>
+      <td>141.7 M€</td>
+      <td>1.8%</td>
+    </tr>
+    <tr>
+      <th>D5</th>
+      <td>52325</td>
+      <td>3 600 € – 6 500 €</td>
+      <td>4 900 €</td>
+      <td>258.9 M€</td>
+      <td>3.3%</td>
+    </tr>
+    <tr>
+      <th>D6</th>
+      <td>52325</td>
+      <td>6 500 € – 10 800 €</td>
+      <td>8 500 €</td>
+      <td>445.5 M€</td>
+      <td>5.6%</td>
+    </tr>
+    <tr>
+      <th>D7</th>
+      <td>52326</td>
+      <td>10 800 € – 16 500 €</td>
+      <td>13 400 €</td>
+      <td>706.5 M€</td>
+      <td>8.9%</td>
+    </tr>
+    <tr>
+      <th>D8</th>
+      <td>52325</td>
+      <td>16 500 € – 24 600 €</td>
+      <td>20 200 €</td>
+      <td>1 062.5 M€</td>
+      <td>13.4%</td>
+    </tr>
+    <tr>
+      <th>D9</th>
+      <td>52325</td>
+      <td>24 600 € – 38 700 €</td>
+      <td>30 300 €</td>
+      <td>1 607.0 M€</td>
+      <td>20.3%</td>
+    </tr>
+    <tr>
+      <th>D10</th>
+      <td>52326</td>
+      <td>38 700 € – 2 342 400 €</td>
+      <td>55 500 €</td>
+      <td>3 568.8 M€</td>
+      <td>45.2%</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note">Mediaan vara omavate inimeste seas on <span class="kpi">6500 €</span>.
+Koondumine on pehmem kui kogu populatsioonis: ülemine detsiil hoiab 45,2% (vs 61,5%), ülemine viiendik ~65%.</div>
+
+<hr/>
+<p><em>Koostatud 2026-06-17. Tuleva reporting-engine.</em></p>
+</body>
+</html>
