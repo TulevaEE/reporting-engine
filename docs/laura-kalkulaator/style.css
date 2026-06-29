@@ -23,6 +23,10 @@ header{border-bottom:1px solid var(--gray-border-2);}
 .topbar .brand b{color:var(--blue);}
 .topbar a{color:var(--text-secondary); text-decoration:none;}
 .topbar .brand{display:inline-flex; align-items:center;}
+.views{display:flex; gap:1.1rem; align-items:center;}
+.views a{font-size:0.9rem; color:var(--text-secondary); text-decoration:none;}
+.views a:hover{color:var(--blue);}
+.views a.active{color:var(--navy-blue); font-weight:700;}
 .brand-logo{height:2.1rem; width:auto; display:block;}
 .disclaimer{font-size:0.72rem; line-height:1.5; color:var(--text-secondary);}
 .topbar a:hover{color:var(--blue);}
