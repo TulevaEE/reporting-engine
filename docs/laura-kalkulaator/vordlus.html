@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kus sa oma pensionivaraga seisad? · Tuleva</title>
+<meta name="description" content="Laura on oma vanuses 95% eakaaslastest ees. Kus oled sina? Võrdle oma II ja III samba vara teiste eestlastega, sekundite jooksul ja ilma sisselogimiseta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="compare">
+
+<header><div class="wrap topbar">
+  <a class="brand" href="https://tuleva.ee" target="_blank" rel="noopener"><img src="https://tuleva.ee/wp-content/themes/tuleva/img/tuleva-logo.svg" alt="Tuleva" class="brand-logo"></a>
+  <a href="index.html">Kas jõuad miljonini? →</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Laura rikkaks · võrdlus</span>
+      <h1>Kus sa oma pensionivaraga seisad?</h1>
+      <div class="hook">
+        <div class="big">Laura on oma vanuses <b>95% eakaaslastest ees</b>. Kus oled sina?</div>
+        <div class="sub">Sisesta oma vanus ja sammaste saldo. Näed kohe, kui paljudest eakaaslastest oled oma pensionivaraga ees. Ilma sisselogimiseta.</div>
+      </div>
+      <p class="blogline">Loo aluseks on Tuleva blogiseeria <a href="https://tuleva.ee/laura-rikkaks/" target="_blank" rel="noopener">„Laura rikkaks"</a>.</p>
+    </div>
+    <div>
+      <img class="laura-img" src="https://tuleva.ee/wp-content/uploads/2021/02/210202-laura-6.jpg" alt="Laura, Tuleva väljamõeldud tegelane" loading="lazy" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Võrdle end teistega</span>
+  <h2>Kui kaugel sina oled?</h2>
+  <div class="calc-wrap">
+    <div class="calc-inputs">
+      <div class="calc-field"><label><strong>Sinu vanus</strong></label><div class="numwrap"><input type="number" id="vanus" value="30" min="18" max="100" step="1"><span class="suffix">aastat</span></div></div>
+      <div class="calc-field"><label><strong>Brutopalk</strong></label><div class="numwrap"><input type="number" id="palk" value="2000" min="0" step="100"><span class="suffix">€ kuus</span></div></div>
+      <div class="calc-field"><label><strong>II samba saldo</strong> täna</label><div class="numwrap"><input type="number" id="saldoII" value="6000" min="0" step="100"><span class="suffix">€</span></div></div>
+      <div class="calc-field"><label><strong>III samba saldo</strong> täna</label><div class="numwrap"><input type="number" id="saldoIII" value="0" min="0" step="100"><span class="suffix">€</span></div></div>
+      <div class="calc-field"><label><strong>Sinu panus brutopalgast</strong></label>
+        <div class="seg" id="rate"><button type="button" data-v="2" class="on">2%</button><button type="button" data-v="4">4%</button><button type="button" data-v="6">6%</button></div>
+        <div class="calc-note">Riik lisab sellele veel 4%.</div></div>
+      <div class="calc-field"><label><strong>III samba sissemakse</strong></label><div class="numwrap"><input type="number" id="iii" value="0" min="0" step="100"><span class="suffix">€ aastas</span></div>
+        <div class="calc-note">Nt 500 € kuus = 6000 € aastas. Maksuvõit kuni 6000 € või 15% aastatulust.</div></div>
+      <div class="calc-field"><label><strong>Eeldatav tootlus aastas</strong> <span class="help" title="Sina valid eeldatava tootluse ise. Tuleva ei prognoosi ega luba tootlust. Maailma aktsiaturg on ajalooliselt tootnud keskmiselt umbes 7% aastas, kuid minevik ei taga tulevikku.">?</span></label>
+        <div class="rangewrap"><input type="range" id="toot" min="0" max="10" step="0.5" value="0"><span class="bubble" id="tootBubble">0%</span></div>
+        <div class="rangemark"><span id="tootMark">↑<br>aktsiate ajalooline tootlus 7%</span></div></div>
+    </div>
+
+    <div class="calc-output">
+      <div class="block">
+        <div class="sub-h">Sinu koht eakaaslaste seas</div>
+        <div class="percent-hero" id="percentBig">…</div>
+        <div class="percent-sub" id="percentSub">…</div>
+        <div class="bar" style="margin-top:1rem"><i id="barFill" style="width:0%"></i></div>
+        <div class="calc-foot">Võrdlus põhineb kogu Eesti II ja III samba saldode tegelikul jaotusel sinu vanuserühmas.</div>
+      </div>
+      <div class="block">
+        <div class="sub-h">Ja kuhu sa võiksid jõuda?</div>
+        <div class="proj-prompt" id="projPrompt"><div class="arrow">↓</div><strong id="projPromptMsg">Sisesta oma oodatav aastatootlus, et näha projektsiooni.</strong></div>
+        <div id="projResults" style="display:none">
+          <div class="out-main">Kogud <span id="rAge">67</span>. eluaastaks eelduslikult</div>
+          <div class="out-fv" id="rTotal">…</div>
+          <div class="verdict" id="verdict"></div>
+          <div class="out-row"><span>II sammas</span><span id="rII">…</span></div>
+          <div class="out-row"><span>III sammas</span><span id="rIII">…</span></div>
+          <div class="out-row"><span>Miljonini (kui jätad kasvama)</span><span id="rMill">…</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="eyebrow">Mida saad järgmiseks teha?</span>
+  <h2>Laura retsept: sinu kontroll-leht</h2>
+  <div class="checklist" id="checklist"></div>
+  <div class="ctas">
+    <a class="btn primary" href="https://pension.tuleva.ee/login" target="_blank" rel="noopener">Pane oma sambad tööle →</a>
+    <button class="btn ghost" id="share" type="button">Jaga oma tulemust</button>
+  </div>
+</div></section>
+
+<section class="path"><div class="wrap">
+  <span class="eyebrow" style="color:var(--accent)">Miks enamik on tagapool</span>
+  <h2>Enamik ei tee veel kahte lihtsat asja</h2>
+  <p class="lead">Just seepärast ongi lihtne teistest ette jõuda. Enamik pole oma sambaid veel tööle pannud.</p>
+  <div class="statgrid">
+    <div class="stat"><div class="stat-num" id="s_pct2">89%</div><div class="stat-label">eestlastest panustab II sambasse endiselt vaid 2%, kuigi võiks panustada 6%</div></div>
+    <div class="stat"><div class="stat-num" id="s_noiii">83%</div><div class="stat-label">pole III sammast veel avanud</div></div>
+    <div class="stat"><div class="stat-num">95%</div><div class="stat-label">eakaaslastest on Laura selja taha jätnud, ja sama on sinugi käeulatuses</div></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <span class="eyebrow">Loe edasi</span>
+  <h2>Laura rikkaks · artikliseeria</h2>
+  <div class="serie">
+    <a href="https://tuleva.ee/laura-rikkaks/" target="_blank" rel="noopener"><span class="ch">1. peatükk</span><span class="t">Investeerimisega alustamine on lihtsam kui sa arvad</span></a>
+    <a href="https://tuleva.ee/laura-rikkaks/miks-iga-pensionifond-pole-hea-valik/" target="_blank" rel="noopener"><span class="ch">2. peatükk</span><span class="t">Miks iga pensionifond pole hea valik?</span></a>
+    <a href="https://tuleva.ee/laura-rikkaks/kuidas-maksudelt-voita/" target="_blank" rel="noopener"><span class="ch">3. peatükk</span><span class="t">Kuidas maksudelt võita?</span></a>
+    <a href="https://tuleva.ee/laura-rikkaks/15-minutiga-miljonariks/" target="_blank" rel="noopener"><span class="ch">Kokkuvõte</span><span class="t">15 minutiga miljonäriks</span></a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Kui sambad on täis</span>
+  <h2>Maksuvõit täis? Jätka Tuleva Täiendavas Kogumisfondis</h2>
+  <p class="lead muted">III samba maksusoodustus kehtib kuni 6000 € (või 15% aastatulust) aastas. Kui tahad veel kõrvale panna, saad <strong>Tuleva Täiendavas Kogumisfondis</strong> jätkata sama maailma aktsiate strateegiaga ja sama madala tasuga, lihtsalt ilma pensionisammaste maksueeliseta. Nii ei pea su raha kunagi jõude seisma.</p>
+  <a class="btn ghost" href="https://tuleva.ee/taiendav-kogumisfond/" target="_blank" rel="noopener">Vaata Täiendavat Kogumisfondi →</a>
+</div></section>
+
+<section class="method"><div class="wrap">
+  <h3>Kuidas arvutame?</h3>
+  <ul>
+    <li><strong>Võrdlus</strong> põhineb kogu Eesti II ja III samba saldode tegelikul jaotusel sinu vanuserühmas (vanus on andmestikus kümnendi täpsusega). Tootlust selleks ei vaja.</li>
+    <li><strong>Projektsioon</strong> (valikuline): II = määr (2/4/6%) + riigi 4%; III = sinu sisestatud summa aastas. Eeldame, et palk ja sissemaksed kasvavad 3% aastas.</li>
+    <li><strong>Tootluse sisestad sina ise.</strong> Tuleva ei prognoosi ega luba tootlust. „Miljonini" vanus eeldab, et raha jääb kasvama väljamakseteta.</li>
+  </ul>
+  <p style="margin-top:0.5rem"><strong>NB!</strong> See on hariv mudel, mitte investeerimisnõustamine ega tootluse lubadus.</p>
+</div></section>
+
+<footer><div class="wrap"><p class="disclaimer">Finantsteenust pakub Tuleva Fondid AS. Tutvu tingimuste, prospekti, investori õiguste kokkuvõtte ja põhiteabega tuleva.ee ning küsi nõu asjatundjalt tuleva@tuleva.ee või 644 5100. Maksustamine oleneb isikuga seotud asjaoludest, sh residentsusest. Maksuseadused muutuvad ajas. Tootlus ei ole garanteeritud. Investeeringu väärtus võib nii kasvada kui kahaneda.</p> Prototüüp · Tuleva andmete põhjal · andmed: Pensionikeskus / EPIS väljavõte · <a href="index.html">kas jõuad miljonini? →</a></div></footer>
+<div class="toast" id="toast">Link kopeeritud, jaga julgelt!</div>
+<script src="calc.js"></script>
+</body>
+</html>
