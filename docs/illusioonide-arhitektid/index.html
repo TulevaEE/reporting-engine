@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Illusioonide arhitektid – miks me laseme end petta?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #002f63;
+    --bright: #00aeea;
+    --blue: #006ce6;
+    --blue-dark: #008dee;
+    --text: #293036;
+    --muted: #6b7074;
+    --border: #e0e6ec;
+    --border-soft: #d6dee6;
+    --bg-soft: #edf7fd;
+    --gold: #ffc107;
+    --red: #db2200;
+    --red-tint: #fdece9;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: "Roboto", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #eef2f6;
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ---------- Slaidi konteiner ---------- */
+  .deck { height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .slide {
+    display: none;
+    width: 100%; max-width: 920px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 40px rgba(0,47,99,0.10);
+    padding: 48px 56px;
+    min-height: 560px;
+    position: relative;
+    animation: fade .35s ease;
+  }
+  .slide.active { display: flex; flex-direction: column; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); margin-bottom: 14px; }
+  .slide h1 { font-family: "Merriweather", Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.6rem); margin: 0 0 14px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; line-height: 1.2; }
+  .slide h2 { font-family: "Merriweather", Georgia, serif; font-size: clamp(1.4rem, 3.2vw, 2rem); margin: 0 0 10px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; line-height: 1.22; }
+  .subtitle { font-size: 1.15rem; color: var(--muted); margin: 0 0 8px; }
+
+  ul.points { list-style: none; margin: 18px 0 0; padding: 0; }
+  ul.points li { position: relative; padding-left: 30px; margin-bottom: 18px; font-size: 1.12rem; line-height: 1.5; }
+  ul.points li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 12px; height: 12px; border-radius: 3px; background: var(--bright); transform: rotate(45deg); }
+  ul.points li strong { color: var(--navy); }
+  ul.points li .lead { color: var(--navy); font-weight: 600; }
+
+  .scope { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; }
+  .scope .row { background: var(--bg-soft); border-left: 4px solid var(--bright); border-radius: 0 0.6rem 0.6rem 0; padding: 16px 20px; font-size: 1.12rem; }
+  .scope .row .k { display: block; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+
+  /* Title slide */
+  .slide.title { justify-content: center; text-align: center; background: var(--navy); border-color: var(--navy); color: #fff; }
+  .slide.title .eyebrow { color: var(--bright); }
+  .slide.title h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.1rem); }
+  .slide.title .subtitle { color: #bcd6f0; font-size: 1.35rem; margin-bottom: 36px; }
+  .slide.title .speaker { color: #9fd0ff; font-size: 1.05rem; border-top: 1px solid rgba(255,255,255,0.22); padding-top: 22px; margin-top: 8px; }
+  .slide.title .speaker em { color: #fff; font-style: normal; }
+  .slide.title .logo svg { width: 132px; height: auto; margin: 0 auto 30px; display: block; }
+
+  /* Case-study slides accent */
+  .slide.case { background: linear-gradient(180deg, #f7fbff 0%, #fff 120px); }
+  .slide.case .eyebrow { color: var(--gold); }
+
+  /* Contrast table */
+  table.contrast { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 1rem; }
+  table.contrast th, table.contrast td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.contrast thead th { background: var(--navy); color: #fff; font-weight: 600; font-size: 0.92rem; }
+  table.contrast thead th:first-child { border-top-left-radius: 0.5rem; }
+  table.contrast thead th:last-child { border-top-right-radius: 0.5rem; }
+  table.contrast tbody td:first-child { font-weight: 600; color: var(--navy); background: var(--bg-soft); }
+  table.contrast tbody tr:nth-child(even) td:not(:first-child) { background: #fafcfe; }
+
+  /* Closing slide */
+  .slide.closing { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .slide.closing h2 { color: #fff; }
+  .slide.closing .eyebrow { color: var(--bright); }
+  .slide.closing ul.points li strong { color: #fff; }
+  .slide.closing .moral { background: rgba(255,255,255,0.07); border-left: 4px solid var(--bright); border-radius: 0 0.6rem 0.6rem 0; padding: 18px 22px; font-size: 1.18rem; margin-top: 14px; }
+
+  /* ---------- Tsitaadislaid (Munger) ---------- */
+  .quote-grid { flex: 1; display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: center; margin-top: 18px; }
+  .portrait { display: flex; flex-direction: column; align-items: center; }
+  .portrait svg { width: 230px; height: auto; }
+  .portrait .name { margin-top: 12px; font-family: "Merriweather", Georgia, serif; font-weight: 700; color: var(--navy); font-size: 1.05rem; }
+  .portrait .role { color: var(--muted); font-size: 0.85rem; text-align: center; }
+  .quote { position: relative; }
+  .quote .mark { font-family: "Merriweather", Georgia, serif; font-size: 5rem; line-height: 0.7; color: var(--bright); opacity: 0.5; height: 40px; }
+  .quote blockquote { margin: 0; font-family: "Merriweather", Georgia, serif; font-weight: 700; color: var(--navy); font-size: clamp(1.5rem, 3.2vw, 2.1rem); line-height: 1.25; letter-spacing: -0.01em; }
+  .quote .et { margin-top: 14px; color: var(--muted); font-size: 1.1rem; font-style: italic; }
+  .quote .tie { margin-top: 22px; background: var(--bg-soft); border-left: 4px solid var(--bright); border-radius: 0 0.6rem 0.6rem 0; padding: 14px 18px; font-size: 1.02rem; color: var(--text); }
+  .quote .tie strong { color: var(--navy); }
+  @media (max-width: 680px) { .quote-grid { grid-template-columns: 1fr; gap: 20px; } .portrait svg { width: 170px; } }
+
+  /* ---------- Profiilikaart + juhtumislaidid ---------- */
+  .profile-grid { flex: 1; display: grid; grid-template-columns: 268px 1fr; gap: 36px; align-items: center; margin-top: 4px; }
+  .profile-grid .portrait { display: flex; flex-direction: column; align-items: center; }
+  .profile-grid .portrait svg { width: 236px; height: auto; }
+  .profile-grid .portrait .name { margin-top: 14px; font-family: "Merriweather", Georgia, serif; font-weight: 700; color: var(--navy); font-size: 1.3rem; text-align: center; line-height: 1.2; }
+  .profile-grid .portrait .role { color: var(--blue); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-top: 4px; }
+  .case-right { display: flex; flex-direction: column; gap: 14px; }
+  .rows { display: flex; flex-direction: column; gap: 12px; }
+  .rows .r { border-left: 4px solid var(--bright); background: var(--bg-soft); border-radius: 0 0.6rem 0.6rem 0; padding: 11px 16px; }
+  .rows .r .k { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 3px; }
+  .rows .r .v { font-size: 1.02rem; line-height: 1.38; }
+  .rows .r .v strong { color: var(--navy); }
+  .stats { display: flex; gap: 14px; }
+  .stats .stat { flex: 1; background: var(--navy); color: #fff; border-radius: 0.75rem; padding: 12px; text-align: center; }
+  .stats .stat.alert { background: var(--red); }
+  .stats .stat .num { font-family: "Merriweather", Georgia, serif; font-weight: 700; font-size: 1.45rem; line-height: 1.05; }
+  .stats .stat .lbl { font-size: 0.76rem; opacity: 0.88; margin-top: 5px; line-height: 1.2; }
+
+  /* Slaid 7: kahe näo võrdlus tabelipäises */
+  table.contrast thead th .th-face { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  table.contrast thead th .th-face svg { width: 58px; height: 58px; }
+  table.contrast thead th .th-face span { line-height: 1.15; }
+
+  /* Slaid 8: moraal + kaardimaja */
+  .moral-grid { flex: 1; display: grid; grid-template-columns: 290px 1fr; gap: 36px; align-items: center; margin-top: 10px; }
+  .moral-grid .house { display: flex; justify-content: center; }
+  .moral-grid .house svg { width: 280px; height: auto; }
+  .moral-stack { display: flex; flex-direction: column; gap: 14px; }
+  @media (max-width: 680px) { .profile-grid, .moral-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+  /* ---------- Navigatsioon ---------- */
+  .nav { position: fixed; bottom: 18px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 16px; z-index: 10; }
+  .nav button {
+    background: #fff; color: var(--navy); border: 1px solid var(--border-soft);
+    border-radius: 0.55rem; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,47,99,0.10); transition: background .12s, color .12s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav button:hover:not(:disabled) { background: var(--blue); color: #fff; }
+  .nav button:disabled { opacity: 0.4; cursor: default; }
+  .counter { font-size: 0.9rem; font-weight: 600; color: var(--muted); min-width: 56px; text-align: center; }
+
+  .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--bright); transition: width .3s ease; z-index: 20; }
+
+  @media (max-width: 640px) {
+    .slide { padding: 32px 24px; min-height: 0; }
+    table.contrast { font-size: 0.82rem; }
+    table.contrast th, table.contrast td { padding: 8px 9px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .deck { display: block; height: auto; padding: 0; }
+    .slide { display: flex !important; page-break-after: always; box-shadow: none; max-width: none; margin-bottom: 0; border-radius: 0; }
+    .nav, .progress-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ===== Karikatuuride sümbolid (kasutatakse <use>-iga slaididel) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="circClip"><circle cx="120" cy="120" r="115"/></clipPath>
+    <radialGradient id="gNight" cx="50%" cy="38%" r="75%"><stop offset="0%" stop-color="#0a3f7e"/><stop offset="100%" stop-color="#002048"/></radialGradient>
+    <linearGradient id="gBubbly" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe9a8"/><stop offset="100%" stop-color="#f3c14b"/></linearGradient>
+    <radialGradient id="gSlate" cx="50%" cy="40%" r="78%"><stop offset="0%" stop-color="#2c3644"/><stop offset="100%" stop-color="#141a22"/></radialGradient>
+    <radialGradient id="gElite" cx="50%" cy="36%" r="80%"><stop offset="0%" stop-color="#0c3c75"/><stop offset="100%" stop-color="#001f47"/></radialGradient>
+
+    <!-- DiCaprio kui Gatsby: smoking + šampanjatoost + ilutulestik -->
+    <symbol id="ch-gatsby" viewBox="0 0 240 270">
+      <circle cx="120" cy="120" r="115" fill="url(#gNight)"/>
+      <g clip-path="url(#circClip)">
+        <g stroke="#ffd24d" stroke-width="2" stroke-linecap="round" opacity="0.85">
+          <g transform="translate(58,52)">
+            <line x1="0" y1="-16" x2="0" y2="-7"/><line x1="0" y1="16" x2="0" y2="7"/>
+            <line x1="-16" y1="0" x2="-7" y2="0"/><line x1="16" y1="0" x2="7" y2="0"/>
+            <line x1="-11" y1="-11" x2="-5" y2="-5"/><line x1="11" y1="11" x2="5" y2="5"/>
+            <line x1="11" y1="-11" x2="5" y2="-5"/><line x1="-11" y1="11" x2="-5" y2="5"/>
+          </g>
+          <g transform="translate(182,66)">
+            <line x1="0" y1="-13" x2="0" y2="-6"/><line x1="0" y1="13" x2="0" y2="6"/>
+            <line x1="-13" y1="0" x2="-6" y2="0"/><line x1="13" y1="0" x2="6" y2="0"/>
+            <line x1="-9" y1="-9" x2="-4" y2="-4"/><line x1="9" y1="9" x2="4" y2="4"/>
+            <line x1="9" y1="-9" x2="4" y2="-4"/><line x1="-9" y1="9" x2="-4" y2="4"/>
+          </g>
+        </g>
+        <g fill="#ffe27a" opacity="0.9">
+          <circle cx="40" cy="92" r="2"/><circle cx="200" cy="40" r="2"/><circle cx="150" cy="36" r="1.6"/>
+          <circle cx="90" cy="34" r="1.6"/><circle cx="210" cy="110" r="2"/><circle cx="30" cy="130" r="1.6"/>
+        </g>
+        <path d="M24,270 C 30,206 74,184 120,184 C 166,184 210,206 216,270 Z" fill="#15171b"/>
+        <path d="M120,188 L92,210 L108,250 L120,210 Z" fill="#23262c"/>
+        <path d="M120,188 L148,210 L132,250 L120,210 Z" fill="#23262c"/>
+        <path d="M108,188 L120,206 L132,188 L132,250 L108,250 Z" fill="#ffffff"/>
+        <path d="M120,196 L110,190 L110,202 Z" fill="#15171b"/>
+        <path d="M120,196 L130,190 L130,202 Z" fill="#15171b"/>
+        <rect x="116" y="193" width="8" height="7" rx="2" fill="#15171b"/>
+        <rect x="104" y="156" width="32" height="34" rx="13" fill="#ecc09a"/>
+        <ellipse cx="58" cy="116" rx="10" ry="15" fill="#ecc09a"/>
+        <ellipse cx="182" cy="116" rx="10" ry="15" fill="#ecc09a"/>
+        <path d="M60,104 C 60,54 90,38 120,38 C 150,38 180,54 180,104 C 180,138 162,170 120,174 C 78,170 60,138 60,104 Z" fill="#f4cca2"/>
+        <path d="M58,100 C 54,58 84,34 120,34 C 156,34 186,58 182,100 C 178,76 168,60 150,54 C 156,64 156,72 152,78 C 146,62 120,56 104,60 C 116,54 132,54 140,58 C 122,48 92,52 76,68 C 70,78 66,90 64,100 Z" fill="#caa057"/>
+        <path d="M120,40 C 134,44 146,52 150,62" fill="none" stroke="#a8843f" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M76,96 q16,-8 32,-2" fill="none" stroke="#9c7b3c" stroke-width="5" stroke-linecap="round"/>
+        <path d="M132,94 q16,-6 32,2" fill="none" stroke="#9c7b3c" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="94" cy="110" rx="7" ry="5" fill="#fff"/>
+        <ellipse cx="146" cy="110" rx="7" ry="5" fill="#fff"/>
+        <circle cx="95" cy="111" r="3.2" fill="#3a5d7a"/>
+        <circle cx="147" cy="111" r="3.2" fill="#3a5d7a"/>
+        <path d="M120,116 C 117,130 112,138 119,140 q3,1.5 7,0" fill="none" stroke="#dba878" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100,150 q20,16 40,1" fill="none" stroke="#b06a44" stroke-width="4" stroke-linecap="round"/>
+        <path d="M104,151 q16,9 32,0" fill="#fff"/>
+        <g transform="translate(176,150) rotate(14)">
+          <path d="M-17,4 a17,8 0 0 0 34,0 Z" fill="url(#gBubbly)"/>
+          <path d="M-19,0 a19,9 0 0 0 38,0" fill="none" stroke="#eaf4fb" stroke-width="2.5"/>
+          <path d="M-19,0 a19,9 0 0 1 38,0" fill="#ffffff" opacity="0.18"/>
+          <line x1="0" y1="8" x2="0" y2="34" stroke="#dfeaf2" stroke-width="2.5"/>
+          <path d="M-9,38 a9,3 0 0 0 18,0 Z" fill="#dfeaf2"/>
+          <circle cx="-5" cy="-2" r="1.3" fill="#fff"/><circle cx="3" cy="0" r="1.1" fill="#fff"/><circle cx="-1" cy="-4" r="1" fill="#fff"/>
+          <path d="M14,-10 l3,-7 l3,7 l7,3 l-7,3 l-3,7 l-3,-7 l-7,-3 Z" fill="#ffe27a"/>
+        </g>
+      </g>
+      <circle cx="120" cy="120" r="115" fill="none" stroke="#0a3f7e" stroke-width="3"/>
+    </symbol>
+
+    <!-- Sam Bankman-Fried: lokid, t-särk, krüptokaos -->
+    <symbol id="ch-sbf" viewBox="0 0 240 270">
+      <circle cx="120" cy="120" r="115" fill="url(#gSlate)"/>
+      <g clip-path="url(#circClip)">
+        <g fill="#2ecc71" opacity="0.20" font-family="Roboto, Arial, sans-serif" font-weight="700">
+          <text x="32" y="72" font-size="24">&#8383;</text>
+          <text x="188" y="58" font-size="18">&#8383;</text>
+          <text x="198" y="152" font-size="22">&#8383;</text>
+          <text x="26" y="150" font-size="16">&#8383;</text>
+        </g>
+        <g stroke="#db2200" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="30,104 48,120 60,110 80,130"/>
+          <path d="M80,130 l-10,-1 m10,1 l1,-10"/>
+        </g>
+        <path d="M40,270 C 46,212 84,192 120,192 C 156,192 194,212 200,270 Z" fill="#868d96"/>
+        <path d="M100,196 q20,16 40,0" fill="none" stroke="#6f767e" stroke-width="4"/>
+        <rect x="106" y="162" width="28" height="36" rx="12" fill="#edb98f"/>
+        <ellipse cx="56" cy="120" rx="11" ry="16" fill="#edb98f"/>
+        <ellipse cx="184" cy="120" rx="11" ry="16" fill="#edb98f"/>
+        <g fill="#5e3f28">
+          <circle cx="72" cy="80" r="22"/><circle cx="96" cy="58" r="24"/><circle cx="120" cy="50" r="26"/>
+          <circle cx="146" cy="56" r="24"/><circle cx="170" cy="80" r="22"/>
+          <circle cx="60" cy="108" r="18"/><circle cx="182" cy="108" r="18"/>
+          <circle cx="84" cy="70" r="18"/><circle cx="158" cy="68" r="18"/>
+        </g>
+        <path d="M58,110 C 58,64 86,50 120,50 C 154,50 182,64 182,110 C 182,150 158,176 120,176 C 82,176 58,150 58,110 Z" fill="#f4cfa8"/>
+        <g fill="#5e3f28">
+          <circle cx="88" cy="64" r="16"/><circle cx="116" cy="56" r="17"/><circle cx="144" cy="64" r="16"/><circle cx="168" cy="84" r="14"/><circle cx="72" cy="84" r="14"/>
+        </g>
+        <path d="M80,100 q16,-6 32,0" fill="none" stroke="#6b4a2f" stroke-width="5" stroke-linecap="round"/>
+        <path d="M128,100 q16,-6 32,0" fill="none" stroke="#6b4a2f" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="96" cy="116" rx="8" ry="6" fill="#fff"/>
+        <ellipse cx="144" cy="116" rx="8" ry="6" fill="#fff"/>
+        <circle cx="97" cy="117" r="3.4" fill="#4a3526"/>
+        <circle cx="145" cy="117" r="3.4" fill="#4a3526"/>
+        <path d="M89,124 q7,4 14,0 M137,124 q7,4 14,0" fill="none" stroke="#dba878" stroke-width="2" stroke-linecap="round"/>
+        <path d="M120,122 C 117,134 113,140 119,142 q3,1.5 6,0" fill="none" stroke="#dba878" stroke-width="3" stroke-linecap="round"/>
+        <path d="M102,154 q20,10 38,-3" fill="none" stroke="#a8623e" stroke-width="4" stroke-linecap="round"/>
+      </g>
+      <circle cx="120" cy="120" r="115" fill="none" stroke="#0e1620" stroke-width="3"/>
+    </symbol>
+
+    <!-- Bernie Madoff: hõbejuuksed, ülikond, rahustav naeratus -->
+    <symbol id="ch-madoff" viewBox="0 0 240 270">
+      <circle cx="120" cy="120" r="115" fill="url(#gElite)"/>
+      <circle cx="120" cy="120" r="104" fill="none" stroke="#caa24a" stroke-width="1.5" opacity="0.55"/>
+      <g clip-path="url(#circClip)">
+        <path d="M26,270 C 32,206 74,184 120,184 C 166,184 208,206 214,270 Z" fill="#16223b"/>
+        <path d="M120,188 L94,210 L110,252 L120,212 Z" fill="#1f2d4a"/>
+        <path d="M120,188 L146,210 L130,252 L120,212 Z" fill="#1f2d4a"/>
+        <path d="M108,188 L120,206 L132,188 L132,252 L108,252 Z" fill="#ffffff"/>
+        <path d="M120,196 L113,204 L120,212 L127,204 Z" fill="#7e2230"/>
+        <path d="M120,212 L114,218 L120,254 L126,218 Z" fill="#7e2230"/>
+        <rect x="104" y="156" width="32" height="34" rx="13" fill="#e6b489"/>
+        <ellipse cx="56" cy="118" rx="11" ry="16" fill="#e6b489"/>
+        <ellipse cx="184" cy="118" rx="11" ry="16" fill="#e6b489"/>
+        <path d="M60,106 C 60,58 90,44 120,44 C 150,44 180,58 180,106 C 180,144 160,176 120,178 C 80,176 60,144 60,106 Z" fill="#ecbf95"/>
+        <path d="M62,98 C 60,66 88,50 120,50 C 152,50 180,66 178,98 C 176,80 150,66 120,70 C 92,66 66,80 62,98 Z" fill="#c4c7c9"/>
+        <path d="M64,100 C 70,84 96,74 120,76 C 144,74 170,84 176,100" fill="none" stroke="#a9adb0" stroke-width="2" stroke-linecap="round"/>
+        <path d="M92,66 q28,-6 56,0 M90,76 q30,-6 60,0" fill="none" stroke="#d3a276" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <path d="M74,96 q18,-7 34,-1" fill="none" stroke="#9a9da0" stroke-width="6" stroke-linecap="round"/>
+        <path d="M132,95 q18,-6 34,1" fill="none" stroke="#9a9da0" stroke-width="6" stroke-linecap="round"/>
+        <path d="M82,108 q14,-5 26,0 M132,108 q14,-5 26,0" fill="none" stroke="#c99b6f" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="95" cy="116" rx="7" ry="5" fill="#fff"/>
+        <ellipse cx="145" cy="116" rx="7" ry="5" fill="#fff"/>
+        <circle cx="96" cy="117" r="3.2" fill="#4a4036"/>
+        <circle cx="146" cy="117" r="3.2" fill="#4a4036"/>
+        <path d="M88,124 q8,4 15,0 M137,124 q8,4 15,0" fill="none" stroke="#d3a276" stroke-width="2" stroke-linecap="round"/>
+        <path d="M120,120 C 116,136 110,146 119,148 q4,2 8,0" fill="none" stroke="#cf9a6a" stroke-width="3" stroke-linecap="round"/>
+        <path d="M98,150 q-6,8 -2,16 M142,150 q6,8 2,16" fill="none" stroke="#d3a276" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        <path d="M100,158 q20,12 40,0" fill="none" stroke="#9c5a39" stroke-width="4" stroke-linecap="round"/>
+      </g>
+      <circle cx="120" cy="120" r="115" fill="none" stroke="#001a3d" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="deck" id="deck">
+
+  <!-- Slaid 1: Tiitel -->
+  <section class="slide title active">
+    <span class="logo" aria-label="Tuleva">
+      <svg fill="none" height="66" viewBox="0 0 146 66" width="146" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill-rule="evenodd"><g fill="#ffffff"><path d="m94.6888 50.6664c-1.029-3.461-3.602-5.285-6.689-5.285-3.086 0-5.612 1.917-6.408 5.285zm4.49 8.747c-2.713 3.414-6.455 5.472-10.524 5.519-7.904 0-12.488-5.94-12.488-11.928 0-5.986 4.584-11.926 12.488-11.926 4.724 0 11.7402 3.882 11.7402 12.722v.888h-18.8032c.282 3.461 3.509 5.941 6.923 5.941 2.619 0 4.864-1.263 6.548-3.508zm39.6892-5.7953c-1.43.28-2.798.531-4.158.821-1.171.249-2.357.47-3.49.842-.965.316-1.768.942-1.907 2.062-.189 1.514.68 2.577 2.246 2.836 1.234.203 2.461.16 3.666-.148 1.703-.435 3.118-1.29 3.469-3.147.206-1.089.128-2.231.174-3.266zm7.131 10.546c-1.7.624-3.396.681-4.889-.238-.65-.4-.995-1.052-1.241-1.822-.3.279-.549.538-.825.764-1.113.91-2.419 1.39-3.812 1.648-2.118.393-4.234.482-6.342-.097-2.751-.757-4.48-2.632-4.763-5.37-.289-2.8.754-5.003 3.205-6.478 1.846-1.111 3.891-1.625 5.983-1.994 1.349-.237 2.709-.419 4.054-.675.591-.113 1.254-.26 1.402-.988.164-.805.065-1.584-.546-2.212-.738-.758-1.701-.981-2.7-1.057-2.797-.211-4.882.787-7.209 3.084-1.104-1.041-2.091-1.97-3.118-2.937 1.417-1.853 2.893-2.949 4.863-3.724 2.405-.947 4.889-1.072 7.415-.686 1.653.252 3.188.797 4.453 1.942 1.25 1.131 1.863 2.581 2.011 4.228.079.878.073 1.766.076 2.65.009 2.547.003 5.094.003 7.641 0 .137-.001.274.003.411.039 1.344.383 1.694 1.716 1.745.073.003.149.004.261.004zm-95.358.6195c1.808.021 3.577-.305 5.281-1.116 2.79-1.33 4.353-3.578 4.802-6.611.095-.646.125-1.559.125-1.959v-13.191h-5.349v12.657c-.004.679-.082 1.371-.232 2.033-.416 1.837-1.641 2.863-3.451 3.199-.393.073-.786.114-1.177.118-.391-.004-.784-.045-1.177-.118-1.809-.336-3.035-1.362-3.451-3.199-.15-.662-.228-1.354-.231-2.033v-12.657h-5.35v13.191c0 .4.03 1.313.126 1.959.449 3.033 2.011 5.281 4.801 6.611 1.704.811 3.475 1.137 5.283 1.116z"/><path d="m124.384 41.4719-12.035 23.894-12.034-23.894 5.359-.027 6.675 13.254 6.663-13.227z"/><path d="m73.2382 60.024c-1.282-.067-1.989-.705-2.183-1.975-.079-.518-.103-1.048-.103-1.572v-23.1h-5.404v23.684c.001.818.024 1.647.144 2.455.285 1.918 1.079 3.55 2.852 4.543 1.165.653 2.447.878 3.757.885.979.006 1.959-.105 2.936-.163v-4.751c-.681 0-1.342.029-1.999-.006z"/><path d="m1.064 28 24.936 13.864v-8.485l-9.5-5.379z"/><path d="m5.944 0-1.647 7.64 21.253 11.36h15.641z"/></g><path d="m19 64.5h7v-21l-7-4z" fill="#00aeea"/><path d="m1.651 20.0439-1.651 6.956h40.825l1.582-6.956z" fill="#00aeea"/><path d="m27 33.377v4.951 26.172h5.084v-26.172h8.347v-4.951z" fill="#ffffff"/></g></svg>
+    </span>
+    <span class="eyebrow">Finantskirjaoskus</span>
+    <h1>Illusioonide arhitektid</h1>
+    <p class="subtitle">miks me laseme end petta? · Kaks vastandlikku teed finantshävinguni</p>
+    <p class="speaker">Esineja: <em>[lisa siia oma nimi]</em></p>
+  </section>
+
+  <!-- Slaid 2: Sissejuhatus – Munger & stiimulid -->
+  <section class="slide">
+    <span class="eyebrow">Sissejuhatus · Pettuse anatoomia</span>
+    <div class="quote-grid">
+
+      <!-- Karikatuur: Charlie Munger -->
+      <div class="portrait">
+        <svg viewBox="0 0 240 270" role="img" aria-label="Charlie Mungeri karikatuur">
+          <defs>
+            <clipPath id="circMunger"><circle cx="120" cy="120" r="115"/></clipPath>
+          </defs>
+          <circle cx="120" cy="120" r="115" fill="#edf7fd"/>
+          <g clip-path="url(#circMunger)">
+            <path d="M30,270 C 35,205 75,185 120,185 C 165,185 205,205 210,270 Z" fill="#002f63"/>
+            <path d="M97,188 L120,225 L143,188 L132,182 L120,196 L108,182 Z" fill="#ffffff"/>
+            <path d="M120,196 L112,210 L120,255 L128,210 Z" fill="#00aeea"/>
+            <path d="M120,196 L114,205 L120,212 L126,205 Z" fill="#006ce6"/>
+            <rect x="103" y="158" width="34" height="34" rx="14" fill="#e9b88f"/>
+            <ellipse cx="48" cy="118" rx="12" ry="17" fill="#e9b88f"/>
+            <ellipse cx="192" cy="118" rx="12" ry="17" fill="#e9b88f"/>
+            <path d="M52,108 C 52,52 86,34 120,34 C 154,34 188,52 188,108 C 188,150 162,176 120,176 C 78,176 52,150 52,108 Z" fill="#f2c69e"/>
+            <path d="M50,104 C 46,70 60,52 78,46 C 70,60 66,80 66,98 Z" fill="#c9ccce"/>
+            <path d="M190,104 C 194,70 180,52 162,46 C 170,60 174,80 174,98 Z" fill="#c9ccce"/>
+            <path d="M88,44 C 104,36 138,36 152,46 C 134,40 106,40 88,44 Z" fill="#d4d7d9"/>
+            <path d="M92,58 q28,-7 56,0 M96,68 q24,-6 48,0" fill="none" stroke="#dba878" stroke-width="2" stroke-linecap="round"/>
+            <path d="M70,92 q18,-9 36,-2" fill="none" stroke="#9a9da0" stroke-width="6" stroke-linecap="round"/>
+            <path d="M134,90 q18,-7 36,2" fill="none" stroke="#9a9da0" stroke-width="6" stroke-linecap="round"/>
+            <g>
+              <rect x="60" y="96" width="56" height="46" rx="12" fill="#ffffff" stroke="#16181a" stroke-width="7"/>
+              <rect x="124" y="96" width="56" height="46" rx="12" fill="#ffffff" stroke="#16181a" stroke-width="7"/>
+              <path d="M116,112 q4,-5 8,0" fill="none" stroke="#16181a" stroke-width="7" stroke-linecap="round"/>
+              <line x1="60" y1="108" x2="48" y2="106" stroke="#16181a" stroke-width="6" stroke-linecap="round"/>
+              <line x1="180" y1="108" x2="192" y2="106" stroke="#16181a" stroke-width="6" stroke-linecap="round"/>
+            </g>
+            <circle cx="88" cy="120" r="5" fill="#2a2d30"/>
+            <circle cx="152" cy="120" r="5" fill="#2a2d30"/>
+            <path d="M120,124 C 116,140 110,148 118,150 q4,2 8,0" fill="none" stroke="#d99f6e" stroke-width="3" stroke-linecap="round"/>
+            <path d="M98,160 q22,16 44,0" fill="none" stroke="#a8623e" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <circle cx="120" cy="120" r="115" fill="none" stroke="#cfe6f5" stroke-width="3"/>
+        </svg>
+        <div class="name">Charlie Munger</div>
+        <div class="role">investor · Berkshire Hathaway</div>
+      </div>
+
+      <!-- Tsitaat -->
+      <div class="quote">
+        <div class="mark">&ldquo;</div>
+        <blockquote>Show me the incentive and I will show you the outcome.</blockquote>
+        <div class="et">«Näita mulle stiimulit ja ma näitan sulle tulemuse.»</div>
+        <div class="tie">Pettus ei alga numbritest, vaid <strong>stiimulitest</strong>. Et mõista petturit — visionääri või tugisammast — vaata, <strong>mida ta võidab</strong>.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Slaid 3: Arhetüüp 1 – Visionäär -->
+  <section class="slide">
+    <span class="eyebrow">Arhetüüp 1 · Gatsby / SBF sündroom</span>
+    <div class="profile-grid">
+      <div class="portrait">
+        <svg viewBox="0 0 240 270" role="img" aria-label="DiCaprio Gatsbyna – šampanjatoost"><use href="#ch-gatsby"/></svg>
+        <div class="name">Isehakanud visionäär</div>
+        <div class="role">Gatsby / SBF sündroom</div>
+      </div>
+      <div class="rows">
+        <div class="r"><div class="k">Profiil</div><div class="v"><strong>Autsaider</strong>, kes soovib sotsiaalset aktsepti. Reeglite murdja.</div></div>
+        <div class="r"><div class="k">Motiiv</div><div class="v">Suur, näiliselt õilis eesmärk (armastus, maailma päästmine). <strong>«Eesmärk pühitseb abinõu.»</strong></div></div>
+        <div class="r"><div class="k">Pettuse mehhanism</div><div class="v">Agressiivne riskide võtmine uutes, reguleerimata valdkondades (krüpto, salaalkohol).</div></div>
+        <div class="r"><div class="k">Ohvri psühholoogia</div><div class="v">Ohver ostab <strong>revolutsiooni ja visiooni</strong>. Teda juhib FOMO.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slaid 4: Juhtumiuuring SBF -->
+  <section class="slide">
+    <span class="eyebrow">Juhtumiuuring · Visionäär</span>
+    <div class="profile-grid">
+      <div class="portrait">
+        <svg viewBox="0 0 240 270" role="img" aria-label="Sam Bankman-Fried"><use href="#ch-sbf"/></svg>
+        <div class="name">Sam Bankman-Fried</div>
+        <div class="role">Krüpto · FTX</div>
+      </div>
+      <div class="case-right">
+        <div class="rows">
+          <div class="r"><div class="k">Kes ta oli</div><div class="v">20ndates krüptogeenius ja <strong>«efektiivne altruist»</strong>.</div></div>
+          <div class="r"><div class="k">Kuidas skeem töötas</div><div class="v">FTX-i klientide hoiuste salajane ülekandmine riskikapitalifirmale <strong>Alameda Research</strong>.</div></div>
+          <div class="r"><div class="k">Krahh</div><div class="v">2022. a november: turupaanika, selgus, et süsteem põhines õhul (FTT müntidel).</div></div>
+        </div>
+        <div class="stats">
+          <div class="stat alert"><div class="num">~8 mld $</div><div class="lbl">klientide raha kadus</div></div>
+          <div class="stat"><div class="num">25 aastat</div><div class="lbl">vanglakaristust</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slaid 5: Arhetüüp 2 – Tugisammas -->
+  <section class="slide">
+    <span class="eyebrow">Arhetüüp 2 · Madoffi sündroom</span>
+    <div class="profile-grid">
+      <div class="portrait">
+        <svg viewBox="0 0 240 270" role="img" aria-label="Usaldusväärne tugisammas"><use href="#ch-madoff"/></svg>
+        <div class="name">Usaldusväärne tugisammas</div>
+        <div class="role">Madoffi sündroom</div>
+      </div>
+      <div class="rows">
+        <div class="r"><div class="k">Profiil</div><div class="v">Süsteemi <strong>siseringi</strong> kogenud autoriteet. Kiirgab turvalisust.</div></div>
+        <div class="r"><div class="k">Motiiv</div><div class="v">Staatuse säilitamine, paaniline hirm läbikukkumise ees. Ajutiste kahjumite varjamine.</div></div>
+        <div class="r"><div class="k">Pettuse mehhanism</div><div class="v">Klassikaline <strong>Ponzi skeem</strong>. Uute investorite raha katab vanade intresse.</div></div>
+        <div class="r"><div class="k">Ohvri psühholoogia</div><div class="v">Ohver ostab <strong>stabiilsust ja eksklusiivsust</strong>. «Hõimupettus» — sõprade petmine.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slaid 6: Juhtumiuuring Madoff -->
+  <section class="slide">
+    <span class="eyebrow">Juhtumiuuring · Tugisammas</span>
+    <div class="profile-grid">
+      <div class="portrait">
+        <svg viewBox="0 0 240 270" role="img" aria-label="Bernie Madoff"><use href="#ch-madoff"/></svg>
+        <div class="name">Bernie Madoff</div>
+        <div class="role">Wall Street · Ponzi</div>
+      </div>
+      <div class="case-right">
+        <div class="rows">
+          <div class="r"><div class="k">Kes ta oli</div><div class="v">Wall Streeti veteran, endine <strong>NASDAQi börsi esimees</strong>.</div></div>
+          <div class="r"><div class="k">Kuidas skeem töötas</div><div class="v">Investeerimisfond ei teinud aastakümneid <strong>ainsatki aktsiatehingut</strong>.</div></div>
+          <div class="r"><div class="k">Fassaad</div><div class="v">Paralleelne edukas ja aus maakleriäri andis talle usaldusväärsuse.</div></div>
+        </div>
+        <div class="stats">
+          <div class="stat alert"><div class="num">7 mld $</div><div class="lbl">nõuti korraga välja (2008)</div></div>
+          <div class="stat"><div class="num">150 aastat</div><div class="lbl">vanglakaristust</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slaid 7: Kontrast -->
+  <section class="slide">
+    <span class="eyebrow">Kontrast</span>
+    <h2>Visionäär vs Tugisammas</h2>
+    <table class="contrast">
+      <thead>
+        <tr>
+          <th>Omadus</th>
+          <th><div class="th-face"><svg viewBox="0 0 240 270" aria-hidden="true"><use href="#ch-gatsby"/></svg><span>Visionäär<br>(SBF / Gatsby)</span></div></th>
+          <th><div class="th-face"><svg viewBox="0 0 240 270" aria-hidden="true"><use href="#ch-madoff"/></svg><span>Tugisammas<br>(Madoff)</span></div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sotsiaalne positsioon</td>
+          <td>Autsaider, pürgib tippu</td>
+          <td>Siseringi mees, juba tipus</td>
+        </tr>
+        <tr>
+          <td>Pettuse keskkond</td>
+          <td>Uued tehnoloogiad, kaosed</td>
+          <td>Traditsioonilised turud, kord</td>
+        </tr>
+        <tr>
+          <td>Fassaad</td>
+          <td>Ekstravagantne pidu või nohiku kaos</td>
+          <td>Range turvalisus ja elitaarne klubi</td>
+        </tr>
+        <tr>
+          <td>Investorite ootus</td>
+          <td>Astronoomiline kasv, uuendus</td>
+          <td>Laitmatu stabiilsus, turvavõrk</td>
+        </tr>
+        <tr>
+          <td>Läbikukkumise põhjus</td>
+          <td>Ülemäärane võimendus, turu paanika</td>
+          <td>Uue raha pealevoolu seiskumine</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Slaid 8: Kokkuvõte ja moraal -->
+  <section class="slide closing">
+    <span class="eyebrow">Kokkuvõte ja moraal</span>
+    <h2>Usk on süsteemi vundament</h2>
+    <div class="moral-grid">
+      <div class="house">
+        <svg viewBox="0 0 280 230" role="img" aria-label="Kaardimaja, mis on ehitatud usule">
+          <rect x="24" y="196" width="232" height="6" rx="3" fill="#9fd0ff" opacity="0.55"/>
+          <text x="140" y="222" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="4" fill="#9fd0ff" font-family="Roboto, Arial, sans-serif">USK · TRUST</text>
+          <g stroke="#bcd6f0" stroke-width="1.5" fill="#ffffff">
+            <g transform="translate(70,146)"><rect x="-3" y="0" width="7" height="50" rx="2" transform="rotate(-20)"/><rect x="-3" y="0" width="7" height="50" rx="2" transform="rotate(20)"/></g>
+            <g transform="translate(140,146)"><rect x="-3" y="0" width="7" height="50" rx="2" transform="rotate(-20)"/><rect x="-3" y="0" width="7" height="50" rx="2" transform="rotate(20)"/></g>
+            <g transform="translate(210,146)"><rect x="-3" y="0" width="7" height="50" rx="2" transform="rotate(-20)"/><rect x="-3" y="0" width="7" height="50" rx="2" transform="rotate(20)"/></g>
+            <rect x="78" y="140" width="68" height="7" rx="2" fill="#eaf4fb"/>
+            <rect x="134" y="140" width="68" height="7" rx="2" fill="#eaf4fb"/>
+            <g transform="translate(105,98)"><rect x="-3" y="0" width="7" height="46" rx="2" transform="rotate(-20)"/><rect x="-3" y="0" width="7" height="46" rx="2" transform="rotate(20)"/></g>
+            <g transform="translate(175,98)"><rect x="-3" y="0" width="7" height="46" rx="2" transform="rotate(-20)"/><rect x="-3" y="0" width="7" height="46" rx="2" transform="rotate(20)"/></g>
+            <rect x="113" y="92" width="54" height="7" rx="2" fill="#eaf4fb"/>
+            <g transform="translate(140,92)" stroke="#ffc107"><rect x="-3" y="0" width="7" height="46" rx="2" transform="rotate(48)"/></g>
+          </g>
+          <path d="M150,96 l8,-6 l-3,11 l9,-4" fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="moral-stack">
+        <div class="moral">Finantssüsteem on ehitatud <strong>usule</strong>. Valede asjade usaldamine lülitab välja meie kriitikameele.</div>
+        <div class="moral">Petturid ei tegutse vaakumis: nad vajavad <strong>tuhandeid inimesi</strong>, kes tahavad meeleheitlikult uskuda otseteesse rikkuse ja õnneni.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" aria-label="Eelmine">‹</button>
+  <span class="counter" id="counter"></span>
+  <button id="next" aria-label="Järgmine">›</button>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  let i = 0;
+  const counter = document.getElementById("counter");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  const bar = document.getElementById("progressBar");
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+    counter.textContent = (i + 1) + " / " + slides.length;
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === slides.length - 1;
+    bar.style.width = ((i + 1) / slides.length * 100) + "%";
+    window.scrollTo({ top: 0 });
+  }
+
+  prevBtn.addEventListener("click", () => show(i - 1));
+  nextBtn.addEventListener("click", () => show(i + 1));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); show(i + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); show(i - 1); }
+    else if (e.key === "Home") show(0);
+    else if (e.key === "End") show(slides.length - 1);
+  });
+
+  show(0);
+</script>
+</body>
+</html>
