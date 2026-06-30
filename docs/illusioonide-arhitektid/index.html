@@ -53,18 +53,7 @@
 
   .eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); margin-bottom: 14px; }
   .slide h1 { font-family: "Merriweather", Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.6rem); margin: 0 0 14px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; line-height: 1.2; }
-  .slide h2 { font-family: "Merriweather", Georgia, serif; font-size: clamp(1.4rem, 3.2vw, 2rem); margin: 0 0 10px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; line-height: 1.22; }
   .subtitle { font-size: 1.15rem; color: var(--muted); margin: 0 0 8px; }
-
-  ul.points { list-style: none; margin: 18px 0 0; padding: 0; }
-  ul.points li { position: relative; padding-left: 30px; margin-bottom: 18px; font-size: 1.12rem; line-height: 1.5; }
-  ul.points li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 12px; height: 12px; border-radius: 3px; background: var(--bright); transform: rotate(45deg); }
-  ul.points li strong { color: var(--navy); }
-  ul.points li .lead { color: var(--navy); font-weight: 600; }
-
-  .scope { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; }
-  .scope .row { background: var(--bg-soft); border-left: 4px solid var(--bright); border-radius: 0 0.6rem 0.6rem 0; padding: 16px 20px; font-size: 1.12rem; }
-  .scope .row .k { display: block; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
 
   /* Title slide */
   .slide.title { justify-content: center; text-align: center; background: var(--navy); border-color: var(--navy); color: #fff; }
@@ -75,25 +64,9 @@
   .slide.title .speaker em { color: #fff; font-style: normal; }
   .slide.title .logo svg { width: 132px; height: auto; margin: 0 auto 30px; display: block; }
 
-  /* Case-study slides accent */
-  .slide.case { background: linear-gradient(180deg, #f7fbff 0%, #fff 120px); }
-  .slide.case .eyebrow { color: var(--gold); }
-
-  /* Contrast table */
-  table.contrast { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 1rem; }
-  table.contrast th, table.contrast td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  table.contrast thead th { background: var(--navy); color: #fff; font-weight: 600; font-size: 0.92rem; }
-  table.contrast thead th:first-child { border-top-left-radius: 0.5rem; }
-  table.contrast thead th:last-child { border-top-right-radius: 0.5rem; }
-  table.contrast tbody td:first-child { font-weight: 600; color: var(--navy); background: var(--bg-soft); }
-  table.contrast tbody tr:nth-child(even) td:not(:first-child) { background: #fafcfe; }
-
   /* Closing slide */
   .slide.closing { background: var(--navy); border-color: var(--navy); color: #fff; }
-  .slide.closing h2 { color: #fff; }
   .slide.closing .eyebrow { color: var(--bright); }
-  .slide.closing ul.points li strong { color: #fff; }
-  .slide.closing .moral { background: rgba(255,255,255,0.07); border-left: 4px solid var(--bright); border-radius: 0 0.6rem 0.6rem 0; padding: 18px 22px; font-size: 1.18rem; margin-top: 14px; }
   .slide.closing .chain { display: flex; flex-direction: column; gap: 6px; }
   .slide.closing .chain .step { background: rgba(255,255,255,0.07); border-left: 4px solid var(--bright); border-radius: 0 0.6rem 0.6rem 0; padding: 14px 18px; font-size: 1.12rem; }
   .slide.closing .chain .step strong { color: #fff; }
@@ -132,11 +105,6 @@
   .stats .stat .num { font-family: "Merriweather", Georgia, serif; font-weight: 700; font-size: 1.45rem; line-height: 1.05; }
   .stats .stat .lbl { font-size: 0.76rem; opacity: 0.88; margin-top: 5px; line-height: 1.2; }
 
-  /* Slaid 7: kahe näo võrdlus tabelipäises */
-  table.contrast thead th .th-face { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  table.contrast thead th .th-face svg { width: 58px; height: 58px; }
-  table.contrast thead th .th-face span { line-height: 1.15; }
-
   /* Slaid 8: moraal + kaardimaja */
   .moral-grid { flex: 1; display: grid; grid-template-columns: 290px 1fr; gap: 36px; align-items: center; margin-top: 10px; }
   .moral-grid .house { display: flex; justify-content: center; }
@@ -174,8 +142,6 @@
 
   @media (max-width: 640px) {
     .slide { padding: 32px 24px; min-height: 0; }
-    table.contrast { font-size: 0.82rem; }
-    table.contrast th, table.contrast td { padding: 8px 9px; }
   }
   @media print {
     body { background: #fff; }
