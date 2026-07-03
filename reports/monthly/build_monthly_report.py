@@ -228,21 +228,35 @@ def preprocess_data(data, year, month):
     if row:
         report['rate_changes'] = row
 
-    # Rate changes YTD and YoY (from card 1573)
+    # Rate changes for the current collection period and YoY (from card 1573).
+    # The rate-change application collection period runs 1 Dec -> 30 Nov each
+    # year (a new period opens every 1 December). So we sum "alates detsembrist"
+    # (since December) rather than calendar-YTD. December carries a large negative
+    # row where the previous period's applications are executed and the pending
+    # pool is cleared; we floor each month at 0 so that reset (and any negative)
+    # does not subtract from the running count.
     rate_changes_data = cards.get('II samba maksemäära muutmine', {}).get('data', [])
-    ytd_raised = 0
-    ytd_lowered = 0
-    ytd_prev_raised = 0
-    ytd_prev_lowered = 0
+    # Period start = December of the report year if the report month is December
+    # (a new period just opened), otherwise December of the previous year.
+    period_start_year = year if month == 12 else year - 1
+    cur_start = period_start_year * 12 + 12  # December of period_start_year
+    cur_end = year * 12 + month
+    prev_start, prev_end = cur_start - 12, cur_end - 12  # same window, one year back
+    ytd_raised = ytd_lowered = 0
+    ytd_prev_raised = ytd_prev_lowered = 0
     for rc_row in rate_changes_data:
         date_str = rc_row.get('kuu: Month', '')
-        rc_month = int(date_str[5:7]) if len(date_str) >= 7 else 0
-        if date_str.startswith(str(year)):
-            ytd_raised += rc_row.get('maksemäära tõstnute arv', 0)
-            ytd_lowered += rc_row.get('maksemäära langetanute arv', 0)
-        elif date_str.startswith(str(year - 1)) and rc_month <= month:
-            ytd_prev_raised += rc_row.get('maksemäära tõstnute arv', 0)
-            ytd_prev_lowered += rc_row.get('maksemäära langetanute arv', 0)
+        if len(date_str) < 7:
+            continue
+        month_key = int(date_str[:4]) * 12 + int(date_str[5:7])
+        raised = max(0, rc_row.get('maksemäära tõstnute arv', 0))
+        lowered = max(0, rc_row.get('maksemäära langetanute arv', 0))
+        if cur_start <= month_key <= cur_end:
+            ytd_raised += raised
+            ytd_lowered += lowered
+        elif prev_start <= month_key <= prev_end:
+            ytd_prev_raised += raised
+            ytd_prev_lowered += lowered
     if ytd_raised or ytd_lowered:
         report['rate_changes_ytd'] = {
             'raised': ytd_raised, 'lowered': ytd_lowered}

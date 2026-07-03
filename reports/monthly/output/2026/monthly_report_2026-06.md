@@ -101,10 +101,10 @@
 
 ### II samba maksemäära muutmine
 
-| KPI | Juuni 2026 | YoY | YTD | YoY |
+| KPI | Juuni 2026 | YoY | Alates detsembrist | YoY |
 |---------|:---:|:---:|:---:|:---:|
-| Maksemäära tõstnud | 108 | *18.7%* | 893 | *11.6%* |
-| Maksemäära langetanud | 28 | *-45.1%* | 176 | *-45.0%* |
+| Maksemäära tõstnud | 108 | *18.7%* | 893 | *-15.4%* |
+| Maksemäära langetanud | 28 | *-45.1%* | 176 | *-53.1%* |
 
 
 ### Täiendavasse Kogumisfondi tehtud maksed

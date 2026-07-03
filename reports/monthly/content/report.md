@@ -119,7 +119,7 @@
 {% if report.rate_changes -%}
 ### II samba maksemäära muutmine
 
-| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY | YTD | YoY |
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY | Alates detsembrist | YoY |
 |---------|:---:|:---:|:---:|:---:|
 | Maksemäära tõstnud | {{ "{:,}".format(report.rate_changes['maksemäära tõstnute arv']) }} | {% if report.rate_changes_prev %}*{{ "{:.1%}".format((report.rate_changes['maksemäära tõstnute arv'] - report.rate_changes_prev['maksemäära tõstnute arv']) / report.rate_changes_prev['maksemäära tõstnute arv']) }}*{% endif %} | {% if report.rate_changes_ytd %}{{ "{:,}".format(report.rate_changes_ytd['raised']) }}{% endif %} | {% if report.rate_changes_ytd_prev %}*{{ "{:.1%}".format((report.rate_changes_ytd['raised'] - report.rate_changes_ytd_prev['raised']) / report.rate_changes_ytd_prev['raised']) }}*{% endif %} |
 | Maksemäära langetanud | {{ "{:,}".format(report.rate_changes['maksemäära langetanute arv']) }} | {% if report.rate_changes_prev %}*{{ "{:.1%}".format((report.rate_changes['maksemäära langetanute arv'] - report.rate_changes_prev['maksemäära langetanute arv']) / report.rate_changes_prev['maksemäära langetanute arv']) }}*{% endif %} | {% if report.rate_changes_ytd %}{{ "{:,}".format(report.rate_changes_ytd['lowered']) }}{% endif %} | {% if report.rate_changes_ytd_prev %}*{{ "{:.1%}".format((report.rate_changes_ytd['lowered'] - report.rate_changes_ytd_prev['lowered']) / report.rate_changes_ytd_prev['lowered']) }}*{% endif %} |
