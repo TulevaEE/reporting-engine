@@ -1,5 +1,23 @@
 """
-Fetch monthly KPI data from Metabase dashboard 74.
+Fetch monthly KPI data from Metabase.
+
+The primary source is the consolidated KPI card 2578 ("Mv Kpi New for Claude"):
+a wide monthly time series (one row per month) covering AUM, active investors,
+contributions, fund switching and outflows split by II/III pillar. YTD and YoY
+figures are NOT columns on this card — they are computed downstream in Python
+from the full series (build_monthly_report.py / kpi_2578.py).
+
+A small set of "survivor" cards supply data that 2578 does not contain:
+  - new-savers distinct-person counts + by-source splits (1518/418/1519/1520/1534/1535)
+  - the monthly rate-change flow (1573) — 2578 only has cumulative rate stock
+  - distinct III-pillar contributor YTD count (1657)
+  - fund-level switching destination/source lists (1911/1912)
+  - growth-source waterfalls incl. non-reconstructable forecast (389/392/393)
+  - unit-price/returns series (2245), financial results (636), TKF payments (2305)
+  - the AUM chart itself (334) which carries forecast bars + pre-rounded growth %
+
+This replaces the previous approach of looping over every card pinned to
+dashboard 74 (non-deterministic) plus a few hardcoded standalone cards.
 """
 import sys
 import yaml
@@ -12,91 +30,81 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'common' / 'scripts
 from metabase_client import MetabaseClient
 
 
+# Consolidated KPI card — the primary data source (monthly time series).
+PRIMARY_CARD_ID = 2578
+PRIMARY_CARD_NAME = 'Mv Kpi New for Claude'
+
+# Cards 2578 cannot replace. Keyed by card_id -> (downstream name, display).
+# The downstream name MUST match how build_monthly_report / generate_monthly_charts
+# look the card up in data['cards'].
+SURVIVOR_CARDS = {
+    334:  ('AUM (koos ootel vahetuste ja väljumistega)', 'line'),
+    1518: ('uute kogujate arv kuus', 'combo'),
+    418:  ('uute kogujate arv YTD', 'smartscalar'),
+    1519: ('II sambaga liitujate arv kuus', 'combo'),
+    1520: ('III sambaga liitujate arv kuus', 'combo'),
+    1534: ('uute II samba kogujate arv YTD', 'smartscalar'),
+    1535: ('uute III samba kogujate arv YTD', 'smartscalar'),
+    1573: ('II samba maksemäära muutmine', 'combo'),
+    1657: ('III s sissemakse tegijate arv YTD', 'scalar'),
+    1911: ('II samba vahetusavalduste arv pangafondidesse sel vahetusperioodil', 'row'),
+    1912: ('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', 'row'),
+    389:  ('Kasvuallikad eelmisel kuul (tegelik), M EUR', 'waterfall'),
+    392:  ('Kasvuallikad YTD (tegelik), M EUR', 'waterfall'),
+    393:  ('Kasvuallikad (aasta lõpu prognoos), M EUR', 'waterfall'),
+    2245: ('Osakuhinna võrdlus', 'line'),
+    636:  ('Tuleva finantstulemused', 'line'),
+    2305: ('Täiendavasse Kogumisfondi tehtud maksed', 'line'),
+}
+
+
 def fetch_monthly_data(year: int, month: int) -> dict:
     """
-    Fetch monthly KPI data from Metabase dashboard 74.
+    Fetch monthly KPI data: the consolidated card 2578 plus the survivor cards.
 
     Args:
-        year: Report year (e.g., 2025)
+        year: Report year (e.g., 2026)
         month: Report month (1-12)
 
     Returns:
-        Dictionary containing all KPI data
+        Dictionary with a `kpi_2578` block (full monthly series) and a `cards`
+        block (survivor cards keyed by their downstream Estonian name).
     """
     print(f"Fetching monthly data for {year}-{month:02d}...")
 
     client = MetabaseClient()
 
-    # Load config to get dashboard ID
-    config_path = Path(__file__).parent.parent.parent / 'common' / 'config' / 'metabase.yaml'
-    with open(config_path, 'r') as f:
-        config = yaml.safe_load(f)
-
-    dashboard_id = config.get('dashboard_id', 74)
-
-    # Get all cards from the dashboard
-    cards = client.get_dashboard_cards(dashboard_id)
-    print(f"Found {len(cards)} cards on dashboard {dashboard_id}")
-
-    # Initialize data structure
     data = {
         'year': year,
         'month': month,
         'month_name': datetime(year, month, 1).strftime('%B'),
         'report_date': datetime.now().strftime('%Y-%m-%d'),
+        'kpi_2578': {},
         'cards': {},
-        'kpis': {}
     }
 
-    # Fetch data from each card
-    for card in cards:
-        card_id = card['card_id']
-        card_name = card['name']
+    # Primary consolidated KPI card (full monthly time series).
+    print(f"  Fetching [{PRIMARY_CARD_ID}] {PRIMARY_CARD_NAME} (primary)...")
+    try:
+        results = client.execute_card(PRIMARY_CARD_ID)
+        data['kpi_2578'] = {
+            'card_id': PRIMARY_CARD_ID,
+            'display': 'table',
+            'data': results,
+        }
+        print(f"    -> {len(results)} monthly rows")
+    except Exception as e:
+        print(f"    ERROR: {e}")
+        data['kpi_2578'] = {'card_id': PRIMARY_CARD_ID, 'error': str(e)}
 
+    # Survivor cards.
+    for card_id, (card_name, display) in SURVIVOR_CARDS.items():
         print(f"  Fetching [{card_id}] {card_name}...")
-
-        try:
-            results = client.execute_card(card_id)
-
-            # Store raw results
-            data['cards'][card_name] = {
-                'card_id': card_id,
-                'display': card['display'],
-                'data': results
-            }
-
-            # For scalar/single-value cards, extract the KPI value
-            if results and len(results) == 1 and len(results[0]) == 1:
-                value = list(results[0].values())[0]
-                data['kpis'][card_name] = value
-                print(f"    -> {value}")
-            elif results and len(results) == 1:
-                # Single row with multiple columns - store as dict
-                data['kpis'][card_name] = results[0]
-                print(f"    -> {results[0]}")
-            else:
-                print(f"    -> {len(results)} rows")
-
-        except Exception as e:
-            print(f"    ERROR: {e}")
-            data['cards'][card_name] = {
-                'card_id': card_id,
-                'error': str(e)
-            }
-
-    # Fetch standalone cards not on the dashboard
-    standalone_cards = {
-        2245: 'Osakuhinna võrdlus',
-        636: 'Tuleva finantstulemused',
-        2305: 'Täiendavasse Kogumisfondi tehtud maksed',
-    }
-    for card_id, card_name in standalone_cards.items():
-        print(f"  Fetching [{card_id}] {card_name} (standalone)...")
         try:
             results = client.execute_card(card_id)
             data['cards'][card_name] = {
                 'card_id': card_id,
-                'display': 'line',
+                'display': display,
                 'data': results,
             }
             print(f"    -> {len(results)} rows")

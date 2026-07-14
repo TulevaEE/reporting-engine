@@ -9,6 +9,7 @@ import base64
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from generate_monthly_charts import generate_monthly_charts, ESTONIAN_MONTHS
+import kpi_2578 as k2578
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
 
@@ -103,9 +104,20 @@ def get_prev_ytd_row(card_data, year):
 
 
 def preprocess_data(data, year, month):
-    """Extract report-month values from raw card data into a clean structure."""
+    """Extract report-month values from raw card data into a clean structure.
+
+    Most monthly KPIs come from the consolidated card 2578 (``data['kpi_2578']``),
+    with YTD/YoY computed in Python via ``kpi_2578``. A few sections stay on their
+    own survivor cards in ``data['cards']`` — see fetch_monthly_data.SURVIVOR_CARDS.
+    """
     cards = data.get('cards', {})
+    series = data.get('kpi_2578', {}).get('data', []) or []
+    row2578 = k2578.get_row(series, year, month)          # target month row, or None
     report = {}
+
+    def m_eur(raw):
+        """Raw EUR -> M EUR rounded to 1 decimal (mirrors the old YTD smartscalars)."""
+        return round(raw / 1000000, 1)
 
     # --- AUM ---
     aum_card = cards.get('AUM (koos ootel vahetuste ja väljumistega)', {})
@@ -116,10 +128,16 @@ def preprocess_data(data, year, month):
             report['aum'] = row
             break
 
-    # --- Savers (kogujad) ---
-    row = get_month_row(cards.get('kogujate arv kuus', {}), year, month)
-    if row:
-        report['savers'] = row
+    # --- Savers (kogujad) --- from card 2578
+    if row2578:
+        both = row2578['Total Active Investors Both Pillars']
+        report['savers'] = {
+            'kogujate arv': row2578['Total Active Investors'],
+            'ainult II sammas': row2578['Active Investors Second Pillar'] - both,
+            'ainult III sammas': row2578['Active Investors Third Pillar'] - both,
+            'II ja III sammas': both,
+            'YoY, %': k2578.yoy(series, year, month, 'Total Active Investors'),
+        }
 
     row = get_month_row(cards.get('uute kogujate arv kuus', {}), year, month)
     if row:
@@ -148,59 +166,42 @@ def preprocess_data(data, year, month):
         report['new_savers_iii_month'] = (
             iii_joiners_row['3'] + iii_joiners_row['2+3'] + iii_joiners_row['2>3'])
 
-    # --- Contributions (sissemaksed) ---
-    row = get_month_row(cards.get('II samba sissemaksete summa kuus, M EUR', {}), year, month)
-    if row:
-        report['ii_contributions'] = row
+    # --- Contributions (sissemaksed) --- from card 2578
+    if row2578:
+        report['ii_contributions'] = {
+            'II samba sissemaksed, M EUR': row2578['Second Pillar Contributions Eur'],
+            'YoY, %': k2578.yoy(series, year, month, 'Second Pillar Contributions Eur'),
+        }
+        report['iii_contributions'] = {
+            'III samba sissemaksed, M EUR': row2578['Third Pillar Contributions Eur'],
+            'YoY, %': k2578.yoy(series, year, month, 'Third Pillar Contributions Eur'),
+        }
 
-    row = get_month_row(cards.get('III samba sissemaksete summa kuus, M EUR', {}), year, month)
-    if row:
-        report['iii_contributions'] = row
-
-    report['ii_contributions_ytd'] = get_ytd_row(
-        cards.get('II s sissemaksed YTD', {}), year)
-    report['iii_contributions_ytd'] = get_ytd_row(
-        cards.get('III s sissemaksed YTD', {}), year)
-
-    # YTD YoY for contributions
-    ii_ytd_prev = get_prev_ytd_row(cards.get('II s sissemaksed YTD', {}), year)
-    if report.get('ii_contributions_ytd') and ii_ytd_prev:
-        cur = report['ii_contributions_ytd']['second_pillar_contributions_eur']
-        prev = ii_ytd_prev['second_pillar_contributions_eur']
-        if prev:
-            report['ii_contributions_ytd_yoy'] = (cur - prev) / prev
-
-    iii_ytd_prev = get_prev_ytd_row(cards.get('III s sissemaksed YTD', {}), year)
-    if report.get('iii_contributions_ytd') and iii_ytd_prev:
-        cur = report['iii_contributions_ytd']['third_pillar_contributions_eur']
-        prev = iii_ytd_prev['third_pillar_contributions_eur']
-        if prev:
-            report['iii_contributions_ytd_yoy'] = (cur - prev) / prev
+    # YTD contributions (M EUR, rounded to 1 decimal to mirror the old smartscalars)
+    ii_ytd_cur = m_eur(k2578.ytd_sum(series, year, month, 'Second Pillar Contributions Eur'))
+    iii_ytd_cur = m_eur(k2578.ytd_sum(series, year, month, 'Third Pillar Contributions Eur'))
+    ii_ytd_prev = m_eur(k2578.ytd_prev_sum(series, year, month, 'Second Pillar Contributions Eur'))
+    iii_ytd_prev = m_eur(k2578.ytd_prev_sum(series, year, month, 'Third Pillar Contributions Eur'))
+    if row2578:
+        report['ii_contributions_ytd'] = {'second_pillar_contributions_eur': ii_ytd_cur}
+        report['iii_contributions_ytd'] = {'third_pillar_contributions_eur': iii_ytd_cur}
+        if ii_ytd_prev:
+            report['ii_contributions_ytd_yoy'] = (ii_ytd_cur - ii_ytd_prev) / ii_ytd_prev
+        if iii_ytd_prev:
+            report['iii_contributions_ytd_yoy'] = (iii_ytd_cur - iii_ytd_prev) / iii_ytd_prev
 
     # Contributions total row
-    ii_m = report.get('ii_contributions', {}).get('II samba sissemaksed, M EUR', 0)
-    iii_m = report.get('iii_contributions', {}).get('III samba sissemaksed, M EUR', 0)
-    if ii_m or iii_m:
+    if row2578:
+        ii_m = row2578['Second Pillar Contributions Eur']
+        iii_m = row2578['Third Pillar Contributions Eur']
         total_month = (ii_m + iii_m) / 1000000
-        # Previous year month values for YoY
-        ii_prev_row = get_month_row(
-            cards.get('II samba sissemaksete summa kuus, M EUR', {}), year - 1, month)
-        iii_prev_row = get_month_row(
-            cards.get('III samba sissemaksete summa kuus, M EUR', {}), year - 1, month)
-        prev_total = ((ii_prev_row or {}).get('II samba sissemaksed, M EUR', 0) +
-                      (iii_prev_row or {}).get('III samba sissemaksed, M EUR', 0))
+        prev = k2578.get_prev_year_row(series, year, month) or {}
+        prev_total = ((prev.get('Second Pillar Contributions Eur') or 0) +
+                      (prev.get('Third Pillar Contributions Eur') or 0))
         month_yoy = (ii_m + iii_m - prev_total) / prev_total if prev_total else 0
 
-        # YTD totals
-        ii_ytd_cur = (report.get('ii_contributions_ytd') or {}).get(
-            'second_pillar_contributions_eur', 0)
-        iii_ytd_cur = (report.get('iii_contributions_ytd') or {}).get(
-            'third_pillar_contributions_eur', 0)
         ytd_total = ii_ytd_cur + iii_ytd_cur
-
-        ii_ytd_p = (ii_ytd_prev or {}).get('second_pillar_contributions_eur', 0)
-        iii_ytd_p = (iii_ytd_prev or {}).get('third_pillar_contributions_eur', 0)
-        ytd_prev_total = ii_ytd_p + iii_ytd_p
+        ytd_prev_total = ii_ytd_prev + iii_ytd_prev
         ytd_yoy = (ytd_total - ytd_prev_total) / ytd_prev_total if ytd_prev_total else 0
 
         report['contributions_total'] = {
@@ -210,12 +211,19 @@ def preprocess_data(data, year, month):
             'ytd_yoy': ytd_yoy,
         }
 
-    # III pillar contributor count
-    row = get_month_row(cards.get('III samba sissemakse tegijate arv kuus', {}), year, month)
-    if row:
-        report['iii_contributors'] = row
+    # III pillar contributor count (from card 2578). Recurring-payment share =
+    # active investors on a recurring payment / distinct contributors that month.
+    if row2578:
+        contributors = row2578['Third Pillar Contributors']
+        report['iii_contributors'] = {
+            'III samba sissemakse tegijate arv': contributors,
+            'YoY, %': k2578.yoy(series, year, month, 'Third Pillar Contributors'),
+            'püsimakse tegijate osakaal, %': (
+                row2578['Active Investors Recurring Payment'] / contributors
+                if contributors else 0),
+        }
 
-    # III pillar contributors YTD (card 1657 — scalar)
+    # III pillar contributors YTD (card 1657 — scalar, distinct person count)
     iii_contributors_ytd_card = cards.get(
         'III s sissemakse tegijate arv YTD', {})
     iii_contributors_ytd_data = iii_contributors_ytd_card.get('data', [])
@@ -270,36 +278,28 @@ def preprocess_data(data, year, month):
     if rate_changes_prev:
         report['rate_changes_prev'] = rate_changes_prev
 
-    # --- Fund switching ---
-    row = get_month_row(cards.get('II samba vahetajate arv kuus', {}), year, month)
-    if row:
-        report['switchers'] = row
+    # --- Fund switching --- monthly + YTD from card 2578
+    if row2578:
+        report['switchers'] = {
+            'vahetajate arv': row2578['New Monthly Mandates'],
+            'YoY, %': k2578.yoy(series, year, month, 'New Monthly Mandates'),
+        }
+        report['switchers_aum'] = {
+            'vahetajate ületoodud varade maht, M EUR': row2578['New Monthly Mandates Eur'],
+            'YoY, %': k2578.yoy(series, year, month, 'New Monthly Mandates Eur'),
+        }
 
-    row = get_month_row(cards.get('II samba vahetajate ületoodava vara maht kuus, M EUR', {}), year, month)
-    if row:
-        report['switchers_aum'] = row
+        sw_ytd = k2578.ytd_sum(series, year, month, 'New Monthly Mandates')
+        sw_ytd_prev = k2578.ytd_prev_sum(series, year, month, 'New Monthly Mandates')
+        report['switchers_ytd'] = {'IIs sissevahetajate arv': sw_ytd}
+        if sw_ytd_prev:
+            report['switchers_ytd_yoy'] = (sw_ytd - sw_ytd_prev) / sw_ytd_prev
 
-    report['switchers_ytd'] = get_ytd_row(
-        cards.get('II s vahetajate arv YTD', {}), year)
-    report['switchers_aum_ytd'] = get_ytd_row(
-        cards.get('II s vahetustega ületoodav vara YTD', {}), year)
-
-    # Switching YTD YoY
-    switchers_ytd_prev = get_prev_ytd_row(
-        cards.get('II s vahetajate arv YTD', {}), year)
-    if report.get('switchers_ytd') and switchers_ytd_prev:
-        cur = report['switchers_ytd']['IIs sissevahetajate arv']
-        prev = switchers_ytd_prev['IIs sissevahetajate arv']
-        if prev:
-            report['switchers_ytd_yoy'] = (cur - prev) / prev
-
-    switchers_aum_ytd_prev = get_prev_ytd_row(
-        cards.get('II s vahetustega ületoodav vara YTD', {}), year)
-    if report.get('switchers_aum_ytd') and switchers_aum_ytd_prev:
-        cur = report['switchers_aum_ytd']['IIs vahetustega ületoodav vara M EUR']
-        prev = switchers_aum_ytd_prev['IIs vahetustega ületoodav vara M EUR']
-        if prev:
-            report['switchers_aum_ytd_yoy'] = (cur - prev) / prev
+        swa_ytd = m_eur(k2578.ytd_sum(series, year, month, 'New Monthly Mandates Eur'))
+        swa_ytd_prev = m_eur(k2578.ytd_prev_sum(series, year, month, 'New Monthly Mandates Eur'))
+        report['switchers_aum_ytd'] = {'IIs vahetustega ületoodav vara M EUR': swa_ytd}
+        if swa_ytd_prev:
+            report['switchers_aum_ytd_yoy'] = (swa_ytd - swa_ytd_prev) / swa_ytd_prev
 
     # Fund switching details (top 10)
     to_funds = cards.get('II samba vahetusavalduste arv pangafondidesse sel vahetusperioodil', {})
@@ -308,25 +308,26 @@ def preprocess_data(data, year, month):
     from_funds = cards.get('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', {})
     report['switching_from'] = (from_funds.get('data') or [])[:10]
 
-    # --- Outflows ---
-    row = get_month_row(cards.get('II samba lahkujate varade maht kuus, M EUR', {}), year, month)
-    if row:
-        report['ii_leavers'] = row
-
-    row = get_month_row(cards.get('II samba väljujate varade maht kuus, M EUR', {}), year, month)
-    if row:
-        report['ii_exiters'] = row
-
-    row = get_month_row(cards.get('III sambast välja võetud varade maht kuus, M EUR', {}), year, month)
-    if row:
-        report['iii_withdrawals'] = row
-
-    report['ii_leavers_ytd'] = get_ytd_row(
-        cards.get('II s vahetustega väljaminevad varad YTD', {}), year)
-    report['ii_exiters_ytd'] = get_ytd_row(
-        cards.get('II s raha väljavõtmised YTD', {}), year)
-    report['iii_withdrawals_ytd'] = get_ytd_row(
-        cards.get('III s väljavõetud varad YTD', {}), year)
+    # --- Outflows --- from card 2578
+    if row2578:
+        report['ii_leavers'] = {
+            'lahkujate varade maht, M EUR': row2578['New Monthly Leavers Eur'],
+            'YoY, %': k2578.yoy(series, year, month, 'New Monthly Leavers Eur'),
+        }
+        report['ii_exiters'] = {
+            'väljujate varade maht, M EUR': row2578['New Monthly Exiters Eur'],
+            'YoY, %': k2578.yoy(series, year, month, 'New Monthly Exiters Eur'),
+        }
+        report['iii_withdrawals'] = {
+            'III sambast väljavõetud varade maht, M EUR': row2578['New Monthly Withdrawals Third Pillar Eur'],
+            'YoY, %': k2578.yoy(series, year, month, 'New Monthly Withdrawals Third Pillar Eur'),
+        }
+        report['ii_leavers_ytd'] = {'new_monthly_leavers_eur': m_eur(
+            k2578.ytd_sum(series, year, month, 'New Monthly Leavers Eur'))}
+        report['ii_exiters_ytd'] = {'new_monthly_exiters_eur': m_eur(
+            k2578.ytd_sum(series, year, month, 'New Monthly Exiters Eur'))}
+        report['iii_withdrawals_ytd'] = {'new_monthly_withdrawals_third_pillar_eur': m_eur(
+            k2578.ytd_sum(series, year, month, 'New Monthly Withdrawals Third Pillar Eur'))}
 
     # --- Growth sources (waterfall) ---
     report['growth_actual'] = cards.get(

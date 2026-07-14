@@ -9,8 +9,10 @@ from pathlib import Path
 
 # Import shared style setup
 import sys
+sys.path.insert(0, str(Path(__file__).parent))
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'common' / 'scripts'))
 from generate_charts import setup_plot_style, TULEVA_BLUE, TULEVA_NAVY, TULEVA_MID_BLUE
+import kpi_2578 as k2578
 
 # Chart colors
 POSITIVE_COLOR = '#51c26c'
@@ -24,6 +26,107 @@ ESTONIAN_MONTHS = {
     5: 'mai', 6: 'juuni', 7: 'juuli', 8: 'august',
     9: 'september', 10: 'oktoober', 11: 'november', 12: 'detsember',
 }
+
+
+# Card 334's organic growth ("sissemaksetest ja -vahetustest") = 12-month gross
+# inflows from contributions + switch-in transfers, over AUM 12 months ago. Fitted
+# against 334's own 13 months: 11/13 exact after rounding, rest within 1pp.
+_ORGANIC_INFLOW_COLS = (
+    'Second Pillar Contributions Eur', 'Third Pillar Contributions Eur',
+    'New Monthly Mandates Eur', 'New Monthly Mandates Third Pillar Eur',
+)
+
+
+def _reconstruct_growth(idx, year, month):
+    """Return (total_12m_growth_%, organic_12m_growth_%) rounded to int, from 2578.
+
+    total   = (AUM - AUM 12m ago) / AUM 12m ago
+    organic = 12m sum of contribution + switch-in inflows / AUM 12m ago
+    Returns (None, None) components individually if the 12-months-ago base is absent.
+    """
+    row, base = idx.get((year, month)), idx.get((year - 1, month))
+    base_aum = base.get('Current Aum') if base else None
+    if not row or not base_aum:
+        return None, None
+    total = round((row['Current Aum'] - base_aum) / base_aum * 100)
+    inflow = 0
+    for j in range(12):
+        i = year * 12 + (month - 1) - j
+        r = idx.get((i // 12, i % 12 + 1))
+        if r:
+            inflow += sum((r.get(c) or 0) for c in _ORGANIC_INFLOW_COLS)
+    organic = round(inflow / base_aum * 100)
+    return total, organic
+
+
+def _extend_aum_history(series, card334_rows, report_year, report_month, months_back=36):
+    """Prepend older AUM history from card 2578 so the AUM chart spans `months_back`.
+
+    Card 334 supplies only ~13 actual months (+ forecast) but carries the exact
+    published AUM bars, growth-% lines and forecast. For the older months we
+    synthesize rows from 2578: the AUM bar from ``Current Aum`` (rounded M EUR to
+    match 334's integer style) and both growth-% lines via ``_reconstruct_growth``.
+    Card 334's own rows are returned unchanged, so recent/published values stay intact.
+    """
+    idx = k2578.index_series(series)
+    actual = [k2578.parse_label(r['month']) for r in card334_rows
+              if not r['month'].startswith('prog:')]
+    earliest = min(y * 12 + (m - 1) for y, m in actual) if actual \
+        else report_year * 12 + (report_month - 1)
+    start = report_year * 12 + (report_month - 1) - (months_back - 1)
+    prepend = []
+    for i in range(start, earliest):
+        y, m = i // 12, i % 12 + 1
+        row = idx.get((y, m))
+        if not row:
+            continue
+        total, organic = _reconstruct_growth(idx, y, m)
+        prepend.append({
+            'month': k2578.month_label(y, m),
+            'kuu lõpu AUM (M EUR)': round(row['Current Aum'] / 1e6),
+            'AUM 12 kuu kasv %': total,
+            'AUM 12 kuu kasv sissemaksetest ja -vahetustest %': organic,
+        })
+    return prepend + card334_rows
+
+
+def _month_xticks(ax, x, months, max_labels=15):
+    """Set rotated month x-tick labels, thinning them when there are many months.
+
+    A no-op thinning at ~13 months (step 1); at 36 months it shows every 3rd label.
+    """
+    step = max(1, (len(months) + max_labels - 1) // max_labels)
+    ax.set_xticks(x[::step])
+    ax.set_xticklabels([months[i] for i in range(0, len(months), step)],
+                       rotation=45, ha='right', fontsize=8)
+
+
+# Trailing months shown on the extended monthly charts (3 years).
+CHART_WINDOW = 36
+
+
+def _kpi_window_rows(series, report_year, report_month, builders, window=CHART_WINDOW):
+    """Adapt the consolidated card 2578 series into old-style monthly card rows.
+
+    Returns the trailing `window` months up to (report_year, report_month), each as
+    a dict shaped like the retired combo cards: ``{'kuu: Month': 'YYYY-MM-01', ...}``.
+    ``builders`` maps each output key to a function ``(row, year, month) -> value``,
+    letting callers derive fields (splits, YoY) from the 2578 columns. This keeps the
+    downstream chart builders unchanged (they still read 'kuu: Month' + value keys).
+    """
+    idx = k2578.index_series(series)
+    end = report_year * 12 + (report_month - 1)  # 0-based month index
+    out = []
+    for i in range(end - (window - 1), end + 1):
+        yy, mm = i // 12, i % 12 + 1
+        row = idx.get((yy, mm))
+        if not row:
+            continue
+        adapted = {'kuu: Month': f'{yy}-{mm:02d}-01'}
+        for key, fn in builders.items():
+            adapted[key] = fn(row, yy, mm)
+        out.append(adapted)
+    return out
 
 
 def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
@@ -50,7 +153,7 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
         organic_pct.append(row['AUM 12 kuu kasv sissemaksetest ja -vahetustest %'])
         is_forecast.append(forecast)
 
-    fig, ax_bar = plt.subplots(figsize=(12, 5.5))
+    fig, ax_bar = plt.subplots(figsize=(14, 5.5))
     ax_line = ax_bar.twinx()
 
     x = np.arange(len(months))
@@ -73,39 +176,31 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
             ha='center', fontweight='bold', fontsize=9, color=TULEVA_NAVY,
         )
 
-    # Growth lines on secondary axis
+    # Growth lines on secondary axis. Values may be None for older months
+    # synthesized from card 2578 (organic growth can't be reconstructed there),
+    # so plot each line only over the indices where it has a value.
     actual_idx = [i for i, f in enumerate(is_forecast) if not f]
     forecast_idx = [i for i, f in enumerate(is_forecast) if f]
 
-    # 12-month growth
-    if actual_idx:
-        ax_line.plot(
-            x[actual_idx], [growth_pct[i] for i in actual_idx],
-            color='#FF4800', linewidth=2, marker='o', markersize=3,
-            label='AUM 12 kuu kasv %', zorder=4,
-        )
-    if forecast_idx and actual_idx:
-        bridge = [actual_idx[-1]] + forecast_idx
-        ax_line.plot(
-            x[bridge], [growth_pct[i] for i in bridge],
-            color='#FF4800', linewidth=1.5, linestyle='--', marker='o',
-            markersize=2, zorder=3,
-        )
+    def plot_growth(values, color, marker, label):
+        act = [i for i in actual_idx if values[i] is not None]
+        if act:
+            ax_line.plot(
+                x[act], [values[i] for i in act],
+                color=color, linewidth=2, marker=marker, markersize=3,
+                label=label, zorder=4,
+            )
+        fc = [i for i in forecast_idx if values[i] is not None]
+        if fc and act:
+            bridge = [act[-1]] + fc
+            ax_line.plot(
+                x[bridge], [values[i] for i in bridge],
+                color=color, linewidth=1.5, linestyle='--', marker=marker,
+                markersize=2, zorder=3,
+            )
 
-    # Organic growth
-    if actual_idx:
-        ax_line.plot(
-            x[actual_idx], [organic_pct[i] for i in actual_idx],
-            color='#51c26c', linewidth=2, marker='s', markersize=3,
-            label='sh orgaaniline kasv %', zorder=4,
-        )
-    if forecast_idx and actual_idx:
-        bridge = [actual_idx[-1]] + forecast_idx
-        ax_line.plot(
-            x[bridge], [organic_pct[i] for i in bridge],
-            color='#51c26c', linewidth=1.5, linestyle='--', marker='s',
-            markersize=2, zorder=3,
-        )
+    plot_growth(growth_pct, '#FF4800', 'o', 'AUM 12 kuu kasv %')
+    plot_growth(organic_pct, '#51c26c', 's', 'sh orgaaniline kasv %')
 
     # Axes formatting
     ax_bar.set_ylabel('AUM (M EUR)')
@@ -118,9 +213,10 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
     ax_line.tick_params(axis='y', length=0, pad=8)
 
     ax_bar.set_title('Varade maht (AUM)', fontweight='bold', color=TULEVA_NAVY)
-    ax_bar.set_xticks(x[::2])
+    step = 3 if len(months) > 30 else 2
+    ax_bar.set_xticks(x[::step])
     ax_bar.set_xticklabels(
-        [months[i] for i in range(0, len(months), 2)],
+        [months[i] for i in range(0, len(months), step)],
         rotation=45, ha='right', fontsize=8,
     )
     ax_bar.grid(axis='y', alpha=0.3, zorder=0)
@@ -169,7 +265,7 @@ def generate_savers_chart(savers_data, report_year, report_month, output_dir: Pa
         both.append(row['II ja III sammas'])
         yoy.append(row['YoY, %'] * 100)
 
-    fig, ax_bar = plt.subplots(figsize=(10, 5.5))
+    fig, ax_bar = plt.subplots(figsize=(14, 5.5))
     ax_line = ax_bar.twinx()
 
     x = np.arange(len(months))
@@ -214,8 +310,7 @@ def generate_savers_chart(savers_data, report_year, report_month, output_dir: Pa
     ax_line.tick_params(axis='y', length=0, pad=8)
 
     ax_bar.set_title('Kogujate arv', fontweight='bold', color=TULEVA_NAVY)
-    ax_bar.set_xticks(x)
-    ax_bar.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax_bar, x, months)
     ax_bar.grid(axis='y', alpha=0.3, zorder=0)
 
     # Combined legend
@@ -269,7 +364,7 @@ def generate_new_savers_by_pillar_chart(ii_data, iii_data, report_year, report_m
         both.append(row['2+3'])
         only_iii.append(iii_by_month.get(date_str, 0))
 
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
 
     x = np.arange(len(months))
     width = 0.7
@@ -301,8 +396,7 @@ def generate_new_savers_by_pillar_chart(ii_data, iii_data, report_year, report_m
     ax.set_ylim(bottom=0)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
     ax.set_title('Uued kogujad samba järgi', fontweight='bold', color=TULEVA_NAVY)
-    ax.set_xticks(x)
-    ax.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax, x, months)
     ax.grid(axis='y', alpha=0.3, zorder=0)
     ax.legend(loc='upper left', fontsize=8)
 
@@ -331,7 +425,7 @@ def generate_new_ii_savers_by_source_chart(ii_data, report_year, report_month, o
         new_both.append(row['2+3'])
         from_iii.append(row['3>2'])
 
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
 
     x = np.arange(len(months))
     width = 0.7
@@ -363,8 +457,7 @@ def generate_new_ii_savers_by_source_chart(ii_data, report_year, report_month, o
     ax.set_ylim(bottom=0)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
     ax.set_title('II sambaga liitujad allika järgi', fontweight='bold', color=TULEVA_NAVY)
-    ax.set_xticks(x)
-    ax.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax, x, months)
     ax.grid(axis='y', alpha=0.3, zorder=0)
     ax.legend(loc='upper left', fontsize=8)
 
@@ -418,7 +511,7 @@ def generate_contributions_chart(ii_data, iii_data, report_year, report_month, o
         break_top = max_val * 0.75
 
         fig, (ax_top, ax_bot) = plt.subplots(
-            2, 1, sharex=True, figsize=(10, 5.5),
+            2, 1, sharex=True, figsize=(14, 5.5),
             gridspec_kw={'height_ratios': [1, 3], 'hspace': 0.06},
         )
 
@@ -453,8 +546,7 @@ def generate_contributions_chart(ii_data, iii_data, report_year, report_month, o
         fig.text(0.01, 0.5, 'Sissemaksed (M EUR)', va='center', rotation='vertical',
                  fontsize=10)
 
-        ax_bot.set_xticks(x)
-        ax_bot.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+        _month_xticks(ax_bot, x, months)
 
         # Annotate report month
         report_month_abbr = (
@@ -491,7 +583,7 @@ def generate_contributions_chart(ii_data, iii_data, report_year, report_month, o
         ax_bot.legend(handles=legend_elements, loc='upper left', fontsize=8)
 
     else:
-        fig, ax = plt.subplots(figsize=(10, 5.5))
+        fig, ax = plt.subplots(figsize=(14, 5.5))
 
         ax.bar(x, ii_vals, width, label='II sammas',
                color=TULEVA_NAVY, zorder=2)
@@ -549,7 +641,7 @@ def generate_iii_contributors_chart(contributors_data, report_year, report_month
         counts.append(row['III samba sissemakse tegijate arv'])
         yoy.append(row['YoY, %'] * 100)
 
-    fig, ax_bar = plt.subplots(figsize=(10, 5.5))
+    fig, ax_bar = plt.subplots(figsize=(14, 5.5))
     ax_line = ax_bar.twinx()
 
     x = np.arange(len(months))
@@ -586,8 +678,7 @@ def generate_iii_contributors_chart(contributors_data, report_year, report_month
     ax_line.tick_params(axis='y', length=0, pad=8)
 
     ax_bar.set_title('III samba sissemakse tegijad', fontweight='bold', color=TULEVA_NAVY)
-    ax_bar.set_xticks(x)
-    ax_bar.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax_bar, x, months)
     ax_bar.grid(axis='y', alpha=0.3, zorder=0)
 
     # Combined legend
@@ -623,7 +714,7 @@ def generate_switching_volume_chart(switching_data, report_year, report_month, o
         volumes.append(row['vahetajate ületoodud varade maht, M EUR'] / 1_000_000)
         yoy.append(row['YoY, %'] * 100)
 
-    fig, ax_bar = plt.subplots(figsize=(10, 5.5))
+    fig, ax_bar = plt.subplots(figsize=(14, 5.5))
     ax_line = ax_bar.twinx()
 
     x = np.arange(len(months))
@@ -660,8 +751,7 @@ def generate_switching_volume_chart(switching_data, report_year, report_month, o
     ax_line.tick_params(axis='y', length=0, pad=8)
 
     ax_bar.set_title('II samba vahetuste maht', fontweight='bold', color=TULEVA_NAVY)
-    ax_bar.set_xticks(x)
-    ax_bar.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax_bar, x, months)
     ax_bar.grid(axis='y', alpha=0.3, zorder=0)
 
     # Combined legend
@@ -693,7 +783,7 @@ def generate_switching_sources_chart(from_data, report_year, report_month, outpu
     names = [row['Fund - Security From → Name Estonian'] for row in reversed(top)]
     counts = [row['Distinct values of Code'] for row in reversed(top)]
 
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
 
     y = np.arange(len(names))
     bars = ax.barh(y, counts, height=0.6, color=TULEVA_NAVY, zorder=2)
@@ -737,7 +827,7 @@ def generate_leavers_chart(leavers_data, report_year, report_month, output_dir: 
         volumes.append(row['lahkujate varade maht, M EUR'] / 1_000_000)
         yoy.append(row['YoY, %'] * 100)
 
-    fig, ax_bar = plt.subplots(figsize=(10, 5.5))
+    fig, ax_bar = plt.subplots(figsize=(14, 5.5))
     ax_line = ax_bar.twinx()
 
     x = np.arange(len(months))
@@ -774,8 +864,7 @@ def generate_leavers_chart(leavers_data, report_year, report_month, output_dir: 
     ax_line.tick_params(axis='y', length=0, pad=8)
 
     ax_bar.set_title('II samba lahkujate vara', fontweight='bold', color=TULEVA_NAVY)
-    ax_bar.set_xticks(x)
-    ax_bar.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax_bar, x, months)
     ax_bar.grid(axis='y', alpha=0.3, zorder=0)
 
     # Combined legend
@@ -817,7 +906,7 @@ def generate_drawdowns_chart(ii_data, iii_data, report_year, report_month, outpu
         iii_row = iii_by_month.get(date_str, {})
         iii_vals.append(iii_row.get('III sambast väljavõetud varade maht, M EUR', 0) / 1_000_000)
 
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
 
     x = np.arange(len(months))
     width = 0.7
@@ -846,8 +935,7 @@ def generate_drawdowns_chart(ii_data, iii_data, report_year, report_month, outpu
     ax.set_ylim(bottom=0)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.1f}'))
     ax.set_title('Pensionifondidest väljavõetud vara', fontweight='bold', color=TULEVA_NAVY)
-    ax.set_xticks(x)
-    ax.set_xticklabels(months, rotation=45, ha='right', fontsize=8)
+    _month_xticks(ax, x, months)
     ax.grid(axis='y', alpha=0.3, zorder=0)
     ax.legend(loc='upper left', fontsize=8)
 
@@ -888,7 +976,7 @@ def generate_unit_price_chart(price_data, output_dir: Path):
         series[key].sort(key=lambda x: x[0])
 
     # Rebase each series: first value = 1.0
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
 
     for key, cfg in SERIES_CONFIG.items():
         if key not in series or not series[key]:
@@ -975,7 +1063,7 @@ def generate_cumulative_returns_chart(price_data, output_dir: Path):
                 returns[key].append(None)
 
     # Plot grouped bars
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
 
     period_labels = [f'{y}a' for y in PERIODS]
     x = np.arange(len(PERIODS))
@@ -1149,20 +1237,30 @@ def generate_monthly_charts(year: int, month: int) -> Path:
         data = yaml.safe_load(f)
 
     cards = data.get('cards', {})
+    series = data.get('kpi_2578', {}).get('data', []) or []
 
-    # AUM line chart (card 334)
+    # AUM line chart (card 334 — kept: carries forecast bars + growth %).
+    # History extended to 36 months by prepending older AUM from card 2578.
     aum_card = cards.get('AUM (koos ootel vahetuste ja väljumistega)', {})
     aum_data = aum_card.get('data', [])
     if aum_data:
+        aum_data = _extend_aum_history(series, aum_data, year, month, months_back=36)
         generate_aum_chart(aum_data, year, month, output_dir)
 
-    # Savers stacked bar chart (card 1515)
-    savers_card = cards.get('kogujate arv kuus', {})
-    savers_data = savers_card.get('data', [])
+    # Savers stacked bar chart (card 2578). Only-II/only-III derived as
+    # pillar total minus both-pillar; YoY on total active investors.
+    savers_data = _kpi_window_rows(series, year, month, {
+        'ainult II sammas': lambda r, y, m: (
+            r['Active Investors Second Pillar'] - r['Total Active Investors Both Pillars']),
+        'ainult III sammas': lambda r, y, m: (
+            r['Active Investors Third Pillar'] - r['Total Active Investors Both Pillars']),
+        'II ja III sammas': lambda r, y, m: r['Total Active Investors Both Pillars'],
+        'YoY, %': lambda r, y, m: k2578.yoy(series, y, m, 'Total Active Investors') or 0,
+    })
     if savers_data:
         generate_savers_chart(savers_data, year, month, output_dir)
 
-    # New savers by pillar (cards 1519 + 1520)
+    # New savers by pillar (cards 1519 + 1520 — kept: source split not in 2578)
     ii_joiners = cards.get('II sambaga liitujate arv kuus', {}).get('data', [])
     iii_joiners = cards.get('III sambaga liitujate arv kuus', {}).get('data', [])
     if ii_joiners and iii_joiners:
@@ -1170,35 +1268,52 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     if ii_joiners:
         generate_new_ii_savers_by_source_chart(ii_joiners, year, month, output_dir)
 
-    # Contributions stacked bar chart (cards 1513 + 1512)
-    ii_contributions = cards.get('II samba sissemaksete summa kuus, M EUR', {}).get('data', [])
-    iii_contributions = cards.get('III samba sissemaksete summa kuus, M EUR', {}).get('data', [])
+    # Contributions stacked bar chart (card 2578)
+    ii_contributions = _kpi_window_rows(series, year, month, {
+        'II samba sissemaksed, M EUR': lambda r, y, m: r['Second Pillar Contributions Eur'],
+    })
+    iii_contributions = _kpi_window_rows(series, year, month, {
+        'III samba sissemaksed, M EUR': lambda r, y, m: r['Third Pillar Contributions Eur'],
+    })
     if ii_contributions and iii_contributions:
         generate_contributions_chart(ii_contributions, iii_contributions, year, month, output_dir)
 
-    # III pillar contributors chart (card 1532)
-    iii_contributors = cards.get('III samba sissemakse tegijate arv kuus', {}).get('data', [])
+    # III pillar contributors chart (card 2578)
+    iii_contributors = _kpi_window_rows(series, year, month, {
+        'III samba sissemakse tegijate arv': lambda r, y, m: r['Third Pillar Contributors'],
+        'YoY, %': lambda r, y, m: k2578.yoy(series, y, m, 'Third Pillar Contributors') or 0,
+    })
     if iii_contributors:
         generate_iii_contributors_chart(iii_contributors, year, month, output_dir)
 
-    # Switching volume chart (card 1508)
-    switching_vol = cards.get('II samba vahetajate ületoodava vara maht kuus, M EUR', {}).get('data', [])
+    # Switching volume chart (card 2578)
+    switching_vol = _kpi_window_rows(series, year, month, {
+        'vahetajate ületoodud varade maht, M EUR': lambda r, y, m: r['New Monthly Mandates Eur'],
+        'YoY, %': lambda r, y, m: k2578.yoy(series, y, m, 'New Monthly Mandates Eur') or 0,
+    })
     if switching_vol:
         generate_switching_volume_chart(switching_vol, year, month, output_dir)
 
-    # Switching sources chart (card 1456)
+    # Switching sources chart (card 1912 — kept: fund-level list not in 2578)
     switching_from = cards.get('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', {}).get('data', [])
     if switching_from:
         generate_switching_sources_chart(switching_from, year, month, output_dir)
 
-    # II pillar leavers chart (card 1522)
-    leavers = cards.get('II samba lahkujate varade maht kuus, M EUR', {}).get('data', [])
+    # II pillar leavers chart (card 2578)
+    leavers = _kpi_window_rows(series, year, month, {
+        'lahkujate varade maht, M EUR': lambda r, y, m: r['New Monthly Leavers Eur'],
+        'YoY, %': lambda r, y, m: k2578.yoy(series, y, m, 'New Monthly Leavers Eur') or 0,
+    })
     if leavers:
         generate_leavers_chart(leavers, year, month, output_dir)
 
-    # Drawdowns stacked chart (cards 1523 + 1524)
-    ii_exiters = cards.get('II samba väljujate varade maht kuus, M EUR', {}).get('data', [])
-    iii_withdrawals = cards.get('III sambast välja võetud varade maht kuus, M EUR', {}).get('data', [])
+    # Drawdowns stacked chart (card 2578)
+    ii_exiters = _kpi_window_rows(series, year, month, {
+        'väljujate varade maht, M EUR': lambda r, y, m: r['New Monthly Exiters Eur'],
+    })
+    iii_withdrawals = _kpi_window_rows(series, year, month, {
+        'III sambast väljavõetud varade maht, M EUR': lambda r, y, m: r['New Monthly Withdrawals Third Pillar Eur'],
+    })
     if ii_exiters and iii_withdrawals:
         generate_drawdowns_chart(ii_exiters, iii_withdrawals, year, month, output_dir)
 
