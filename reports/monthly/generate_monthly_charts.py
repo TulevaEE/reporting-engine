@@ -1260,9 +1260,10 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     if savers_data:
         generate_savers_chart(savers_data, year, month, output_dir)
 
-    # New savers by pillar (cards 1519 + 1520 — kept: source split not in 2578)
-    ii_joiners = cards.get('II sambaga liitujate arv kuus', {}).get('data', [])
-    iii_joiners = cards.get('III sambaga liitujate arv kuus', {}).get('data', [])
+    # New savers by pillar (cards 1519 + 1520 — kept: source split not in 2578).
+    # Slice to the last CHART_WINDOW months so these align with the 2578 charts.
+    ii_joiners = (cards.get('II sambaga liitujate arv kuus', {}).get('data', []))[-CHART_WINDOW:]
+    iii_joiners = (cards.get('III sambaga liitujate arv kuus', {}).get('data', []))[-CHART_WINDOW:]
     if ii_joiners and iii_joiners:
         generate_new_savers_by_pillar_chart(ii_joiners, iii_joiners, year, month, output_dir)
     if ii_joiners:
