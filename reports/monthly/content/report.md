@@ -73,6 +73,29 @@
 | sh uued III samba kogujad | {% if report.new_savers_iii_month %}{{ "{:,}".format(report.new_savers_iii_month) }}{% endif %} | {% if report.new_savers_iii_ytd %}{{ "{:,}".format(report.new_savers_iii_ytd['uute III samba kogujate arv']) }}{% endif %} |
 {% endif %}
 
+{% if report.determination -%}
+### Kui sihikindlad on meie kogujad?
+
+<!-- comment:determination -->
+{{ comments.determination }}
+<!-- /comment:determination -->
+
+{% if charts and charts.determination -%}
+![Kogujate sihikindlus]({{ charts.determination }})
+{% endif %}
+
+| Grupp | Kogujaid | Osakaal |
+|---------|:---:|:---:|
+| **Sihikindlad** (II 4/6% ja III ≥ 1200 €) | {{ "{:,}".format(report.determination['determined']) }} | {{ "{:.1%}".format(report.determination['determined'] / report.determination['total']) }} |
+| **Sihikindla poole teel** | {{ "{:,}".format(report.determination['halfway']) }} | {{ "{:.1%}".format(report.determination['halfway'] / report.determination['total']) }} |
+| &nbsp;&nbsp;– II 4/6%, aga III < 1200 € | {{ "{:,}".format(report.determination['halfway_a']) }} | {{ "{:.1%}".format(report.determination['halfway_a'] / report.determination['total']) }} |
+| &nbsp;&nbsp;– II 2%, aga III ≥ 1200 € | {{ "{:,}".format(report.determination['halfway_b']) }} | {{ "{:.1%}".format(report.determination['halfway_b'] / report.determination['total']) }} |
+| Muud | {{ "{:,}".format(report.determination['other']) }} | {{ "{:.1%}".format(report.determination['other'] / report.determination['total']) }} |
+| **Kogujaid kokku** | **{{ "{:,}".format(report.determination['total']) }}** | **100,0%** |
+
+*Hetkeseis (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset.*
+{% endif %}
+
 ---
 
 ## 3. Sissemaksed

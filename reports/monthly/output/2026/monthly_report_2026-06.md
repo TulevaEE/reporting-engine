@@ -2,7 +2,7 @@
 
 **Juuni 2026**
 
-*Aruande kuupäev: 2026-07-03*
+*Aruande kuupäev: 2026-07-14*
 
 ---
 
@@ -66,6 +66,27 @@
 | sh uued III samba kogujad | 384 | 3,115 |
 
 
+### Kui sihikindlad on meie kogujad?
+
+<!-- comment:determination -->
+
+<!-- /comment:determination -->
+
+![Kogujate sihikindlus](charts/determination.png)
+
+
+| Grupp | Kogujaid | Osakaal |
+|---------|:---:|:---:|
+| **Sihikindlad** (II 4/6% ja III ≥ 1200 €) | 13,354 | 13.6% |
+| **Sihikindla poole teel** | 27,175 | 27.6% |
+| &nbsp;&nbsp;– II 4/6%, aga III < 1200 € | 18,705 | 19.0% |
+| &nbsp;&nbsp;– II 2%, aga III ≥ 1200 € | 8,470 | 8.6% |
+| Muud | 58,023 | 58.9% |
+| **Kogujaid kokku** | **98,552** | **100,0%** |
+
+*Hetkeseis (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset.*
+
+
 ---
 
 ## 3. Sissemaksed
@@ -95,7 +116,7 @@
 
 | KPI | Juuni 2026 | YoY | YTD |
 |---------|:---:|:---:|:---:|
-| Sissemakse tegijate arv | 33,619 | *17.3%* | 39,678 |
+| Sissemakse tegijate arv | 33,619 | *17.3%* | 40,066 |
 | Püsimakse tegijate osakaal | 75.0% | | |
 
 

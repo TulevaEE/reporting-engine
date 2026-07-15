@@ -10,6 +10,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from generate_monthly_charts import generate_monthly_charts, ESTONIAN_MONTHS
 import kpi_2578 as k2578
+import saver_determination as sd
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
 
@@ -472,8 +473,18 @@ def build_md(year: int, month: int) -> Path:
         'cumulative_returns': 'charts/cumulative_returns.png',
     }
 
+    # Saver determination (current snapshot from per-saver card 2324).
+    # Aggregate counts only; per-person data stays in the outside-repo cache.
+    saver_df = sd.load_card_2324()
+    determination = sd.compute_determination(saver_df) if saver_df is not None else None
+    if determination:
+        sd.generate_determination_chart(
+            determination, output_dir / 'charts' / 'determination.png')
+        chart_paths['determination'] = 'charts/determination.png'
+
     # Pre-process data and render template
     report = preprocess_data(data, year, month)
+    report['determination'] = determination
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')
     month_name_et = ESTONIAN_MONTHS.get(month, str(month))
