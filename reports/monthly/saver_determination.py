@@ -26,6 +26,12 @@ DETERMINED_III_MIN = 1200  # EUR, III pillar last-12m contributions threshold
 # history, so this hardcoded snapshot is the YTD baseline for over-time comparison.
 # halfway_a here is the sum of the two annual-report sub-bands with II 4/6% and
 # III < 1200 EUR: "III sambasse aktiivselt ei kogu" (5 463) + "kogub mõõdukalt" (4 318).
+#
+# NOTE: the YTD comparison table (``determination_comparison_md``) is currently NOT
+# rendered in the reports. The annual-report figures classify the II rate on a
+# Tuleva-II-only basis, whereas the live card 2324 uses the state II rate across all
+# funds — so the two are not comparable on the rate-4/6 rows (it inflates "poole
+# teel" by ~8k). Kept here for when a state-rate Dec-2025 baseline is available.
 BASELINE_2025 = {
     'label': '31.12.2025',
     'total': 83378,
