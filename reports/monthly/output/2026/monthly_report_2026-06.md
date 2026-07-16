@@ -75,16 +75,16 @@
 ![Kogujate sihikindlus](charts/determination.png)
 
 
-| Grupp | Kogujaid | Osakaal |
-|---------|:---:|:---:|
-| **Sihikindlad** (II 4/6% ja III ≥ 1200 €) | 13,354 | 13.6% |
-| **Sihikindla poole teel** | 27,175 | 27.6% |
-| &nbsp;&nbsp;– II 4/6%, aga III < 1200 € | 18,705 | 19.0% |
-| &nbsp;&nbsp;– II 2%, aga III ≥ 1200 € | 8,470 | 8.6% |
-| Muud | 58,023 | 58.9% |
-| **Kogujaid kokku** | **98,552** | **100,0%** |
+| Grupp | 31.12.2025 | 30.06.2026 | Muutus |
+|---|:---:|:---:|:---:|
+| **Sihikindlad** (II 4/6% ja III ≥ 1200 €) | 12,796 (15,3%) | 13,354 (13,6%) | +558 (−1,8 pp) |
+| **Sihikindla poole teel** | 15,558 (18,7%) | 27,175 (27,6%) | +11,617 (+8,9 pp) |
+| &nbsp;&nbsp;– II 4/6%, aga III < 1200 € | 9,781 (11,7%) | 18,705 (19,0%) | +8,924 (+7,2 pp) |
+| &nbsp;&nbsp;– II 2%, aga III ≥ 1200 € | 5,777 (6,9%) | 8,470 (8,6%) | +2,693 (+1,7 pp) |
+| Muud | 55,024 (66,0%) | 58,023 (58,9%) | +2,999 (−7,1 pp) |
+| **Kogujaid kokku** | **83,378** | **98,552** | **+15,174** |
 
-*Hetkeseis (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset.*
+*Võrdlus 2025. aasta aruande hetkeseisuga (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset. Osakaal on arvestatud vastava kuupäeva kogubaasist.*
 
 
 ---

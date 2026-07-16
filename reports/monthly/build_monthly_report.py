@@ -3,6 +3,7 @@ Build monthly board report from Metabase data.
 """
 import re
 import sys
+import calendar
 import yaml
 import markdown
 import base64
@@ -485,6 +486,10 @@ def build_md(year: int, month: int) -> Path:
     # Pre-process data and render template
     report = preprocess_data(data, year, month)
     report['determination'] = determination
+    if determination:
+        last_day = calendar.monthrange(year, month)[1]
+        report['determination_table'] = sd.determination_comparison_md(
+            determination, f'{last_day:02d}.{month:02d}.{year}')
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')
     month_name_et = ESTONIAN_MONTHS.get(month, str(month))

@@ -22,6 +22,29 @@ from pathlib import Path
 
 DETERMINED_III_MIN = 1200  # EUR, III pillar last-12m contributions threshold
 
+# Annual-report baseline (2025 aastaaruanne, as of 31 Dec 2025). Card 2324 has no
+# history, so this hardcoded snapshot is the YTD baseline for over-time comparison.
+# halfway_a here is the sum of the two annual-report sub-bands with II 4/6% and
+# III < 1200 EUR: "III sambasse aktiivselt ei kogu" (5 463) + "kogub mõõdukalt" (4 318).
+BASELINE_2025 = {
+    'label': '31.12.2025',
+    'total': 83378,
+    'determined': 12796,   # II 4/6% + III kogub aktiivselt (>1200 €)
+    'halfway_a': 9781,     # II 4/6% + III < 1200 € (ei kogu 5 463 + mõõdukalt 4 318)
+    'halfway_b': 5777,     # II 2% + III kogub aktiivselt (>1200 €)
+    'halfway': 15558,      # halfway_a + halfway_b
+    'other': 55024,        # Ülejäänud
+}
+
+# (label, dict key, indent flag) for the determination comparison table rows.
+_SEG_ROWS = [
+    ('**Sihikindlad** (II 4/6% ja III ≥ 1200 €)', 'determined'),
+    ('**Sihikindla poole teel**', 'halfway'),
+    ('&nbsp;&nbsp;– II 4/6%, aga III < 1200 €', 'halfway_a'),
+    ('&nbsp;&nbsp;– II 2%, aga III ≥ 1200 €', 'halfway_b'),
+    ('Muud', 'other'),
+]
+
 _CACHE = Path(os.environ.get('TULEVA_CACHE_DIR', Path.home() / '.cache' / 'tuleva-reports'))
 
 
@@ -92,6 +115,47 @@ def compute_determination(df) -> dict:
         'halfway': int((a | b).sum()),
         'other': int((~(determined | a | b)).sum()),
     }
+
+
+def determination_comparison_md(cur: dict, cur_label: str,
+                                base: dict = BASELINE_2025, sep: str = ',') -> str:
+    """Markdown YTD comparison table: baseline snapshot vs current determination.
+
+    Each segment shows count (share) at both dates plus the change in count and in
+    share (percentage points). ``sep`` is the thousands separator so each report
+    keeps its own number style (',' for the monthly, ' ' for the half-year report).
+    """
+    minus = '−'  # U+2212, matches the reports' other signed figures
+
+    def num(v):
+        return f'{v:,}'.replace(',', sep)
+
+    def signed(v):
+        return f'{v:+,}'.replace(',', sep).replace('-', minus)
+
+    def share(v, total):
+        return f'{v / total:.1%}'.replace('.', ',')
+
+    def dpp(seg):
+        d = (cur[seg] / cur['total'] - base[seg] / base['total']) * 100
+        return f'{d:+.1f}'.replace('.', ',').replace('-', minus) + ' pp'
+
+    lines = [
+        f'| Grupp | {base["label"]} | {cur_label} | Muutus |',
+        '|---|:---:|:---:|:---:|',
+    ]
+    for label, seg in _SEG_ROWS:
+        lines.append(
+            f'| {label} '
+            f'| {num(base[seg])} ({share(base[seg], base["total"])}) '
+            f'| {num(cur[seg])} ({share(cur[seg], cur["total"])}) '
+            f'| {signed(cur[seg] - base[seg])} ({dpp(seg)}) |'
+        )
+    lines.append(
+        f'| **Kogujaid kokku** | **{num(base["total"])}** | **{num(cur["total"])}** '
+        f'| **{signed(cur["total"] - base["total"])}** |'
+    )
+    return '\n'.join(lines)
 
 
 def generate_determination_chart(det: dict, output_file: Path):

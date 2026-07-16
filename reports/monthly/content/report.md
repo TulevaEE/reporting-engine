@@ -84,16 +84,9 @@
 ![Kogujate sihikindlus]({{ charts.determination }})
 {% endif %}
 
-| Grupp | Kogujaid | Osakaal |
-|---------|:---:|:---:|
-| **Sihikindlad** (II 4/6% ja III ≥ 1200 €) | {{ "{:,}".format(report.determination['determined']) }} | {{ "{:.1%}".format(report.determination['determined'] / report.determination['total']) }} |
-| **Sihikindla poole teel** | {{ "{:,}".format(report.determination['halfway']) }} | {{ "{:.1%}".format(report.determination['halfway'] / report.determination['total']) }} |
-| &nbsp;&nbsp;– II 4/6%, aga III < 1200 € | {{ "{:,}".format(report.determination['halfway_a']) }} | {{ "{:.1%}".format(report.determination['halfway_a'] / report.determination['total']) }} |
-| &nbsp;&nbsp;– II 2%, aga III ≥ 1200 € | {{ "{:,}".format(report.determination['halfway_b']) }} | {{ "{:.1%}".format(report.determination['halfway_b'] / report.determination['total']) }} |
-| Muud | {{ "{:,}".format(report.determination['other']) }} | {{ "{:.1%}".format(report.determination['other'] / report.determination['total']) }} |
-| **Kogujaid kokku** | **{{ "{:,}".format(report.determination['total']) }}** | **100,0%** |
+{{ report.determination_table }}
 
-*Hetkeseis (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset.*
+*Võrdlus 2025. aasta aruande hetkeseisuga (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset. Osakaal on arvestatud vastava kuupäeva kogubaasist.*
 {% endif %}
 
 ---
