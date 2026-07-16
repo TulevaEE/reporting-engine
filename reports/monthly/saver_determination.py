@@ -98,22 +98,38 @@ def list_snapshots() -> list:
     return out
 
 
-def compute_determination(df) -> dict:
-    """Return aggregate counts for each determination segment."""
-    rate = df['Current Rate'].fillna(0)
-    iii = df['Third Pillar Last 12m Contributions Sum'].fillna(0)
+# Positive AUM in any pillar => an "active" saver, matching the population that
+# card 2578 counts as an active investor. Card 2324 also carries non-active people
+# (exited / fully redeemed), which is why its raw row count is ~13k higher.
+_AUM_COLS = ['Tuk75 Current Aum', 'Tuk00 Current Aum', 'Third Pillar Current Aum']
+
+
+def compute_determination(df, active_total: int = None) -> dict:
+    """Return aggregate counts for each determination segment.
+
+    Segments are computed over *active* savers only (positive AUM in at least one
+    pillar), so the base matches the official active-investor count from card 2578
+    rather than card 2324's broader row count. Pass ``active_total`` (that official
+    count) to anchor the base exactly; ``other`` (Muud) is then the residual. Left
+    unset, the base is card 2324's own active subset.
+    """
+    active = (df[_AUM_COLS].fillna(0) > 0).any(axis=1)
+    a = df[active]
+    rate = a['Current Rate'].fillna(0)
+    iii = a['Third Pillar Last 12m Contributions Sum'].fillna(0)
     hi = rate.isin([4, 6])
-    determined = hi & (iii >= DETERMINED_III_MIN)
-    a = hi & (iii < DETERMINED_III_MIN)
-    b = (rate == 2) & (iii >= DETERMINED_III_MIN)
-    n = len(df)
+    determined = int((hi & (iii >= DETERMINED_III_MIN)).sum())
+    halfway_a = int((hi & (iii < DETERMINED_III_MIN)).sum())
+    halfway_b = int(((rate == 2) & (iii >= DETERMINED_III_MIN)).sum())
+    total = int(active_total) if active_total else int(active.sum())
+    halfway = halfway_a + halfway_b
     return {
-        'total': n,
-        'determined': int(determined.sum()),
-        'halfway_a': int(a.sum()),
-        'halfway_b': int(b.sum()),
-        'halfway': int((a | b).sum()),
-        'other': int((~(determined | a | b)).sum()),
+        'total': total,
+        'determined': determined,
+        'halfway_a': halfway_a,
+        'halfway_b': halfway_b,
+        'halfway': halfway,
+        'other': total - determined - halfway,
     }
 
 

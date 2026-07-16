@@ -86,7 +86,7 @@
 
 {{ report.determination_table }}
 
-*Võrdlus 2025. aasta aruande hetkeseisuga (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas hõlmab kõiki kogujaid, sh neid, kellel pole aktiivset sissemakset. Osakaal on arvestatud vastava kuupäeva kogubaasist.*
+*Võrdlus 2025. aasta aruande hetkeseisuga. Segment (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas on aktiivsete kogujate arv (card 2578), sama mis tabelis 2 — "Muud" on jääk. Osakaal on arvestatud vastava kuupäeva kogubaasist.*
 {% endif %}
 
 ---

@@ -474,19 +474,22 @@ def build_md(year: int, month: int) -> Path:
         'cumulative_returns': 'charts/cumulative_returns.png',
     }
 
-    # Saver determination (current snapshot from per-saver card 2324).
-    # Aggregate counts only; per-person data stays in the outside-repo cache.
+    # Pre-process data first so the official active-investor count is available.
+    report = preprocess_data(data, year, month)
+
+    # Saver determination (per-saver card 2324): segment active savers and anchor
+    # the base to the official active-investor count (card 2578) so the total ties
+    # to the savers table above. Aggregate counts only; per-person data stays in
+    # the outside-repo cache.
     saver_df = sd.load_card_2324()
-    determination = sd.compute_determination(saver_df) if saver_df is not None else None
+    official_total = (report.get('savers') or {}).get('kogujate arv')
+    determination = (sd.compute_determination(saver_df, active_total=official_total)
+                     if saver_df is not None else None)
+    report['determination'] = determination
     if determination:
         sd.generate_determination_chart(
             determination, output_dir / 'charts' / 'determination.png')
         chart_paths['determination'] = 'charts/determination.png'
-
-    # Pre-process data and render template
-    report = preprocess_data(data, year, month)
-    report['determination'] = determination
-    if determination:
         last_day = calendar.monthrange(year, month)[1]
         report['determination_table'] = sd.determination_comparison_md(
             determination, f'{last_day:02d}.{month:02d}.{year}')
