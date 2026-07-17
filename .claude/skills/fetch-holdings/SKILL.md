@@ -49,6 +49,29 @@ Do NOT use iShares SSAC — its CSV omits ISINs (only Ticker, Name, Location). S
 | Amundi MSCI World Ex USA Screened | FR0013209921 | Amundi XLSX | Yes | Same XML parsing as Amundi USA |
 | iShares MSCI EM IMI Screened (SAEM) | IE00BFNM3P36 | iShares CSV | **No** | ~2,650 stocks (IMI includes small-caps). Many won't match ACWI — expected |
 
+### TKF100 "Alt B" model portfolio ETFs (locked 2026-07-13)
+
+The chosen redesign: 4 MSCI World Screened + 1 Vanguard global all-cap + Invesco EM. Weights: World funds 19.27% each, Vanguard 12.00%, Invesco EM 10.92% (EM pinned to 12.18% look-through). Benchmark = MSCI ACWI, plus **ACWI IMI** (SPDR SPYI) for the all-cap Vanguard sleeve.
+
+| ETF | ISIN | Source | Has ISINs? | Notes |
+|-----|------|--------|-----------|-------|
+| iShares MSCI World Screened (SAWD) | IE00BFNM3J75 | iShares CSV | **No** | Standard iShares format. Name→ISIN bridge via SPDR |
+| Amundi MSCI World Screened | IE000QWCYQT0 | Amundi XLSX | Yes | `parse_amundi_holdings()` raw-XML method (broken stylesheet). Launched Oct 2025 |
+| Xtrackers MSCI World Screened 1C | IE000I9HGDZ3 | DWS XLSX | Yes | Skip 3 rows, header row 4, column C is ISIN, column K is Weighting (×100). German (`de-de`) file parses fine — read by column position |
+| BNP Easy MSCI World (ESG Filtered) Min TE | IE000W8HP9L8 | BNP XLSX | Yes | `engine='calamine'`, skip 22 rows, filter `Asset_Class == 'Equity'`. **Sampled** — some large names missing (genuine underweights) |
+| Vanguard ESG Global All Cap | IE00BNG8L278 | Vanguard XLSX | **No** | Ticker+Name only → bridge via SPDR. All-cap (incl. small + EM) → small-caps miss standard ACWI; score vs **ACWI IMI**. ~10.5% EM internally |
+| Invesco MSCI EM Universal Screened | IE00BMDBMY19 | Invesco XLSX | Yes | Prefer provider XLSX over companiesmarketcap scrape (scrape ~93% coverage inflates AS 3–5pp) |
+
+**Resolved download URLs** (these portals geoblock / JS-render — exact locale matters; the file itself downloads via an in-page button, not a static link):
+
+- **iShares** (SAWD, prod 305419): `https://www.ishares.com/uk/individual/en/products/305419/ishares-msci-world-esg-screened-ucits-etf-usd-acc-fund` → Holdings → Download CSV
+- **Amundi**: `https://www.amundietf.nl/en/professional/products/equity/amundi-msci-world-screened-ucits-etf-acc/ie000qwcyqt0` → Documents
+- **Xtrackers/DWS**: `https://etf.dws.com/en-no/IE000I9HGDZ3-msci-world-screened-ucits-etf-1c/` → Downloads → Index constituents. (`en-no` = English; `en-ie`/`en-gb` → 404, `en-lu` → 403, `de-de` → German but parses fine)
+- **BNP**: `https://www.bnpparibas-am.com/en-lu/fundsheet/equity/bnp-paribas-easy-msci-world-min-te-ucits-etf-c-ie000w8hp9l8/?tab=documents` → Documents (holdings are under **Documents** here, not Portfolio data; use `en-lu`, NO investor-type segment, short slug; fallback slug inserts `-esg-filtered`)
+- **Vanguard**: `https://www.vanguard.co.uk/professional/product/etf/equity/9470/esg-global-all-cap-ucits-etf-usd-accumulating` → Portfolio → holdings
+- **Invesco EM**: `https://www.invesco.com/lu/en/financial-products/etfs/invesco-msci-emerging-markets-universal-screened-ucits-etf-acc.html` → Holdings XLSX
+- **Benchmark ACWI IMI** (SPDR SPYI): same SSGA path as SPYY, swap `spyy`→`spyi` in the filename
+
 ### Parsing Amundi XLSX files
 
 Amundi XLSX files have broken XML stylesheets that crash `openpyxl`. Parse via raw XML extraction:
@@ -219,6 +242,8 @@ https://www.ssga.com/uk/en_gb/intermediary/etfs/library-content/products/fund-da
 | **iShares USA Screened** (SASU, IE00BFNM3G45) | ishares.com → product page → Holdings → Download CSV |
 | **Amundi World Ex USA Screened** (FR0013209921) | amundietf.com → product page → Documents → Fund Holdings XLSX |
 | **iShares EM IMI Screened** (SAEM, IE00BFNM3P36) | ishares.com → product page → Holdings → Download CSV |
+
+For the **TKF100 "Alt B" model portfolio** funds (iShares/Amundi/Xtrackers/BNP World Screened + Vanguard ESG Global All Cap + Invesco EM), use the resolved download URLs in the [Alt B data-source table above](#tkf100-alt-b-model-portfolio-etfs-locked-2026-07-13) — plus the ACWI IMI benchmark (SPDR SPYI) for the all-cap Vanguard sleeve. Download all on the **same day** as the benchmark.
 
 ### 3. Match and compute
 
