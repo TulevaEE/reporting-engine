@@ -7865,7 +7865,7 @@ a.anchor-link {
 </ul>
 </li>
 <li><code>data/vanguard_annual_returns.csv</code> – Vanguard Global Stock Index Fund (EUR, MSCI World) ja Vanguard Euro Government Bond Index Fund (EUR) kalendriaasta netotootlused. 2016–2025 ja 2026 YTD (31.07.2026) Vanguardi faktilehtedelt; 2009–2015 Tõnu 2019. aasta arvutustabelist (Vanguardi andmed); 2003–2008 Yahoo Finance'i ajaloost (Institutional EUR klass). Kahe viimase allika kaal tulemuses on väike, sest fondide maht oli siis alla 1 mld.</li>
-<li>Kogujate arv (503 848 = 302 658 aktiivselt juhitud + 201 190 indeksfondides) – Pensionikeskuse andmed Indrek Seppo turuülevaatest, 27.08.2026.</li>
+<li>Kogujate arv (501 757 = 303 039 aktiivselt juhitud fondides + 198 718 indeksfondides, 31.07.2026) ja indeksfondide maht (2 656 M€ ehk 34,7% II samba varast, 31.07.2026) – Pensionikeskuse andmed Indrek Seppo turuülevaatest. Sama kuupäev kui arvutuse lõppseis.</li>
 </ul>
 </div>
 </div>
@@ -8675,6 +8675,8 @@ vanguard_irr       9.12 %
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Väljamaksed aastas 2016–2019 (M€):'</span><span class="p">,</span> <span class="p">(</span><span class="n">years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2016</span><span class="p">:</span><span class="mi">2019</span><span class="p">,</span> <span class="s1">'valjamaksed'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Väljamaksed kokku: 2003–2020 </span><span class="si">%.2f</span><span class="s1"> mld | 2021 </span><span class="si">%.2f</span><span class="s1"> mld | 2022–07/2026 </span><span class="si">%.2f</span><span class="s1"> mld'</span> <span class="o">%</span> <span class="p">(</span>
     <span class="n">years</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">2020</span><span class="p">,</span> <span class="s1">'valjamaksed'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">,</span> <span class="n">years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="s1">'valjamaksed'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">,</span> <span class="n">years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2022</span><span class="p">:,</span> <span class="s1">'valjamaksed'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">))</span>
+<span class="n">neg</span> <span class="o">=</span> <span class="n">monthly</span><span class="p">[</span><span class="n">monthly</span><span class="o">.</span><span class="n">W</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Tuletatud W on negatiivne </span><span class="si">%d</span><span class="s1"> kuul </span><span class="si">%d</span><span class="s1">-st, kokku </span><span class="si">%.2f</span><span class="s1"> mld (kuutaseme müra, vt eeldused)'</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">neg</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">monthly</span><span class="p">),</span> <span class="n">neg</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -8705,6 +8707,7 @@ month
 
 Väljamaksed aastas 2016–2019 (M€): {2016: 28.0, 2017: 36.0, 2018: 17.0, 2019: 37.0}
 Väljamaksed kokku: 2003–2020 0.23 mld | 2021 1.68 mld | 2022–07/2026 1.44 mld
+Tuletatud W on negatiivne 81 kuul 283-st, kokku -0.70 mld (kuutaseme müra, vt eeldused)
 </pre>
 </div>
 </div>
@@ -8846,7 +8849,7 @@ Proportsionaalsed väljamaksed (75/25): fondides 7.66 vs 9.88 mld | välja makst
 <span class="n">e03</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'2018-12'</span><span class="p">,</span> <span class="s1">'epi_ii'</span><span class="p">]</span> <span class="o">/</span> <span class="n">m</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'2002-12'</span><span class="p">,</span> <span class="s1">'epi_ii'</span><span class="p">]</span>
 <span class="n">g03</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">base_w</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="s1">'global_stock_index_eur_pct'</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">base_w</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="s1">'euro_govt_bond_index_eur_pct'</span><span class="p">])</span> <span class="o">/</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2003</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'2003–2018: EPI-II </span><span class="si">%.2f%%</span><span class="s1"> aastas, Vanguard </span><span class="si">%.2f%%</span><span class="s1"> aastas'</span> <span class="o">%</span> <span class="p">(</span><span class="n">ann</span><span class="p">(</span><span class="n">e03</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">ann</span><span class="p">(</span><span class="n">g03</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
-<span class="n">savers</span> <span class="o">=</span> <span class="mi">302658</span> <span class="o">+</span> <span class="mi">201190</span>
+<span class="n">savers</span> <span class="o">=</span> <span class="mi">303039</span> <span class="o">+</span> <span class="mi">198718</span>  <span class="c1"># Pensionikeskus 31.07.2026</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Vahe koguja kohta: </span><span class="si">%.0f</span><span class="s1"> € (</span><span class="si">%d</span><span class="s1"> kogujat); proportsionaalsete väljamaksete variandis </span><span class="si">%.0f</span><span class="s1"> €'</span> <span class="o">%</span> <span class="p">(</span><span class="n">base</span><span class="p">[</span><span class="s1">'vahe'</span><span class="p">]</span> <span class="o">/</span> <span class="n">savers</span><span class="p">,</span> <span class="n">savers</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s1">'jouukuse_vahe'</span><span class="p">]</span> <span class="o">/</span> <span class="n">savers</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -8864,7 +8867,7 @@ Proportsionaalsed väljamaksed (75/25): fondides 7.66 vs 9.88 mld | välja makst
 Vanguard 75/25 2019–07/2026: 121.7% kokku, 11.07% aastas
 Vanguard 100% aktsiad 2019–07/2026: 185.7% kokku, 14.85% aastas
 2003–2018: EPI-II 3.47% aastas, Vanguard 6.68% aastas
-Vahe koguja kohta: 9412 € (503848 kogujat); proportsionaalsete väljamaksete variandis 7752 €
+Vahe koguja kohta: 9451 € (501757 kogujat); proportsionaalsete väljamaksete variandis 7784 €
 </pre>
 </div>
 </div>
@@ -8953,7 +8956,7 @@ Vahe koguja kohta: 9412 € (503848 kogujat); proportsionaalsete väljamaksete v
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Eeldused-ja-piirangud">Eeldused ja piirangud<a class="anchor-link" href="#Eeldused-ja-piirangud">¶</a></h2><ul>
 <li>Väljamaksed on mõlemas variandis samad eurodes. Päriselt oleksid 2021. aastal lahkujad Vanguardi variandis võtnud välja rohkem, sest nende kontod olnuks suuremad; proportsionaalsete väljamaksete variant (kogujõukuse vahe 3,9 mld) katab selle.</li>
-<li>EPI-II on fondide mahuga kaalutud keskmise tootluse indeks. Sellest tuletatud vood võivad üksikutel kuudel tegelikest erineda, aga aastasummad ja 2021. aasta reformi voor klapivad avaldatud numbritega.</li>
+<li>Tuletatud väljamaksed on jääk (maht − eelmine maht × EPI tootlus − sissemaksed) ja kuutasemel mürased: fondide mahu ja EPI-II kuupäevad ei lange alati täpselt kokku ja EPI on kaalutud keskmine, mitte iga fondi tegelik tulu. Seetõttu tuleb W ligi kolmandikul kuudest negatiivne (kokku umbes −0,7 mld). Aastasummad ja 2021. aasta reformi voor klapivad avaldatud numbritega, aga <code>yearly_table.csv</code> üksikuid ridu ei tasu kuutäpsusega tõlgendada.</li>
 <li>Alternatiivportfelli aktsiate osakaal 75% on alates 2019. aastast konservatiivne valik: seadus lubab 100% ja Eesti fondide keskmine aktsiaosakaal on kasvanud. 100% variant on toodud eraldi.</li>
 <li>Vanguardi fondide 2003–2008 tootlused pärinevad Yahoo Finance'ist (fondide faktilehed katavad 10 aastat); nende aastate kaal tulemuses on väike.</li>
 <li>Sissemaksed ei sisalda pensioni investeerimiskontole (PIK) läinud raha (~48 M€ alates 2021), sest see ei ole fondides.</li>

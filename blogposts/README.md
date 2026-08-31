@@ -11,7 +11,7 @@ Mõlemad versioonid viitavad samadele graafikutele (`charts/`), mille toodab not
 
 | Slug | Pealkiri | Staatus | Doc |
 |---|---|---|---|
-| [2026-08-bogle-indeksfond-50](2026-08-bogle-indeksfond-50/) | Miks John C. Bogle meie pankade fondijuhtide jutu peale muigaks? (uuendus indeksfondi 50. sünnipäevaks) | in_review | [WordPress](https://tuleva.ee/analuusid/bogle-pensionifondid/) |
+| [2026-08-bogle-indeksfond-50](2026-08-bogle-indeksfond-50/) | Miks John C. Bogle meie pankade fondijuhtide jutu peale muigaks? (uuendus indeksfondi 50. sünnipäevaks) | published | [WordPress](https://tuleva.ee/analuusid/bogle-pensionifondid/) |
 | [2026-05-fondivalitsejate-aruanded](2026-05-fondivalitsejate-aruanded/) | Mida räägivad meile fondivalitsejate 2025. aasta aruanded? | draft | [Google Doc](https://docs.google.com/document/d/1dMuprG_rN64WtTxGJLq3JbG_wwhgSaokShJdW0wzV2g/edit) |
 
 ## Faili struktuur

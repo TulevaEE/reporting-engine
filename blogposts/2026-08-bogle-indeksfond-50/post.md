@@ -3,7 +3,7 @@ title: Miks John C. Bogle meie pankade fondijuhtide jutu peale muigaks?
 slug: 2026-08-bogle-indeksfond-50
 date: 2026-08-31
 author: Tõnu
-status: in_review  # tekst on live (31.08.2026); arvutuste lõik „Vanguardis kogudes…" ootab Tõnu ülevaatust
+status: published
 notebook_html_url: https://tulevaee.github.io/reporting-engine/blogposts/2026-08-bogle-indeksfond-50.html
 wordpress_url: https://tuleva.ee/analuusid/bogle-pensionifondid/
 summary: Indeksfondi 50. sünnipäevaks uuendatud 2019. aasta postitus. Uus arvutus: kui Eesti inimeste II samba raha oleks 2003. aastast olnud Vanguardi indeksfondides, oleksime täna ligi 4,7 miljardi euro võrra rikkamad.
@@ -55,9 +55,9 @@ Teiseks, **reeglid kaitsevad inimlike vigade eest.** Enamik investoreid saab vab
 
 ## Mida saad sina sellest tulevikuks raha kogudes õppida?
 
-Kui sa kogud oma tuleviku jaoks raha, **eelista madala tasuga indeksfondi**. Tuleva pensionifond sündis Vanguardi eeskujul 2017. aastal. Tuleva eeskujul tõid indeksfondid tootevalikusse ka pangad. Kui alguses tuli neid veel „leti alt" küsida, siis täna kogub II sambas indeksfondides juba 201 000 inimest ehk 40% kogujatest ja indeksfondides on 2,75 miljardit eurot ehk 35% II samba varast. III sambas on indeksfondides juba 60% varast. (3)
+Kui sa kogud oma tuleviku jaoks raha, **eelista madala tasuga indeksfondi**. Tuleva pensionifond sündis Vanguardi eeskujul 2017. aastal. Tuleva eeskujul tõid indeksfondid tootevalikusse ka pangad. Kui alguses tuli neid veel „leti alt" küsida, siis täna kogub II sambas indeksfondides juba ligi 200 000 inimest ehk 40% kogujatest ja indeksfondides on 2,7 miljardit eurot ehk 35% II samba varast. III sambas on indeksfondides juba 60% varast. (3)
 
-Aga 300 000 inimest maksab II sambas ikka veel kõrgeid tasusid. Kui sina oled üks neist, on indeksfondi sünnipäev hea päev see ära muuta: [fondi vahetamine](https://tuleva.ee/kuidas-tuua-pension-tulevasse) võtab mõne minuti.
+Aga ligi 300 000 inimest maksab II sambas ikka veel kõrgeid tasusid. Kui sina oled üks neist, on indeksfondi sünnipäev hea päev see ära muuta: [fondi vahetamine](https://tuleva.ee/kuidas-tuua-pension-tulevasse) võtab mõne minuti.
 
 Bogle näitas, et ainus viis, kuidas sa saad omale tagada õiglase osa aktsiaturgude pikaajalisest tootlusest, on investeerida järjekindlalt indeksfondi.
 
@@ -77,6 +77,6 @@ PS! Kui oled andmenohik, siis leiad arvutuse, allikad ja eeldused siit: [vaata n
 
 (2) EPI-II on Pensionikeskuse arvutatav kõigi II samba fondide mahuga kaalutud keskmise tootluse indeks. Vanguardi fondid samad mis märkuses 1.
 
-(3) Pensionikeskuse andmed 27.08.2026. III samba osakaal 2025. aasta lõpu seisuga.
+(3) Pensionikeskuse andmed 31.07.2026 (sama seis, mida kasutab arvutus märkuses 1). III samba osakaal 2025. aasta lõpu seisuga.
 
 *NB! See artikkel ilmus esimest korda 10.07.2019. Värskendasime seda uute andmete ja arvutustega 31.08.2026, indeksfondi 50. sünnipäeval.*
