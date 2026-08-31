@@ -1,0 +1,22 @@
+# Metadata for blog post: 2026-08-bogle-indeksfond-50
+# Skriptid (push_to_doc, pull_from_doc, export_notebook) loevad seda faili.
+
+title: Miks John C. Bogle meie pankade fondijuhtide jutu peale muigaks?
+slug: 2026-08-bogle-indeksfond-50
+date: 2026-08-31
+author: Tõnu
+status: published
+
+# Failid posti kataloogis
+post_md: post.md
+notebook: analysis.ipynb
+charts_dir: charts
+data_dir: data
+
+# Google Doc (kolleegide toimetamine)
+google_doc_id:
+google_doc_url:
+
+# Avaldamine
+notebook_html_target: docs/blogposts/2026-08-bogle-indeksfond-50.html
+wordpress_url: https://tuleva.ee/analuusid/bogle-pensionifondid/
