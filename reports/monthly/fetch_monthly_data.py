@@ -58,6 +58,40 @@ SURVIVOR_CARDS = {
 }
 
 
+# Vahetusperioodi eesmärgikaardid (nädalane seeria, VP 2026 sügis). Nende siht on
+# kaardi nimes; hoiame sihi siin, et aruanne saaks näidata vahet sihini.
+VP_GOAL_CARDS = {
+    2631: {
+        'key': 'goal_1',
+        'title': 'III samba avaldusega tuleb kaasa ka II sammas',
+        'target': 30.0,
+        'target_label': '30%',
+        'unit': 'pct',
+    },
+    2632: {
+        'key': 'goal_2',
+        'title': 'Sissemakse teinud OÜd',
+        'target': 500,
+        'target_label': '500',
+        'unit': 'count',
+    },
+    2633: {
+        'key': 'goal_3',
+        'title': 'Lapsed, kes koguvad püsimaksega',
+        'target': 400,
+        'target_label': '400',
+        'unit': 'count',
+    },
+    2634: {
+        'key': 'goal_4',
+        'title': 'Kõrge palgaga kogujad tõstavad II samba maksemäära',
+        'target': 1350,
+        'target_label': '1350',
+        'unit': 'count',
+    },
+}
+
+
 def fetch_monthly_data(year: int, month: int) -> dict:
     """
     Fetch monthly KPI data: the consolidated card 2578 plus the survivor cards.
@@ -81,6 +115,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         'report_date': datetime.now().strftime('%Y-%m-%d'),
         'kpi_2578': {},
         'cards': {},
+        'vp_goals': {},
     }
 
     # Primary consolidated KPI card (full monthly time series).
@@ -111,6 +146,21 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         except Exception as e:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
+
+    # Vahetusperioodi eesmärgikaardid.
+    for card_id, spec in VP_GOAL_CARDS.items():
+        print(f"  Fetching [{card_id}] {spec['title']}...")
+        try:
+            results = client.execute_card(card_id)
+            data['vp_goals'][spec['key']] = {
+                'card_id': card_id,
+                **spec,
+                'data': results,
+            }
+            print(f"    -> {len(results)} rows")
+        except Exception as e:
+            print(f"    ERROR: {e}")
+            data['vp_goals'][spec['key']] = {'card_id': card_id, **spec, 'error': str(e)}
 
     return data
 

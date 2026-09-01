@@ -220,3 +220,109 @@ def generate_determination_chart(det: dict, output_file: Path):
     plt.tight_layout()
     plt.savefig(output_file, dpi=130, bbox_inches='tight')
     plt.close()
+
+
+# --------------------------------------------------------------------------
+# Sihikindluse trepp ajas
+# --------------------------------------------------------------------------
+# Kaardil 2324 ajalugu ei ole, seega ajarida ehitatakse kuupäevastatud
+# hetktõmmistest, mida ``load_card_2324(refresh=True)`` vahemällu kirjutab.
+# Seeria algab esimesest salvestatud tõmmisest (juuli 2026) ja pikeneb iga
+# kuuga ühe punkti võrra. Baas on siin igal kuupäeval kaardi 2324 enda aktiivne
+# alamhulk (mitte kaardi 2578 ametlik arv), et punktid oleks omavahel võrreldavad
+# — seetõttu erineb viimane punkt ülaltoodud hetkeseisu tabelist paarisaja võrra.
+
+def determination_history() -> list:
+    """Sihikindluse jaotus iga salvestatud hetktõmmise kohta, vanimast uuemani.
+
+    Tagastab listi dictidest: ``date`` (YYYY-MM-DD) + ``compute_determination``
+    võtmed. Tõmmiseid loetakse laisalt; puuduva/vigase faili puhul jäetakse
+    see punkt vahele.
+    """
+    import pandas as pd
+    out = []
+    for day, path in list_snapshots():
+        try:
+            det = compute_determination(pd.read_pickle(path))
+        except Exception as e:  # noqa: BLE001 - üks vigane tõmmis ei tohi kogu aruannet katkestada
+            print(f"  Warning: snapshot {day} unreadable ({e}); skipping.")
+            continue
+        det['date'] = day
+        out.append(det)
+    return out
+
+
+def determination_history_md(hist: list) -> str:
+    """Ajarea tabel markdownina: iga tõmmise kuupäev veeruna."""
+    if len(hist) < 2:
+        return ''
+
+    def num(v):
+        return f'{v:,}'.replace(',', ' ')
+
+    def d(day):
+        y, m, dd = day.split('-')
+        return f'{dd}.{m}'
+
+    header = '| Grupp | ' + ' | '.join(d(h['date']) for h in hist) + ' | Muutus |'
+    lines = [header, '|---|' + ':---:|' * (len(hist) + 1)]
+    for label, seg in _SEG_ROWS:
+        vals = ' | '.join(num(h[seg]) for h in hist)
+        delta = hist[-1][seg] - hist[0][seg]
+        sign = f'+{num(delta)}' if delta >= 0 else '−' + num(abs(delta))
+        lines.append(f'| {label} | {vals} | {sign} |')
+    vals = ' | '.join(f"**{num(h['total'])}**" for h in hist)
+    delta = hist[-1]['total'] - hist[0]['total']
+    sign = f'+{num(delta)}' if delta >= 0 else '−' + num(abs(delta))
+    lines.append(f'| **Aktiivseid kogujaid** | {vals} | **{sign}** |')
+    return '\n'.join(lines)
+
+
+def generate_history_chart(hist: list, output_file: Path):
+    """Sihikindluse kolme astme liikumine ajas.
+
+    Näitab muutust esimese tõmmise suhtes, mitte taset: tasemed on kõrvaltabelis
+    ja kolm ligi tuhandetes püsivat joont ei näitaks paarisajast liikumist üldse.
+    """
+    if len(hist) < 2:
+        return
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    import matplotlib.dates as mdates
+    from datetime import datetime as _dt
+
+    base = Path(__file__).parent.parent.parent
+    sys.path.insert(0, str(base / 'common' / 'scripts'))
+    from generate_charts import setup_plot_style, TULEVA_BLUE, TULEVA_NAVY, TULEVA_MID_BLUE
+    setup_plot_style()
+
+    x = [_dt.fromisoformat(h['date']) for h in hist]
+    series = [
+        ('Sihikindlad (II 4/6% ja III ≥1200 €)', 'determined', TULEVA_NAVY),
+        ('Poole teel: II 2%, III ≥1200 €', 'halfway_b', TULEVA_MID_BLUE),
+        ('Poole teel: II 4/6%, III <1200 €', 'halfway_a', TULEVA_BLUE),
+    ]
+    fig, ax = plt.subplots(figsize=(9, 4.2))
+    ax.axhline(0, color='#B0B0B0', linewidth=1, zorder=1)
+    for label, seg, color in series:
+        y = [h[seg] - hist[0][seg] for h in hist]
+        ax.plot(x, y, color=color, linewidth=2.5, marker='o', markersize=5,
+                label=label, zorder=3)
+        ax.annotate(f'{y[-1]:+,}'.replace(',', ' '), (x[-1], y[-1]),
+                    textcoords='offset points', xytext=(7, 0), va='center',
+                    fontsize=9, color=color, fontweight='bold')
+    first = hist[0]['date'][8:10] + '.' + hist[0]['date'][5:7]
+    ax.set_ylabel(f'muutus alates {first}, kogujat')
+    ax.set_xlim(x[0], x[-1] + (x[-1] - x[0]) * 0.12)
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d.%m'))
+    ax.set_xticks(x)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.legend(frameon=False, fontsize=8.5, loc='upper left')
+    ax.set_title('Sihikindluse trepp: liikumine astmete vahel',
+                 fontweight='bold', color=TULEVA_NAVY, pad=12)
+    plt.tight_layout()
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(output_file, dpi=130, bbox_inches='tight')
+    plt.close(fig)

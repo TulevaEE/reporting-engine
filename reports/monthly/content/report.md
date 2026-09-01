@@ -6,6 +6,27 @@
 
 ---
 
+{% if report.vp_goals -%}
+## Selle vahetusperioodi eesmärgid
+
+<!-- comment:vp_goals -->
+{{ comments.vp_goals }}
+<!-- /comment:vp_goals -->
+
+{{ report.vp_goals_md }}
+
+*Neli eesmärki, mille tiim sellele vahetusperioodile seadis (Metabase kaardid 2631–2634). „Sihtjoon" on lineaarne tempo sihini 30.11; eesmärkidel 1 ja 4 sihtjoont ei ole, seega on seal vahe arvestatud sihi enda suhtes.*
+
+{% for g in report.vp_goals -%}
+{% set chart_key = 'vp_' + g.key -%}
+{% if charts and charts[chart_key] -%}
+![{{ g.title }}]({{ charts[chart_key] }})
+{% endif %}
+{% endfor %}
+
+---
+
+{% endif -%}
 ## 1. Varade maht ja kasv
 
 <!-- comment:aum -->
@@ -94,6 +115,18 @@
 | **Kogujaid kokku** | **{{ "{:,}".format(report.determination['total']) }}** | **100,0%** |
 
 *Hetkeseis. Segment (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas on aktiivsete kogujate arv (card 2578), sama mis tabelis 2 — "Muud" on jääk.*
+{% endif %}
+
+{% if report.determination_history_md -%}
+#### Liikumine trepil
+
+{% if charts and charts.determination_history -%}
+![Sihikindluse trepp ajas]({{ charts.determination_history }})
+{% endif %}
+
+{{ report.determination_history_md }}
+
+*Kaardil 2324 ajalugu ei ole, seega seeria on ehitatud kuupäevastatud hetktõmmistest ja algab juulist 2026; iga kuuga lisandub punkt. Baas on siin igal kuupäeval kaardi 2324 enda aktiivne alamhulk, mitte kaardi 2578 ametlik arv — seetõttu erineb viimane veerg paarisaja võrra ülaltoodud hetkeseisu tabelist.*
 {% endif %}
 
 ---
