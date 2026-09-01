@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-08-31T17:12:33.384131</dc:date>
+    <dc:date>2026-09-01T10:16:55.422247</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -43,7 +43,7 @@ L 342.245455 510.458438
 L 342.245455 305.421584 
 L 131.645455 305.421584 
 z
-" clip-path="url(#p04343b0cf0)" style="fill: #002f63"/>
+" clip-path="url(#p298ba3224b)" style="fill: #002f63"/>
    </g>
    <g id="patch_4">
     <path d="M 514.554545 510.458438 
@@ -51,7 +51,7 @@ L 725.154545 510.458438
 L 725.154545 305.421584 
 L 514.554545 305.421584 
 z
-" clip-path="url(#p04343b0cf0)" style="fill: #002f63"/>
+" clip-path="url(#p298ba3224b)" style="fill: #002f63"/>
    </g>
    <g id="patch_5">
     <path d="M 131.645455 305.421584 
@@ -59,7 +59,7 @@ L 342.245455 305.421584
 L 342.245455 201.565189 
 L 131.645455 201.565189 
 z
-" clip-path="url(#p04343b0cf0)" style="fill: #00aeea"/>
+" clip-path="url(#p298ba3224b)" style="fill: #00aeea"/>
    </g>
    <g id="patch_6">
     <path d="M 514.554545 305.421584 
@@ -67,7 +67,7 @@ L 725.154545 305.421584
 L 725.154545 68.589868 
 L 514.554545 68.589868 
 z
-" clip-path="url(#p04343b0cf0)" style="fill: #00aeea"/>
+" clip-path="url(#p298ba3224b)" style="fill: #00aeea"/>
    </g>
    <g id="patch_7">
     <path d="M 131.645455 201.565189 
@@ -76,7 +76,7 @@ L 342.245455 68.589868
 L 131.645455 68.589868 
 L 131.645455 201.565189 
 z
-" clip-path="url(#p04343b0cf0)" style="fill: none; stroke-dasharray: 9,6; stroke-dashoffset: 0; stroke: #002f63; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#p298ba3224b)" style="fill: none; stroke-dasharray: 9,6; stroke-dashoffset: 0; stroke: #002f63; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="matplotlib.axis_1">
     <g id="xtick_1">
@@ -100,12 +100,12 @@ z
     <text style="font-weight: 700; font-size: 15px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(588.66978 428.054073)">7,3 mld €</text>
    </g>
    <g id="text_5">
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #002f63" transform="translate(213.616939 242.925418)">Kasum</text>
-    <text style="font-weight: 700; font-size: 15px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #002f63" transform="translate(205.760689 273.607449)">3,7 mld €</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(213.616939 242.925418)">Kasum</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(205.760689 273.607449)">3,7 mld €</text>
    </g>
    <g id="text_6">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #002f63" transform="translate(594.970795 175.733226)">Kasum</text>
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #002f63" transform="translate(586.590795 208.460726)">8,4 mld €</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(594.970795 175.733226)">Kasum</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(586.590795 208.460726)">8,4 mld €</text>
    </g>
    <g id="text_7">
     <text style="font-weight: 700; font-size: 14px; font-family: 'Roboto', 'Helvetica Neue', 'Arial', 'DejaVu Sans', sans-serif; fill: #002f63" transform="translate(172.55858 124.062372)">Saamata jäänud tulu</text>
@@ -120,7 +120,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p04343b0cf0">
+  <clipPath id="p298ba3224b">
    <rect x="7.2" y="46.157031" width="842.4" height="464.301406"/>
   </clipPath>
  </defs>
