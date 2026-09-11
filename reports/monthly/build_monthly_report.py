@@ -12,6 +12,7 @@ from generate_monthly_charts import generate_monthly_charts, ESTONIAN_MONTHS
 import kpi_2578 as k2578
 import saver_determination as sd
 import vp_goals as vg
+import financials_csv as fc
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
 
@@ -375,25 +376,25 @@ def preprocess_data(data, year, month):
             tkf['ytd_amount_yoy'] = (tkf_ytd_amount - tkf_prev_ytd_amount) / tkf_prev_ytd_amount
         report['tkf_contributions'] = tkf
 
-    # --- Financial results (card 636) ---
-    financials_raw = cards.get('Tuleva finantstulemused', {}).get('data', [])
-    if financials_raw:
-        by_name = {row['Eur']: row for row in financials_raw}
-        selected_rows = [
-            'brutomarginaal pärast litsentsitasu',
-            'tööjõukulud',
-            'mitmesugused tegevuskulud',
-            'EBITDA/ärikasum',
-            'puhaskasum',
-            'litsentsitasu',
-        ]
-        selected = [
-            by_name[name] for name in selected_rows if name in by_name
-        ]
-        # Skip section if any required values are None (financials not yet finalized)
-        if all(row.get('Kuu Tulemus') is not None and row.get('YoY %') is not None
-               for row in selected):
-            report['financials'] = selected
+    # --- Financial results ---
+    # AJUTINE: Metabase kaart 636 ei uuene (augustis näitas veebruari numbreid),
+    # seega loeme read käsitsi eksporditud prognoositabelist. Kui kaart on
+    # parandatud, taasta siin cards['Tuleva finantstulemused'] kasutus ja
+    # kustuta financials_csv.py.
+    selected_rows = [
+        'brutomarginaal pärast litsentsitasu',
+        'tööjõukulud',
+        'mitmesugused tegevuskulud',
+        'EBITDA/ärikasum',
+        'puhaskasum',
+        'litsentsitasu',
+    ]
+    selected = fc.load(year, month, selected_rows)
+    # Peatükk jääb välja, kui mõni rida puudub — siis pole kuu veel kinni.
+    # YoY võib üksikul real puududa (märgivahetus), see peatükki maha ei võta.
+    if len(selected) == len(selected_rows):
+        report['financials'] = selected
+        report['financials_source'] = fc.DEFAULT_CSV.name
 
     return report
 
@@ -506,7 +507,6 @@ def build_md(year: int, month: int) -> Path:
     vp_data = data.get('vp_goals') or {}
     vp_rows = vg.summarise(vp_data, year, month)
     report['vp_goals'] = vp_rows
-    report['vp_goals_md'] = vg.summary_md(vp_rows)
     chart_paths.update(vg.generate_charts(vp_data, output_dir / 'charts'))
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')

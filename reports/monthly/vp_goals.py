@@ -20,7 +20,7 @@ from pathlib import Path
 
 GOAL_ORDER = ['goal_1', 'goal_2', 'goal_3', 'goal_4']
 
-# Lühinimi koondtabelisse (kaardi enda nimi on aruande jaoks liiga pikk).
+# Lühinimi paneeli pealkirjaks (kaardi enda nimi on joonise jaoks liiga pikk).
 SHORT_TITLES = {
     'goal_1': '1. III samba avaldusega tuleb kaasa ka II sammas',
     'goal_2': '2. Sissemakse teinud OÜd',
@@ -140,25 +140,14 @@ def summarise(vp_data: dict, year: int, month: int) -> list:
     return sorted(out, key=lambda d: GOAL_ORDER.index(d['key']))
 
 
-def summary_md(rows: list) -> str:
-    """Koondtabel markdownina."""
-    if not rows:
-        return ''
-    lines = [
-        '| Eesmärk | Siht | Seis | Sihtjoon | Vahe |',
-        '|---|:---:|:---:|:---:|:---:|',
-    ]
-    for r in rows:
-        lines.append(
-            f"| {r['title']} | {r['target_label']} "
-            f"| **{r['current_label']}** | {r['pace_label']} | {r['gap_label']} |"
-        )
-    return '\n'.join(lines)
-
-
 # --------------------------------------------------------------------------
 # Joonised
-# --------------------------------------------------------------------------
+#
+# Neli eesmärki on aruandes üks 2x2 pilt, mitte neli eraldi joonist: nad
+# kuuluvad kokku ja tahavad ühte pilku, mitte nelja kerimist. Iga paneeli
+# joonistab oma funktsioon etteantud teljestikule.
+
+
 
 def _style():
     base = Path(__file__).parent.parent.parent
@@ -171,50 +160,46 @@ def _style():
     return TULEVA_BLUE, TULEVA_NAVY, TULEVA_MID_BLUE
 
 
-def _finish(ax, fig, title, out, ticks=None):
-    import matplotlib.pyplot as plt
+def _finish(ax, title, ticks=None):
+    """Paneeli viimistlus. Kirjasuurused on väiksemad kui üksikjoonisel."""
     import matplotlib.dates as mdates
     from generate_charts import TULEVA_NAVY
-    ax.set_title(title, fontweight='bold', color=TULEVA_NAVY, pad=12)
+    ax.set_title(title, fontweight='bold', color=TULEVA_NAVY, fontsize=10.5,
+                 pad=8)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d.%m'))
     if ticks:
-        # Nädalaseeria: näita iga nädalat, aga hoia sildid loetavana
-        step = max(1, len(ticks) // 12 + 1)
+        # Nädalaseeria: poole kitsamal paneelil mahub ~6 silti
+        step = max(1, len(ticks) // 6 + 1)
         ax.set_xticks(ticks[::step])
+    else:
+        ax.xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=6))
+    ax.tick_params(labelsize=8)
+    ax.yaxis.label.set_size(9)
     for lbl in ax.get_xticklabels():
         lbl.set_rotation(45)
         lbl.set_ha('right')
-    plt.tight_layout()
-    out.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out, dpi=130, bbox_inches='tight')
-    plt.close(fig)
 
 
-def _chart_goal_1(rows, out):
-    import matplotlib.pyplot as plt
+def _panel_goal_1(rows, ax):
     BLUE, NAVY, MID = _style()
     x = [_as_date(r['nadal']) for r in rows]
     koos = [r.get('koos_pct') or 0 for r in rows]
     hiljem = [(r.get('kokku_pct') or 0) - (r.get('koos_pct') or 0) for r in rows]
-    fig, ax = plt.subplots(figsize=(9, 4))
     ax.bar(x, koos, width=5, color=NAVY, label='tõi kohe koos', zorder=3)
     ax.bar(x, hiljem, width=5, bottom=koos, color=BLUE, label='tõi hiljem', zorder=3)
     ax.axhline(30, color='#FF4800', linestyle='--', linewidth=1.5, zorder=4)
-    ax.text(x[0], 31, 'siht 30%', color='#FF4800', fontsize=9, fontweight='bold')
+    ax.text(x[0], 31, 'siht 30%', color='#FF4800', fontsize=8, fontweight='bold')
     ax.set_ylabel('% neist, kes said II samba tuua')
     ax.set_ylim(0, max(40, max([a + b for a, b in zip(koos, hiljem)] or [0]) * 1.2))
-    ax.legend(frameon=False, fontsize=8.5, loc='upper left')
-    _finish(ax, fig, 'Eesmärk 1: III samba avaldusega tuleb kaasa ka II sammas',
-            out, ticks=x)
+    ax.legend(frameon=False, fontsize=7.5, loc='upper left')
+    _finish(ax, SHORT_TITLES['goal_1'], ticks=x)
 
 
-def _chart_cumulative(rows, col, pace_col, target, title, ylabel, out,
+def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
                       context=None):
-    import matplotlib.pyplot as plt
     BLUE, NAVY, MID = _style()
-    fig, ax = plt.subplots(figsize=(9, 4))
 
     pace = [(_as_date(r['nadal']), r.get(pace_col)) for r in rows
             if r.get(pace_col) is not None]
@@ -232,76 +217,83 @@ def _chart_cumulative(rows, col, pace_col, target, title, ylabel, out,
 
     act = [(_as_date(r['nadal']), r.get(col)) for r in rows if r.get(col) is not None]
     ax.plot([p[0] for p in act], [p[1] for p in act], color=NAVY, linewidth=2.5,
-            marker='o', markersize=4, label='tegelik', zorder=5)
+            marker='o', markersize=3, label='tegelik', zorder=5)
 
     ax.axhline(target, color=NAVY, linestyle=':', linewidth=1, alpha=0.6)
     ax.set_ylabel(ylabel)
     ax.set_ylim(0, target * 1.1)
-    ax.legend(frameon=False, fontsize=8.5, loc='upper left')
-    _finish(ax, fig, title, out)
+    ax.legend(frameon=False, fontsize=7.5, loc='upper left')
+    _finish(ax, title)
 
 
-def _chart_goal_4(rows, out):
+def _panel_goal_4(rows, ax):
     """Nädalane juurdekasv + kumulatiiv.
 
     Siht 1350 ei mahu siia teljele (august annab kümneid, mitte sadu) ja joon
     1350 juures muudaks tegeliku seeria nähtamatuks. Maksemäära avaldusi saab
     esitada 30.11-ni ja need laekuvad kuhjaga lõpu poole, seega on praegu
-    loetav suurus tempo, mitte kaugus sihist. Kaugus on kirjas allkirjas.
+    loetav suurus tempo, mitte kaugus sihist. Kaugus on kirjas paneeli nurgas.
     """
-    import matplotlib.pyplot as plt
     BLUE, NAVY, MID = _style()
     x = [_as_date(r['nadal']) for r in rows]
     cum = [r.get('tostnud') or 0 for r in rows]
     add = [r.get('lisandunud') or 0 for r in rows]
-    fig, ax = plt.subplots(figsize=(9, 4))
     ax.bar(x, add, width=2.5, color=BLUE, label='lisandus perioodil', zorder=3)
-    ax.plot(x, cum, color=NAVY, linewidth=2.5, marker='o', markersize=4,
+    ax.plot(x, cum, color=NAVY, linewidth=2.5, marker='o', markersize=3,
             label='kokku tõstnud', zorder=5)
     ax.set_ylabel('kogujat')
     ax.set_ylim(0, max(max(cum), max(add)) * 1.35 or 1)
     share = cum[-1] / 1350 * 100
     ax.text(0.98, 0.94,
             f'siht 1350 avaldust 30.11-ks\nseis {cum[-1]} ehk {share:.1f}% sihist'.replace('.', ','),
-            transform=ax.transAxes, ha='right', va='top', fontsize=9,
+            transform=ax.transAxes, ha='right', va='top', fontsize=8,
             color='#FF4800', fontweight='bold')
-    ax.legend(frameon=False, fontsize=8.5, loc='upper left')
-    _finish(ax, fig,
-            'Eesmärk 4: kõrge palgaga kogujad tõstavad II samba maksemäära',
-            out, ticks=x)
+    ax.legend(frameon=False, fontsize=7.5, loc='upper left')
+    _finish(ax, SHORT_TITLES['goal_4'], ticks=x)
 
 
 def generate_charts(vp_data: dict, charts_dir: Path) -> dict:
-    """Joonistab neli eesmärgigraafikut. Tagastab {key: suhteline tee}."""
+    """Joonistab neli eesmärki ühele 2x2 lõuendile. Tagastab {key: tee}."""
     if not vp_data:
         return {}
-    paths = {}
+    import matplotlib.pyplot as plt
+    _style()
 
-    _, rows = _rows(vp_data, 'goal_1')
-    if rows:
-        _chart_goal_1(rows, charts_dir / 'vp_goal_1.png')
-        paths['vp_goal_1'] = 'charts/vp_goal_1.png'
+    fig, axes = plt.subplots(2, 2, figsize=(12, 7))
+    flat = list(axes.flatten())
+    drawn = []
 
-    _, rows = _rows(vp_data, 'goal_2')
-    if rows:
-        _chart_cumulative(
-            rows, 'oud_kokku', 'sihtjoon', 500,
-            'Eesmärk 2: sissemakse teinud OÜd', 'OÜd kokku',
-            charts_dir / 'vp_goal_2.png')
-        paths['vp_goal_2'] = 'charts/vp_goal_2.png'
+    for i, key in enumerate(GOAL_ORDER):
+        _, rows = _rows(vp_data, key)
+        if not rows:
+            continue
+        ax = flat[i]
+        if key == 'goal_1':
+            _panel_goal_1(rows, ax)
+        elif key == 'goal_2':
+            _panel_cumulative(rows, 'oud_kokku', 'sihtjoon', 500,
+                              SHORT_TITLES['goal_2'], 'OÜd kokku', ax)
+        elif key == 'goal_3':
+            _panel_cumulative(rows, 'pusimakse_kokku', 'sihtjoon', 400,
+                              SHORT_TITLES['goal_3'], 'lapsi', ax,
+                              context=('maksnud_kokku', 'sissemakse teinud (sh ühekordne)'))
+        elif key == 'goal_4':
+            _panel_goal_4(rows, ax)
+        drawn.append(i)
 
-    _, rows = _rows(vp_data, 'goal_3')
-    if rows:
-        _chart_cumulative(
-            rows, 'pusimakse_kokku', 'sihtjoon', 400,
-            'Eesmärk 3: lapsed, kes koguvad püsimaksega', 'lapsi',
-            charts_dir / 'vp_goal_3.png',
-            context=('maksnud_kokku', 'sissemakse teinud (sh ühekordne)'))
-        paths['vp_goal_3'] = 'charts/vp_goal_3.png'
+    if not drawn:
+        plt.close(fig)
+        return {}
 
-    _, rows = _rows(vp_data, 'goal_4')
-    if rows:
-        _chart_goal_4(rows, charts_dir / 'vp_goal_4.png')
-        paths['vp_goal_4'] = 'charts/vp_goal_4.png'
+    # Eesmärk, mille kaart andmeid ei andnud, jätab oma ruudu tühjaks — nii
+    # jääb ülejäänute asukoht pildil kuust kuusse samaks.
+    for i, ax in enumerate(flat):
+        if i not in drawn:
+            ax.axis('off')
 
-    return paths
+    fig.tight_layout(pad=1.4, w_pad=2.0, h_pad=2.4)
+    charts_dir.mkdir(parents=True, exist_ok=True)
+    out = charts_dir / 'vp_goals.png'
+    plt.savefig(out, dpi=130, bbox_inches='tight')
+    plt.close(fig)
+    return {'vp_goals': 'charts/vp_goals.png'}

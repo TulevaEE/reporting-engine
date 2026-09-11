@@ -13,16 +13,11 @@
 {{ comments.vp_goals }}
 <!-- /comment:vp_goals -->
 
-{{ report.vp_goals_md }}
-
-*Neli eesmärki, mille tiim sellele vahetusperioodile seadis (Metabase kaardid 2631–2634). „Sihtjoon" on lineaarne tempo sihini 30.11; eesmärkidel 1 ja 4 sihtjoont ei ole, seega on seal vahe arvestatud sihi enda suhtes.*
-
-{% for g in report.vp_goals -%}
-{% set chart_key = 'vp_' + g.key -%}
-{% if charts and charts[chart_key] -%}
-![{{ g.title }}]({{ charts[chart_key] }})
+{% if charts and charts.vp_goals -%}
+![Vahetusperioodi eesmärgid]({{ charts.vp_goals }})
 {% endif %}
-{% endfor %}
+
+*Neli eesmärki, mille tiim sellele vahetusperioodile seadis (Metabase kaardid 2631–2634). „Sihtjoon" on lineaarne tempo sihini 30.11; eesmärkidel 1 ja 4 sihtjoont ei ole, seega on seal näha ainult seis ja siht.*
 
 ---
 
@@ -296,11 +291,14 @@
 |---------|:---:|:---:|
 {% for row in report.financials -%}
 {% if row['Eur'] == 'litsentsitasu' -%}
-| **Litsentsitasu ühistule** | **{{ "{:,.0f}".format(row['Kuu Tulemus'] | abs) }} EUR** | ***{{ "{:.0%}".format(row['YoY %']) }}*** |
+| **Litsentsitasu ühistule** | **{{ "{:,.0f}".format(row['Kuu Tulemus'] | abs) }} EUR** | ***{{ "{:.0%}".format(row['YoY %']) if row['YoY %'] is not none else '–' }}*** |
 {% else -%}
-| {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | *{{ "{:.0%}".format(row['YoY %']) }}* |
+| {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | *{{ "{:.0%}".format(row['YoY %']) if row['YoY %'] is not none else '–' }}* |
 {% endif -%}
 {% endfor %}
+{% if report.financials_source -%}
+*Ajutiselt prognoositabeli käsitsi ekspordist (`{{ report.financials_source }}`), sest Metabase'i finantsvaade ei uuene.*
+{% endif %}
 {% endif %}
 
 ---
