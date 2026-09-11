@@ -12,24 +12,10 @@
 
 <!-- /comment:vp_goals -->
 
-| Eesmärk | Siht | Seis | Sihtjoon | Vahe |
-|---|:---:|:---:|:---:|:---:|
-| 1. III samba avaldusega tuleb kaasa ka II sammas | 30% | **13,6%** | – | −16,4 pp |
-| 2. Sissemakse teinud OÜd | 500 | **197** | 253 | −56 |
-| 3. Lapsed püsimaksega | 400 | **170** | 267 | −97 |
-| 4. Kõrge palgaga kogujad tõstavad maksemäära | 1350 | **24** | – | −1 326 |
-
-*Neli eesmärki, mille tiim sellele vahetusperioodile seadis (Metabase kaardid 2631–2634). „Sihtjoon" on lineaarne tempo sihini 30.11; eesmärkidel 1 ja 4 sihtjoont ei ole, seega on seal vahe arvestatud sihi enda suhtes.*
-
-![1. III samba avaldusega tuleb kaasa ka II sammas](charts/vp_goal_1.png)
-
-![2. Sissemakse teinud OÜd](charts/vp_goal_2.png)
-
-![3. Lapsed püsimaksega](charts/vp_goal_3.png)
-
-![4. Kõrge palgaga kogujad tõstavad maksemäära](charts/vp_goal_4.png)
+![Vahetusperioodi eesmärgid](charts/vp_goals.png)
 
 
+*Neli eesmärki, mille tiim sellele vahetusperioodile seadis (Metabase kaardid 2631–2634). „Sihtjoon" on lineaarne tempo sihini 30.11; eesmärkidel 1 ja 4 sihtjoont ei ole, seega on seal näha ainult seis ja siht.*
 
 ---
 
@@ -264,12 +250,14 @@
 
 | KPI | August 2026 | YoY |
 |---------|:---:|:---:|
-| Brutomarginaal pärast litsentsitasu | 127,764 EUR | *-3%* |
-| Tööjõukulud | -80,032 EUR | *-12%* |
-| Mitmesugused tegevuskulud | -18,685 EUR | *12%* |
-| Ebitda/ärikasum | 29,046 EUR | *20%* |
-| Puhaskasum | 23,365 EUR | *20%* |
-| **Litsentsitasu ühistule** | **60,419 EUR** | ***28%*** |
+| Brutomarginaal pärast litsentsitasu | 171,526 EUR | *16%* |
+| Tööjõukulud | -138,803 EUR | *6%* |
+| Mitmesugused tegevuskulud | -16,815 EUR | *18%* |
+| Ebitda/ärikasum | 15,908 EUR | *405%* |
+| Puhaskasum | 9,608 EUR | *–* |
+| **Litsentsitasu ühistule** | **72,211 EUR** | ***43%*** |
+
+*Ajutiselt prognoositabeli käsitsi ekspordist (`prognoos-kuu.csv`), sest Metabase'i finantsvaade ei uuene.*
 
 
 
