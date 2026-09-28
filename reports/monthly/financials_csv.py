@@ -9,7 +9,9 @@ gitignore'itud, repo on avalik — toorik sinna ei kuulu).
 CSV kuju: esimene veerg on rea nimi, edasi iga kuu kohta neli veergu
 ``prognoos MM-AAAA``, ``tegelik MM-AAAA``, ``vahe %``, ``vahe eur`` ning
 vabatekstiline kommentaar. Loeme ainult prognoosi ja tegeliku; YoY arvutame
-sama kuu eelmise aasta tegelikust.
+sama kuu eelmise aasta tegelikust. YTD on aasta algusest kuu lõpuni tegelike
+summa ja selle YoY sama perioodi eelmise aasta summa vastu; kui mõni kuu
+veergudest puudub, jääb YTD tühjaks (mitte osaliseks summaks).
 
 ``load()`` tagastab read samas kujus, nagu need tulid kaardilt 636, et
 aruande mall ja ``build_monthly_report.py`` valik muutumatuks jääks.
@@ -91,6 +93,8 @@ def load(year: int, month: int, names: list, path: Path = None) -> list:
               f"({path.name}) — finantstulemuste peatükk jääb välja")
         return []
     i_prev = _col(header, 'tegelik', year - 1, month)
+    i_ytd = [_col(header, 'tegelik', year, m) for m in range(1, month + 1)]
+    i_ytd_prev = [_col(header, 'tegelik', year - 1, m) for m in range(1, month + 1)]
 
     by_name = {}
     for r in rows[1:]:
@@ -108,6 +112,10 @@ def load(year: int, month: int, names: list, path: Path = None) -> list:
         act, fc, prev = cell(i_act), cell(i_fc), cell(i_prev)
         if act is None:
             continue
+        def ytd(cols):
+            v = [cell(i) for i in cols]
+            return None if any(x is None for x in v) else sum(v)
+        ytd_now, ytd_prev = ytd(i_ytd), ytd(i_ytd_prev)
         out.append({
             'Eur': name,
             'Prognoos': fc,
@@ -115,5 +123,8 @@ def load(year: int, month: int, names: list, path: Path = None) -> list:
             'Tulemus %': _change(act, fc),
             'Eelmise Aasta Tulemus': prev,
             'YoY %': _change(act, prev),
+            'YTD Tulemus': ytd_now,
+            'Eelmise Aasta YTD': ytd_prev,
+            'YTD YoY %': _change(ytd_now, ytd_prev),
         })
     return out

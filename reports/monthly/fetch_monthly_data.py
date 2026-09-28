@@ -55,6 +55,10 @@ SURVIVOR_CARDS = {
     2245: ('Osakuhinna võrdlus', 'line'),
     636:  ('Tuleva finantstulemused', 'line'),
     2305: ('Täiendavasse Kogumisfondi tehtud maksed', 'line'),
+    # Missiooni tabloo (mission_kpis.py): 1516 on kaardi 1518 allikas ilma 13 kuu
+    # filtrita (2.3 libisev keskmine vajab 48 kuud); 2741 on sihikindluse trepp (2.4).
+    1516: ('uute kogujate arv kuus, kogu ajalugu', 'table'),
+    2741: ('sihikindluse trepp', 'table'),
 }
 
 

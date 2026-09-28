@@ -22,10 +22,10 @@ GOAL_ORDER = ['goal_1', 'goal_2', 'goal_3', 'goal_4']
 
 # Lühinimi paneeli pealkirjaks (kaardi enda nimi on joonise jaoks liiga pikk).
 SHORT_TITLES = {
-    'goal_1': '1. III samba avaldusega tuleb kaasa ka II sammas',
-    'goal_2': '2. Sissemakse teinud OÜd',
-    'goal_3': '3. Lapsed püsimaksega',
-    'goal_4': '4. Kõrge palgaga kogujad tõstavad maksemäära',
+    'goal_1': 'III samba avaldusega tuleb kaasa ka II sammas',
+    'goal_2': 'Sissemakse teinud OÜd',
+    'goal_3': 'Lapsed püsimaksega',
+    'goal_4': 'Kõrge palgaga kogujad tõstavad maksemäära',
 }
 
 MINUS = '−'  # U+2212, sama mis aruande ülejäänud märgiga arvudel
@@ -143,9 +143,9 @@ def summarise(vp_data: dict, year: int, month: int) -> list:
 # --------------------------------------------------------------------------
 # Joonised
 #
-# Neli eesmärki on aruandes üks 2x2 pilt, mitte neli eraldi joonist: nad
-# kuuluvad kokku ja tahavad ühte pilku, mitte nelja kerimist. Iga paneeli
-# joonistab oma funktsioon etteantud teljestikule.
+# Iga eesmärk on eraldi pilt kuuaruande mõõdus (14 x 5,5), aruandes üksteise
+# all nagu missiooni tabloo KPI-d. Pealkiri ei ole pildil vaid aruande
+# alampealkirjas. Iga paneeli joonistab oma funktsioon etteantud teljestikule.
 
 
 
@@ -160,23 +160,22 @@ def _style():
     return TULEVA_BLUE, TULEVA_NAVY, TULEVA_MID_BLUE
 
 
-def _finish(ax, title, ticks=None):
-    """Paneeli viimistlus. Kirjasuurused on väiksemad kui üksikjoonisel."""
+def _finish(ax, title=None, ticks=None):
+    """Paneeli viimistlus. Pealkiri on aruandes, mitte pildil."""
     import matplotlib.dates as mdates
-    from generate_charts import TULEVA_NAVY
-    ax.set_title(title, fontweight='bold', color=TULEVA_NAVY, fontsize=10.5,
-                 pad=8)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d.%m'))
     if ticks:
-        # Nädalaseeria: poole kitsamal paneelil mahub ~6 silti
-        step = max(1, len(ticks) // 6 + 1)
+        # Nädalaseeria: täislaiusel paneelil mahub ~12 silti
+        step = max(1, len(ticks) // 12 + 1)
         ax.set_xticks(ticks[::step])
     else:
-        ax.xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=6))
-    ax.tick_params(labelsize=8)
-    ax.yaxis.label.set_size(9)
+        ax.xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=12))
+    ax.tick_params(labelsize=11)
+    ax.yaxis.label.set_size(11)
+    ax.grid(axis='y', color='#e3e7ec', linewidth=1)
+    ax.set_axisbelow(True)
     for lbl in ax.get_xticklabels():
         lbl.set_rotation(45)
         lbl.set_ha('right')
@@ -190,10 +189,10 @@ def _panel_goal_1(rows, ax):
     ax.bar(x, koos, width=5, color=NAVY, label='tõi kohe koos', zorder=3)
     ax.bar(x, hiljem, width=5, bottom=koos, color=BLUE, label='tõi hiljem', zorder=3)
     ax.axhline(30, color='#FF4800', linestyle='--', linewidth=1.5, zorder=4)
-    ax.text(x[0], 31, 'siht 30%', color='#FF4800', fontsize=8, fontweight='bold')
+    ax.text(x[0], 31, 'siht 30%', color='#FF4800', fontsize=11, fontweight='bold')
     ax.set_ylabel('% neist, kes said II samba tuua')
     ax.set_ylim(0, max(40, max([a + b for a, b in zip(koos, hiljem)] or [0]) * 1.2))
-    ax.legend(frameon=False, fontsize=7.5, loc='upper left')
+    ax.legend(frameon=False, fontsize=11, loc='upper left')
     _finish(ax, SHORT_TITLES['goal_1'], ticks=x)
 
 
@@ -222,7 +221,7 @@ def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
     ax.axhline(target, color=NAVY, linestyle=':', linewidth=1, alpha=0.6)
     ax.set_ylabel(ylabel)
     ax.set_ylim(0, target * 1.1)
-    ax.legend(frameon=False, fontsize=7.5, loc='upper left')
+    ax.legend(frameon=False, fontsize=11, loc='upper left')
     _finish(ax, title)
 
 
@@ -245,29 +244,35 @@ def _panel_goal_4(rows, ax):
     ax.set_ylim(0, max(max(cum), max(add)) * 1.35 or 1)
     share = cum[-1] / 1350 * 100
     ax.text(0.98, 0.94,
-            f'siht 1350 avaldust 30.11-ks\nseis {cum[-1]} ehk {share:.1f}% sihist'.replace('.', ','),
-            transform=ax.transAxes, ha='right', va='top', fontsize=8,
+            f'siht 1350 avaldust 30.11-ks\nseis {cum[-1]} ehk '
+            + f'{share:.1f}'.replace('.', ',') + '% sihist',
+            transform=ax.transAxes, ha='right', va='top', fontsize=11,
             color='#FF4800', fontweight='bold')
-    ax.legend(frameon=False, fontsize=7.5, loc='upper left')
+    ax.legend(frameon=False, fontsize=11, loc='upper left')
     _finish(ax, SHORT_TITLES['goal_4'], ticks=x)
 
 
-def generate_charts(vp_data: dict, charts_dir: Path) -> dict:
-    """Joonistab neli eesmärki ühele 2x2 lõuendile. Tagastab {key: tee}."""
+def generate_charts(vp_data: dict, charts_dir: Path, year: int = None,
+                    month: int = None) -> dict:
+    """Joonistab iga eesmärgi eraldi pildile. Tagastab {'vp_goal_1': tee, ...}.
+
+    ``year``/``month`` korral lõigatakse seeria kuu lõpus, et pilt ja
+    ``summarise()`` näitaksid sama seisu (kaardid annavad ka järgmise kuu nädalaid).
+    """
+    me = _month_end(year, month) if year and month else None
     if not vp_data:
         return {}
     import matplotlib.pyplot as plt
     _style()
-
-    fig, axes = plt.subplots(2, 2, figsize=(12, 7))
-    flat = list(axes.flatten())
-    drawn = []
-
-    for i, key in enumerate(GOAL_ORDER):
+    charts_dir.mkdir(parents=True, exist_ok=True)
+    out = {}
+    for key in GOAL_ORDER:
         _, rows = _rows(vp_data, key)
+        if me:
+            rows = [r for r in rows if _as_date(r['nadal']) <= me]
         if not rows:
             continue
-        ax = flat[i]
+        fig, ax = plt.subplots(figsize=(14, 5.5))
         if key == 'goal_1':
             _panel_goal_1(rows, ax)
         elif key == 'goal_2':
@@ -279,21 +284,9 @@ def generate_charts(vp_data: dict, charts_dir: Path) -> dict:
                               context=('maksnud_kokku', 'sissemakse teinud (sh ühekordne)'))
         elif key == 'goal_4':
             _panel_goal_4(rows, ax)
-        drawn.append(i)
-
-    if not drawn:
+        fig.tight_layout()
+        nimi = key.replace('goal_', 'vp_goal_')
+        plt.savefig(charts_dir / f'{nimi}.png', dpi=150, bbox_inches='tight')
         plt.close(fig)
-        return {}
-
-    # Eesmärk, mille kaart andmeid ei andnud, jätab oma ruudu tühjaks — nii
-    # jääb ülejäänute asukoht pildil kuust kuusse samaks.
-    for i, ax in enumerate(flat):
-        if i not in drawn:
-            ax.axis('off')
-
-    fig.tight_layout(pad=1.4, w_pad=2.0, h_pad=2.4)
-    charts_dir.mkdir(parents=True, exist_ok=True)
-    out = charts_dir / 'vp_goals.png'
-    plt.savefig(out, dpi=130, bbox_inches='tight')
-    plt.close(fig)
-    return {'vp_goals': 'charts/vp_goals.png'}
+        out[nimi] = f'charts/{nimi}.png'
+    return out

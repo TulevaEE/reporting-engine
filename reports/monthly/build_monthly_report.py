@@ -10,8 +10,9 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from generate_monthly_charts import generate_monthly_charts, ESTONIAN_MONTHS
 import kpi_2578 as k2578
-import saver_determination as sd
 import vp_goals as vg
+import mission_kpis as mk
+import mission_charts as mc
 import financials_csv as fc
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
@@ -417,6 +418,13 @@ def md_to_html(md_text: str, title: str) -> str:
         table {{ border-collapse: collapse; }}
         th, td {{ border: 1px solid #ddd; padding: 6px 12px; text-align: left; }}
         th {{ background-color: #f5f5f5; }}
+        /* Kolm põhisektsiooni: dashboard, VP eesmärgid, tulemuste ülevaade */
+        h2.sektsioon {{ text-align: center; margin: 56px 0 28px; padding-top: 28px;
+                        border-top: 3px solid #002F63; color: #002F63; }}
+        .sisukord {{ text-align: center; }}
+        .sisukord a {{ color: #0081EE; text-decoration: none; }}
+        h3 {{ font-size: 1.2em; }}
+        @media print {{ h2.sektsioon {{ break-before: page; border-top: none; margin-top: 0; }} }}
     </style>
 </head>
 <body>
@@ -478,36 +486,21 @@ def build_md(year: int, month: int) -> Path:
     # Pre-process data first so the official active-investor count is available.
     report = preprocess_data(data, year, month)
 
-    # Saver determination (per-saver card 2324): segment active savers and anchor
-    # the base to the official active-investor count (card 2578) so the total ties
-    # to the savers table above. Aggregate counts only; per-person data stays in
-    # the outside-repo cache.
-    saver_df = sd.load_card_2324()
-    official_total = (report.get('savers') or {}).get('kogujate arv')
-    determination = (sd.compute_determination(saver_df, active_total=official_total)
-                     if saver_df is not None else None)
-    report['determination'] = determination
-    if determination:
-        sd.generate_determination_chart(
-            determination, output_dir / 'charts' / 'determination.png')
-        chart_paths['determination'] = 'charts/determination.png'
-
-    # Sihikindluse trepp ajas: kaardil 2324 ajalugu ei ole, seega seeria tuleb
-    # kuupäevastatud hetktõmmistest (~/.cache/tuleva-reports/). Alla kahe
-    # tõmmise puhul jääb lõik välja.
-    history = sd.determination_history()
-    report['determination_history'] = history
-    report['determination_history_md'] = sd.determination_history_md(history)
-    if len(history) >= 2:
-        sd.generate_history_chart(
-            history, output_dir / 'charts' / 'determination_history.png')
-        chart_paths['determination_history'] = 'charts/determination_history.png'
+    # Sihikindlus (kaart 2324 hetkeseis + tõmmiste ajalugu) oli siin eraldi peatükina;
+    # nüüd on see missiooni tabloo KPI 2.4 (kaart 2741), vt mission_kpis.py.
+    # saver_determination.py jääb poolaasta aruande jaoks alles.
 
     # Vahetusperioodi eesmärgid (kaardid 2631-2634) aruande algusesse.
     vp_data = data.get('vp_goals') or {}
     vp_rows = vg.summarise(vp_data, year, month)
     report['vp_goals'] = vp_rows
-    chart_paths.update(vg.generate_charts(vp_data, output_dir / 'charts'))
+    chart_paths.update(vg.generate_charts(vp_data, output_dir / 'charts', year, month))
+
+    # Missiooni tabloo (north star + viis KPI-d) aruande esilehele, VP eesmärkide ette.
+    # Tekst tuleb monorepo kpi-tekstid.yaml-st, vt mission_kpis.py.
+    mission = mk.scoreboard(data, year, month)
+    report['mission'] = mission
+    chart_paths.update(mc.generate_charts(mission['_kpi'], output_dir / 'charts'))
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('report.md')
     month_name_et = ESTONIAN_MONTHS.get(month, str(month))

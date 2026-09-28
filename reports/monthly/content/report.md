@@ -4,25 +4,73 @@
 
 *Aruande kuupäev: {{ report_date }}*
 
----
+<p class="sisukord" style="text-align:center">{% if report.mission %}<a href="#dashboard">Tuleva missiooni dashboard</a> · {% endif %}{% if report.vp_goals %}<a href="#vp-eesmargid">Selle vahetusperioodi eesmärgid</a> · {% endif %}<a href="#tulemused">Tulemuste ülevaade</a></p>
 
+
+{% if report.mission -%}
+{% set ms = report.mission -%}
+<h2 id="dashboard" class="sektsioon" style="text-align:center">Tuleva missiooni dashboard</h2>
+
+### Eesmärk: {{ ms.eesmark }}
+
+![North star]({{ charts.mission_north_star }})
+
+**{{ ms.north_star.vaartus_et }}** sihikindlat kogujat ({{ ms.north_star.kuu_et }}). {{ ms.eesmark_selgitus }}
+
+{{ ms.kpi_ei_ole_eesmark }}
+
+{% for k in ms.kpid -%}
+### {{ k.nimi }}{% if k.staatus %} ({{ k.staatus }}){% endif %}
+
+*{{ k.miks }}*
+
+{% if k.vaartus -%}
+**{{ k.vaartus }}** {{ k.alt }}
+{%- else -%}
+*{{ k.alt }}*
+{%- endif %}
+
+{% set pilt = charts.get('mission_' ~ k.kood) -%}
+{% if pilt -%}
+![KPI {{ k.nr }}]({{ pilt }})
+
+*{{ k.markus }}*
+{% endif %}
+
+<!-- comment:kpi_{{ k.kood }} -->
+{{ comments.get('kpi_' ~ k.kood, '') }}
+<!-- /comment:kpi_{{ k.kood }} -->
+
+{% endfor -%}
+
+{% endif -%}
 {% if report.vp_goals -%}
-## Selle vahetusperioodi eesmärgid
+<h2 id="vp-eesmargid" class="sektsioon" style="text-align:center">Selle vahetusperioodi eesmärgid</h2>
+
+*Iga 4 kuu tagant seame algavaks vahetusperioodiks lühiajalised mõõdetavad eesmärgid, mida tahame vahetusperioodi lõpuks saavutada. Need on kitsad, puudutavad konkreetset kogujate gruppi ja järgmist sammu edukamal kogumisel, mida tahame neil aidata teha.*
 
 <!-- comment:vp_goals -->
 {{ comments.vp_goals }}
 <!-- /comment:vp_goals -->
 
-{% if charts and charts.vp_goals -%}
-![Vahetusperioodi eesmärgid]({{ charts.vp_goals }})
+{% for g in report.vp_goals -%}
+### {{ g.title }}
+
+**{{ g.current_label }}** {{ g.current_note }}; siht {{ g.target_label }}{% if g.pace_label != '–' %}, sihtjoon {{ g.pace_label }} ({{ g.gap_label }}){% endif %}
+
+{% set pilt = charts.get(g.key.replace('goal_', 'vp_goal_')) -%}
+{% if pilt -%}
+![{{ g.title }}]({{ pilt }})
 {% endif %}
 
-*Neli eesmärki, mille tiim sellele vahetusperioodile seadis (Metabase kaardid 2631–2634). „Sihtjoon" on lineaarne tempo sihini 30.11; eesmärkidel 1 ja 4 sihtjoont ei ole, seega on seal näha ainult seis ja siht.*
+{% endfor -%}
+*Eesmärgid on Metabase kaartidel 2631–2634. „Sihtjoon" on lineaarne tempo sihini 30.11; II samba kaasatoomisel ja kõrge palgaga kogujate eesmärgil sihtjoont ei ole, seega on seal näha ainult seis ja siht.*
 
----
 
 {% endif -%}
-## 1. Varade maht ja kasv
+<h2 id="tulemused" class="sektsioon" style="text-align:center">Tulemuste ülevaade</h2>
+
+### 1. Varade maht ja kasv
 
 <!-- comment:aum -->
 {{ comments.aum }}
@@ -50,7 +98,7 @@
 
 ---
 
-## 2. Uued kogujad
+### 2. Uued kogujad
 
 <!-- comment:savers -->
 {{ comments.savers }}
@@ -89,44 +137,9 @@
 | sh uued III samba kogujad | {% if report.new_savers_iii_month %}{{ "{:,}".format(report.new_savers_iii_month) }}{% endif %} | {% if report.new_savers_iii_ytd %}{{ "{:,}".format(report.new_savers_iii_ytd['uute III samba kogujate arv']) }}{% endif %} |
 {% endif %}
 
-{% if report.determination -%}
-### Kui sihikindlad on meie kogujad?
-
-<!-- comment:determination -->
-{{ comments.determination }}
-<!-- /comment:determination -->
-
-{% if charts and charts.determination -%}
-![Kogujate sihikindlus]({{ charts.determination }})
-{% endif %}
-
-| Grupp | Kogujaid | Osakaal |
-|---------|:---:|:---:|
-| **Sihikindlad** (II 4/6% ja III ≥ 1200 €) | {{ "{:,}".format(report.determination['determined']) }} | {{ "{:.1%}".format(report.determination['determined'] / report.determination['total']) }} |
-| **Sihikindla poole teel** | {{ "{:,}".format(report.determination['halfway']) }} | {{ "{:.1%}".format(report.determination['halfway'] / report.determination['total']) }} |
-| &nbsp;&nbsp;– II 4/6%, aga III < 1200 € | {{ "{:,}".format(report.determination['halfway_a']) }} | {{ "{:.1%}".format(report.determination['halfway_a'] / report.determination['total']) }} |
-| &nbsp;&nbsp;– II 2%, aga III ≥ 1200 € | {{ "{:,}".format(report.determination['halfway_b']) }} | {{ "{:.1%}".format(report.determination['halfway_b'] / report.determination['total']) }} |
-| Muud | {{ "{:,}".format(report.determination['other']) }} | {{ "{:.1%}".format(report.determination['other'] / report.determination['total']) }} |
-| **Kogujaid kokku** | **{{ "{:,}".format(report.determination['total']) }}** | **100,0%** |
-
-*Hetkeseis. Segment (card 2324): II samba maksemäär × III samba viimase 12 kuu sissemaksed. Baas on aktiivsete kogujate arv (card 2578), sama mis tabelis 2 — "Muud" on jääk.*
-{% endif %}
-
-{% if report.determination_history_md -%}
-#### Liikumine trepil
-
-{% if charts and charts.determination_history -%}
-![Sihikindluse trepp ajas]({{ charts.determination_history }})
-{% endif %}
-
-{{ report.determination_history_md }}
-
-*Kaardil 2324 ajalugu ei ole, seega seeria on ehitatud kuupäevastatud hetktõmmistest ja algab juulist 2026; iga kuuga lisandub punkt. Baas on siin igal kuupäeval kaardi 2324 enda aktiivne alamhulk, mitte kaardi 2578 ametlik arv — seetõttu erineb viimane veerg paarisaja võrra ülaltoodud hetkeseisu tabelist.*
-{% endif %}
-
 ---
 
-## 3. Sissemaksed
+### 3. Sissemaksed
 
 <!-- comment:contributions -->
 {{ comments.contributions }}
@@ -187,7 +200,7 @@
 
 ---
 
-## 4. Fondivahetused
+### 4. Fondivahetused
 
 <!-- comment:switching -->
 {{ comments.switching }}
@@ -226,7 +239,7 @@
 
 ---
 
-## 5. Väljavoolud
+### 5. Väljavoolud
 
 <!-- comment:outflows -->
 {{ comments.outflows }}
@@ -260,7 +273,7 @@
 
 ---
 
-## 6. Osakuhinna muutus
+### 6. Osakuhinna muutus
 
 <!-- comment:unit_price -->
 {{ comments.unit_price }}
@@ -281,19 +294,21 @@
 ---
 
 {% if report.financials -%}
-## 7. Tuleva finantstulemused
+### 7. Tuleva finantstulemused
 
 <!-- comment:financials -->
 {{ comments.financials }}
 <!-- /comment:financials -->
 
-| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY |
-|---------|:---:|:---:|
+{% macro pr(v) %}{{ "{:.0%}".format(v) if v is not none else '–' }}{% endmacro -%}
+| KPI | {{ month_name_et | capitalize }} {{ year }} | YoY | YTD | YoY |
+|---------|:---:|:---:|:---:|:---:|
 {% for row in report.financials -%}
+{% set ytd = "{:,.0f} EUR".format(row['YTD Tulemus'] | abs if row['Eur'] == 'litsentsitasu' else row['YTD Tulemus']) if row['YTD Tulemus'] is not none else '–' -%}
 {% if row['Eur'] == 'litsentsitasu' -%}
-| **Litsentsitasu ühistule** | **{{ "{:,.0f}".format(row['Kuu Tulemus'] | abs) }} EUR** | ***{{ "{:.0%}".format(row['YoY %']) if row['YoY %'] is not none else '–' }}*** |
+| **Litsentsitasu ühistule** | **{{ "{:,.0f}".format(row['Kuu Tulemus'] | abs) }} EUR** | ***{{ pr(row['YoY %']) }}*** | **{{ ytd }}** | ***{{ pr(row['YTD YoY %']) }}*** |
 {% else -%}
-| {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | *{{ "{:.0%}".format(row['YoY %']) if row['YoY %'] is not none else '–' }}* |
+| {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | *{{ pr(row['YoY %']) }}* | {{ ytd }} | *{{ pr(row['YTD YoY %']) }}* |
 {% endif -%}
 {% endfor %}
 {% if report.financials_source -%}
