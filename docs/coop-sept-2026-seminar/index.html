@@ -353,10 +353,13 @@ function renderSurvey() {
 function sendSurvey(answers) {
   // Taustal; kui saatmine ebaõnnestub, jätkab leht ikka.
   if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf("PANE-SIIA") === 0) return;
-  fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    body: JSON.stringify({ type: "survey", answers })
-  }).catch(() => {});
+  postToScript({ type: "survey", answers }).catch(() => {});
+}
+
+function sendMcAnswer(nr, question, answer, correct) {
+  // Taustal; kui saatmine ebaõnnestub, jätkab leht ikka.
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf("PANE-SIIA") === 0) return;
+  postToScript({ type: "mc", nr, question, answer, correct }).catch(() => {});
 }
 
 function renderRecipe() {
@@ -401,6 +404,7 @@ function answerMC(choice) {
     if (i === choice && choice !== item.correct) b.classList.add("wrong");
   });
   if (choice === item.correct) mcCorrect++;
+  sendMcAnswer(mcIndex + 1, item.q, item.options[choice], choice === item.correct);
   const last = mcIndex === MC.length - 1;
   document.getElementById("mc-after").innerHTML = `
     <div class="selgitus"><div class="k">Selgitus</div>${escapeHtml(item.selgitus)}${item.link ? `<br><a class="link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.link.replace(/^https:\/\//, ""))}</a>` : ""}</div>
@@ -465,14 +469,25 @@ async function getFeedback(scenario, answer) {
   if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf("PANE-SIIA") === 0) {
     throw new Error("APPS_SCRIPT_URL on seadistamata (vt index.html ülaosa).");
   }
-  const res = await fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    body: JSON.stringify({ scenario, answer })
-  });
-  if (!res.ok) throw new Error("Viga ühenduses (" + res.status + ")");
-  const data = await res.json();
+  const data = await postToScript({ scenario, answer });
   if (data.error) throw new Error(data.error);
   return data;
+}
+
+// Google vastab aeg-ajalt juhuslikult 404-ga; proovime kuni 3 korda.
+async function postToScript(payload) {
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) });
+      if (res.ok) return await res.json();
+      lastError = new Error("Viga ühenduses (" + res.status + ")");
+    } catch (e) {
+      lastError = new Error("Viga ühenduses");
+    }
+    if (attempt < 3) await new Promise(r => setTimeout(r, 1500));
+  }
+  throw lastError;
 }
 
 function renderFeedback(fb) {
