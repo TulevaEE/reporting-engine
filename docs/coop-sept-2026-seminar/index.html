@@ -356,6 +356,12 @@ function sendSurvey(answers) {
   postToScript({ type: "survey", answers }).catch(() => {});
 }
 
+function sendMcAnswer(nr, question, answer, correct) {
+  // Taustal; kui saatmine ebaõnnestub, jätkab leht ikka.
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf("PANE-SIIA") === 0) return;
+  postToScript({ type: "mc", nr, question, answer, correct }).catch(() => {});
+}
+
 function renderRecipe() {
   progEl.textContent = "Sinu enda pension";
   stage.innerHTML = `
@@ -398,6 +404,7 @@ function answerMC(choice) {
     if (i === choice && choice !== item.correct) b.classList.add("wrong");
   });
   if (choice === item.correct) mcCorrect++;
+  sendMcAnswer(mcIndex + 1, item.q, item.options[choice], choice === item.correct);
   const last = mcIndex === MC.length - 1;
   document.getElementById("mc-after").innerHTML = `
     <div class="selgitus"><div class="k">Selgitus</div>${escapeHtml(item.selgitus)}${item.link ? `<br><a class="link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.link.replace(/^https:\/\//, ""))}</a>` : ""}</div>
