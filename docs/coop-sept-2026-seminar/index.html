@@ -173,7 +173,7 @@
 
 // 1) Google Apps Scripti veebirakenduse URL (Deploy → Web app → kopeeri URL siia).
 //    OpenAI võti, mudel ja spikker elavad Apps Scriptis (apps-script.gs), MITTE siin lehel.
-const APPS_SCRIPT_URL = "PANE-SIIA-APPS-SCRIPTI-URL";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxfo1m_LNlfFEKbDFi8eS_rh5DWCqZTgIXNvYpHlsQhG20xaa9AQg6VJHaqrqZb7lI7/exec";
 
 // 2) Küsitlus vastaja enda pensionivara kohta (õigeid vastuseid pole).
 const SURVEY = [
@@ -307,7 +307,7 @@ const SCENARIOS = [
 const stage = document.getElementById("stage");
 const progEl = document.getElementById("progress");
 
-let phase = "survey";   // "survey" | "mc" | "open" | "done"
+let phase = "mc";   // "mc" | "open" | "survey" | "done"
 let surveyAnswers = {};
 let mcIndex = 0;
 let mcCorrect = 0;
@@ -369,9 +369,7 @@ function renderRecipe() {
       <button class="btn" id="recipe-next">Edasi →</button>
     </div>`;
   document.getElementById("recipe-next").addEventListener("click", () => {
-    if (MC.length) { phase = "mc"; renderMC(); }
-    else if (SCENARIOS.length) { phase = "open"; renderOpenIntro(); }
-    else { renderDone(); }
+    renderDone();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
@@ -408,7 +406,7 @@ function answerMC(choice) {
     <div class="selgitus"><div class="k">Selgitus</div>${escapeHtml(item.selgitus)}${item.link ? `<br><a class="link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.link.replace(/^https:\/\//, ""))}</a>` : ""}</div>
     <button class="btn" id="mc-next">${last ? "Edasi harjutama →" : "Järgmine küsimus →"}</button>`;
   document.getElementById("mc-next").addEventListener("click", () => {
-    if (last) { if (SCENARIOS.length) { phase = "open"; renderOpenIntro(); } else { renderDone(); } }
+    if (last) { if (SCENARIOS.length) { phase = "open"; renderOpenIntro(); } else { phase = "survey"; renderSurvey(); } }
     else { mcIndex++; renderMC(); }
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
@@ -506,10 +504,10 @@ function renderRecommendations() {
     ${a.punktid && a.punktid.length ? `<div class="d-divider">Päeva lõpus arutame koos</div>
     <div class="d-block"><ul>${a.punktid.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>` : ""}
     ${a.naide ? `<div class="d-block naide"><div class="k">Päris kõnest</div>${escapeHtml(a.naide)}</div>` : ""}
-    <button class="btn" id="next">${last ? "Lõpeta →" : "Järgmine olukord →"}</button>`;
+    <button class="btn" id="next">${last ? "Edasi →" : "Järgmine olukord →"}</button>`;
   document.getElementById("feedback").appendChild(panel);
   document.getElementById("next").addEventListener("click", () => {
-    if (last) { renderDone(); }
+    if (last) { phase = "survey"; renderSurvey(); }
     else { openIndex++; renderOpen(); }
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
@@ -531,11 +529,11 @@ function renderDone() {
       <button class="btn" id="restart">Tee uuesti</button>
     </div>`;
   document.getElementById("restart").addEventListener("click", () => {
-    phase = "survey"; mcIndex = 0; mcCorrect = 0; openIndex = 0; renderSurvey(); window.scrollTo({top:0,behavior:"smooth"});
+    phase = "mc"; mcIndex = 0; mcCorrect = 0; openIndex = 0; renderMC(); window.scrollTo({top:0,behavior:"smooth"});
   });
 }
 
-renderSurvey();
+renderMC();
 </script>
 </body>
 </html>
