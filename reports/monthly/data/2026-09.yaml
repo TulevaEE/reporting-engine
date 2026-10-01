@@ -8674,259 +8674,6 @@ kpi_2578:
     Active Investors Decreased Rate: 285
     Active Investors Increased Rate: 1813
 cards:
-  uute kogujate arv kuus:
-    card_id: 2570
-    display: adapted
-    data:
-    - 'kuu: Month': '2025-09-01'
-      uute koguate arv: 478
-      YoY, %: -0.06090373280943029
-    - 'kuu: Month': '2025-10-01'
-      uute koguate arv: 545
-      YoY, %: -0.0824915824915825
-    - 'kuu: Month': '2025-11-01'
-      uute koguate arv: 886
-      YoY, %: -0.2814274128142741
-    - 'kuu: Month': '2025-12-01'
-      uute koguate arv: 1550
-      YoY, %: -0.10352805089647199
-    - 'kuu: Month': '2026-01-01'
-      uute koguate arv: 711
-      YoY, %: -0.16549295774647887
-    - 'kuu: Month': '2026-02-01'
-      uute koguate arv: 628
-      YoY, %: -0.01567398119122254
-    - 'kuu: Month': '2026-03-01'
-      uute koguate arv: 783
-      YoY, %: -0.1535135135135135
-    - 'kuu: Month': '2026-04-01'
-      uute koguate arv: 475
-      YoY, %: 0.04856512141280356
-    - 'kuu: Month': '2026-05-01'
-      uute koguate arv: 479
-      YoY, %: 0.22193877551020402
-    - 'kuu: Month': '2026-06-01'
-      uute koguate arv: 510
-      YoY, %: 0.3672922252010724
-    - 'kuu: Month': '2026-07-01'
-      uute koguate arv: 746
-      YoY, %: -0.05449936628643848
-    - 'kuu: Month': '2026-08-01'
-      uute koguate arv: 634
-      YoY, %: 0.4057649667405765
-    - 'kuu: Month': '2026-09-01'
-      uute koguate arv: 924
-      YoY, %: 0.9330543933054394
-  uute kogujate arv YTD:
-    card_id: 2710
-    display: adapted
-    data:
-    - reporting_year: '2017-01-01'
-      uute kogujate arv: 4730
-    - reporting_year: '2018-01-01'
-      uute kogujate arv: 2624
-    - reporting_year: '2019-01-01'
-      uute kogujate arv: 5799
-    - reporting_year: '2020-01-01'
-      uute kogujate arv: 6541
-    - reporting_year: '2021-01-01'
-      uute kogujate arv: 5685
-    - reporting_year: '2022-01-01'
-      uute kogujate arv: 4574
-    - reporting_year: '2023-01-01'
-      uute kogujate arv: 4814
-    - reporting_year: '2024-01-01'
-      uute kogujate arv: 6210
-    - reporting_year: '2025-01-01'
-      uute kogujate arv: 5351
-    - reporting_year: '2026-01-01'
-      uute kogujate arv: 5890
-  II sambaga liitujate arv kuus:
-    card_id: 2716
-    display: adapted
-    data:
-    - 'kuu: Month': '2025-09-01'
-      3>2: 84
-      2+3: 34
-      '2': 121
-      YoY, %: -0.036290322580645164
-    - 'kuu: Month': '2025-10-01'
-      3>2: 75
-      2+3: 36
-      '2': 140
-      YoY, %: -0.18506493506493507
-    - 'kuu: Month': '2025-11-01'
-      3>2: 280
-      2+3: 45
-      '2': 428
-      YoY, %: -0.4004777070063694
-    - 'kuu: Month': '2025-12-01'
-      3>2: 145
-      2+3: 81
-      '2': 129
-      YoY, %: -0.36151079136690645
-    - 'kuu: Month': '2026-01-01'
-      3>2: 121
-      2+3: 40
-      '2': 130
-      YoY, %: -0.25384615384615383
-    - 'kuu: Month': '2026-02-01'
-      3>2: 95
-      2+3: 31
-      '2': 109
-      YoY, %: -0.24437299035369775
-    - 'kuu: Month': '2026-03-01'
-      3>2: 261
-      2+3: 76
-      '2': 258
-      YoY, %: -0.2654320987654321
-    - 'kuu: Month': '2026-04-01'
-      3>2: 63
-      2+3: 16
-      '2': 91
-      YoY, %: -0.05555555555555555
-    - 'kuu: Month': '2026-05-01'
-      3>2: 62
-      2+3: 32
-      '2': 117
-      YoY, %: 0.0343137254901961
-    - 'kuu: Month': '2026-06-01'
-      3>2: 57
-      2+3: 30
-      '2': 89
-      YoY, %: -0.027624309392265192
-    - 'kuu: Month': '2026-07-01'
-      3>2: 274
-      2+3: 32
-      '2': 273
-      YoY, %: -0.3267441860465116
-    - 'kuu: Month': '2026-08-01'
-      3>2: 59
-      2+3: 24
-      '2': 99
-      YoY, %: -0.08542713567839195
-    - 'kuu: Month': '2026-09-01'
-      3>2: 92
-      2+3: 29
-      '2': 90
-      YoY, %: -0.11715481171548117
-  III sambaga liitujate arv kuus:
-    card_id: 2718
-    display: adapted
-    data:
-    - 'kuu: Month': '2025-09-01'
-      2>3: 78
-      2+3: 34
-      '3': 323
-      YoY, %: -0.01583710407239819
-    - 'kuu: Month': '2025-10-01'
-      2>3: 69
-      2+3: 36
-      '3': 369
-      YoY, %: -0.09021113243761997
-    - 'kuu: Month': '2025-11-01'
-      2>3: 75
-      2+3: 45
-      '3': 413
-      YoY, %: -0.32702020202020204
-    - 'kuu: Month': '2025-12-01'
-      2>3: 308
-      2+3: 81
-      '3': 1340
-      YoY, %: -0.08080808080808081
-    - 'kuu: Month': '2026-01-01'
-      2>3: 90
-      2+3: 40
-      '3': 541
-      YoY, %: -0.15170670037926676
-    - 'kuu: Month': '2026-02-01'
-      2>3: 99
-      2+3: 33
-      '3': 450
-      YoY, %: 0.0300884955752212
-    - 'kuu: Month': '2026-03-01'
-      2>3: 91
-      2+3: 75
-      '3': 436
-      YoY, %: -0.001658374792703151
-    - 'kuu: Month': '2026-04-01'
-      2>3: 77
-      2+3: 19
-      '3': 357
-      YoY, %: -0.03205128205128205
-    - 'kuu: Month': '2026-05-01'
-      2>3: 69
-      2+3: 33
-      '3': 321
-      YoY, %: 0.2120343839541547
-    - 'kuu: Month': '2026-06-01'
-      2>3: 65
-      2+3: 29
-      '3': 290
-      YoY, %: 0.1779141104294479
-    - 'kuu: Month': '2026-07-01'
-      2>3: 66
-      2+3: 34
-      '3': 290
-      YoY, %: -0.04878048780487805
-    - 'kuu: Month': '2026-08-01'
-      2>3: 92
-      2+3: 25
-      '3': 303
-      YoY, %: -0.01639344262295082
-    - 'kuu: Month': '2026-09-01'
-      2>3: 77
-      2+3: 27
-      '3': 365
-      YoY, %: 0.0781609195402299
-  uute II samba kogujate arv YTD:
-    card_id: 2717
-    display: adapted
-    data:
-    - reporting_year: '2017-01-01'
-      uute II samba kogujate arv: 4730
-    - reporting_year: '2018-01-01'
-      uute II samba kogujate arv: 2624
-    - reporting_year: '2019-01-01'
-      uute II samba kogujate arv: 5799
-    - reporting_year: '2020-01-01'
-      uute II samba kogujate arv: 4976
-    - reporting_year: '2021-01-01'
-      uute II samba kogujate arv: 4413
-    - reporting_year: '2022-01-01'
-      uute II samba kogujate arv: 3063
-    - reporting_year: '2023-01-01'
-      uute II samba kogujate arv: 3139
-    - reporting_year: '2024-01-01'
-      uute II samba kogujate arv: 4227
-    - reporting_year: '2025-01-01'
-      uute II samba kogujate arv: 3374
-    - reporting_year: '2026-01-01'
-      uute II samba kogujate arv: 2650
-  uute III samba kogujate arv YTD:
-    card_id: 2719
-    display: adapted
-    data:
-    - reporting_year: '2017-01-01'
-      uute III samba kogujate arv: 0
-    - reporting_year: '2018-01-01'
-      uute III samba kogujate arv: 0
-    - reporting_year: '2019-01-01'
-      uute III samba kogujate arv: 0
-    - reporting_year: '2020-01-01'
-      uute III samba kogujate arv: 3325
-    - reporting_year: '2021-01-01'
-      uute III samba kogujate arv: 3672
-    - reporting_year: '2022-01-01'
-      uute III samba kogujate arv: 3876
-    - reporting_year: '2023-01-01'
-      uute III samba kogujate arv: 4336
-    - reporting_year: '2024-01-01'
-      uute III samba kogujate arv: 5130
-    - reporting_year: '2025-01-01'
-      uute III samba kogujate arv: 4374
-    - reporting_year: '2026-01-01'
-      uute III samba kogujate arv: 4394
   III s sissemakse tegijate arv YTD:
     card_id: 2613
     display: adapted
@@ -12147,6 +11894,211 @@ cards:
       'poole teel: III üle 1200': 10035
       muud: 45734
       kogujaid kokku: 86787
+  uute kogujate arv kuus:
+    card_id: 2748
+    display: derived
+    data:
+    - 'kuu: Month': '2025-09-01'
+      uute koguate arv: 478
+      YoY, %: -0.060903732809430254
+    - 'kuu: Month': '2025-10-01'
+      uute koguate arv: 545
+      YoY, %: -0.08249158249158249
+    - 'kuu: Month': '2025-11-01'
+      uute koguate arv: 886
+      YoY, %: -0.28142741281427414
+    - 'kuu: Month': '2025-12-01'
+      uute koguate arv: 1550
+      YoY, %: -0.10352805089647195
+    - 'kuu: Month': '2026-01-01'
+      uute koguate arv: 711
+      YoY, %: -0.16549295774647887
+    - 'kuu: Month': '2026-02-01'
+      uute koguate arv: 593
+      YoY, %: -0.07053291536050156
+    - 'kuu: Month': '2026-03-01'
+      uute koguate arv: 773
+      YoY, %: -0.1643243243243243
+    - 'kuu: Month': '2026-04-01'
+      uute koguate arv: 467
+      YoY, %: 0.03090507726269316
+    - 'kuu: Month': '2026-05-01'
+      uute koguate arv: 474
+      YoY, %: 0.20918367346938777
+    - 'kuu: Month': '2026-06-01'
+      uute koguate arv: 410
+      YoY, %: 0.09919571045576407
+    - 'kuu: Month': '2026-07-01'
+      uute koguate arv: 601
+      YoY, %: -0.23827629911280102
+    - 'kuu: Month': '2026-08-01'
+      uute koguate arv: 428
+      YoY, %: -0.050997782705099776
+    - 'kuu: Month': '2026-09-01'
+      uute koguate arv: 490
+      YoY, %: 0.02510460251046025
+  II sambaga liitujate arv kuus:
+    card_id: 2748
+    display: derived
+    data:
+    - 'kuu: Month': '2025-09-01'
+      3>2: 84
+      2+3: 34
+      '2': 121
+      YoY, %: -0.036290322580645164
+    - 'kuu: Month': '2025-10-01'
+      3>2: 75
+      2+3: 36
+      '2': 140
+      YoY, %: -0.18506493506493507
+    - 'kuu: Month': '2025-11-01'
+      3>2: 280
+      2+3: 45
+      '2': 428
+      YoY, %: -0.4004777070063694
+    - 'kuu: Month': '2025-12-01'
+      3>2: 145
+      2+3: 81
+      '2': 129
+      YoY, %: -0.36151079136690645
+    - 'kuu: Month': '2026-01-01'
+      3>2: 121
+      2+3: 40
+      '2': 130
+      YoY, %: -0.25384615384615383
+    - 'kuu: Month': '2026-02-01'
+      3>2: 95
+      2+3: 30
+      '2': 110
+      YoY, %: -0.24437299035369775
+    - 'kuu: Month': '2026-03-01'
+      3>2: 260
+      2+3: 74
+      '2': 261
+      YoY, %: -0.2654320987654321
+    - 'kuu: Month': '2026-04-01'
+      3>2: 63
+      2+3: 16
+      '2': 91
+      YoY, %: -0.05555555555555555
+    - 'kuu: Month': '2026-05-01'
+      3>2: 61
+      2+3: 32
+      '2': 118
+      YoY, %: 0.03431372549019608
+    - 'kuu: Month': '2026-06-01'
+      3>2: 57
+      2+3: 29
+      '2': 90
+      YoY, %: -0.027624309392265192
+    - 'kuu: Month': '2026-07-01'
+      3>2: 273
+      2+3: 31
+      '2': 275
+      YoY, %: -0.3267441860465116
+    - 'kuu: Month': '2026-08-01'
+      3>2: 59
+      2+3: 24
+      '2': 99
+      YoY, %: -0.08542713567839195
+    - 'kuu: Month': '2026-09-01'
+      3>2: 91
+      2+3: 27
+      '2': 93
+      YoY, %: -0.11715481171548117
+  III sambaga liitujate arv kuus:
+    card_id: 2748
+    display: derived
+    data:
+    - 'kuu: Month': '2025-09-01'
+      2>3: 78
+      2+3: 34
+      '3': 323
+      YoY, %: -0.01583710407239819
+    - 'kuu: Month': '2025-10-01'
+      2>3: 69
+      2+3: 36
+      '3': 369
+      YoY, %: -0.09021113243761997
+    - 'kuu: Month': '2025-11-01'
+      2>3: 75
+      2+3: 45
+      '3': 413
+      YoY, %: -0.32702020202020204
+    - 'kuu: Month': '2025-12-01'
+      2>3: 308
+      2+3: 81
+      '3': 1340
+      YoY, %: -0.08080808080808081
+    - 'kuu: Month': '2026-01-01'
+      2>3: 90
+      2+3: 40
+      '3': 541
+      YoY, %: -0.15170670037926676
+    - 'kuu: Month': '2026-02-01'
+      2>3: 99
+      2+3: 30
+      '3': 453
+      YoY, %: 0.03008849557522124
+    - 'kuu: Month': '2026-03-01'
+      2>3: 90
+      2+3: 74
+      '3': 438
+      YoY, %: -0.001658374792703151
+    - 'kuu: Month': '2026-04-01'
+      2>3: 77
+      2+3: 16
+      '3': 360
+      YoY, %: -0.03205128205128205
+    - 'kuu: Month': '2026-05-01'
+      2>3: 67
+      2+3: 32
+      '3': 324
+      YoY, %: 0.21203438395415472
+    - 'kuu: Month': '2026-06-01'
+      2>3: 64
+      2+3: 29
+      '3': 291
+      YoY, %: 0.17791411042944785
+    - 'kuu: Month': '2026-07-01'
+      2>3: 64
+      2+3: 31
+      '3': 295
+      YoY, %: -0.04878048780487805
+    - 'kuu: Month': '2026-08-01'
+      2>3: 91
+      2+3: 24
+      '3': 305
+      YoY, %: -0.01639344262295082
+    - 'kuu: Month': '2026-09-01'
+      2>3: 72
+      2+3: 27
+      '3': 370
+      YoY, %: 0.07816091954022988
+  uute kogujate arv YTD:
+    card_id: 2748
+    display: derived
+    data:
+    - reporting_year: '2025-01-01'
+      uute kogujate arv: 5351
+    - reporting_year: '2026-01-01'
+      uute kogujate arv: 4947
+  uute II samba kogujate arv YTD:
+    card_id: 2748
+    display: derived
+    data:
+    - reporting_year: '2025-01-01'
+      uute II samba kogujate arv: 3374
+    - reporting_year: '2026-01-01'
+      uute II samba kogujate arv: 2650
+  uute III samba kogujate arv YTD:
+    card_id: 2748
+    display: derived
+    data:
+    - reporting_year: '2025-01-01'
+      uute III samba kogujate arv: 4374
+    - reporting_year: '2026-01-01'
+      uute III samba kogujate arv: 4394
 vp_goals:
   goal_1:
     card_id: 2631

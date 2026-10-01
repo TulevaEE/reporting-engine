@@ -24,6 +24,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent))
+import dashboard_cards as dc
 import kpi_2578 as k2578
 
 NORTH_STAR = 100_000
@@ -33,7 +34,6 @@ ALGUS = (2023, 1)              # seeriate algus (44 kuud 2026-08 seisuga)
 
 CARD_1516 = 'uute kogujate arv kuus, kogu ajalugu'
 CARD_2741 = 'sihikindluse trepp'
-UUTE_KOGUJATE_VEERUD = ['2', '3', '2+3', 'tkf', '2+tkf', '3+tkf', '2+3+tkf', 'tkf oy']
 
 # KPI 2.1: jooksva tasu astmed (Tuleva Maailma Aktsiate Pensionifond, blogist).
 # Maht iga astme juures loetakse kaardilt 2578, mitte ei interpoleerita.
@@ -137,15 +137,15 @@ def compute(data: dict, year: int, month: int) -> dict:
         lahk.append((k, round((summa12(i, LAHK) - summa12(i, LAHK_T)) / (aum(i - 12) * 1e6) * 100, 2)))
 
     # 2.3: 12 kuu libisev keskmine tabelist mv_monthly_conversions_with_tkf (kaart 2748,
-    # kogu ajalugu). Uued kogujad nagu dashboardi kaardil 2570: kõik kaheksa veergu, mille
-    # nimes ei ole ">" (tuleva repo work/kpi/monthly-kpis/uued-kogujad-ytd.sql).
-    uued = {_ym(r['kuu']): sum(r.get(c) or 0 for c in UUTE_KOGUJATE_VEERUD)
+    # kogu ajalugu). Uued kogujad nagu kuuaruandes: ainult II ja III sammas
+    # (dashboard_cards.pillar_new_savers), ainult kogumisfondiga liitujaid ei loeta.
+    uued = {_ym(r['kuu']): sum(dc._grouped(r)[c] for c in dc.NEW_SAVERS)
             for r in _card(data, CARD_1516)}
     k1518 = {_ym(r['kuu: Month']): r['uute koguate arv']
              for r in _card(data, 'uute kogujate arv kuus')}
     lahku = {k: (v, uued.get(k)) for k, v in k1518.items() if uued.get(k) != v}
     if lahku:
-        raise SystemExit(f'kaart 2748 ja kuuaruande kaart 2570 ei klapi: {lahku}')
+        raise SystemExit(f'kaart 2748 ja kuuaruande uute kogujate rida ei klapi: {lahku}')
     uued12 = []
     for i in range(_i(*ALGUS), lopp + 1):
         aken = [(j // 12, j % 12 + 1) for j in range(i - 11, i + 1)]

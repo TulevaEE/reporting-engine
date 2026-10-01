@@ -51,7 +51,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 *Mida rohkem inimesi Tulevas kogub, seda suurem on meie mõju. Meie kasv põhineb suuresti soovitustel: seega näitab uute kogujate arv seda, kui rahul on tänased kogujad.*
 
-**739** inimest kuus, 12 kuu keskmine
+**661** inimest kuus, 12 kuu keskmine
 
 ![KPI 2.3](charts/mission_23.png)
 
@@ -199,8 +199,8 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 | KPI | September 2026 | YTD |
 |---------|:---:|:---:|
-| Uued kogujad | 924 | 5,890 |
-| YoY muutus | *93.3%* | |
+| Uued kogujad | 490 | 4,947 |
+| YoY muutus | *2.5%* | |
 | sh uued II samba kogujad | 211 | 2,650 |
 | sh uued III samba kogujad | 469 | 4,394 |
 

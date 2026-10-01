@@ -155,6 +155,13 @@ def fetch_monthly_data(year: int, month: int) -> dict:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
 
+    # Uued kogujad (vanad 1518, 1519, 1520, 418, 1534, 1535): ainult II ja III sammas,
+    # tabelist 2748, vt dashboard_cards.pillar_new_savers.
+    conversions = data['cards'].get('uute kogujate arv kuus, kogu ajalugu', {}).get('data')
+    if conversions:
+        for name, rows in dashboard_cards.pillar_new_savers(conversions, year, month).items():
+            data['cards'][name] = {'card_id': 2748, 'display': 'derived', 'data': rows}
+
     # Vahetusperioodi eesmärgikaardid.
     for card_id, spec in VP_GOAL_CARDS.items():
         print(f"  Fetching [{card_id}] {spec['title']}...")
