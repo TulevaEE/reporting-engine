@@ -64,6 +64,17 @@ SURVIVOR_CARDS = {
 }
 
 
+# Koondtabelid tervikuna (`SELECT * FROM analytics.<vaade>`, dashboard 74). Nende
+# pealt arvutab aruanne edaspidi ise need numbrid, mida praegu annavad
+# survivor-kaardid; kuni check_tables.py näitab, et numbrid klapivad, kasutab
+# aruanne veel vanu kaarte. Võti on vaate nimi.
+TABLE_CARDS = {
+    2747: 'v_tkf_kpi',
+    2748: 'mv_monthly_conversions_with_tkf',
+    2749: 'v_aum_12m_growth_with_prognosis',
+}
+
+
 # Vahetusperioodi eesmärgikaardid (nädalane seeria, VP 2026 sügis). Nende siht on
 # kaardi nimes; hoiame sihi siin, et aruanne saaks näidata vahet sihini.
 VP_GOAL_CARDS = {
@@ -115,7 +126,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     client = GatewayClient()
 
     # Gateway annab välja ainult dashboardide kaarte: ütle kohe, mis puudu on.
-    needed = {PRIMARY_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
+    needed = {PRIMARY_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS, *TABLE_CARDS}
     available = {card['id'] for card in client.cards()}
     missing = sorted(needed - available)
     if missing:
@@ -130,6 +141,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         'cards': {},
         'vp_goals': {},
         'unit_prices': [],
+        'tables': {},
     }
 
     # Osakuhinna võrdlus avalikest allikatest (kaardi 2245 asemel), vt unit_prices.py.
@@ -164,6 +176,17 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         except Exception as e:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
+
+    # Koondtabelid.
+    for card_id, view in TABLE_CARDS.items():
+        print(f"  Fetching [{card_id}] {view}...")
+        try:
+            results = client.execute_card(card_id)
+            data['tables'][view] = {'card_id': card_id, 'data': results}
+            print(f"    -> {len(results)} rows")
+        except Exception as e:
+            print(f"    ERROR: {e}")
+            data['tables'][view] = {'card_id': card_id, 'error': str(e)}
 
     # Vahetusperioodi eesmärgikaardid.
     for card_id, spec in VP_GOAL_CARDS.items():
