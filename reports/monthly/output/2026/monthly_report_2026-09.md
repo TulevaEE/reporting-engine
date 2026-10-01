@@ -135,7 +135,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 ### Kõrge palgaga kogujad tõstavad maksemäära
 
-**52** kohordist 4 512; seis 30.09; siht 1350
+**52** kohordist 4 512; seis 30.09; siht 1000
 
 ![Kõrge palgaga kogujad tõstavad maksemäära](charts/vp_goal_4.png)
 
@@ -251,7 +251,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 | KPI | September 2026 | YTD |
 |---------|:---:|:---:|
 | Sissemaksete summa | 2.3 M EUR | 17.7 M EUR |
-| Sissemakse tegijate arv | 1,409 | |
+| Sissemakse tegijate arv | 1,409 | 3,489 |
 
 
 ---

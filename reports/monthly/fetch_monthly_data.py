@@ -79,8 +79,8 @@ VP_GOAL_CARDS = {
     2634: {
         'key': 'goal_4',
         'title': 'Kõrge palgaga kogujad tõstavad II samba maksemäära',
-        'target': 1350,
-        'target_label': '1350',
+        'target': 1000,
+        'target_label': '1000',
         'unit': 'count',
     },
 }
@@ -161,6 +161,16 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     if conversions:
         for name, rows in dashboard_cards.pillar_new_savers(conversions, year, month).items():
             data['cards'][name] = {'card_id': 2748, 'display': 'derived', 'data': rows}
+
+    # Kasvuallikad: kogumisfondi sissemaksed eraldi tulbaks (kuu ja aasta algusest).
+    tkf_by_month = {str(r['Created At: Month'])[:7]: r['Sum of Amount'] or 0
+                    for r in data['cards'].get('Täiendavasse Kogumisfondi tehtud maksed', {}).get('data') or []}
+    for name, months in [('Kasvuallikad eelmisel kuul (tegelik), M EUR', [month]),
+                         ('Kasvuallikad YTD (tegelik), M EUR', range(1, month + 1))]:
+        card = data['cards'].get(name, {})
+        if card.get('data') and tkf_by_month:
+            tkf_eur = sum(tkf_by_month.get(f'{year}-{m:02d}', 0) for m in months)
+            card['data'] = dashboard_cards.split_tkf_contributions(card['data'], tkf_eur)
 
     # AUM-i kasv sissemaksetest ja -vahetustest koos kogumisfondi sissemaksetega.
     aum_rows = data['cards'].get('AUM (koos ootel vahetuste ja väljumistega)', {}).get('data')

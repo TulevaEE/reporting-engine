@@ -372,6 +372,10 @@ def preprocess_data(data, year, month):
             tkf['contributors_yoy'] = (tkf_month['Distinct values of Remitter ID Code'] - tkf_prev['Distinct values of Remitter ID Code']) / tkf_prev['Distinct values of Remitter ID Code']
         if tkf_prev_ytd_amount:
             tkf['ytd_amount_yoy'] = (tkf_ytd_amount - tkf_prev_ytd_amount) / tkf_prev_ytd_amount
+        # Aasta algusest sissemakse teinud inimesed (kaart 2612): kuude summa topeltloeks.
+        for row in cards.get('kogumisfondi sissemakse tegijate arv YTD', {}).get('data', []):
+            if str(row.get('Aasta', ''))[:4] == str(year):
+                tkf['contributors_ytd'] = row['Sissemakse tegijaid YTD']
         report['tkf_contributions'] = tkf
 
     # --- Financial results ---

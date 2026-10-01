@@ -195,7 +195,7 @@
 | KPI | {{ month_name_et | capitalize }} {{ year }} | YTD |
 |---------|:---:|:---:|
 | Sissemaksete summa | {{ "{:.1f}".format(report.tkf_contributions['amount'] / 1000000) }} M EUR | {{ "{:.1f}".format(report.tkf_contributions['ytd_amount'] / 1000000) }} M EUR |
-| Sissemakse tegijate arv | {{ "{:,}".format(report.tkf_contributions['contributors']) }} | |
+| Sissemakse tegijate arv | {{ "{:,}".format(report.tkf_contributions['contributors']) }} | {% if report.tkf_contributions['contributors_ytd'] %}{{ "{:,}".format(report.tkf_contributions['contributors_ytd']) }}{% endif %} |
 {% endif %}
 
 ---

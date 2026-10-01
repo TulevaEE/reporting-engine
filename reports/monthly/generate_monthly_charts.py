@@ -5,6 +5,7 @@ import yaml
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
+import textwrap
 from pathlib import Path
 
 # Import shared style setup
@@ -1133,7 +1134,7 @@ def generate_waterfall_chart(growth_data, title, output_file: Path):
     ax.set_title(title, fontweight='bold', color=TULEVA_NAVY)
     ax.set_ylabel('M EUR')
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9)
+    ax.set_xticklabels([textwrap.fill(l, 12) for l in labels], fontsize=9)
     ax.axhline(y=0, color='gray', linewidth=0.5)
     ax.grid(axis='y', alpha=0.3)
 
@@ -1184,7 +1185,7 @@ def _draw_waterfall_on_ax(ax, growth_data, title):
     ax.set_title(title, fontweight='bold', color=TULEVA_NAVY)
     ax.set_ylabel('M EUR')
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9)
+    ax.set_xticklabels([textwrap.fill(l, 12) for l in labels], fontsize=9)
     ax.axhline(y=0, color='gray', linewidth=0.5)
     ax.grid(axis='y', alpha=0.3)
 

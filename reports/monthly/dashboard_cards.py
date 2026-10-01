@@ -54,8 +54,28 @@ def switching_by_fund(fund_column):
 
 def growth_sources(rows):
     """2737/2739 -> 389/392: EUR -> M EUR, üks koht pärast koma nagu vanal kaardil."""
-    return [{'kasvuallikas': r['kasvuallikas'], 'väärtus': round(r['väärtus'] / 1e6, 1)}
-            for r in rows]
+    return [{'kasvuallikas': r['kasvuallikas'], 'väärtus': round(r['väärtus'] / 1e6, 1),
+             '_eur': r['väärtus']} for r in rows]
+
+
+def split_tkf_contributions(rows, tkf_eur):
+    """Tõstab kogumisfondi sissemaksed reast „sissemaksed" eraldi tulbaks.
+
+    2737/2739 liidavad II ja III samba sissemaksetele kogumisfondi omad (v_tkf_kpi)
+    juurde; aruanne näitab neid eraldi. Kogumisfondi väljamaksed on juba
+    „väljavõetud vara" sees ja turu mõju „turu mõju" sees.
+    """
+    out = []
+    for r in rows:
+        if r['kasvuallikas'] != 'sissemaksed':
+            out.append(r)
+            continue
+        pillars = r['_eur'] - tkf_eur
+        out.append({'kasvuallikas': 'sissemaksed II ja III sambasse',
+                    'väärtus': round(pillars / 1e6, 1), '_eur': pillars})
+        out.append({'kasvuallikas': 'sissemaksed TKF-i',
+                    'väärtus': round(tkf_eur / 1e6, 1), '_eur': tkf_eur})
+    return out
 
 
 def aum(rows):
@@ -189,4 +209,5 @@ CARDS = {
     2742: ('AUM (koos ootel vahetuste ja väljumistega)', 334, lambda rows, y: aum(rows)),
     2748: ('uute kogujate arv kuus, kogu ajalugu', 1516, lambda rows, y: conversions_history(rows)),
     2747: ('Täiendavasse Kogumisfondi tehtud maksed', 2305, lambda rows, y: tkf_payments(rows)),
+    2612: ('kogumisfondi sissemakse tegijate arv YTD', None, lambda rows, y: rows),
 }

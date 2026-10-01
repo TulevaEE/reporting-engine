@@ -8758,30 +8758,46 @@ cards:
     card_id: 2737
     display: adapted
     data:
-    - kasvuallikas: sissemaksed
-      väärtus: 17.3
+    - kasvuallikas: sissemaksed II ja III sambasse
+      väärtus: 15.1
+      _eur: 15062527.89
+    - kasvuallikas: sissemaksed TKF-i
+      väärtus: 2.3
+      _eur: 2263444.3
     - kasvuallikas: ületoodav vara
       väärtus: 4.1
+      _eur: 4146533.81
     - kasvuallikas: lahkujate vara
       väärtus: -0.9
+      _eur: -911980.98
     - kasvuallikas: väljavõetud vara
       väärtus: -2.0
+      _eur: -2026385.29
     - kasvuallikas: turu mõju
       väärtus: 26.2
+      _eur: 26170851.95
   Kasvuallikad YTD (tegelik), M EUR:
     card_id: 2739
     display: adapted
     data:
-    - kasvuallikas: sissemaksed
-      väärtus: 147.4
+    - kasvuallikas: sissemaksed II ja III sambasse
+      väärtus: 129.7
+      _eur: 129675004.71000001
+    - kasvuallikas: sissemaksed TKF-i
+      väärtus: 17.7
+      _eur: 17734112.66
     - kasvuallikas: ületoodav vara
       väärtus: 41.1
+      _eur: 41076032.14
     - kasvuallikas: lahkujate vara
       väärtus: -8.3
+      _eur: -8277363.05
     - kasvuallikas: väljavõetud vara
       väärtus: -20.4
+      _eur: -20358977.91
     - kasvuallikas: turu mõju
       väärtus: 233.3
+      _eur: 233317212.27
   AUM (koos ootel vahetuste ja väljumistega):
     card_id: 2742
     display: adapted
@@ -11905,6 +11921,14 @@ cards:
     - 'Created At: Month': '2026-09-01T00:00:00Z'
       Sum of Amount: 2263444.3
       Distinct values of Remitter ID Code: 1409
+  kogumisfondi sissemakse tegijate arv YTD:
+    card_id: 2612
+    display: adapted
+    data:
+    - Aasta: '2025-01-01'
+      Sissemakse tegijaid YTD: 0
+    - Aasta: '2026-01-01'
+      Sissemakse tegijaid YTD: 3489
   sihikindluse trepp:
     card_id: 2741
     display: table
@@ -12658,12 +12682,12 @@ vp_goals:
     - nadal: '2026-09-28'
       lapsi_kokku: 878
       lapsi_uusi: 56
-      maksnud_kokku: 703
-      maksnud_uusi: 57
+      maksnud_kokku: 704
+      maksnud_uusi: 58
       pusimakse_kokku: 451
       pusimakse_uusi: 30
       sihtjoon: 308
-      maksnud_osakaal: 0.801
+      maksnud_osakaal: 0.802
       pusimakse_osakaal: 0.514
       taielik: false
     - nadal: '2026-10-05'
@@ -12769,8 +12793,8 @@ vp_goals:
     card_id: 2634
     key: goal_4
     title: Kõrge palgaga kogujad tõstavad II samba maksemäära
-    target: 1350
-    target_label: '1350'
+    target: 1000
+    target_label: '1000'
     unit: count
     data:
     - nadal: '2026-08-01'

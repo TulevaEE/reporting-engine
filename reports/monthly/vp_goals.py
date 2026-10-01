@@ -5,7 +5,7 @@ Neli eesmärki, igaüks oma Metabase kaardil (nädalane seeria):
     2631  goal_1  30% III samba avaldajatest toob kaasa ka II samba
     2632  goal_2  500 sissemakse teinud OÜd
     2633  goal_3  400 last kogub püsimaksega
-    2634  goal_4  1350 kõrge palgaga kogujat tõstab II samba maksemäära
+    2634  goal_4  1000 kõrge palgaga koguja maksemäära tõstmise avaldust
 
 Kaardid 2632 ja 2633 kannavad kaasa ka ``sihtjoon`` veeru — lineaarse
 tempojoone sihini VP lõpuks (30.11). Kaartidel 2631 ja 2634 sihtjoont ei ole,
@@ -19,6 +19,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 GOAL_ORDER = ['goal_1', 'goal_2', 'goal_3', 'goal_4']
+GOAL_4_TARGET = 1000  # avaldust 30.11-ks
 
 # Lühinimi paneeli pealkirjaks (kaardi enda nimi on joonise jaoks liiga pikk).
 SHORT_TITLES = {
@@ -132,12 +133,12 @@ def summarise(vp_data: dict, year: int, month: int) -> list:
         out.append({
             'key': 'goal_4',
             'title': SHORT_TITLES['goal_4'],
-            'target_label': '1350',
+            'target_label': str(GOAL_4_TARGET),
             'current_label': f'{cur:,}'.replace(',', ' '),
             'current_note': (f'kohordist {cohort:,}'.replace(',', ' ')
                              + f'; seis {_day(r).strftime("%d.%m")}'),
             'pace_label': '–',
-            'gap_label': f'{MINUS}{1350 - cur:,}'.replace(',', ' '),
+            'gap_label': f'{MINUS}{GOAL_4_TARGET - cur:,}'.replace(',', ' '),
             'on_track': None,
             'extra': {},
         })
@@ -267,8 +268,8 @@ def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
 def _panel_goal_4(rows, ax):
     """Nädalane juurdekasv + kumulatiiv.
 
-    Siht 1350 ei mahu siia teljele (august annab kümneid, mitte sadu) ja joon
-    1350 juures muudaks tegeliku seeria nähtamatuks. Maksemäära avaldusi saab
+    Siht 1000 ei mahu siia teljele (august annab kümneid, mitte sadu) ja joon
+    1000 juures muudaks tegeliku seeria nähtamatuks. Maksemäära avaldusi saab
     esitada 30.11-ni ja need laekuvad kuhjaga lõpu poole, seega on praegu
     loetav suurus tempo, mitte kaugus sihist. Kaugus on kirjas paneeli nurgas.
     """
@@ -281,9 +282,9 @@ def _panel_goal_4(rows, ax):
             label='kokku tõstnud', zorder=5)
     ax.set_ylabel('kogujat')
     ax.set_ylim(0, max(max(cum), max(add)) * 1.35 or 1)
-    share = cum[-1] / 1350 * 100
+    share = cum[-1] / GOAL_4_TARGET * 100
     ax.text(0.98, 0.94,
-            f'siht 1350 avaldust 30.11-ks\nseis {cum[-1]} ehk '
+            f'siht {GOAL_4_TARGET} avaldust 30.11-ks\nseis {cum[-1]} ehk '
             + f'{share:.1f}'.replace('.', ',') + '% sihist',
             transform=ax.transAxes, ha='right', va='top', fontsize=11,
             color='#FF4800', fontweight='bold')
