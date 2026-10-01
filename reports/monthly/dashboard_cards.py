@@ -19,7 +19,6 @@ Sisulised erinevused vanadest kaartidest:
   - AUM-i kasvule sissemaksetest ja -vahetustest lisatakse kogumisfondi sissemaksed
     (``add_tkf_to_organic``), 2742 neid ei loe.
 """
-from datetime import date
 
 import kpi_2578 as k
 
