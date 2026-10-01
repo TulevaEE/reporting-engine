@@ -58,12 +58,28 @@ Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (cou
 - **Execute notebooks incrementally** — run each cell after writing it, don't batch-write the whole notebook then debug multiple stacked errors
 - **Verify numbers in prose against current outputs** — when writing markdown summaries (kokkuvõtted, järeldused), copy each number from the cell that just ran, not from earlier iterations or memory. Numbers drift across iterations of the same analysis; pasted-from-memory claims regularly turn out wrong by the time you publish.
 
+## Monthly report definitions (Tõnu's decisions, 2026-10-01)
+
+- **New savers** count II and III pillar savers only: anyone who became a II or III pillar saver, with or without the savings fund (TKF) alongside; people who joined only TKF (`tkf`, `tkf oy`) are not counted. Computed from 2748 by `dashboard_cards.pillar_new_savers`, which reproduces the published August 2026 cards exactly. The dashboard's own 2570/2710 count TKF joiners too: do not switch to them.
+- **TKF contributions count as inflows**: mission KPI 2.2 (12-month inflow) and the AUM "growth from contributions and switching" both add card 2747's TKF contributions; card 2742 / `v_aum_12m_growth_with_prognosis` leaves them out although its AUM includes TKF from 2026-02.
+- **Growth sources** show TKF contributions as their own bar ("sissemaksed TKF-i"); TKF payouts are already inside "väljavõetud vara".
+- **No forecast** anywhere in the monthly report.
+- **Financial results (chapter 7)** come from `downloads/prognoos-kuu.csv` (manual export, around the 9th–10th of the next month); without the month's column the chapter is left out on purpose.
+
+## Building and checking the monthly report
+
+- **A build overwrites committed output.** `build_monthly_report.py` writes `output/YYYY/monthly_report_YYYY-MM.*` and `output/YYYY/charts/*.png`, which are tracked. When you rebuild an old month only to test code, restore it afterwards (`git checkout -- reports/monthly/output`) or build in a `git worktree` in the scratchpad. Never edit `data/YYYY-MM.yaml` of a published month to test.
+- **Before changing a number's source, rebuild the last published month** and diff the markdown (strip `data:image` first): every difference must be explained. This is how the card 1573 December error and the TKF gaps were found.
+- **Look at every chart you changed** (render to the scratchpad and open the PNG) before committing.
+
 ## Publishing (GitHub Pages)
 
 - Pages served from `docs/` on main branch, auto-deploys on push
 - Ad hoc reports: copy HTML to `docs/<name>.html`
 - Monthly report: `cp reports/monthly/output/YYYY/monthly_report_YYYY-MM.html docs/latest-monthly-report.html`
 - Update `docs/index.html` when adding new reports or updating dates
+- **Publishing is public: ask Tõnu every time**, even when the previous version of the same report was approved.
+- After pushing, check that the Pages build reached the commit (`gh api repos/TulevaEE/reporting-engine/pages/builds/latest`) and that the live page serves it: the CDN can serve the old version for up to 10 minutes, so wait in the background and grep the live page for a number that changed.
 
 ## Working with external data
 
