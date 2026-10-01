@@ -6,7 +6,8 @@ nad mõõdavad tempot selle suunas; lävendid on siin andmena, mitte kommentaari
 Andmed tulevad ``data/YYYY-MM.yaml`` failist:
 
     kpi_2578                          2.1 (maht tasuastmete juures), 2.2, 2.5
-    cards / uute kogujate arv, kogu ajalugu (1516)      2.3
+    cards / Täiendavasse ... maksed (2747, v_tkf_kpi)   2.2 (kogumisfondi sissemaksed)
+    cards / uute kogujate arv, kogu ajalugu (2748)      2.3
     cards / sihikindluse trepp (2741)                   2.4 ja north star
 
 Sõnaline osa (miks me seda mõõdame) tuleb monorepo failist
@@ -34,6 +35,7 @@ ALGUS = (2023, 1)              # seeriate algus (44 kuud 2026-08 seisuga)
 
 CARD_1516 = 'uute kogujate arv kuus, kogu ajalugu'
 CARD_2741 = 'sihikindluse trepp'
+CARD_TKF = 'Täiendavasse Kogumisfondi tehtud maksed'
 
 # KPI 2.1: jooksva tasu astmed (Tuleva Maailma Aktsiate Pensionifond, blogist).
 # Maht iga astme juures loetakse kaardilt 2578, mitte ei interpoleerita.
@@ -48,7 +50,7 @@ LAVENDID = {
     '2.5': {'kollane': 2.0, 'punane': 3.0},                 # % varadest aastas
 }
 
-# 2.2 ja 2.5 komponendid kaardil 2578
+# 2.2 ja 2.5 komponendid kaardil 2578; 2.2-le lisanduvad kogumisfondi sissemaksed (CARD_TKF)
 SISSE = ['Second Pillar Contributions Eur', 'Third Pillar Contributions Eur',
          'New Monthly Mandates Eur', 'New Monthly Mandates Third Pillar Eur']
 SISSE_T = ['New Cancelled Mandates Eur']         # tühistatud vahetused, bruto korrigeerimiseks
@@ -122,6 +124,13 @@ def compute(data: dict, year: int, month: int) -> dict:
     def summa12(i, cols):
         return sum(g(idx[(j // 12, j % 12 + 1)], cols) for j in range(i - 11, i + 1))
 
+    # Kogumisfondi (TKF) sissemaksed kuus (kaart 2747, v_tkf_kpi): 2578-s neid ei ole.
+    tkf = {_ym(r['Created At: Month']): float(r['Sum of Amount'] or 0)
+           for r in _card(data, CARD_TKF)}
+
+    def tkf12(i):
+        return sum(tkf.get((j // 12, j % 12 + 1), 0) for j in range(i - 11, i + 1))
+
     def aum(i):
         r = idx.get((i // 12, i % 12 + 1))
         return float(r['Current Aum']) / 1e6 if r and r.get('Current Aum') else None
@@ -130,8 +139,8 @@ def compute(data: dict, year: int, month: int) -> dict:
     sisse, muutus, lahk = [], [], []
     for i in range(_i(*ALGUS), lopp + 1):
         k = (i // 12, i % 12 + 1)
-        s12 = summa12(i, SISSE) - summa12(i, SISSE_T)
-        s12_ea = summa12(i - 12, SISSE) - summa12(i - 12, SISSE_T)
+        s12 = summa12(i, SISSE) - summa12(i, SISSE_T) + tkf12(i)
+        s12_ea = summa12(i - 12, SISSE) - summa12(i - 12, SISSE_T) + tkf12(i - 12)
         sisse.append((k, round(s12 / 1e6, 1)))
         muutus.append((k, round((s12 / s12_ea - 1) * 100, 1)))
         lahk.append((k, round((summa12(i, LAHK) - summa12(i, LAHK_T)) / (aum(i - 12) * 1e6) * 100, 2)))
@@ -166,7 +175,7 @@ def compute(data: dict, year: int, month: int) -> dict:
     tasu = [(round(aum(_i(*k)), 1), t) for k, t in TASU_ASTMED if aum(_i(*k))]
     tasu.append((round(aum(lopp), 1), TASU_ASTMED[-1][1]))
 
-    for nr, s, allikas in (('2.2', sisse, '2578'), ('2.3', uued12, '1516'), ('2.5', lahk, '2578')):
+    for nr, s, allikas in (('2.2', sisse, '2578+2747'), ('2.3', uued12, '2748'), ('2.5', lahk, '2578')):
         _hoiatus(nr, s, allikas)
     kuid_24 = lopp - _i(*trepp['sihikindel'][0][0]) + 1
     if kuid_24 < MIN_KUUD:
@@ -184,9 +193,10 @@ def compute(data: dict, year: int, month: int) -> dict:
                               'seisuga (kaart 2578).'},
             '2.2': {'vaartus': sisse[-1][1], 'muutus': muutus[-1][1], 'seeria': sisse,
                     'seeria_muutus': muutus, 'yhik': 'M€', 'lavend': LAVENDID['2.2'],
-                    'markus': 'Viimase 12 kuu II ja III samba sissemaksed ja ületoomised eurodes, '
-                              'tühistatud vahetused maha arvatud. Iga tulp on 12 kuu summa selle '
-                              'kuu seisuga, joon sama summa muutus aasta varasemaga. Kaart 2578.'},
+                    'markus': 'Viimase 12 kuu II ja III samba sissemaksed ja ületoomised ning '
+                              'kogumisfondi sissemaksed eurodes, tühistatud vahetused maha arvatud. '
+                              'Iga tulp on 12 kuu summa selle kuu seisuga, joon sama summa muutus '
+                              'aasta varasemaga. Kaardid 2578 ja 2747.'},
             '2.3': {'vaartus': uued12[-1][1], 'seeria': uued12, 'seis': _seis_23(uued12[-1][1]),
                     'yhik': 'inimest kuus', 'lavend': LAVENDID['2.3'],
                     'markus': '12 kuu libisev keskmine: iga punkt on viimase 12 kuu uute kogujate '

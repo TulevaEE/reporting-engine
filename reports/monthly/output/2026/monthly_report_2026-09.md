@@ -36,11 +36,11 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 *Kõige kindlam varade mahu kasvu allikas on inimeste regulaarsed sissemaksed ja ületoodav vara. Mida suuremaks kasvame, seda raskem on kasvutempot hoida.*
 
-**261 M€** viimase 12 kuu kohta, +4,9% aasta varasemaga
+**279 M€** viimase 12 kuu kohta, +12,1% aasta varasemaga
 
 ![KPI 2.2](charts/mission_22.png)
 
-*Viimase 12 kuu II ja III samba sissemaksed ja ületoomised eurodes, tühistatud vahetused maha arvatud. Iga tulp on 12 kuu summa selle kuu seisuga, joon sama summa muutus aasta varasemaga. Kaart 2578.*
+*Viimase 12 kuu II ja III samba sissemaksed ja ületoomised ning kogumisfondi sissemaksed eurodes, tühistatud vahetused maha arvatud. Iga tulp on 12 kuu summa selle kuu seisuga, joon sama summa muutus aasta varasemaga. Kaardid 2578 ja 2747.*
 
 
 <!-- comment:kpi_22 -->
