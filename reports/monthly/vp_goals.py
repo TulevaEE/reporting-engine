@@ -186,19 +186,53 @@ def _finish(ax, title=None, ticks=None):
         lbl.set_ha('right')
 
 
+KUUD_LYHI = ['jaan', 'veebr', 'märts', 'apr', 'mai', 'juuni',
+             'juuli', 'aug', 'sept', 'okt', 'nov', 'dets']
+
+
 def _panel_goal_1(rows, ax):
+    """Kuine: tulp kuu kohta (tõi kohe koos + tõi hiljem), punkt aasta varasema kuu kohta.
+
+    Kaart 2631 on alates 2026-09 kuine. Kuu, mille „tõi hiljem" aken on veel lahti
+    (``hiljem_taielik`` false), on heledam: selle osakaal võib veel kasvada.
+    """
     BLUE, NAVY, MID = _style()
-    x = [_day(r) for r in rows]
+    days = [_day(r) for r in rows]
+    x = list(range(len(rows)))
     koos = [r.get('koos_pct') or 0 for r in rows]
     hiljem = [(r.get('kokku_pct') or 0) - (r.get('koos_pct') or 0) for r in rows]
-    ax.bar(x, koos, width=5, color=NAVY, label='tõi kohe koos', zorder=3)
-    ax.bar(x, hiljem, width=5, bottom=koos, color=BLUE, label='tõi hiljem', zorder=3)
-    ax.axhline(30, color='#FF4800', linestyle='--', linewidth=1.5, zorder=4)
-    ax.text(x[0], 31, 'siht 30%', color='#FF4800', fontsize=11, fontweight='bold')
+    lahti = [r.get('hiljem_taielik') is False for r in rows]
+    alpha = [0.45 if o else 1.0 for o in lahti]
+    for i in x:
+        ax.bar(i, koos[i], width=0.6, color=NAVY, alpha=alpha[i], zorder=3,
+               label='tõi kohe koos' if i == 0 else None)
+        ax.bar(i, hiljem[i], width=0.6, bottom=koos[i], color=BLUE, alpha=alpha[i], zorder=3,
+               label='tõi hiljem' if i == 0 else None)
+        ax.text(i, koos[i] + hiljem[i] - 0.6, f'{koos[i] + hiljem[i]:.0f}%',
+                ha='center', va='top', fontsize=10, color='white', fontweight='bold', zorder=5)
+    eelmine = [(i, r.get('koos_pct_yoy')) for i, r in zip(x, rows) if r.get('koos_pct_yoy') is not None]
+    if eelmine:
+        import matplotlib.patheffects as pe
+        ax.scatter([i for i, _ in eelmine], [v for _, v in eelmine], marker='_', s=420,
+                   linewidths=2.5, color='#1a1a1a', zorder=4, label='aasta varem (tõi kohe koos)',
+                   path_effects=[pe.Stroke(linewidth=5, foreground='white'), pe.Normal()])
+    ax.axhline(30, color='#FF4800', linestyle='--', linewidth=1.5, zorder=2)
+    ax.text(-0.4, 31, 'siht 30%', color='#FF4800', fontsize=11, fontweight='bold')
     ax.set_ylabel('% neist, kes said II samba tuua')
     ax.set_ylim(0, max(40, max([a + b for a, b in zip(koos, hiljem)] or [0]) * 1.2))
-    ax.legend(frameon=False, fontsize=11, loc='upper left')
-    _finish(ax, SHORT_TITLES['goal_1'], ticks=x)
+    ax.legend(frameon=False, fontsize=11, loc='upper left', ncol=3)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.set_xticks(x)
+    ax.set_xticklabels([f'{KUUD_LYHI[d.month - 1]} {d.year % 100:02d}' for d in days])
+    ax.tick_params(labelsize=11)
+    ax.yaxis.label.set_size(11)
+    ax.grid(axis='y', color='#e3e7ec', linewidth=1)
+    ax.set_axisbelow(True)
+    if any(lahti):
+        ax.annotate('„tõi hiljem" aken lahti', (x[lahti.index(True)], 1), ha='center',
+                    fontsize=9, color=MID, xytext=(0, -38), textcoords='offset points',
+                    annotation_clip=False)
 
 
 def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,

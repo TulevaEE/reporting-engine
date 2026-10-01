@@ -12156,7 +12156,7 @@ vp_goals:
       sai_tuua_ii: 147
       koos_pct: 17.7
       kokku_pct: 21.8
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: null
       toi_koos_yoy: null
       koos_pct_yoy: null
@@ -12170,7 +12170,7 @@ vp_goals:
       sai_tuua_ii: 148
       koos_pct: 18.2
       kokku_pct: 21.6
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 293
       toi_koos_yoy: 33
       koos_pct_yoy: 15.2
@@ -12184,7 +12184,7 @@ vp_goals:
       sai_tuua_ii: 191
       koos_pct: 19.4
       kokku_pct: 23.0
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 345
       toi_koos_yoy: 30
       koos_pct_yoy: 12.9
@@ -12198,7 +12198,7 @@ vp_goals:
       sai_tuua_ii: 318
       koos_pct: 24.5
       kokku_pct: 27.0
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 624
       toi_koos_yoy: 119
       koos_pct_yoy: 25.0
@@ -12212,7 +12212,7 @@ vp_goals:
       sai_tuua_ii: 663
       koos_pct: 10.7
       kokku_pct: 11.9
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 1042
       toi_koos_yoy: 86
       koos_pct_yoy: 11.6
@@ -12226,7 +12226,7 @@ vp_goals:
       sai_tuua_ii: 255
       koos_pct: 14.5
       kokku_pct: 16.1
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 459
       toi_koos_yoy: 50
       koos_pct_yoy: 17.1
@@ -12240,7 +12240,7 @@ vp_goals:
       sai_tuua_ii: 203
       koos_pct: 16.7
       kokku_pct: 19.2
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 340
       toi_koos_yoy: 35
       koos_pct_yoy: 16.6
@@ -12254,7 +12254,7 @@ vp_goals:
       sai_tuua_ii: 225
       koos_pct: 29.8
       kokku_pct: 30.2
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 370
       toi_koos_yoy: 55
       koos_pct_yoy: 22.9
@@ -12268,7 +12268,7 @@ vp_goals:
       sai_tuua_ii: 157
       koos_pct: 13.4
       kokku_pct: 15.3
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 164
       toi_koos_yoy: 10
       koos_pct_yoy: 8.8
@@ -12282,7 +12282,7 @@ vp_goals:
       sai_tuua_ii: 158
       koos_pct: 18.4
       kokku_pct: 18.4
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 219
       toi_koos_yoy: 33
       koos_pct_yoy: 22.1
@@ -12296,7 +12296,7 @@ vp_goals:
       sai_tuua_ii: 138
       koos_pct: 12.3
       kokku_pct: 13.0
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 164
       toi_koos_yoy: 26
       koos_pct_yoy: 23.4
@@ -12310,7 +12310,7 @@ vp_goals:
       sai_tuua_ii: 164
       koos_pct: 22.6
       kokku_pct: 23.2
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 260
       toi_koos_yoy: 46
       koos_pct_yoy: 27.7
@@ -12324,7 +12324,7 @@ vp_goals:
       sai_tuua_ii: 150
       koos_pct: 17.3
       kokku_pct: 17.3
-      hiljem_taielik: 'true'
+      hiljem_taielik: true
       uusi_kogujaid_yoy: 211
       toi_koos_yoy: 26
       koos_pct_yoy: 17.7
@@ -12338,7 +12338,7 @@ vp_goals:
       sai_tuua_ii: 162
       koos_pct: 13.0
       kokku_pct: 13.0
-      hiljem_taielik: 'false'
+      hiljem_taielik: false
       uusi_kogujaid_yoy: 224
       toi_koos_yoy: 27
       koos_pct_yoy: 18.2
@@ -12357,175 +12357,175 @@ vp_goals:
       sihtjoon: null
       aum_eur: 544964
       osakuid: 490339.84
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-06-22'
       oud_kokku: 91
       uusi_nadalas: 17
       sihtjoon: null
       aum_eur: 667819
       osakuid: 607605.13
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-06-29'
       oud_kokku: 109
       uusi_nadalas: 18
       sihtjoon: null
       aum_eur: 1041920
       osakuid: 935380.08
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-07-06'
       oud_kokku: 125
       uusi_nadalas: 16
       sihtjoon: null
       aum_eur: 1221012
       osakuid: 1091846.49
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-07-13'
       oud_kokku: 130
       uusi_nadalas: 5
       sihtjoon: null
       aum_eur: 1254256
       osakuid: 1136719.21
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-07-20'
       oud_kokku: 141
       uusi_nadalas: 11
       sihtjoon: null
       aum_eur: 1383358
       osakuid: 1252587.77
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-07-27'
       oud_kokku: 157
       uusi_nadalas: 16
       sihtjoon: null
       aum_eur: 1526750
       osakuid: 1392003.59
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-03'
       oud_kokku: 167
       uusi_nadalas: 10
       sihtjoon: 172
       aum_eur: 1822703
       osakuid: 1605339.92
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-10'
       oud_kokku: 175
       uusi_nadalas: 8
       sihtjoon: 192
       aum_eur: 1978073
       osakuid: 1738659.65
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-17'
       oud_kokku: 185
       uusi_nadalas: 10
       sihtjoon: 212
       aum_eur: 2163544
       osakuid: 1934326.22
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-24'
       oud_kokku: 194
       uusi_nadalas: 9
       sihtjoon: 233
       aum_eur: 3263366
       osakuid: 2878509.09
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-31'
       oud_kokku: 203
       uusi_nadalas: 9
       sihtjoon: 253
       aum_eur: 3462529
       osakuid: 3063913.82
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-07'
       oud_kokku: 214
       uusi_nadalas: 11
       sihtjoon: 273
       aum_eur: 3642832
       osakuid: 3247019.88
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-14'
       oud_kokku: 221
       uusi_nadalas: 7
       sihtjoon: 294
       aum_eur: 3707506
       osakuid: 3294974.98
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-21'
       oud_kokku: 264
       uusi_nadalas: 43
       sihtjoon: 314
       aum_eur: 3881319
       osakuid: 3392761.3
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-28'
       oud_kokku: 284
       uusi_nadalas: 20
       sihtjoon: 334
       aum_eur: 4044385
       osakuid: 3544596.99
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-05'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 355
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-12'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 375
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-19'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 395
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-26'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 416
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-02'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 436
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-09'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 456
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-16'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 477
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-23'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 497
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-30'
       oud_kokku: null
       uusi_nadalas: null
       sihtjoon: 500
       aum_eur: null
       osakuid: null
-      taielik: 'false'
+      taielik: false
   goal_3:
     card_id: 2633
     key: goal_3
@@ -12544,7 +12544,7 @@ vp_goals:
       sihtjoon: null
       maksnud_osakaal: 1.0
       pusimakse_osakaal: 0.3
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-07-20'
       lapsi_kokku: 40
       lapsi_uusi: 30
@@ -12555,7 +12555,7 @@ vp_goals:
       sihtjoon: null
       maksnud_osakaal: 0.65
       pusimakse_osakaal: 0.275
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-07-27'
       lapsi_kokku: 206
       lapsi_uusi: 166
@@ -12566,7 +12566,7 @@ vp_goals:
       sihtjoon: null
       maksnud_osakaal: 0.587
       pusimakse_osakaal: 0.33
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-03'
       lapsi_kokku: 265
       lapsi_uusi: 59
@@ -12577,7 +12577,7 @@ vp_goals:
       sihtjoon: null
       maksnud_osakaal: 0.63
       pusimakse_osakaal: 0.392
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-10'
       lapsi_kokku: 313
       lapsi_uusi: 48
@@ -12588,7 +12588,7 @@ vp_goals:
       sihtjoon: 236
       maksnud_osakaal: 0.719
       pusimakse_osakaal: 0.409
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-17'
       lapsi_kokku: 347
       lapsi_uusi: 34
@@ -12599,7 +12599,7 @@ vp_goals:
       sihtjoon: 246
       maksnud_osakaal: 0.735
       pusimakse_osakaal: 0.418
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-24'
       lapsi_kokku: 398
       lapsi_uusi: 51
@@ -12610,7 +12610,7 @@ vp_goals:
       sihtjoon: 256
       maksnud_osakaal: 0.729
       pusimakse_osakaal: 0.405
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-08-31'
       lapsi_kokku: 617
       lapsi_uusi: 219
@@ -12621,7 +12621,7 @@ vp_goals:
       sihtjoon: 267
       maksnud_osakaal: 0.632
       pusimakse_osakaal: 0.454
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-07'
       lapsi_kokku: 714
       lapsi_uusi: 97
@@ -12632,7 +12632,7 @@ vp_goals:
       sihtjoon: 277
       maksnud_osakaal: 0.782
       pusimakse_osakaal: 0.501
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-14'
       lapsi_kokku: 774
       lapsi_uusi: 60
@@ -12643,7 +12643,7 @@ vp_goals:
       sihtjoon: 287
       maksnud_osakaal: 0.792
       pusimakse_osakaal: 0.505
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-21'
       lapsi_kokku: 822
       lapsi_uusi: 48
@@ -12654,18 +12654,18 @@ vp_goals:
       sihtjoon: 297
       maksnud_osakaal: 0.786
       pusimakse_osakaal: 0.512
-      taielik: 'true'
+      taielik: true
     - nadal: '2026-09-28'
-      lapsi_kokku: 877
-      lapsi_uusi: 55
+      lapsi_kokku: 878
+      lapsi_uusi: 56
       maksnud_kokku: 703
       maksnud_uusi: 57
       pusimakse_kokku: 451
       pusimakse_uusi: 30
       sihtjoon: 308
-      maksnud_osakaal: 0.802
+      maksnud_osakaal: 0.801
       pusimakse_osakaal: 0.514
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-05'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12676,7 +12676,7 @@ vp_goals:
       sihtjoon: 318
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-12'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12687,7 +12687,7 @@ vp_goals:
       sihtjoon: 328
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-19'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12698,7 +12698,7 @@ vp_goals:
       sihtjoon: 338
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-10-26'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12709,7 +12709,7 @@ vp_goals:
       sihtjoon: 349
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-02'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12720,7 +12720,7 @@ vp_goals:
       sihtjoon: 359
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-09'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12731,7 +12731,7 @@ vp_goals:
       sihtjoon: 369
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-16'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12742,7 +12742,7 @@ vp_goals:
       sihtjoon: 379
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-23'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12753,7 +12753,7 @@ vp_goals:
       sihtjoon: 390
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
     - nadal: '2026-11-30'
       lapsi_kokku: null
       lapsi_uusi: null
@@ -12764,7 +12764,7 @@ vp_goals:
       sihtjoon: 400
       maksnud_osakaal: null
       pusimakse_osakaal: null
-      taielik: 'false'
+      taielik: false
   goal_4:
     card_id: 2634
     key: goal_4

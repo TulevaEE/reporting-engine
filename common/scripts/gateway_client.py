@@ -12,8 +12,8 @@ kehtib nädala, siis küsitakse uuesti sisselogimist.
 
 Liides on sama mis ``MetabaseClient.execute_card``-il: kaardi read
 sõnastike nimekirjana, veeru nimi võtmeks. Gateway annab väärtused tekstina
-(Metabase'i CSV-eksport); siin teisendatakse täisarvud ja murdarvud arvudeks
-ja tühi lahter ``None``-iks, kuupäevad jäävad tekstiks.
+(Metabase'i CSV-eksport); siin teisendatakse täisarvud ja murdarvud arvudeks,
+``true``/``false`` tõeväärtusteks ja tühi lahter ``None``-iks, kuupäevad jäävad tekstiks.
 
     from gateway_client import GatewayClient
     rows = GatewayClient().execute_card(2578)
@@ -171,6 +171,8 @@ class _Provider(OAuthClientProvider):
 def _value(text):
     if text is None or text == '':
         return None
+    if text in ('true', 'false'):
+        return text == 'true'
     if _INTEGER.fullmatch(text):
         return int(text)
     if _DECIMAL.fullmatch(text):

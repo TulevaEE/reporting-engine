@@ -114,7 +114,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 ### III samba avaldusega tuleb kaasa ka II sammas
 
-**13,0%** koos 21/162; hiljem lisandus 0; siht 30%
+**13,0%** koos 21/162; hiljem lisandus 0 (aken lahti); siht 30%
 
 ![III samba avaldusega tuleb kaasa ka II sammas](charts/vp_goal_1.png)
 
