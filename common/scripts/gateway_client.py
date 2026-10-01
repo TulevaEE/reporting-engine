@@ -1,8 +1,8 @@
 """Metabase'i aruandekaardid Tuleva agent gateway kaudu.
 
 Isiklikku Metabase'i võtit enam ei ole (sisekord 22 p 4.1). Gateway tööriist
-``reports`` annab välja ainult Monthly KPIs (74) ja Weekly (12) dashboardi
-kaarte, ja iga päring logitakse sinu nimel (``audit_trail``).
+``reports`` annab välja ainult Monthly KPIs (74) ja Weekly KPIs (12)
+dashboardi kaarte, ja iga päring logitakse sinu nimel (``audit_trail``).
 
 Sisselogimine: esimesel korral avab skript brauseri, logid sisse oma Tuleva
 Google'i kontoga ja kinnitad nõusoleku. Tokenid jäävad faili
@@ -21,7 +21,7 @@ import asyncio
 import json
 import os
 import re
-import threading
+import time
 import webbrowser
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
@@ -41,6 +41,8 @@ TOKEN_FILE = Path(os.environ.get('TULEVA_CACHE_DIR', Path.home() / '.cache' / 't
 TOOL = 'reports'
 CALL_TIMEOUT_SECONDS = 300
 LOGIN_TIMEOUT_SECONDS = 300
+BUSY_RETRIES = 10
+BUSY_WAIT_SECONDS = 15
 
 _INTEGER = re.compile(r'-?\d+')
 _DECIMAL = re.compile(r'-?(\d+\.\d*|\.\d+|\d+)([eE][-+]?\d+)?')
@@ -187,11 +189,21 @@ class GatewayClient:
         return answer.get('text') or json.dumps(answer)
 
     def cards(self) -> list[dict]:
-        """Dashboardi kaardid: id ja nimi, ilma väärtusteta."""
-        return asyncio.run(self._call({'operation': 'cards'}))['cards']
+        """Dashboardide kaardid: id, nimi ja dashboard, ilma väärtusteta."""
+        answer = asyncio.run(self._call({'operation': 'cards'}))
+        return [{**card, 'dashboard': dashboard['id']}
+                for dashboard in answer['dashboards'] for card in dashboard['cards']]
 
     def execute_card(self, card_id: int) -> list[dict]:
-        answer = asyncio.run(self._call({'operation': 'rows', 'CARD_ID': card_id}))
+        # Gateway loeb korraga ühte kaarti (ka crm ja mailchimp jagavad seda lukku).
+        for attempt in range(BUSY_RETRIES):
+            try:
+                answer = asyncio.run(self._call({'operation': 'rows', 'CARD_ID': card_id}))
+                break
+            except GatewayRefused as refused:
+                if 'another card is being read' not in str(refused) or attempt == BUSY_RETRIES - 1:
+                    raise
+                time.sleep(BUSY_WAIT_SECONDS)
         columns = answer['columns']
         return [dict(zip(columns, (_value(v) for v in row))) for row in answer['rows']]
 
