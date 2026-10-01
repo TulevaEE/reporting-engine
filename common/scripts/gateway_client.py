@@ -7,7 +7,8 @@ dashboardi kaarte, ja iga päring logitakse sinu nimel (``audit_trail``).
 Sisselogimine: esimesel korral avab skript brauseri, logid sisse oma Tuleva
 Google'i kontoga ja kinnitad nõusoleku. Tokenid jäävad faili
 ``~/.cache/tuleva-reports/gateway-oauth.json`` (õigused 600, väljaspool repot).
-Refresh token kehtib nädala, siis küsitakse uuesti sisselogimist.
+Access token kehtib 10 minutit ja uueneb ise refresh tokeniga; refresh token
+kehtib nädala, siis küsitakse uuesti sisselogimist.
 
 Liides on sama mis ``MetabaseClient.execute_card``-il: kaardi read
 sõnastike nimekirjana, veeru nimi võtmeks. Gateway annab väärtused tekstina
@@ -31,7 +32,7 @@ from mcp import ClientSession
 from mcp.client.auth import OAuthClientProvider
 from mcp.client.streamable_http import create_mcp_http_client, streamable_http_client
 from mcp.shared.auth import (AuthorizationCodeResult, OAuthClientInformationFull,
-                             OAuthClientMetadata, OAuthToken)
+                             OAuthClientMetadata, OAuthMetadata, OAuthToken)
 
 GATEWAY_URL = os.environ.get('TULEVA_GATEWAY_URL', 'https://agent-gateway.tuleva.ee/mcp')
 CALLBACK_PORT = int(os.environ.get('TULEVA_GATEWAY_CALLBACK_PORT', '8765'))
@@ -78,6 +79,11 @@ class _FileTokenStorage:
 
     async def set_tokens(self, tokens) -> None:
         self._write('tokens', tokens.model_dump(mode='json', exclude_none=True))
+        if tokens.expires_in:
+            self._write('expires_at', {'at': time.time() + tokens.expires_in})
+
+    def expires_at(self):
+        return (self._read().get('expires_at') or {}).get('at')
 
     async def get_client_info(self):
         stored = self._read().get('client_info')
@@ -136,6 +142,32 @@ async def _callback() -> AuthorizationCodeResult:
     return await asyncio.to_thread(_wait_for_callback)
 
 
+def _origin(url: str) -> str:
+    parsed = urlparse(url)
+    return f'{parsed.scheme}://{parsed.netloc}'
+
+
+class _Provider(OAuthClientProvider):
+    """Tokenid failist koos aegumisajaga.
+
+    SDK ei salvesta aegumisaega ja peab failist loetud tokenit alati kehtivaks;
+    aegunud token annab 401 ja SDK alustab siis uut sisselogimist brauseris,
+    mitte refresh'i. Aegumisaeg failist laseb tal aegunud tokeni uuendada.
+    """
+
+    async def _initialize(self) -> None:
+        await super()._initialize()
+        self.context.token_expiry_time = self.context.storage.expires_at()
+        # SDK avastab OAuth-serveri metaandmed alles sisselogimisel; failist laetud
+        # tokeniga saadaks ta refresh'i aadressile /token, gateway oma on /oauth/token.
+        if self.context.oauth_metadata is None:
+            async with create_mcp_http_client() as http:
+                response = await http.get(_origin(self.context.server_url)
+                                          + '/.well-known/oauth-authorization-server')
+                response.raise_for_status()
+                self.context.oauth_metadata = OAuthMetadata.model_validate_json(response.content)
+
+
 def _value(text):
     if text is None or text == '':
         return None
@@ -150,7 +182,7 @@ class GatewayClient:
 
     def __init__(self, url: str = GATEWAY_URL, token_file: Path = TOKEN_FILE):
         self.url = url
-        self.auth = OAuthClientProvider(
+        self.auth = _Provider(
             server_url=url,
             client_metadata=OAuthClientMetadata(
                 client_name='tuleva-reports',
