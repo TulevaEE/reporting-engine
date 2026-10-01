@@ -33,44 +33,22 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'common' / 'scripts
 
 from gateway_client import GatewayClient
 from unit_prices import fetch_unit_prices
+import dashboard_cards
 
 
 # Consolidated KPI card — the primary data source (monthly time series).
 PRIMARY_CARD_ID = 2578
 PRIMARY_CARD_NAME = 'Mv Kpi New for Claude'
 
-# Cards 2578 cannot replace. Keyed by card_id -> (downstream name, display).
-# The downstream name MUST match how build_monthly_report / generate_monthly_charts
-# look the card up in data['cards'].
+# Cards 2578 cannot replace. The gateway answers only cards on dashboards 74 and 12,
+# so these are the dashboard's own cards, adapted to the old survivor cards' rows
+# (dashboard_cards.py) so the build and chart code read them as before.
+# Card id -> (downstream name, display). The downstream name MUST match how
+# build_monthly_report / generate_monthly_charts / mission_kpis look it up in data['cards'].
 SURVIVOR_CARDS = {
-    334:  ('AUM (koos ootel vahetuste ja väljumistega)', 'line'),
-    1518: ('uute kogujate arv kuus', 'combo'),
-    418:  ('uute kogujate arv YTD', 'smartscalar'),
-    1519: ('II sambaga liitujate arv kuus', 'combo'),
-    1520: ('III sambaga liitujate arv kuus', 'combo'),
-    1534: ('uute II samba kogujate arv YTD', 'smartscalar'),
-    1535: ('uute III samba kogujate arv YTD', 'smartscalar'),
-    1657: ('III s sissemakse tegijate arv YTD', 'scalar'),
-    1911: ('II samba vahetusavalduste arv pangafondidesse sel vahetusperioodil', 'row'),
-    1912: ('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', 'row'),
-    389:  ('Kasvuallikad eelmisel kuul (tegelik), M EUR', 'waterfall'),
-    392:  ('Kasvuallikad YTD (tegelik), M EUR', 'waterfall'),
-    2305: ('Täiendavasse Kogumisfondi tehtud maksed', 'line'),
-    # Missiooni tabloo (mission_kpis.py): 1516 on kaardi 1518 allikas ilma 13 kuu
-    # filtrita (2.3 libisev keskmine vajab 48 kuud); 2741 on sihikindluse trepp (2.4).
-    1516: ('uute kogujate arv kuus, kogu ajalugu', 'table'),
+    **{card_id: (name, 'adapted') for card_id, (name, _, _) in dashboard_cards.CARDS.items()},
+    # Missiooni tabloo (mission_kpis.py): 2741 on sihikindluse trepp (2.4).
     2741: ('sihikindluse trepp', 'table'),
-}
-
-
-# Koondtabelid tervikuna (`SELECT * FROM analytics.<vaade>`, dashboard 74). Nende
-# pealt arvutab aruanne edaspidi ise need numbrid, mida praegu annavad
-# survivor-kaardid; kuni check_tables.py näitab, et numbrid klapivad, kasutab
-# aruanne veel vanu kaarte. Võti on vaate nimi.
-TABLE_CARDS = {
-    2747: 'v_tkf_kpi',
-    2748: 'mv_monthly_conversions_with_tkf',
-    2749: 'v_aum_12m_growth_with_prognosis',
 }
 
 
@@ -125,7 +103,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     client = GatewayClient()
 
     # Gateway annab välja ainult dashboardide kaarte: ütle kohe, mis puudu on.
-    needed = {PRIMARY_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS, *TABLE_CARDS}
+    needed = {PRIMARY_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
     available = {card['id'] for card in client.cards()}
     missing = sorted(needed - available)
     if missing:
@@ -140,7 +118,6 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         'cards': {},
         'vp_goals': {},
         'unit_prices': [],
-        'tables': {},
     }
 
     # Osakuhinna võrdlus avalikest allikatest (kaardi 2245 asemel), vt unit_prices.py.
@@ -166,6 +143,8 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         print(f"  Fetching [{card_id}] {card_name}...")
         try:
             results = client.execute_card(card_id)
+            if card_id in dashboard_cards.CARDS:
+                results = dashboard_cards.CARDS[card_id][2](results, year)
             data['cards'][card_name] = {
                 'card_id': card_id,
                 'display': display,
@@ -175,17 +154,6 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         except Exception as e:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
-
-    # Koondtabelid.
-    for card_id, view in TABLE_CARDS.items():
-        print(f"  Fetching [{card_id}] {view}...")
-        try:
-            results = client.execute_card(card_id)
-            data['tables'][view] = {'card_id': card_id, 'data': results}
-            print(f"    -> {len(results)} rows")
-        except Exception as e:
-            print(f"    ERROR: {e}")
-            data['tables'][view] = {'card_id': card_id, 'error': str(e)}
 
     # Vahetusperioodi eesmärgikaardid.
     for card_id, spec in VP_GOAL_CARDS.items():

@@ -40,6 +40,11 @@ def _as_date(v):
     return datetime.fromisoformat(str(v)[:10]).date()
 
 
+def _day(r):
+    """Rea kuupäev: nädalakaartidel ``nadal``, kuisel kaardil (2631 alates 2026-09) ``kuu``."""
+    return _as_date(r['nadal'] if 'nadal' in r else r['kuu'])
+
+
 def _rows(vp, key):
     g = vp.get(key) or {}
     return g, [r for r in (g.get('data') or [])]
@@ -48,7 +53,7 @@ def _rows(vp, key):
 def _last_row_with(rows, col, month_end):
     """Viimane rida, kus ``col`` on täidetud ja nädal ei ületa kuu lõppu."""
     hits = [r for r in rows
-            if r.get(col) is not None and _as_date(r['nadal']) <= month_end]
+            if r.get(col) is not None and _day(r) <= month_end]
     return hits[-1] if hits else None
 
 
@@ -71,7 +76,7 @@ def summarise(vp_data: dict, year: int, month: int) -> list:
     g, rows = _rows(vp_data, 'goal_1')
     if rows:
         m = [r for r in rows
-             if _as_date(r['nadal']).year == year and _as_date(r['nadal']).month == month]
+             if _day(r).year == year and _day(r).month == month]
         base = sum((r.get('sai_tuua_ii') or 0) for r in m)
         koos = sum((r.get('toi_koos') or 0) for r in m)
         hiljem = sum((r.get('toi_hiljem') or 0) for r in m)
@@ -111,7 +116,7 @@ def summarise(vp_data: dict, year: int, month: int) -> list:
             'title': SHORT_TITLES[key],
             'target_label': str(target),
             'current_label': f'{cur:,}'.replace(',', ' '),
-            'current_note': f"seis {_as_date(r['nadal']).strftime('%d.%m')}",
+            'current_note': f"seis {_day(r).strftime('%d.%m')}",
             'pace_label': (f'{pace:,}'.replace(',', ' ') if pace is not None else '–'),
             'gap_label': ('–' if gap is None else
                           (f'+{gap}' if gap >= 0 else f'{MINUS}{abs(gap)}')),
@@ -130,7 +135,7 @@ def summarise(vp_data: dict, year: int, month: int) -> list:
             'target_label': '1350',
             'current_label': f'{cur:,}'.replace(',', ' '),
             'current_note': (f'kohordist {cohort:,}'.replace(',', ' ')
-                             + f'; seis {_as_date(r["nadal"]).strftime("%d.%m")}'),
+                             + f'; seis {_day(r).strftime("%d.%m")}'),
             'pace_label': '–',
             'gap_label': f'{MINUS}{1350 - cur:,}'.replace(',', ' '),
             'on_track': None,
@@ -183,7 +188,7 @@ def _finish(ax, title=None, ticks=None):
 
 def _panel_goal_1(rows, ax):
     BLUE, NAVY, MID = _style()
-    x = [_as_date(r['nadal']) for r in rows]
+    x = [_day(r) for r in rows]
     koos = [r.get('koos_pct') or 0 for r in rows]
     hiljem = [(r.get('kokku_pct') or 0) - (r.get('koos_pct') or 0) for r in rows]
     ax.bar(x, koos, width=5, color=NAVY, label='tõi kohe koos', zorder=3)
@@ -200,7 +205,7 @@ def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
                       context=None):
     BLUE, NAVY, MID = _style()
 
-    pace = [(_as_date(r['nadal']), r.get(pace_col)) for r in rows
+    pace = [(_day(r), r.get(pace_col)) for r in rows
             if r.get(pace_col) is not None]
     if pace:
         ax.plot([p[0] for p in pace], [p[1] for p in pace], linestyle='--',
@@ -208,13 +213,13 @@ def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
 
     if context:
         ccol, clabel = context
-        c = [(_as_date(r['nadal']), r.get(ccol)) for r in rows
+        c = [(_day(r), r.get(ccol)) for r in rows
              if r.get(ccol) is not None]
         if c:
             ax.plot([p[0] for p in c], [p[1] for p in c], color=BLUE,
                     linewidth=1.5, alpha=0.8, label=clabel, zorder=3)
 
-    act = [(_as_date(r['nadal']), r.get(col)) for r in rows if r.get(col) is not None]
+    act = [(_day(r), r.get(col)) for r in rows if r.get(col) is not None]
     ax.plot([p[0] for p in act], [p[1] for p in act], color=NAVY, linewidth=2.5,
             marker='o', markersize=3, label='tegelik', zorder=5)
 
@@ -234,7 +239,7 @@ def _panel_goal_4(rows, ax):
     loetav suurus tempo, mitte kaugus sihist. Kaugus on kirjas paneeli nurgas.
     """
     BLUE, NAVY, MID = _style()
-    x = [_as_date(r['nadal']) for r in rows]
+    x = [_day(r) for r in rows]
     cum = [r.get('tostnud') or 0 for r in rows]
     add = [r.get('lisandunud') or 0 for r in rows]
     ax.bar(x, add, width=2.5, color=BLUE, label='lisandus perioodil', zorder=3)
@@ -269,7 +274,7 @@ def generate_charts(vp_data: dict, charts_dir: Path, year: int = None,
     for key in GOAL_ORDER:
         _, rows = _rows(vp_data, key)
         if me:
-            rows = [r for r in rows if _as_date(r['nadal']) <= me]
+            rows = [r for r in rows if _day(r) <= me]
         if not rows:
             continue
         fig, ax = plt.subplots(figsize=(14, 5.5))
