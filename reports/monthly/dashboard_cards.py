@@ -15,9 +15,13 @@ dashboard loeb ka ainult kogumisfondiga liitujad. Vt ``pillar_new_savers``.
 
 Sisulised erinevused vanadest kaartidest:
   - vahetusavaldused fondi järgi (2722, 2723) loevad inimesi, mitte avaldusi;
-  - kasvuallikad (2737, 2739) ja AUM (2742) on eurodes, siin teisendatakse M EUR-ks.
+  - kasvuallikad (2737, 2739) ja AUM (2742) on eurodes, siin teisendatakse M EUR-ks;
+  - AUM-i kasvule sissemaksetest ja -vahetustest lisatakse kogumisfondi sissemaksed
+    (``add_tkf_to_organic``), 2742 neid ei loe.
 """
 from datetime import date
+
+import kpi_2578 as k
 
 
 def _data_month(reporting_date) -> str:
@@ -56,21 +60,47 @@ def growth_sources(rows):
 
 
 def aum(rows):
-    """2742 -> 334: ainult tegelikud kuud, M EUR täisarvuna, kasv protsentides."""
+    """2742 -> 334: ainult tegelikud kuud, M EUR täisarvuna, kasv protsentides.
+
+    ``_aum_eur``, ``_growth`` ja ``_organic`` hoiavad täpseid väärtusi, et
+    ``add_tkf_to_organic`` saaks orgaanilisele kasvule kogumisfondi sissemaksed lisada.
+    """
     out = []
     for r in rows:
         if r['kuu lõpu AUM'] is None:
             continue
+        growth = r['AUM 12 kuu kasv']
+        organic = r['AUM 12 kuu kasv sissemaksetest ja -vahetustest']
         out.append({
             'month': r['month'],
             'kuu lõpu AUM (M EUR)': round(r['kuu lõpu AUM'] / 1e6),
-            'AUM 12 kuu kasv %': round(r['AUM 12 kuu kasv'] * 100)
-            if r['AUM 12 kuu kasv'] is not None else None,
+            'AUM 12 kuu kasv %': round(growth * 100) if growth is not None else None,
             'AUM 12 kuu kasv sissemaksetest ja -vahetustest %':
-                round(r['AUM 12 kuu kasv sissemaksetest ja -vahetustest'] * 100)
-                if r['AUM 12 kuu kasv sissemaksetest ja -vahetustest'] is not None else None,
+                round(organic * 100) if organic is not None else None,
+            '_aum_eur': r['kuu lõpu AUM'], '_growth': growth, '_organic': organic,
         })
     return out
+
+
+def add_tkf_to_organic(aum_rows, tkf_rows):
+    """Lisab orgaanilisele kasvule viimase 12 kuu kogumisfondi sissemaksed.
+
+    2742 (v_aum_12m_growth_with_prognosis) arvutab kasvu sissemaksetest ja
+    -vahetustest ainult II ja III samba pealt, kuigi AUM sisaldab alates 2026-02
+    kogumisfondi. Nimetaja on sama mis 2742-l, AUM 12 kuud tagasi:
+    AUM / (1 + 12 kuu kasv).
+    """
+    tkf = {str(r['Created At: Month'])[:7]: r['Sum of Amount'] or 0 for r in tkf_rows}
+    for r in aum_rows:
+        if r['_organic'] is None or r['_growth'] is None:
+            continue
+        y, m = k.parse_label(r['month'])
+        months = [divmod(y * 12 + m - 1 - j, 12) for j in range(12)]
+        tkf12 = sum(tkf.get(f'{yy}-{mm + 1:02d}', 0) for yy, mm in months)
+        base = r['_aum_eur'] / (1 + r['_growth'])
+        r['_organic'] += tkf12 / base
+        r['AUM 12 kuu kasv sissemaksetest ja -vahetustest %'] = round(r['_organic'] * 100)
+    return aum_rows
 
 
 def conversions_history(rows):

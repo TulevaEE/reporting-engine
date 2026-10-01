@@ -158,7 +158,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 |---------|:---:|
 | AUM kuu lõpus | 1786 M EUR |
 | AUM 12 kuu kasv | 41% |
-| sh sissemaksetest ja vahetustest | 21% |
+| sh sissemaksetest ja vahetustest | 22% |
 
 
 <!-- comment:aum_waterfall -->

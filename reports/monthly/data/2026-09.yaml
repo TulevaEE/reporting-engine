@@ -8790,54 +8790,93 @@ cards:
       kuu lõpu AUM (M EUR): 1263
       AUM 12 kuu kasv %: 35
       AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 27
+      _aum_eur: 1263145819.72
+      _growth: 0.3476
+      _organic: 0.2678
     - month: Oct-25
       kuu lõpu AUM (M EUR): 1332
       AUM 12 kuu kasv %: 38
       AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 26
+      _aum_eur: 1331976576.43
+      _growth: 0.3845
+      _organic: 0.2627
     - month: Nov-25
       kuu lõpu AUM (M EUR): 1344
       AUM 12 kuu kasv %: 29
       AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 24
+      _aum_eur: 1344492413.16
+      _growth: 0.2885
+      _organic: 0.2371
     - month: Dec-25
       kuu lõpu AUM (M EUR): 1388
       AUM 12 kuu kasv %: 29
       AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 23
+      _aum_eur: 1387740803.76
+      _growth: 0.2861
+      _organic: 0.2305
     - month: Jan-26
       kuu lõpu AUM (M EUR): 1416
       AUM 12 kuu kasv %: 25
       AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 22
+      _aum_eur: 1416096467.16
+      _growth: 0.2534
+      _organic: 0.2209
     - month: Feb-26
       kuu lõpu AUM (M EUR): 1457
       AUM 12 kuu kasv %: 29
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 22
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 23
+      _aum_eur: 1456587464.25
+      _growth: 0.2943
+      _organic: 0.22818929937241839
     - month: Mar-26
       kuu lõpu AUM (M EUR): 1387
       AUM 12 kuu kasv %: 31
       AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 24
+      _aum_eur: 1387105873.78
+      _growth: 0.3096
+      _organic: 0.24226914915926398
     - month: Apr-26
       kuu lõpu AUM (M EUR): 1534
       AUM 12 kuu kasv %: 49
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 24
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 25
+      _aum_eur: 1534018095.58
+      _growth: 0.4886
+      _organic: 0.2510853390852241
     - month: May-26
       kuu lõpu AUM (M EUR): 1643
       AUM 12 kuu kasv %: 48
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 23
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 24
+      _aum_eur: 1642873479.66
+      _growth: 0.4823
+      _organic: 0.2358289362744932
     - month: Jun-26
       kuu lõpu AUM (M EUR): 1675
       AUM 12 kuu kasv %: 48
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 23
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 24
+      _aum_eur: 1674748534.16
+      _growth: 0.4815
+      _organic: 0.23559815950750032
     - month: Jul-26
       kuu lõpu AUM (M EUR): 1673
       AUM 12 kuu kasv %: 39
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 21
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 22
+      _aum_eur: 1673234523.85
+      _growth: 0.3896
+      _organic: 0.22376870479119598
     - month: Aug-26
       kuu lõpu AUM (M EUR): 1741
       AUM 12 kuu kasv %: 43
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 21
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 23
+      _aum_eur: 1740686018.49
+      _growth: 0.4283
+      _organic: 0.22559427994702708
     - month: Sep-26
       kuu lõpu AUM (M EUR): 1786
       AUM 12 kuu kasv %: 41
-      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 21
+      AUM 12 kuu kasv sissemaksetest ja -vahetustest %: 22
+      _aum_eur: 1786134252.75
+      _growth: 0.414
+      _organic: 0.22233927798967631
   uute kogujate arv kuus, kogu ajalugu:
     card_id: 2748
     display: adapted

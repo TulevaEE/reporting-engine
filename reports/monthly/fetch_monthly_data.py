@@ -162,6 +162,12 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         for name, rows in dashboard_cards.pillar_new_savers(conversions, year, month).items():
             data['cards'][name] = {'card_id': 2748, 'display': 'derived', 'data': rows}
 
+    # AUM-i kasv sissemaksetest ja -vahetustest koos kogumisfondi sissemaksetega.
+    aum_rows = data['cards'].get('AUM (koos ootel vahetuste ja väljumistega)', {}).get('data')
+    tkf_rows = data['cards'].get('Täiendavasse Kogumisfondi tehtud maksed', {}).get('data')
+    if aum_rows and tkf_rows:
+        dashboard_cards.add_tkf_to_organic(aum_rows, tkf_rows)
+
     # Vahetusperioodi eesmärgikaardid.
     for card_id, spec in VP_GOAL_CARDS.items():
         print(f"  Fetching [{card_id}] {spec['title']}...")
