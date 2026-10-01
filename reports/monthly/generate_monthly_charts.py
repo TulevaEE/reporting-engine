@@ -947,7 +947,7 @@ def generate_drawdowns_chart(ii_data, iii_data, report_year, report_month, outpu
 
 
 def generate_unit_price_chart(price_data, output_dir: Path):
-    """Generate rebased line chart comparing Tuleva, EPI, MSCI ACWI, and CPI (card 2245).
+    """Generate rebased line chart comparing Tuleva, EPI, MSCI ACWI, and CPI (unit_prices.py).
 
     All series are rebased to 1.0 at the earliest common date.
     """
@@ -1010,7 +1010,7 @@ def generate_unit_price_chart(price_data, output_dir: Path):
 
 
 def generate_cumulative_returns_chart(price_data, output_dir: Path):
-    """Generate grouped bar chart of cumulative returns over 1, 2, 3, 5 years (card 2245)."""
+    """Generate grouped bar chart of cumulative returns over 1, 2, 3, 5 years (unit_prices.py)."""
     from datetime import datetime, timedelta
     from dateutil.relativedelta import relativedelta
 
@@ -1318,8 +1318,8 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     if ii_exiters and iii_withdrawals:
         generate_drawdowns_chart(ii_exiters, iii_withdrawals, year, month, output_dir)
 
-    # Unit price comparison chart (card 2245)
-    unit_price = cards.get('Osakuhinna võrdlus', {}).get('data', [])
+    # Osakuhinna võrdlus: avalikest allikatest (unit_prices.py); kuni 2026-08 andmefailides kaart 2245.
+    unit_price = data.get('unit_prices') or cards.get('Osakuhinna võrdlus', {}).get('data', [])
     if unit_price:
         generate_unit_price_chart(unit_price, output_dir)
         generate_cumulative_returns_chart(unit_price, output_dir)

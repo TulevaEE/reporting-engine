@@ -1,5 +1,10 @@
 """
-Fetch monthly KPI data from Metabase.
+Fetch monthly KPI data from Metabase, through the Tuleva agent gateway.
+
+The personal Metabase key is gone (internal rule 22 p 4.1). Cards are read with
+the gateway tool `reports`, which answers only cards on the Monthly KPIs (74)
+and Weekly (12) dashboards; see common/scripts/gateway_client.py. The first run
+opens a browser to log in with your Tuleva Google account.
 
 The primary source is the consolidated KPI card 2578 ("Mv Kpi New for Claude"):
 a wide monthly time series (one row per month) covering AUM, active investors,
@@ -9,11 +14,10 @@ from the full series (build_monthly_report.py / kpi_2578.py).
 
 A small set of "survivor" cards supply data that 2578 does not contain:
   - new-savers distinct-person counts + by-source splits (1518/418/1519/1520/1534/1535)
-  - the monthly rate-change flow (1573) — 2578 only has cumulative rate stock
   - distinct III-pillar contributor YTD count (1657)
   - fund-level switching destination/source lists (1911/1912)
   - growth-source waterfalls incl. non-reconstructable forecast (389/392/393)
-  - unit-price/returns series (2245), financial results (636), TKF payments (2305)
+  - financial results (636), TKF payments (2305)
   - the AUM chart itself (334) which carries forecast bars + pre-rounded growth %
 
 This replaces the previous approach of looping over every card pinned to
@@ -27,7 +31,8 @@ from datetime import datetime
 # Add common scripts to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'common' / 'scripts'))
 
-from metabase_client import MetabaseClient
+from gateway_client import GatewayClient
+from unit_prices import fetch_unit_prices
 
 
 # Consolidated KPI card — the primary data source (monthly time series).
@@ -45,14 +50,12 @@ SURVIVOR_CARDS = {
     1520: ('III sambaga liitujate arv kuus', 'combo'),
     1534: ('uute II samba kogujate arv YTD', 'smartscalar'),
     1535: ('uute III samba kogujate arv YTD', 'smartscalar'),
-    1573: ('II samba maksemäära muutmine', 'combo'),
     1657: ('III s sissemakse tegijate arv YTD', 'scalar'),
     1911: ('II samba vahetusavalduste arv pangafondidesse sel vahetusperioodil', 'row'),
     1912: ('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', 'row'),
     389:  ('Kasvuallikad eelmisel kuul (tegelik), M EUR', 'waterfall'),
     392:  ('Kasvuallikad YTD (tegelik), M EUR', 'waterfall'),
     393:  ('Kasvuallikad (aasta lõpu prognoos), M EUR', 'waterfall'),
-    2245: ('Osakuhinna võrdlus', 'line'),
     636:  ('Tuleva finantstulemused', 'line'),
     2305: ('Täiendavasse Kogumisfondi tehtud maksed', 'line'),
     # Missiooni tabloo (mission_kpis.py): 1516 on kaardi 1518 allikas ilma 13 kuu
@@ -110,7 +113,14 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     """
     print(f"Fetching monthly data for {year}-{month:02d}...")
 
-    client = MetabaseClient()
+    client = GatewayClient()
+
+    # Gateway annab välja ainult dashboardide kaarte: ütle kohe, mis puudu on.
+    needed = {PRIMARY_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
+    available = {card['id'] for card in client.cards()}
+    missing = sorted(needed - available)
+    if missing:
+        print(f"  WARNING: not on the gateway's dashboards, add them in Metabase: {missing}")
 
     data = {
         'year': year,
@@ -120,7 +130,12 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         'kpi_2578': {},
         'cards': {},
         'vp_goals': {},
+        'unit_prices': [],
     }
+
+    # Osakuhinna võrdlus avalikest allikatest (kaardi 2245 asemel), vt unit_prices.py.
+    print("  Fetching unit prices (pensionikeskus, MSCI, Eurostat)...")
+    data['unit_prices'] = fetch_unit_prices(year, month)
 
     # Primary consolidated KPI card (full monthly time series).
     print(f"  Fetching [{PRIMARY_CARD_ID}] {PRIMARY_CARD_NAME} (primary)...")

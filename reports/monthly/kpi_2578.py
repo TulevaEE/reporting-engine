@@ -79,3 +79,36 @@ def yoy(series: list, year: int, month: int, column: str):
     if not p:
         return None
     return (c - p) / p
+
+
+def rate_change_rows(series: list) -> list:
+    """II samba maksemäära tõstjad ja langetajad kuus, kaardi 1573 kujul.
+
+    2578 veerud ``Active Investors Increased/Decreased Rate`` on avalduste
+    kumulatiivne arv jooksval avalduste perioodil (1. detsember kuni 30. november).
+    Kuu arv on vahe eelmisest kuust; detsembris algab uus periood ja kuu arv on
+    väärtus ise. Sama loogika on dashboardi 74 kaardil 2731
+    (tuleva repo ``work/kpi/monthly-kpis/maksemaara-muutjad-kuine.sql``).
+    Vana kaart 1573 lahutas detsembris novembri kogusumma ja andis suure
+    negatiivse rea, nii et detsembri avaldused jäid perioodi summast välja.
+    """
+    idx = index_series(series)
+    rows = []
+    for (year, month) in sorted(idx):
+        cur = idx[(year, month)]
+        raised = cur.get('Active Investors Increased Rate')
+        lowered = cur.get('Active Investors Decreased Rate')
+        if raised is None or lowered is None:
+            continue
+        if month != 12:
+            prev = idx.get((year, month - 1) if month > 1 else (year - 1, 12))
+            if prev is None:
+                continue
+            raised -= prev.get('Active Investors Increased Rate') or 0
+            lowered -= prev.get('Active Investors Decreased Rate') or 0
+        rows.append({
+            'kuu: Month': f'{year}-{month:02d}-01',
+            'maksemäära tõstnute arv': raised,
+            'maksemäära langetanute arv': lowered,
+        })
+    return rows

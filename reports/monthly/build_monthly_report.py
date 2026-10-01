@@ -235,19 +235,19 @@ def preprocess_data(data, year, month):
         report['iii_contributors_ytd'] = iii_contributors_ytd_data[0].get(
             'Distinct values of Personal ID')
 
-    # Contribution rate changes
-    row = get_month_row(cards.get('II samba maksemäära muutmine', {}), year, month)
+    # Contribution rate changes, derived from 2578 (formerly card 1573), see
+    # kpi_2578.rate_change_rows.
+    rate_changes_card = {'data': k2578.rate_change_rows(series)}
+    row = get_month_row(rate_changes_card, year, month)
     if row:
         report['rate_changes'] = row
 
-    # Rate changes for the current collection period and YoY (from card 1573).
+    # Rate changes for the current collection period and YoY.
     # The rate-change application collection period runs 1 Dec -> 30 Nov each
     # year (a new period opens every 1 December). So we sum "alates detsembrist"
-    # (since December) rather than calendar-YTD. December carries a large negative
-    # row where the previous period's applications are executed and the pending
-    # pool is cleared; we floor each month at 0 so that reset (and any negative)
-    # does not subtract from the running count.
-    rate_changes_data = cards.get('II samba maksemäära muutmine', {}).get('data', [])
+    # (since December) rather than calendar-YTD. Each month is floored at 0 so a
+    # negative month (a correction in the source) cannot subtract from the count.
+    rate_changes_data = rate_changes_card['data']
     # Period start = December of the report year if the report month is December
     # (a new period just opened), otherwise December of the previous year.
     period_start_year = year if month == 12 else year - 1
@@ -277,8 +277,7 @@ def preprocess_data(data, year, month):
             'raised': ytd_prev_raised, 'lowered': ytd_prev_lowered}
 
     # Rate changes month YoY
-    rate_changes_prev = get_month_row(
-        cards.get('II samba maksemäära muutmine', {}), year - 1, month)
+    rate_changes_prev = get_month_row(rate_changes_card, year - 1, month)
     if rate_changes_prev:
         report['rate_changes_prev'] = rate_changes_prev
 
