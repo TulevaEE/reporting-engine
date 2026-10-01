@@ -337,8 +337,6 @@ def preprocess_data(data, year, month):
         'Kasvuallikad eelmisel kuul (tegelik), M EUR', {}).get('data', [])
     report['growth_ytd'] = cards.get(
         'Kasvuallikad YTD (tegelik), M EUR', {}).get('data', [])
-    report['growth_forecast'] = cards.get(
-        'Kasvuallikad (aasta lõpu prognoos), M EUR', {}).get('data', [])
 
     # --- Täiendav Kogumisfond contributions (card 2305) ---
     tkf_data = cards.get('Täiendavasse Kogumisfondi tehtud maksed', {}).get('data', [])

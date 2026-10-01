@@ -18,7 +18,7 @@ import kpi_2578 as k2578
 POSITIVE_COLOR = '#51c26c'
 NEGATIVE_COLOR = '#FF4800'
 TOTAL_COLOR = TULEVA_NAVY
-FORECAST_COLOR = '#B0D4F1'
+LIGHT_BLUE = '#B0D4F1'
 ACTUAL_COLOR = TULEVA_BLUE
 
 ESTONIAN_MONTHS = {
@@ -62,15 +62,17 @@ def _reconstruct_growth(idx, year, month):
 def _extend_aum_history(series, card334_rows, report_year, report_month, months_back=36):
     """Prepend older AUM history from card 2578 so the AUM chart spans `months_back`.
 
-    Card 334 supplies only ~13 actual months (+ forecast) but carries the exact
-    published AUM bars, growth-% lines and forecast. For the older months we
+    Card 334 supplies only ~13 actual months but carries the exact published AUM
+    bars (incl. pending switches/exits and, from 2026-02, TKF) and growth-% lines.
+    Its forecast rows (``prog:``) are dropped: the report shows no forecast. For the
+    older months we
     synthesize rows from 2578: the AUM bar from ``Current Aum`` (rounded M EUR to
     match 334's integer style) and both growth-% lines via ``_reconstruct_growth``.
-    Card 334's own rows are returned unchanged, so recent/published values stay intact.
+    Card 334's actual rows are returned unchanged, so recent/published values stay intact.
     """
     idx = k2578.index_series(series)
-    actual = [k2578.parse_label(r['month']) for r in card334_rows
-              if not r['month'].startswith('prog:')]
+    card334_rows = [r for r in card334_rows if not r['month'].startswith('prog:')]
+    actual = [k2578.parse_label(r['month']) for r in card334_rows]
     earliest = min(y * 12 + (m - 1) for y, m in actual) if actual \
         else report_year * 12 + (report_month - 1)
     start = report_year * 12 + (report_month - 1) - (months_back - 1)
@@ -132,7 +134,7 @@ def _kpi_window_rows(series, report_year, report_month, builders, window=CHART_W
 def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
     """Generate AUM bar chart with dual-axis growth lines (card 334).
 
-    Left Y-axis: AUM columns (dark blue = actual, light blue = forecast).
+    Left Y-axis: AUM columns (actual months only, no forecast).
     Right Y-axis: 12-month growth % and organic growth % as lines.
     """
     print("Generating AUM chart...")
@@ -141,26 +143,20 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
     aum_values = []
     growth_pct = []
     organic_pct = []
-    is_forecast = []
 
     for row in aum_data:
-        month_str = row['month']
-        forecast = month_str.startswith('prog:')
-        clean = month_str.replace('prog:', '')
-        months.append(clean)
+        months.append(row['month'])
         aum_values.append(row['kuu lõpu AUM (M EUR)'])
         growth_pct.append(row['AUM 12 kuu kasv %'])
         organic_pct.append(row['AUM 12 kuu kasv sissemaksetest ja -vahetustest %'])
-        is_forecast.append(forecast)
 
     fig, ax_bar = plt.subplots(figsize=(14, 5.5))
     ax_line = ax_bar.twinx()
 
     x = np.arange(len(months))
-    bar_colors = [ACTUAL_COLOR if not f else FORECAST_COLOR for f in is_forecast]
 
     # AUM columns
-    ax_bar.bar(x, aum_values, color=bar_colors, width=0.7, zorder=2)
+    ax_bar.bar(x, aum_values, color=ACTUAL_COLOR, width=0.7, zorder=2)
 
     # Mark the report month
     report_month_abbr = (
@@ -179,24 +175,13 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
     # Growth lines on secondary axis. Values may be None for older months
     # synthesized from card 2578 (organic growth can't be reconstructed there),
     # so plot each line only over the indices where it has a value.
-    actual_idx = [i for i, f in enumerate(is_forecast) if not f]
-    forecast_idx = [i for i, f in enumerate(is_forecast) if f]
-
     def plot_growth(values, color, marker, label):
-        act = [i for i in actual_idx if values[i] is not None]
+        act = [i for i in range(len(values)) if values[i] is not None]
         if act:
             ax_line.plot(
                 x[act], [values[i] for i in act],
                 color=color, linewidth=2, marker=marker, markersize=3,
                 label=label, zorder=4,
-            )
-        fc = [i for i in forecast_idx if values[i] is not None]
-        if fc and act:
-            bridge = [act[-1]] + fc
-            ax_line.plot(
-                x[bridge], [values[i] for i in bridge],
-                color=color, linewidth=1.5, linestyle='--', marker=marker,
-                markersize=2, zorder=3,
             )
 
     plot_growth(growth_pct, '#FF4800', 'o', 'AUM 12 kuu kasv %')
@@ -225,8 +210,7 @@ def generate_aum_chart(aum_data, report_year, report_month, output_dir: Path):
     from matplotlib.patches import Patch
     from matplotlib.lines import Line2D
     legend_elements = [
-        Patch(facecolor=ACTUAL_COLOR, label='AUM (tegelik)'),
-        Patch(facecolor=FORECAST_COLOR, label='AUM (prognoos)'),
+        Patch(facecolor=ACTUAL_COLOR, label='AUM'),
         Line2D([0], [0], color='#FF4800', linewidth=2, label='AUM 12 kuu kasv %'),
         Line2D([0], [0], color='#51c26c', linewidth=2, label='sh orgaaniline kasv %'),
     ]
@@ -278,7 +262,7 @@ def generate_savers_chart(savers_data, report_year, report_month, output_dir: Pa
                          label='Ainult II sammas', color=TULEVA_NAVY, zorder=2)
     bottom_iii = [a + b for a, b in zip(both, only_ii)]
     bars_iii = ax_bar.bar(x, only_iii, width, bottom=bottom_iii,
-                          label='Ainult III sammas', color=FORECAST_COLOR, zorder=2)
+                          label='Ainult III sammas', color=LIGHT_BLUE, zorder=2)
 
     # Mark the report month
     report_month_abbr = (
@@ -319,7 +303,7 @@ def generate_savers_chart(savers_data, report_year, report_month, output_dir: Pa
     legend_elements = [
         Patch(facecolor=TULEVA_MID_BLUE, label='II ja III sammas'),
         Patch(facecolor=TULEVA_NAVY, label='Ainult II sammas'),
-        Patch(facecolor=FORECAST_COLOR, label='Ainult III sammas'),
+        Patch(facecolor=LIGHT_BLUE, label='Ainult III sammas'),
         Line2D([0], [0], color='#FF4800', linewidth=2, label='YoY kasv %'),
     ]
     ax_bar.legend(handles=legend_elements, loc='upper left', fontsize=8)
@@ -375,7 +359,7 @@ def generate_new_savers_by_pillar_chart(ii_data, iii_data, report_year, report_m
            label='II ja III sammas', color=TULEVA_MID_BLUE, zorder=2)
     bottom_iii = [a + b for a, b in zip(only_ii, both)]
     ax.bar(x, only_iii, width, bottom=bottom_iii,
-           label='Ainult III sammas', color=FORECAST_COLOR, zorder=2)
+           label='Ainult III sammas', color=LIGHT_BLUE, zorder=2)
 
     # Annotate report month total
     report_month_abbr = (
@@ -436,7 +420,7 @@ def generate_new_ii_savers_by_source_chart(ii_data, report_year, report_month, o
            label='Avas II ja III samba', color=TULEVA_MID_BLUE, zorder=2)
     bottom_from_iii = [a + b for a, b in zip(new_ii_only, new_both)]
     ax.bar(x, from_iii, width, bottom=bottom_from_iii,
-           label='III samba koguja tõi II samba üle', color=FORECAST_COLOR, zorder=2)
+           label='III samba koguja tõi II samba üle', color=LIGHT_BLUE, zorder=2)
 
     # Annotate report month total
     report_month_abbr = (
@@ -1239,7 +1223,7 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     cards = data.get('cards', {})
     series = data.get('kpi_2578', {}).get('data', []) or []
 
-    # AUM line chart (card 334 — kept: carries forecast bars + growth %).
+    # AUM chart (card 334 actual rows: AUM incl. pending and TKF, growth %).
     # History extended to 36 months by prepending older AUM from card 2578.
     aum_card = cards.get('AUM (koos ootel vahetuste ja väljumistega)', {})
     aum_data = aum_card.get('data', [])

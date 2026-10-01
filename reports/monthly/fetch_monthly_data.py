@@ -16,9 +16,9 @@ A small set of "survivor" cards supply data that 2578 does not contain:
   - new-savers distinct-person counts + by-source splits (1518/418/1519/1520/1534/1535)
   - distinct III-pillar contributor YTD count (1657)
   - fund-level switching destination/source lists (1911/1912)
-  - growth-source waterfalls incl. non-reconstructable forecast (389/392/393)
+  - growth-source waterfalls (389/392)
   - financial results (636), TKF payments (2305)
-  - the AUM chart itself (334) which carries forecast bars + pre-rounded growth %
+  - the AUM chart itself (334): AUM incl. pending and TKF + pre-rounded growth %; its forecast rows are not shown
 
 This replaces the previous approach of looping over every card pinned to
 dashboard 74 (non-deterministic) plus a few hardcoded standalone cards.
@@ -55,7 +55,6 @@ SURVIVOR_CARDS = {
     1912: ('II samba vahetusavalduste arv lähtefondi järgi sel vahetusperioodil', 'row'),
     389:  ('Kasvuallikad eelmisel kuul (tegelik), M EUR', 'waterfall'),
     392:  ('Kasvuallikad YTD (tegelik), M EUR', 'waterfall'),
-    393:  ('Kasvuallikad (aasta lõpu prognoos), M EUR', 'waterfall'),
     636:  ('Tuleva finantstulemused', 'line'),
     2305: ('Täiendavasse Kogumisfondi tehtud maksed', 'line'),
     # Missiooni tabloo (mission_kpis.py): 1516 on kaardi 1518 allikas ilma 13 kuu
