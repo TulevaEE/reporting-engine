@@ -330,6 +330,24 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 ---
 
+### 7. Tuleva finantstulemused
+
+<!-- comment:financials -->
+Septembri tööjõukulud on tavapärasest väiksemad, sest pöörasime tagasi juulis ja augustis kirjendatud optsioonikulud: optsiooniprogrammi meil enam ei ole. Sellepärast on ka septembri ärikasum ja puhaskasum tavalisest suuremad.
+
+<!-- /comment:financials -->
+
+| KPI | September 2026 | YoY | YTD | YoY |
+|---------|:---:|:---:|:---:|:---:|
+| Brutomarginaal pärast litsentsitasu | 158,809 EUR | *9%* | 1,340,961 EUR | *9%* |
+| Tööjõukulud | -57,670 EUR | *-35%* | -781,239 EUR | *-12%* |
+| Mitmesugused tegevuskulud | -33,560 EUR | *111%* | -193,487 EUR | *6%* |
+| Ebitda/ärikasum | 67,579 EUR | *65%* | 366,235 EUR | *122%* |
+| Puhaskasum | 61,368 EUR | *73%* | 311,820 EUR | *161%* |
+| **Litsentsitasu ühistule** | **74,636 EUR** | ***41%*** | **596,207 EUR** | ***39%*** |
+
+*Ajutiselt prognoositabeli käsitsi ekspordist (`prognoos-kuu.csv`), sest Metabase'i finantsvaade ei uuene.*
+
 
 
 ---
