@@ -236,8 +236,7 @@ def _panel_goal_1(rows, ax):
                     annotation_clip=False)
 
 
-def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
-                      context=None):
+def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax):
     BLUE, NAVY, MID = _style()
 
     pace = [(_day(r), r.get(pace_col)) for r in rows
@@ -245,14 +244,6 @@ def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
     if pace:
         ax.plot([p[0] for p in pace], [p[1] for p in pace], linestyle='--',
                 color='#FF4800', linewidth=1.5, label='sihtjoon', zorder=3)
-
-    if context:
-        ccol, clabel = context
-        c = [(_day(r), r.get(ccol)) for r in rows
-             if r.get(ccol) is not None]
-        if c:
-            ax.plot([p[0] for p in c], [p[1] for p in c], color=BLUE,
-                    linewidth=1.5, alpha=0.8, label=clabel, zorder=3)
 
     act = [(_day(r), r.get(col)) for r in rows if r.get(col) is not None]
     ax.plot([p[0] for p in act], [p[1] for p in act], color=NAVY, linewidth=2.5,
@@ -263,6 +254,52 @@ def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax,
     ax.set_ylim(0, target * 1.1)
     ax.legend(frameon=False, fontsize=11, loc='upper left')
     _finish(ax, title)
+
+
+def _panel_goal_3(rows, ax, target=400):
+    """Nädala tulbad: kõik seni avatud lastekontod kolmes osas.
+
+    Eesmärk loeb ainult püsimaksega lapsi (tume osa); kõrgemad osad näitavad,
+    kui palju on avatud kontosid, kust püsimakse võib veel tulla. Sihtjoont
+    ei ole: kumulatiivse arvu ja lineaarse tempo kõrvutus oli loetamatu.
+    """
+    BLUE, NAVY, MID = _style()
+    rows = [r for r in rows if r.get('pusimakse_kokku') is not None]
+    x = range(len(rows))
+    pusi = [r['pusimakse_kokku'] for r in rows]
+    maksnud = [r['maksnud_kokku'] - r['pusimakse_kokku'] for r in rows]
+    avatud = [r['lapsi_kokku'] - r['maksnud_kokku'] for r in rows]
+
+    ax.bar(x, pusi, width=0.7, color=NAVY, label='kogub püsimaksega', zorder=3)
+    ax.bar(x, maksnud, bottom=pusi, width=0.7, color=BLUE,
+           label='teinud sissemakse, püsimakset veel pole', zorder=3)
+    ax.bar(x, avatud, bottom=[a + b for a, b in zip(pusi, maksnud)], width=0.7,
+           color='#D6E9F8', label='konto avatud, sissemakset veel pole', zorder=3)
+    for i, v in enumerate(pusi):
+        if v >= 40:  # madalasse tulpa number ei mahu
+            ax.text(i, v / 2, f'{v}', ha='center', va='center', color='white',
+                    fontsize=11, fontweight='bold', zorder=4)
+    for i, r in enumerate(rows):
+        ax.text(i, r['lapsi_kokku'] + 12, f"{r['lapsi_kokku']}", ha='center',
+                va='bottom', color='#5b6577', fontsize=10)
+
+    ax.axhline(target, color='#FF4800', linestyle='--', linewidth=1.8, zorder=5)
+    ax.text(-0.45, target * 1.03, f'siht: {target} last püsimaksega 30.11-ks',
+            color='#FF4800', fontsize=11, fontweight='bold', va='bottom', zorder=5)
+
+    ax.set_xticks(list(x))
+    ax.set_xticklabels([_day(r).strftime('%d.%m') for r in rows])
+    ax.set_xlabel('nädala algus')
+    ax.set_ylabel(f"lapsi kokku alates {_day(rows[0]).strftime('%d.%m')}")
+    ax.set_ylim(0, max(r['lapsi_kokku'] for r in rows) * 1.12)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.grid(axis='y', color='#e3e7ec', linewidth=1)
+    ax.set_axisbelow(True)
+    ax.tick_params(labelsize=11)
+    h, l = ax.get_legend_handles_labels()
+    ax.legend(h[::-1], l[::-1], frameon=False, fontsize=11, loc='upper left',
+              bbox_to_anchor=(0, 0.93))
 
 
 def _panel_goal_4(rows, ax):
@@ -319,9 +356,7 @@ def generate_charts(vp_data: dict, charts_dir: Path, year: int = None,
             _panel_cumulative(rows, 'oud_kokku', 'sihtjoon', 500,
                               SHORT_TITLES['goal_2'], 'OÜd kokku', ax)
         elif key == 'goal_3':
-            _panel_cumulative(rows, 'pusimakse_kokku', 'sihtjoon', 400,
-                              SHORT_TITLES['goal_3'], 'lapsi', ax,
-                              context=('maksnud_kokku', 'sissemakse teinud (sh ühekordne)'))
+            _panel_goal_3(rows, ax)
         elif key == 'goal_4':
             _panel_goal_4(rows, ax)
         fig.tight_layout()
