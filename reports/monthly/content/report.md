@@ -311,9 +311,6 @@
 | {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | *{{ pr(row['YoY %']) }}* | {{ ytd }} | *{{ pr(row['YTD YoY %']) }}* |
 {% endif -%}
 {% endfor %}
-{% if report.financials_source -%}
-*Ajutiselt prognoositabeli käsitsi ekspordist (`{{ report.financials_source }}`), sest Metabase'i finantsvaade ei uuene.*
-{% endif %}
 {% endif %}
 
 ---

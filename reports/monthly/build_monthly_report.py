@@ -13,7 +13,6 @@ import kpi_2578 as k2578
 import vp_goals as vg
 import mission_kpis as mk
 import mission_charts as mc
-import financials_csv as fc
 # weasyprint is imported lazily in build_monthly_report() only when format='pdf'
 
 
@@ -379,10 +378,7 @@ def preprocess_data(data, year, month):
         report['tkf_contributions'] = tkf
 
     # --- Financial results ---
-    # AJUTINE: Metabase kaart 636 ei uuene (augustis näitas veebruari numbreid),
-    # seega loeme read käsitsi eksporditud prognoositabelist. Kui kaart on
-    # parandatud, taasta siin cards['Tuleva finantstulemused'] kasutus ja
-    # kustuta financials_csv.py.
+    # Kaart 2839 (fetch_monthly_data.FINANCIALS_CARD_ID): read juba kaardi 636 kujul.
     selected_rows = [
         'brutomarginaal pärast litsentsitasu',
         'tööjõukulud',
@@ -391,12 +387,14 @@ def preprocess_data(data, year, month):
         'puhaskasum',
         'litsentsitasu',
     ]
-    selected = fc.load(year, month, selected_rows)
-    # Peatükk jääb välja, kui mõni rida puudub — siis pole kuu veel kinni.
+    by_name = {row['Eur']: row for row in cards.get('Tuleva finantstulemused', {}).get('data') or []}
+    selected = [by_name[name] for name in selected_rows if name in by_name]
+    # Peatükk jääb välja, kui mõni rida puudub või kuu on alles hinnang — siis pole kuu veel kinni.
     # YoY võib üksikul real puududa (märgivahetus), see peatükki maha ei võta.
-    if len(selected) == len(selected_rows):
+    if len(selected) == len(selected_rows) and all(row.get('Seis') != 'hinnang' for row in selected):
         report['financials'] = selected
-        report['financials_source'] = fc.DEFAULT_CSV.name
+    elif selected:
+        print("  Hoiatus: finantstulemuste kuu on veel hinnang — 7. peatükk jääb välja")
 
     return report
 

@@ -40,6 +40,10 @@ import dashboard_cards
 PRIMARY_CARD_ID = 2578
 PRIMARY_CARD_NAME = 'Mv Kpi New for Claude'
 
+# 7. peatükk: kasumiaruande read valitud kuu kohta (tegelik, prognoos, eelmine aasta, YTD).
+FINANCIALS_CARD_ID = 2839
+FINANCIALS_CARD_NAME = 'Tuleva finantstulemused'
+
 # Cards 2578 cannot replace. The gateway answers only cards on dashboards 74 and 12,
 # so these are the dashboard's own cards, adapted to the old survivor cards' rows
 # (dashboard_cards.py) so the build and chart code read them as before.
@@ -102,12 +106,12 @@ def fetch_monthly_data(year: int, month: int) -> dict:
 
     client = GatewayClient()
 
-    # Gateway annab välja ainult dashboardide kaarte: ütle kohe, mis puudu on.
-    needed = {PRIMARY_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
-    available = {card['id'] for card in client.cards()}
+    # Gateway annab ridu ainult agentidele antud kaartidelt: ütle kohe, mis puudu on.
+    needed = {PRIMARY_CARD_ID, FINANCIALS_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
+    available = {card['id'] for card in client.cards() if card['grant'] == 'granted'}
     missing = sorted(needed - available)
     if missing:
-        print(f"  WARNING: not on the gateway's dashboards, add them in Metabase: {missing}")
+        print(f"  WARNING: not granted to agents, ask with the gateway's metabase grant: {missing}")
 
     data = {
         'year': year,
@@ -154,6 +158,20 @@ def fetch_monthly_data(year: int, month: int) -> dict:
         except Exception as e:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
+
+    # Finantstulemused: kaardil on parameetrid aasta ja kuu (andmekuu).
+    print(f"  Fetching [{FINANCIALS_CARD_ID}] {FINANCIALS_CARD_NAME}...")
+    try:
+        results = client.execute_card(FINANCIALS_CARD_ID, {'aasta': year, 'kuu': month})
+        data['cards'][FINANCIALS_CARD_NAME] = {
+            'card_id': FINANCIALS_CARD_ID,
+            'display': 'table',
+            'data': results,
+        }
+        print(f"    -> {len(results)} rows")
+    except Exception as e:
+        print(f"    ERROR: {e}")
+        data['cards'][FINANCIALS_CARD_NAME] = {'card_id': FINANCIALS_CARD_ID, 'error': str(e)}
 
     # Uued kogujad (vanad 1518, 1519, 1520, 418, 1534, 1535): ainult II ja III sammas,
     # tabelist 2748, vt dashboard_cards.pillar_new_savers.

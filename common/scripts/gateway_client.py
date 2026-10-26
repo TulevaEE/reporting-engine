@@ -1,8 +1,8 @@
 """Metabase'i aruandekaardid Tuleva agent gateway kaudu.
 
 Isiklikku Metabase'i võtit enam ei ole (sisekord 22 p 4.1). Gateway tööriist
-``reports`` annab välja ainult Monthly KPIs (74) ja Weekly KPIs (12)
-dashboardi kaarte, ja iga päring logitakse sinu nimel (``audit_trail``).
+``metabase`` annab ridu ainult kaartidelt, mis on agentidele antud (``grant``,
+kinnitatakse Slackis), ja iga päring logitakse sinu nimel (``audit_trail``).
 
 Sisselogimine: esimesel korral avab skript brauseri, logid sisse oma Tuleva
 Google'i kontoga ja kinnitad nõusoleku. Tokenid jäävad faili
@@ -39,7 +39,7 @@ CALLBACK_PORT = int(os.environ.get('TULEVA_GATEWAY_CALLBACK_PORT', '8765'))
 CALLBACK_PATH = '/callback'
 TOKEN_FILE = Path(os.environ.get('TULEVA_CACHE_DIR', Path.home() / '.cache' / 'tuleva-reports')) \
     / 'gateway-oauth.json'
-TOOL = 'reports'
+TOOL = 'metabase'
 CALL_TIMEOUT_SECONDS = 300
 LOGIN_TIMEOUT_SECONDS = 300
 BUSY_RETRIES = 10
@@ -50,7 +50,7 @@ _DECIMAL = re.compile(r'-?(\d+\.\d*|\.\d+|\d+)([eE][-+]?\d+)?')
 
 
 class GatewayRefused(RuntimeError):
-    """Gateway vastas keeldumisega (nt kaart ei ole dashboardil)."""
+    """Gateway vastas keeldumisega (nt kaart ei ole agentidele antud)."""
 
 
 class _FileTokenStorage:
@@ -223,16 +223,21 @@ class GatewayClient:
         return answer.get('text') or json.dumps(answer)
 
     def cards(self) -> list[dict]:
-        """Dashboardide kaardid: id, nimi ja dashboard, ilma väärtusteta."""
-        answer = asyncio.run(self._call({'operation': 'cards'}))
-        return [{**card, 'dashboard': dashboard['id']}
-                for dashboard in answer['dashboards'] for card in dashboard['cards']]
+        """Agentide kollektsioonide kaardid: id, nimi ja grant, ilma väärtusteta.
 
-    def execute_card(self, card_id: int) -> list[dict]:
+        Ridu annab gateway ainult kaardilt, mille grant on 'granted' (Slackis kinnitatud).
+        """
+        answer = asyncio.run(self._call({'operation': 'items'}))
+        return [item for item in answer['items'] if item['kind'] == 'card']
+
+    def execute_card(self, card_id: int, parameters: dict | None = None) -> list[dict]:
         # Gateway loeb korraga ühte kaarti (ka crm ja mailchimp jagavad seda lukku).
         for attempt in range(BUSY_RETRIES):
             try:
-                answer = asyncio.run(self._call({'operation': 'rows', 'CARD_ID': card_id}))
+                arguments = {'operation': 'rows', 'CARD_ID': card_id}
+                if parameters:
+                    arguments['PARAMETERS'] = parameters
+                answer = asyncio.run(self._call(arguments))
                 break
             except GatewayRefused as refused:
                 if 'another card is being read' not in str(refused) or attempt == BUSY_RETRIES - 1:
