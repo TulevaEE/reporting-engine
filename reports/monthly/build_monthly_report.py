@@ -439,8 +439,11 @@ def md_to_html(md_text: str, title: str) -> str:
 
 def build_md(year: int, month: int) -> Path:
     """
-    Step 1: Generate MD report from template + data with placeholder comments.
-    Run this first, then edit the MD manually, then run build_html.
+    Step 1: Generate MD report from template + data.
+
+    Comments are kept: the comment blocks of an existing MD file are read back and
+    rendered into the new one (comments/YYYY-MM.yaml, if present, is the fallback).
+    Only text inside <!-- comment:... --> blocks survives a re-render.
     """
     report_dir = Path(__file__).parent
     data_file = report_dir / 'data' / f'{year}-{month:02d}.yaml'
@@ -456,15 +459,18 @@ def build_md(year: int, month: int) -> Path:
     with open(data_file, 'r') as f:
         data = yaml.safe_load(f)
 
-    # Load comments from YAML placeholders
+    # Kommentaarid: comments/YYYY-MM.yaml, mille üle kirjutavad olemasoleva MD faili kommentaariplokid
+    # (neid toimetatakse MD-s), et uus renderdus ei kaotaks käsitsi kirjutatud teksti.
+    comments = {}
     comments_file = report_dir / 'comments' / f'{year}-{month:02d}.yaml'
     if comments_file.exists():
         with open(comments_file, 'r') as f:
             comments = yaml.safe_load(f) or {}
         print(f"Loaded comments from: {comments_file}")
-    else:
-        comments = {}
-        print(f"No comments file found, using empty comments")
+    md_comments = extract_comments_from_md(output_dir / f'monthly_report_{year}-{month:02d}.md')
+    if md_comments:
+        comments.update(md_comments)
+        print(f"Kept {len(md_comments)} comments from the existing MD file")
 
     print(f"Loaded data for {data.get('month_name', 'Unknown')} {data.get('year', year)}")
 
@@ -520,15 +526,21 @@ def build_md(year: int, month: int) -> Path:
     with open(md_file, 'w') as f:
         f.write(rendered_md)
     print(f"Markdown generated: {md_file}")
-    print(f"\nNext step: edit comments in {md_file}, then run:")
+    print(f"\nNext step: edit the comment blocks in {md_file}, then run:")
     print(f"  python build_monthly_report.py {year} {month} html")
     return md_file
 
 
 def build_html(year: int, month: int) -> Path:
     """
-    Step 2: Convert the existing MD report (with your comments) to HTML.
+    Step 2: Re-render the MD (keeping its comments) and convert it to HTML.
+
+    Re-rendering first means the HTML always matches the month's data and charts:
+    charts/ is shared by the whole year, so converting an old MD would embed
+    whichever month's charts were generated last.
     """
+    if not build_md(year, month):
+        return None
     report_dir = Path(__file__).parent
     data_file = report_dir / 'data' / f'{year}-{month:02d}.yaml'
     output_dir = report_dir / 'output' / str(year)
@@ -564,8 +576,10 @@ def build_html(year: int, month: int) -> Path:
 
 def build_pdf(year: int, month: int) -> Path:
     """
-    Step 3 (optional): Convert the existing MD report to PDF.
+    Step 3 (optional): Re-render the MD (keeping its comments) and convert it to PDF.
     """
+    if not build_md(year, month):
+        return None
     base_dir = Path(__file__).parent.parent.parent
     report_dir = Path(__file__).parent
     data_file = report_dir / 'data' / f'{year}-{month:02d}.yaml'
@@ -610,10 +624,11 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
     Build monthly board report.
 
     Workflow:
-        1. `md`  — generate MD from template + data (with placeholder comments)
-        2. Edit the MD file manually to add real comments
-        3. `html` — convert the edited MD to HTML (no re-render)
-        4. `pdf`  — convert the edited MD to PDF (optional)
+        1. `md`  — generate MD from template + data (existing comments are kept)
+        2. Edit the comment blocks in the MD file
+        3. `html` — re-render the MD and convert it to HTML
+        4. `pdf`  — re-render the MD and convert it to PDF (optional)
+        5. `publish` — `html`, then copy it to docs/latest-monthly-report.html (GitHub Pages)
     """
     if output_format == 'md':
         return build_md(year, month)
@@ -621,21 +636,28 @@ def build_monthly_report(year: int, month: int, output_format: str = 'html') -> 
         return build_html(year, month)
     elif output_format == 'pdf':
         return build_pdf(year, month)
+    elif output_format == 'publish':
+        html_file = build_html(year, month)
+        if html_file:
+            docs_file = Path(__file__).parent.parent.parent / 'docs' / 'latest-monthly-report.html'
+            docs_file.write_bytes(html_file.read_bytes())
+            print(f"Published to: {docs_file} (commit and push to make it live)")
+        return html_file
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python build_monthly_report.py <year> <month> [format]")
         print("Example: python build_monthly_report.py 2025 01 html")
-        print("Formats: md, html, pdf (default: html)")
+        print("Formats: md, html, pdf, publish (default: html)")
         sys.exit(1)
 
     year = int(sys.argv[1])
     month = int(sys.argv[2])
     output_format = sys.argv[3] if len(sys.argv) > 3 else 'html'
 
-    if output_format not in ('md', 'html', 'pdf'):
-        print(f"Invalid format: {output_format}. Use 'md', 'html', or 'pdf'")
+    if output_format not in ('md', 'html', 'pdf', 'publish'):
+        print(f"Invalid format: {output_format}. Use 'md', 'html', 'pdf' or 'publish'")
         sys.exit(1)
 
     result = build_monthly_report(year, month, output_format)

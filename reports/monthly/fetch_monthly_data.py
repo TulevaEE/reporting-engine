@@ -114,7 +114,8 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     available = {card['id'] for card in client.cards() if card['grant'] == 'granted'}
     missing = sorted(needed - available)
     if missing:
-        print(f"  WARNING: not granted to agents, ask with the gateway's metabase grant: {missing}")
+        # Puuduva kaardiga jääks aruandest vaikselt peatükk välja: parem peatuda kohe.
+        sys.exit(f"  ERROR: not granted to agents, ask with the gateway's metabase grant: {missing}")
 
     data = {
         'year': year,

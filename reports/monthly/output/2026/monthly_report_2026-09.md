@@ -334,7 +334,6 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 <!-- comment:financials -->
 Septembri tööjõukulud on tavapärasest väiksemad, sest pöörasime tagasi juulis ja augustis kirjendatud optsioonikulud: optsiooniprogrammi meil enam ei ole. Sellepärast on ka septembri ärikasum ja puhaskasum tavalisest suuremad.
-
 <!-- /comment:financials -->
 
 | KPI | September 2026 | YoY | YTD | YoY |

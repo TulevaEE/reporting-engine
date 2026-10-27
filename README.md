@@ -53,23 +53,29 @@ Connect to the Tuleva AWS VPN before running any data fetches — Metabase is on
 
 ### Monthly board report
 
-**Fetch data** for a specific month (requires VPN):
+The monthly report reads Metabase only through the Tuleva agent gateway (`common/scripts/gateway_client.py`):
+no VPN or Metabase API key. The first run opens a browser to log in with your Tuleva Google account.
+The gateway answers only cards granted to agents; `fetch_monthly_data.py` stops and lists any card
+that is not granted. Ask for the grant with the gateway's `metabase` tool and confirm it in Slack.
 
 ```bash
-source .env
-python reports/monthly/fetch_monthly_data.py 2025 1
+.venv/bin/python3 reports/monthly/fetch_monthly_data.py 2026 9      # -> reports/monthly/data/2026-09.yaml
+.venv/bin/python3 reports/monthly/build_monthly_report.py 2026 9 md  # -> reports/monthly/output/2026/monthly_report_2026-09.md
 ```
 
-This saves raw data to `reports/monthly/data/2025-01.yaml`.
-
-**Build the report** from fetched data:
+Write the comments into the `<!-- comment:... -->` blocks of the MD file. Every build re-renders the MD
+from the data and keeps those blocks, so re-fetching and rebuilding is safe; text outside them is overwritten.
 
 ```bash
-source .env
-python reports/monthly/build_monthly_report.py 2025 1 md
+.venv/bin/python3 reports/monthly/build_monthly_report.py 2026 9 html     # check it in the browser
+.venv/bin/python3 reports/monthly/build_monthly_report.py 2026 9 publish  # html + docs/latest-monthly-report.html
 ```
 
-Output formats: `md`, `html`, `pdf`. Reports are saved to `reports/monthly/output/`.
+Commit and push `main` to publish on GitHub Pages.
+
+Chapter 7 (financial results, cards 2839 and 2866): on the 1st of the month the warehouse has an estimate
+(actual AUM, known costs) and the report shows a note saying so. The accounting figures arrive mid-month;
+rebuild then if the report should show them.
 
 ## Project structure
 
