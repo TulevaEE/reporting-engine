@@ -2,7 +2,7 @@
 
 **September 2026**
 
-*Aruande kuupäev: 2026-10-01*
+*Aruande kuupäev: 2026-10-27*
 
 <p class="sisukord" style="text-align:center"><a href="#dashboard">Tuleva missiooni dashboard</a> · <a href="#vp-eesmargid">Selle vahetusperioodi eesmärgid</a> · <a href="#tulemused">Tulemuste ülevaade</a></p>
 
@@ -36,7 +36,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 *Kõige kindlam varade mahu kasvu allikas on inimeste regulaarsed sissemaksed ja ületoodav vara. Mida suuremaks kasvame, seda raskem on kasvutempot hoida.*
 
-**279 M€** viimase 12 kuu kohta, +12,1% aasta varasemaga
+**278 M€** viimase 12 kuu kohta, +12,1% aasta varasemaga
 
 ![KPI 2.2](charts/mission_22.png)
 
@@ -114,21 +114,21 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 ### III samba avaldusega tuleb kaasa ka II sammas
 
-**13,0%** koos 21/162; hiljem lisandus 0 (aken lahti); siht 30%
+**12,2%** koos 20/164; hiljem lisandus 0 (aken lahti); siht 30%
 
 ![III samba avaldusega tuleb kaasa ka II sammas](charts/vp_goal_1.png)
 
 
 ### Sissemakse teinud OÜd
 
-**284** seis 28.09; siht 500, sihtjoon 334 (−50)
+**291** seis 28.09; siht 500, sihtjoon 334 (−43)
 
 ![Sissemakse teinud OÜd](charts/vp_goal_2.png)
 
 
 ### Lapsed püsimaksega
 
-**451** seis 28.09; siht 400, sihtjoon 308 (+143)
+**465** seis 28.09; siht 400, sihtjoon 308 (+157)
 
 ![Lapsed püsimaksega](charts/vp_goal_3.png)
 
@@ -156,9 +156,9 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 | KPI | September 2026 |
 |---------|:---:|
-| AUM kuu lõpus | 1786 M EUR |
-| AUM 12 kuu kasv | 41% |
-| sh sissemaksetest ja vahetustest | 22% |
+| AUM kuu lõpus | 1790 M EUR |
+| AUM 12 kuu kasv | 42% |
+| sh sissemaksetest ja vahetustest | 24% |
 
 
 <!-- comment:aum_waterfall -->
@@ -219,8 +219,8 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 | KPI | September 2026 | YoY | YTD | YoY |
 |---------|:---:|:---:|:---:|:---:|
 | II samba sissemaksed | 8.0 M EUR | *16.3%* | 73.5 M EUR | *19.3%* |
-| III samba sissemaksed | 7.0 M EUR | *26.8%* | 56.1 M EUR | *18.4%* |
-| **Sissemaksed kokku** | **15.1 M EUR** | ***21.0%*** | **129.6 M EUR** | ***18.9%*** |
+| III samba sissemaksed | 7.0 M EUR | *26.7%* | 56.0 M EUR | *18.1%* |
+| **Sissemaksed kokku** | **15.0 M EUR** | ***20.9%*** | **129.5 M EUR** | ***18.8%*** |
 
 
 <!-- comment:iii_contributions -->
@@ -268,7 +268,7 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 | KPI | September 2026 | YoY | YTD | YoY |
 |---------|:---:|:---:|:---:|:---:|
 | Sissevahetajate arv | 201 | *-7.8%* | 2,598 | *-26.4%* |
-| Ületoodud vara | 3.4 M EUR | *39.6%* | 42.1 M EUR | *-11.0%* |
+| Ületoodud vara | 3.4 M EUR | *39.5%* | 42.0 M EUR | *-11.0%* |
 
 
 <!-- comment:switching_conversion -->
@@ -305,9 +305,9 @@ Me ei tea, millal me eesmärgini jõuame, ega ürita seda ennustada. Meil on vii
 
 | KPI | September 2026 | YoY | YTD |
 |---------|:---:|:---:|:---:|
-| II samba lahkujate vara | 0.8 M EUR | *-35.6%* | 9.7 M EUR |
-| II samba väljujate vara | 0.6 M EUR | *-21.0%* | 10.7 M EUR |
-| III sambast väljavõetud vara | 1.0 M EUR | *12.4%* | 8.5 M EUR |
+| II samba lahkujate vara | 0.8 M EUR | *-26.5%* | 9.7 M EUR |
+| II samba väljujate vara | 0.6 M EUR | *-20.9%* | 10.7 M EUR |
+| III sambast väljavõetud vara | 1.0 M EUR | *9.4%* | 8.2 M EUR |
 
 
 ---
@@ -339,14 +339,18 @@ Septembri tööjõukulud on tavapärasest väiksemad, sest pöörasime tagasi ju
 
 | KPI | September 2026 | YoY | YTD | YoY |
 |---------|:---:|:---:|:---:|:---:|
-| Brutomarginaal pärast litsentsitasu | 158,809 EUR | *9%* | 1,340,961 EUR | *9%* |
-| Tööjõukulud | -57,670 EUR | *-35%* | -781,239 EUR | *-12%* |
-| Mitmesugused tegevuskulud | -33,560 EUR | *111%* | -193,487 EUR | *6%* |
-| Ebitda/ärikasum | 67,579 EUR | *65%* | 366,235 EUR | *122%* |
-| Puhaskasum | 61,368 EUR | *73%* | 311,820 EUR | *161%* |
+| Brutomarginaal pärast litsentsitasu | 158,809 EUR | *13%* | 1,340,961 EUR | *13%* |
+| Tööjõukulud | -57,670 EUR | *-31%* | -782,944 EUR | *-3%* |
+| Mitmesugused tegevuskulud | -33,560 EUR | *116%* | -192,155 EUR | *-11%* |
+| Ebitda/ärikasum | 67,579 EUR | *61%* | 365,861 EUR | *120%* |
+| Puhaskasum | 61,368 EUR | *69%* | 311,432 EUR | *158%* |
 | **Litsentsitasu ühistule** | **74,636 EUR** | ***41%*** | **596,207 EUR** | ***39%*** |
 
-*Ajutiselt prognoositabeli käsitsi ekspordist (`prognoos-kuu.csv`), sest Metabase'i finantsvaade ei uuene.*
+
+![Brutomarginaal ja püsikulud](charts/financials_trend.png)
+
+*Tulbad on kalendriaastad ja viimased 12 kuud. Tulba kõrgus on brutomarginaal enne litsentsitasu: püsikulud, EBITDA ja litsentsitasu ühistule. Brutomarginaal % mahust = brutomarginaal jagatud fondide 12 kuu keskmise mahuga, nagu tegevusaruandes. EBITDA on Tuleva Fondid AS juhtimisarvestuse järgi (brutomarginaal pärast litsentsitasu miinus püsikulud) ja erineb tegevusaruannetes avaldatud ärikasumist ja ühistu konsolideeritud EBITDA-st. Finantsinspektsiooni trahv on 2023. aasta kuludes tegelikus suuruses (17 500 €, kuludesse kanti 100 000 € eraldis) ja 2024. aastast on maha võetud eraldise vähendamise erakorraline tulu (82 500 €).*
+
 
 
 

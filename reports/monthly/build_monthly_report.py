@@ -389,12 +389,17 @@ def preprocess_data(data, year, month):
     ]
     by_name = {row['Eur']: row for row in cards.get('Tuleva finantstulemused', {}).get('data') or []}
     selected = [by_name[name] for name in selected_rows if name in by_name]
-    # Peatükk jääb välja, kui mõni rida puudub või kuu on alles hinnang — siis pole kuu veel kinni.
+    # Peatükk jääb välja ainult siis, kui mõni rida puudub.
     # YoY võib üksikul real puududa (märgivahetus), see peatükki maha ei võta.
-    if len(selected) == len(selected_rows) and all(row.get('Seis') != 'hinnang' for row in selected):
+    # Kuu 1. kuupäeval on kuu hinnang (tegelik AUM + teadaolevad kulud), raamatupidamise
+    # tegelikud andmed tulevad kuu keskel; kuni Seis ei ole 'tegelik', näitab aruanne märkust.
+    if len(selected) == len(selected_rows):
         report['financials'] = selected
+        report['financials_estimate'] = any(row.get('Seis') != 'tegelik' for row in selected)
+        if report['financials_estimate']:
+            print("  Märkus: finantstulemuste kuu on veel hinnang — 7. peatükki lisandub märkus")
     elif selected:
-        print("  Hoiatus: finantstulemuste kuu on veel hinnang — 7. peatükk jääb välja")
+        print("  Hoiatus: finantstulemuste read on puudulikud — 7. peatükk jääb välja")
 
     return report
 
@@ -481,6 +486,9 @@ def build_md(year: int, month: int) -> Path:
         'unit_price': 'charts/unit_price.png',
         'cumulative_returns': 'charts/cumulative_returns.png',
     }
+    # Kaust charts/ on kogu aasta peale ühine: lisa graafik ainult siis, kui selle kuu andmetes on kaart 2866.
+    if data.get('cards', {}).get('Brutomarginaal ja püsikulud 12 kuud', {}).get('data'):
+        chart_paths['financials_trend'] = 'charts/financials_trend.png'
 
     # Pre-process data first so the official active-investor count is available.
     report = preprocess_data(data, year, month)

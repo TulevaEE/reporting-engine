@@ -1205,6 +1205,119 @@ def generate_combined_waterfall_chart(month_data, ytd_data, month_title, ytd_tit
     print(f"  Saved: {output_file}")
 
 
+# Finantsinspektsiooni trahv: 2023 kanti kuludesse 100 000 € eraldis, kohus määras 2024 trahviks 17 500 €
+# ja eraldise vähendamine (82 500 €) tuli 2024 püsikulude vähendusena. Graafikul näidatakse 2023 kuluna
+# tegelikku trahvi ja 2024 ilma erakorralise tuluta. Kalendriaasta -> püsikulude kohandus (EUR).
+FIXED_COST_ADJUSTMENTS = {2023: -82_500, 2024: 82_500}
+
+
+def generate_financials_trend_chart(trend_data, output_dir: Path):
+    """Generate the yearly gross margin chart (card 2866).
+
+    One bar per full calendar year plus the trailing 12 months to the report month.
+    Left Y-axis: stacked fixed costs, EBITDA and licence fee; the bar's height is
+    the gross margin before the licence fee. When EBITDA is negative, the fixed
+    costs the margin did not cover are drawn as a hatched loss segment.
+    Right Y-axis: gross margin as % of the 12-month average fund AUM.
+    Periods still on an estimate (Seis != 'tegelik') are drawn lighter.
+    """
+    print("Generating financials trend chart...")
+
+    labels = [str(r['Periood']).replace('12 kuud kuni ', '12 kuud\nkuni ') for r in trend_data]
+    adjust = np.array([FIXED_COST_ADJUSTMENTS.get(int(r['Periood']), 0) / 1000
+                       if str(r['Periood']).isdigit() else 0 for r in trend_data])
+    licence = np.array([r['Litsentsitasu 12k'] / 1000 for r in trend_data])
+    fixed = np.array([r['Püsikulud 12k'] / 1000 for r in trend_data]) + adjust
+    ebitda = np.array([r['EBITDA 12k'] / 1000 for r in trend_data]) - adjust
+    margin_pct = [r['Brutomarginaal % mahust'] * 100 for r in trend_data]
+    estimate = [r.get('Seis') != 'tegelik' for r in trend_data]
+
+    covered = fixed + np.minimum(ebitda, 0)   # püsikulud, mille brutomarginaal kattis
+    profit = np.maximum(ebitda, 0)
+    loss = -np.minimum(ebitda, 0)
+    alpha = [0.5 if e else 1.0 for e in estimate]
+
+    fig, ax = plt.subplots(figsize=(14, 7))
+    ax_pct = ax.twinx()
+    x = np.arange(len(labels))
+    width = 0.6
+
+    for i in x:
+        ax.bar(i, covered[i], width, color=TULEVA_NAVY, alpha=alpha[i], zorder=2)
+        ax.bar(i, profit[i], width, bottom=covered[i], color=POSITIVE_COLOR, alpha=alpha[i], zorder=2)
+        ax.bar(i, licence[i], width, bottom=covered[i] + profit[i], color=LIGHT_BLUE,
+               alpha=alpha[i], zorder=2)
+        top = covered[i] + profit[i] + licence[i]
+        if loss[i]:
+            # Kahjumiaasta: tumesinine on brutomarginaaliga kaetud püsikulud, viirutatud katmata osa,
+            # peal kõik püsikulud kokku.
+            ax.bar(i, loss[i], width, bottom=top, color='white',
+                   edgecolor=NEGATIVE_COLOR, hatch='//', linewidth=1, zorder=2)
+            ax.text(i + width / 2 + 0.03, top + loss[i] / 2, f'EBITDA {ebitda[i]:,.0f}',
+                    ha='left', va='center', fontsize=11, fontweight='bold', color=NEGATIVE_COLOR)
+            ax.text(i, covered[i] / 2, f'{covered[i]:,.0f}', ha='center', va='center',
+                    fontsize=11, color='white', zorder=3)
+            ax.annotate(f'püsikulud {fixed[i]:,.0f}', (i, top + loss[i]), textcoords="offset points",
+                        xytext=(0, 4), ha='center', fontsize=11, fontweight='bold', color=TULEVA_NAVY)
+            continue
+        if profit[i] >= 60:
+            ax.text(i, covered[i] + profit[i] / 2, f'{ebitda[i]:,.0f}', ha='center', va='center',
+                    fontsize=11, fontweight='bold', color='white', zorder=3)
+        if licence[i] >= 60:
+            ax.text(i, covered[i] + profit[i] + licence[i] / 2, f'{licence[i]:,.0f}', ha='center',
+                    va='center', fontsize=11, color=TULEVA_NAVY, zorder=3)
+        ax.text(i, covered[i] / 2, f'{fixed[i]:,.0f}', ha='center', va='center',
+                fontsize=11, color='white', zorder=3)
+        ax.annotate(f'{top:,.0f}', (i, top), textcoords="offset points",
+                    xytext=(0, 4), ha='center', fontsize=12, fontweight='bold', color=TULEVA_NAVY)
+
+    ax_pct.plot(x, margin_pct, color=NEGATIVE_COLOR, linewidth=2, marker='o', markersize=6, zorder=4)
+    for i in x:
+        ax_pct.annotate(f'{margin_pct[i]:.2f}%'.replace('.', ','), (i, margin_pct[i]),
+                        textcoords="offset points", xytext=(0, 10), ha='center',
+                        fontweight='bold', fontsize=12, color=NEGATIVE_COLOR)
+
+    ax.set_ylabel('tuh EUR', fontsize=13)
+    ax.tick_params(axis='y', labelsize=12)
+    # Tulbad graafiku alumisse ~60%-sse, protsendijoon nende kohale, et sildid ei kattuks.
+    ax.set_ylim(0, max(fixed.max(), (covered + profit + licence).max()) * 1.65)
+    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
+
+    ax_pct.set_ylabel('% fondide keskmisest mahust', fontsize=13)
+    ax_pct.set_ylim(0, max(margin_pct) * 1.12)
+    ax_pct.yaxis.set_major_formatter(
+        mticker.FuncFormatter(lambda v, _: f'{v:.2f}%'.replace('.', ',')))
+    ax_pct.tick_params(axis='y', length=0, pad=8, labelsize=12)
+
+    ax.set_title('Brutomarginaal, püsikulud ja EBITDA', fontweight='bold', color=TULEVA_NAVY, fontsize=15)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=13)
+    ax.grid(axis='y', alpha=0.3, zorder=0)
+
+    from matplotlib.patches import Patch
+    from matplotlib.lines import Line2D
+    legend_elements = [
+        Patch(facecolor=TULEVA_NAVY, label='Püsikulud'),
+        Patch(facecolor=POSITIVE_COLOR, label='EBITDA'),
+        Patch(facecolor=LIGHT_BLUE, label='Litsentsitasu ühistule'),
+    ]
+    if loss.any():
+        legend_elements.append(Patch(facecolor='white', edgecolor=NEGATIVE_COLOR, hatch='//',
+                                     label='Kahjum (katmata püsikulud)'))
+    legend_elements.append(Line2D([0], [0], color=NEGATIVE_COLOR, linewidth=2, marker='o',
+                                  label='Brutomarginaal % mahust (parem telg)'))
+    if any(estimate):
+        legend_elements.append(Patch(facecolor=TULEVA_NAVY, alpha=0.5, label='Hinnang'))
+    ax.legend(handles=legend_elements, loc='upper center', bbox_to_anchor=(0.5, -0.16),
+              ncol=3, fontsize=11, frameon=False)
+
+    plt.tight_layout()
+    output_file = output_dir / 'financials_trend.png'
+    plt.savefig(output_file)
+    plt.close()
+    print(f"  Saved: {output_file}")
+
+
 def generate_monthly_charts(year: int, month: int) -> Path:
     """Generate all section-1 charts from the monthly YAML data file.
 
@@ -1326,6 +1439,11 @@ def generate_monthly_charts(year: int, month: int) -> Path:
             f'Kasvuallikad — {month_name}',
             output_dir / 'growth_waterfall.png',
         )
+
+    # 7. peatüki graafik aastate kaupa (kaart 2866)
+    trend = cards.get('Brutomarginaal ja püsikulud 12 kuud', {}).get('data', [])
+    if trend:
+        generate_financials_trend_chart(trend, output_dir)
 
     print(f"\nAll monthly charts saved to: {output_dir}")
     return output_dir

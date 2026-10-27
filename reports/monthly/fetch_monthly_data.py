@@ -43,6 +43,9 @@ PRIMARY_CARD_NAME = 'Mv Kpi New for Claude'
 # 7. peatükk: kasumiaruande read valitud kuu kohta (tegelik, prognoos, eelmine aasta, YTD).
 FINANCIALS_CARD_ID = 2839
 FINANCIALS_CARD_NAME = 'Tuleva finantstulemused'
+# 7. peatüki graafik: brutomarginaal, püsikulud ja EBITDA täisaastate ja viimase 12 kuu kaupa, brutomarginaal % mahust.
+FINANCIALS_TREND_CARD_ID = 2866
+FINANCIALS_TREND_CARD_NAME = 'Brutomarginaal ja püsikulud 12 kuud'
 
 # Cards 2578 cannot replace. The gateway answers only cards on dashboards 74 and 12,
 # so these are the dashboard's own cards, adapted to the old survivor cards' rows
@@ -107,7 +110,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     client = GatewayClient()
 
     # Gateway annab ridu ainult agentidele antud kaartidelt: ütle kohe, mis puudu on.
-    needed = {PRIMARY_CARD_ID, FINANCIALS_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
+    needed = {PRIMARY_CARD_ID, FINANCIALS_CARD_ID, FINANCIALS_TREND_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
     available = {card['id'] for card in client.cards() if card['grant'] == 'granted'}
     missing = sorted(needed - available)
     if missing:
@@ -159,19 +162,23 @@ def fetch_monthly_data(year: int, month: int) -> dict:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
 
-    # Finantstulemused: kaardil on parameetrid aasta ja kuu (andmekuu).
-    print(f"  Fetching [{FINANCIALS_CARD_ID}] {FINANCIALS_CARD_NAME}...")
-    try:
-        results = client.execute_card(FINANCIALS_CARD_ID, {'aasta': year, 'kuu': month})
-        data['cards'][FINANCIALS_CARD_NAME] = {
-            'card_id': FINANCIALS_CARD_ID,
-            'display': 'table',
-            'data': results,
-        }
-        print(f"    -> {len(results)} rows")
-    except Exception as e:
-        print(f"    ERROR: {e}")
-        data['cards'][FINANCIALS_CARD_NAME] = {'card_id': FINANCIALS_CARD_ID, 'error': str(e)}
+    # Finantstulemused ja nende graafik: kaartidel on parameetrid aasta ja kuu (andmekuu).
+    for card_id, card_name, display in (
+        (FINANCIALS_CARD_ID, FINANCIALS_CARD_NAME, 'table'),
+        (FINANCIALS_TREND_CARD_ID, FINANCIALS_TREND_CARD_NAME, 'bar'),
+    ):
+        print(f"  Fetching [{card_id}] {card_name}...")
+        try:
+            results = client.execute_card(card_id, {'aasta': year, 'kuu': month})
+            data['cards'][card_name] = {
+                'card_id': card_id,
+                'display': display,
+                'data': results,
+            }
+            print(f"    -> {len(results)} rows")
+        except Exception as e:
+            print(f"    ERROR: {e}")
+            data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
 
     # Uued kogujad (vanad 1518, 1519, 1520, 418, 1534, 1535): ainult II ja III sammas,
     # tabelist 2748, vt dashboard_cards.pillar_new_savers.

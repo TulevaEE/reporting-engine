@@ -311,6 +311,14 @@
 | {{ row['Eur'] | capitalize }} | {{ "{:,.0f}".format(row['Kuu Tulemus']) }} EUR | *{{ pr(row['YoY %']) }}* | {{ ytd }} | *{{ pr(row['YTD YoY %']) }}* |
 {% endif -%}
 {% endfor %}
+{% if charts and charts.financials_trend %}
+![Brutomarginaal ja püsikulud]({{ charts.financials_trend }})
+
+*Tulbad on kalendriaastad ja viimased 12 kuud. Tulba kõrgus on brutomarginaal enne litsentsitasu: püsikulud, EBITDA ja litsentsitasu ühistule. Brutomarginaal % mahust = brutomarginaal jagatud fondide 12 kuu keskmise mahuga, nagu tegevusaruandes. EBITDA on Tuleva Fondid AS juhtimisarvestuse järgi (brutomarginaal pärast litsentsitasu miinus püsikulud) ja erineb tegevusaruannetes avaldatud ärikasumist ja ühistu konsolideeritud EBITDA-st. Finantsinspektsiooni trahv on 2023. aasta kuludes tegelikus suuruses (17 500 €, kuludesse kanti 100 000 € eraldis) ja 2024. aastast on maha võetud eraldise vähendamise erakorraline tulu (82 500 €).*
+{% endif %}
+{% if report.financials_estimate %}
+*Kuu numbrid on hinnang: tulud on arvutatud kuu tegeliku fondide mahu põhjal, kulud on teadaolevad kulud. Raamatupidamise tegelikud andmed lisanduvad kuu keskel ja siis võivad kuu ja YTD numbrid muutuda.*
+{% endif %}
 {% endif %}
 
 ---
