@@ -37,7 +37,7 @@ Vahe on suur kõigis vanuserühmades peale 20-ndate, nii et see ei tule vanuste 
 
 ## Meetod
 
-- **II sambast lahkunud:** elus inimene, 20–59-aastane, kelle väljavõttes on II samba väljamakse märge (`Valjamakse = J`). Väljavõttes ei ole väljamakse liiki, märge hõlmab ka pensioniea väljamakseid. Alla 60-aastane II sambast pensioni võtta ei saa, seega on tema väljamakse peaaegu kindlasti 2021. aasta reformi järgne raha väljavõtmine. 97,7% neist on II samba jääk null.
+- **II sambast lahkunud:** elus inimene, 20–59-aastane, kelle väljavõttes on II samba väljamakse märge (`Valjamakse = J`). Väljavõttes ei ole väljamakse liiki, märge hõlmab ka pensioniea väljamakseid. Alla 60-aastane II sambast pensioni võtta ei saa, seega on tema väljamakse peaaegu kindlasti 2021. aasta reformi järgne raha väljavõtmine. 97,6% neist on II samba jääk null.
 - **II sambas püsinud:** elus inimene, 20–59-aastane, kellel väljamakse märget ei ole ja kelle II samba jääk on üle nulli.
 - **III sammas olemas:** III samba jääk või 2025. aasta sissemakse on üle nulli.
 - Vanus on väljavõttes kümnenditena. 60–69-aastaste rühmas on segamini lahkujad ja pensionärid, seetõttu on see välja jäetud.
