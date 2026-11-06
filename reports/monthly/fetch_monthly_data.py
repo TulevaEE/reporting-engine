@@ -288,4 +288,24 @@ if __name__ == "__main__":
         year = int(sys.argv[1])
         month = int(sys.argv[2])
 
-    save_monthly_data(year, month)
+    path = save_monthly_data(year, month)
+
+    # Vigane kaart jätaks aruandest vaikselt osa välja: ütle kohe, mis puudu, ja anna grandi käsk.
+    with open(path) as f:
+        saved = yaml.safe_load(f)
+    failed = {block['card_id']: block['error']
+              for section in ('cards', 'vp_goals') for block in saved.get(section, {}).values()
+              if isinstance(block, dict) and block.get('error')}
+    for key in ('kpi_2578',):
+        if saved.get(key, {}).get('error'):
+            failed[saved[key]['card_id']] = saved[key]['error']
+    if failed:
+        print("\nERROR: these cards did not load, the report would miss them:")
+        for card_id, error in sorted(failed.items()):
+            print(f"  [{card_id}] {error}")
+        stale = sorted(c for c, e in failed.items() if 'earlier version' in e)
+        if stale:
+            print("Changed since the grant. Ask again and confirm in Slack:\n"
+                  f"  .venv/bin/python3 common/scripts/gateway_client.py grant {' '.join(map(str, stale))}")
+        print("Timeouts: just run the fetch again.")
+        sys.exit(1)

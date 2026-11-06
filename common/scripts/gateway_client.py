@@ -230,6 +230,14 @@ class GatewayClient:
         answer = asyncio.run(self._call({'operation': 'items'}))
         return [item for item in answer['items'] if item['kind'] == 'card']
 
+    def grant(self, card_ids: list[int]) -> dict:
+        """Küsib kaartidele agentide grandi; kinnitus käib Slackis (aegub ööpäevaga).
+
+        Vaja ka siis, kui grant on olemas, aga kaarti on Metabase'is pärast seda muudetud
+        („granted for an earlier version").
+        """
+        return asyncio.run(self._call({'operation': 'grant', 'CARD_IDS': list(card_ids)}))
+
     def execute_card(self, card_id: int, parameters: dict | None = None) -> list[dict]:
         # Gateway loeb korraga ühte kaarti (ka crm ja mailchimp jagavad seda lukku).
         for attempt in range(BUSY_RETRIES):
@@ -252,6 +260,9 @@ if __name__ == '__main__':
     client = GatewayClient()
     if sys.argv[1:] == ['ping']:
         print(client.ping())
+    elif sys.argv[1:2] == ['grant']:
+        # python gateway_client.py grant 2748 2747 -> kinnita Slacki kinnituskanalis
+        print(json.dumps(client.grant([int(a) for a in sys.argv[2:]]), ensure_ascii=False))
     else:
         for card in client.cards():
             print(card)

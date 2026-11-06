@@ -56,7 +56,18 @@ Connect to the Tuleva AWS VPN before running any data fetches — Metabase is on
 The monthly report reads Metabase only through the Tuleva agent gateway (`common/scripts/gateway_client.py`):
 no VPN or Metabase API key. The first run opens a browser to log in with your Tuleva Google account.
 The gateway answers only cards granted to agents; `fetch_monthly_data.py` stops and lists any card
-that is not granted. Ask for the grant with the gateway's `metabase` tool and confirm it in Slack.
+that is not granted, did not load, or was changed in Metabase after its grant ("granted for an
+earlier version"). Ask for the grant and confirm it in Slack:
+
+```bash
+.venv/bin/python3 common/scripts/gateway_client.py grant 2748 2747
+```
+
+A card must be in the Gateway collection (86) to be granted. Timeouts: run the fetch again.
+
+New savers (table, KPI 2.3, chart) use card 2750's definition: II and III pillar joiners plus
+TKF-only joiners, but not existing savers' children and companies. `dashboard_cards.new_total`
+computes it from table 2748 and the fetch stops if it differs from card 2750.
 
 ```bash
 .venv/bin/python3 reports/monthly/fetch_monthly_data.py 2026 9      # -> reports/monthly/data/2026-09.yaml
