@@ -1,6 +1,6 @@
 """Vahetusperioodi (VP) eesmärgid kuuaruande algusesse.
 
-Neli eesmärki, igaüks oma Metabase kaardil (nädalane seeria):
+Neli eesmärki, igaüks oma Metabase kaardil (2631 kuine, 2632/2633 nädalased, 2634 päevane):
 
     2631  goal_1  30% III samba avaldajatest toob kaasa ka II samba
     2632  goal_2  500 sissemakse teinud OÜd
@@ -166,27 +166,6 @@ def _style():
     return TULEVA_BLUE, TULEVA_NAVY, TULEVA_MID_BLUE
 
 
-def _finish(ax, title=None, ticks=None):
-    """Paneeli viimistlus. Pealkiri on aruandes, mitte pildil."""
-    import matplotlib.dates as mdates
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d.%m'))
-    if ticks:
-        # Nädalaseeria: täislaiusel paneelil mahub ~12 silti
-        step = max(1, len(ticks) // 12 + 1)
-        ax.set_xticks(ticks[::step])
-    else:
-        ax.xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=12))
-    ax.tick_params(labelsize=11)
-    ax.yaxis.label.set_size(11)
-    ax.grid(axis='y', color='#e3e7ec', linewidth=1)
-    ax.set_axisbelow(True)
-    for lbl in ax.get_xticklabels():
-        lbl.set_rotation(45)
-        lbl.set_ha('right')
-
-
 KUUD_LYHI = ['jaan', 'veebr', 'märts', 'apr', 'mai', 'juuni',
              'juuli', 'aug', 'sept', 'okt', 'nov', 'dets']
 
@@ -236,26 +215,6 @@ def _panel_goal_1(rows, ax):
                     annotation_clip=False)
 
 
-def _panel_cumulative(rows, col, pace_col, target, title, ylabel, ax):
-    BLUE, NAVY, MID = _style()
-
-    pace = [(_day(r), r.get(pace_col)) for r in rows
-            if r.get(pace_col) is not None]
-    if pace:
-        ax.plot([p[0] for p in pace], [p[1] for p in pace], linestyle='--',
-                color='#FF4800', linewidth=1.5, label='sihtjoon', zorder=3)
-
-    act = [(_day(r), r.get(col)) for r in rows if r.get(col) is not None]
-    ax.plot([p[0] for p in act], [p[1] for p in act], color=NAVY, linewidth=2.5,
-            marker='o', markersize=3, label='tegelik', zorder=5)
-
-    ax.axhline(target, color=NAVY, linestyle=':', linewidth=1, alpha=0.6)
-    ax.set_ylabel(ylabel)
-    ax.set_ylim(0, target * 1.1)
-    ax.legend(frameon=False, fontsize=11, loc='upper left')
-    _finish(ax, title)
-
-
 def _panel_goal_3(rows, ax, target=400):
     """Nädala tulbad: kõik seni avatud lastekontod kolmes osas.
 
@@ -302,31 +261,90 @@ def _panel_goal_3(rows, ax, target=400):
               bbox_to_anchor=(0, 0.93))
 
 
-def _panel_goal_4(rows, ax):
-    """Nädalane juurdekasv + kumulatiiv.
+def _panel_goal_2(rows, ax, target=500):
+    """Nädala tulbad nagu lastel (``_panel_goal_3``): OÜd kokku, nädalaga lisandunud heledamalt.
 
-    Siht 1000 ei mahu siia teljele (august annab kümneid, mitte sadu) ja joon
-    1000 juures muudaks tegeliku seeria nähtamatuks. Maksemäära avaldusi saab
-    esitada 30.11-ni ja need laekuvad kuhjaga lõpu poole, seega on praegu
-    loetav suurus tempo, mitte kaugus sihist. Kaugus on kirjas paneeli nurgas.
+    Sihtjoont ei ole, ainult siht 30.11-ks: kumulatiivse arvu ja lineaarse tempo
+    kõrvutus oli loetamatu.
     """
     BLUE, NAVY, MID = _style()
-    x = [_day(r) for r in rows]
-    cum = [r.get('tostnud') or 0 for r in rows]
-    add = [r.get('lisandunud') or 0 for r in rows]
-    ax.bar(x, add, width=2.5, color=BLUE, label='lisandus perioodil', zorder=3)
-    ax.plot(x, cum, color=NAVY, linewidth=2.5, marker='o', markersize=3,
-            label='kokku tõstnud', zorder=5)
+    rows = [r for r in rows if r.get('oud_kokku') is not None]
+    x = range(len(rows))
+    kokku = [r['oud_kokku'] for r in rows]
+    uusi = [r.get('uusi_nadalas') or 0 for r in rows]
+    enne = [a - b for a, b in zip(kokku, uusi)]
+
+    ax.bar(x, enne, width=0.7, color=NAVY, label='sissemakse teinud OÜd nädala alguseks', zorder=3)
+    ax.bar(x, uusi, bottom=enne, width=0.7, color=BLUE, label='lisandus nädalaga', zorder=3)
+    for i, v in enumerate(kokku):
+        ax.text(i, v + 6, f'{v}', ha='center', va='bottom', color='#5b6577', fontsize=10)
+
+    ax.axhline(target, color='#FF4800', linestyle='--', linewidth=1.8, zorder=5)
+    ax.text(-0.45, target * 1.02, f'siht: {target} sissemakse teinud OÜd 30.11-ks',
+            color='#FF4800', fontsize=11, fontweight='bold', va='bottom', zorder=5)
+
+    ax.set_xticks(list(x))
+    ax.set_xticklabels([_day(r).strftime('%d.%m') for r in rows])
+    ax.set_xlabel('nädala algus')
+    ax.set_ylabel('OÜd kokku')
+    ax.set_ylim(0, max(max(kokku), target) * 1.12)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.grid(axis='y', color='#e3e7ec', linewidth=1)
+    ax.set_axisbelow(True)
+    ax.tick_params(labelsize=11)
+    for lbl in ax.get_xticklabels():
+        lbl.set_rotation(45)
+        lbl.set_ha('right')
+    h, l = ax.get_legend_handles_labels()
+    ax.legend(h[::-1], l[::-1], frameon=False, fontsize=11, loc='upper left',
+              bbox_to_anchor=(0, 0.82))
+
+
+def _panel_goal_4(rows, ax):
+    """Kuu tulbad: maksemäära tõstnud, kuu jooksul lisandunud + kokku kuu lõpuks.
+
+    Kaart 2634 andis alguses nädala-, hiljem päevaridu, seega lisandus arvutatakse
+    kuu viimaste seisude vahest, mitte ``lisandunud`` veeru summast. Siht 1000 ei
+    mahu teljele (seis on sadades), kaugus sihist on kirjas paneeli nurgas.
+    """
+    BLUE, NAVY, MID = _style()
+    viimane = {}
+    for r in rows:
+        if r.get('tostnud') is not None:
+            d = _day(r)
+            viimane[(d.year, d.month)] = (d, r['tostnud'])
+    kuud = sorted(viimane)
+    cum = [viimane[k][1] for k in kuud]
+    add = [c - (cum[i - 1] if i else 0) for i, c in enumerate(cum)]
+    x = list(range(len(kuud)))
+    ax.bar(x, add, width=0.6, color=BLUE, label='lisandus kuu jooksul', zorder=3)
+    ax.plot(x, cum, color=NAVY, linewidth=2.5, marker='o', markersize=5,
+            label='kokku tõstnud kuu lõpuks', zorder=5)
+    for i in x:
+        if add[i] >= 8:  # madalasse tulpa number ei mahu
+            ax.text(i, add[i] / 2, f'{add[i]}', ha='center', va='center', color='white',
+                    fontsize=11, fontweight='bold', zorder=4)
+        ax.text(i, cum[i] + max(cum) * 0.04, f'{cum[i]}', ha='center', va='bottom',
+                color=NAVY, fontsize=10, zorder=6)
     ax.set_ylabel('kogujat')
-    ax.set_ylim(0, max(max(cum), max(add)) * 1.35 or 1)
+    ax.set_ylim(0, max(cum + add) * 1.35 or 1)
     share = cum[-1] / GOAL_4_TARGET * 100
+    seis = viimane[kuud[-1]][0].strftime('%d.%m')
     ax.text(0.98, 0.94,
-            f'siht {GOAL_4_TARGET} avaldust 30.11-ks\nseis {cum[-1]} ehk '
+            f'siht {GOAL_4_TARGET} avaldust 30.11-ks\nseis {seis}: {cum[-1]} ehk '
             + f'{share:.1f}'.replace('.', ',') + '% sihist',
             transform=ax.transAxes, ha='right', va='top', fontsize=11,
             color='#FF4800', fontweight='bold')
     ax.legend(frameon=False, fontsize=11, loc='upper left')
-    _finish(ax, SHORT_TITLES['goal_4'], ticks=x)
+    ax.set_xticks(x)
+    ax.set_xticklabels([f'{KUUD_LYHI[m - 1]} {y % 100:02d}' for y, m in kuud])
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.tick_params(labelsize=11)
+    ax.yaxis.label.set_size(11)
+    ax.grid(axis='y', color='#e3e7ec', linewidth=1)
+    ax.set_axisbelow(True)
 
 
 def generate_charts(vp_data: dict, charts_dir: Path, year: int = None,
@@ -353,8 +371,7 @@ def generate_charts(vp_data: dict, charts_dir: Path, year: int = None,
         if key == 'goal_1':
             _panel_goal_1(rows, ax)
         elif key == 'goal_2':
-            _panel_cumulative(rows, 'oud_kokku', 'sihtjoon', 500,
-                              SHORT_TITLES['goal_2'], 'OÜd kokku', ax)
+            _panel_goal_2(rows, ax)
         elif key == 'goal_3':
             _panel_goal_3(rows, ax)
         elif key == 'goal_4':

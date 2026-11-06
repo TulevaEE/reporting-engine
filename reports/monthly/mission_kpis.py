@@ -146,10 +146,8 @@ def compute(data: dict, year: int, month: int) -> dict:
         lahk.append((k, round((summa12(i, LAHK) - summa12(i, LAHK_T)) / (aum(i - 12) * 1e6) * 100, 2)))
 
     # 2.3: 12 kuu libisev keskmine tabelist mv_monthly_conversions_with_tkf (kaart 2748,
-    # kogu ajalugu). Uued kogujad nagu kuuaruandes: ainult II ja III sammas
-    # (dashboard_cards.pillar_new_savers), ainult kogumisfondiga liitujaid ei loeta.
-    uued = {_ym(r['kuu']): sum(dc._grouped(r)[c] for c in dc.NEW_SAVERS)
-            for r in _card(data, CARD_1516)}
+    # kogu ajalugu). Uued kogujad nagu kuuaruandes ja kaardil 2750 (dashboard_cards.new_total).
+    uued = {_ym(r['kuu']): dc.new_total(r) for r in _card(data, CARD_1516)}
     k1518 = {_ym(r['kuu: Month']): r['uute koguate arv']
              for r in _card(data, 'uute kogujate arv kuus')}
     lahku = {k: (v, uued.get(k)) for k, v in k1518.items() if uued.get(k) != v}
@@ -200,14 +198,13 @@ def compute(data: dict, year: int, month: int) -> dict:
             '2.3': {'vaartus': uued12[-1][1], 'seeria': uued12, 'seis': _seis_23(uued12[-1][1]),
                     'yhik': 'inimest kuus', 'lavend': LAVENDID['2.3'],
                     'markus': '12 kuu libisev keskmine: iga punkt on viimase 12 kuu uute kogujate '
-                              'arv jagatud 12-ga. Kaart 1516 (kuuaruande kaardi 1518 allikas, mis '
-                              'näitab ainult 13 kuud).'},
+                              'arv jagatud 12-ga. Kaart 2750: II ja III samba ning kogumisfondi uued kogujad, '
+                              'olemasolevate kogujate lapsed ja ettevõtted ei ole uued kogujad.'},
             '2.4': {'vaartus': sihikindlad, 'seeria': trepp, 'yhik': 'inimest',
                     'markus': 'Kaart 2741, poolaastad ja viimane kuu; snapshot-ajalugu algab '
                               '2025-04. II samba maksemäär on riiklik, seega teada ka siis, kui '
                               'inimese II sammas on teises fondis: iga koguja on ühel trepiastmel. '
-                              f'Jääk "muud" ({trepp["muud"][-1][1]:,}) ei ole graafikul.'
-                              .replace(',', ' ')},
+                              f'Jääk "muud" ({et(trepp["muud"][-1][1])}) ei ole graafikul.'},
             '2.5': {'vaartus': lahk[-1][1], 'seeria': lahk, 'seis': _seis_25(lahk[-1][1]),
                     'yhik': '% varadest aastas', 'lavend': LAVENDID['2.5'],
                     'markus': 'Ainult teise fondi lahkujad, tühistatud avaldused maha arvatud; '

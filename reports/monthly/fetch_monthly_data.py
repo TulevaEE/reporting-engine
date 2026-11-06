@@ -47,6 +47,13 @@ FINANCIALS_CARD_NAME = 'Tuleva finantstulemused'
 FINANCIALS_TREND_CARD_ID = 2866
 FINANCIALS_TREND_CARD_NAME = 'Brutomarginaal ja püsikulud 12 kuud'
 
+# Kogumisfondi sissemaksed kuude kaupa liigiti (eraisikud, lapsed, ettevõtted), EUR.
+TKF_BY_TYPE_CARD_ID = 2975
+TKF_BY_TYPE_CARD_NAME = 'kogumisfondi sissemaksed kuus liigiti'
+
+# Uute kogujate kaart, millega dashboard_cards.new_total peab klappima.
+NEW_SAVERS_CARD_ID = 2750
+
 # Cards 2578 cannot replace. The gateway answers only cards on dashboards 74 and 12,
 # so these are the dashboard's own cards, adapted to the old survivor cards' rows
 # (dashboard_cards.py) so the build and chart code read them as before.
@@ -110,7 +117,7 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     client = GatewayClient()
 
     # Gateway annab ridu ainult agentidele antud kaartidelt: ütle kohe, mis puudu on.
-    needed = {PRIMARY_CARD_ID, FINANCIALS_CARD_ID, FINANCIALS_TREND_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
+    needed = {PRIMARY_CARD_ID, NEW_SAVERS_CARD_ID, TKF_BY_TYPE_CARD_ID, FINANCIALS_CARD_ID, FINANCIALS_TREND_CARD_ID, *SURVIVOR_CARDS, *VP_GOAL_CARDS}
     available = {card['id'] for card in client.cards() if card['grant'] == 'granted'}
     missing = sorted(needed - available)
     if missing:
@@ -163,6 +170,18 @@ def fetch_monthly_data(year: int, month: int) -> dict:
             print(f"    ERROR: {e}")
             data['cards'][card_name] = {'card_id': card_id, 'error': str(e)}
 
+    # Kogumisfondi sissemaksed liigiti: aken lõpeb aruandekuuga, 13 kuud nagu teistel graafikutel.
+    print(f"  Fetching [{TKF_BY_TYPE_CARD_ID}] {TKF_BY_TYPE_CARD_NAME}...")
+    try:
+        results = client.execute_card(TKF_BY_TYPE_CARD_ID,
+                                      {'seisuga': f'{year}-{month:02d}-01', 'kuid': 13})
+        data['cards'][TKF_BY_TYPE_CARD_NAME] = {'card_id': TKF_BY_TYPE_CARD_ID,
+                                                'display': 'bar', 'data': results}
+        print(f"    -> {len(results)} rows")
+    except Exception as e:
+        print(f"    ERROR: {e}")
+        data['cards'][TKF_BY_TYPE_CARD_NAME] = {'card_id': TKF_BY_TYPE_CARD_ID, 'error': str(e)}
+
     # Finantstulemused ja nende graafik: kaartidel on parameetrid aasta ja kuu (andmekuu).
     for card_id, card_name, display in (
         (FINANCIALS_CARD_ID, FINANCIALS_CARD_NAME, 'table'),
@@ -187,6 +206,16 @@ def fetch_monthly_data(year: int, month: int) -> dict:
     if conversions:
         for name, rows in dashboard_cards.pillar_new_savers(conversions, year, month).items():
             data['cards'][name] = {'card_id': 2748, 'display': 'derived', 'data': rows}
+        # Kokku-arv on kaardi 2750 valemiga: kontrolli, et kaart ise annab sama (SQL võib muutuda).
+        print(f"  Checking [{NEW_SAVERS_CARD_ID}] uute kogujate arv kuus...")
+        card = {str(r['kuu'])[:7]: r['uute kogujate arv']
+                for r in client.execute_card(NEW_SAVERS_CARD_ID, {'kuid': 120})}
+        ours = {r['kuu'][:7]: dashboard_cards.new_total(r) for r in conversions}
+        diff = {m: (ours.get(m), v) for m, v in card.items() if ours.get(m) != v}
+        if diff:
+            sys.exit(f"  ERROR: card {NEW_SAVERS_CARD_ID} differs from dashboard_cards.new_total "
+                     f"(ours, card): {diff}")
+        print(f"    -> {len(card)} months match")
 
     # Kasvuallikad: kogumisfondi sissemaksed eraldi tulbaks (kuu ja aasta algusest).
     tkf_by_month = {str(r['Created At: Month'])[:7]: r['Sum of Amount'] or 0

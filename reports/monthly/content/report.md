@@ -192,6 +192,12 @@
 {% if report.tkf_contributions -%}
 ### Täiendavasse Kogumisfondi tehtud maksed
 
+{% if charts and charts.tkf_contributions -%}
+![Kogumisfondi sissemaksed]({{ charts.tkf_contributions }})
+
+*Kaart 2975. Liik on konto omaniku järgi: lapse kontole tehtud makse on lapse oma, ka kui maksis vanem. Laps on alla 18-aastane makse hetkel. Fondivalitseja oma stardiinvesteering ei ole sees.*
+
+{% endif -%}
 | KPI | {{ month_name_et | capitalize }} {{ year }} | YTD |
 |---------|:---:|:---:|
 | Sissemaksete summa | {{ "{:.1f}".format(report.tkf_contributions['amount'] / 1000000) }} M EUR | {{ "{:.1f}".format(report.tkf_contributions['ytd_amount'] / 1000000) }} M EUR |

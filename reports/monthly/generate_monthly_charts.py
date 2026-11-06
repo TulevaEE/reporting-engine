@@ -324,61 +324,38 @@ def _parse_month_label(date_str):
     return f'{abbr}-{yr % 100:02d}'
 
 
-def generate_new_savers_by_pillar_chart(ii_data, iii_data, report_year, report_month, output_dir: Path):
-    """Generate new savers stacked bar chart by pillar (cards 1519 + 1520).
+def generate_new_savers_by_pillar_chart(rows, report_year, report_month, output_dir: Path):
+    """Uued kogujad samba järgi, virnastatud (dashboard_cards.new_by_type).
 
-    Stacked columns: only II (1519['2']), only III (1520['3']),
-    both II+III (1519['2+3']).
+    Osade summa on uute kogujate arv nagu kaardil 2750: ainult II, II ja III, ainult III
+    sammas ning ainult kogumisfond (olemasolevate kogujate lapsed ja OÜd ei ole uued).
     """
     print("Generating new savers by pillar chart...")
-
-    # Build lookup for III-only from card 1520 keyed by month
-    iii_by_month = {}
-    for row in iii_data:
-        iii_by_month[row['kuu: Month']] = row['3']
-
-    months = []
-    only_ii = []
-    only_iii = []
-    both = []
-
-    for row in ii_data:
-        date_str = row['kuu: Month']
-        months.append(_parse_month_label(date_str))
-        only_ii.append(row['2'])
-        both.append(row['2+3'])
-        only_iii.append(iii_by_month.get(date_str, 0))
+    osad = [('ainult II sammas', 'Ainult II sammas', TULEVA_NAVY),
+            ('II ja III sammas', 'II ja III sammas', TULEVA_MID_BLUE),
+            ('ainult III sammas', 'Ainult III sammas', LIGHT_BLUE),
+            ('ainult kogumisfond', 'Ainult kogumisfond', '#d9dee5')]
+    months = [_parse_month_label(r['kuu: Month']) for r in rows]
 
     fig, ax = plt.subplots(figsize=(14, 5.5))
-
     x = np.arange(len(months))
-    width = 0.7
+    bottom = np.zeros(len(rows))
+    for key, label, color in osad:
+        v = np.array([r[key] for r in rows])
+        ax.bar(x, v, 0.7, bottom=bottom, label=label, color=color, zorder=2)
+        bottom += v
 
-    ax.bar(x, only_ii, width, label='Ainult II sammas',
-           color=TULEVA_NAVY, zorder=2)
-    ax.bar(x, both, width, bottom=only_ii,
-           label='II ja III sammas', color=TULEVA_MID_BLUE, zorder=2)
-    bottom_iii = [a + b for a, b in zip(only_ii, both)]
-    ax.bar(x, only_iii, width, bottom=bottom_iii,
-           label='Ainult III sammas', color=LIGHT_BLUE, zorder=2)
-
-    # Annotate report month total
     report_month_abbr = (
         f"{'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()[report_month - 1]}"
         f"-{report_year % 100:02d}"
     )
     if report_month_abbr in months:
         idx = months.index(report_month_abbr)
-        total = only_ii[idx] + both[idx] + only_iii[idx]
-        ax.annotate(
-            f'{total:,}',
-            (idx, total),
-            textcoords="offset points", xytext=(0, 8),
-            ha='center', fontweight='bold', fontsize=9, color=TULEVA_NAVY,
-        )
+        ax.annotate(f'{int(bottom[idx]):,}', (idx, bottom[idx]), textcoords="offset points",
+                    xytext=(0, 8), ha='center', fontweight='bold', fontsize=9, color=TULEVA_NAVY)
 
     ax.set_ylabel('Uute kogujate arv')
-    ax.set_ylim(bottom=0)
+    ax.set_ylim(0, bottom.max() * 1.08)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f'{v:,.0f}'))
     ax.set_title('Uued kogujad samba järgi', fontweight='bold', color=TULEVA_NAVY)
     _month_xticks(ax, x, months)
@@ -1318,6 +1295,43 @@ def generate_financials_trend_chart(trend_data, output_dir: Path):
     print(f"  Saved: {output_file}")
 
 
+def generate_tkf_contributions_chart(rows, output_dir: Path):
+    """Kogumisfondi sissemaksed kuude kaupa, virnastatud: eraisikud, lapsed, ettevõtted (kaart 2975).
+
+    Kuud enne kogumisfondi käivitumist (kõik nullid) jäetakse välja.
+    """
+    print("Generating TKF contributions chart...")
+    liigid = [('eraisikud', TULEVA_NAVY), ('lapsed', TULEVA_BLUE), ('ettevõtted', '#9fd6f5')]
+    while rows and not any(rows[0][l] for l, _ in liigid):
+        rows = rows[1:]
+    if not rows:
+        return
+    kuud = [r['kuu'] for r in rows]
+    x = np.arange(len(kuud))
+    fig, ax = plt.subplots(figsize=(14, 5.5))
+    bottom = np.zeros(len(rows))
+    for liik, color in liigid:
+        v = np.array([(r[liik] or 0) / 1e6 for r in rows])
+        ax.bar(x, v, 0.7, bottom=bottom, color=color, label=liik, zorder=2)
+        bottom += v
+    for i, total in enumerate(bottom):
+        ax.annotate(f'{total:.1f}'.replace('.', ','), (i, total), textcoords='offset points',
+                    xytext=(0, 4), ha='center', fontsize=9, color=TULEVA_NAVY)
+    ax.set_ylabel('M EUR')
+    ax.set_ylim(0, bottom.max() * 1.15)
+    ax.set_xticks(x)
+    lyhi = ['jaan', 'veebr', 'märts', 'apr', 'mai', 'juuni', 'juuli', 'aug', 'sept', 'okt', 'nov', 'dets']
+    ax.set_xticklabels([f"{lyhi[int(k[5:7]) - 1]} {k[2:4]}" for k in kuud])
+    ax.set_title('Täiendavasse Kogumisfondi tehtud sissemaksed', fontweight='bold', color=TULEVA_NAVY)
+    ax.grid(axis='y', alpha=0.3, zorder=0)
+    ax.legend(loc='upper right', fontsize=8)
+    plt.tight_layout()
+    output_file = output_dir / 'tkf_contributions.png'
+    plt.savefig(output_file)
+    plt.close()
+    print(f"  Saved: {output_file}")
+
+
 def generate_monthly_charts(year: int, month: int) -> Path:
     """Generate all section-1 charts from the monthly YAML data file.
 
@@ -1362,8 +1376,9 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     # Slice to the last CHART_WINDOW months so these align with the 2578 charts.
     ii_joiners = (cards.get('II sambaga liitujate arv kuus', {}).get('data', []))[-CHART_WINDOW:]
     iii_joiners = (cards.get('III sambaga liitujate arv kuus', {}).get('data', []))[-CHART_WINDOW:]
-    if ii_joiners and iii_joiners:
-        generate_new_savers_by_pillar_chart(ii_joiners, iii_joiners, year, month, output_dir)
+    new_by_type = (cards.get('uued kogujad kuus liigiti', {}).get('data', []))[-CHART_WINDOW:]
+    if new_by_type:
+        generate_new_savers_by_pillar_chart(new_by_type, year, month, output_dir)
     if ii_joiners:
         generate_new_ii_savers_by_source_chart(ii_joiners, year, month, output_dir)
 
@@ -1384,6 +1399,11 @@ def generate_monthly_charts(year: int, month: int) -> Path:
     })
     if iii_contributors:
         generate_iii_contributors_chart(iii_contributors, year, month, output_dir)
+
+    # Kogumisfondi sissemaksed liigiti (kaart 2975)
+    tkf_by_type = cards.get('kogumisfondi sissemaksed kuus liigiti', {}).get('data', [])
+    if tkf_by_type:
+        generate_tkf_contributions_chart(tkf_by_type, output_dir)
 
     # Switching volume chart (card 2578)
     switching_vol = _kpi_window_rows(series, year, month, {

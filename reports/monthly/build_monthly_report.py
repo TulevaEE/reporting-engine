@@ -492,6 +492,8 @@ def build_md(year: int, month: int) -> Path:
         'unit_price': 'charts/unit_price.png',
         'cumulative_returns': 'charts/cumulative_returns.png',
     }
+    if data.get('cards', {}).get('kogumisfondi sissemaksed kuus liigiti', {}).get('data'):
+        chart_paths['tkf_contributions'] = 'charts/tkf_contributions.png'
     # Kaust charts/ on kogu aasta peale ühine: lisa graafik ainult siis, kui selle kuu andmetes on kaart 2866.
     if data.get('cards', {}).get('Brutomarginaal ja püsikulud 12 kuud', {}).get('data'):
         chart_paths['financials_trend'] = 'charts/financials_trend.png'

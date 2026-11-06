@@ -9,9 +9,9 @@ vanade kaartide ridade kujule, et build_monthly_report.py, generate_monthly_char
 ja mission_kpis.py jääksid samaks. Allavoolu nimi jääb vana kaardi nimeks.
 
 Uued kogujad (vanad 1518, 1519, 1520, 418, 1534, 1535) arvutatakse tabelist 2748
-(mv_monthly_conversions_with_tkf), mitte dashboardi kaartidelt 2570/2716/2718/2710/
-2717/2719: aruanne loeb ainult II ja III samba kogujaid (Tõnu otsus 01.10.2026),
-dashboard loeb ka ainult kogumisfondiga liitujad. Vt ``pillar_new_savers``.
+(mv_monthly_conversions_with_tkf). Kokku-arv on kaardi 2750 valemiga (ka kogumisfondiga
+liitujad, aga mitte olemasolevate kogujate lapsed ja OÜd; Tõnu 06.11.2026, varem ainult
+II ja III sammas); II ja III samba jaotus loeb samba liitujaid. Vt ``pillar_new_savers``.
 
 Sisulised erinevused vanadest kaartidest:
   - vahetusavaldused fondi järgi (2722, 2723) loevad inimesi, mitte avaldusi;
@@ -147,9 +147,36 @@ PILLAR_COLUMNS = {
     '2>3': ['2>3', '2>3+tkf', '2+tkf>3'],
 }
 NEW_SAVERS = ['2', '3', '2+3']
+# Uued kogujad kokku nagu kaardil 2750 („ilma kogujate laste ja ettevõteteta", dashboard 74):
+# II ja III samba ning kogumisfondi liitujad, aga TKF-i laps või OÜ on uus koguja ainult siis,
+# kui tema taga olev inimene ei olnud veel Tuleva koguja. Valem on kaardi SQL-ist.
+NEW_TOTAL_PLUS = ['2', '3', '2+3', 'tkf', '2+tkf', '3+tkf', '2+3+tkf', 'tkf laps uus', 'tkf oy uus']
+NEW_TOTAL_MINUS = ['tkf laps']
 NEW_II = ['2', '2+3', '3>2']
 NEW_III = ['3', '2+3', '2>3']
 MONTHS_SHOWN = 13
+
+
+# Uued kogujad liigiti graafikule: osade summa = new_total (kaart 2750). Erinevalt samba
+# jaotusest (PILLAR_COLUMNS) ei ole siin olemasolevaid kogumisfondi kliente, kes lisasid samba
+# (`tkf>2` jms), sest kaart 2750 ei loe neid uuteks kogujateks.
+NEW_BY_TYPE = {
+    'ainult II sammas': (['2', '2+tkf'], []),
+    'II ja III sammas': (['2+3', '2+3+tkf'], []),
+    'ainult III sammas': (['3', '3+tkf'], []),
+    'ainult kogumisfond': (['tkf', 'tkf laps uus', 'tkf oy uus'], ['tkf laps']),
+}
+
+
+def new_by_type(row):
+    return {name: sum(row.get(c) or 0 for c in plus) - sum(row.get(c) or 0 for c in minus)
+            for name, (plus, minus) in NEW_BY_TYPE.items()}
+
+
+def new_total(row):
+    """Uute kogujate arv kuus kaardi 2750 valemiga (tabeli 2748 rida)."""
+    return (sum(row.get(c) or 0 for c in NEW_TOTAL_PLUS)
+            - sum(row.get(c) or 0 for c in NEW_TOTAL_MINUS))
 
 
 def _grouped(row):
@@ -162,7 +189,11 @@ def _yoy(cur, prev):
 
 def pillar_new_savers(conversions, year, month):
     """Tabeli 2748 read -> vanade kaartide 1518, 1519, 1520, 418, 1534, 1535 read."""
-    by_month = {(int(r['kuu'][:4]), int(r['kuu'][5:7])): _grouped(r) for r in conversions}
+    by_month = {(int(r['kuu'][:4]), int(r['kuu'][5:7])): {**_grouped(r), 'kokku': new_total(r)}
+                for r in conversions}
+    by_type = {(int(r['kuu'][:4]), int(r['kuu'][5:7])): new_by_type(r) for r in conversions}
+    for key, total_ in by_month.items():
+        assert sum(by_type[key].values()) == total_['kokku'], key
 
     def total(key, cols):
         g = by_month.get(key)
@@ -171,14 +202,18 @@ def pillar_new_savers(conversions, year, month):
     def ytd(y, cols):
         return sum(total((y, m), cols) or 0 for m in range(1, month + 1))
 
+    NEW = ['kokku']
+
     keys = [divmod(year * 12 + month - 1 - i, 12) for i in reversed(range(MONTHS_SHOWN))]
     keys = [(y, m + 1) for y, m in keys if (y, m + 1) in by_month]
     label = lambda y, m: f'{y}-{m:02d}-01'
     cards = {
         'uute kogujate arv kuus': [
-            {'kuu: Month': label(*k), 'uute koguate arv': total(k, NEW_SAVERS),
-             'YoY, %': _yoy(total(k, NEW_SAVERS), total((k[0] - 1, k[1]), NEW_SAVERS) or 0)}
+            {'kuu: Month': label(*k), 'uute koguate arv': total(k, NEW),
+             'YoY, %': _yoy(total(k, NEW), total((k[0] - 1, k[1]), NEW) or 0)}
             for k in keys],
+        'uued kogujad kuus liigiti': [
+            {'kuu: Month': label(*k), **by_type[k]} for k in keys],
         'II sambaga liitujate arv kuus': [
             {'kuu: Month': label(*k), **{c: by_month[k][c] for c in ['3>2', '2+3', '2']},
              'YoY, %': _yoy(total(k, NEW_II), total((k[0] - 1, k[1]), NEW_II) or 0)}
@@ -188,7 +223,7 @@ def pillar_new_savers(conversions, year, month):
              'YoY, %': _yoy(total(k, NEW_III), total((k[0] - 1, k[1]), NEW_III) or 0)}
             for k in keys],
     }
-    for name, column, cols in [('uute kogujate arv YTD', 'uute kogujate arv', NEW_SAVERS),
+    for name, column, cols in [('uute kogujate arv YTD', 'uute kogujate arv', NEW),
                                ('uute II samba kogujate arv YTD', 'uute II samba kogujate arv', NEW_II),
                                ('uute III samba kogujate arv YTD', 'uute III samba kogujate arv', NEW_III)]:
         cards[name] = [{'reporting_year': f'{y}-01-01', column: ytd(y, cols)}
