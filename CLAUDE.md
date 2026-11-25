@@ -4,19 +4,15 @@
 
 Reporting tools for Tuleva investment funds. These are both internal and external but we always assume that even external reports should be made so that we are ready to make them public. The repo is **public** (GitHub Pages), so never commit secrets nor any personal data.
 
-## Caching customer-level data
+## Source data from Metabase / the gateway is not kept
 
-CRM dumps, cohort exports and any per-person data must be cached **outside the repo**, not in `reports/adhoc/data/`. Convention: `~/.cache/tuleva-reports/` (override with `TULEVA_CACHE_DIR` env var). Notebook pattern:
+Data read from Metabase, Postgres or the agent gateway (card rows, CRM aggregates, cohort exports) is **kept in memory only**: not in the repo, not in `~/.cache/tuleva-reports/`, not as pickles, CSVs or JSON caches. What stays is the code that reads it again. If a temporary file cannot be avoided, delete it by the end of the session. Notebook pattern: an in-memory dict cache for the run (see `reports/adhoc/member_analysis.ipynb`).
 
-```python
-import os
-from pathlib import Path
-CACHE_DIR = Path(os.environ.get('TULEVA_CACHE_DIR', Path.home() / '.cache' / 'tuleva-reports'))
-CACHE_DIR.mkdir(parents=True, exist_ok=True)
-df = pd.read_pickle(CACHE_DIR / 'card_2345_crm.pkl')
-```
+Why: per-person extracts are personal data (`ID Masked` is md5 of the personal code and can be reversed), and even aggregate caches pile up and outlive their purpose. `reports/adhoc/data/` is reserved for files we intentionally publish (market aggregates, benchmarks, look-throughs). `.gitignore` carries belt-and-suspenders patterns (`card_*.pkl`, `*cohort*.csv`, `*customer*.csv`).
 
-Why outside the repo: gitignore alone is fragile (typos, new filenames, file already tracked). Keeping the cache outside the working tree means `git add -A` cannot accidentally stage it. `reports/adhoc/data/` is reserved for files we intentionally publish (market aggregates, benchmarks, look-throughs). `.gitignore` carries belt-and-suspenders patterns (`card_*.pkl`, `*cohort*.csv`, `*customer*.csv`) for the case someone caches in the wrong place.
+**Exception: the monthly report.** `reports/monthly/data/YYYY-MM.yaml` keeps the month's KPI card rows (aggregates) in the repo, so that a published month can be rebuilt with the published numbers.
+
+The gateway OAuth tokens (`~/.cache/tuleva-reports/gateway-oauth.json`) are credentials, not data, and stay.
 
 Notebook outputs in committed `.ipynb`/`.html` must contain only aggregates (counts, %, quartiles, charts) — never raw rows of customer data.
 
