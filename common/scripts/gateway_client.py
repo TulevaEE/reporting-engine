@@ -180,6 +180,17 @@ def _value(text):
     return text
 
 
+def _run(coro):
+    """asyncio.run, ka Jupyteris, kus event loop juba jookseb (siis eraldi lõimes)."""
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        return asyncio.run(coro)
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        return pool.submit(asyncio.run, coro).result()
+
+
 class GatewayClient:
 
     def __init__(self, url: str = GATEWAY_URL, token_file: Path = TOKEN_FILE):
@@ -219,7 +230,7 @@ class GatewayClient:
 
     def ping(self) -> str:
         """Ühenduse ja sisselogimise kontroll: gateway vastab 'pong (caller: ...)'."""
-        answer = asyncio.run(self._call({'message': 'tuleva-reports'}, tool='ping'))
+        answer = _run(self._call({'message': 'tuleva-reports'}, tool='ping'))
         return answer.get('text') or json.dumps(answer)
 
     def cards(self) -> list[dict]:
@@ -227,7 +238,7 @@ class GatewayClient:
 
         Ridu annab gateway ainult kaardilt, mille grant on 'granted' (Slackis kinnitatud).
         """
-        answer = asyncio.run(self._call({'operation': 'items'}))
+        answer = _run(self._call({'operation': 'items'}))
         return [item for item in answer['items'] if item['kind'] == 'card']
 
     def grant(self, card_ids: list[int]) -> dict:
@@ -236,7 +247,29 @@ class GatewayClient:
         Vaja ka siis, kui grant on olemas, aga kaarti on Metabase'is pärast seda muudetud
         („granted for an earlier version").
         """
-        return asyncio.run(self._call({'operation': 'grant', 'CARD_IDS': list(card_ids)}))
+        return _run(self._call({'operation': 'grant', 'CARD_IDS': list(card_ids)}))
+
+    def crm_aggregate(self, group_by: list[dict] | None = None, filters: list[dict] | None = None,
+                      measures: list[dict] | None = None) -> dict:
+        """Koondtabel anonüümsest CRM-ist (kaart 2345) gateway `crm` tööriistaga.
+
+        Ridu ei anna: ainult grupid, alla kümne inimese grupid liidetakse üheks nimetuks
+        grupiks (``hiddenPeople``). Argumendid on tööriista omad (GROUP_BY, FILTERS, MEASURES).
+        """
+        arguments = {'operation': 'aggregate'}
+        if group_by:
+            arguments['GROUP_BY'] = group_by
+        if filters:
+            arguments['FILTERS'] = filters
+        if measures:
+            arguments['MEASURES'] = measures
+        for attempt in range(BUSY_RETRIES):
+            try:
+                return _run(self._call(arguments, tool='crm'))['aggregate']
+            except GatewayRefused as refused:
+                if 'another card is being read' not in str(refused) or attempt == BUSY_RETRIES - 1:
+                    raise
+                time.sleep(BUSY_WAIT_SECONDS)
 
     def execute_card(self, card_id: int, parameters: dict | None = None) -> list[dict]:
         # Gateway loeb korraga ühte kaarti (ka crm ja mailchimp jagavad seda lukku).
@@ -245,7 +278,7 @@ class GatewayClient:
                 arguments = {'operation': 'rows', 'CARD_ID': card_id}
                 if parameters:
                     arguments['PARAMETERS'] = parameters
-                answer = asyncio.run(self._call(arguments))
+                answer = _run(self._call(arguments))
                 break
             except GatewayRefused as refused:
                 if 'another card is being read' not in str(refused) or attempt == BUSY_RETRIES - 1:
